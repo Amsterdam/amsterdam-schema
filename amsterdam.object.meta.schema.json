@@ -1,0 +1,165 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.data.amsterdam.nl/v0.1/objectMeta",
+  "definitions": {
+    "rootProperty": {
+      "type": "object",
+      "required": [
+        "description"
+      ],
+      "properties": {
+        "description": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "$ref"
+            ],
+            "properties": {
+              "$ref": {
+                "const": "https://schemas.data.amsterdam.nl/v0.1#/definitions/uri"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "$class"
+            ],
+            "properties": {
+              "$class": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "array"
+              },
+              "items": {
+                "type": "object",
+                "required": [
+                  "$ref"
+                ],
+                "properties": {
+                  "$ref": {
+                    "const": "https://schemas.data.amsterdam.nl/v0.1#/definitions/uri"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "items": {
+                "type": "object",
+                "required": [
+                  "$class"
+                ],
+                "properties": {
+                  "$class": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "type",
+    "properties",
+    "required"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "http://json-schema.org/draft-07/schema#"
+    },
+    "$id": {
+      "type": "string"
+    },
+    "additionalProperties": {
+      "const": false
+    },
+    "type": {
+      "const": "object"
+    },
+    "required": {
+      "allOf": [
+        {
+          "type": "array",
+          "minItems": 3,
+          "contains": {
+            "const": "id"
+          }
+        },
+        {
+          "type": "array",
+          "minItems": 3,
+          "contains": {
+            "const": "type"
+          }
+        },
+        {
+          "type": "array",
+          "minItems": 3,
+          "contains": {
+            "const": "dataset"
+          }
+        }
+      ]
+    },
+    "properties": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "dataset"
+      ],
+      "properties": {
+        "id": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "$ref": {
+              "const": "https://schemas.data.amsterdam.nl/v0.1#/definitions/id"
+            }
+          }
+        },
+        "type": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string"
+            }
+          }
+        },
+        "dataset": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": {
+        "$ref": "#/definitions/rootProperty"
+      }
+    }
+  }
+}
