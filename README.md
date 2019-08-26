@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="amsterdam-schema.svg" />
+  <img width="100px" src="amsterdam-schema.svg" />
 </div>
 
 # Amsterdam Schema
@@ -11,3 +11,7 @@ For more information, see:
 - [Werkbestand Team Dataservices](https://observablehq.com/@bertspaan/werkbestand-team-dataservices) (in Dutch)
 - [Amsterdam Schema Playground](https://observablehq.com/@bertspaan/amsterdam-schema-playground) (in Dutch as well)
 - [Amsterdam Schema Importwizard](https://amsterdam-schema-importwizard.glitch.me/) (in Dutch), a tool to create Amsterdam Schema files from Shapefiles
+
+## Schemas
+
+## Versioning
