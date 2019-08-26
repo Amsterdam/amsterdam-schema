@@ -1,3 +1,5 @@
 # Amsterdam Schema
 
-<img src="amsterdam-schema.svg" style="width: 200px;" />
+<div align="center" style="width: 100px;">
+  <img src="amsterdam-schema.svg" />
+</div>
