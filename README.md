@@ -1,5 +1,5 @@
-# Amsterdam Schema
-
-<div align="center" style="width: 100px;">
+<div align="center">
   <img src="amsterdam-schema.svg" />
 </div>
+
+# Amsterdam Schema
