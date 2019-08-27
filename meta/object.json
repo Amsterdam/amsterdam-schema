@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://schemas.data.amsterdam.nl/v0.1/objectMeta",
+  "$id": "https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/v0.0.1/meta/object.json",
   "definitions": {
     "rootProperty": {
       "type": "object",
@@ -20,13 +20,13 @@
             ],
             "properties": {
               "$ref": {
-                "const": "https://schemas.data.amsterdam.nl/v0.1#/definitions/uri"
+                "const": "https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/v0.0.1/meta/core.json#/definitions/uri"
               }
             }
           },
           "then": {
             "required": [
-              "$class"
+              "class"
             ],
             "properties": {
               "$class": {
@@ -48,7 +48,7 @@
                 ],
                 "properties": {
                   "$ref": {
-                    "const": "https://schemas.data.amsterdam.nl/v0.1#/definitions/uri"
+                    "const": "https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/v0.0.1/meta/core.json#/definitions/uri"
                   }
                 }
               }
@@ -59,7 +59,7 @@
               "items": {
                 "type": "object",
                 "required": [
-                  "$class"
+                  "class"
                 ],
                 "properties": {
                   "$class": {
@@ -136,7 +136,7 @@
               "type": "string"
             },
             "$ref": {
-              "const": "https://schemas.data.amsterdam.nl/v0.1#/definitions/id"
+              "const": "https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/v0.0.1/meta/core.json#/definitions/id"
             }
           }
         },
