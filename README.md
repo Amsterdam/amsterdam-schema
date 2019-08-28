@@ -8,10 +8,7 @@ This repository contains a work-in-progress version of the Amsterdam Schema. Cur
 
 For more information, see:
 
-- [Werkbestand Team Dataservices](https://observablehq.com/@bertspaan/werkbestand-team-dataservices) (in Dutch)
-- [Amsterdam Schema Playground](https://observablehq.com/@bertspaan/amsterdam-schema-playground) (in Dutch as well)
-- [Amsterdam Schema Importwizard](https://amsterdam-schema-importwizard.glitch.me/) (in Dutch), a tool to create Amsterdam Schema files from Shapefiles
-
-## Schemas
-
-## Versioning
+- [Werkbestand Team Dataservices](https://observablehq.com/@bertspaan/werkbestand-team-dataservices)
+- [Amsterdam Schema Playground](https://observablehq.com/@bertspaan/amsterdam-schema-playground)
+- [Amsterdam Schema Importwizard](https://amsterdam-schema-importwizard.glitch.me/)
+- [Amsterdam Schema Validator](https://observablehq.com/@bertspaan/amsterdam-schema-validator)
