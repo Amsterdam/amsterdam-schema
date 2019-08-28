@@ -6,6 +6,8 @@
 
 This repository contains a work-in-progress version of the Amsterdam Schema. Currently, Amsterdam Schema is a set of [JSON Schemas](https://json-schema.org/) and meta-schemas. The goal of this project is to describe and validate [open data published by the City of Amsterdam](https://api.data.amsterdam.nl/api/). Amsterdam Schema will be used to make the import, storage and publishing layers of our APIs more generic, easier to maintain, and better documented.
 
+__Amsterdam Schema is developed by the City of Amsterdam, but the tools and concepts created in this project can be used in any city.__
+
 For more information, see (some of these pages are in Dutch):
 
 - [Werkbestand Team Dataservices](https://observablehq.com/@bertspaan/werkbestand-team-dataservices)
@@ -16,8 +18,6 @@ For more information, see (some of these pages are in Dutch):
 __All schemas currently use the https://ams-schema.glitch.me/ base URI. This URI will change to something like https://schemas.data.amsterdam.nl/ very soon. Currently, a simple proxy running on Glitch is forwarding requests to GitHub. For details, see https://glitch.com/~ams-schema.__
 
 ## Schemas
-
-JSON Schema can be used to validate and model JSON data, of any form.
 
 Amsterdam Schema aims to restrict the structure and format of data accepted by Amsterdam's open data systems, in order to make the storing and publishing or different datasets more structured, simpler and better documented.
 
