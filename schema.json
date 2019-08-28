@@ -1,14 +1,42 @@
-
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/v0.0.1/schema.json#",
+  "$id": "https://ams-schema.glitch.me/core/schema@v0.0.1#",
   "anyOf": [
     {
-      "$ref": "meta/object.json"
+      "$ref": "meta/object@v0.0.1"
     },
     {
-      "$ref": "meta/dataset.json"
+      "$ref": "meta/dataset@v0.0.1"
     }
   ],
-  "type": "object"
+  "type": "object",
+  "$comment": "TODO: add properties for data quality",
+  "definitions": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9a-z]+([_-]?[0-9a-z]+)*$"
+    },
+    "dataset": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "uri": {
+      "type": "string",
+      "format": "uri"
+    },
+    "title": {
+      "type": "string"
+    },
+    "year": {
+      "$comment": "This field should allow 4-digit years",
+      "type": "integer"
+    },
+    "securityContext": {
+      "$comment": "This field should hold authorization scope/context",
+      "type": "string"
+    }
+  }
 }

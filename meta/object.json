@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/v0.0.1/meta/object.json",
+  "$id": "https://ams-schema.glitch.me/core/meta/object@v0.0.1",
   "definitions": {
     "rootProperty": {
       "type": "object",
@@ -20,16 +20,16 @@
             ],
             "properties": {
               "$ref": {
-                "const": "https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/v0.0.1/meta/core.json#/definitions/uri"
+                "const": "https://ams-schema.glitch.me/datasets/core/schema@v0.0.1#/definitions/uri"
               }
             }
           },
           "then": {
             "required": [
-              "class"
+              "ams.class"
             ],
             "properties": {
-              "$class": {
+              "ams.class": {
                 "type": "string"
               }
             }
@@ -48,7 +48,7 @@
                 ],
                 "properties": {
                   "$ref": {
-                    "const": "https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/v0.0.1/meta/core.json#/definitions/uri"
+                    "const": "https://ams-schema.glitch.me/datasets/core/schema@v0.0.1#/definitions/uri"
                   }
                 }
               }
@@ -59,10 +59,10 @@
               "items": {
                 "type": "object",
                 "required": [
-                  "class"
+                  "ams.class"
                 ],
                 "properties": {
-                  "$class": {
+                  "ams.class": {
                     "type": "string"
                   }
                 }
@@ -73,7 +73,6 @@
       ]
     }
   },
-  "additionalProperties": false,
   "type": "object",
   "required": [
     "$schema",
@@ -136,7 +135,7 @@
               "type": "string"
             },
             "$ref": {
-              "const": "https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/v0.0.1/meta/core.json#/definitions/id"
+              "const": "https://ams-schema.glitch.me/datasets/core/schema@v0.0.1#/definitions/id"
             }
           }
         },
@@ -145,6 +144,9 @@
           "properties": {
             "description": {
               "type": "string"
+            },
+            "$ref": {
+              "const": "https://ams-schema.glitch.me/datasets/core/schema@v0.0.1#/definitions/type"
             }
           }
         },
@@ -153,6 +155,9 @@
           "properties": {
             "description": {
               "type": "string"
+            },
+            "$ref": {
+              "const": "https://ams-schema.glitch.me/datasets/core/schema@v0.0.1#/definitions/dataset"
             }
           }
         }
