@@ -19,9 +19,9 @@ __All schemas currently use the https://ams-schema.glitch.me/ base URI. This URI
 
 ## Schemas
 
-Amsterdam Schema aims to restrict the structure and format of data accepted by Amsterdam's open data systems, in order to make the storing and publishing or different datasets more structured, simpler and better documented.
+Amsterdam Schema aims to restrict the structure and format of data accepted by Amsterdam's open data systems, in order to make the storing and publishing of different datasets more structured, simpler and better documented.
 
-Amsterdam Schema consists of a standard library of available data types, in the form of JSON Schema meta-schemas. These meta-schemas that are uses to validate JSON Schemas that describe different datasets.
+Amsterdam Schema consists of a standard library of available data types, in the form of JSON Schema meta-schemas. These meta-schemas are used to validate JSON Schemas that describe different datasets.
 
 For example:
 
