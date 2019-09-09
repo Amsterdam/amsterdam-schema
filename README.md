@@ -14,6 +14,7 @@ For more information, see (some of these pages are in Dutch):
 - [Amsterdam Schema Playground 🎠](https://observablehq.com/@bertspaan/amsterdam-schema-playground)
 - [Amsterdam Schema Importwizard 🧙‍♀️](https://amsterdam-schema-importwizard.glitch.me/)
 - [Amsterdam Schema Validator 👩🏼‍🏫](https://observablehq.com/@bertspaan/amsterdam-schema-validator)
+- [Amsterdam Schema Tools](https://github.com/Amsterdam/amsterdam-schema-tools)
 
 __All schemas currently use the https://ams-schema.glitch.me/ base URI. This URI will change to something like https://schemas.data.amsterdam.nl/ very soon. Currently, a simple proxy running on Glitch is forwarding requests to GitHub. For details, see https://glitch.com/~ams-schema.__
 
@@ -23,10 +24,19 @@ Amsterdam Schema aims to restrict the structure and format of data accepted by A
 
 Amsterdam Schema consists of a standard library of available data types, in the form of JSON Schema meta-schemas. These meta-schemas that are uses to validate JSON Schemas that describe different datasets.
 
+## Concepts
+
+| Type       | Description                            |
+|:-----------|:---------------------------------------|
+| Collection |                                        |
+| Dataset    |                                        |
+| Class      |                                        |
+| Object     |                                        |
+
 For example:
 
 - The dataset `bag` contains data for each building and address in the city;
-- A JSON Schema describes this dataset, a schema exists for each _type_ in the dataset (e.g. buildings and addresses);
+- A JSON Schema describes this dataset, a schema exists for each _class_ in the dataset (e.g. buildings and addresses);
 - Amsterdam Schema is used to validate these dataset schemas: Amsterdam Schema requires each object of each type to have an `id` field, defines a way to specify relationships, expects all `geometry` fields to be a GeoJSON geometry, et cetera.
 
 ## Validation

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ams-schema.glitch.me/core/meta/object@v0.0.1",
+  "$id": "https://ams-schema.glitch.me/meta/object@v0.1",
   "definitions": {
     "rootProperty": {
       "type": "object",
@@ -20,16 +20,16 @@
             ],
             "properties": {
               "$ref": {
-                "const": "https://ams-schema.glitch.me/core/schema@v0.0.1#/definitions/uri"
+                "const": "https://ams-schema.glitch.me/core/schema@v0.1#/definitions/uri"
               }
             }
           },
           "then": {
             "required": [
-              "ams.class"
+              "ams.$ref.class"
             ],
             "properties": {
-              "ams.class": {
+              "ams.$ref.class": {
                 "type": "string"
               }
             }
@@ -48,7 +48,7 @@
                 ],
                 "properties": {
                   "$ref": {
-                    "const": "https://ams-schema.glitch.me/core/schema@v0.0.1#/definitions/uri"
+                    "const": "https://ams-schema.glitch.me/core/schema@v0.1#/definitions/uri"
                   }
                 }
               }
@@ -59,10 +59,10 @@
               "items": {
                 "type": "object",
                 "required": [
-                  "ams.class"
+                  "ams.$ref.class"
                 ],
                 "properties": {
-                  "ams.class": {
+                  "ams.$ref.class": {
                     "type": "string"
                   }
                 }
@@ -107,7 +107,7 @@
           "type": "array",
           "minItems": 3,
           "contains": {
-            "const": "type"
+            "const": "class"
           }
         },
         {
@@ -123,7 +123,7 @@
       "type": "object",
       "required": [
         "id",
-        "type",
+        "class",
         "dataset"
       ],
       "properties": {
@@ -135,18 +135,18 @@
               "type": "string"
             },
             "$ref": {
-              "const": "https://ams-schema.glitch.me/core/schema@v0.0.1#/definitions/id"
+              "const": "https://ams-schema.glitch.me/core/schema@v0.1#/definitions/id"
             }
           }
         },
-        "type": {
+        "class": {
           "type": "object",
           "properties": {
             "description": {
               "type": "string"
             },
             "$ref": {
-              "const": "https://ams-schema.glitch.me/core/schema@v0.0.1#/definitions/type"
+              "const": "https://ams-schema.glitch.me/core/schema@v0.1#/definitions/class"
             }
           }
         },
@@ -157,7 +157,18 @@
               "type": "string"
             },
             "$ref": {
-              "const": "https://ams-schema.glitch.me/core/schema@v0.0.1#/definitions/dataset"
+              "const": "https://ams-schema.glitch.me/core/schema@v0.1#/definitions/dataset"
+            }
+          }
+        },
+        "geometry": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "$ref": {
+              "const": "https://geojson.org/schema/Geometry.json"
             }
           }
         }

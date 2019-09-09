@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ams-schema.glitch.me/meta/type@v0.1",
+  "title": "",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "core@v0.1#/definitions/id"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "collecton",
+        "dataset",
+        "class",
+        "object"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "homepage": {
+      "type": "string",
+      "format": "url"
+    },
+    "language": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 2
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "$ref": {
+                "type": "string",
+                "format": "uri-reference"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

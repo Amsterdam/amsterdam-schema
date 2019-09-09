@@ -1,42 +1,65 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ams-schema.glitch.me/core/schema@v0.0.1#",
-  "anyOf": [
+  "$id": "https://ams-schema.glitch.me/schema@v0.1#",
+  "title": "Amsterdam Schema",
+  "allOf": [
     {
-      "$ref": "meta/object@v0.0.1"
+      "oneOf": [
+        {
+          "$ref": "meta/type@v0.1"
+        },
+        {
+          "$ref": "http://json-schema.org/draft-07/schema#"
+        }
+      ]
     },
     {
-      "$ref": "meta/dataset@v0.0.1"
+      "if": {
+        "properties": {
+          "type": {
+            "const": "collection"
+          }
+        }
+      },
+      "then": {
+        "$ref": "meta/collection@v0.1"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "dataset"
+          }
+        }
+      },
+      "then": {
+        "$ref": "meta/dataset@v0.1"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "class"
+          }
+        }
+      },
+      "then": {
+        "$ref": "meta/class@v0.1"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "object"
+          }
+        }
+      },
+      "then": {
+        "$ref": "meta/object@v0.1"
+      }
     }
-  ],
-  "type": "object",
-  "$comment": "TODO: add properties for data quality",
-  "definitions": {
-    "id": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "^[0-9a-z]+([_-]?[0-9a-z]+)*$"
-    },
-    "dataset": {
-      "type": "string"
-    },
-    "type": {
-      "type": "string"
-    },
-    "uri": {
-      "type": "string",
-      "format": "uri"
-    },
-    "title": {
-      "type": "string"
-    },
-    "year": {
-      "$comment": "This field should allow 4-digit years",
-      "type": "integer"
-    },
-    "securityContext": {
-      "$comment": "This field should hold authorization scope/context",
-      "type": "string"
-    }
-  }
+  ]
 }
