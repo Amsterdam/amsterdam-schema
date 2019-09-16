@@ -39,6 +39,10 @@ For example:
 - A JSON Schema describes this dataset, a schema exists for each _class_ in the dataset (e.g. buildings and addresses);
 - Amsterdam Schema is used to validate these dataset schemas: Amsterdam Schema requires each object of each type to have an `id` field, defines a way to specify relationships, expects all `geometry` fields to be a GeoJSON geometry, et cetera.
 
+## Geometry
+
+GeoJSON
+
 ## Validation
 
 You can use any JSON Schema validator to validate data against a JSON Schema.

@@ -9,7 +9,7 @@
   ],
   "properties": {
     "id": {
-      "$ref": "core@v0.1#/definitions/id"
+      "$ref": "../schema@v0.1#/definitions/id"
     },
     "type": {
       "type": "string",
@@ -34,6 +34,38 @@
       "type": "string",
       "minLength": 2,
       "maxLength": 2
+    },
+    "dateIssued": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dateModified": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "accrualPeriodicity": {
+      "type": "string"
+    },
+    "spatialDescription": {
+      "type": "string"
+    },
+    "spatialCoordinates": {
+      "$ref": "https://geojson.org/schema/Geometry.json"
+    },
+    "theme": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "license": {
+      "type": "string"
     },
     "items": {
       "type": "array",
