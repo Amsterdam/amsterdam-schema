@@ -2,21 +2,36 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://ams-schema.glitch.me/schema@v0.1#",
   "title": "Amsterdam Schema",
+  "$vocabulary": {
+    "https://json-schema.org/draft/2019-09/vocab/core": true,
+    "https://ams-schema.glitch.me/meta/ams.auth@v0.1": false,
+    "https://ams-schema.glitch.me/meta/ams.units@v0.1": false,
+    "https://ams-schema.glitch.me/meta/ams.$ref.class@v0.1": false,
+    "https://ams-schema.glitch.me/meta/ams.nullable@v0.1": false,
+    "https://ams-schema.glitch.me/meta/ams.provenance@v0.1": false
+  },
+  "$recursiveAnchor": true,
   "definitions": {
-    "id": {
+    "idLike" : {
       "type": "string",
       "minLength": 1,
-      "pattern": "^[0-9a-z]+([_-]?[0-9a-z]+)*$"
+      "pattern": "^[0-9a-z]+(-?[0-9a-z]+)*$"
+    },
+    "id": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/idLike"
+        },
+        {
+          "type": "integer"
+        }
+      ]
     },
     "dataset": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "^[0-9a-z]+([_-]?[0-9a-z]+)*$"
+      "$ref": "#/definitions/idLike"
     },
     "class": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "^[0-9a-z]+([_-]?[0-9a-z]+)*$"
+      "$ref": "#/definitions/idLike"
     },
     "uri": {
       "type": "string",
@@ -26,12 +41,7 @@
       "type": "string"
     },
     "year": {
-      "$comment": "This field should allow 4-digit years",
       "type": "integer"
-    },
-    "securityContext": {
-      "$comment": "This field should hold authorization scope/context",
-      "type": "string"
     }
   },
   "allOf": [
@@ -44,18 +54,6 @@
           "$ref": "http://json-schema.org/draft-07/schema#"
         }
       ]
-    },
-    {
-      "if": {
-        "properties": {
-          "type": {
-            "const": "collection"
-          }
-        }
-      },
-      "then": {
-        "$ref": "meta/collection@v0.1"
-      }
     },
     {
       "if": {
