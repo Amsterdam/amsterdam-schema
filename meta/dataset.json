@@ -10,6 +10,26 @@
   "properties": {
     "type": {
       "const": "dataset"
+    },
+    "classes": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "class@v0.1"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "$ref": {
+                "type": "string",
+                "format": "uri-reference"
+              }
+            }
+          }
+        ]
+      }
     }
   }
 }
