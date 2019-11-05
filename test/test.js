@@ -2,6 +2,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const util = require('util')
 const { promisify } = require('util')
 const glob = promisify(require('glob'))
 const jsonpath = require('jsonpath')
@@ -9,9 +10,13 @@ const jsonpath = require('jsonpath')
 const validate = require('../validate')
 
 function readJSONFile (filename) {
-  return {
-    filename,
-    ...JSON.parse(fs.readFileSync(filename, 'utf8'))
+  try {
+    return {
+      filename,
+      ...JSON.parse(fs.readFileSync(filename, 'utf8'))
+    }
+  } catch (err) {
+    throw new Error(`Error reading JSON file: ${filename}`)
   }
 }
 
@@ -22,12 +27,21 @@ async function readJSONFiles (pattern) {
 
 function runTest (validator, test) {
   try {
-    return validator(test.data)
+    const result = validator(test.data)
+
+    if (result && test.errors && test.errors.length) {
+      console.error(test.filename)
+      console.error('Expecting errors:')
+      console.error(test.errors)
+      return false
+    }
+
+    return result
   } catch (err) {
     if (!test.errors || !test.errors.length) {
       console.error(test.filename)
       console.error('Validation errors:')
-      console.error(err.errors)
+      console.log(util.inspect(err.errors, false, null, true))
       return false
     }
 
@@ -51,6 +65,7 @@ function runTest (validator, test) {
 
 async function runAllTests () {
   const schemas = [
+    readJSONFile(path.join(__dirname, '..', 'geojson', 'Geometry.json')),
     readJSONFile(path.join(__dirname, '..', 'schema.json')),
     ...await readJSONFiles(path.join(__dirname, '..', 'meta/*.json'))
   ]
@@ -64,5 +79,9 @@ async function runAllTests () {
 }
 
 (() => {
-  runAllTests()
+  try {
+    runAllTests()
+  } catch (err) {
+    console.error(err.message)
+  }
 })()

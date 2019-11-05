@@ -12,6 +12,24 @@
           "type": "string"
         }
       },
+      "oneOf": [
+        {
+          "required": ["type"],
+          "properties": {
+            "type": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "required": ["$ref"],
+          "properties": {
+            "$ref": {
+              "type": "string"
+            }
+          }
+        }
+      ],
       "allOf": [
         {
           "if": {
@@ -76,11 +94,11 @@
   "type": "object",
   "required": [
     "$schema",
-    "$id",
     "type",
     "properties",
     "required"
   ],
+  "additionalProperties": false,
   "properties": {
     "$schema": {
       "const": "http://json-schema.org/draft-07/schema#"
@@ -126,11 +144,12 @@
         "class",
         "dataset"
       ],
+      "propertyNames": {
+        "pattern": "^[a-z][A-Za-z0-9]*$"
+      },
       "properties": {
         "id": {
           "type": "object",
-          "additionalProperties": false,
-          "required": ["$ref", "description"],
           "properties": {
             "description": {
               "type": "string"
@@ -165,11 +184,16 @@
         "geometry": {
           "type": "object",
           "properties": {
-            "description": {
-              "type": "string"
-            },
             "$ref": {
-              "const": "https://geojson.org/schema/Geometry.json"
+              "type": "string",
+              "enum": [
+                "https://geojson.org/schema/Geometry.json",
+                "https://geojson.org/schema/Point.json",
+                "https://geojson.org/schema/LineString.json",
+                "https://geojson.org/schema/MultiLineString.json",
+                "https://geojson.org/schema/Polygon.json",
+                "https://geojson.org/schema/MultiPolygon.json"
+              ]
             }
           }
         }

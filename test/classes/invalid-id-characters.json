@@ -1,16 +1,17 @@
 {
   "data": {
+    "id": "A--B",
     "type": "class",
     "title": "Title",
     "description": "Description",
     "schema": {
-      "$ref": "schema.objects.json"
+      "$ref": "objects.json"
     }
   },
   "errors": [
     {
       "path": "$[0].message",
-      "value": "should have required property 'id'"
+      "value": "should match pattern \"^[0-9a-z]+(-?[0-9a-z]+)*$\""
     }
   ]
 }

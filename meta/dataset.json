@@ -7,12 +7,17 @@
       "$ref": "type@v0.1"
     }
   ],
+  "required": ["classes", "version"],
   "properties": {
     "type": {
       "const": "dataset"
     },
+    "version": {
+      "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/version"
+    },
     "classes": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "oneOf": [
           {

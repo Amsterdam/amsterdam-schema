@@ -1,0 +1,33 @@
+{
+  "data": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://ams-schema.glitch.me/dataset/a/b",
+    "type": "object",
+    "required": [
+      "id",
+      "dataset",
+      "class"
+    ],
+    "properties": {
+      "id": {
+        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id"
+      },
+      "class": {
+        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/class"
+      },
+      "dataset": {
+        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/MultiPoint.json",
+        "description": "Geografische locatie"
+      }
+    }
+  },
+  "errors": [
+    {
+      "path": "$[0].message",
+      "value": "should be equal to one of the allowed values"
+    }
+  ]
+}
