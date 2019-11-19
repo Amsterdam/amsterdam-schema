@@ -4,29 +4,27 @@
     "$id": "https://ams-schema.glitch.me/dataset/a/b",
     "type": "object",
     "required": [
-      "id",
       "dataset",
-      "class"
+      "table",
+      "geometry"
     ],
     "properties": {
-      "id": {
-        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id"
-      },
-      "class": {
-        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/class"
+      "table": {
+        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/table"
       },
       "dataset": {
         "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
       },
-      "value": {
-        "type": "integer"
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Geografische locatie"
       }
     }
   },
   "errors": [
     {
-      "path": "$[0].message",
-      "value": "should have required property 'description'"
+      "path": "$[2].message",
+      "value": "should contain a valid item"
     }
   ]
 }

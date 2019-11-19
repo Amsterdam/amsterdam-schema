@@ -6,17 +6,18 @@
     "required": [
       "id",
       "dataset",
-      "class"
+      "table"
     ],
+    "additionalProperties": false,
     "properties": {
       "id": {
-        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id"
+        "$ref": "https://ams-schema.glitch.me/schema@v1.0#/definitions/id"
       },
-      "class": {
-        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/class"
+      "table": {
+        "$ref": "https://ams-schema.glitch.me/schema@v1.0#/definitions/table"
       },
       "dataset": {
-        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
+        "$ref": "https://ams-schema.glitch.me/schema@v1.0#/definitions/dataset"
       },
       "geometry": {
         "$ref": "https://geojson.org/schema/MultiPoint.json",
@@ -26,7 +27,7 @@
   },
   "errors": [
     {
-      "path": "$[0].message",
+      "path": "$[2].message",
       "value": "should be equal to one of the allowed values"
     }
   ]

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
-const path = require('path')
+// const fs = require('fs')
+// const path = require('path')
 const Ajv = require('ajv')
 const axios = require('axios')
 
@@ -24,6 +24,7 @@ const axios = require('axios')
 
 function loadSchema (uri) {
   return axios.get(uri)
+    .then((response) => response.data)
 }
 
 function ValidationException (data, errors) {
@@ -66,46 +67,46 @@ async function createValidator (schemaId, schemas) {
   }
 }
 
-if (process.stdin.isTTY) {
-  // return console.error(`Usage: ${name} [-f jsonPaths] [-o file] FILE\n` +
-  //   `  -f, --flatten  JSON array of JSON paths, used to flatten nested data field\n` +
-  //   `  -o, --output   Path to output file, if not given, ${name} uses stdout`)
+// if (process.stdin.isTTY) {
+//   return console.error(`Usage: ${name} [-f jsonPaths] [-o file] FILE\n` +
+//     `  -f, --flatten  JSON array of JSON paths, used to flatten nested data field\n` +
+//     `  -o, --output   Path to output file, if not given, ${name} uses stdout`)
 
-  // const stream = ((argv._.length ? fs.createReadStream(argv._[0], 'utf8') : process.stdin))
+//   const stream = ((argv._.length ? fs.createReadStream(argv._[0], 'utf8') : process.stdin))
 
-  // const schemas = argv.schemas
-  //   .map((schemaPath) => JSON.parse(fs.readFileSync(path.join('.', schemaPath), 'utf8')))
+//   const schemas = argv.schemas
+//     .map((schemaPath) => JSON.parse(fs.readFileSync(path.join('.', schemaPath), 'utf8')))
 
-  // const validate = Validate.createValidator(argv.id, schemas)
+//   const validate = Validate.createValidator(argv.id, schemas)
 
-  // H(process.stdin)
-  //   .split()
-  //   .compact()
-  //   .map(JSON.parse)
-  //   .map((object) => validate(object))
-  //   .errors((err, push) => {
-  //     if (err.name === 'ValidationException') {
-  //       let id
-  //       if (err.data.$id) {
-  //         id = err.data.$id
-  //       } else {
-  //         id = `${err.data.type}:${err.data.id}`
-  //       }
+//   H(process.stdin)
+//     .split()
+//     .compact()
+//     .map(JSON.parse)
+//     .map((object) => validate(object))
+//     .errors((err, push) => {
+//       if (err.name === 'ValidationException') {
+//         let id
+//         if (err.data.$id) {
+//           id = err.data.$id
+//         } else {
+//           id = `${err.data.type}:${err.data.id}`
+//         }
 
-  //       console.error(`Errors validating ${id}:`)
-  //       console.error(err.errors)
-  //     } else {
-  //       console.error({
-  //         name: err.name,
-  //         message: err.message
-  //       })
-  //     }
-  //   })
-  //   .compact()
-  //   .map(JSON.stringify)
-  //   .intersperse('\n')
-  //   .pipe(process.stdout)
-}
+//         console.error(`Errors validating ${id}:`)
+//         console.error(err.errors)
+//       } else {
+//         console.error({
+//           name: err.name,
+//           message: err.message
+//         })
+//       }
+//     })
+//     .compact()
+//     .map(JSON.stringify)
+//     .intersperse('\n')
+//     .pipe(process.stdout)
+// }
 
 module.exports = {
   createValidatorAsync,

@@ -6,27 +6,28 @@
     "required": [
       "id",
       "dataset",
-      "class"
+      "table"
     ],
     "properties": {
       "id": {
         "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id"
       },
-      "class": {
-        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/class"
+      "table": {
+        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/table"
       },
       "dataset": {
         "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
       },
-      "value": {
+      "Abc": {
+        "type": "string",
         "description": "Invalid property"
       }
     }
   },
   "errors": [
     {
-      "path": "$[0].message",
-      "value": "should have required property 'type'"
+      "path": "$[2].propertyName",
+      "value": "Abc"
     }
   ]
 }

@@ -1,0 +1,32 @@
+{
+  "data": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://ams-schema.glitch.me/dataset/a/b",
+    "type": "object",
+    "required": [
+      "id",
+      "dataset",
+      "table"
+    ],
+    "properties": {
+      "id": {
+        "$ref": "https://ams-schema.glitch.me/schema@v1.0#/definitions/id"
+      },
+      "table": {
+        "$ref": "https://ams-schema.glitch.me/schema@v1.0#/definitions/table"
+      },
+      "dataset": {
+        "$ref": "https://ams-schema.glitch.me/schema@v1.0#/definitions/dataset"
+      },
+      "value": {
+        "type": "integer"
+      }
+    }
+  },
+  "errors": [
+    {
+      "path": "$[2].message",
+      "value": "should have required property 'description'"
+    }
+  ]
+}

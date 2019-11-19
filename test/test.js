@@ -65,16 +65,25 @@ function runTest (validator, test) {
 
 async function runAllTests () {
   const schemas = [
-    readJSONFile(path.join(__dirname, '..', 'geojson', 'Geometry.json')),
+    readJSONFile(path.join(__dirname, 'Geometry.json')),
     readJSONFile(path.join(__dirname, '..', 'schema.json')),
+    readJSONFile(path.join(__dirname, '..', 'dataset.json')),
+    readJSONFile(path.join(__dirname, '..', 'table.json')),
+    readJSONFile(path.join(__dirname, '..', 'row-meta-schema.json')),
     ...await readJSONFiles(path.join(__dirname, '..', 'meta/*.json'))
   ]
 
-  const validator = await validate.createValidator('https://ams-schema.glitch.me/schema@v0.1#', schemas)
+  let results = false
+  try {
+    const validator = await validate.createValidator('https://ams-schema.glitch.me/schema@v1.0#', schemas)
 
-  const tests = await readJSONFiles(path.join(__dirname, '**/*.json'))
+    const tests = await readJSONFiles(path.join(__dirname, '*/*.json'))
 
-  const results = tests.every((test) => runTest(validator, test))
+    results = tests.every((test) => runTest(validator, test))
+  } catch (err) {
+    console.error(err)
+  }
+
   process.exit(results ? 0 : 1)
 }
 
