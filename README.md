@@ -4,21 +4,21 @@
 
 # Amsterdam Schema
 
-Een Amsterdam Schema is:
-
-1. JSON-metadata over dataset,
-2. JSON-metadata over één of meer tabellen in deze dataset,
-3. En, per tabel, een JSON Schema die de inhoud van en metadata over de velden in deze tabel beschrijft en kan valideren.
-
-In deze Amsterdam Scheme-repository staan:
-
-1. JSON Schema om metadata over dataset te valideren,
-2. JSON Schema om metadata over tabel te validaren,
-3. En een JSON Schema metaschema tabel-JSON Schema's te valideren
-
-
-
 This repository contains a work-in-progress version of the Amsterdam Schema. Currently, Amsterdam Schema is a set of [JSON Schemas](https://json-schema.org/) and meta-schemas. The goal of this project is to describe and validate [open data published by the City of Amsterdam](https://api.data.amsterdam.nl/api/). Amsterdam Schema will be used to make the import, storage and publishing layers of our APIs more generic, easier to maintain, and better documented.
+
+This repository contains JSON Schemas to make sure every dataset published by the City of Amsterdam always contains the right metadata and is of the right form.
+
+An instance of Amsterdam Schema exists of:
+
+1. Metadata about a single dataset;
+2. Metadata about each table in this dataset;
+3. For each table, a JSON Schema to describe and validate the data in these tables.
+
+This repository contains:
+
+1. A JSON Schema to validate dataset metadata;
+2. A JSON Schema to validate table metadata;
+3. A JSON Schema _metaschema_ to validate the JSON Schema that describes table data.
 
 __Amsterdam Schema is developed by the City of Amsterdam, but the tools and concepts created in this project can be used in any city.__
 
@@ -30,8 +30,6 @@ For more information, see (some of these pages are in Dutch):
 - [Amsterdam Schema Validator 👩🏼‍🏫](https://observablehq.com/@bertspaan/amsterdam-schema-validator)
 - [Amsterdam Schema Tools](https://github.com/Amsterdam/amsterdam-schema-tools)
 
-__All schemas currently use the https://ams-schema.glitch.me/ base URI. This URI will change to something like https://schemas.data.amsterdam.nl/ very soon. Currently, a simple proxy running on Glitch is forwarding requests to GitHub. For details, see https://glitch.com/~ams-schema.__
-
 ## Schemas
 
 Amsterdam Schema aims to restrict the structure and format of data accepted by Amsterdam's open data systems, in order to make the storing and publishing of different datasets more structured, simpler and better documented.
@@ -40,12 +38,12 @@ Amsterdam Schema consists of a standard library of available data types, in the 
 
 ## Concepts
 
-| Type       | Description                            |
-|:-----------|:---------------------------------------|
-| Dataset    |                                        |
-| Table      | een table, klasse,                                         |
-| Row     | een row in table, een regel in CSV, etc.                                        |
-| Field | in JSON schema property, uitlegfgen
+| Type       | Description                              |
+|:-----------|:-----------------------------------------|
+| Dataset    |                                          |
+| Table      | a table, class, etc.                     |
+| Row        | een row in table, een regel in CSV, etc. |
+| Field      | in JSON schema: property                  |
 
 For example:
 
@@ -61,7 +59,7 @@ GeoJSON
 
 You can use any JSON Schema validator to validate data against a JSON Schema.
 
-To validate data from your browser, you can use the [Amsterdam Schema Validator 👩🏼‍🏫](https://observablehq.com/@bertspaan/amsterdam-schema-validator). With the `data=data:text/x-url,` and `schema=data:text/x-url,` URL parameters, you can load data and schema JSON files from URLs. For example, to verify the schema https://ams-schema.glitch.me/dataset/bag/pand with meta-schema https://ams-schema.glitch.me/core/meta/object@v0.0.1, open the following link:
+To validate data from your browser, you can use the [Amsterdam Schema Validator 👩🏼‍🏫](https://observablehq.com/@bertspaan/amsterdam-schema-validator). With the `data=data:text/x-url,` and `schema=data:text/x-url,` URL parameters, you can load data and schema JSON files from URLs. For example, to verify the schema https://static.amsterdam.nl/schemas/dataset/bag/pand with meta-schema https://static.amsterdam.nl/schemas/core/meta/object@v0.0.1, open the following link:
 
 https://observablehq.com/@bertspaan/amsterdam-schema-validator?data=data:text/x-url,https%3A%2F%2Fams-schema.glitch.me%2Fdataset%2Fbag%2Fpand&schema=data:text/x-url,https%3A%2F%2Fams-schema.glitch.me%2Fcore%2Fmeta%2Fobject%40v0.0.1
 
@@ -71,9 +69,9 @@ We're currently using [GitHub releases](https://github.com/Amsterdam/amsterdam-s
 
 The [Glitch app](https://glitch.com/~ams-schema) mentioned above acts as a proxy, and reads the JSON Schemas from this repository from all available releases:
 
-- https://ams-schema.glitch.me/core/schema ⟶ https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/master/schema.json
-- https://ams-schema.glitch.me/core/schema@v0.0.1 ⟶ https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/v0.0.1/schema.json
-- https://ams-schema.glitch.me/core/meta/object ⟶ https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/master/meta/object.json
+- https://static.amsterdam.nl/schemas/core/schema ⟶ https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/master/schema.json
+- https://static.amsterdam.nl/schemas/core/schema@v0.0.1 ⟶ https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/v0.0.1/schema.json
+- https://static.amsterdam.nl/schemas/core/meta/object ⟶ https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/master/meta/object.json
 
 ## Examples
 
