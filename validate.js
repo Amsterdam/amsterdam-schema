@@ -55,7 +55,12 @@ async function createValidatorAsync (schema) {
 async function createValidator (schemaId, schemas) {
   const ajv = new Ajv({schemas})
 
+
   const validate = ajv.getSchema(schemaId)
+
+  if (!validate) {
+    throw new Error(`Can't find schema with ID ${schemaId}`)
+  }
 
   return function (data) {
     const valid = validate(data)
