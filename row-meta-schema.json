@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ams-schema.glitch.me/meta/object-schema@v0.1",
+  "$id": "https://static.amsterdam.nl/schemas/row-meta-schema@v1.0",
   "definitions": {
     "rootProperty": {
       "type": "object",
@@ -26,65 +26,6 @@
           "properties": {
             "$ref": {
               "type": "string"
-            }
-          }
-        }
-      ],
-      "allOf": [
-        {
-          "if": {
-            "required": [
-              "$ref"
-            ],
-            "properties": {
-              "$ref": {
-                "const": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri"
-              }
-            }
-          },
-          "then": {
-            "required": [
-              "ams.$ref.class"
-            ],
-            "properties": {
-              "ams.$ref.class": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "type": {
-                "const": "array"
-              },
-              "items": {
-                "type": "object",
-                "required": [
-                  "$ref"
-                ],
-                "properties": {
-                  "$ref": {
-                    "const": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri"
-                  }
-                }
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "items": {
-                "type": "object",
-                "required": [
-                  "ams.$ref.class"
-                ],
-                "properties": {
-                  "ams.$ref.class": {
-                    "type": "string"
-                  }
-                }
-              }
             }
           }
         }
@@ -125,7 +66,7 @@
           "type": "array",
           "minItems": 3,
           "contains": {
-            "const": "class"
+            "const": "table"
           }
         },
         {
@@ -141,7 +82,7 @@
       "type": "object",
       "required": [
         "id",
-        "class",
+        "table",
         "dataset"
       ],
       "propertyNames": {
@@ -155,18 +96,18 @@
               "type": "string"
             },
             "$ref": {
-              "const": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id"
+              "const": "https://static.amsterdam.nl/schemas/schema@v1.0#/definitions/id"
             }
           }
         },
-        "class": {
+        "table": {
           "type": "object",
           "properties": {
             "description": {
               "type": "string"
             },
             "$ref": {
-              "const": "https://ams-schema.glitch.me/schema@v0.1#/definitions/class"
+              "const": "https://static.amsterdam.nl/schemas/schema@v1.0#/definitions/table"
             }
           }
         },
@@ -177,7 +118,7 @@
               "type": "string"
             },
             "$ref": {
-              "const": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
+              "const": "https://static.amsterdam.nl/schemas/schema@v1.0#/definitions/dataset"
             }
           }
         },

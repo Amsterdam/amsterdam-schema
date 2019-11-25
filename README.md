@@ -4,6 +4,20 @@
 
 # Amsterdam Schema
 
+Een Amsterdam Schema is:
+
+1. JSON-metadata over dataset,
+2. JSON-metadata over één of meer tabellen in deze dataset,
+3. En, per tabel, een JSON Schema die de inhoud van en metadata over de velden in deze tabel beschrijft en kan valideren.
+
+In deze Amsterdam Scheme-repository staan:
+
+1. JSON Schema om metadata over dataset te valideren,
+2. JSON Schema om metadata over tabel te validaren,
+3. En een JSON Schema metaschema tabel-JSON Schema's te valideren
+
+
+
 This repository contains a work-in-progress version of the Amsterdam Schema. Currently, Amsterdam Schema is a set of [JSON Schemas](https://json-schema.org/) and meta-schemas. The goal of this project is to describe and validate [open data published by the City of Amsterdam](https://api.data.amsterdam.nl/api/). Amsterdam Schema will be used to make the import, storage and publishing layers of our APIs more generic, easier to maintain, and better documented.
 
 __Amsterdam Schema is developed by the City of Amsterdam, but the tools and concepts created in this project can be used in any city.__
@@ -28,10 +42,10 @@ Amsterdam Schema consists of a standard library of available data types, in the 
 
 | Type       | Description                            |
 |:-----------|:---------------------------------------|
-| Collection |                                        |
 | Dataset    |                                        |
-| Class      |                                        |
-| Object     |                                        |
+| Table      | een table, klasse,                                         |
+| Row     | een row in table, een regel in CSV, etc.                                        |
+| Field | in JSON schema property, uitlegfgen
 
 For example:
 
@@ -63,4 +77,4 @@ The [Glitch app](https://glitch.com/~ams-schema) mentioned above acts as a proxy
 
 ## Examples
 
-For examples of dataset schemas conforming to Amsterdam Schema, see https://github.com/Amsterdam/amsterdam-schema-tools/tree/master/schemas.
+For examples of dataset schemas conforming to Amsterdam Schema, see https://github.com/Amsterdam/schemas.

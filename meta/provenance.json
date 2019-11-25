@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://static.amsterdam.nl/schemas/meta/provenance@v1.0",
+  "$vocabulary": {
+    "https://static.amsterdam.nl/schemas/meta/provenance@v1.0": true
+  },
+  "$recursiveAnchor": true,
+  "title": "Amsterdam Schema provenance",
+  "properties": {
+    "provenance": {
+      "$comment": "This field can hold provenance data, per dataset, table or field.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    }
+  }
+}
+

@@ -1,38 +1,38 @@
 {
   "data": {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://ams-schema.glitch.me/dataset/a/b",
+    "$id": "https://static.amsterdam.nl/schemas/dataset/a/b",
     "type": "object",
     "required": [
       "id",
       "dataset",
-      "class"
+      "table"
     ],
     "properties": {
       "id": {
-        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id"
+        "$ref": "https://static.amsterdam.nl/schemas/schema@v1.0#/definitions/id"
       },
-      "class": {
-        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/class"
+      "table": {
+        "$ref": "https://static.amsterdam.nl/schemas/schema@v1.0#/definitions/table"
       },
       "dataset": {
-        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
+        "$ref": "https://static.amsterdam.nl/schemas/schema@v1.0#/definitions/dataset"
       },
       "value": {
         "description": "Waarde van object",
         "type": "integer"
       },
       "ligtInPand": {
-        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri",
+        "type": "string",
         "description": "In welk pand ligt dit object?",
-        "ams.$ref.class": "https://ams-schema.glitch.me/dataset/bag/pand"
+        "relation": "https://resource.data.amsterdam.nl/bag/pand"
       },
       "voorWijken": {
         "type": "array",
         "description": "Voor welke wijk geldt dit object?",
         "items": {
-          "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/uri",
-          "ams.$ref.class": "https://ams-schema.glitch.me/dataset/gebieden/wijken"
+          "type": "string",
+          "relation": "https://resource.data.amsterdam.nl/gebieden/wijken"
         }
       },
       "geometry": {

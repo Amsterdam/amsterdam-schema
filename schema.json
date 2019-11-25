@@ -1,18 +1,38 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ams-schema.glitch.me/schema@v0.1#",
+  "$id": "https://static.amsterdam.nl/schemas/schema@v0.1#",
   "title": "Amsterdam Schema",
   "$vocabulary": {
     "https://json-schema.org/draft/2019-09/vocab/core": true,
-    "https://ams-schema.glitch.me/meta/ams.auth@v0.1": false,
-    "https://ams-schema.glitch.me/meta/ams.units@v0.1": false,
-    "https://ams-schema.glitch.me/meta/ams.$ref.class@v0.1": false,
-    "https://ams-schema.glitch.me/meta/ams.nullable@v0.1": false,
-    "https://ams-schema.glitch.me/meta/ams.provenance@v0.1": false
+    "https://static.amsterdam.nl/schemas/meta/auth@v1.0": false,
+    "https://static.amsterdam.nl/schemas/units@v1.0": false,
+    "https://static.amsterdam.nl/schemas/relation@v1.0": false,
+    "https://static.amsterdam.nl/schemas/provenance@v1.0": false
   },
   "$recursiveAnchor": true,
   "definitions": {
-    "idLike" : {
+    "basicProperties": {
+      "type": "object",
+      "required": [
+        "id",
+        "type"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/id"
+        },
+        "type": {
+          "$ref": "#/definitions/type"
+        },
+        "title": {
+          "$ref": "#/definitions/title"
+        },
+        "description": {
+          "$ref": "#/definitions/description"
+        }
+      }
+    },
+    "idString": {
       "type": "string",
       "minLength": 1,
       "pattern": "^[0-9a-z]+(-?[0-9a-z]+)*$"
@@ -20,43 +40,55 @@
     "id": {
       "oneOf": [
         {
-          "$ref": "#/definitions/idLike"
+          "$ref": "#/definitions/idString"
         },
         {
           "type": "integer"
         }
       ]
     },
+    "type": {
+      "type": "string",
+      "enum": [
+        "dataset",
+        "table"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
     "dataset": {
-      "$ref": "#/definitions/idLike"
+      "$ref": "#/definitions/idString"
     },
     "class": {
-      "$ref": "#/definitions/idLike"
+      "$ref": "#/definitions/idString"
     },
     "uri": {
       "type": "string",
       "format": "uri"
-    },
-    "title": {
-      "type": "string"
     },
     "year": {
       "type": "integer"
     },
     "version": {
       "type": "string",
-      "minLength": 1,
-      "pattern": "(?<=^v?|\\sv?)(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:[1-9]\\d*|[\\da-z-]*[a-z-][\\da-z-]*)(?:\\.(?:[1-9]\\d*|[\\da-z-]*[a-z-][\\da-z-]*))*)?(?:\\+[\\da-z-]+(?:\\.[\\da-z-]+)*)?(?=$|\\s)"
+      "minLength": 1
     }
   },
   "allOf": [
     {
       "oneOf": [
         {
-          "$ref": "meta/type@v0.1"
+          "$ref": "./dataset@v1.0"
         },
         {
-          "$ref": "http://json-schema.org/draft-07/schema#"
+          "$ref": "./table@v1.0"
+        },
+        {
+          "$ref": "./row-meta-schema@v1.0"
         }
       ]
     },
@@ -69,31 +101,32 @@
         }
       },
       "then": {
-        "$ref": "meta/dataset@v0.1"
+        "$ref": "./dataset@v1.0"
       }
     },
     {
       "if": {
         "properties": {
           "type": {
-            "const": "class"
+            "const": "table"
           }
         }
       },
       "then": {
-        "$ref": "meta/class@v0.1"
+        "$ref": "./table@v1.0"
       }
     },
     {
       "if": {
         "properties": {
           "type": {
+            "$comment": "JSON Schema metaschemas for row data are JSON Schemas with type = object",
             "const": "object"
           }
         }
       },
       "then": {
-        "$ref": "meta/object-schema@v0.1"
+        "$ref": "./row-meta-schema@v1.0"
       }
     }
   ]

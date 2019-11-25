@@ -1,22 +1,22 @@
 {
   "data": {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://ams-schema.glitch.me/dataset/a/b",
+    "$id": "https://static.amsterdam.nl/schemas/dataset/a/b",
     "type": "object",
     "required": [
       "id",
       "dataset",
-      "class"
+      "table"
     ],
     "properties": {
       "id": {
-        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id"
+        "$ref": "https://static.amsterdam.nl/schemas/schema@v0.1#/definitions/id"
       },
-      "class": {
-        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/class"
+      "table": {
+        "$ref": "https://static.amsterdam.nl/schemas/schema@v0.1#/definitions/table"
       },
       "dataset": {
-        "$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/dataset"
+        "$ref": "https://static.amsterdam.nl/schemas/schema@v0.1#/definitions/dataset"
       },
       "Abc": {
         "type": "string",
@@ -26,7 +26,7 @@
   },
   "errors": [
     {
-      "path": "$[0].propertyName",
+      "path": "$[2].propertyName",
       "value": "Abc"
     }
   ]
