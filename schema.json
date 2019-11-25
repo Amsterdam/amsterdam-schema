@@ -1,13 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ams-schema.glitch.me/schema@v1.0#",
+  "$id": "https://static.amsterdam.nl/schemas/schema@v0.1#",
   "title": "Amsterdam Schema",
   "$vocabulary": {
     "https://json-schema.org/draft/2019-09/vocab/core": true,
-    "https://ams-schema.glitch.me/meta/auth@v1.0": false,
-    "https://ams-schema.glitch.me/meta/units@v1.0": false,
-    "https://ams-schema.glitch.me/meta/relation@v1.0": false,
-    "https://ams-schema.glitch.me/meta/provenance@v1.0": false
+    "https://static.amsterdam.nl/schemas/meta/auth@v1.0": false,
+    "https://static.amsterdam.nl/schemas/units@v1.0": false,
+    "https://static.amsterdam.nl/schemas/relation@v1.0": false,
+    "https://static.amsterdam.nl/schemas/provenance@v1.0": false
   },
   "$recursiveAnchor": true,
   "definitions": {
@@ -75,8 +75,7 @@
     },
     "version": {
       "type": "string",
-      "minLength": 1,
-      "pattern": "(?<=^v?|\\sv?)(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:[1-9]\\d*|[\\da-z-]*[a-z-][\\da-z-]*)(?:\\.(?:[1-9]\\d*|[\\da-z-]*[a-z-][\\da-z-]*))*)?(?:\\+[\\da-z-]+(?:\\.[\\da-z-]+)*)?(?=$|\\s)"
+      "minLength": 1
     }
   },
   "allOf": [

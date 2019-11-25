@@ -75,7 +75,7 @@ async function runAllTests () {
 
   let results = false
   try {
-    const validator = await validate.createValidator('https://ams-schema.glitch.me/schema@v1.0#', schemas)
+    const validator = await validate.createValidator('https://static.amsterdam.nl/schemas/schema@v1.0#', schemas)
 
     const tests = await readJSONFiles(path.join(__dirname, '*/*.json'))
 
