@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://schemas.data.amsterdam.nl/row-meta-schema@v1.0",
+  "$id": "https://schemas.data.amsterdam.nl/row-meta-schema@v1.1.0",
   "definitions": {
     "rootProperty": {
       "type": "object",
@@ -57,23 +57,16 @@
       "allOf": [
         {
           "type": "array",
-          "minItems": 3,
+          "minItems": 2,
           "contains": {
             "const": "id"
           }
         },
         {
           "type": "array",
-          "minItems": 3,
+          "minItems": 2,
           "contains": {
-            "const": "table"
-          }
-        },
-        {
-          "type": "array",
-          "minItems": 3,
-          "contains": {
-            "const": "dataset"
+            "const": "schema"
           }
         }
       ]
@@ -82,8 +75,7 @@
       "type": "object",
       "required": [
         "id",
-        "table",
-        "dataset"
+        "schema"
       ],
       "propertyNames": {
         "pattern": "^[a-z][A-Za-z0-9]*$"
@@ -91,39 +83,31 @@
       "properties": {
         "id": {
           "type": "object",
+          "required": ["$ref"],
           "properties": {
             "description": {
               "type": "string"
             },
             "$ref": {
-              "const": "https://schemas.data.amsterdam.nl/schema@v1.0#/definitions/id"
+              "const": "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/id"
             }
           }
         },
-        "table": {
+        "schema": {
           "type": "object",
+          "required": ["$ref"],
           "properties": {
             "description": {
               "type": "string"
             },
             "$ref": {
-              "const": "https://schemas.data.amsterdam.nl/schema@v1.0#/definitions/table"
-            }
-          }
-        },
-        "dataset": {
-          "type": "object",
-          "properties": {
-            "description": {
-              "type": "string"
-            },
-            "$ref": {
-              "const": "https://schemas.data.amsterdam.nl/schema@v1.0#/definitions/dataset"
+              "const": "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/schema"
             }
           }
         },
         "geometry": {
           "type": "object",
+          "required": ["$ref"],
           "properties": {
             "$ref": {
               "type": "string",
