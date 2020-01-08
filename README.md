@@ -59,7 +59,7 @@ GeoJSON
 
 You can use any JSON Schema validator to validate data against a JSON Schema.
 
-To validate data from your browser, you can use the [Amsterdam Schema Validator 👩🏼‍🏫](https://observablehq.com/@bertspaan/amsterdam-schema-validator). With the `data=data:text/x-url,` and `schema=data:text/x-url,` URL parameters, you can load data and schema JSON files from URLs. For example, to verify the schema https://static.amsterdam.nl/schemas/dataset/bag/pand with meta-schema https://static.amsterdam.nl/schemas/core/meta/object@v0.0.1, open the following link:
+To validate data from your browser, you can use the [Amsterdam Schema Validator 👩🏼‍🏫](https://observablehq.com/@bertspaan/amsterdam-schema-validator). With the `data=data:text/x-url,` and `schema=data:text/x-url,` URL parameters, you can load data and schema JSON files from URLs. For example, to verify the schema https://schemas.data.amsterdam.nl/dataset/bag/pand with meta-schema https://schemas.data.amsterdam.nl/core/meta/object@v0.0.1, open the following link:
 
 https://observablehq.com/@bertspaan/amsterdam-schema-validator?data=data:text/x-url,https%3A%2F%2Fams-schema.glitch.me%2Fdataset%2Fbag%2Fpand&schema=data:text/x-url,https%3A%2F%2Fams-schema.glitch.me%2Fcore%2Fmeta%2Fobject%40v0.0.1
 
@@ -69,9 +69,9 @@ We're currently using [GitHub releases](https://github.com/Amsterdam/amsterdam-s
 
 The [Glitch app](https://glitch.com/~ams-schema) mentioned above acts as a proxy, and reads the JSON Schemas from this repository from all available releases:
 
-- https://static.amsterdam.nl/schemas/core/schema ⟶ https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/master/schema.json
-- https://static.amsterdam.nl/schemas/core/schema@v0.0.1 ⟶ https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/v0.0.1/schema.json
-- https://static.amsterdam.nl/schemas/core/meta/object ⟶ https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/master/meta/object.json
+- https://schemas.data.amsterdam.nl/core/schema ⟶ https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/master/schema.json
+- https://schemas.data.amsterdam.nl/core/schema@v0.0.1 ⟶ https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/v0.0.1/schema.json
+- https://schemas.data.amsterdam.nl/core/meta/object ⟶ https://raw.githubusercontent.com/Amsterdam/amsterdam-schema/master/meta/object.json
 
 ## Examples
 

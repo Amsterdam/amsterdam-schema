@@ -7,7 +7,10 @@ const { promisify } = require('util')
 const glob = promisify(require('glob'))
 const jsonpath = require('jsonpath')
 
-const validate = require('../validate')
+const validate = require('./validate')
+
+const schema = require('../schema.json')
+const schemaUri = schema.$id
 
 function readJSONFile (filename) {
   try {
@@ -75,7 +78,7 @@ async function runAllTests () {
 
   let results = false
   try {
-    const validator = await validate.createValidator('https://static.amsterdam.nl/schemas/schema@v1.0#', schemas)
+    const validator = await validate.createValidator(schemaUri, schemas)
 
     const tests = await readJSONFiles(path.join(__dirname, '*/*.json'))
 
