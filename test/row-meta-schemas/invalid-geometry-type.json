@@ -1,23 +1,19 @@
 {
   "data": {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://static.amsterdam.nl/schemas/dataset/a/b",
+    "$id": "https://schemas.data.amsterdam.nl/dataset/a/b",
     "type": "object",
     "required": [
       "id",
-      "dataset",
-      "table"
+      "schema"
     ],
     "additionalProperties": false,
     "properties": {
       "id": {
-        "$ref": "https://static.amsterdam.nl/schemas/schema@v1.0#/definitions/id"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/id"
       },
-      "table": {
-        "$ref": "https://static.amsterdam.nl/schemas/schema@v1.0#/definitions/table"
-      },
-      "dataset": {
-        "$ref": "https://static.amsterdam.nl/schemas/schema@v1.0#/definitions/dataset"
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/schema"
       },
       "geometry": {
         "$ref": "https://geojson.org/schema/MultiPoint.json",
