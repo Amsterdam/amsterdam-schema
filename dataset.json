@@ -7,10 +7,7 @@
       "$ref": "./schema@v1.1.0#/definitions/basicProperties"
     }
   ],
-  "required": [
-    "tables",
-    "version"
-  ],
+  "required": ["tables", "version"],
   "properties": {
     "type": {
       "const": "dataset"
@@ -65,13 +62,26 @@
       "type": "string",
       "format": "date-time"
     },
+    "objective": {
+      "type": "string"
+    },
+    "temporalUnit": {
+      "type": "string"
+    },
+    "spatial": {
+      "type": "string"
+    },
+    "legalBasis": {
+      "type": "string"
+    },
+    "contactPoint": {
+      "description": "Person and (optional) e-mail.",
+      "type": "string"
+    },
     "crs": {
       "description": "Coordinate reference system",
       "type": "string",
-      "enum": [
-        "EPSG:28992",
-        "EPSG:4326"
-      ]
+      "enum": ["EPSG:28992", "EPSG:4326"]
     },
     "tables": {
       "type": "array",
