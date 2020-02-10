@@ -141,7 +141,7 @@ class DatasetFieldSchema(DatasetType):
 
     @property
     def is_primary(self) -> bool:
-        return self.name == "id" and self.type.endswith("/definitions/id")
+        return self.name == "id"
 
     @property
     def relation(self) -> typing.Optional[str]:
