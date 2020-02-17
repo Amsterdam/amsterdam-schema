@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://schemas.data.amsterdam.nl/dataset@v1.1.0",
+  "$id": "https://schemas.data.amsterdam.nl/dataset@v1.1.1",
   "type": "object",
   "allOf": [
     {
-      "$ref": "./schema@v1.1.0#/definitions/basicProperties"
+      "$ref": "./schema@v1.1.1#/definitions/basicProperties"
     }
   ],
   "required": ["tables", "version"],
@@ -13,11 +13,11 @@
       "const": "dataset"
     },
     "version": {
-      "$ref": "./schema@v1.1.0#/definitions/version"
+      "$ref": "./schema@v1.1.1#/definitions/version"
     },
     "homepage": {
       "type": "string",
-      "format": "url"
+      "format": "uri"
     },
     "language": {
       "type": "string",
@@ -89,7 +89,7 @@
       "items": {
         "oneOf": [
           {
-            "$ref": "./table@v1.1.0"
+            "$ref": "./table@v1.1.1"
           },
           {
             "type": "object",
