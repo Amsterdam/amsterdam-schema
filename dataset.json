@@ -7,13 +7,16 @@
       "$ref": "./schema@v1.1.1#/definitions/basicProperties"
     }
   ],
-  "required": ["tables", "version"],
+  "required": ["tables", "version", "status"],
   "properties": {
     "type": {
       "const": "dataset"
     },
     "version": {
       "$ref": "./schema@v1.1.1#/definitions/version"
+    },
+    "status": {
+      "type": "string"
     },
     "homepage": {
       "type": "string",
