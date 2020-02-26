@@ -31,6 +31,9 @@
           "type": "string",
           "format": "date-time"
         },
+        "auth": {
+          "$ref": "#/definitions/auth"
+        },
         "dateModified": {
           "type": "string",
           "format": "date-time"
@@ -82,6 +85,19 @@
         "name": {"type": "string"},
         "email": {"type": "string"}
       }
+    },
+    "auth": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "string"
+        }
+      ]
     }
   },
   "allOf": [
