@@ -4,6 +4,7 @@
   "definitions": {
     "rootProperty": {
       "type": "object",
+      "additionalProperties": true,
       "properties": {
         "title": {
           "type": "string"
@@ -11,8 +12,18 @@
         "description": {
           "type": "string"
         },
-        "uri": {
+        "format": {
           "type": "string"
+        },
+        "relation": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "enum": {
+          "type": "array"
         },
         "auth": {
           "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/auth"
@@ -23,7 +34,7 @@
           "required": ["type"],
           "properties": {
             "type": {
-              "type": "string"
+              "$ref": "http://json-schema.org/draft-07/schema#/definitions/simpleTypes"
             }
           }
         },
