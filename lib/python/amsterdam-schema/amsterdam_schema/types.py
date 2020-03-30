@@ -86,6 +86,7 @@ class DatasetSchema(SchemaType):
                             "$schema": "http://json-schema.org/draft-07/schema#",
                             "type": "object",
                             "additionalProperties": False,
+                            "parentTable": table.id,
                             "required": [
                                 "id",
                                 "schema"
