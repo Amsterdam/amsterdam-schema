@@ -72,7 +72,43 @@ class DatasetSchema(SchemaType):
     @property
     def tables(self) -> typing.List[DatasetTableSchema]:
         """Access the tables within the file"""
-        return [DatasetTableSchema(i, _parent_schema=self) for i in self["tables"]]
+        tables = []
+        for table_schema in self["tables"]:
+            table = DatasetTableSchema(table_schema, _parent_schema=self)
+            tables.append(table)
+            for field_name, field in table_schema["schema"]["properties"].items():
+                if field.get("type") == "table":
+                    # Map Arrays into tables.
+                    sub_table_schema = dict(
+                        id=f"{table.id}_{field_name}",
+                        type="table",
+                        schema={
+                            "$schema": "http://json-schema.org/draft-07/schema#",
+                            "type": "object",
+                            "additionalProperties": False,
+                            "required": [
+                                "id",
+                                "schema"
+                            ],
+                            "properties": {
+                                "id": {
+                                    "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/id",
+                                    "description": ""
+                                },
+                                "schema": {
+                                    "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/schema"
+                                },
+                                "parent": {
+                                    "type": "integer",
+                                    "relation": f"{self.id}:{table.id}"
+                                },
+                                **field["entity"]["properties"]
+                            }
+                        }
+                    )
+                    sub_table = DatasetTableSchema(sub_table_schema, _parent_schema=self)
+                    tables.append(sub_table)
+        return tables
 
     def get_table_by_id(self, table_id: str) -> DatasetTableSchema:
         for table in self.tables:
