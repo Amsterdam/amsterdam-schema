@@ -77,7 +77,7 @@ class DatasetSchema(SchemaType):
             table = DatasetTableSchema(table_schema, _parent_schema=self)
             tables.append(table)
             for field_name, field in table_schema["schema"]["properties"].items():
-                if field.get("type") == "table":
+                if field_is_nested_table(field):
                     # Map Arrays into tables.
                     sub_table_schema = dict(
                         id=f"{table.id}_{field_name}",
@@ -103,7 +103,7 @@ class DatasetSchema(SchemaType):
                                     "type": "integer",
                                     "relation": f"{self.id}:{table.id}"
                                 },
-                                **field["entity"]["properties"]
+                                **field["items"]["properties"]
                             }
                         }
                     )
@@ -195,3 +195,12 @@ class DatasetRow(DatasetType):
     def validate(self, schema: DatasetSchema):
         table = schema.get_table_by_id(self["table"])
         table.validate(self.data)
+
+
+def field_is_nested_table(field) -> bool:
+    """
+    Checks if field is a possible nested table.
+    """
+    return field.get("type") == "array" \
+        and "items" in field \
+        and field["items"].get("type") == "object"
