@@ -104,6 +104,11 @@ class DatasetTableSchema(SchemaType):
                 _name=name, _parent_table=self, _required=(name in required), **spec
             )
 
+    @property
+    def display_field(self):
+        """Tell which fields can be used as display field."""
+        return self["schema"].get("display", None)
+
     def validate(self, row: dict):
         """Validate a record against the schema."""
         jsonschema.validate(row, self.data["schema"])
