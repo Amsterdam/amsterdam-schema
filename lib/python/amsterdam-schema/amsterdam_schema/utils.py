@@ -55,13 +55,18 @@ def schema_defs_from_url(schemas_url) -> Dict[str, types.DatasetSchema]:
 
 
 def schema_def_from_url(schemas_url, schema_name):
-    return schema_defs_from_url(schemas_url)[schema_name]
+    schemas = schema_defs_from_url(schemas_url)
+    try:
+        return schemas[schema_name]
+    except KeyError:
+        avail = ", ".join(sorted(schemas.keys()))
+        raise ValueError(
+            f"Schema f{schema_name} does not exist at {schemas_url}. Available are: {avail}"
+        )
 
 
 def schema_def_from_file(filename) -> Dict[str, types.DatasetSchema]:
     """Read schema definitions from a file on local drive."""
-    with open(filename, 'r') as file_handler:
+    with open(filename, "r") as file_handler:
         schema_info = json.load(file_handler)
-        return {
-            schema_info['id']: types.DatasetSchema.from_dict(schema_info)
-        }
+        return {schema_info["id"]: types.DatasetSchema.from_dict(schema_info)}
