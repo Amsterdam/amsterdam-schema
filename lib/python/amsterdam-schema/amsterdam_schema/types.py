@@ -105,7 +105,7 @@ class DatasetSchema(SchemaType):
                                     "description": ""
                                 },
                                 "schema": {
-                                    "$ref": "https://schemas.data.amsterdam.nl/schema@{VERSION}#/definitions/schema"
+                                    "$ref": f"https://schemas.data.amsterdam.nl/schema@{VERSION}#/definitions/schema"
                                 },
                                 "parent": {
                                     "type": "integer",
