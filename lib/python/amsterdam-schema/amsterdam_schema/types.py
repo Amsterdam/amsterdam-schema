@@ -6,17 +6,18 @@ import typing
 from collections import UserDict
 
 import jsonschema
+from amsterdam_schema import VERSION
 
 SUPPORTED_REFS = {
     "https://geojson.org/schema/Geometry.json",
     "https://geojson.org/schema/Point.json",
     "https://geojson.org/schema/Polygon.json",
-    "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/id",
-    "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/class",
-    "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/dataset",
-    "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/year",
-    "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/uri",
-    "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/schema",
+    f"https://schemas.data.amsterdam.nl/schema@{VERSION}#/definitions/id",
+    f"https://schemas.data.amsterdam.nl/schema@{VERSION}#/definitions/class",
+    f"https://schemas.data.amsterdam.nl/schema@{VERSION}#/definitions/dataset",
+    f"https://schemas.data.amsterdam.nl/schema@{VERSION}#/definitions/year",
+    f"https://schemas.data.amsterdam.nl/schema@{VERSION}#/definitions/uri",
+    f"https://schemas.data.amsterdam.nl/schema@{VERSION}#/definitions/schema",
 }
 
 
@@ -93,11 +94,11 @@ class DatasetSchema(SchemaType):
                             ],
                             "properties": {
                                 "id": {
-                                    "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/id",
+                                    "type": "integer",
                                     "description": ""
                                 },
                                 "schema": {
-                                    "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/schema"
+                                    "$ref": "https://schemas.data.amsterdam.nl/schema@{VERSION}#/definitions/schema"
                                 },
                                 "parent": {
                                     "type": "integer",
