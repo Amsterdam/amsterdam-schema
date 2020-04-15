@@ -77,11 +77,18 @@ class DatasetSchema(SchemaType):
         for table_schema in self["tables"]:
             table = DatasetTableSchema(table_schema, _parent_schema=self)
             tables.append(table)
-            for field_name, field in table_schema["schema"]["properties"].items():
+        return tables
+
+    @property
+    def nested_tables(self) -> typing.List[DatasetTableSchema]:
+        """Access list of nested tables"""
+        tables = []
+        for table in self.tables:
+            for field in table.fields:
                 if field_is_nested_table(field):
                     # Map Arrays into tables.
                     sub_table_schema = dict(
-                        id=f"{table.id}_{field_name}",
+                        id=f"{table.id}_{field.name}",
                         type="table",
                         schema={
                             "$schema": "http://json-schema.org/draft-07/schema#",
@@ -112,8 +119,15 @@ class DatasetSchema(SchemaType):
                     tables.append(sub_table)
         return tables
 
+    def get_tables(self, include_nested=False) -> typing.List[DatasetTableSchema]:
+        """List tables, including nested"""
+        tables = self.tables
+        if include_nested:
+            tables += self.nested_tables
+        return tables
+
     def get_table_by_id(self, table_id: str) -> DatasetTableSchema:
-        for table in self.tables:
+        for table in self.get_tables(include_nested=True):
             if table.id == table_id:
                 return table
         raise ValueError(f"Schema of table '{table_id}' does not exist in {self}")
@@ -188,6 +202,10 @@ class DatasetFieldSchema(DatasetType):
     @property
     def format(self) -> typing.Optional[str]:
         return self.get("format")
+
+    @property
+    def is_nested_table(self) -> bool:
+        return field_is_nested_table(self)
 
 
 class DatasetRow(DatasetType):
