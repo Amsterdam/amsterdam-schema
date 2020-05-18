@@ -6,29 +6,40 @@
       "type": "object",
       "additionalProperties": true,
       "properties": {
-        "title": {
-          "type": "string"
+        "auth": {
+          "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/auth"
         },
+
         "description": {
           "type": "string"
         },
-        "format": {
-          "type": "string"
-        },
-        "relation": {
-          "type": "string"
-        },
-        "uri": {
-          "type": "string",
-          "format": "uri-reference"
-        },
+
         "enum": {
           "type": "array"
         },
-        "auth": {
-          "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/auth"
+
+        "format": {
+          "type": "string"
+        },
+
+        "provenance": {
+          "$ref": "https://schemas.data.amsterdam.nl/meta/provenance@v1.1.1#properties/provenance"
+        },
+
+        "relation": {
+          "type": "string"
+        },
+
+        "title": {
+          "type": "string"
+        },
+
+        "uri": {
+          "type": "string",
+          "format": "uri-reference"
         }
       },
+
       "oneOf": [
         {
           "required": ["type"],
