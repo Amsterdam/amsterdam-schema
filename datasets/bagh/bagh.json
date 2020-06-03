@@ -1,0 +1,1088 @@
+{
+  "type": "dataset",
+  "id": "bagh",
+  "title": "bagh",
+  "status": "beschikbaar",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "bouwblok",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "identificatie",
+          "volgnummer",
+          "registratiedatum",
+          "code"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "begin geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eind geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "code": {
+            "type": "string"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json"
+          },
+          "buurt": {
+            "type": "string",
+            "relation": "bagh:buurt"
+          }
+        }
+      }
+    },
+    {
+      "id": "buurt",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "identificatie",
+          "volgnummer",
+          "wijk",
+          "stadsdeel"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "begin geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eind geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json"
+          },
+          "code": {
+            "type": "string"
+          },
+          "naam": {
+            "type": "string"
+          },
+          "cbs code": {
+            "type": "string"
+          },
+          "documentdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentnummer": {
+            "type": "string"
+          },
+          "wijk": {
+            "type": "string",
+            "relation": "bagh:wijk"
+          },
+          "ggw gebied": {
+            "type": "string",
+            "relation": "bagh:ggw_gebied"
+          },
+          "stadsdeel": {
+            "type": "string",
+            "relation": "bagh:stadsdeel"
+          }
+        }
+      }
+    },
+    {
+      "id": "gemeente",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "identificatie",
+          "volgnummer",
+          "naam"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "begin geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eind geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "naam": {
+            "type": "string"
+          },
+          "verzorgingsgebied": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    {
+      "id": "ggw_gebied",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "identificatie",
+          "volgnummer",
+          "code",
+          "naam",
+          "stadsdeel"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "begin geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eind geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentnummer": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "naam": {
+            "type": "string"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json"
+          },
+          "stadsdeel": {
+            "type": "string",
+            "relation": "bagh:stadsdeel"
+          }
+        }
+      }
+    },
+    {
+      "id": "ggw_praktijkgebied",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "identificatie",
+          "volgnummer",
+          "naam",
+          "stadsdeel"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "begin geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eind geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "code": {
+            "type": "string"
+          },
+          "naam": {
+            "type": "string"
+          },
+          "documentdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentnummer": {
+            "type": "string"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json"
+          },
+          "stadsdeel": {
+            "type": "string",
+            "relation": "bagh:stadsdeel"
+          }
+        }
+      }
+    },
+    {
+      "id": "ligplaats",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "identificatie",
+          "volgnummer",
+          "hoofdadres id",
+          "status",
+          "buurt"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "begin geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eind geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentnummer": {
+            "type": "string"
+          },
+          "aanduiding in onderzoek": {
+            "type": "boolean"
+          },
+          "geconstateerd": {
+            "type": "boolean"
+          },
+          "hoofdadres id": {
+            "type": "string"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Polygon.json"
+          },
+          "status": {
+            "type": "string"
+          },
+          "buurt": {
+            "type": "string",
+            "relation": "bagh:buurt"
+          }
+        }
+      }
+    },
+    {
+      "id": "nummeraanduiding",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "identificatie",
+          "volgnummer",
+          "huisnummer"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "begin geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eind geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentnummer": {
+            "type": "string"
+          },
+          "aanduiding in onderzoek": {
+            "type": "boolean"
+          },
+          "geconstateerd": {
+            "type": "boolean"
+          },
+          "huisnummer": {
+            "type": "integer"
+          },
+          "huisletter": {
+            "type": "string"
+          },
+          "huisnummer toevoeging": {
+            "type": "string"
+          },
+          "postcode": {
+            "type": "string"
+          },
+          "openbare ruimte": {
+            "type": "string",
+            "relation": "bagh:openbare_ruimte"
+          },
+          "ligplaats": {
+            "type": "string",
+            "relation": "bagh:ligplaats"
+          },
+          "standplaats": {
+            "type": "string",
+            "relation": "bagh:standplaats"
+          },
+          "verblijfsobject": {
+            "type": "string",
+            "relation": "bagh:verblijfsobject"
+          },
+          "type adres": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "id": "openbare_ruimte",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "identificatie",
+          "volgnummer",
+          "naam",
+          "naam nen",
+          "status"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "begin geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eind geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "aanduiding in onderzoek": {
+            "type": "boolean"
+          },
+          "geconstateerd": {
+            "type": "boolean"
+          },
+          "naam": {
+            "type": "string"
+          },
+          "naam nen": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "documentdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentnummer": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json"
+          },
+          "woonplaats": {
+            "type": "string",
+            "relation": "bagh:woonplaats"
+          }
+        }
+      }
+    },
+    {
+      "id": "pand",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "identificatie",
+          "volgnummer",
+          "status"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "begin geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eind geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentnummer": {
+            "type": "string"
+          },
+          "aanduiding in onderzoek": {
+            "type": "boolean"
+          },
+          "geconstateerd": {
+            "type": "boolean"
+          },
+          "bouwjaar": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string"
+          },
+          "naam": {
+            "type": "string"
+          },
+          "ligging": {
+            "type": "string"
+          },
+          "type woonobject": {
+            "type": "string"
+          },
+          "aantal bouwlagen": {
+            "type": "integer"
+          },
+          "laagste bouwlaag": {
+            "type": "integer"
+          },
+          "hoogste bouwlaag": {
+            "type": "integer"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Polygon.json"
+          },
+          "bouwblok": {
+            "type": "string",
+            "relation": "bagh:bouwblok"
+          }
+        }
+      }
+    },
+    {
+      "id": "stadsdeel",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "identificatie",
+          "volgnummer",
+          "gemeente"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "begin geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eind geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json"
+          },
+          "date modified": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "code": {
+            "type": "string"
+          },
+          "naam": {
+            "type": "string"
+          },
+          "documentdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentnummer": {
+            "type": "string"
+          },
+          "vervallen": {
+            "type": "boolean"
+          },
+          "ingang cyclus": {
+            "type": "string",
+            "format": "date"
+          },
+          "gemeente": {
+            "type": "string",
+            "relation": "bagh:gemeente"
+          }
+        }
+      }
+    },
+    {
+      "id": "standplaats",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "identificatie",
+          "volgnummer",
+          "hoofdadres id",
+          "status"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "begin geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eind geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentnummer": {
+            "type": "string"
+          },
+          "aanduiding in onderzoek": {
+            "type": "boolean"
+          },
+          "geconstateerd": {
+            "type": "boolean"
+          },
+          "hoofdadres id": {
+            "type": "string"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Polygon.json"
+          },
+          "status": {
+            "type": "string"
+          },
+          "buurt": {
+            "type": "string",
+            "relation": "bagh:buurt"
+          }
+        }
+      }
+    },
+    {
+      "id": "verblijfsobject",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "identificatie",
+          "volgnummer",
+          "status",
+          "gebruiksdoel",
+          "toegang"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "begin geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eind geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentnummer": {
+            "type": "string"
+          },
+          "aanduiding in onderzoek": {
+            "type": "boolean"
+          },
+          "geconstateerd": {
+            "type": "boolean"
+          },
+          "heeftin hoofdadres id": {
+            "type": "string"
+          },
+          "heeftin nevenadres id": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Point.json"
+          },
+          "oppervlakte": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string"
+          },
+          "verdieping toegang": {
+            "type": "integer"
+          },
+          "aantal eenheden complex": {
+            "type": "integer"
+          },
+          "aantal bouwlagen": {
+            "type": "integer"
+          },
+          "hoogste bouwlaag": {
+            "type": "integer"
+          },
+          "laagste bouwlaag": {
+            "type": "integer"
+          },
+          "aantal kamers": {
+            "type": "integer"
+          },
+          "eigendomsverhouding": {
+            "type": "string"
+          },
+          "gebruiksdoel gezondheidszorgfunctie": {
+            "type": "string"
+          },
+          "gebruiksdoel woonfunctie": {
+            "type": "string"
+          },
+          "gebruik": {
+            "type": "string"
+          },
+          "gebruiksdoel": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "toegang": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "redenopvoer": {
+            "type": "string"
+          },
+          "redenafvoer": {
+            "type": "string"
+          },
+          "buurt": {
+            "type": "string",
+            "relation": "bagh:buurt"
+          }
+        }
+      }
+    },
+    {
+      "id": "verblijfsobjectpandrelatie",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "pand",
+          "verblijfsobject"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "pand": {
+            "type": "string",
+            "relation": "bagh:pand"
+          },
+          "verblijfsobject": {
+            "type": "string",
+            "relation": "bagh:verblijfsobject"
+          }
+        }
+      }
+    },
+    {
+      "id": "wijk",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "identificatie",
+          "volgnummer",
+          "naam",
+          "code",
+          "stadsdeel"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "begin geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eind geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "naam": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "documentdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentnummer": {
+            "type": "string"
+          },
+          "cbs code": {
+            "type": "string"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json"
+          },
+          "ggw gebied": {
+            "type": "string",
+            "relation": "bagh:ggw_gebied"
+          },
+          "stadsdeel": {
+            "type": "string",
+            "relation": "bagh:stadsdeel"
+          }
+        }
+      }
+    },
+    {
+      "id": "woonplaats",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "identificatie",
+          "volgnummer",
+          "naam",
+          "status"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "begin geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eind geldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "aanduiding in onderzoek": {
+            "type": "boolean"
+          },
+          "geconstateerd": {
+            "type": "boolean"
+          },
+          "naam": {
+            "type": "string"
+          },
+          "documentdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "documentnummer": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json"
+          },
+          "gemeente": {
+            "type": "string",
+            "relation": "bagh:gemeente"
+          }
+        }
+      }
+    }
+  ]
+}

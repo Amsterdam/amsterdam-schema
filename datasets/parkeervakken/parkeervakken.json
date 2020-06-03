@@ -1,0 +1,124 @@
+{
+  "id": "parkeervakken",
+  "type": "dataset",
+  "status": "beschikbaar",
+  "title": "",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "parkeervakken",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "additionalFilters": {
+          "regimes.inWerkingOp": {
+            "type": "range",
+            "start": "regimes.begin tijd",
+            "end": "regimes.eind tijd"
+          }
+        },
+        "required": [
+          "id",
+          "schema"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": ""
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/schema"
+          },
+          "buurtcode": {
+            "type": "string",
+            "description": ""
+          },
+          "straatnaam": {
+            "type": "string",
+            "description": ""
+          },
+          "type": {
+            "type": "string",
+            "description": ""
+          },
+          "soort": {
+            "type": "string",
+            "description": ""
+          },
+          "e_type": {
+            "type": "string",
+            "description": ""
+          },
+          "aantal": {
+            "type": "number",
+            "description": ""
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Polygon.json"
+          },
+          "regimes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "soort": {
+                  "type": "string",
+                  "description": ""
+                },
+                "e type": {
+                  "type": "string",
+                  "description": ""
+                },
+                "e type description": {
+                  "type": "string",
+                  "description": ""
+                },
+                "aantal": {
+                  "type": "number",
+                  "description": ""
+                },
+                "bord": {
+                  "type": "string",
+                  "description": ""
+                },
+                "kenteken": {
+                  "type": "string",
+                  "description": ""
+                },
+                "begin tijd": {
+                  "type": "time",
+                  "description": ""
+                },
+                "eind tijd": {
+                  "type": "time",
+                  "description": ""
+                },
+                "begin datum": {
+                  "type": "date",
+                  "description": ""
+                },
+                "eind datum": {
+                  "type": "date",
+                  "description": ""
+                },
+                "dagen": {
+                  "type": "array",
+                  "entity": {
+                      "type": "string"
+                  }
+                },
+                "opmerking": {
+                    "type": "string",
+                    "description": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

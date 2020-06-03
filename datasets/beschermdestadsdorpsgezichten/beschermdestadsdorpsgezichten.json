@@ -1,0 +1,85 @@
+{
+  "id": "beschermdestadsdorpsgezichten",
+  "type": "dataset",
+  "title": "Beschermde stads- en dorpsgezichten",
+  "description": "Alle gemeentelijke en rijks aangewezen beschermde stads- en dorpsgezichten in de Gemeente Amsterdam.",
+  "dateCreated": "2020-04-08T00:00:00",
+  "dateModified": "2020-04-08T00:00:00",
+  "license": "Creative Commons, Naamsvermelding",
+  "homepage": "https://data.amsterdam.nl",
+  "language": "nl",
+  "status": "niet_beschikbaar",
+  "version": "1",
+  "objective": "Het doel van de beschermde status is om de karakteristieke, ruimtelijke kwaliteit van een plek ook in de toekomst te handhaven. Door het beschikbaar stellen van deze gegevens kan gecontroleerd worden of een specifieke locatie binnen een beschermd gebied valt. Dit is bijvoorbeeld van belang bij de toetsing van een vergunningsplicht voor werkzaamheden die het gezicht kunnen aantasten.",
+  "temporalUnit": "uren",
+  "contactPoint": {
+    "name": "",
+    "email": "datapunt@amsterdam.nl"
+  },
+  "accrualPeriodicity": "wekelijks",
+  "spatialDescription": "Gemeente Amsterdam",
+  "theme": [
+    "Wonen",
+    "Duurzaamheid en milieu",
+    "Ruimte en Topografie"
+  ],
+  "publisher": "OIS",
+  "owner": "Gemeente Amsterdam, Stadswerken",
+  "authorizationGrantor": "Deze gegevensset wordt onderhouden voor uitvoering van taken betreffende de beschermde stads- en dorpsgezichten.",
+  "keywords": [
+    "Stadsgezicht",
+    "Dorpsgezicht",
+    "Gezicht",
+    "Beschermd"
+  ],
+  "hasBeginning": "2020-04-08T00:00:00",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "beschermdestadsdorpsgezichten",
+      "type": "table",
+      "title": "Beschermde stads- en dorpsgezichten",
+      "schema": {
+        "required": [
+          "id",
+          "schema"
+        ],
+        "display": "naam",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding objecttype"
+          },
+          "naam": {
+            "type": "string",
+            "description": "De naam van het beschermde stads- of dorpgezicht"
+          },
+          "status": {
+            "type": "string",
+            "description": "De status van het beschermde stads- of dorpgezicht"
+          },
+          "aanwijzingsdatum": {
+            "type": "string",
+            "description": "Datum waarop het gebied is aangewezen als beschermd stads- of dorpsgezicht",
+            "format": "date"
+          },
+          "intrekkingsdatum": {
+            "type": "string",
+            "description": "Datum waarop de beschermde status van het stads- of dorpsgezicht is ingetrokken",
+            "format": "date"
+          },
+          "geometry": {
+            "description": "Geometrie van het type MULTIPOLYGON van het beschermde gebied",
+            "$ref": "https://geojson.org/schema/MultiPolygon.json"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          }
+        }
+      }
+    }
+  ]
+}
