@@ -1,0 +1,176 @@
+{
+  "type": "dataset",
+  "id": "brp",
+  "title": "Basisregistratie Personen (BRP)",
+  "status": "beschikbaar",
+  "description": "Deze dataset maakt de basisregistratie personen toegankelijk, bij gebruik van login credentials.",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "auth": "BRP/R",
+  "tables": [
+    {
+      "id": "ingeschrevenpersonen",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "geslachtsaanduiding": {
+            "type": "string"
+          },
+          "naam": {
+            "type": "object",
+            "properties": {
+              "aanduidingNaamgebruik": {
+                "type": "string"
+              },
+              "voornamen": {
+                "type": "string"
+              },
+              "voorletters": {
+                "type": "string"
+              },
+              "geslachtsnaam": {
+                "type": "string"
+              },
+              "voorvoegsel": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "aanduidingNaamgebruik",
+              "voornamen",
+              "voorletters",
+              "geslachtsnaam",
+              "voorvoegsel"
+            ]
+          },
+          "leeftijd": {
+            "type": "integer"
+          },
+          "burgerservicenummer": {
+            "type": "string"
+          },
+          "geboorte": {
+            "type": "object",
+            "properties": {
+              "datum": {
+                "type": "object",
+                "properties": {
+                  "datum": {
+                    "type": "string"
+                  },
+                  "jaar": {
+                    "type": "integer"
+                  },
+                  "maand": {
+                    "type": "integer"
+                  },
+                  "dag": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "jaar"
+                ]
+              }
+            },
+            "required": [
+              "datum"
+            ]
+          },
+          "verblijfplaats": {
+            "type": "object",
+            "properties": {
+              "functieAdres": {
+                "type": "string"
+              },
+              "huisnummer": {
+                "type": "string"
+              },
+              "postcode": {
+                "type": "string"
+              },
+              "straatnaam": {
+                "type": "string"
+              },
+              "datumAanvangAdreshouding": {
+                "type": "object",
+                "properties": {
+                  "datum": {
+                    "type": "string"
+                  },
+                  "jaar": {
+                    "type": "integer"
+                  },
+                  "maand": {
+                    "type": "integer"
+                  },
+                  "dag": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "jaar"
+                ]
+              },
+              "datumInschrijvingInGemeente": {
+                "type": "object",
+                "properties": {
+                  "datum": {
+                    "type": "string"
+                  },
+                  "jaar": {
+                    "type": "integer"
+                  },
+                  "maand": {
+                    "type": "integer"
+                  },
+                  "dag": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "jaar"
+                ]
+              },
+              "gemeenteVanInschrijving": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "omschrijving": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "code",
+                  "omschrijving"
+                ]
+              }
+            },
+            "required": [
+              "functieAdres",
+              "huisnummer",
+              "postcode",
+              "straatnaam",
+              "datumAanvangAdreshouding",
+              "datumInschrijvingInGemeente",
+              "gemeenteVanInschrijving"
+            ]
+          }
+        },
+        "required": [
+          "geslachtsaanduiding",
+          "naam",
+          "leeftijd",
+          "burgerservicenummer",
+          "geboorte",
+          "verblijfplaats"
+        ]
+      }
+    }
+  ]
+}

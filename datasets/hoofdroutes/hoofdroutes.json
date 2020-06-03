@@ -1,0 +1,101 @@
+{
+  "type": "dataset",
+  "id": "hoofdroutes",
+  "title": "Hoofdwegen",
+  "status": "beschikbaar",
+  "description": "Hoofdwegen",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "routes gevaarlijke stoffen",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [],
+        "display": "title",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/MultiLineString.json"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "id": "tunnels gevaarlijke stoffen",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [],
+        "display": "title",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Point.json"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "categorie": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "id": "u routes",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "schema"],
+        "display": "name",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/MultiLineString.json"
+          },
+          "name": {
+            "type": "string"
+          },
+          "route": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}

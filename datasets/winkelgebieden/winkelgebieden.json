@@ -1,0 +1,66 @@
+{
+  "type": "dataset",
+  "id": "winkelgebieden",
+  "title": "winkelgebieden",
+  "status": "beschikbaar",
+  "description": "Winkelgebieden",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "winkelgebieden",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json"
+          },
+          "gebcode": {
+            "type": "string"
+          },
+          "gebnaam": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "oppha": {
+            "type": "number"
+          },
+          "codewg": {
+            "type": "string"
+          },
+          "concgebied": {
+            "type": "string"
+          },
+          "concnaam": {
+            "type": "string"
+          },
+          "bc2015": {
+            "type": "string"
+          },
+          "geb22": {
+            "type": "string"
+          },
+          "categorie": {
+            "type": "string"
+          },
+          "categorie naam": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}

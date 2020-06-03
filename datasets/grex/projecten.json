@@ -1,0 +1,49 @@
+{
+  "type": "dataset",
+  "id": "grex",
+  "title": "grex",
+  "status": "beschikbaar",
+  "description": "Grondexploitatie projecten",
+  "version": "0.0.1",
+  "crs": "EPSG:4326",
+  "tables": [
+    {
+      "id": "projecten",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "plannaam": {
+            "type": "string"
+          },
+          "startdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "planstatus": {
+            "type": "string"
+          },
+          "oppervlakte": {
+            "type": "number"
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json"
+          }
+        }
+      }
+    }
+  ]
+}
