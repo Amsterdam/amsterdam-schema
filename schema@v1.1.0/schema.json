@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.data.amsterdam.nl/schema@v1.1.0#",
+  "title": "Amsterdam Schema",
+  "$vocabulary": {
+    "https://json-schema.org/draft/2019-09/vocab/core": true,
+    "https://schemas.data.amsterdam.nl/meta/auth@v1.1.0": false,
+    "https://schemas.data.amsterdam.nl/meta/units@v1.1.0": false,
+    "https://schemas.data.amsterdam.nl/meta/relation@v1.1.0": false,
+    "https://schemas.data.amsterdam.nl/meta/provenance@v1.1.0": false
+  },
+  "$recursiveAnchor": true,
+  "definitions": {
+    "basicProperties": {
+      "type": "object",
+      "required": [
+        "id",
+        "type"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/id"
+        },
+        "type": {
+          "$ref": "#/definitions/type"
+        },
+        "title": {
+          "$ref": "#/definitions/title"
+        },
+        "description": {
+          "$ref": "#/definitions/description"
+        },
+        "dateCreated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateModified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "license": {
+          "type": "string"
+        }
+      }
+    },
+    "idString": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[0-9a-z]+(-?[0-9a-z]+)*$"
+    },
+    "id": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/idString"
+        },
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "dataset",
+        "table"
+      ]
+    },
+    "schema": {
+      "type": "string",
+      "format": "uri-reference"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "allOf": [
+    {
+      "oneOf": [
+        {
+          "$ref": "./dataset@v1.1.0"
+        },
+        {
+          "$ref": "./table@v1.1.0"
+        },
+        {
+          "$ref": "./row-meta-schema@v1.1.0"
+        }
+      ]
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "dataset"
+          }
+        }
+      },
+      "then": {
+        "$ref": "./dataset@v1.1.0"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "table"
+          }
+        }
+      },
+      "then": {
+        "$ref": "./table@v1.1.0"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "$comment": "JSON Schema metaschemas for row data are JSON Schemas with type = object",
+            "const": "object"
+          }
+        }
+      },
+      "then": {
+        "$ref": "./row-meta-schema@v1.1.0"
+      }
+    }
+  ]
+}
