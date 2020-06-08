@@ -17,12 +17,12 @@ def tryStep(String message, Closure block, Closure tearDown = null) {
 
 node {
     stage("Checkout") {
-        checkout scm schema-repos-reorg-ds-269
+        checkout scm 
     }
-
 
     stage("Build API image") {
         tryStep "build", {
+           sh "git checkout schema-repos-reorg-ds-269"
             docker.withRegistry("${DOCKER_REGISTRY_HOST}",'docker_registry_auth') {
             def image = docker.build("datapunt/dataservices/publish-static:${env.BUILD_NUMBER}", "src")
             image.push()
