@@ -17,7 +17,7 @@ def tryStep(String message, Closure block, Closure tearDown = null) {
 
 node {
     stage("Checkout") {
-        checkout scm
+        checkout scm schema-repos-reorg-ds-269
     }
 
 
