@@ -1,6 +1,9 @@
+import json
 import logging
+from io import BytesIO
 from pathlib import Path
 from os.path import splitext
+from environs import Env
 import requests
 from tempfile import TemporaryDirectory
 import shutil
@@ -8,18 +11,15 @@ from zipfile import ZipFile
 from swiftclient.service import SwiftError, SwiftService, SwiftUploadObject
 
 logger = logging.getLogger("__name__")
-# download the zip
-# unzip in python
-# push to objectstore
 
-# use env var to determine acc/prd
+env = Env()
 
-# generate full nested index in json format to be used from python
-# saves a lot of roundtrips
+DATAPUNT_ENVIRONMENT = env("DATAPUNT_ENVIRONMENT", "acceptance")
 
 
-publishable_folders = {"meta", "datasets", "schema@v1.1.1"}
+publishable_folders = {"meta", "datasets", "schema@v1.1.1", "schema@v1.1.0"}
 
+# XXX Maybe also a an env var
 # url = "https://github.com/Amsterdam/amsterdam-schema/archive/master.zip"
 url = "https://github.com/Amsterdam/amsterdam-schema/archive/schema-repos-reorg-ds-269.zip"
 
@@ -33,10 +33,26 @@ def fetch_publishable_paths(paths):
     return publishable_paths
 
 
+def get_index_file_obj(publishable_paths):
+    index = {}
+    for path_parts in publishable_paths:
+        if path_parts[1] != "datasets":
+            continue
+        try:
+            folder, dataset_ext = path_parts[2:]
+        except ValueError:
+            breakpoint()
+        dataset = splitext(dataset_ext)[0]
+        index[folder] = f"{folder}/{dataset}"
+    return BytesIO(json.dumps(index).encode("utf-8"))
+
+
 def main():
     publishable_paths = []
     response = requests.get(url, stream=True)
 
+    # We extract the zip, because otherwise we need a big set
+    # of open file handles during upload, now we can use file-paths
     with TemporaryDirectory() as temp_dir:
         tmp_file = Path(temp_dir) / "out.zip"
         with open(tmp_file, "wb") as wf:
@@ -49,9 +65,11 @@ def main():
                 members=("/".join(path_parts) for path_parts in publishable_paths),
             )
 
+        index_file_obj = get_index_file_obj(publishable_paths)
+
         with SwiftService() as swift:
             try:
-                uploads = []
+                uploads = [SwiftUploadObject(index_file_obj, object_name="index.json")]
                 for path_parts in publishable_paths:
                     # remove .json extension
                     object_name = "/".join(
@@ -64,7 +82,7 @@ def main():
                             options={"header": ["content-type:application/json"]},
                         )
                     )
-                for r in swift.upload("schemas", uploads):
+                for r in swift.upload(f"schemas-{DATAPUNT_ENVIRONMENT}", uploads):
                     if not r["success"]:
                         logger.error(r["error"])
 

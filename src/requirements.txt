@@ -7,11 +7,30 @@
 certifi==2020.4.5.1       # via requests
 chardet==3.0.4            # via requests
 click==7.1.2              # via -r requirements.in
+debtcollector==2.1.0      # via oslo.config, oslo.serialization, oslo.utils, python-keystoneclient
 environs==8.0.0           # via -r requirements.in
 idna==2.9                 # via requests
+iso8601==0.1.12           # via keystoneauth1, oslo.utils
+keystoneauth1==4.0.0      # via python-keystoneclient
 marshmallow==3.6.1        # via environs
+msgpack==1.0.0            # via oslo.serialization
+netaddr==0.7.19           # via oslo.config, oslo.utils
+netifaces==0.10.9         # via oslo.utils
+os-service-types==1.7.0   # via keystoneauth1
+oslo.config==8.1.0        # via python-keystoneclient
+oslo.i18n==5.0.0          # via oslo.config, oslo.utils, python-keystoneclient
+oslo.serialization==3.2.0  # via python-keystoneclient
+oslo.utils==4.2.0         # via oslo.serialization, python-keystoneclient
+pbr==5.4.5                # via debtcollector, keystoneauth1, oslo.i18n, oslo.serialization, oslo.utils, python-keystoneclient, stevedore
+pyparsing==2.4.7          # via oslo.utils
 python-dotenv==0.13.0     # via environs
+python-keystoneclient==4.0.0  # via -r requirements.in
 python-swiftclient==3.9.0  # via -r requirements.in
-requests==2.23.0          # via -r requirements.in, python-swiftclient
-six==1.15.0               # via python-swiftclient
+pytz==2020.1              # via oslo.serialization, oslo.utils
+pyyaml==5.3.1             # via oslo.config, oslo.serialization
+requests==2.23.0          # via -r requirements.in, keystoneauth1, oslo.config, python-keystoneclient, python-swiftclient
+rfc3986==1.4.0            # via oslo.config
+six==1.15.0               # via debtcollector, keystoneauth1, oslo.i18n, oslo.utils, python-keystoneclient, python-swiftclient
+stevedore==2.0.0          # via keystoneauth1, oslo.config, python-keystoneclient
 urllib3==1.25.9           # via requests
+wrapt==1.12.1             # via debtcollector
