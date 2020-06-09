@@ -16,3 +16,7 @@ upgrade:
 	pur --patch=Django -r requirements.in
 	pur --no-recursive -r requirements_dev.txt
 	pip-compile -v --upgrade --output-file requirements.txt requirements.in
+
+.PHONY: release
+release:
+	python publish.py
