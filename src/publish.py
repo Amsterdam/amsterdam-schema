@@ -32,11 +32,7 @@ DATAPUNT_ENVIRONMENT = env("DATAPUNT_ENVIRONMENT", "acceptance")
 publishable_prefixes = ("datasets", "schema@")
 
 
-# url = "https://github.com/Amsterdam/amsterdam-schema/archive/master.zip"
-# XXX For testing we temporary use a branch with the new schema structure
-# Because the master branch, for now, does not have the new directory structure that
-# is needed.
-url = "https://github.com/Amsterdam/amsterdam-schema/archive/schema-repos-reorg-ds-269.zip"
+url = "https://github.com/Amsterdam/amsterdam-schema/archive/master.zip"
 
 
 def fetch_publishable_paths(paths):
