@@ -29,7 +29,8 @@ env = Env()
 DATAPUNT_ENVIRONMENT = env("DATAPUNT_ENVIRONMENT", "acceptance")
 
 
-publishable_folders = {"meta", "datasets", "schema@v1.1.1", "schema@v1.1.0"}
+publishable_prefixes = ("datasets", "schema@")
+
 
 # url = "https://github.com/Amsterdam/amsterdam-schema/archive/master.zip"
 # XXX For testing we temporary use a branch with the new schema structure
@@ -42,7 +43,7 @@ def fetch_publishable_paths(paths):
     publishable_paths = []
     for path in paths:
         path_parts = path.split("/")
-        if path_parts[1] in publishable_folders and path_parts[-1]:
+        if path_parts[1].startswith(publishable_prefixes) and path_parts[-1]:
             publishable_paths.append(path_parts)
     return publishable_paths
 
@@ -56,6 +57,23 @@ def get_index_file_obj(publishable_paths):
         dataset = splitext(dataset_ext)[0]
         index[folder] = f"{folder}/{dataset}"
     return BytesIO(json.dumps(index).encode("utf-8"))
+
+
+def create_object_name(path_parts):
+    """ We need some path mangling and move objects from version directories
+        to the root with an @vx.y.z postfix, e.g.:
+            schema@v1.1.1/row-meta-schema -> row-meta-schema@v1.1.1
+            schema@v1.1.1/meta/auth -> meta/auth@v1.1.1
+    """
+    parts = path_parts[:]
+    # Always remove json extension
+    parts[-1] = splitext(parts[-1])[0]
+    # For metaschema files, move to root level
+    if "@" in parts[1]:
+        _, version = parts[1].split("@")
+        parts[-1] = f"{parts[-1]}@{version}"
+        parts.pop(1)
+    return "/".join(parts[1:])
 
 
 def main():
@@ -82,10 +100,7 @@ def main():
             try:
                 uploads = [SwiftUploadObject(index_file_obj, object_name="index.json")]
                 for path_parts in publishable_paths:
-                    # remove .json extension
-                    object_name = "/".join(
-                        path_parts[1:-1] + [splitext(path_parts[-1])[0]]
-                    )
+                    object_name = create_object_name(path_parts)
                     uploads.append(
                         SwiftUploadObject(
                             str(Path(temp_dir) / "/".join(path_parts)),
