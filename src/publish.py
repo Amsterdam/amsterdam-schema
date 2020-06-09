@@ -1,3 +1,15 @@
+__doc__ = """
+
+Script that publishes verified schemas to the objectstore.
+
+Course of action is as follows:
+
+* A zipfile of the master branch of the 'amsterdam-schema' repo is fetched from github
+* The zip is unpacked to a temporary directory
+* The relevant schema files (metaschema + datasets) are pushed to the objectstore
+* An json file with an index of the datasets pushed to the the objectstore
+
+"""
 import json
 import logging
 from io import BytesIO
@@ -19,8 +31,10 @@ DATAPUNT_ENVIRONMENT = env("DATAPUNT_ENVIRONMENT", "acceptance")
 
 publishable_folders = {"meta", "datasets", "schema@v1.1.1", "schema@v1.1.0"}
 
-# XXX Maybe also a an env var
 # url = "https://github.com/Amsterdam/amsterdam-schema/archive/master.zip"
+# XXX For testing we temporary use a branch with the new schema structure
+# Because the master branch, for now, does not have the new directory structure that
+# is needed.
 url = "https://github.com/Amsterdam/amsterdam-schema/archive/schema-repos-reorg-ds-269.zip"
 
 
@@ -38,10 +52,7 @@ def get_index_file_obj(publishable_paths):
     for path_parts in publishable_paths:
         if path_parts[1] != "datasets":
             continue
-        try:
-            folder, dataset_ext = path_parts[2:]
-        except ValueError:
-            breakpoint()
+        folder, dataset_ext = path_parts[2:]
         dataset = splitext(dataset_ext)[0]
         index[folder] = f"{folder}/{dataset}"
     return BytesIO(json.dumps(index).encode("utf-8"))
