@@ -14,9 +14,11 @@ This repository contains:
 2. A JSON Schema to validate table metadata;
 3. A JSON Schema _metaschema_ to validate the JSON Schema that describes table data.
 
-An in-depth textual specification of the Amsterdam Schema can be found at https://github.com/Amsterdam/amsterdam-schema/wiki/Amsterdam-Schema
+## Amsterdam Schema Specification
 
-The Amsterdam Schema is chosen in such a way that it can interoperate with as many systems as possible. The results of this analysis can be found at the [Grootst Gemene Deler](https://github.com/Amsterdam/amsterdam-schema/wiki/Grootst-Gemene-Deler) page.
+Apart from the technical description an in-depth textual specification of the Amsterdam Schema can be found at https://github.com/Amsterdam/amsterdam-schema/wiki/Amsterdam-Schema
+
+The Amsterdam Schema is chosen to be delimited in such a way that it can interoperate with as many systems as possible. The results of this analysis can be found at the [Grootst Gemene Deler](https://github.com/Amsterdam/amsterdam-schema/wiki/Grootst-Gemene-Deler) page.
 
 ## Amsterdam Schema Registry
 
