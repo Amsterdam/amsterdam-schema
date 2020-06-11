@@ -22,6 +22,13 @@
           "code"
         ],
         "display": "id",
+        "additionalRelations": {
+          "pand": {
+            "table": "pand",
+            "field": "bouwblok",
+            "format": "summary"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -76,6 +83,18 @@
           "stadsdeel"
         ],
         "display": "id",
+        "additionalRelations": {
+          "bouwblok": {
+            "table": "bouwblok",
+            "field": "buurt",
+            "format": "summary"
+          },
+          "ligplaats": {
+            "table" : "ligplaats",
+            "field": "buurt",
+            "format": "summary"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -150,6 +169,18 @@
           "naam"
         ],
         "display": "id",
+        "additionalRelations": {
+          "stadsdeel": {
+            "table": "stadsdeel",
+            "field": "gemeente",
+            "format": "embedded"
+          },
+          "woonplaats": {
+            "table": "woonplaats",
+            "field": "gemeente",
+            "format": "embedded"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -201,6 +232,18 @@
           "stadsdeel"
         ],
         "display": "id",
+        "additionalRelations": {
+          "wijk":  {
+            "table": "wijk",
+            "field": "ggw_gebied",
+            "format": "embedded"
+          },
+          "buurt": {
+            "table": "buurt",
+            "field": "ggw_gebied",
+            "format": "summary"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -330,6 +373,13 @@
           "buurt"
         ],
         "display": "id",
+        "additionalRelations": {
+          "nummeraanduiding": {
+            "table": "nummeraanduiding",
+            "field": "ligplaats",
+            "format": "embedded"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -491,6 +541,13 @@
           "status"
         ],
         "display": "id",
+        "additionalRelations":{
+          "nummeraanduiding": {
+            "table": "nummeraanduiding",
+            "field": "openbare_ruimte",
+            "format": "summary"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -653,6 +710,23 @@
           "gemeente"
         ],
         "display": "id",
+        "additionalRelations": {
+          "buurt": {
+            "table": "buurt",
+            "field": "stadsdeel",
+            "format": "summary"
+          },
+          "ggw_gebied": {
+            "table": "ggw_gebied",
+            "field": "stadsdeel",
+            "format": "embedded"
+          },
+          "ggw_praktijkgebied": {
+            "table": "ggw_praktijkgebied",
+            "field": "stadsdeel",
+            "format": "embedded"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -728,6 +802,13 @@
           "status"
         ],
         "display": "id",
+        "additionalRelations": {
+          "nummeraanduiding": {
+            "table": "nummeraanduiding",
+            "field": "standplaats",
+            "format": "embedded"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -799,6 +880,13 @@
           "toegang"
         ],
         "display": "id",
+        "additionalRelations": {
+          "nummeraanduiding": {
+            "table": "nummeraanduiding",
+            "field": "verblijfsobject",
+            "format": "embedded"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -959,6 +1047,13 @@
           "stadsdeel"
         ],
         "display": "id",
+        "additionalRelations": {
+          "buurt":   {
+            "table": "buurt",
+            "field": "wijk",
+            "format": "embedded"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
