@@ -61,7 +61,15 @@
     }
   },
   "type": "object",
-  "required": ["$schema", "type", "properties", "required", "display"],
+  "required": [
+    "$schema",
+    "type",
+    "properties",
+    "required",
+    "display",
+    "mainGeometry",
+    "identifier"
+  ],
   "additionalProperties": false,
   "properties": {
     "$schema": {
@@ -97,24 +105,19 @@
     "display": {
       "type": "string"
     },
+    "mainGeometry": {
+      "type": "string"
+    },
+    "identifier": {
+      "type": "string"
+    },
     "properties": {
       "type": "object",
-      "required": ["id", "schema"],
+      "required": ["schema"],
       "propertyNames": {
         "pattern": "^[a-z][ a-z0-9]*$"
       },
       "properties": {
-        "id": {
-          "type": "object",
-          "properties": {
-            "description": {
-              "type": "string"
-            },
-            "$ref": {
-              "const": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/id"
-            }
-          }
-        },
         "schema": {
           "type": "object",
           "required": ["$ref"],
@@ -126,23 +129,40 @@
               "const": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
             }
           }
-        },
-        "geometry": {
-          "type": "object",
-          "required": ["$ref"],
-          "properties": {
-            "$ref": {
-              "type": "string",
-              "enum": [
-                "https://geojson.org/schema/Geometry.json",
-                "https://geojson.org/schema/Point.json",
-                "https://geojson.org/schema/LineString.json",
-                "https://geojson.org/schema/MultiLineString.json",
-                "https://geojson.org/schema/Polygon.json",
-                "https://geojson.org/schema/MultiPolygon.json"
-              ]
+        }
+      },
+      "patternProperties": {
+        "^[^schema].*$": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "$ref": {
+                  "const": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/id"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "required": ["$ref"],
+              "properties": {
+                "$ref": {
+                  "type": "string",
+                  "enum": [
+                    "https://geojson.org/schema/Geometry.json",
+                    "https://geojson.org/schema/Point.json",
+                    "https://geojson.org/schema/LineString.json",
+                    "https://geojson.org/schema/MultiLineString.json",
+                    "https://geojson.org/schema/Polygon.json",
+                    "https://geojson.org/schema/MultiPolygon.json"
+                  ]
+                }
+              }
             }
-          }
+          ]
         }
       },
       "additionalProperties": {
