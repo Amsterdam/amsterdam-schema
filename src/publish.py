@@ -13,9 +13,11 @@ Course of action is as follows:
 import json
 import logging
 from io import BytesIO
+import os
 from pathlib import Path
 from os.path import splitext
 import click
+import in_place
 import requests
 from tempfile import TemporaryDirectory
 import shutil
@@ -26,6 +28,7 @@ logger = logging.getLogger("__name__")
 
 
 publishable_prefixes = ("datasets", "schema@")
+DEFAULT_BASE_URL = "https://schemas.data.amsterdam.nl"
 
 
 def fetch_publishable_paths(paths):
@@ -65,6 +68,22 @@ def create_object_name(path_parts):
     return "/".join(parts[1:])
 
 
+def replace_schema_base_url(temp_dir, schema_base_url):
+    """ Do a replacement of the schema_base_url, needed to
+        valdidate schemas when served from another base url,
+        e.g. for testing
+    """
+    for root, dirs, file_names in os.walk(temp_dir):
+        root_path = Path(root)
+        for file_name in file_names:
+            file_path = root_path / file_name
+            if file_path.suffix == ".json":
+                with in_place.InPlace(root_path / file_name) as file:
+                    for line in file:
+                        line = line.replace(DEFAULT_BASE_URL, schema_base_url)
+                        file.write(line)
+
+
 @click.command()
 @click.option(
     "--dp-env",
@@ -78,7 +97,12 @@ def create_object_name(path_parts):
     default="https://github.com/Amsterdam/amsterdam-schema/archive/master.zip",
     help="Override the url to the zip on github (to use a specific branch for testing)",
 )
-def main(dp_env, github_url):
+@click.option(
+    "--schema-base-url",
+    envvar="SCHEMA_BASE_URL",
+    help="Override the base url in schema files (for testing)",
+)
+def main(dp_env, github_url, schema_base_url):
     publishable_paths = []
     response = requests.get(github_url, stream=True)
 
@@ -96,6 +120,8 @@ def main(dp_env, github_url):
                 members=("/".join(path_parts) for path_parts in publishable_paths),
             )
 
+        if schema_base_url is not None:
+            replace_schema_base_url(temp_dir, schema_base_url)
         index_file_obj = get_index_file_obj(publishable_paths)
 
         with SwiftService() as swift:
