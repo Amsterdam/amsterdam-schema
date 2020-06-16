@@ -15,7 +15,7 @@ import logging
 from io import BytesIO
 from pathlib import Path
 from os.path import splitext
-from environs import Env
+import click
 import requests
 from tempfile import TemporaryDirectory
 import shutil
@@ -24,15 +24,8 @@ from swiftclient.service import SwiftError, SwiftService, SwiftUploadObject
 
 logger = logging.getLogger("__name__")
 
-env = Env()
-
-DATAPUNT_ENVIRONMENT = env("DATAPUNT_ENVIRONMENT", "acceptance")
-
 
 publishable_prefixes = ("datasets", "schema@")
-
-
-url = "https://github.com/Amsterdam/amsterdam-schema/archive/master.zip"
 
 
 def fetch_publishable_paths(paths):
@@ -72,9 +65,22 @@ def create_object_name(path_parts):
     return "/".join(parts[1:])
 
 
-def main():
+@click.command()
+@click.option(
+    "--dp-env",
+    envvar="DATAPUNT_ENVIRONMENT",
+    default="acceptance",
+    help="Override the environment to be used, values can be 'acceptance' or 'production'",
+)
+@click.option(
+    "--github-url",
+    envvar="GITHUB_ZIP_URL",
+    default="https://github.com/Amsterdam/amsterdam-schema/archive/master.zip",
+    help="Override the url to the zip on github (to use a specific branch for testing)",
+)
+def main(dp_env, github_url):
     publishable_paths = []
-    response = requests.get(url, stream=True)
+    response = requests.get(github_url, stream=True)
 
     # We extract the zip, because otherwise we need a big set
     # of open file handles during upload, now we can use file-paths
@@ -104,7 +110,7 @@ def main():
                             options={"header": ["content-type:application/json"]},
                         )
                     )
-                for r in swift.upload(f"schemas-{DATAPUNT_ENVIRONMENT}", uploads):
+                for r in swift.upload(f"schemas-{dp_env}", uploads):
                     if not r["success"]:
                         logger.error(r["error"])
 
