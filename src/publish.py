@@ -126,7 +126,9 @@ def main(dp_env, github_url, schema_base_url):
 
         with SwiftService() as swift:
             try:
-                uploads = [SwiftUploadObject(index_file_obj, object_name="index.json")]
+                uploads = [
+                    SwiftUploadObject(index_file_obj, object_name="datasets/index.json")
+                ]
                 for path_parts in publishable_paths:
                     object_name = create_object_name(path_parts)
                     uploads.append(
