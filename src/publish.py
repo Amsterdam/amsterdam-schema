@@ -145,6 +145,4 @@ def main(dp_env, github_url, schema_base_url):
 
 
 if __name__ == "__main__":
-    # XXX To be added: use click and have cli param for environment override
-    # cli param for deploy specific dataset?
     main()
