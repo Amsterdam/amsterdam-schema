@@ -16,7 +16,7 @@ This repository contains:
 
 ## Amsterdam Schema Specification
 
-Apart from the technical description an in-depth textual specification of the Amsterdam Schema can be found at https://github.com/Amsterdam/amsterdam-schema/wiki/Amsterdam-Schema
+Apart from the technical description an in-depth textual specification of the Amsterdam Schema can be found at https://github.com/Amsterdam/amsterdam-schema/wiki/Amsterdam-Schema-Specification
 
 The Amsterdam Schema is chosen to be delimited in such a way that it can interoperate with as many systems as possible. The results of this analysis can be found at the [Grootst Gemene Deler](https://github.com/Amsterdam/amsterdam-schema/wiki/Grootst-Gemene-Deler) page.
 
