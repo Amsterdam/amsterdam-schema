@@ -5,6 +5,13 @@
   "status": "beschikbaar",
   "version": "0.0.1",
   "crs": "EPSG:28992",
+  "identifier": "identificatie",
+  "temporal": {
+    "identifier": "volgnummer",
+    "dimensions": {
+      "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+    }
+  },
   "tables": [
     {
       "id": "bouwblok",
@@ -22,6 +29,13 @@
           "code"
         ],
         "display": "id",
+        "additionalRelations": {
+          "pand": {
+            "table": "pand",
+            "field": "bouwblok",
+            "format": "summary"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -39,11 +53,11 @@
             "type": "string",
             "format": "date-time"
           },
-          "begin geldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "eind geldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date"
           },
@@ -76,6 +90,28 @@
           "stadsdeel"
         ],
         "display": "id",
+        "additionalRelations": {
+          "bouwblok": {
+            "table": "bouwblok",
+            "field": "buurt",
+            "format": "summary"
+          },
+          "verblijfsobject": {
+            "table" : "verblijfsobject",
+            "field": "buurt",
+            "format": "summary"
+          },
+          "ligplaats": {
+            "table" : "ligplaats",
+            "field": "buurt",
+            "format": "summary"
+          },
+          "standplaats": {
+            "table" : "standplaats",
+            "field": "buurt",
+            "format": "summary"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -93,11 +129,11 @@
             "type": "string",
             "format": "date-time"
           },
-          "begin geldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "eind geldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date"
           },
@@ -124,9 +160,9 @@
             "type": "string",
             "relation": "bagh:wijk"
           },
-          "ggw gebied": {
+          "ggwGebied": {
             "type": "string",
-            "relation": "bagh:ggw_gebied"
+            "relation": "bagh:ggwGebied"
           },
           "stadsdeel": {
             "type": "string",
@@ -150,6 +186,18 @@
           "naam"
         ],
         "display": "id",
+        "additionalRelations": {
+          "stadsdeel": {
+            "table": "stadsdeel",
+            "field": "gemeente",
+            "format": "embedded"
+          },
+          "woonplaats": {
+            "table": "woonplaats",
+            "field": "gemeente",
+            "format": "embedded"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -167,11 +215,11 @@
             "type": "string",
             "format": "date-time"
           },
-          "begin geldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "eind geldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date"
           },
@@ -185,7 +233,7 @@
       }
     },
     {
-      "id": "ggw_gebied",
+      "id": "ggwGebied",
       "type": "table",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -201,6 +249,18 @@
           "stadsdeel"
         ],
         "display": "id",
+        "additionalRelations": {
+          "wijk":  {
+            "table": "wijk",
+            "field": "ggwGebied",
+            "format": "embedded"
+          },
+          "buurt": {
+            "table": "buurt",
+            "field": "ggwGebied",
+            "format": "summary"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -218,11 +278,11 @@
             "type": "string",
             "format": "date-time"
           },
-          "begin geldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "eind geldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date"
           },
@@ -250,7 +310,7 @@
       }
     },
     {
-      "id": "ggw_praktijkgebied",
+      "id": "ggwPraktijkgebied",
       "type": "table",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -282,11 +342,11 @@
             "type": "string",
             "format": "date-time"
           },
-          "begin geldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "eind geldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date"
           },
@@ -325,11 +385,18 @@
           "id",
           "identificatie",
           "volgnummer",
-          "hoofdadres id",
+          "hoofdadresId",
           "status",
           "buurt"
         ],
         "display": "id",
+        "additionalRelations": {
+          "nummeraanduiding": {
+            "table": "nummeraanduiding",
+            "field": "ligplaats",
+            "format": "embedded"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -347,11 +414,11 @@
             "type": "string",
             "format": "date-time"
           },
-          "begin geldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "eind geldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date"
           },
@@ -362,13 +429,13 @@
           "documentnummer": {
             "type": "string"
           },
-          "aanduiding in onderzoek": {
+          "aanduidingInOnderzoek": {
             "type": "boolean"
           },
           "geconstateerd": {
             "type": "boolean"
           },
-          "hoofdadres id": {
+          "hoofdadresId": {
             "type": "string"
           },
           "geometrie": {
@@ -416,11 +483,11 @@
             "type": "string",
             "format": "date-time"
           },
-          "begin geldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "eind geldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date"
           },
@@ -431,7 +498,7 @@
           "documentnummer": {
             "type": "string"
           },
-          "aanduiding in onderzoek": {
+          "aanduidingInOnderzoek": {
             "type": "boolean"
           },
           "geconstateerd": {
@@ -443,15 +510,15 @@
           "huisletter": {
             "type": "string"
           },
-          "huisnummer toevoeging": {
+          "huisnummerToevoeging": {
             "type": "string"
           },
           "postcode": {
             "type": "string"
           },
-          "openbare ruimte": {
+          "openbareRuimte": {
             "type": "string",
-            "relation": "bagh:openbare_ruimte"
+            "relation": "bagh:openbareRuimte"
           },
           "ligplaats": {
             "type": "string",
@@ -475,7 +542,7 @@
       }
     },
     {
-      "id": "openbare_ruimte",
+      "id": "openbareRuimte",
       "type": "table",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -487,10 +554,17 @@
           "identificatie",
           "volgnummer",
           "naam",
-          "naam nen",
+          "naamNen",
           "status"
         ],
         "display": "id",
+        "additionalRelations":{
+          "nummeraanduiding": {
+            "table": "nummeraanduiding",
+            "field": "openbareRuimte",
+            "format": "summary"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -508,15 +582,15 @@
             "type": "string",
             "format": "date-time"
           },
-          "begin geldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "eind geldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "aanduiding in onderzoek": {
+          "aanduidingInOnderzoek": {
             "type": "boolean"
           },
           "geconstateerd": {
@@ -525,7 +599,7 @@
           "naam": {
             "type": "string"
           },
-          "naam nen": {
+          "naamNen": {
             "type": "string"
           },
           "type": {
@@ -583,11 +657,11 @@
             "type": "string",
             "format": "date-time"
           },
-          "begin geldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "eind geldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date"
           },
@@ -598,7 +672,7 @@
           "documentnummer": {
             "type": "string"
           },
-          "aanduiding in onderzoek": {
+          "aanduidingInOnderzoek": {
             "type": "boolean"
           },
           "geconstateerd": {
@@ -616,16 +690,16 @@
           "ligging": {
             "type": "string"
           },
-          "type woonobject": {
+          "typeWoonobject": {
             "type": "string"
           },
-          "aantal bouwlagen": {
+          "aantalBouwlagen": {
             "type": "integer"
           },
-          "laagste bouwlaag": {
+          "laagsteBouwlaag": {
             "type": "integer"
           },
-          "hoogste bouwlaag": {
+          "hoogsteBouwlaag": {
             "type": "integer"
           },
           "geometrie": {
@@ -653,6 +727,23 @@
           "gemeente"
         ],
         "display": "id",
+        "additionalRelations": {
+          "buurt": {
+            "table": "buurt",
+            "field": "stadsdeel",
+            "format": "summary"
+          },
+          "ggwGebied": {
+            "table": "ggwGebied",
+            "field": "stadsdeel",
+            "format": "embedded"
+          },
+          "ggwPraktijkgebied": {
+            "table": "ggwPraktijkgebied",
+            "field": "stadsdeel",
+            "format": "embedded"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -670,18 +761,18 @@
             "type": "string",
             "format": "date-time"
           },
-          "begin geldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "eind geldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date"
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/MultiPolygon.json"
           },
-          "date modified": {
+          "dateModified": {
             "type": "string",
             "format": "date-time"
           },
@@ -701,7 +792,7 @@
           "vervallen": {
             "type": "boolean"
           },
-          "ingang cyclus": {
+          "ingangCyclus": {
             "type": "string",
             "format": "date"
           },
@@ -724,10 +815,17 @@
           "id",
           "identificatie",
           "volgnummer",
-          "hoofdadres id",
+          "hoofdadresId",
           "status"
         ],
         "display": "id",
+        "additionalRelations": {
+          "nummeraanduiding": {
+            "table": "nummeraanduiding",
+            "field": "standplaats",
+            "format": "embedded"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -745,11 +843,11 @@
             "type": "string",
             "format": "date-time"
           },
-          "begin geldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "eind geldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date"
           },
@@ -760,13 +858,13 @@
           "documentnummer": {
             "type": "string"
           },
-          "aanduiding in onderzoek": {
+          "aanduidingInOnderzoek": {
             "type": "boolean"
           },
           "geconstateerd": {
             "type": "boolean"
           },
-          "hoofdadres id": {
+          "hoofdadresId": {
             "type": "string"
           },
           "geometrie": {
@@ -799,6 +897,13 @@
           "toegang"
         ],
         "display": "id",
+        "additionalRelations": {
+          "nummeraanduiding": {
+            "table": "nummeraanduiding",
+            "field": "verblijfsobject",
+            "format": "embedded"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -816,11 +921,11 @@
             "type": "string",
             "format": "date-time"
           },
-          "begin geldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "eind geldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date"
           },
@@ -831,16 +936,16 @@
           "documentnummer": {
             "type": "string"
           },
-          "aanduiding in onderzoek": {
+          "aanduidingInOnderzoek": {
             "type": "boolean"
           },
           "geconstateerd": {
             "type": "boolean"
           },
-          "heeftin hoofdadres id": {
+          "heeftinHoofdadresId": {
             "type": "string"
           },
-          "heeftin nevenadres id": {
+          "heeftinNevenadresId": {
             "type": "array",
             "items": {
               "type": "string"
@@ -855,31 +960,31 @@
           "status": {
             "type": "string"
           },
-          "verdieping toegang": {
+          "verdiepingToegang": {
             "type": "integer"
           },
-          "aantal eenheden complex": {
+          "aantalEenhedenComplex": {
             "type": "integer"
           },
-          "aantal bouwlagen": {
+          "aantalBouwlagen": {
             "type": "integer"
           },
-          "hoogste bouwlaag": {
+          "hoogsteBouwlaag": {
             "type": "integer"
           },
-          "laagste bouwlaag": {
+          "laagsteBouwlaag": {
             "type": "integer"
           },
-          "aantal kamers": {
+          "aantalKamers": {
             "type": "integer"
           },
           "eigendomsverhouding": {
             "type": "string"
           },
-          "gebruiksdoel gezondheidszorgfunctie": {
+          "gebruiksdoelGezondheidszorgfunctie": {
             "type": "string"
           },
-          "gebruiksdoel woonfunctie": {
+          "gebruiksdoelWoonfunctie": {
             "type": "string"
           },
           "gebruik": {
@@ -959,6 +1064,13 @@
           "stadsdeel"
         ],
         "display": "id",
+        "additionalRelations": {
+          "buurt":   {
+            "table": "buurt",
+            "field": "wijk",
+            "format": "embedded"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -976,11 +1088,11 @@
             "type": "string",
             "format": "date-time"
           },
-          "begin geldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "eind geldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date"
           },
@@ -997,15 +1109,15 @@
           "documentnummer": {
             "type": "string"
           },
-          "cbs code": {
+          "cbsCode": {
             "type": "string"
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/MultiPolygon.json"
           },
-          "ggw gebied": {
+          "ggwGebied": {
             "type": "string",
-            "relation": "bagh:ggw_gebied"
+            "relation": "bagh:ggwGebied"
           },
           "stadsdeel": {
             "type": "string",
@@ -1047,15 +1159,15 @@
             "type": "string",
             "format": "date-time"
           },
-          "begin geldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "eind geldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date"
           },
-          "aanduiding in onderzoek": {
+          "aanduidingInOnderzoek": {
             "type": "boolean"
           },
           "geconstateerd": {
