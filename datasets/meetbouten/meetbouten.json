@@ -1,0 +1,323 @@
+{
+  "type": "dataset",
+  "id": "meetbouten",
+  "title": "meetbouten",
+  "status": "beschikbaar",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "meetbouten",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/meetbouten/meetbouten.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "mainGeometry": "geometrie",
+        "identifier": "identificatie",
+        "required": ["schema", "id", "identificatie"],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke identificatie voor dit object"
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "Unieke identificatie van de meetbout"
+          },
+          "nabijnummeraanduiding": {
+            "type": "string",
+            "relation": "bag:nummeraanduiding",
+            "description": "Een adres in de nabijheid van de meetbout"
+          },
+          "locatie": {
+            "type": "string",
+            "description": "Beschrijving van de locatie van de meetbout, bijvoorbeeld 'in gemeenschappelijke muur'"
+          },
+          "statuscode": {
+            "type": "integer",
+            "description": "Status van de meetbout (1=actueel, 2=niet te meten, 3=vervallen) code"
+          },
+          "statusomschrijving": {
+            "type": "string",
+            "description": "Status van de meetbout (1=actueel, 2=niet te meten, 3=vervallen) omschrijving"
+          },
+          "vervaldatum": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop de meting heeft plaatsgevonden"
+          },
+          "merkcode": {
+            "type": "string",
+            "description": "Merk code"
+          },
+          "merkomschrijving": {
+            "type": "string",
+            "description": "Merk omschrijving"
+          },
+          "xcoordinaatmuurvlak": {
+            "type": "number",
+            "description": "X-coördinaat muurvlak"
+          },
+          "ycoordinaatmuurvlak": {
+            "type": "number",
+            "description": "Y-coördinaat muurvlak"
+          },
+          "windrichting": {
+            "type": "string",
+            "description": "Windrichting"
+          },
+          "ligtinbouwblok": {
+            "type": "string",
+            "relation": "bag:bouwblok",
+            "description": "Het bouwblok waarbinnen de meetbout ligt"
+          },
+          "ligtinbuurt": {
+            "type": "string",
+            "relation": "bag:buurt",
+            "description": "De buurt waarbinnen de meetbout ligt"
+          },
+          "ligtinstadsdeel": {
+            "type": "string",
+            "relation": "bag:stadsdeel",
+            "description": "Het stadsdeel waarbinnen de meetbout ligt"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Geometrische ligging van de meetbout"
+          },
+          "publiceerbaar": {
+            "type": "boolean",
+            "description": "Publiceerbaar ja of nee"
+          }
+        }
+      }
+    },
+    {
+      "id": "metingen",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/meetbouten/metingen.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id", "identificatie"],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke identificatie voor dit object"
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "Unieke identificatie van de meting"
+          },
+          "hoortbijmeetbout": {
+            "type": "string",
+            "relation": "meetbouten:meetbouten",
+            "description": "De meetbout waarop de meting is gedaan"
+          },
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop de meting heeft plaatsgevonden"
+          },
+          "typemeting": {
+            "type": "string",
+            "description": "Type meting (N=nulmeting, H=herhalingsmeting, T=tussentijdse meting, S=schatting)"
+          },
+          "wijzevaninwinnencode": {
+            "type": "string",
+            "description": "Wijze waarop de meting is ingewonnen code"
+          },
+          "wijzevaninwinnenomschrijving": {
+            "type": "string",
+            "description": "Wijze waarop de meting is ingewonnen omschrijving"
+          },
+          "hoogtetovnap": {
+            "type": "number",
+            "description": "Gemeten hoogte van de meetbout tov NAP"
+          },
+          "zakking": {
+            "type": "number",
+            "description": "Zakking van de meting t.o.v. vorige meting (mm)"
+          },
+          "refereertaanreferentiepunten": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "$comment": "relation disabled: meetbouten:referentiepunten",
+            "description": "De referentiepunten waar de metingen aan worden opgehangen"
+          },
+          "zakkingssnelheid": {
+            "type": "number",
+            "description": "Zakkingssnelheid van de meetbout (mm/​jaar) sinds de meting"
+          },
+          "zakkingcumulatief": {
+            "type": "number",
+            "description": "Cumulatieve zakking sinds de plaatsing van de meetbout"
+          },
+          "isgemetendoor": {
+            "type": "string",
+            "description": "ID Van de onderneming die de meting heeft uitgevoerd"
+          },
+          "hoeveelstemeting": {
+            "type": "integer",
+            "description": "Hoeveelste meting van de meetbout"
+          },
+          "aantaldagen": {
+            "type": "integer",
+            "description": "Het aantal dagen sinds de vorige meting"
+          },
+          "publiceerbaar": {
+            "type": "boolean",
+            "description": "Publiceerbaar ja of nee"
+          }
+        }
+      }
+    },
+    {
+      "id": "referentiepunten",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/meetbouten/referentiepunten.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id", "identificatie"],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke identificatie voor dit object"
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "Unieke identificatie van de meting"
+          },
+          "nabijnummeraanduiding": {
+            "type": "string",
+            "relation": "bag:nummeraanduiding",
+            "description": "Een adres in de nabijheid van het referentiepunt"
+          },
+          "locatie": {
+            "type": "string",
+            "description": "Beschrijving van de locatie van het referentiepunt bijv 'nabij noordoostelijke gevelhoek'."
+          },
+          "hoogtetovnap": {
+            "type": "number",
+            "description": "Hoogte van het referentiepunt t.o.v. NAP"
+          },
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum van plaatsing van het referentiepunt."
+          },
+          "statuscode": {
+            "type": "string",
+            "description": "Status van het referentiepunt (1=actueel, 2=niet te meten, 3=vervallen) code"
+          },
+          "statusomschrijving": {
+            "type": "string",
+            "description": "Status van het referentiepunt (1=actueel, 2=niet te meten, 3=vervallen) omschrijving"
+          },
+          "vervaldatum": {
+            "type": "string",
+            "format": "date",
+            "description": "Vervaldatum van het referentiepunt."
+          },
+          "merkcode": {
+            "type": "string",
+            "description": "Merk van het referentiepunt code"
+          },
+          "merkomschrijving": {
+            "type": "string",
+            "description": "Merk van het referentiepunt omschrijving"
+          },
+          "xcoordinaatmuurvlak": {
+            "type": "number",
+            "description": "X-coördinaat muurvlak"
+          },
+          "ycoordinaatmuurvlak": {
+            "type": "number",
+            "description": "Y-coördinaat muurvlak"
+          },
+          "windrichting": {
+            "type": "string",
+            "description": "Windrichting"
+          },
+          "ligtinbouwblok": {
+            "type": "string",
+            "relation": "bag:bouwblok",
+            "description": "Het bouwblok waarbinnen het referentiepunt ligt"
+          },
+          "ligtinbuurt": {
+            "type": "string",
+            "relation": "bag:buurt",
+            "description": "De buurt waarbinnen het referentiepunt ligt"
+          },
+          "ligtinstadsdeel": {
+            "type": "string",
+            "relation": "bag:stadsdeel",
+            "description": "Het stadsdeel waarbinnen het referentiepunt ligt"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Geometrische ligging van de meetbout"
+          },
+          "isnappeilmerk": {
+            "type": "string",
+            "$comment": "nap:peilmerken relation, temporarily removed, dataset not available yet.",
+            "description": "Het NAP-peilmerk dat het referentiepunt kan zijn."
+          },
+          "publiceerbaar": {
+            "type": "boolean",
+            "description": "Publiceerbaar ja of nee"
+          }
+        }
+      }
+    },
+    {
+      "id": "rollagen",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/meetbouten/rollagen.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id", "identificatie"],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke identificatie voor dit object"
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "Unieke identificatie van de rollaag"
+          },
+          "isgemetenvanbouwblok": {
+            "type": "string",
+            "relation": "bag:bouwblok",
+            "description": "Het bouwblok waarvan de rollaag is gemeten"
+          }
+        }
+      }
+    }
+  ]
+}

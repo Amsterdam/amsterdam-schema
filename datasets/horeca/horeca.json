@@ -1,0 +1,101 @@
+{
+  "type": "dataset",
+  "id": "horeca",
+  "title": "horeca",
+  "status": "beschikbaar",
+  "description": null,
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "exploitatievergunning",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "zaaknummer",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "zaaknummer": {
+            "type": "integer"
+          },
+          "zaaknaam": {
+            "type": "string"
+          },
+          "adres": {
+            "type": "string"
+          },
+          "zaakCategorie": {
+            "type": "string"
+          },
+          "zaakSpecificatie": {
+            "type": "string"
+          },
+          "begindatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "einddatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "openingstijdenZoDoVan": {
+            "type": "string"
+          },
+          "openingstijdenZoDoTot": {
+            "type": "string"
+          },
+          "openingstijdenVrZaVan": {
+            "type": "string"
+          },
+          "openingstijdenVrZaTot": {
+            "type": "string"
+          },
+          "oTijdenTerrasZoDoVan": {
+            "type": "string"
+          },
+          "oTijdenTerrasZoDoTot": {
+            "type": "string"
+          },
+          "oTijdenTerrasVrZaVan": {
+            "type": "string"
+          },
+          "oTijdenTerrasVrZaTot": {
+            "type": "string"
+          },
+          "locatie": {
+            "$ref": "https://geojson.org/schema/Point.json"
+          },
+          "terrasgeometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json"
+          },
+          "postcode": {
+            "type": "string"
+          },
+          "statusVergunning": {
+            "type": "string"
+          },
+          "statusTijdelijkTerras": {
+            "type": "string"
+          },
+          "toestemmingTijdelijkTerras": {
+            "type": "string"
+          },
+          "publBesluitTijdelijkTerras": {
+            "type": "string"
+          },
+          "tijdelijkTerrasDetails": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}

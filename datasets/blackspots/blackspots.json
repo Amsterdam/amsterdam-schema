@@ -18,8 +18,8 @@
         "required": [
           "schema",
           "id",
-          "locatie id",
-          "spot type",
+          "locatieId",
+          "spotType",
           "geometry",
           "stadsdeel",
           "status"
@@ -32,10 +32,10 @@
           "id": {
             "type": "integer"
           },
-          "locatie id": {
+          "locatieId": {
             "type": "string"
           },
-          "spot type": {
+          "spotType": {
             "type": "string",
 
             "enum": ["protocol ernstig", "blackspot", "risico", "protocol dodelijk", "wegvak"]
@@ -56,7 +56,7 @@
               "uitvoering"
             ]
           },
-          "start uitvoering": {
+          "startUitvoering": {
             "type": "string",
             "format": "date"
           },
@@ -64,21 +64,21 @@
             "type": "string",
             "format": "date"
           },
-          "start opmerking": {
+          "startOpmerking": {
             "type": "string"
           },
-          "eind opmerking": {
+          "eindOpmerking": {
             "type": "string"
           },
-          "jaar blackspotlijst": {
+          "jaarBlackspotlijst": {
             "type": "integer",
             "unit": "a_g"
           },
-          "jaar ongeval quickscan": {
+          "jaarOngevalQuickscan": {
             "type": "integer",
             "unit": "a_g"
           },
-          "jaar oplevering": {
+          "jaarOplevering": {
             "type": "integer",
             "unit": "a_g"
           }

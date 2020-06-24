@@ -1,5 +1,5 @@
 {
-  "id": "afv api",
+  "id": "afvApi",
   "type": "dataset",
   "authorizationGrantor": "Deze gegevensset wordt onderhouden voor uitvoering van taken betreffende het inzamelen van huishoudelijk afval. De juridische basis is de Wet Milieubeheer, Hoofdstuk 10. Afvalstoffen.",
   "theme": ["Wonen", "duurzaamheid en milieu", "Ruimte en Topografie"],
@@ -53,33 +53,33 @@
             "type": "string",
             "description": "Unieke aanduiding objecttype"
           },
-          "container id nummer": {
+          "containerIdNummer": {
             "type": "string",
             "description": "Uniek serienummer dat door de fabrikant aan het object is gegeven"
           },
-          "container serienummer": {
+          "containerSerienummer": {
             "type": "string",
             "description": "Uniek serienummer uitgegeven door de fabrikant"
           },
           "cluster": {
             "type": "string",
-            "relation": "afv api:cluster",
+            "relation": "afvApi:cluster",
             "description": "Uniek identificerend kenmerk van cluster waaraan de container is gerelateerd"
           },
-          "container eigenaar id": {
+          "containerEigenaarId": {
             "type": "string",
             "description": "Identificerend kenmerk eigenaar"
           },
-          "container eigenaar naam": {
+          "containerEigenaarNaam": {
             "type": "string",
             "description": "Naam eigenaar"
           },
-          "container status": {
+          "containerStatus": {
             "type": "integer",
             "enum": [0, 1, 2],
             "description": "Status van de container,0 - inactief, 1 - actief, 2 - gepland"
           },
-          "container afvalfractie": {
+          "containerAfvalfractie": {
             "type": "string",
             "enum": [
               "Rest",
@@ -95,75 +95,75 @@
             ],
             "description": "Type afvalfractie waarvoor de container is bedoeld"
           },
-          "container datum creatie": {
+          "containerDatumCreatie": {
             "type": "string",
             "format": "date-time",
             "description": "Datum waarop het object is gecreëerd in container management systeem"
           },
-          "container datum plaatsing": {
+          "containerDatumPlaatsing": {
             "type": "string",
             "format": "date-time",
             "description": "Datum waarop het object op de locatie is geplaatst"
           },
-          "container datum operationeel": {
+          "containerDatumOperationeel": {
             "type": "string",
             "format": "date-time",
             "description": "Datum dat de container operationeel is voor het aanbieden van afval"
           },
-          "container datum wijziging": {
+          "containerDatumWijziging": {
             "type": "string",
             "format": "date-time",
             "description": "Datum wanneer een van de gegevens van de container is gewijzigd"
           },
-          "container datum aflopen garantie": {
+          "containerDatumAflopenGarantie": {
             "type": "string",
             "format": "date-time",
             "description": "Datum waarop de garantie verloopt"
           },
-          "container datum oplevering": {
+          "containerDatumOplevering": {
             "type": "string",
             "format": "date-time",
             "description": "Datum waarop het object is geleverd"
           },
           "containerlocatie": {
             "type": "integer",
-            "relation": "afv api:containerlocatie",
+            "relation": "afvApi:containerlocatie",
             "description": "Identificerend kenmerk van de put waarin de container is geplaatst"
           },
-          "container geometrie": {
+          "containerGeometrie": {
             "$ref": "https://geojson.org/schema/Point.json",
             "description": "Geometrie van het type POINT van de container RD (epsg:28992)"
           },
-          "container wgs84 lat": {
+          "containerWgs84Lat": {
             "type": "number",
             "description": "latitude (breedtegraad) WGS84 (epsg:4326) ) van de containerlocatie"
           },
-          "container wgs84 lon": {
+          "containerWgs84Lon": {
             "type": "number",
             "description": "longitude (lengtegraad) in WGS84 (epsg:4326) ) van de containerlocatie"
           },
           "containertype": {
             "type": "string",
-            "relation": "afv api:container type",
+            "relation": "afvApi:container type",
             "description": "Identificerend kenmerk van het containertype"
           },
-          "gbd buurt volledigecode": {
+          "gbdBuurtVolledigecode": {
             "type": "string",
             "description": "Volledige code van de buurt, samengesteld uit stadsdeel,wijk en buurtcode"
           },
-          "bag hoofdadres identificatie verblijfsobject": {
+          "bagHoofdadresIdentificatieVerblijfsobject": {
             "type": "string",
             "relation": "bag:verblijfsobject",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
             "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject."
           },
-          "gbd buurt identificatie": {
+          "gbdBuurtIdentificatie": {
             "type": "string",
             "relation": "bag:buurt",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject"
           },
-          "bag openbareruimte identificatie": {
+          "bagOpenbareruimteIdentificatie": {
             "type": "string",
             "relation": "bag:openbareruimte",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
@@ -189,81 +189,81 @@
             "type": "string",
             "description": "Identificerend kenmerk van de put waarin de container is geplaatst"
           },
-          "containerlocatie serienummer": {
+          "containerlocatieSerienummer": {
             "type": "string",
             "description": "Uniek serienummer uitgegeven door de fabrikant"
           },
-          "containerlocatie status": {
+          "containerlocatieStatus": {
             "type": "integer",
             "enum": [0, 1, 2],
             "description": "Status van de container, 0 - inactief, 1 - actief, 2 - gepland"
           },
-          "containerlocatie geometrie": {
+          "containerlocatieGeometrie": {
             "$ref": "https://geojson.org/schema/Point.json",
             "description": "Geometrie van het type POINT van de containerlocatie RD (epsg:28992)"
           },
-          "containerlocatie wgs84 lon": {
+          "containerlocatieWgs84Lon": {
             "type": "number",
             "description": "longitude (lengtegraadd WGS84 (epsg:4326) )van containerlocatie"
           },
-          "containerlocatie wgs84 lat": {
+          "containerlocatieWgs84Lat": {
             "type": "number",
             "description": "latitude (breedtegraad) WGS84 (epsg:4326) )van containerlocatie"
           },
-          "containerlocatie eigenaar id": {
+          "containerlocatieEigenaarId": {
             "type": "string",
             "description": "Identificerend kenmerk eigenaar"
           },
-          "containerlocatie eigenaar naam": {
+          "containerlocatieEigenaarNaam": {
             "type": "string",
             "description": "Naam eigenaar"
           },
-          "containerlocatie datum creatie": {
+          "containerlocatieDatumCreatie": {
             "type": "string",
             "format": "date-time",
             "description": "Datum waarop het object is gecreëerd in container management systeem"
           },
-          "containerlocatie datum plaatsing": {
+          "containerlocatieDatumPlaatsing": {
             "type": "string",
             "format": "date-time",
             "description": "Datum waarop het object op de locatie is geplaatst"
           },
-          "containerlocatie datum operationeel": {
+          "containerlocatieDatumOperationeel": {
             "type": "string",
             "format": "date-time",
             "description": "Datum waarop het object is operationeel gezet"
           },
-          "containerlocatie datum oplevering": {
+          "containerlocatieDatumOplevering": {
             "type": "string",
             "format": "date-time",
             "description": "Datum waarop het object is opgeleleverd"
           },
-          "datum aflopen garantie": {
+          "datumAflopenGarantie": {
             "type": "string",
             "format": "date-time",
             "description": "Datum waarop de garantie verloopt"
           },
-          "ind bevat container": {
+          "indBevatContainer": {
             "type": "boolean",
             "description": "Indicatie dat de containerlocatie een container bevat"
           },
-          "gbd buurt volledigecode": {
+          "gbdBuurtVolledigecode": {
             "type": "string",
             "description": "Volledige code van de buurt, samengesteld uit stadsdeel,wijk en buurtcode"
           },
-          "bag hoofdadres identificatie verblijfsobject": {
+          "bagHoofdadresIdentificatieVerblijfsobject": {
             "type": "integer",
             "relation": "bag:verblijfsobject",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
             "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject."
           },
-          "gbd buurt identificatie": {
+          "gbdBuurtIdentificatie": {
             "type": "integer",
             "relation": "bag:buurt",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject"
           },
-          "bag openbareruimte identificatie": {
+          "bagOpenbareruimteIdentificatie": {
             "type": "integer",
             "relation": "bag:openbareruimte",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
@@ -292,61 +292,61 @@
             "type": "integer",
             "description": "Uniek identificerend kenmerk van cluster"
           },
-          "cluster subcluster indicatie": {
+          "clusterSubclusterIndicatie": {
             "type": "boolean",
             "enum": [true, false],
             "description": "Indicatie of het een cluster betreft dat is gesplitst door een weg"
           },
-          "cluster geometrie": {
+          "clusterGeometrie": {
             "$ref": "https://geojson.org/schema/Point.json",
             "description": "Geometrie van het type POINT van de het zwaartepunt van het cluster in RD (epsg:28992))"
           },
-          "containerlocatie wgs84 lon": {
+          "containerlocatieWgs84Lon": {
             "type": "number",
             "description": "longitude (lengtegraad) in WGS84 (epsg:4326)"
           },
-          "containerlocatie wgs84 lat": {
+          "containerlocatieWgs84Lat": {
             "type": "number",
             "description": "Breedtegraad in WGS84 (epsg:4326)"
           },
-          "cluster datum opvoer": {
+          "clusterDatumOpvoer": {
             "type": "string",
             "format": "date-time",
             "description": "Datum opvoer van het cluster. Dit is afgeleid van wanneer het gegeven bij het systeem bekend is of peildatum 01-01-2016"
           },
-          "cluster datum wijziging": {
+          "clusterDatumWijziging": {
             "type": "string",
             "format": "date-time",
             "description": "Datum wijziging van het cluster"
           },
-          "cluster datum ontstaan": {
+          "clusterDatumOntstaan": {
             "type": "string",
             "format": "date",
             "description": "Datum opvoer van het cluster. Dit is afgeleid van de plaatsingsdatum van de oudste container ,wanneer het gegeven bij het systeem bekend is of peildatum 01-01-2016"
           },
-          "cluster datum einde": {
+          "clusterDatumEinde": {
             "type": "string",
             "format": "date",
             "description": "Datum wanneer het cluster geen relaties meer heeft met containers met status=1. "
           },
-          "cluster status": {
+          "clusterStatus": {
             "type": "integer",
             "enum": [0, 1],
             "description": "Status van het cluster (0 - inactief , 1 - actief)"
           },
-          "bag hoofdadres identificatie verblijfsobject": {
+          "bagHoofdadresIdentificatieVerblijfsobject": {
             "type": "integer",
             "relation": "bag:verblijfsobject",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
             "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject."
           },
-          "gbd buurt identificatie": {
+          "gbdBuurtIdentificatie": {
             "type": "integer",
             "relation": "bag:buurt",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject"
           },
-          "bag openbareruimte identificatie": {
+          "bagOpenbareruimteIdentificatie": {
             "type": "integer",
             "relation": "bag:openbareruimte",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
@@ -356,7 +356,7 @@
       }
     },
     {
-      "id": "container type",
+      "id": "containerType",
       "type": "table",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -372,20 +372,20 @@
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "containertype id": {
+          "containertypeId": {
             "type": "integer",
             "description": "Identificerend kenmerk van het containertype"
           },
-          "container type naam": {
+          "containerTypeNaam": {
             "type": "string",
             "description": "Naam van het containertype"
           },
-          "container type volume": {
+          "containerTypeVolume": {
             "type": "number",
             "unit": "m3",
             "description": "Het volume (m3) aan afval wat de container kan bevatten"
           },
-          "containertype gewicht kg": {
+          "containertypeGewichtKg": {
             "type": "integer",
             "unit": "kg",
             "description": "Het volume (m3) aan afval wat de container kan bevatten"
@@ -410,109 +410,109 @@
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "cluster id": {
+          "clusterId": {
             "type": "string",
             "description": "Uniek identificerend kenmerk van cluster waaraan de container is gerelateerd"
           },
-          "cluster subcluster identicatie": {
+          "clusterSubclusterIdenticatie": {
             "type": "boolean",
             "description": "Indicatie of het een cluster betreft dat is gesplitst door een weg"
           },
-          "cluster fractie aantal": {
+          "clusterFractieAantal": {
             "type": "integer",
-            "relation": "afv api:cluster fractie",
+            "relation": "afvApi:clusterFractie",
             "description": "Lijst met voorkomende afvalfracties van het cluster"
           },
-          "cluster volume m3": {
+          "clusterVolumeM3": {
             "type": "number",
             "description": "De som van het volume (m3) aan afval wat de containers kunnen bevatten"
           },
-          "weging id": {
+          "wegingId": {
             "type": "integer",
             "description": "Uniek identificerend kenmerk weging. Deze is per container vastgelegd"
           },
-          "weging weegsysteem id": {
+          "wegingWeegsysteemId": {
             "type": "integer",
             "description": "Identificerend kenmerk weegsysteem (behorend bij voertuig)"
           },
-          "weging weegsysteem omschrijving": {
+          "wegingWeegsysteemOmschrijving": {
             "type": "string",
             "description": "Omschrijving van weegsysteem"
           },
-          "weging volgnummer": {
+          "wegingVolgnummer": {
             "type": "integer",
             "description": "Oplopende nummering wegingen per weegsysteem"
           },
-          "weging tijdstip weging": {
+          "wegingTijdstipWeging": {
             "type": "string",
             "format": "date-time",
             "description": "Tijdstip wanneer de weging is uitgevoerd (yyyy-mm-dd HH24:MI:SS)"
           },
-          "weging cust id": {
+          "wegingCustId": {
             "type": "string",
             "description": "weging cust id"
           },
-          "weging locatienummer": {
+          "wegingLocatienummer": {
             "type": "string",
             "description": "Locatienummer (cluster) zoals door Welvaarts is aangeleverd"
           },
-          "weging fractiecode": {
+          "wegingFractiecode": {
             "type": "integer",
             "description": "Code afvalfractie zoals door Welvaarts is aangeleverd, 1: Rest, 2: Glas, 3: Papier, 4: Plastic, 5: Textiel, 6: GFT, 7: Grof, 8: PMD, 9: Brood, -99: Onbekend"
           },
-          "weging fractie omschrijving": {
+          "wegingFractieOmschrijving": {
             "type": "string",
             "description": "Omschrijving afvalfractie zoals door Welvaarts is aangeleverd"
           },
-          "weging eerste weging": {
+          "wegingEersteWeging": {
             "type": "number",
             "unit": "kg",
             "description": "Eerste weging container: gewicht vol in Kg"
           },
-          "weging tweede weging": {
+          "wegingTweedeWeging": {
             "type": "number",
             "unit": "kg",
             "description": "Tweede weging container: gewicht vol in Kg"
           },
-          "weging netto gewicht": {
+          "wegingNettoGewicht": {
             "type": "number",
             "unit": "kg",
             "description": "Netto gewicht van het ingezamelde afval van de container in Kg"
           },
-          "weging geometry": {
+          "wegingGeometry": {
             "$ref": "https://geojson.org/schema/Point.json",
             "description": "Puntgeometrie in RD (epsg:28992) van de weging zoals door Welvaarts aangeleverd"
           },
-          "weging wgs84 lon": {
+          "wegingWgs84Lon": {
             "type": "number",
             "description": "Puntgeometrie WGS84 (epsg:4326) )van de weging zoals door Welvaarts aangeleverd"
           },
-          "weging wgs84 lat": {
+          "wegingWgs84Lat": {
             "type": "number",
             "description": "Puntgeometrie in WGS84 (epsg:4326) )van de weging zoals door Welvaarts aangeleverd"
           },
-          "weging bediening code": {
+          "wegingBedieningCode": {
             "type": "integer",
             "enum": ["0 - Handmatig", "1 - Automatisch", "3 - onbekend"],
             "description": "Code van de wijze waarop de bediening van de weging heeft plaatsgevonden"
           },
-          "weging bediening omschrijving": {
+          "wegingBedieningOmschrijving": {
             "type": "string",
             "description": "Omschrijving van de wijze waarop de bediening van de weging heeft plaatsgevonden"
           },
-          "bag hoofdadres identificatie verblijfsobject": {
+          "bagHoofdadresIdentificatieVerblijfsobject": {
             "type": "integer",
             "relation": "bag:verblijfsobject",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
             "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject."
           },
-          "gbd buurt identificatie": {
+          "gbdBuurtIdentificatie": {
             "type": "integer",
             "relation": "bag:buurt",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject"
           },
-          "bag openbareruimte identificatie": {
+          "bagOpenbareruimteIdentificatie": {
             "type": "integer",
             "relation": "bag:openbareruimte",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
@@ -522,7 +522,7 @@
       }
     },
     {
-      "id": "cluster fractie",
+      "id": "clusterFractie",
       "type": "table",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -537,43 +537,43 @@
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "cluster fractie id": {
+          "clusterFractieId": {
             "type": "string",
             "description": "Uniek identificerend kenmerk van clusterfractie"
           },
-          "cluster id": {
+          "clusterId": {
             "type": "string",
             "description": "Uniek identificerend kenmerk van cluster waaraan de container is gerelateerd"
           },
-          "cluster fractie aantal containers": {
+          "clusterFractieAantalContainers": {
             "type": "integer",
             "description": "Aantal containers per clusterfractie"
           },
-          "cluster fractie volume m3": {
+          "clusterFractieVolumeM3": {
             "type": "number",
             "unit": "m3",
             "description": "De som van het volume (m3) van containers per clusterfractie"
           },
-          "cluster fractie code": {
+          "clusterFractieCode": {
             "type": "string",
             "enum": [1, 2, 3, 4, 5, 6, 7, 8, 9, -999],
             "description": "Code afvalfractie zoals door Welvaarts is aanleverd. 1 - Rest, 2 - Glas, 3 - Papier, 4 - Plastic, 5 - Textiel, 6 - GFT, 7 - Grof, 8 - PMD, 9 - Brood, -999 - Onbekend"
           },
-          "cluster fractie omschrijving": {
+          "clusterFractieOmschrijving": {
             "type": "string",
             "description": "Afvalfractie zoals door Welvaarts is aangeleverd"
           },
-          "cluster fractie datum opvoer": {
+          "clusterFractieDatumOpvoer": {
             "type": "string",
             "format": "date-time",
             "description": "De datum waarop de cluster in het systeem is opgevoerd."
           },
-          "cluster fractie datum wijziging": {
+          "clusterFractieDatumWijziging": {
             "type": "string",
             "format": "date-time",
             "description": "De datum waarop de cluster in het systeem is gewijzigd."
           },
-          "cluster fractie datum einde": {
+          "clusterFractieDatumEinde": {
             "type": "string",
             "format": "date-time",
             "description": "De datum waarop de cluster in het systeem is eindigd."
