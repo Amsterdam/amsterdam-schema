@@ -1,0 +1,233 @@
+{
+    "type": "dataset",
+    "id": "touringcars",
+    "title": "Touringcars",
+    "status": "beschikbaar",
+    "description": "Informatie voor busbedrijven en chauffeurs over parkeerplaatsen, aanbevolen- en verplichteroutes, in- en uitstaphaltes, maximale doorrijhoogtes en wegwerkzaamheden",
+    "version": "0.0.1",
+    "crs": "EPSG:28992",
+    "tables": [
+      {
+        "id": "parkeerplaatsen",
+        "title": "Parkeerplaatsen",
+        "type": "table",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schema", "id"],
+          "display": "title",
+          "properties": {
+            "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Geometry.json",
+              "provenance": "lokatie"
+            },
+            "titel": {
+              "type": "string",
+              "title": "Parkeerplaatsnaam"              
+            },
+            "bijzonderheden": {
+              "type": "string"            
+            },
+            "busplaatsen": {
+              "type": "string",
+              "unit": "aantal",
+              "description": "Aantallen busplaatsen of coaches"
+            },
+            "urlnaam": {
+              "type": "string",
+              "description": "Naam van de URL",
+              "provenance":"linknaam"
+            },
+            "url": {
+              "type": "string",
+              "description": "Verwijzing naar aanvullende informatie",
+              "provenance": "linkurl"
+            }
+          }
+        }
+      },
+      {
+        "id": "wegwerkzaamheden",
+        "title": "Wegwerkzaamheden",
+        "type": "table",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schema", "id"],
+          "display": "title",
+          "properties": {
+            "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Geometry.json",
+              "provenance": "lokatie"
+            },
+            "titel": {
+              "type": "string",
+              "title": "Aard/Scope wegwerkzaamheden"              
+            },
+            "opmerkingen": {
+              "type": "string"            
+            },
+            "urlnaam": {
+              "type": "string",
+              "description": "Naam van de URL",
+              "provenance":"linknaam"
+            },
+            "url": {
+              "type": "string",
+              "description": "Verwijzing naar aanvullende informatie",
+              "provenance": "linkurl"
+            }
+          }
+        }
+      },
+      {
+        "id": "doorrijhoogte",
+        "title": "Maximale doorrijhoogte",
+        "type": "table",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schema", "id"],
+          "display": "title",
+          "properties": {
+            "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Geometry.json",
+              "provenance": "lokatie"
+            },
+            "titel": {
+              "type": "string",
+              "title": "Locatie doorrijhoogte beperking"              
+            },
+            "maximaleDoorrijhoogte": {
+              "type": "string",
+              "unit": "m"            
+            },
+            "urlnaam": {
+              "type": "string",
+              "description": "Naam van de URL",
+              "provenance":"linknaam"
+            },
+            "url": {
+              "type": "string",
+              "description": "Verwijzing naar aanvullende informatie",
+              "provenance": "linkurl"
+            }
+          }
+        }
+      },
+      {
+        "id": "haltes",
+        "title": "In -en uitstaphaltes",
+        "type": "table",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schema", "id"],
+          "display": "title",
+          "properties": {
+            "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Geometry.json",
+              "provenance": "lokatie"
+            },
+            "titel": {
+              "type": "string",
+              "title": "Naam halte"              
+            },
+            "bijzonderheden": {
+              "type": "string"                       
+            },
+            "busplaatsen": {
+                "type": "string",
+                "unit": "aantal",
+                "description": "Aantallen busplaatsen of coaches"
+            }
+          }
+        }
+      },
+      {
+        "id": "aanbevolenroutes",
+        "title": "Aanbevolen routes",
+        "type": "table",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schema", "id"],
+          "display": "title",
+          "properties": {
+            "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Geometry.json",
+              "provenance": "lokatie"
+            },
+            "titel": {
+              "type": "string",
+              "title": "Routenaam"              
+            }
+          }
+        }
+      },
+      {
+        "id": "verplichteroutes",
+        "title": "Verplichte routes",
+        "type": "table",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schema", "id"],
+          "display": "title",
+          "properties": {
+            "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Geometry.json",
+              "provenance": "lokatie"
+            },
+            "titel": {
+              "type": "string",
+              "title": "Routenaam"              
+            }
+          }
+        }
+      }
+    ]
+  }
+  
