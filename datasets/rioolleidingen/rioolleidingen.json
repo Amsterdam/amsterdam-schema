@@ -1,0 +1,104 @@
+{
+  "type": "dataset",
+  "id": "rioolleidingen",
+  "title": "Rioolleidingen",
+  "status": "niet_beschikbaar",
+  "description": "Rioolleidingen",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "rioolknopen",
+      "type": "table",
+      "provenance": "kel_rioolknopen",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "objnr"],
+        "mainGeometry": "geometrie",
+        "indentifier": "objnr",
+        "display": "knoopnr",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "objnr": {
+            "type": "integer"
+          },
+          "knoopnummer": {
+            "type": "string",
+            "provenance": "knoopnr"
+          },
+          "objectsoort": {
+            "type": "string",
+            "provenance": "objectsoor"
+          },
+          "typeFundering": {
+            "type": "string",
+            "provenance": "type_funde"
+          },
+          "putdekselhoogte": {
+            "type": "number",
+            "provenance": "deksel_mna"
+          },
+          "drempelhoogteOverstortputten": {
+            "type": "string",
+            "provenance": "drempelniv"
+          },
+          "xCoordinaat": {
+            "type": "number",
+            "provenance": "x_coord"
+          },
+          "yCoordinaat": {
+            "type": "number",
+            "provenance": "y_coord"
+          },
+          "gemaalNummer": {
+            "type": "string",
+            "provenance": "nr_gemaal"
+          },
+          "overstortNummer": {
+            "type": "string",
+            "provenance": "nr_oversto"
+          },
+          "symboolHhoek": {
+            "type": "number",
+            "provenance": "hoek"
+          },
+          "overstortDrempelbreedte": {
+            "type": "integer",
+            "provenance": "drempel_br"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json"
+          },
+          "buurtnaam": {
+            "type": "string"
+          },
+          "buurtcode": {
+            "type": "string"
+          },
+          "ggwnaam": {
+            "type": "string"
+          },
+          "ggwcode": {
+            "type": "string"
+          },
+          "stadsdeelnaam": {
+            "type": "string"
+          },
+          "stadsdeelcode": {
+            "type": "string"
+          },
+          "wijknaam": {
+            "type": "string"
+          },
+          "wijkcode": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}
