@@ -8,6 +8,128 @@
   "crs": "EPSG:28992",
   "tables": [
     {
+      "id": "rioolleidingen",
+      "type": "table",
+      "provenance": "kel_rioolleidingen",
+      "title": "Rioolleidingen",
+      "description": "Informatie over rioolleidingen",
+      "schema": {
+        "required": ["objnr"],
+        "identifier": "objnr",
+        "mainGeometry": "geometrie",
+        "display": "objnr",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@1.1.1#/definitions/schema"
+          },
+          "objnr": {
+            "type": "number",
+            "description": "Uniek objectnummer van de leiding (logische key)"
+          },
+          "bobBeginpunt": {
+            "type": "number",
+            "provenance": "bob_beginp",
+            "description": "BOB van het beginpunt van de leiding in meter tov NAP"
+          },
+          "bobEindpunt": {
+            "type": "number",
+            "provenance": "bob_eindpu",
+            "description": "BOB van het eindpunt van de leiding in meter tov NAP"
+          },
+          "diameter": {
+            "type": "number",
+            "provenance": "br_diamete",
+            "description": "Breedte of diameter van de leiding",
+            "unit": "cm"
+          },
+          "buurtcode": {
+            "type": "string",
+            "description": "Verwijzing naar de buurt waar het leidingsobject binnenvalt."
+          },
+          "buurtnaam": {
+            "type": "string",
+            "description": "Naam van de buurt waar het leidingsobject binnenvalt."
+          },
+          "ggwcode": {
+            "type": "string",
+            "description": "Verwijzing naar het GGW gebied waar het leidingsobject binnenvalt."
+          },
+          "ggwnaam": {
+            "type": "string",
+            "description": "Verwijzing naar het GGW gebied waar het leidingsobject binnenvalt."
+          },
+          "leidingnaam": {
+            "type": "string",
+            "provenance": "leidingnaa",
+            "description": "Leidingnaam opgebouwd uit knoopnummer begin en knoopnummer eind"
+          },
+          "lengteInMeters": {
+            "type": "number",
+            "provenance": "lengte_m",
+            "description": "Lengte van de leiding in meter",
+            "unit": "m"
+          },
+          "materiaal": {
+            "type": "string",
+            "description": "Materiaal van de leiding"
+          },
+          "stadsdeelcode": {
+            "type": "string",
+            "description": "Verwijzing naar de stadsdeel waar het leidingsobject binnenvalt."
+          },
+          "stadsdeelnaam": {
+            "type": "string",
+            "description": "Naam van het stadsdeel waar het leidingsobject binnenvalt."
+          },
+          "leidingToelichting": {
+            "type": "string",
+            "provenance": "toelleidin",
+            "description": "Leidingtoelichting"
+          },
+          "typeFundering": {
+            "type": "string",
+            "provenance": "typefunder",
+            "description": "Type fundering van de leiding"
+          },
+          "typeLeiding": {
+            "type": "string",
+            "provenance": "typeleidin",
+            "description": "Leidingtype"
+          },
+          "typeStelsel": {
+            "type": "string",
+            "provenance": "typestelst",
+            "$comment": "lijkt me iets anders dan stelsel",
+            "description": "Type stelsel"
+          },
+          "bemalingsgebied": {
+            "type": "string",
+            "provenance": "bem_gebied",
+            "description": "Bemalingsgebied"
+          },
+          "vorm": {
+            "type": "string",
+            "description": "Vorm van de leiding"
+          },
+          "wijkcode": {
+            "type": "string",
+            "description": "Verwijzing naar de wijk waar het leidingsobject binnenvalt."
+          },
+          "wijknaam": {
+            "type": "string",
+            "description": "Naam van de wijk waar het leidingsobject binnenvalt."
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "geometrie"
+          }
+        }
+      }
+    },
+    {
       "id": "rioolknopen",
       "type": "table",
       "provenance": "kel_rioolknopen",
