@@ -16,7 +16,7 @@
           "type": "object",
           "additionalProperties": false,
           "required": ["schema", "id"],
-          "display": "bouwstroompunt_id",
+          "display": "bouwstroompuntId",
           "properties": {
             "schema": {
               "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -24,7 +24,7 @@
             "id": {
               "type": "string"
             },
-            "bouwstroompunt_id": {
+            "bouwstroompuntId": {
                 "type": "string",
                 "provenance":"power_station_id"
               },
@@ -41,6 +41,7 @@
             },
             "locatie": {
               "type": "string",
+              "enum": ["Bovengronds", "Ondergronds"],
               "provenance":"positioning"
             },
             "connectorTypes": {
@@ -60,6 +61,7 @@
             },
             "vergunningsplichtig": {
               "type": "boolean",
+              "enum": [true, false],
               "provenance": "licence_needed"
             },
             "huisnummer": {
@@ -81,12 +83,12 @@
             "email": {
               "type": "string"              
             },
-            "datumtijd_aangemaakt": {
+            "datumtijdAangemaakt": {
               "type": "string",
               "format": "date-time",    
               "provenance": "createdAt"          
             },
-            "datumtijd_gewijzigd": {
+            "datumtijdGewijzigd": {
               "type": "string", 
               "format": "date-time",               
               "provenance": "updatedAt"          
