@@ -1,0 +1,99 @@
+{
+    "type": "dataset",
+    "id": "bouwstroompunten",
+    "title": "Bouwstroompunten",
+    "status": "beschikbaar",
+    "description": "Informatie over bouwstroompunten",
+    "version": "0.0.1",
+    "crs": "EPSG:28992",
+    "tables": [
+      {
+        "id": "bouwstroompunten",
+        "title": "Bouwstroompunten",
+        "type": "table",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schema", "id"],
+          "display": "bouwstroompunt_id",
+          "properties": {
+            "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            },
+            "id": {
+              "type": "string"
+            },
+            "bouwstroompunt_id": {
+                "type": "string",
+                "provenance":"power_station_id"
+              },
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Geometry.json"              
+            },
+            "provincie": {
+              "type": "string",
+              "provenance":"province"
+            },
+            "capaciteit": {
+              "type": "string",
+              "provenance":"capacity"            
+            },
+            "locatie": {
+              "type": "string",
+              "provenance":"positioning"
+            },
+            "connectorTypes": {
+              "type": "array",
+              "items": {
+                  "type": "string"
+                },
+              "provenance":"connector_types"
+            },
+            "postcode": {
+              "type": "string",
+              "provenance": "postal_code"
+            },
+            "straat": {
+              "type": "string",
+              "provenance": "street"
+            },
+            "vergunningsplichtig": {
+              "type": "boolean",
+              "provenance": "licence_needed"
+            },
+            "huisnummer": {
+              "type": "string",
+              "provenance": "house_number"
+            },
+            "contactPersoon": {
+              "type": "string",
+              "provenance": "contact_person"
+            },
+            "organisatie": {
+              "type": "string",
+              "provenance": "organization_name"
+            },
+            "gemeente": {
+              "type": "string",
+              "provenance": "municipality"
+            },
+            "email": {
+              "type": "string"              
+            },
+            "datumtijd_aangemaakt": {
+              "type": "string",
+              "format": "date-time",    
+              "provenance": "createdAt"          
+            },
+            "datumtijd_gewijzigd": {
+              "type": "string", 
+              "format": "date-time",               
+              "provenance": "updatedAt"          
+            }
+          }
+        }
+      }  
+    ]
+  }
+  
