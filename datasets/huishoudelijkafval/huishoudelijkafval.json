@@ -45,6 +45,7 @@
         "type": "object",
         "additionalProperties": false,
         "mainGeometry": "containerGeometrie",
+        "identifier": "containerId",
         "required": ["containerId", "schema"],
         "display": "containerId",
         "properties": {
@@ -187,13 +188,14 @@
         "type": "object",
         "additionalProperties": false,
         "mainGeometry": "containerlocatieGeometrie",
-        "required": ["containerLocatieId", "schema"],
-        "display": "containerLocatieId",
+        "identifier": "containerlocatieId",
+        "required": ["containerlocatieId", "schema"],
+        "display": "containerlocatieId",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "containerLocatieId": {
+          "containerlocatieId": {
             "type": "string",
             "description": "Identificerend kenmerk van de put waarin de container is geplaatst"
           },
@@ -290,6 +292,7 @@
         "type": "object",
         "additionalProperties": false,
         "mainGeometry": "clusterGeometrie",
+        "identifier": "clusterId",
         "required": ["clusterId", "schema"],
         "display": "clusterId",
         "properties": {
@@ -367,6 +370,7 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "identifier": "containertypeId",
         "required": ["containertypeId", "schema"],
         "display": "containertypeId",
         "properties": {
@@ -408,6 +412,7 @@
         "type": "object",
         "additionalProperties": false,
         "mainGeometry": "wegingGeometrie",
+        "identifier": "wegingId",
         "required": ["wegingId", "schema"],
         "display": "wegingId",
         "properties": {
@@ -526,6 +531,7 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "identifier": "clusterFractieId",
         "required": ["clusterFractieId", "schema"],
         "display": "clusterFractieId",
         "properties": {
