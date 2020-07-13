@@ -1,5 +1,5 @@
 {
-  "id": "afvApi",
+  "id": "huishoudelijkafval",
   "type": "dataset",
   "authorizationGrantor": "Deze gegevensset wordt onderhouden voor uitvoering van taken betreffende het inzamelen van huishoudelijk afval. De juridische basis is de Wet Milieubeheer, Hoofdstuk 10. Afvalstoffen.",
   "theme": ["Wonen", "duurzaamheid en milieu", "Ruimte en Topografie"],
@@ -39,10 +39,12 @@
     {
       "id": "container",
       "type": "table",
+      "provenance": "afv_api_container",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "mainGeometry": "containerGeometrie",
         "required": ["id", "schema"],
         "display": "id",
         "properties": {
@@ -63,7 +65,7 @@
           },
           "cluster": {
             "type": "string",
-            "relation": "afvApi:cluster",
+            "relation": "huishoudelijkafval:cluster",
             "description": "Uniek identificerend kenmerk van cluster waaraan de container is gerelateerd"
           },
           "containerEigenaarId": {
@@ -95,6 +97,10 @@
             ],
             "description": "Type afvalfractie waarvoor de container is bedoeld"
           },
+          "containerFractieOmschrijving": {
+            "type": "string",
+            "description": "Container fractieomschrijving zoals door leverancier is geleverd."
+          },
           "containerDatumCreatie": {
             "type": "string",
             "format": "date-time",
@@ -110,11 +116,6 @@
             "format": "date-time",
             "description": "Datum dat de container operationeel is voor het aanbieden van afval"
           },
-          "containerDatumWijziging": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Datum wanneer een van de gegevens van de container is gewijzigd"
-          },
           "containerDatumAflopenGarantie": {
             "type": "string",
             "format": "date-time",
@@ -125,26 +126,31 @@
             "format": "date-time",
             "description": "Datum waarop het object is geleverd"
           },
+          "containerWijzigingsdatumDp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Datum waarop het object is gewijzigd"
+          },
+          "containerVerwijderdDp": {
+            "type": "boolean",
+            "description": "indicatie of het object verwijderd is bij de bronhouder"
+          },
+          "containerGeadopteerdInd": {
+            "type": "boolean",
+            "description": "indicatie of het object door een bewoner geadopteerd is"
+          },
           "containerlocatie": {
             "type": "integer",
-            "relation": "afvApi:containerlocatie",
+            "relation": "huishoudelijkafval:containerlocatie",
             "description": "Identificerend kenmerk van de put waarin de container is geplaatst"
           },
           "containerGeometrie": {
             "$ref": "https://geojson.org/schema/Point.json",
             "description": "Geometrie van het type POINT van de container RD (epsg:28992)"
           },
-          "containerWgs84Lat": {
-            "type": "number",
-            "description": "latitude (breedtegraad) WGS84 (epsg:4326) ) van de containerlocatie"
-          },
-          "containerWgs84Lon": {
-            "type": "number",
-            "description": "longitude (lengtegraad) in WGS84 (epsg:4326) ) van de containerlocatie"
-          },
           "containertype": {
             "type": "string",
-            "relation": "afvApi:container type",
+            "relation": "huishoudelijkafval:containerType",
             "description": "Identificerend kenmerk van het containertype"
           },
           "gbdBuurtVolledigecode": {
@@ -159,7 +165,7 @@
           },
           "gbdBuurtIdentificatie": {
             "type": "string",
-            "relation": "bag:buurt",
+            "relation": "gebieden:buurten",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject"
           },
@@ -175,10 +181,12 @@
     {
       "id": "containerlocatie",
       "type": "table",
+      "provenance": "afv_api_containerlocatie",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "mainGeometry": "containerlocatieGeometrie",
         "required": ["id", "schema"],
         "display": "id",
         "properties": {
@@ -201,14 +209,6 @@
           "containerlocatieGeometrie": {
             "$ref": "https://geojson.org/schema/Point.json",
             "description": "Geometrie van het type POINT van de containerlocatie RD (epsg:28992)"
-          },
-          "containerlocatieWgs84Lon": {
-            "type": "number",
-            "description": "longitude (lengtegraadd WGS84 (epsg:4326) )van containerlocatie"
-          },
-          "containerlocatieWgs84Lat": {
-            "type": "number",
-            "description": "latitude (breedtegraad) WGS84 (epsg:4326) )van containerlocatie"
           },
           "containerlocatieEigenaarId": {
             "type": "string",
@@ -238,6 +238,15 @@
             "format": "date-time",
             "description": "Datum waarop het object is opgeleleverd"
           },
+          "containerlocatieWijzigingsdatumDp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Datum waarop het object is gewijzigd"
+          },
+          "containerlocatieVerwijderdDp": {
+            "type": "boolean",
+            "description": "..... "
+          },
           "datumAflopenGarantie": {
             "type": "string",
             "format": "date-time",
@@ -245,6 +254,7 @@
           },
           "indBevatContainer": {
             "type": "boolean",
+            "relation": "afv api:container",
             "description": "Indicatie dat de containerlocatie een container bevat"
           },
           "gbdBuurtVolledigecode": {
@@ -259,7 +269,7 @@
           },
           "gbdBuurtIdentificatie": {
             "type": "integer",
-            "relation": "bag:buurt",
+            "relation": "gebieden:buurten",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject"
           },
@@ -275,10 +285,12 @@
     {
       "id": "cluster",
       "type": "table",
+      "provenance": "afv_api_cluster",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "mainGeometry": "clusterGeometrie",
         "required": ["id", "schema"],
         "display": "id",
         "properties": {
@@ -288,7 +300,7 @@
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "id": {
+          "cluster id": {
             "type": "integer",
             "description": "Uniek identificerend kenmerk van cluster"
           },
@@ -301,23 +313,10 @@
             "$ref": "https://geojson.org/schema/Point.json",
             "description": "Geometrie van het type POINT van de het zwaartepunt van het cluster in RD (epsg:28992))"
           },
-          "containerlocatieWgs84Lon": {
-            "type": "number",
-            "description": "longitude (lengtegraad) in WGS84 (epsg:4326)"
-          },
-          "containerlocatieWgs84Lat": {
-            "type": "number",
-            "description": "Breedtegraad in WGS84 (epsg:4326)"
-          },
           "clusterDatumOpvoer": {
             "type": "string",
             "format": "date-time",
             "description": "Datum opvoer van het cluster. Dit is afgeleid van wanneer het gegeven bij het systeem bekend is of peildatum 01-01-2016"
-          },
-          "clusterDatumWijziging": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Datum wijziging van het cluster"
           },
           "clusterDatumOntstaan": {
             "type": "string",
@@ -327,9 +326,18 @@
           "clusterDatumEinde": {
             "type": "string",
             "format": "date",
-            "description": "Datum wanneer het cluster geen relaties meer heeft met containers met status=1. "
+            "description": "Datum wanneer het cluster geen relaties meer heeft met containers met status=1."
           },
-          "clusterStatus": {
+          "clusterWijzigingsdatumDp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Datum waarop het object is gewijzigd"
+          },
+          "clusterVerwijderdDp": {
+            "type": "boolean",
+            "description": "..... "
+          },
+          "cluster status": {
             "type": "integer",
             "enum": [0, 1],
             "description": "Status van het cluster (0 - inactief , 1 - actief)"
@@ -356,8 +364,9 @@
       }
     },
     {
-      "id": "containerType",
+      "id": "containertype",
       "type": "table",
+      "provenance": "afv_api_containertype",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -376,11 +385,11 @@
             "type": "integer",
             "description": "Identificerend kenmerk van het containertype"
           },
-          "containerTypeNaam": {
+          "containertypeNaam": {
             "type": "string",
             "description": "Naam van het containertype"
           },
-          "containerTypeVolume": {
+          "containertypeVolume": {
             "type": "number",
             "unit": "m3",
             "description": "Het volume (m3) aan afval wat de container kan bevatten"
@@ -396,10 +405,12 @@
     {
       "id": "weging",
       "type": "table",
+      "provenance": "afv_api_clusterfractie",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "mainGeometry": "wegingGeometrie",
         "required": ["id", "schema"],
         "display": "id",
         "properties": {
@@ -417,15 +428,6 @@
           "clusterSubclusterIdenticatie": {
             "type": "boolean",
             "description": "Indicatie of het een cluster betreft dat is gesplitst door een weg"
-          },
-          "clusterFractieAantal": {
-            "type": "integer",
-            "relation": "afvApi:clusterFractie",
-            "description": "Lijst met voorkomende afvalfracties van het cluster"
-          },
-          "clusterVolumeM3": {
-            "type": "number",
-            "description": "De som van het volume (m3) aan afval wat de containers kunnen bevatten"
           },
           "wegingId": {
             "type": "integer",
@@ -445,10 +447,15 @@
           },
           "wegingTijdstipWeging": {
             "type": "string",
-            "format": "date-time",
-            "description": "Tijdstip wanneer de weging is uitgevoerd (yyyy-mm-dd HH24:MI:SS)"
+            "format": "time",
+            "description": "Tijdstip wanneer de weging is uitgevoerd (HH24:MI:SS)"
           },
-          "wegingCustId": {
+          "wegingDatumWeging": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum wanneer de weging is uitgevoerd (yyyy-mm-dd)"
+          },
+          "weging cust id": {
             "type": "string",
             "description": "weging cust id"
           },
@@ -479,17 +486,9 @@
             "unit": "kg",
             "description": "Netto gewicht van het ingezamelde afval van de container in Kg"
           },
-          "wegingGeometry": {
+          "wegingGeometrie": {
             "$ref": "https://geojson.org/schema/Point.json",
             "description": "Puntgeometrie in RD (epsg:28992) van de weging zoals door Welvaarts aangeleverd"
-          },
-          "wegingWgs84Lon": {
-            "type": "number",
-            "description": "Puntgeometrie WGS84 (epsg:4326) )van de weging zoals door Welvaarts aangeleverd"
-          },
-          "wegingWgs84Lat": {
-            "type": "number",
-            "description": "Puntgeometrie in WGS84 (epsg:4326) )van de weging zoals door Welvaarts aangeleverd"
           },
           "wegingBedieningCode": {
             "type": "integer",
@@ -500,6 +499,15 @@
             "type": "string",
             "description": "Omschrijving van de wijze waarop de bediening van de weging heeft plaatsgevonden"
           },
+          "wijzigingsdatumDp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Datum waarop het object is gewijzigd"
+          },
+          "verwijderdDp": {
+            "type": "boolean",
+            "description": "..... "
+          },
           "bagHoofdadresIdentificatieVerblijfsobject": {
             "type": "integer",
             "relation": "bag:verblijfsobject",
@@ -508,7 +516,7 @@
           },
           "gbdBuurtIdentificatie": {
             "type": "integer",
-            "relation": "bag:buurt",
+            "relation": "gebieden:buurten",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject"
           },
@@ -522,8 +530,9 @@
       }
     },
     {
-      "id": "clusterFractie",
+      "id": "clusterfractie",
       "type": "table",
+      "provenance": "afv_api_clusterfractie",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
