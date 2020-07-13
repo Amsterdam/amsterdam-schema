@@ -45,13 +45,13 @@
         "type": "object",
         "additionalProperties": false,
         "mainGeometry": "containerGeometrie",
-        "required": ["id", "schema"],
-        "display": "id",
+        "required": ["containerId", "schema"],
+        "display": "containerId",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "id": {
+          "containerId": {
             "type": "string",
             "description": "Unieke aanduiding objecttype"
           },
@@ -81,7 +81,7 @@
             "enum": [0, 1, 2],
             "description": "Status van de container,0 - inactief, 1 - actief, 2 - gepland"
           },
-          "containerAfvalfractie": {
+          "containerFractie": {
             "type": "string",
             "enum": [
               "Rest",
@@ -126,12 +126,12 @@
             "format": "date-time",
             "description": "Datum waarop het object is geleverd"
           },
-          "containerWijzigingsdatumDp": {
+          "wijzigingsdatumDp": {
             "type": "string",
             "format": "date-time",
             "description": "Datum waarop het object is gewijzigd"
           },
-          "containerVerwijderdDp": {
+          "verwijderdDp": {
             "type": "boolean",
             "description": "indicatie of het object verwijderd is bij de bronhouder"
           },
@@ -153,7 +153,7 @@
             "relation": "huishoudelijkafval:containertype",
             "description": "Identificerend kenmerk van het containertype"
           },
-          "gbdBuurtVolledigecode": {
+          "gbdBuurtCode": {
             "type": "string",
             "description": "Volledige code van de buurt, samengesteld uit stadsdeel,wijk en buurtcode"
           },
@@ -187,13 +187,13 @@
         "type": "object",
         "additionalProperties": false,
         "mainGeometry": "containerlocatieGeometrie",
-        "required": ["id", "schema"],
-        "display": "id",
+        "required": ["containerLocatieId", "schema"],
+        "display": "containerLocatieId",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "id": {
+          "containerLocatieId": {
             "type": "string",
             "description": "Identificerend kenmerk van de put waarin de container is geplaatst"
           },
@@ -238,43 +238,42 @@
             "format": "date-time",
             "description": "Datum waarop het object is opgeleleverd"
           },
-          "containerlocatieWijzigingsdatumDp": {
+          "wijzigingsdatumDp": {
             "type": "string",
             "format": "date-time",
             "description": "Datum waarop het object is gewijzigd"
           },
-          "containerlocatieVerwijderdDp": {
+          "verwijderdDp": {
             "type": "boolean",
             "description": "..... "
           },
-          "datumAflopenGarantie": {
+          "containerlocatieDatumEindeGarantie": {
             "type": "string",
             "format": "date-time",
             "description": "Datum waarop de garantie verloopt"
           },
           "indBevatContainer": {
             "type": "boolean",
-            "relation": "huishoudelijkafval:container",
             "description": "Indicatie dat de containerlocatie een container bevat"
           },
-          "gbdBuurtVolledigecode": {
+          "gbdBuurtCode": {
             "type": "string",
             "description": "Volledige code van de buurt, samengesteld uit stadsdeel,wijk en buurtcode"
           },
-          "bagHoofdadresIdentificatieVerblijfsobject": {
-            "type": "integer",
+          "bagAdresIdentificatieVerblijfsobject": {
+            "type": "string",
             "relation": "bag:verblijfsobject",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
             "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject."
           },
           "gbdBuurtIdentificatie": {
-            "type": "integer",
+            "type": "string",
             "relation": "gebieden:buurten",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject"
           },
           "bagOpenbareruimteIdentificatie": {
-            "type": "integer",
+            "type": "string",
             "relation": "bag:openbareruimte",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
             "description": "Openbare ruimte identificatie"
@@ -291,16 +290,13 @@
         "type": "object",
         "additionalProperties": false,
         "mainGeometry": "clusterGeometrie",
-        "required": ["id", "schema"],
-        "display": "id",
+        "required": ["clusterId", "schema"],
+        "display": "clusterId",
         "properties": {
-          "id": {
-            "type": "string"
-          },
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "cluster id": {
+          "clusterId": {
             "type": "integer",
             "description": "Uniek identificerend kenmerk van cluster"
           },
@@ -328,34 +324,34 @@
             "format": "date",
             "description": "Datum wanneer het cluster geen relaties meer heeft met containers met status=1."
           },
-          "clusterWijzigingsdatumDp": {
+          "wijzigingsdatumDp": {
             "type": "string",
             "format": "date-time",
             "description": "Datum waarop het object is gewijzigd"
           },
-          "clusterVerwijderdDp": {
+          "verwijderdDp": {
             "type": "boolean",
             "description": "..... "
           },
-          "cluster status": {
+          "clusterStatus": {
             "type": "integer",
             "enum": [0, 1],
             "description": "Status van het cluster (0 - inactief , 1 - actief)"
           },
           "bagHoofdadresIdentificatieVerblijfsobject": {
-            "type": "integer",
+            "type": "string",
             "relation": "bag:verblijfsobject",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
             "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject."
           },
           "gbdBuurtIdentificatie": {
-            "type": "integer",
+            "type": "string",
             "relation": "bag:buurt",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject"
           },
           "bagOpenbareruimteIdentificatie": {
-            "type": "integer",
+            "type": "string",
             "relation": "bag:openbareruimte",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
             "description": "Openbare ruimte identificatie"
@@ -371,25 +367,21 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "schema"],
-        "display": "id",
+        "required": ["containertypeId", "schema"],
+        "display": "containertypeId",
         "properties": {
-          "id": {
+          "containertypeId": {
             "type": "string",
             "description": "Unieke aanduiding objecttype"
           },
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "containertypeId": {
-            "type": "integer",
-            "description": "Identificerend kenmerk van het containertype"
-          },
           "containertypeNaam": {
             "type": "string",
             "description": "Naam van het containertype"
           },
-          "containertypeVolume": {
+          "containertypeVolumeM3": {
             "type": "number",
             "unit": "m3",
             "description": "Het volume (m3) aan afval wat de container kan bevatten"
@@ -398,6 +390,11 @@
             "type": "integer",
             "unit": "kg",
             "description": "Het volume (m3) aan afval wat de container kan bevatten"
+          },
+          "wijzigingsdatumDp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Datum waarop het object is gewijzigd"
           }
         }
       }
@@ -411,12 +408,12 @@
         "type": "object",
         "additionalProperties": false,
         "mainGeometry": "wegingGeometrie",
-        "required": ["id", "schema"],
-        "display": "id",
+        "required": ["wegingId", "schema"],
+        "display": "wegingId",
         "properties": {
-          "id": {
+          "wegingId": {
             "type": "string",
-            "description": "Weging-ID"
+            "description": "Uniek identificerend kenmerk weging. Deze is per container vastgelegd"
           },
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -428,10 +425,6 @@
           "clusterSubclusterIdenticatie": {
             "type": "boolean",
             "description": "Indicatie of het een cluster betreft dat is gesplitst door een weg"
-          },
-          "wegingId": {
-            "type": "integer",
-            "description": "Uniek identificerend kenmerk weging. Deze is per container vastgelegd"
           },
           "wegingWeegsysteemId": {
             "type": "integer",
@@ -445,19 +438,15 @@
             "type": "integer",
             "description": "Oplopende nummering wegingen per weegsysteem"
           },
-          "wegingTijdstipWeging": {
-            "type": "string",
-            "format": "time",
-            "description": "Tijdstip wanneer de weging is uitgevoerd (HH24:MI:SS)"
-          },
           "wegingDatumWeging": {
             "type": "string",
             "format": "date",
             "description": "Datum wanneer de weging is uitgevoerd (yyyy-mm-dd)"
           },
-          "weging cust id": {
+          "wegingTijdstipWeging": {
             "type": "string",
-            "description": "weging cust id"
+            "format": "time",
+            "description": "Tijdstip wanneer de weging is uitgevoerd (HH24:MI:SS)"
           },
           "wegingLocatienummer": {
             "type": "string",
@@ -509,19 +498,19 @@
             "description": "..... "
           },
           "bagHoofdadresIdentificatieVerblijfsobject": {
-            "type": "integer",
+            "type": "string",
             "relation": "bag:verblijfsobject",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
             "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject."
           },
           "gbdBuurtIdentificatie": {
-            "type": "integer",
+            "type": "string",
             "relation": "gebieden:buurten",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject"
           },
           "bagOpenbareruimteIdentificatie": {
-            "type": "integer",
+            "type": "string",
             "relation": "bag:openbareruimte",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
             "description": "Openbare ruimte identificatie"
@@ -537,18 +526,15 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "schema"],
-        "display": "id",
+        "required": ["clusterFractieId", "schema"],
+        "display": "clusterFractieId",
         "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
           "clusterFractieId": {
             "type": "string",
             "description": "Uniek identificerend kenmerk van clusterfractie"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
           "clusterId": {
             "type": "string",
@@ -577,15 +563,19 @@
             "format": "date-time",
             "description": "De datum waarop de cluster in het systeem is opgevoerd."
           },
-          "clusterFractieDatumWijziging": {
-            "type": "string",
-            "format": "date-time",
-            "description": "De datum waarop de cluster in het systeem is gewijzigd."
-          },
           "clusterFractieDatumEinde": {
             "type": "string",
             "format": "date-time",
             "description": "De datum waarop de cluster in het systeem is eindigd."
+          },
+          "wijzigingsdatumDp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de cluster in het systeem is gewijzigd."
+          },
+          "verwijderdDp": {
+            "type": "boolean",
+            "description": "indicatie of het object verwijderd is bij de bronhouder"
           }
         }
       }
