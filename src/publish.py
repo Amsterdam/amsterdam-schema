@@ -8,6 +8,7 @@ Course of action is as follows:
 * The zip is unpacked to a temporary directory
 * The relevant schema files (metaschema + datasets) are pushed to the objectstore
 * An json file with an index of the datasets is pushed to the the objectstore
+* It is possible to publish the local schema files to the objectstore using the --use-local flag
 
 """
 import json
