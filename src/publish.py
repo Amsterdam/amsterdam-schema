@@ -55,8 +55,23 @@ def extract_and_fetch_paths(github_url, temp_dir):
     return publishable_paths
 
 
-def fetch_local_as_publishable():
-    return []
+def fetch_repo_root():
+    return Path(__file__).resolve().parents[1]
+
+
+def fetch_local_as_publishable(repo_root):
+    repo_root_name = repo_root.name
+    publishable_paths = []
+    for subdir in repo_root.iterdir():
+        if subdir.is_dir() and subdir.name.startswith(publishable_prefixes):
+            for dirpath, dirnames, filenames in os.walk(subdir):
+                if filenames:
+                    subpath = list(Path(dirpath).relative_to(repo_root).parts)
+                    publishable_paths.extend(
+                        [[repo_root_name] + subpath + [fn] for fn in filenames]
+                    )
+
+    return publishable_paths
 
 
 def get_index_file_obj(publishable_paths):
@@ -132,8 +147,11 @@ def main(dp_env, github_url, schema_base_url, use_local):
     # of open file handles during upload, now we can use file-paths
     with TemporaryDirectory() as temp_dir:
         if use_local:
-            publishable_paths = fetch_local_as_publishable()
+            repo_root = fetch_repo_root()
+            files_root = repo_root.parent
+            publishable_paths = fetch_local_as_publishable(repo_root)
         else:
+            files_root = Path(temp_dir)
             publishable_paths = extract_and_fetch_paths(github_url, temp_dir)
 
         if schema_base_url is not None:
@@ -149,7 +167,7 @@ def main(dp_env, github_url, schema_base_url, use_local):
                     object_name = create_object_name(path_parts)
                     uploads.append(
                         SwiftUploadObject(
-                            str(Path(temp_dir) / "/".join(path_parts)),
+                            str(files_root / "/".join(path_parts)),
                             object_name=object_name,
                             options={"header": ["content-type:application/json"]},
                         )
