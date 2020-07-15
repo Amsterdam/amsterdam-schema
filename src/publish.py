@@ -7,7 +7,7 @@ Course of action is as follows:
 * A zipfile of the master branch of the 'amsterdam-schema' repo is fetched from github
 * The zip is unpacked to a temporary directory
 * The relevant schema files (metaschema + datasets) are pushed to the objectstore
-* An json file with an index of the datasets pushed to the the objectstore
+* An json file with an index of the datasets is pushed to the the objectstore
 
 """
 import json
@@ -38,6 +38,25 @@ def fetch_publishable_paths(paths):
         if path_parts[1].startswith(publishable_prefixes) and path_parts[-1]:
             publishable_paths.append(path_parts)
     return publishable_paths
+
+
+def extract_and_fetch_paths(github_url, temp_dir):
+    response = requests.get(github_url, stream=True)
+    tmp_file = Path(temp_dir) / "out.zip"
+    with open(tmp_file, "wb") as wf:
+        shutil.copyfileobj(response.raw, wf)
+
+    with ZipFile(tmp_file, "r") as zip_file:
+        publishable_paths = fetch_publishable_paths(zip_file.namelist())
+        zip_file.extractall(
+            temp_dir,
+            members=("/".join(path_parts) for path_parts in publishable_paths),
+        )
+    return publishable_paths
+
+
+def fetch_local_as_publishable():
+    return []
 
 
 def get_index_file_obj(publishable_paths):
@@ -102,23 +121,20 @@ def replace_schema_base_url(temp_dir, schema_base_url):
     envvar="SCHEMA_BASE_URL",
     help="Override the base url in schema files (for testing)",
 )
-def main(dp_env, github_url, schema_base_url):
-    publishable_paths = []
-    response = requests.get(github_url, stream=True)
+@click.option(
+    "--use-local",
+    is_flag=True,
+    help="Use local schema files, not the github zip archive",
+)
+def main(dp_env, github_url, schema_base_url, use_local):
 
     # We extract the zip, because otherwise we need a big set
     # of open file handles during upload, now we can use file-paths
     with TemporaryDirectory() as temp_dir:
-        tmp_file = Path(temp_dir) / "out.zip"
-        with open(tmp_file, "wb") as wf:
-            shutil.copyfileobj(response.raw, wf)
-
-        with ZipFile(tmp_file, "r") as zip_file:
-            publishable_paths = fetch_publishable_paths(zip_file.namelist())
-            zip_file.extractall(
-                temp_dir,
-                members=("/".join(path_parts) for path_parts in publishable_paths),
-            )
+        if use_local:
+            publishable_paths = fetch_local_as_publishable()
+        else:
+            publishable_paths = extract_and_fetch_paths(github_url, temp_dir)
 
         if schema_base_url is not None:
             replace_schema_base_url(temp_dir, schema_base_url)
