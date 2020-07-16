@@ -44,24 +44,27 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "mainGeometry": "containerGeometrie",
-        "identifier": "containerId",
-        "required": ["containerId", "schema"],
-        "display": "containerId",
+        "mainGeometry": "geometrie",
+        "identifier": "id",
+        "required": ["id", "schema"],
+        "display": "id",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "containerId": {
+          "id": {
             "type": "string",
+            "provenance": "container_id",
             "description": "Unieke aanduiding objecttype"
           },
-          "containerIdNummer": {
+          "idNummer": {
             "type": "string",
+            "provenance": "container_id_nummer",
             "description": "Uniek serienummer dat door de fabrikant aan het object is gegeven"
           },
-          "containerSerienummer": {
+          "serienummer": {
             "type": "string",
+            "provenance": "container_serienummer",
             "description": "Uniek serienummer uitgegeven door de fabrikant"
           },
           "cluster": {
@@ -69,21 +72,25 @@
             "relation": "huishoudelijkafval:cluster",
             "description": "Uniek identificerend kenmerk van cluster waaraan de container is gerelateerd"
           },
-          "containerEigenaarId": {
+          "eigenaarId": {
             "type": "string",
+            "provenance": "container_eigenaar_id",
             "description": "Identificerend kenmerk eigenaar"
           },
-          "containerEigenaarNaam": {
+          "eigenaarNaam": {
             "type": "string",
+            "provenance": "container_eigenaar_naam",
             "description": "Naam eigenaar"
           },
-          "containerStatus": {
+          "status": {
             "type": "integer",
+            "provenance": "container_status",
             "enum": [0, 1, 2],
             "description": "Status van de container,0 - inactief, 1 - actief, 2 - gepland"
           },
-          "containerFractie": {
+          "fractie": {
             "type": "string",
+            "provenance": "container_fractie",
             "enum": [
               "Rest",
               "Papier",
@@ -98,59 +105,71 @@
             ],
             "description": "Type afvalfractie waarvoor de container is bedoeld"
           },
-          "containerFractieOmschrijving": {
+          "fractieOmschrijving": {
+            "provenance": "container_fractie_omschrijving",
             "type": "string",
             "description": "Container fractieomschrijving zoals door leverancier is geleverd."
           },
-          "containerDatumCreatie": {
+          "datumCreatie": {
+            "provenance": "container_datum_creatie",
             "type": "string",
             "format": "date",
             "description": "Datum waarop het object is gecreëerd in container management systeem"
           },
-          "containerDatumPlaatsing": {
+          "datumPlaatsing": {
+            "provenance": "container_datum_plaatsing",
             "type": "string",
             "format": "date",
             "description": "Datum waarop het object op de locatie is geplaatst"
           },
-          "containerDatumOperationeel": {
+          "datumOperationeel": {
+            "provenance": "container_datum_operationeel",
             "type": "string",
             "format": "date",
             "description": "Datum dat de container operationeel is voor het aanbieden van afval"
           },
-          "containerDatumAflopenGarantie": {
+          "datumAflopenGarantie": {
+            "provenance": "container_datum_aflopen_garantie",
             "type": "string",
             "format": "date",
             "description": "Datum waarop de garantie verloopt"
           },
-          "containerDatumOplevering": {
+          "datumOplevering": {
+            "provenance": "container_datum_oplevering",
             "type": "string",
             "format": "date",
             "description": "Datum waarop het object is geleverd"
           },
-          "containerWijzigingsdatumDp": {
+          "wijzigingsdatumDp": {
             "type": "string",
+            "provenance": "container_wijzigingsdatum_dp",
             "format": "date-time",
             "description": "Datum waarop het object is gewijzigd"
           },
-          "containerVerwijderdDp": {
+          "verwijderdDp": {
             "type": "boolean",
+            "provenance": "container_verwijderd_dp",
             "description": "Indicatie of het object verwijderd is bij de bronhouder"
           },
-          "containerGeadopteerdInd": {
+          "geadopteerdInd": {
             "type": "boolean",
+            "provenance": "container_geadopteerd_ind",
             "description": "indicatie of het object door een bewoner geadopteerd is"
           },
-          "containerlocatie": {
+          "locatie": {
             "type": "integer",
+            "provenance": "containerlocatie",
             "relation": "huishoudelijkafval:containerlocatie",
             "description": "Identificerend kenmerk van de put waarin de container is geplaatst"
           },
-          "containerGeometrie": {
+          "geometrie": {
+            "provenance": "container_geometrie",
             "$ref": "https://geojson.org/schema/Point.json",
             "description": "Geometrie van het type POINT van de container RD (epsg:28992)"
           },
-          "containertype": {
+          "type": {
             "type": "string",
+            "provenance": "containertype",
             "relation": "huishoudelijkafval:containertype",
             "description": "Identificerend kenmerk van het containertype"
           },
@@ -187,66 +206,79 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "mainGeometry": "containerlocatieGeometrie",
-        "identifier": "containerlocatieId",
-        "required": ["containerlocatieId", "schema"],
-        "display": "containerlocatieId",
+        "mainGeometry": "geometrie",
+        "identifier": "id",
+        "required": ["id", "schema"],
+        "display": "id",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "containerlocatieId": {
+          "id": {
             "type": "string",
+            "provenance": "containerlocatie_id",
             "description": "Identificerend kenmerk van de put waarin de container is geplaatst"
           },
-          "containerlocatieSerienummer": {
+          "serienummer": {
             "type": "string",
+            "provenance": "containerlocatie_serienummer",
             "description": "Uniek serienummer uitgegeven door de fabrikant"
           },
-          "containerlocatieStatus": {
+          "status": {
             "type": "integer",
+            "provenance": "containerlocatie_status",
             "enum": [0, 1, 2],
             "description": "Status van de container, 0 - inactief, 1 - actief, 2 - gepland"
           },
-          "containerlocatieGeometrie": {
+          "geometrie": {
             "$ref": "https://geojson.org/schema/Point.json",
+            "provenance": "containerlocatie_geometrie",
             "description": "Geometrie van het type POINT van de containerlocatie RD (epsg:28992)"
           },
-          "containerlocatieEigenaarId": {
+          "eigenaarId": {
             "type": "string",
+            "provenance": "containerlocatie_eigenaar_id",
             "description": "Identificerend kenmerk eigenaar"
           },
-          "containerlocatieEigenaarNaam": {
+          "eigenaarNaam": {
             "type": "string",
+            "provenance": "containerlocatie_eigenaar_naam",
             "description": "Naam eigenaar"
           },
-          "containerlocatieDatumCreatie": {
+          "datumCreatie": {
             "type": "string",
+            "provenance": "containerlocatie_datum_creatie",
             "description": "Datum waarop het object is gecreëerd in container management systeem"
           },
-          "containerlocatieDatumPlaatsing": {
+          "datumPlaatsing": {
             "type": "string",
+            "provenance": "containerlocatie_datum_plaatsing",
             "description": "Datum waarop het object op de locatie is geplaatst"
           },
-          "containerlocatieDatumOperationeel": {
+          "datumOperationeel": {
             "type": "string",
+            "provenance": "containerlocatie_datum_operationeel",
             "description": "Datum waarop het object is operationeel gezet"
           },
-          "containerlocatieDatumOplevering": {
+          "datumOplevering": {
             "type": "string",
+            "provenance": "containerlocatie_datum_oplevering",
             "description": "Datum waarop het object is opgeleleverd"
           },
-          "containerlocatieWijzigingsdatumDp": {
+          "wijzigingsdatumDp": {
             "type": "string",
+            "provenance": "containerlocatie_wijzigingsdatum_dp",
             "format": "date-time",
             "description": "Datum waarop het object is gewijzigd"
           },
-          "containerlocatieVerwijderdDp": {
+          "verwijderdDp": {
             "type": "boolean",
+            "provenance": "containerlocatie_verwijderd_dp",
             "description": "Indicatie of het object verwijderd is bij de bronhouder"
           },
-          "containerlocatieDatumEindeGarantie": {
+          "datumEindeGarantie": {
             "type": "string",
+            "provenance": "containerlocatie_datum_einde_garantie",
             "description": "Datum waarop de garantie verloopt"
           },
           "indBevatContainer": {
@@ -286,53 +318,62 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "mainGeometry": "clusterGeometrie",
-        "identifier": "clusterId",
-        "required": ["clusterId", "schema"],
-        "display": "clusterId",
+        "mainGeometry": "geometrie",
+        "identifier": "id",
+        "required": ["id", "schema"],
+        "display": "id",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "clusterId": {
+          "Id": {
             "type": "string",
+            "provenance": "cluster_id",
             "description": "Uniek identificerend kenmerk van cluster"
           },
-          "clusterSubclusterIndicatie": {
+          "subclusterIndicatie": {
             "type": "boolean",
+            "provenance": "cluster_subcluster_indicatie",
             "enum": [true, false],
             "description": "Indicatie of het een cluster betreft dat is gesplitst door een weg"
           },
-          "clusterGeometrie": {
+          "geometrie": {
             "$ref": "https://geojson.org/schema/Point.json",
+            "provenance": "cluster_geometrie",
             "description": "Geometrie van het type POINT van de het zwaartepunt van het cluster in RD (epsg:28992))"
           },
-          "clusterDatumOpvoer": {
+          "datumOpvoer": {
             "type": "string",
+            "provenance": "cluster_datum_opvoer",
             "format": "date-time",
             "description": "Datum opvoer van het cluster. Dit is afgeleid van wanneer het gegeven bij het systeem bekend is of peildatum 01-01-2016"
           },
-          "clusterDatumOntstaan": {
+          "datumOntstaan": {
             "type": "string",
+            "provenance": "cluster_datum_ontstaan",
             "format": "date",
             "description": "Datum opvoer van het cluster. Dit is afgeleid van de plaatsingsdatum van de oudste container ,wanneer het gegeven bij het systeem bekend is of peildatum 01-01-2016"
           },
-          "clusterDatumEinde": {
+          "datumEinde": {
             "type": "string",
+            "provenance": "cluster_datum_einde",
             "format": "date",
             "description": "Datum wanneer het cluster geen relaties meer heeft met containers met status=1."
           },
-          "clusterWijzigingsdatumDp": {
+          "wijzigingsdatumDp": {
             "type": "string",
+            "provenance": "cluster_wijzigingsdatum_dp",
             "format": "date-time",
             "description": "Datum waarop het object is gewijzigd"
           },
-          "clusterVerwijderdDp": {
+          "verwijderdDp": {
             "type": "boolean",
+            "provenance": "cluster_verwijderd_dp",
             "description": "Indicatie of het object verwijderd is bij de bronhouder"
           },
-          "clusterStatus": {
+          "status": {
             "type": "integer",
+            "provenance": "cluster_status",
             "enum": [0, 1],
             "description": "Status van het cluster (0 - inactief , 1 - actief)"
           },
@@ -365,33 +406,38 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "identifier": "containertypeId",
-        "required": ["containertypeId", "schema"],
-        "display": "containertypeId",
+        "identifier": "id",
+        "required": ["id", "schema"],
+        "display": "id",
         "properties": {
-          "containertypeId": {
+          "id": {
             "type": "string",
+            "provenance": "containertype_id",
             "description": "Unieke aanduiding objecttype"
           },
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "containertypeNaam": {
+          "naam": {
             "type": "string",
+            "provenance": "containertype_naam",
             "description": "Naam van het containertype"
           },
-          "containertypeVolumeM3": {
+          "volumeM3": {
             "type": "number",
+            "provenance": "containertype_volume_m3",
             "unit": "m3",
             "description": "Het volume (m3) aan afval wat de container kan bevatten"
           },
-          "containertypeGewichtKg": {
+          "gewichtKg": {
             "type": "integer",
+            "provenance": "containertype_gewicht_kg",
             "unit": "kg",
             "description": "Het volume (m3) aan afval wat de container kan bevatten"
           },
-          "containertypeWijzigingsdatumDp": {
+          "wijzigingsdatumDp": {
             "type": "string",
+            "provenance": "containertype_wijzigingsdatum_dp",
             "format": "date-time",
             "description": "Datum waarop het object is gewijzigd"
           }
@@ -406,13 +452,14 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "mainGeometry": "wegingGeometrie",
-        "identifier": "wegingId",
-        "required": ["wegingId", "schema"],
-        "display": "wegingId",
+        "mainGeometry": "geometrie",
+        "identifier": "id",
+        "required": ["id", "schema"],
+        "display": "id",
         "properties": {
-          "wegingId": {
+          "Id": {
             "type": "string",
+            "provenance": "weging_id",
             "description": "Uniek identificerend kenmerk weging. Deze is per container vastgelegd"
           },
           "schema": {
@@ -426,75 +473,91 @@
             "type": "boolean",
             "description": "Indicatie of het een cluster betreft dat is gesplitst door een weg"
           },
-          "wegingWeegsysteemId": {
+          "weegsysteemId": {
             "type": "integer",
+            "provenance": "weging_weegsysteem_id",
             "description": "Identificerend kenmerk weegsysteem (behorend bij voertuig)"
           },
-          "wegingWeegsysteemOmschrijving": {
+          "weegsysteemOmschrijving": {
             "type": "string",
+            "provenance": "weging_weegsysteem_omschrijving",
             "description": "Omschrijving van weegsysteem"
           },
-          "wegingVolgnummer": {
+          "volgnummer": {
             "type": "integer",
+            "provenance": "weging_volgnummer",
             "description": "Oplopende nummering wegingen per weegsysteem"
           },
-          "wegingDatumWeging": {
+          "datumWeging": {
             "type": "string",
+            "provenance": "weging_datum_weging",
             "format": "date",
             "description": "Datum wanneer de weging is uitgevoerd (yyyy-mm-dd)"
           },
-          "wegingTijdstipWeging": {
+          "tijdstipWeging": {
             "type": "string",
+            "provenance": "weging_tijdstip_weging",
             "format": "time",
             "description": "Tijdstip wanneer de weging is uitgevoerd (HH24:MI:SS)"
           },
-          "wegingLocatienummer": {
+          "locatienummer": {
             "type": "string",
+            "provenance": "weging_locatienummer",
             "description": "Locatienummer (cluster) zoals door Welvaarts is aangeleverd"
           },
-          "wegingFractiecode": {
+          "fractiecode": {
             "type": "integer",
+            "provenance": "weging_fractiecode",
             "description": "Code afvalfractie zoals door Welvaarts is aangeleverd, 1: Rest, 2: Glas, 3: Papier, 4: Plastic, 5: Textiel, 6: GFT, 7: Grof, 8: PMD, 9: Brood, -99: Onbekend"
           },
-          "wegingFractieOmschrijving": {
+          "fractieOmschrijving": {
             "type": "string",
+            "provenance": "weging_fractie_omschrijving",
             "description": "Omschrijving afvalfractie zoals door Welvaarts is aangeleverd"
           },
-          "wegingEersteWeging": {
+          "eersteWeging": {
             "type": "number",
+            "provenance": "weging_eerste_weging",
             "unit": "kg",
             "description": "Eerste weging container: gewicht vol in Kg"
           },
-          "wegingTweedeWeging": {
+          "tweedeWeging": {
             "type": "number",
+            "provenance": "weging_tweede_weging",
             "unit": "kg",
             "description": "Tweede weging container: gewicht vol in Kg"
           },
-          "wegingNettoGewicht": {
+          "nettoGewicht": {
             "type": "number",
+            "provenance": "weging_netto_gewicht",
             "unit": "kg",
             "description": "Netto gewicht van het ingezamelde afval van de container in Kg"
           },
-          "wegingGeometrie": {
+          "geometrie": {
             "$ref": "https://geojson.org/schema/Point.json",
+            "provenance": "weging_geometrie",
             "description": "Puntgeometrie in RD (epsg:28992) van de weging zoals door Welvaarts aangeleverd"
           },
-          "wegingBedieningCode": {
+          "bedieningCode": {
             "type": "integer",
+            "provenance": "weging_bediening_code",
             "enum": ["0 - Handmatig", "1 - Automatisch", "3 - onbekend"],
             "description": "Code van de wijze waarop de bediening van de weging heeft plaatsgevonden"
           },
-          "wegingBedieningOmschrijving": {
+          "bedieningOmschrijving": {
             "type": "string",
+            "provenance": "weging_bediening_omschrijving",
             "description": "Omschrijving van de wijze waarop de bediening van de weging heeft plaatsgevonden"
           },
-          "wegingWijzigingsdatumDp": {
+          "wijzigingsdatumDp": {
             "type": "string",
+            "provenance": "weging_wijzigingsdatum_dp",
             "format": "date-time",
             "description": "Datum waarop het object is gewijzigd"
           },
-          "wegingVerwijderdDp": {
+          "verwijderdDp": {
             "type": "boolean",
+            "provenance": "weging_verwijderd_dp",
             "description": "Indicatie of het object verwijderd is bij de bronhouder"
           },
           "bagHoofdadresVerblijfsobject": {
@@ -526,12 +589,13 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "identifier": "clusterFractieId",
-        "required": ["clusterFractieId", "schema"],
-        "display": "clusterFractieId",
+        "identifier": "id",
+        "required": ["id", "schema"],
+        "display": "id",
         "properties": {
-          "clusterFractieId": {
+          "id": {
             "type": "string",
+            "provenance": "cluster_fractie_id",
             "description": "Uniek identificerend kenmerk van clusterfractie"
           },
           "schema": {
@@ -541,41 +605,49 @@
             "type": "string",
             "description": "Uniek identificerend kenmerk van cluster waaraan de container is gerelateerd"
           },
-          "clusterFractieAantalContainers": {
+          "aantalContainers": {
             "type": "integer",
+            "provenance": "cluster_fractie_aantal_containers",
             "description": "Aantal containers per clusterfractie"
           },
-          "clusterFractieVolumeM3": {
+          "volumeM3": {
             "type": "number",
+            "provenance": "cluster_fractie_volume_m3",
             "unit": "m3",
             "description": "De som van het volume (m3) van containers per clusterfractie"
           },
-          "clusterFractieCode": {
+          "code": {
             "type": "string",
+            "provenance": "cluster_fractie_code",
             "enum": [1, 2, 3, 4, 5, 6, 7, 8, 9, -999],
             "description": "Code afvalfractie zoals door Welvaarts is aanleverd. 1 - Rest, 2 - Glas, 3 - Papier, 4 - Plastic, 5 - Textiel, 6 - GFT, 7 - Grof, 8 - PMD, 9 - Brood, -999 - Onbekend"
           },
-          "clusterFractieOmschrijving": {
+          "omschrijving": {
             "type": "string",
+            "provenance": "cluster_fractie_omschrijving",
             "description": "Afvalfractie zoals door Welvaarts is aangeleverd"
           },
-          "clusterFractieDatumOpvoer": {
+          "datumOpvoer": {
             "type": "string",
+            "provenance": "cluster_fractie_datum_opvoer",
             "format": "date-time",
             "description": "De datum waarop de cluster in het systeem is opgevoerd."
           },
-          "clusterFractieDatumEinde": {
+          "datumEinde": {
             "type": "string",
+            "provenance": "cluster_fractie_datum_einde",
             "format": "date",
             "description": "De datum waarop de cluster in het systeem is eindigd."
           },
-          "clusterWijzigingsdatumDp": {
+          "wijzigingsdatumDp": {
             "type": "string",
+            "provenance": "cluster_fractie_wijzigingsdatum_dp",
             "format": "date-time",
             "description": "De datum waarop de cluster in het systeem is gewijzigd."
           },
-          "clusterVerwijderdDp": {
+          "verwijderdDp": {
             "type": "boolean",
+            "provenance": "cluster_fractie_verwijderd_dp",
             "description": "indicatie of het object verwijderd is bij de bronhouder"
           }
         }
