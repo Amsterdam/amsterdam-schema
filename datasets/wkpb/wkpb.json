@@ -1,0 +1,176 @@
+{
+  "type": "dataset",
+  "id": "wkpb",
+  "title": "wkpb",
+  "status": "beschikbaar",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "beperkingen",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/wkpb/beperkingen.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "id",
+        "mainGeometry": "geometrie",
+        "required": ["schema", "id", "identificatie"],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "Uniek nummer waarmee de beperking is genummerd. (in Neuron applicatie bekend als inschrijfnummer)"
+          },
+          "volgnummer": {
+            "type": "string",
+            "description": "Volgnummer van de beperking."
+          },
+          "beperkingcode": {
+            "type": "string",
+            "description": "De omschrijving van de beperking. code"
+          },
+          "beperkingomschrijving": {
+            "type": "string",
+            "description": "De omschrijving van de beperking. omschrijving"
+          },
+          "begingeldigheid": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Datum waarop de beperking in werking treedt."
+          },
+          "eindgeldigheid": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Datum dat de beperking beëindigd is."
+          },
+          "belastkadastraleobjecten": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "$comment": "relation brk:kadastraleobjecten",
+            "description": "Het kadastraal object dat door een beperking wordt belast."
+          },
+          "documentnummer": {
+            "type": "string",
+            "description": "Het unieke nummer van het brondocument."
+          },
+          "heeftdossier": {
+            "type": "string",
+            "relation": "wkpb:dossiers",
+            "description": "Het dossier dat aan de stadia van de beperking ten grondslag ligt."
+          },
+          "datumbekendmaking": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum ontvangst door het stadsdeel of de dienst, als het gaat om: melding van voornemen tot sanering (Wet bodembescherming, art. 28 juncto 39b); of beslissing in administratief beroep of rechterlijke uitspraak. Datum bekend worden bij het stadsdeel of de dienst, als het een vervallenverklaring (Wkpb, art. 7.4) betreft. Datum bekendmaking of verzending door het stadsdeel of de dienst, als het gaat om: voorbescherming als gemeentelijk monument; een ander besluit (op grond van het Aanwijzingsbesluit Wkpb)."
+          },
+          "aardcode": {
+            "type": "string",
+            "description": "De aard van de handeling die op de beperking heeft plaatsgevonden. code"
+          },
+          "aardomschrijving": {
+            "type": "string",
+            "description": "De aard van de handeling die op de beperking heeft plaatsgevonden. omschrijving"
+          },
+          "orgaancode": {
+            "type": "string",
+            "description": "Het orgaan dat de beperking heeft opgelegd. code"
+          },
+          "orgaanomschrijving": {
+            "type": "string",
+            "description": "Het orgaan dat de beperking heeft opgelegd. omschrijving"
+          },
+          "persoonsgegevensafschermen": {
+            "type": "boolean",
+            "description": "Aanduiding dat de persoonsgegevens moeten worden afgeschermd."
+          },
+          "heeftvoorgaandebeperking": {
+            "type": "string",
+            "relation": "wkpb:beperkingen",
+            "description": "Bij het wijzigen, verlengen en beëindigen van een beperking staat hier de identificatie van de voorgaande beperking."
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Datum waarop het gegeven in de bron geregistreerd is."
+          },
+          "statuscode": {
+            "type": "string",
+            "description": "De fase van het proces waarin de beperking zich bevindt. code"
+          },
+          "statusomschrijving": {
+            "type": "string",
+            "description": "De fase van het proces waarin de beperking zich bevindt. omschrijving"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Tweedimensionale ligging, grootte en vorm waarop de beperking volgens het besluit rust."
+          }
+        }
+      }
+    },
+    {
+      "id": "dossiers",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/wkpb/dossiers.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "dossier",
+        "required": ["schema", "dossier"],
+        "display": "dossier",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "dossier": {
+            "type": "string",
+            "description": "Verwijzing vanuit de overige objectklassen."
+          },
+          "heeftbrondocumenten": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "relation": "wkpb:brondocumenten",
+            "description": "De brondocument(en) behorende bij het dossier."
+          }
+        }
+      }
+    },
+    {
+      "id": "brondocumenten",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/wkpb/brondocumenten.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "documentnummer",
+        "required": ["schema", "documentnummer"],
+        "display": "documentnummer",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "documentnummer": {
+            "type": "string",
+            "description": "Nummer van het brondocument."
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "datetime",
+            "description": "De datum waarop het brondocument is opgeslagen in het register."
+          }
+        }
+      }
+    }
+  ]
+}
