@@ -1,0 +1,46 @@
+{
+    "type": "dataset",
+    "id": "crowdmonitor",
+    "title": "crowdmonitor",
+    "status": "beschikbaar",
+    "description": "Het aantal passanten per locatie, per sensor, per uur",
+    "version": "0.0.1",
+    "crs": "EPSG:28992",
+    "tables": [
+      {
+        "id": "passanten",
+        "title": "passanten",
+        "type": "table",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schema", "id"],
+          "display": "naamLocatie",
+          "properties": {
+            "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "sensor": {
+                "type": "string"
+            },
+            "naamLocatie": {
+                "type": "string",
+                "provenance": "location_name"
+            },
+            "datumUur": {
+                "type": "string",
+                "format": "datetime"               
+            },
+            "aantalPassanten": {
+                "type": "integer"               
+            }        
+           
+          }
+        }
+      }
+    ]
+  }
