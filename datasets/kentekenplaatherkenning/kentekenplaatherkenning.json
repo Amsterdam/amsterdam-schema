@@ -1,0 +1,38 @@
+{
+    "type": "dataset",
+    "id": "kentekenplaatherkenning",
+    "title": "kentekenplaatherkenning",
+    "status": "beschikbaar",
+    "description": "Gegevens over aantal automatische gedecteerde taxi kentekenplaaten per datum",
+    "version": "0.0.1",
+    "crs": "EPSG:28992",
+    "tables": [
+      {
+        "id": "taxi",
+        "title": "taxi",
+        "type": "table",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schema", "id"],
+          "display": "naamLocatie",
+          "properties": {
+            "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "datum": {
+                "type": "string",
+                "format": "date"
+            },
+            "aantalTaxiPassages": {
+                "type": "integer"                
+            }
+          }
+        }
+      }
+    ]
+  }
