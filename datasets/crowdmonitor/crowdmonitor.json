@@ -3,7 +3,7 @@
     "id": "crowdmonitor",
     "title": "crowdmonitor",
     "status": "beschikbaar",
-    "description": "Het aantal passanten per locatie, per sensor, per uur",
+    "description": "Het aantal passanten per locatie, per sensor, per periode. De periode kan zijn 'uur', 'dag' of 'week' en begint op 'datumUur'",
     "version": "0.0.1",
     "crs": "EPSG:28992",
     "tables": [
@@ -22,24 +22,31 @@
               "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
             },
             "id": {
-              "type": "integer"
+              "type": "integer",
+              "description": "Unieke aanduiding voor element"
             },
             "sensor": {
-                "type": "string"
+                "type": "string",
+                "description": "Unieke aanduiding voor sensor"
             },
             "periode": {
-              "type": "string"
+              "type": "string",
+              "description": "Periode waarover geaggregeerd wordt. Kan zijn 'uur', 'dag' of 'week'"
             },
             "naamLocatie": {
                 "type": "string",
-                "provenance": "location_name"
+                "provenance": "location_name",
+                "description": "Naam van locatie van de sensor"
+
             },
             "datumUur": {
                 "type": "string",
-                "format": "date-time"
+                "format": "date-time",
+                "description" : "Start datum en tijd voor de periode"
             },
             "aantalPassanten": {
-                "type": "integer"
+                "type": "integer",
+                "description": "Aantal passanten in de periode 'periode' beginnend op 'datumUur'"
             }
           }
         }
