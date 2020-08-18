@@ -1,0 +1,251 @@
+{
+    "type": "dataset",
+    "id": "explosieven",
+    "title": "explosieven",
+    "description": "Informatie over bominslagen, gevrijwaarde gebieden, verdachte gebieden en uitgevoerde onderzoeken",  
+    "license": "public",
+    "status": "beschikbaar",
+    "version": "0.0.1",  
+    "theme": ["Wonen", "duurzaamheid en milieu", "Ruimte en Topografie"],
+    "publisher": "OIS",
+    "owner": "Gemeente Amsterdam",
+    "authorizationGrantor": "OIS",
+    "keywords": ["bommen", "explosies", "gevaar"],
+    "crs": "EPSG:28992",
+      "tables": [
+        {
+          "id": "gevrijwaardgebied",
+          "title": "Gevrijwaardgebied",
+          "type": "table",
+          "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["schema", "id"],
+            "display": "kenmerk",
+            "properties": {
+              "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "geometry": {
+                "$ref": "https://geojson.org/schema/Geometry.json"
+              } ,
+              "kenmerk": {
+                  "type": "string"
+              },                        
+              "detailType": {
+                  "type": "string",
+                  "provenance":"soort_hand"
+              },
+              "bron": {
+                  "type": "string",
+                  "provenance":"bron1"
+              },
+              "datum": {
+                  "type": "string",
+                  "format":"date",
+                  "provenance":"datum1"
+              },
+              "intekening": {
+                  "type": "string"
+              },
+              "nauwkeurig": {
+                  "type": "string"
+              },
+              "opmerkingen": {
+                  "type": "string",
+                  "provenance":"opmerkinge"
+              }              
+            }
+          }
+        },
+        {
+          "id": "bominslag",          
+          "title": "Bominslag",
+          "type": "table",
+          "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["schema", "id"],
+            "display": "kenmerk",
+            "properties": {
+              "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "geometry": {
+                "$ref": "https://geojson.org/schema/Geometry.json",
+                "provenance": "geometrie"
+              },
+              "kenmerk": {
+                "type": "string"                       
+              },
+              "detailType": {
+                "type": "string",
+                "provenance":"soort_hand"
+              },
+              "datumInslag": {
+                "type": "string",
+                "format":"date",    
+                "provenance":"datum"
+              },
+              "datum": {
+                "type": "string",
+                "format":"date",    
+                "provenance":"datum1"
+              },             
+              "bron": {
+                "type": "string",
+                "provenance":"bron1"
+              },             
+              "intekening": {
+                "type": "string"
+              },
+              "nauwkeurig": {
+                "type": "string"
+              },
+              "opmerkingen": {
+                "type": "string",
+                "provenance":"opmerkinge"
+              },
+              "oorlogsinc": {
+                "type": "string"               
+              } ,
+              "pdf": {
+                "type": "string",
+                "format": "uri",                
+                "provenance":"hyperlink"
+              }                             
+                         
+            }
+          }
+        },
+        {
+          "id": "verdachtgebied",
+          "title": "Verdachtgebied",
+          "type": "table",
+          "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["schema", "id"],
+            "display": "kenmerk",
+            "properties": {
+              "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "geometry": {
+                "$ref": "https://geojson.org/schema/Geometry.json"
+              },            
+              "kenmerk": {
+                "type": "string"
+              },              
+              "detailType": {
+                "type": "string",
+                "provenance":"hoofdgroep"
+              },                     
+              "subtype": {
+                "type": "string",
+                "provenance":"subsoort"
+              },            
+              "kaliber": {
+                "type": "string"
+              },            
+              "aantal": {
+                "type": "string",
+                "provenance":"aantallen"
+              },            
+              "verschijning": {
+                "type": "string",
+                "provenance":"verschijni"
+              },            
+              "oorlogshandeling": {
+                "type": "string",
+                "provenance":"oorlogshan"
+              },            
+              "afbakening": {
+                "type": "string"                  
+              },            
+              "horizontaal": {
+                "type": "string",
+                "provenance":"horizontal"
+              },            
+              "cartografie": {
+                "type": "string",
+                "provenance":"cartografi"
+              },            
+              "opmerkingen": {
+                "type": "string",
+                "provenance":"opmerkinge"
+              },           
+              "pdf": {
+                "type": "string", 
+                "format": "uri",              
+                "provenance":"hyperlink"
+              }         
+                   
+            }
+          }
+        },
+        {
+            "id": "uitgevoerdonderzoek",
+            "title": "Uitgevoerd onderzoek",
+            "type": "table",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["schema", "id"],
+              "display": "kenmerk",
+              "properties": {
+                "schema": {
+                  "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "geometry": {
+                  "$ref": "https://geojson.org/schema/Geometry.json"
+                } ,
+                "kenmerk": {
+                    "type": "string"
+                },                
+                "detailType": {
+                    "type": "string",
+                    "provenance":"soort_rapp"
+                },
+                "onderzoeksgebied": {
+                    "type": "string",
+                    "provenance":"onderzoeks"
+                },
+                "opdrachtnemer": {
+                    "type": "string",
+                    "provenance":"opdrachtne"
+                },
+                "opdrachtgever": {
+                    "type": "string",
+                    "provenance":"opdrachtge"
+                },
+                "verdachtgebied": {
+                    "type": "string",
+                    "provenance":"verdacht_g"
+                },
+                "datum": {
+                    "type": "string",
+                    "format":"date"                   
+                }                           
+              }
+            }
+          }              
+      ]
+    }
+  
