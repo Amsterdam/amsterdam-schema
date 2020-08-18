@@ -2,9 +2,28 @@
   "type": "dataset",
   "id": "rioolnetwerk",
   "title": "Rioolnetwerk",
-  "status": "beschikbaar",
-  "description": "Rioolnetwerk",
+  "description": "Alle rioolleidingen en knopen welke door Waternet beschikbaar wordt gesteld.",
+  "dateCreated": "2020-06-04T00:00:00",
+  "dateModified": "2020-06-04T00:00:00",
+  "license": "Creative Commons, Naamsvermelding",
+  "homepage": "https://data.amsterdam.nl",
+  "language": "nl",
+  "status": "niet_beschikbaar",
   "version": "0.0.1",
+  "objective": "Het doel van deze dataset is het beschikbaarstellen van informatie met betrekking tot rioolleidingen en knopen aan de afenemende partijen binnen gemeente Amsterdam. Inzicht bij graafwerkzaamheden in welke rioolleidingen en rioolknopen waar in de ondergrond zijn.",
+  "temporalUnit": "dagen",
+  "contactPoint": {
+    "name": "",
+    "email": "datapunt@amsterdam.nl"
+  },
+  "accrualPeriodicity": "maandelijks",
+  "spatialDescription": "Gemeente Amsterdam",
+  "theme": "Ondergrond",
+  "publisher": "OIS",
+  "owner": "Gemeente Amsterdam, V&OR assetmanager verhardingen",
+  "authorizationGrantor": "Assetmanager verhardingen",
+  "keywords": "Verhardingen,Fietspad,Berm,Voetpad, Busbaan, Rijbaan",
+  "hasBeginning": "2020-01-01T00:00:00",
   "crs": "EPSG:28992",
   "tables": [
     {
@@ -133,6 +152,8 @@
       "id": "rioolknopen",
       "type": "table",
       "provenance": "kel_rioolknopen",
+      "title": "Rioolknopen",
+      "description": "Informatie over rioolknopen in rioolleidingen",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -146,10 +167,12 @@
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
           "objnr": {
-            "type": "integer"
+            "type": "integer",
+            "description": "een publiekrechtelijke instantie of (rechts)persoon die toeziet op de instandhouding van o.a. het object. De typen beheerder zijn conform de indeling in bronhouders (BGT)."
           },
           "knoopnummer": {
             "type": "string",
+            "description": "knoopnummer",
             "provenance": "knoopnr"
           },
           "objectsoort": {
@@ -158,14 +181,17 @@
           },
           "typeFundering": {
             "type": "string",
+            "description": "type fundering",
             "provenance": "type_funde"
           },
           "putdekselhoogte": {
             "type": "number",
-            "provenance": "deksel_mna"
+            "provenance": "deksel_mna",
+            "description": "Putdekselhoogte in meter tov NAP"
           },
           "drempelhoogteOverstortputten": {
             "type": "string",
+            "description": "Drempelhoogte van overstortputten in meter tov NAP, alleen van toepassing op overstortputten",
             "provenance": "drempelniv"
           },
           "xCoordinaat": {
@@ -178,46 +204,58 @@
           },
           "gemaalNummer": {
             "type": "string",
+            "description": "Gemaalnummer, alleen van toepassing op gemalen",
             "provenance": "nr_gemaal"
           },
           "overstortNummer": {
             "type": "string",
+            "description": "Overstortnummer, alleen van toepassing op overstorten",
             "provenance": "nr_oversto"
           },
           "symboolHoek": {
             "type": "number",
+            "description": "Symboolhoek",
             "provenance": "hoek"
           },
           "overstortDrempelbreedte": {
             "type": "integer",
-            "provenance": "drempel_br"
+            "provenance": "drempel_br",
+            "description": "Overstortdrempelbreedte, alleen van toepassing op overstortputten"
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json"
           },
           "buurtnaam": {
-            "type": "string"
+            "type": "string",
+            "description": "buurtnaam"
           },
           "buurtcode": {
-            "type": "string"
+            "type": "string",
+            "description": "Verwijzing naar de buurt waar het leidingsobject binnenvalt."
           },
           "ggwnaam": {
-            "type": "string"
+            "type": "string",
+            "description": "GGW Naam"
           },
           "ggwcode": {
-            "type": "string"
+            "type": "string",
+            "description": "Verwijzing naar het GGW gebied waar het leidingsobject binnenvalt."
           },
           "stadsdeelnaam": {
-            "type": "string"
+            "type": "string",
+            "description": "Stadsdeelnaam"
           },
           "stadsdeelcode": {
-            "type": "string"
+            "type": "string",
+            "description": "Verwijzing naar de stadsdeel waar het leidingsobject binnenvalt."
           },
           "wijknaam": {
-            "type": "string"
+            "type": "string",
+            "description": "Wijknaam"
           },
           "wijkcode": {
-            "type": "string"
+            "type": "string",
+            "description": "Verwijzing naar de wijk waar het leidingsobject binnenvalt."
           }
         }
       }
