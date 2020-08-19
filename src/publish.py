@@ -129,7 +129,9 @@ def replace_schema_base_url(temp_dir, schema_base_url):
 @click.option(
     "--github-url",
     envvar="GITHUB_ZIP_URL",
-    default="https://github.com/Amsterdam/amsterdam-schema/archive/master.zip",
+    default="https://github.com/Amsterdam/amsterdam-schema/archive/develop.zip"
+    if os.getenv("DATAPUNT_ENVIRONMENT", "acceptance") == "acceptance"
+    else "https://github.com/Amsterdam/amsterdam-schema/archive/master.zip",
     help="Override the url to the zip on github (to use a specific branch for testing)",
 )
 @click.option(
