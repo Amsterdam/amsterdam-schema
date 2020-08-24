@@ -1,281 +1,278 @@
 {
-    "type": "dataset",
-    "id": "covid_19",
-    "title": "Covid19 gebiedsrestricties",
-    "description": "Gebieden die op grond van artikel 2.8 van de Algemene Plaatselijke Verordening (APV) als algemeen overlastgebied of als dealeroverlastgebied (of beiden) zijn aagewezen",  
-    "license": "public",
-    "status": "beschikbaar",
-    "version": "0.0.1",  
-    "theme": ["covid19", "Ruimte en Topografie", "Algemene Plaatselijke Verordening"],
-    "publisher": "OIS",
-    "owner": "Gemeente Amsterdam",
-    "authorizationGrantor": "OIS",
-    "keywords": ["covid19"],
-    "crs": "EPSG:28992",
-      "tables": [
-        {
-          "id": "alcoholverkoopverbod",
-          "title": "Covid19 alcoholverkoopverbod gebiedsrestricties",
-          "type": "table",
+  "type": "dataset",
+  "id": "covid_19",
+  "title": "Covid19 gebiedsrestricties",
+  "description": "Gebieden die op grond van artikel 2.8 van de Algemene Plaatselijke Verordening (APV) als algemeen overlastgebied of als dealeroverlastgebied (of beiden) zijn aagewezen",
+  "license": "public",
+  "status": "beschikbaar",
+  "version": "0.0.1",
+  "theme": [
+    "covid19",
+    "Ruimte en Topografie",
+    "Algemene Plaatselijke Verordening"
+  ],
+  "publisher": "OIS",
+  "owner": "Gemeente Amsterdam",
+  "authorizationGrantor": "OIS",
+  "keywords": ["covid19"],
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "alcoholverkoopverbod",
+      "title": "Covid19 alcoholverkoopverbod gebiedsrestricties",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "omschrijving",
+        "properties": {
           "schema": {
-            "$schema": "http://json-schema.org/draft-07/schema#",
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["schema", "id"],
-            "display": "Naam",
-            "properties": {
-              "schema": {
-                "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-              },
-              "id": {
-                "type": "integer",
-                "description": "Unieke aanduiding voor COVID19 restrictiegebied."
-              },
-              "geometry": {
-                "$ref": "https://geojson.org/schema/Geometry.json",
-                "description": "Polygoon definitie van het restrictiegebied."
-              } ,
-              "type": {
-                  "type": "string",
-                  "description": "Code van het type restrictie. Dit kan zijn: (AVV) alcoholverkoopverbod."
-              },
-              "omschrijving": {
-                  "type": "string",
-                  "description": "Omschrijving code van het type restrictie. Dit kan zijn: Alcoholverkoopverbod."
-              },                          
-              "naam": {
-                  "type": "string",
-                  "provenance":"oov_naam",
-                  "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
-              },
-              "geldigheid": {
-                  "type": "string",
-                  "description":"Beschrijving van de geldigheidsduur in dagen."
-              },
-              "tijd": {
-                  "type": "string",
-                  "description":"Beschrijving van de geldigheidsduur in tijd."
-              },
-              "url": {
-                  "type": "string",
-                  "format" : "uri",
-                  "description":"URL naar webpagina voor meer informatie."
-              }
-             
-            }
-          }
-        },
-        {
-          "id": "straatartiestverbod",
-          "title": "Covid19 straatartiestenverbod gebiedsrestricties",
-          "type": "table",
-          "schema": {
-            "$schema": "http://json-schema.org/draft-07/schema#",
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["schema", "id"],
-            "display": "Naam",
-            "properties": {
-              "schema": {
-                "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-              },
-              "id": {
-                "type": "integer",
-                "description": "Unieke aanduiding voor COVID19 restrictiegebied."
-              },
-              "geometry": {
-                "$ref": "https://geojson.org/schema/Geometry.json",
-                "description": "Polygoon definitie van het restrictiegebied."
-              } ,
-              "type": {
-                  "type": "string",
-                  "description": "Code van het type restrictie. Dit kan zijn: (SAV) straatartiestenverbod."
-              },
-              "omschrijving": {
-                  "type": "string",
-                  "description": "Omschrijving code van het type restrictie. Dit kan zijn: Straatartiestenverbod."
-              },                          
-              "naam": {
-                  "type": "string",
-                  "provenance":"oov_naam",
-                  "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
-              },
-              "geldigheid": {
-                  "type": "string",
-                  "description":"Beschrijving van de geldigheidsduur in dagen."
-              },
-              "tijd": {
-                  "type": "string",
-                  "description":"Beschrijving van de geldigheidsduur in tijd."
-              },
-              "url": {
-                  "type": "string",
-                  "format" : "uri",
-                  "description":"URL naar webpagina voor meer informatie."
-              }
-             
-            }
-          }
-        },
-        {
-          "id": "aanlegverbod",
-          "title": "Covid19 aanlegverbod gebiedsrestricties",
-          "type": "table",
-          "schema": {
-            "$schema": "http://json-schema.org/draft-07/schema#",
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["schema", "id"],
-            "display": "Naam",
-            "properties": {
-              "schema": {
-                "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-              },
-              "id": {
-                "type": "integer",
-                "description": "Unieke aanduiding voor COVID19 restrictiegebied."
-              },
-              "geometry": {
-                "$ref": "https://geojson.org/schema/Geometry.json",
-                "description": "Polygoon definitie van het restrictiegebied."
-              } ,
-              "type": {
-                  "type": "string",
-                  "description": "Code van het type restrictie. Dit kan zijn: (ALV) aanlegverbod."
-              },
-              "omschrijving": {
-                  "type": "string",
-                  "description": "Omschrijving code van het type restrictie. Dit kan zijn: Aanlegverbod."
-              },                          
-              "naam": {
-                  "type": "string",
-                  "provenance":"oov_naam",
-                  "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
-              },
-              "geldigheid": {
-                  "type": "string",
-                  "description":"Beschrijving van de geldigheidsduur in dagen."
-              },
-              "tijd": {
-                  "type": "string",
-                  "description":"Beschrijving van de geldigheidsduur in tijd."
-              },
-              "url": {
-                  "type": "string",
-                  "format" : "uri",
-                  "description":"URL naar webpagina voor meer informatie."
-              }
-             
-            }
-          }
-        },
-        {
-          "id": "verbodparken",
-          "title": "Covid19 verbodparken gebiedsrestricties",
-          "type": "table",
-          "schema": {
-            "$schema": "http://json-schema.org/draft-07/schema#",
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["schema", "id"],
-            "display": "Naam",
-            "properties": {
-              "schema": {
-                "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-              },
-              "id": {
-                "type": "integer",
-                "description": "Unieke aanduiding voor COVID19 restrictiegebied."
-              },
-              "geometry": {
-                "$ref": "https://geojson.org/schema/Geometry.json",
-                "description": "Polygoon definitie van het restrictiegebied."
-              } ,
-              "type": {
-                  "type": "string",
-                  "description": "Code van het type restrictie. Dit kan zijn: (GVP) gebiedsverbod parken."
-              },
-              "omschrijving": {
-                  "type": "string",
-                  "description": "Omschrijving code van het type restrictie. Dit kan zijn: Gebiedsverbod parken."
-              },                         
-              "naam": {
-                  "type": "string",
-                  "provenance":"oov_naam",
-                  "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
-              },
-              "geldigheid": {
-                  "type": "string",
-                  "description":"Beschrijving van de geldigheidsduur in dagen."
-              },
-              "tijd": {
-                  "type": "string",
-                  "description":"Beschrijving van de geldigheidsduur in tijd."
-              },
-              "url": {
-                  "type": "string",
-                  "format" : "uri",
-                  "description":"URL naar webpagina voor meer informatie."
-              }
-             
-            }
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding voor COVID19 restrictiegebied."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het restrictiegebied."
+          },
+          "type": {
+            "type": "string",
+            "description": "Code van het type restrictie. Dit kan zijn: (AVV) alcoholverkoopverbod."
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "Omschrijving code van het type restrictie. Dit kan zijn: Alcoholverkoopverbod."
+          },
+          "naam": {
+            "type": "string",
+            "provenance": "oov_naam",
+            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
+          },
+          "geldigheid": {
+            "type": "string",
+            "description": "Beschrijving van de geldigheidsduur in dagen."
+          },
+          "tijd": {
+            "type": "string",
+            "description": "Beschrijving van de geldigheidsduur in tijd."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL naar webpagina voor meer informatie."
           }
         }
-        ,
-        {
-          "id": "mondmaskerverplichting",
-          "title": "Covid19 mondmaskerverplichting gebiedsrestricties",
-          "type": "table",
+      }
+    },
+    {
+      "id": "straatartiestverbod",
+      "title": "Covid19 straatartiestenverbod gebiedsrestricties",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "omschrijving",
+        "properties": {
           "schema": {
-            "$schema": "http://json-schema.org/draft-07/schema#",
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["schema", "id"],
-            "display": "Naam",
-            "properties": {
-              "schema": {
-                "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-              },
-              "id": {
-                "type": "integer",
-                "description": "Unieke aanduiding voor COVID19 restrictiegebied."
-              },
-              "geometry": {
-                "$ref": "https://geojson.org/schema/Geometry.json",
-                "description": "Polygoon definitie van het restrictiegebied."
-              } ,
-              "type": {
-                  "type": "string",
-                  "description": "Code van het type restrictie: (MMP) mondmaskerverplichting."
-              },
-              "omschrijving": {
-                  "type": "string",
-                  "description": "Omschrijving code van het type restrictie. Dit kan zijn: Mondmaskerverplichting."
-              },                           
-              "naam": {
-                  "type": "string",
-                  "provenance":"oov_naam",
-                  "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
-              },
-              "geldigheid": {
-                  "type": "string",
-                  "description":"Beschrijving van de geldigheidsduur in dagen."
-              },
-              "tijd": {
-                  "type": "string",
-                  "description":"Beschrijving van de geldigheidsduur in tijd."
-              },
-              "url": {
-                  "type": "string",
-                  "format" : "uri",
-                  "description":"URL naar webpagina voor meer informatie."
-              }
-             
-            }
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding voor COVID19 restrictiegebied."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het restrictiegebied."
+          },
+          "type": {
+            "type": "string",
+            "description": "Code van het type restrictie. Dit kan zijn: (SAV) straatartiestenverbod."
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "Omschrijving code van het type restrictie. Dit kan zijn: Straatartiestenverbod."
+          },
+          "naam": {
+            "type": "string",
+            "provenance": "oov_naam",
+            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
+          },
+          "geldigheid": {
+            "type": "string",
+            "description": "Beschrijving van de geldigheidsduur in dagen."
+          },
+          "tijd": {
+            "type": "string",
+            "description": "Beschrijving van de geldigheidsduur in tijd."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL naar webpagina voor meer informatie."
           }
         }
+      }
+    },
+    {
+      "id": "aanlegverbod",
+      "title": "Covid19 aanlegverbod gebiedsrestricties",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "omschrijving",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding voor COVID19 restrictiegebied."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het restrictiegebied."
+          },
+          "type": {
+            "type": "string",
+            "description": "Code van het type restrictie. Dit kan zijn: (ALV) aanlegverbod."
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "Omschrijving code van het type restrictie. Dit kan zijn: Aanlegverbod."
+          },
+          "naam": {
+            "type": "string",
+            "provenance": "oov_naam",
+            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
+          },
+          "geldigheid": {
+            "type": "string",
+            "description": "Beschrijving van de geldigheidsduur in dagen."
+          },
+          "tijd": {
+            "type": "string",
+            "description": "Beschrijving van de geldigheidsduur in tijd."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL naar webpagina voor meer informatie."
+          }
+        }
+      }
+    },
+    {
+      "id": "verbodparken",
+      "title": "Covid19 verbodparken gebiedsrestricties",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "omschrijving",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding voor COVID19 restrictiegebied."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het restrictiegebied."
+          },
+          "type": {
+            "type": "string",
+            "description": "Code van het type restrictie. Dit kan zijn: (GVP) gebiedsverbod parken."
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "Omschrijving code van het type restrictie. Dit kan zijn: Gebiedsverbod parken."
+          },
+          "naam": {
+            "type": "string",
+            "provenance": "oov_naam",
+            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
+          },
+          "geldigheid": {
+            "type": "string",
+            "description": "Beschrijving van de geldigheidsduur in dagen."
+          },
+          "tijd": {
+            "type": "string",
+            "description": "Beschrijving van de geldigheidsduur in tijd."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL naar webpagina voor meer informatie."
 
-      ]
+          }
+        }
+      }
+    },
+    {
+      "id": "mondmaskerverplichting",
+      "title": "Covid19 mondmaskerverplichting gebiedsrestricties",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "omschrijving",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding voor COVID19 restrictiegebied."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het restrictiegebied."
+          },
+          "type": {
+            "type": "string",
+            "description": "Code van het type restrictie: (MMP) mondmaskerverplichting."
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "Omschrijving code van het type restrictie. Dit kan zijn: Mondmaskerverplichting."
+          },
+          "naam": {
+            "type": "string",
+            "provenance": "oov_naam",
+            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
+          },
+          "geldigheid": {
+            "type": "string",
+            "description": "Beschrijving van de geldigheidsduur in dagen."
+          },
+          "tijd": {
+            "type": "string",
+            "description": "Beschrijving van de geldigheidsduur in tijd."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL naar webpagina voor meer informatie."
+
+          }
+        }
+      }
     }
   ]
 }
