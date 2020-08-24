@@ -3,7 +3,7 @@
   "id": "brp",
   "title": "Basisregistratie Personen (BRP)",
   "status": "beschikbaar",
-  "description": "Deze dataset maakt de basisregistratie personen toegankelijk, bij gebruik van login credentials.",
+  "description": "Deze dataset maakt de basisregistratie personen toegankelijk, bij gebruik van login credentials. De velden zijn gebaseerd op het schema van Haal-Centraal.",
   "version": "0.0.1",
   "crs": "EPSG:28992",
   "auth": "BRP/R",
@@ -17,40 +17,42 @@
         "additionalProperties": false,
         "properties": {
           "geslachtsaanduiding": {
-            "type": "string"
+            "type": "string",
+            "description": "Mogelijke waarden: M (man), V (vrouw), O (onbekend)"
           },
           "naam": {
             "type": "object",
             "properties": {
               "aanduidingNaamgebruik": {
-                "type": "string"
+                "type": "string",
+                "description": "De schrijfwijze van de achternaam. Mogelijke waarden: E (eigen), N (eigen-partner), P (partner), V (partner-eigen)"
               },
               "voornamen": {
-                "type": "string"
+                "type": "string",
+                "description": "De voornamen van de persoon, gescheiden door spaties. Bijvoorbeeld: Pieter Jan"
               },
               "voorletters": {
-                "type": "string"
+                "type": "string",
+                "description": "De voorletters waarmee een persoon aangeschreven wil worden. De voorlettes zijn afgeleid van de voornamen."
               },
               "geslachtsnaam": {
-                "type": "string"
+                "type": "string",
+                "description": "De (geslachts)naam waarvan de eventueel aanwezige voorvoegsels en adellijke titel/predikaat zijn afgesplitst."
               },
               "voorvoegsel": {
-                "type": "string"
+                "type": "string",
+                "description": "Dat deel van de geslachtsnaam dat voorkomt in de Voorvoegseltabel en, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam. Bijvoorbeeld: 'van der'"
               }
             },
-            "required": [
-              "aanduidingNaamgebruik",
-              "voornamen",
-              "voorletters",
-              "geslachtsnaam",
-              "voorvoegsel"
-            ]
+            "required": []
           },
           "leeftijd": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Leeftijd in jaren op het moment van bevraging"
           },
           "burgerservicenummer": {
-            "type": "string"
+            "type": "string",
+            "description": "Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene bepalingen burgerservicenummer. Te valideren met de 11-proef."
           },
           "geboorte": {
             "type": "object",
@@ -59,32 +61,34 @@
                 "type": "object",
                 "properties": {
                   "datum": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date",
+                    "description": "De volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
                   },
                   "jaar": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Het jaar van de datum, als deze bekend is."
                   },
                   "maand": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "De maand van de datum, als deze bekend is."
                   },
                   "dag": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "De dag van de datum, als deze bekend is."
                   }
                 },
-                "required": [
-                  "jaar"
-                ]
+                "required": []
               }
             },
-            "required": [
-              "datum"
-            ]
+            "required": []
           },
           "verblijfplaats": {
             "type": "object",
             "properties": {
               "functieAdres": {
-                "type": "string"
+                "type": "string",
+                "description": "Aanduiding van het soort adres. Mogelijke waarden: W (woonadres), B (briefadres)."
               },
               "huisnummer": {
                 "type": "string"
@@ -97,69 +101,69 @@
               },
               "datumAanvangAdreshouding": {
                 "type": "object",
+                "description": "De datum van aangifte of ambtshalve melding van verblijf en adres.",
                 "properties": {
                   "datum": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date",
+                    "description": "De volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
                   },
                   "jaar": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Het jaar van de datum, als deze bekend is."
                   },
                   "maand": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "De maand van de datum, als deze bekend is."
                   },
                   "dag": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "De dag van de datum, als deze bekend is."
                   }
                 },
-                "required": [
-                  "jaar"
-                ]
+                "required": []
               },
               "datumInschrijvingInGemeente": {
                 "type": "object",
+                "description": "Afhankelijk van de grond van inschrijving. Afgiftedatum (bij een aangifte door de burger van zijn vestiging), geboortedatum (bij een geboorteakte), datum van schriftelijke voornemen (van ambtshalve inschrijving).",
                 "properties": {
                   "datum": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "date",
+                    "description": "De volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
                   },
                   "jaar": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Het jaar van de datum, als deze bekend is."
                   },
                   "maand": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "De maand van de datum, als deze bekend is."
                   },
                   "dag": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "De dag van de datum, als deze bekend is."
                   }
                 },
-                "required": [
-                  "jaar"
-                ]
+                "required": []
               },
               "gemeenteVanInschrijving": {
                 "type": "object",
+                "description": "In welke gemeente de PK zich bevindt. De code kan voorloopnullen bevatten",
                 "properties": {
                   "code": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Code van de gemeente."
                   },
                   "omschrijving": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Leesbare naam van de gemeente."
                   }
                 },
-                "required": [
-                  "code",
-                  "omschrijving"
-                ]
+                "required": []
               }
             },
-            "required": [
-              "functieAdres",
-              "huisnummer",
-              "postcode",
-              "straatnaam",
-              "datumAanvangAdreshouding",
-              "datumInschrijvingInGemeente",
-              "gemeenteVanInschrijving"
-            ]
+            "required": []
           }
         },
         "required": [
