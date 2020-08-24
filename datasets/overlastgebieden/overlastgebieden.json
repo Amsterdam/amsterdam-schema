@@ -1,364 +1,363 @@
 {
-    "type": "dataset",
-    "id": "overlastgebieden",
-    "title": "Overlastgebieden",
-    "description": "Gebieden die op grond van artikel 2.8 van de Algemene Plaatselijke Verordening (APV) als algemeen overlastgebied of als dealeroverlastgebied (of beiden) zijn aagewezen",
-    "license": "public",
-    "status": "beschikbaar",
-    "version": "0.0.1",
-    "theme": [
-      "overlastgebieden",
-      "Ruimte en Topografie",
-      "Algemene Plaatselijke Verordening"
-    ],
-    "publisher": "OIS",
-    "owner": "Gemeente Amsterdam",
-    "authorizationGrantor": "OIS",
-    "keywords": ["overlastgebieden"],
-    "crs": "EPSG:28992",
-    "tables": [
-      {
-        "id": "vuurwerkvrij",
-        "title": "Vuurwerkvrijezones",
-        "type": "table",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["schema", "id"],
-          "display": "type",
-          "properties": {
-            "schema": {
-              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-            },
-            "id": {
-              "type": "integer",
-              "description": "Unieke aanduiding van het overlastgebied."
-            },
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Geometry.json",
-              "description": "Polygoon definitie van het overlastgebied."
-            },
-            "type": {
-              "type": "string",
-              "description": "Code die het type overlastgebied aangeeft: (VVZ) vuurwerkvrijzone."
-            },
-            "soort": {
-              "type": "string",
-              "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-            },
-            "url": {
-              "type": "string",
-              "format": "uri",
-              "description": "Verwijzing naar aanvullende informatie."
-            }
-          }
-        }
-      },
-      {
-        "id": "algemeenoverlast",
-        "title": "Algemeen overlastgebied",
-        "type": "table",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["schema", "id"],
-          "display": "type",
-          "properties": {
-            "schema": {
-              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-            },
-            "id": {
-              "type": "integer",
-              "description": "Unieke aanduiding van het overlastgebied."
-            },
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Geometry.json",
-              "description": "Polygoon definitie van het overlastgebied."
-            },
-            "type": {
-              "type": "string",
-              "description": "Code die het type overlastgebied aangeeft: (AOG) algemeen overlastgebied."
-            },
-            "soort": {
-              "type": "string",
-              "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-            },
-            "url": {
-              "type": "string",
-              "format": "uri",
-              "description": "Verwijzing naar aanvullende informatie."
-            }
-          }
-        }
-      },
-      {
-        "id": "dealeroverlast",
-        "title": "Dealeroverlastgebied",
-        "type": "table",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["schema", "id"],
-          "display": "type",
-          "properties": {
-            "schema": {
-              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-            },
-            "id": {
-              "type": "integer",
-              "description": "Unieke aanduiding van het overlastgebied."
-            },
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Geometry.json",
-              "description": "Polygoon definitie van het overlastgebied."
-            },
-            "type": {
-              "type": "string",
-              "description": "Code die het type overlastgebied aangeeft: (DOG) dealeroverlastgebied."
-            },
-            "soort": {
-              "type": "string",
-              "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-            },
-            "url": {
-              "type": "string",
-              "format": "uri",
-              "description": "Verwijzing naar aanvullende informatie."
-            }
-          }
-        }
-      },
-      {
-        "id": "uitgaansoverlast",
-        "title": "Uitgaansoverlastgebied",
-        "type": "table",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["schema", "id"],
-          "display": "Naam",
-          "properties": {
-            "schema": {
-              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-            },
-            "id": {
-              "type": "integer",
-              "description": "Unieke aanduiding van het overlastgebied."
-            },
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Geometry.json",
-              "description": "Polygoon definitie van het overlastgebied."
-            },
-            "type": {
-              "type": "string",
-              "description": "Code die het type overlastgebied aangeeft: (OUG) Uitgaansoverlastgebied."
-            },
-            "soort": {
-              "type": "string",
-              "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-            },
-            "url": {
-              "type": "string",
-              "format": "uri",
-              "description": "Verwijzing naar aanvullende informatie."
-            }
-          }
-        }
-      },
-      {
-        "id": "alcoholverbod",
-        "title": "Alcoholverbodgebied",
-        "type": "table",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["schema", "id"],
-          "display": "Naam",
-          "properties": {
-            "schema": {
-              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-            },
-            "id": {
-              "type": "integer",
-              "description": "Unieke aanduiding van het overlastgebied."
-            },
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Geometry.json",
-              "description": "Polygoon definitie van het overlastgebied."
-            },
-            "type": {
-              "type": "string",
-              "description": "Code die het type overlastgebied aangeeft: (AVG) alcoholverbodgebied."
-            },
-            "soort": {
-              "type": "string",
-              "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-            },
-            "url": {
-              "type": "string",
-              "format": "uri",
-              "description": "Verwijzing naar aanvullende informatie."
-            }
-          }
-        }
-      },
-      {
-        "id": "taxistandplaats",
-        "title": "Taxistandplaats",
-        "type": "table",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["schema", "id"],
-          "display": "Naam",
-          "properties": {
-            "schema": {
-              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-            },
-            "id": {
-              "type": "integer",
-              "description": "Unieke aanduiding van het overlastgebied."
-            },
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Geometry.json",
-              "description": "Polygoon definitie van het overlastgebied."
-            },
-            "type": {
-              "type": "string",
-              "description": "Code die het type overlastgebied aangeeft: (TAXI) taxistandplaats."
-            },
-            "soort": {
-              "type": "string",
-              "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-            },
-            "url": {
-              "type": "string",
-              "format": "uri",
-              "description": "Verwijzing naar aanvullende informatie."
-            }
-          }
-        }
-      },
-      {
-        "id": "cameratoezicht",
-        "title": "Cameratoezichtgebied",
-        "type": "table",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["schema", "id"],
-          "display": "Naam",
-          "properties": {
-            "schema": {
-              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-            },
-            "id": {
-              "type": "integer",
-              "description": "Unieke aanduiding van het overlastgebied."
-            },
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Geometry.json",
-              "description": "Polygoon definitie van het overlastgebied."
-            },
-            "type": {
-              "type": "string",
-              "description": "Code die het type overlastgebied aangeeft: (CTG) cameratoezichtgebied."
-            },
-            "soort": {
-              "type": "string",
-              "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-            },
-            "url": {
-              "type": "string",
-              "format": "uri",
-              "description": "Verwijzing naar aanvullende informatie."
-            }
-          }
-        }
-      },
-      {
-        "id": "barbecueverbod",
-        "title": "Barbecueverbodgebied",
-        "type": "table",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["schema", "id"],
-          "display": "Naam",
-          "properties": {
-            "schema": {
-              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-            },
-            "id": {
-              "type": "integer",
-              "description": "Unieke aanduiding van het overlastgebied."
-            },
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Geometry.json",
-              "description": "Polygoon definitie van het overlastgebied."
-            },
-            "type": {
-              "type": "string",
-              "description": "Code die het type overlastgebied aangeeft: (BBQ) barbecueverbodgebied."
-            },
-            "soort": {
-              "type": "string",
-              "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-            },
-            "url": {
-              "type": "string",
-              "format": "uri",
-              "description": "Verwijzing naar aanvullende informatie."
-            }
-          }
-        }
-      },
-      {
-        "id": "rondleidingverbod",
-        "title": "Rondleidingverbodgebied",
-        "type": "table",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["schema", "id"],
-          "display": "Naam",
-          "properties": {
-            "schema": {
-              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-            },
-            "id": {
-              "type": "integer",
-              "description": "Unieke aanduiding van het overlastgebied."
-            },
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Geometry.json",
-              "description": "Polygoon definitie van het overlastgebied."
-            },
-            "type": {
-              "type": "string",
-              "description": "Code die het type overlastgebied aangeeft: (RLV) rondleidingverbodgebied."
-            },
-            "soort": {
-              "type": "string",
-              "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-            },
-            "url": {
-              "type": "string",
-              "format": "uri",
-              "description": "Verwijzing naar aanvullende informatie."
-            }
+  "type": "dataset",
+  "id": "overlastgebieden",
+  "title": "Overlastgebieden",
+  "description": "Gebieden die op grond van artikel 2.8 van de Algemene Plaatselijke Verordening (APV) als algemeen overlastgebied of als dealeroverlastgebied (of beiden) zijn aagewezen",
+  "license": "public",
+  "status": "beschikbaar",
+  "version": "0.0.1",
+  "theme": [
+    "overlastgebieden",
+    "Ruimte en Topografie",
+    "Algemene Plaatselijke Verordening"
+  ],
+  "publisher": "OIS",
+  "owner": "Gemeente Amsterdam",
+  "authorizationGrantor": "OIS",
+  "keywords": ["overlastgebieden"],
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "vuurwerkvrij",
+      "title": "Vuurwerkvrijezones",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "type",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding van het overlastgebied."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het overlastgebied."
+          },
+          "type": {
+            "type": "string",
+            "description": "Code die het type overlastgebied aangeeft: (VVZ) vuurwerkvrijzone."
+          },
+          "soort": {
+            "type": "string",
+            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Verwijzing naar aanvullende informatie."
           }
         }
       }
-    ]
-  }
-  
+    },
+    {
+      "id": "algemeenoverlast",
+      "title": "Algemeen overlastgebied",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "type",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding van het overlastgebied."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het overlastgebied."
+          },
+          "type": {
+            "type": "string",
+            "description": "Code die het type overlastgebied aangeeft: (AOG) algemeen overlastgebied."
+          },
+          "soort": {
+            "type": "string",
+            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Verwijzing naar aanvullende informatie."
+          }
+        }
+      }
+    },
+    {
+      "id": "dealeroverlast",
+      "title": "Dealeroverlastgebied",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "type",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding van het overlastgebied."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het overlastgebied."
+          },
+          "type": {
+            "type": "string",
+            "description": "Code die het type overlastgebied aangeeft: (DOG) dealeroverlastgebied."
+          },
+          "soort": {
+            "type": "string",
+            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Verwijzing naar aanvullende informatie."
+          }
+        }
+      }
+    },
+    {
+      "id": "uitgaansoverlast",
+      "title": "Uitgaansoverlastgebied",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "Naam",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding van het overlastgebied."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het overlastgebied."
+          },
+          "type": {
+            "type": "string",
+            "description": "Code die het type overlastgebied aangeeft: (OUG) Uitgaansoverlastgebied."
+          },
+          "soort": {
+            "type": "string",
+            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Verwijzing naar aanvullende informatie."
+          }
+        }
+      }
+    },
+    {
+      "id": "alcoholverbod",
+      "title": "Alcoholverbodgebied",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "Naam",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding van het overlastgebied."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het overlastgebied."
+          },
+          "type": {
+            "type": "string",
+            "description": "Code die het type overlastgebied aangeeft: (AVG) alcoholverbodgebied."
+          },
+          "soort": {
+            "type": "string",
+            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Verwijzing naar aanvullende informatie."
+          }
+        }
+      }
+    },
+    {
+      "id": "taxistandplaats",
+      "title": "Taxistandplaats",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "Naam",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding van het overlastgebied."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het overlastgebied."
+          },
+          "type": {
+            "type": "string",
+            "description": "Code die het type overlastgebied aangeeft: (TAXI) taxistandplaats."
+          },
+          "soort": {
+            "type": "string",
+            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Verwijzing naar aanvullende informatie."
+          }
+        }
+      }
+    },
+    {
+      "id": "cameratoezicht",
+      "title": "Cameratoezichtgebied",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "Naam",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding van het overlastgebied."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het overlastgebied."
+          },
+          "type": {
+            "type": "string",
+            "description": "Code die het type overlastgebied aangeeft: (CTG) cameratoezichtgebied."
+          },
+          "soort": {
+            "type": "string",
+            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Verwijzing naar aanvullende informatie."
+          }
+        }
+      }
+    },
+    {
+      "id": "barbecueverbod",
+      "title": "Barbecueverbodgebied",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "Naam",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding van het overlastgebied."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het overlastgebied."
+          },
+          "type": {
+            "type": "string",
+            "description": "Code die het type overlastgebied aangeeft: (BBQ) barbecueverbodgebied."
+          },
+          "soort": {
+            "type": "string",
+            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Verwijzing naar aanvullende informatie."
+          }
+        }
+      }
+    },
+    {
+      "id": "rondleidingverbod",
+      "title": "Rondleidingverbodgebied",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "Naam",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding van het overlastgebied."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het overlastgebied."
+          },
+          "type": {
+            "type": "string",
+            "description": "Code die het type overlastgebied aangeeft: (RLV) rondleidingverbodgebied."
+          },
+          "soort": {
+            "type": "string",
+            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Verwijzing naar aanvullende informatie."
+          }
+        }
+      }
+    }
+  ]
+}
