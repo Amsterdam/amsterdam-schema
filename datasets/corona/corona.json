@@ -1,0 +1,49 @@
+{
+  "type": "dataset",
+  "id": "corona",
+  "title": "corona",
+  "status": "beschikbaar",
+  "description": "Corona datasets voor handhaving",
+  "version": "0.0.1",
+  "tables": [
+    {
+      "id": "handhaving",
+      "title": "handhaving",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding voor element"
+          },
+          "organisatie": {
+            "type": "string",
+            "description": "Organisatie"
+          },
+          "typeInterventie": {
+            "type": "string",
+            "description": "type van interventie bij handhaving"
+          },
+          "aantal": {
+            "type": "integer",
+            "description": "Aantal handhavingen voor deze week"
+          },
+          "week_nummer": {
+            "type": "integer",
+            "description": "Nummer van de week"
+          }
+        }
+      }
+    }
+  ]
+}
