@@ -1,10 +1,16 @@
 {
   "type": "dataset",
   "id": "baggob",
-  "title": "baggob",
-  "status": "beschikbaar",
+  "title": "bag",
+  "status": "niet_beschikbaar",
   "version": "0.0.1",
   "crs": "EPSG:28992",
+  "temporal": {
+    "identifier": "volgnummer",
+    "dimensions": {
+      "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+    }
+  },
   "tables": [
     {
       "id": "woonplaatsen",
@@ -14,15 +20,16 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "id": {
+          "identificatie": {
             "type": "string",
-            "description": "Unieke identificatie voor dit object, inclusief volgnummer"
+            "description": "Landelijke identificerende code 3594."
           },
           "volgnummer": {
             "type": "integer",
@@ -30,18 +37,14 @@
           },
           "registratiedatum": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De datum waarop de toestand is geregistreerd."
           },
-          "identificatie": {
-            "type": "string",
-            "description": "Landelijke identificerende code 3594."
-          },
-          "amsterdamsesleutel": {
+          "amsterdamseSleutel": {
             "type": "string",
             "description": "Amsterdamse identificerende code."
           },
-          "woonplaatsptt": {
+          "woonplaatsPtt": {
             "type": "string",
             "description": "Woonplaatsnaam volgens de schrijfwijze van PostNL."
           },
@@ -57,22 +60,30 @@
             "type": "string",
             "description": "Dit geeft aan dat een WOONPLAATS in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument."
           },
-          "begingeldigheid": {
+          "beginGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een WOONPLAATS."
           },
-          "eindgeldigheid": {
+          "eindGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een WOONPLAATS."
           },
-          "heeftonderzoeken": {
+          "heeftOnderzoeken": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "integer"
+                }
+              }
             },
-            "relation": "bag:onderzoeken",
+            "relation": "baggob:onderzoeken",
             "description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object."
           },
           "documentdatum": {
@@ -84,33 +95,44 @@
             "type": "string",
             "description": "Het unieke nummer van het brondocument."
           },
-          "statuscode": {
-            "type": "string",
+          "statusCode": {
+            "type": "integer",
             "description": "Levenscyclus van de woonplaats, Woonplaats aangewezen, Woonplaats ingetrokken. code"
           },
-          "statusomschrijving": {
+          "statusOmschrijving": {
             "type": "string",
             "description": "Levenscyclus van de woonplaats, Woonplaats aangewezen, Woonplaats ingetrokken. omschrijving"
           },
-          "ligtingemeente": {
+          "ligtInGemeente": {
             "type": "string",
-            "$comment": "identificatie brk:gemeentes",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              }
+            },
+            "$comment": "relation brk:gemeentes *stringify*",
             "description": "De gemeente waarin de woonplaats ligt."
           },
-          "heeftdossier": {
-            "type": "string",
-            "relation": "bag:dossiers",
+          "heeftDossier": {
+            "type": "object",
+            "properties": {
+              "dossier": {
+                "type": "string"
+              }
+            },
+            "relation": "baggob:dossiers",
             "description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie."
           },
-          "bagprocescode": {
-            "type": "string",
+          "bagprocesCode": {
+            "type": "integer",
             "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. code"
           },
-          "bagprocesomschrijving": {
+          "bagprocesOmschrijving": {
             "type": "string",
             "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
           }
-        }
+        },
+        "mainGeometry": "geometrie"
       }
     },
     {
@@ -121,15 +143,16 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "id": {
+          "identificatie": {
             "type": "string",
-            "description": "Unieke identificatie voor dit object, inclusief volgnummer"
+            "description": "Landelijke identificerende sleutel."
           },
           "volgnummer": {
             "type": "integer",
@@ -137,14 +160,10 @@
           },
           "registratiedatum": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De datum waarop de toestand is geregistreerd."
           },
-          "identificatie": {
-            "type": "string",
-            "description": "Landelijke identificerende sleutel."
-          },
-          "amsterdamsesleutel": {
+          "amsterdamseSleutel": {
             "type": "string",
             "description": "Amsterdamse identificerende code."
           },
@@ -152,47 +171,71 @@
             "type": "boolean",
             "description": "Dit geeft aan dat een STANDPLAATS in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument."
           },
-          "statuscode": {
-            "type": "string",
+          "statusCode": {
+            "type": "integer",
             "description": "De fase van de levenscyclus van een standplaats, waarin de betreffende standplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. code"
           },
-          "statusomschrijving": {
+          "statusOmschrijving": {
             "type": "string",
             "description": "De fase van de levenscyclus van een standplaats, waarin de betreffende standplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. omschrijving"
           },
-          "heefthoofdadres": {
-            "type": "string",
-            "relation": "bag:nummeraanduidingen",
+          "heeftHoofdadres": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
+            "relation": "baggob:nummeraanduidingen",
             "description": "Het HOOFDadres dat de standplaats heeft."
           },
-          "heeftnevenadres": {
+          "heeftNevenadres": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "integer"
+                }
+              }
             },
-            "relation": "bag:nummeraanduidingen",
+            "relation": "baggob:nummeraanduidingen",
             "description": "Het NEVENadres dat de standplaats (optioneel) heeft."
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Vorm en ligging van de standplaats in het Nationale Rijksdriehoekstelsel."
           },
-          "begingeldigheid": {
+          "beginGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een STANDPLAATS."
           },
-          "eindgeldigheid": {
+          "eindGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een STANDPLAATS."
           },
-          "heeftonderzoeken": {
+          "heeftOnderzoeken": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "integer"
+                }
+              }
             },
-            "relation": "bag:onderzoeken",
+            "relation": "baggob:onderzoeken",
             "description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object."
           },
           "documentdatum": {
@@ -204,25 +247,39 @@
             "type": "string",
             "description": "Het unieke nummer van het brondocument."
           },
-          "ligtinbuurt": {
-            "type": "string",
+          "ligtInBuurt": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
             "relation": "gebieden:buurten",
             "description": "De buurt waarin een standplaats ligt."
           },
-          "heeftdossier": {
-            "type": "string",
-            "relation": "bag:dossiers",
+          "heeftDossier": {
+            "type": "object",
+            "properties": {
+              "dossier": {
+                "type": "string"
+              }
+            },
+            "relation": "baggob:dossiers",
             "description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie."
           },
-          "bagprocescode": {
-            "type": "string",
+          "bagprocesCode": {
+            "type": "integer",
             "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. code"
           },
-          "bagprocesomschrijving": {
+          "bagprocesOmschrijving": {
             "type": "string",
             "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
           }
-        }
+        },
+        "mainGeometry": "geometrie"
       }
     },
     {
@@ -233,15 +290,16 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "id": {
+          "identificatie": {
             "type": "string",
-            "description": "Unieke identificatie voor dit object, inclusief volgnummer"
+            "description": "Landelijke identificerende sleutel."
           },
           "volgnummer": {
             "type": "integer",
@@ -249,14 +307,10 @@
           },
           "registratiedatum": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De datum waarop de toestand is geregistreerd."
           },
-          "identificatie": {
-            "type": "string",
-            "description": "Landelijke identificerende sleutel."
-          },
-          "amsterdamsesleutel": {
+          "amsterdamseSleutel": {
             "type": "string",
             "description": "Amsterdamse identificerende code."
           },
@@ -264,47 +318,71 @@
             "type": "boolean",
             "description": "Dit geeft aan dat een LIGPLAATS in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument."
           },
-          "statuscode": {
-            "type": "string",
+          "statusCode": {
+            "type": "integer",
             "description": "De fase van de levenscyclus van een ligplaats, waarin de betreffende ligplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. code"
           },
-          "statusomschrijving": {
+          "statusOmschrijving": {
             "type": "string",
             "description": "De fase van de levenscyclus van een ligplaats, waarin de betreffende ligplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. omschrijving"
           },
-          "heefthoofdadres": {
-            "type": "string",
-            "relation": "bag:nummeraanduidingen",
+          "heeftHoofdadres": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
+            "relation": "baggob:nummeraanduidingen",
             "description": "Het HOOFDadres dat de ligplaats heeft."
           },
-          "heeftnevenadres": {
+          "heeftNevenadres": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "integer"
+                }
+              }
             },
-            "relation": "bag:nummeraanduidingen",
+            "relation": "baggob:nummeraanduidingen",
             "description": "Het NEVENadres dat de ligplaats (optioneel) heeft."
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Vorm en ligging van de ligplaats in het Nationale Rijksdriehoekstelsel."
           },
-          "begingeldigheid": {
+          "beginGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De begindatum van een periode waarin een of meer gegevens die worden bijgehouden over een ligplaats een wijziging hebben ondergaan."
           },
-          "eindgeldigheid": {
+          "eindGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De einddatum van een periode waarin een of meer gegevens die worden bijgehouden over een ligplaats een wijziging hebben ondergaan."
           },
-          "heeftonderzoeken": {
+          "heeftOnderzoeken": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "integer"
+                }
+              }
             },
-            "relation": "bag:onderzoeken",
+            "relation": "baggob:onderzoeken",
             "description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object."
           },
           "documentdatum": {
@@ -316,25 +394,39 @@
             "type": "string",
             "description": "Het unieke nummer van het brondocument."
           },
-          "ligtinbuurt": {
-            "type": "string",
+          "ligtInBuurt": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
             "relation": "gebieden:buurten",
             "description": "De buurt waarin een ligplaats ligt."
           },
-          "heeftdossier": {
-            "type": "string",
-            "relation": "bag:dossiers",
+          "heeftDossier": {
+            "type": "object",
+            "properties": {
+              "dossier": {
+                "type": "string"
+              }
+            },
+            "relation": "baggob:dossiers",
             "description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie."
           },
-          "bagprocescode": {
-            "type": "string",
+          "bagprocesCode": {
+            "type": "integer",
             "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. code"
           },
-          "bagprocesomschrijving": {
+          "bagprocesOmschrijving": {
             "type": "string",
             "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
           }
-        }
+        },
+        "mainGeometry": "geometrie"
       }
     },
     {
@@ -345,15 +437,16 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "id": {
+          "identificatie": {
             "type": "string",
-            "description": "Unieke identificatie voor dit object, inclusief volgnummer"
+            "description": "Landelijke identificerende sleutel."
           },
           "volgnummer": {
             "type": "integer",
@@ -361,14 +454,10 @@
           },
           "registratiedatum": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De datum waarop de toestand is geregistreerd."
           },
-          "identificatie": {
-            "type": "string",
-            "description": "Landelijke identificerende sleutel."
-          },
-          "amsterdamsesleutel": {
+          "amsterdamseSleutel": {
             "type": "string",
             "description": "Amsterdamse identificerende code."
           },
@@ -376,49 +465,53 @@
             "type": "string",
             "description": "Straatcode."
           },
-          "straatnaamptt": {
+          "straatnaamPtt": {
             "type": "string",
             "description": "Straatnaam volgens de schrijfwijze van PostNL (17 tekens)."
           },
-          "statuscode": {
-            "type": "string",
+          "statusCode": {
+            "type": "integer",
             "description": "De status van de levenscyclus van een openbare ruimte (Naamgeving uitgegeven, Naamgeving ingetrokken). code"
           },
-          "statusomschrijving": {
+          "statusOmschrijving": {
             "type": "string",
             "description": "De status van de levenscyclus van een openbare ruimte (Naamgeving uitgegeven, Naamgeving ingetrokken). omschrijving"
           },
-          "begingeldigheid": {
+          "beginGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een OPENBARE RUIMTE."
           },
-          "eindgeldigheid": {
+          "eindGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een OPENBARE RUIMTE."
           },
           "geconstateerd": {
             "type": "boolean",
             "description": "Dit geeft aan dat een OPENBARE RUIMTE in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument (J/N)"
           },
-          "aanduidinginonderzoek": {
-            "type": "boolean",
-            "description": "Hiermee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object (J/N)."
-          },
-          "heeftonderzoeken": {
+          "heeftOnderzoeken": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "integer"
+                }
+              }
             },
-            "relation": "bag:onderzoeken",
+            "relation": "baggob:onderzoeken",
             "description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object."
           },
-          "typecode": {
-            "type": "string",
+          "typeCode": {
+            "type": "integer",
             "description": "De aard van de zodanig benoemde openbare ruimte (01 Weg, 02 Water, 03 Spoorbaan, 04 Terrein, 05 Kunstwerk, 06 Landschappelijk gebied, 07 Administratief gebied) code"
           },
-          "typeomschrijving": {
+          "typeOmschrijving": {
             "type": "string",
             "description": "De aard van de zodanig benoemde openbare ruimte (01 Weg, 02 Water, 03 Spoorbaan, 04 Terrein, 05 Kunstwerk, 06 Landschappelijk gebied, 07 Administratief gebied) omschrijving"
           },
@@ -435,29 +528,42 @@
             "type": "string",
             "description": "Officiële naam openbare ruimte (80 tekens)."
           },
-          "naamnen": {
+          "naamNen": {
             "type": "string",
             "description": "Straatnaam volgens de inkortingsregels van NEN 5825 (24 tekens)."
           },
-          "ligtinwoonplaats": {
-            "type": "string",
-            "relation": "bag:woonplaatsen",
+          "ligtInWoonplaats": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
+            "relation": "baggob:woonplaatsen",
             "description": "De woonplaats (landelijke identificatie) waarin de openbare ruimte ligt."
           },
-          "beschrijvingnaam": {
+          "beschrijvingNaam": {
             "type": "string",
             "description": "Beschrijving van de openbare ruimte bijvoorbeeld: Vogel. Wereldwijd komen 24 soorten albatrossen voor. De meeste leven op het zuidelijk halfrond. De grootste albatros heeft een spanwijdte van meer dan drie meter en is daarmee de grootste zeevogel ter wereld."
           },
-          "heeftdossier": {
+          "heeftDossier": {
             "type": "string",
-            "relation": "bag:dossiers",
+            "properties": {
+              "dossier": {
+                "type": "string"
+              }
+            },
+            "relation": "baggob:dossiers",
             "description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie."
           },
-          "bagprocescode": {
-            "type": "string",
+          "bagprocesCode": {
+            "type": "integer",
             "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. code"
           },
-          "bagprocesomschrijving": {
+          "bagprocesOmschrijving": {
             "type": "string",
             "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
           },
@@ -465,7 +571,8 @@
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Zie inwinregels voor geometrie openbare ruimte."
           }
-        }
+        },
+        "mainGeometry": "geometrie"
       }
     },
     {
@@ -476,15 +583,16 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "id": {
+          "identificatie": {
             "type": "string",
-            "description": "Unieke identificatie voor dit object, inclusief volgnummer"
+            "description": "Landelijke identificerende sleutel."
           },
           "volgnummer": {
             "type": "integer",
@@ -492,14 +600,10 @@
           },
           "registratiedatum": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De datum waarop de toestand is geregistreerd."
           },
-          "identificatie": {
-            "type": "string",
-            "description": "Landelijke identificerende sleutel."
-          },
-          "amsterdamsesleutel": {
+          "amsterdamseSleutel": {
             "type": "string",
             "description": "Amsterdamse identificerende code."
           },
@@ -523,43 +627,63 @@
             "type": "string",
             "description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)."
           },
-          "ligtinwoonplaats": {
-            "type": "string",
-            "relation": "bag:woonplaatsen",
+          "ligtInWoonplaats": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
+            "relation": "baggob:woonplaatsen",
             "description": "De woonplaats (landelijke identificatie) waarin de nummeraanduiding ligt."
           },
-          "begingeldigheid": {
+          "beginGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een NUMMERAANDUIDING."
           },
-          "eindgeldigheid": {
+          "eindGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een NUMMERAANDUIDING."
           },
-          "aanduidinginonderzoek": {
-            "type": "boolean",
-            "description": "Hiermee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object (J/N)."
-          },
-          "heeftonderzoeken": {
+          "heeftOnderzoeken": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "integer"
+                }
+              }
             },
-            "relation": "bag:onderzoeken",
+            "relation": "baggob:onderzoeken",
             "description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object."
           },
-          "ligtaanopenbareruimte": {
-            "type": "string",
-            "relation": "bag:openbareruimtes",
+          "ligtAanOpenbareruimte": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
+            "relation": "baggob:openbareruimtes",
             "description": "De openbare ruimte (landelijke identificatie) waaraan het betreffende adresseerbare object ligt."
           },
-          "typeadresseerbaarobjectcode": {
-            "type": "string",
+          "typeAdresseerbaarObjectCode": {
+            "type": "integer",
             "description": "Het type adresseerbaar object waaraan een nummeraanduiding is toegekend. code"
           },
-          "typeadresseerbaarobjectomschrijving": {
+          "typeAdresseerbaarObjectOmschrijving": {
             "type": "string",
             "description": "Het type adresseerbaar object waaraan een nummeraanduiding is toegekend. omschrijving"
           },
@@ -572,43 +696,72 @@
             "type": "string",
             "description": "Het unieke nummer van het brondocument."
           },
-          "statuscode": {
-            "type": "string",
+          "statusCode": {
+            "type": "integer",
             "description": "De fase van de levenscyclus van een nummeraanduiding,waarin de betreffende nummeraanduiding zich bevindt. (Naamgeving uitgegeven, Naamgeving ingetrokken). code"
           },
-          "statusomschrijving": {
+          "statusOmschrijving": {
             "type": "string",
             "description": "De fase van de levenscyclus van een nummeraanduiding,waarin de betreffende nummeraanduiding zich bevindt. (Naamgeving uitgegeven, Naamgeving ingetrokken). omschrijving"
           },
-          "typeadres": {
+          "typeAdres": {
             "type": "string",
             "description": "Hiermee wordt aangegeven of het een relatie betreft vanuit een hoofdadres. Anders is er sprake van een nevenadres (Hoofdadres, Nevenadres)."
           },
-          "adresseertverblijfsobject": {
-            "type": "string",
-            "relation": "bag:verblijfsobjecten",
+          "adresseertVerblijfsobject": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
+            "relation": "baggob:verblijfsobjecten",
             "description": "Het verblijfsobject (landelijke identificatie) dat door de nummeraanduiding wordt aangeduid."
           },
-          "adresseertligplaats": {
-            "type": "string",
-            "relation": "bag:ligplaatsen",
+          "adresseertLigplaats": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
+            "relation": "baggob:ligplaatsen",
             "description": "De ligplaats (landelijke identificatie) die door de nummeraanduiding wordt aangeduid."
           },
-          "adresseertstandplaats": {
-            "type": "string",
-            "relation": "bag:standplaatsen",
+          "adresseertStandplaats": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
+            "relation": "baggob:standplaatsen",
             "description": "De standplaats (landelijke identificatie) die door de nummeraanduiding wordt aangeduid."
           },
-          "heeftdossier": {
-            "type": "string",
-            "relation": "bag:dossiers",
+          "heeftDossier": {
+            "type": "object",
+            "properties": {
+              "dossier": {
+                "type": "string"
+              }
+            },
+            "relation": "baggob:dossiers",
             "description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie."
           },
-          "bagprocescode": {
-            "type": "string",
+          "bagprocesCode": {
+            "type": "integer",
             "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. code"
           },
-          "bagprocesomschrijving": {
+          "bagprocesOmschrijving": {
             "type": "string",
             "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
           }
@@ -623,11 +776,16 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "Landelijke identificerende sleutel."
           },
           "id": {
             "type": "string",
@@ -639,30 +797,26 @@
           },
           "registratiedatum": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De datum waarop de toestand is geregistreerd."
           },
-          "identificatie": {
-            "type": "string",
-            "description": "Landelijke identificerende sleutel."
-          },
-          "amsterdamsesleutel": {
+          "amsterdamseSleutel": {
             "type": "string",
             "description": "Amsterdamse identificerende code."
           },
-          "cbsnummer": {
+          "cbsNummer": {
             "type": "string",
             "description": "CBS-nummer."
           },
-          "indicatiewoningvoorraad": {
+          "indicatieWoningvoorraad": {
             "type": "string",
             "description": "Geeft aan of een verblijfsobject bij de woningvoorraad hoort."
           },
-          "financieringscodecode": {
-            "type": "string",
+          "financieringscodeCode": {
+            "type": "integer",
             "description": "Geeft aan op welke wijze een woning gefinancierd is bij de bouw. code"
           },
-          "financieringscodeomschrijving": {
+          "financieringscodeOmschrijving": {
             "type": "string",
             "description": "Geeft aan op welke wijze een woning gefinancierd is bij de bouw. omschrijving"
           },
@@ -670,28 +824,44 @@
             "type": "boolean",
             "description": "Dit geeft aan dat een VERBLIJFSOBJECT in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument (J/N)."
           },
-          "heefthoofdadres": {
-            "type": "string",
-            "relation": "bag:nummeraanduidingen",
+          "heeftHoofdadres": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
+            "relation": "baggob:nummeraanduidingen",
             "description": "Het HOOFDadres dat het verblijfsobject heeft."
           },
-          "heeftnevenadres": {
+          "heeftNevenadres": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "integer"
+                }
+              }
             },
-            "relation": "bag:nummeraanduidingen",
+            "relation": "baggob:nummeraanduidingen",
             "description": "Het NEVENadres dat het verblijfsobject (optioneel) heeft."
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "De locatie van het verblijfsobject in het Nationale Rijksdriehoekstelsel."
           },
-          "gebruiksdoelcode": {
-            "type": "string",
+          "gebruiksdoelCode": {
+            "type": "integer",
             "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan. code"
           },
-          "gebruiksdoelomschrijving": {
+          "gebruiksdoelOmschrijving": {
             "type": "string",
             "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan. omschrijving"
           },
@@ -699,42 +869,54 @@
             "type": "integer",
             "description": "De gebruiksoppervlakte van het verblijfsobject conform hetgeen in NEN 2580 is vastgelegd omtrent gebruiksoppervlakte."
           },
-          "statuscode": {
-            "type": "string",
+          "statusCode": {
+            "type": "integer",
             "description": "De fase van de levenscyclus van een verblijfsobject, waarin het betreffende VERBLIJFSOBJECT zich bevindt. code"
           },
-          "statusomschrijving": {
+          "statusOmschrijving": {
             "type": "string",
             "description": "De fase van de levenscyclus van een verblijfsobject, waarin het betreffende VERBLIJFSOBJECT zich bevindt. omschrijving"
           },
-          "ligtinpanden": {
+          "ligtInPanden": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "integer"
+                }
+              }
             },
-            "relation": "bag:panden",
+            "relation": "baggob:panden",
             "description": "De unieke landelijke aanduidingen van de panden waarvan het verblijfsobject onderdeel uitmaakt."
           },
-          "begingeldigheid": {
+          "beginGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een VERBLIJFSOBJECT."
           },
-          "eindgeldigheid": {
+          "eindGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een VERBLIJFSOBJECT."
           },
-          "aanduidinginonderzoek": {
-            "type": "boolean",
-            "description": "Hiermee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object (J/N)."
-          },
-          "heeftonderzoeken": {
+          "heeftOnderzoeken": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "integer"
+                }
+              }
             },
-            "relation": "bag:onderzoeken",
+            "relation": "baggob:onderzoeken",
             "description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object."
           },
           "documentdatum": {
@@ -746,105 +928,119 @@
             "type": "string",
             "description": "Het unieke nummer van het brondocument."
           },
-          "gebruiksdoelwoonfunctiecode": {
-            "type": "string",
+          "gebruiksdoelWoonfunctieCode": {
+            "type": "integer",
             "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. code"
           },
-          "gebruiksdoelwoonfunctieomschrijving": {
+          "gebruiksdoelWoonfunctieOmschrijving": {
             "type": "string",
             "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. omschrijving"
           },
-          "gebruiksdoelgezondheidszorgfunctiecode": {
-            "type": "string",
+          "gebruiksdoelGezondheidszorgfunctieCode": {
+            "type": "integer",
             "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. code"
           },
-          "gebruiksdoelgezondheidszorgfunctieomschrijving": {
+          "gebruiksdoelGezondheidszorgfunctieOmschrijving": {
             "type": "string",
             "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. omschrijving"
           },
-          "aantaleenhedencomplex": {
+          "aantalEenhedenComplex": {
             "type": "integer",
             "description": "Aantal eenheden complex per verblijfsobject (alléén bij een speciale  woonfunctie of gezondheidszorgfunctie; zie gebruiksdoel-plus)."
           },
-          "verdiepingtoegang": {
+          "verdiepingToegang": {
             "type": "integer",
             "description": "Aanduiding op welke verdieping zich de toegang tot het verblijfsobject bevindt."
           },
-          "aantalbouwlagen": {
+          "aantalBouwlagen": {
             "type": "integer",
             "description": "Aantal bouwlagen van een verblijfsobject."
           },
-          "hoogstebouwlaag": {
+          "hoogsteBouwlaag": {
             "type": "integer",
             "description": "Hoogste bouwlaag van een verblijfsobject."
           },
-          "laagstebouwlaag": {
+          "laagsteBouwlaag": {
             "type": "integer",
             "description": "Laagste bouwlaag van een verblijfsobject."
           },
-          "aantalkamers": {
+          "aantalKamers": {
             "type": "integer",
             "description": "Geeft het aantal kamers aan binnen het verblijfsobject."
           },
-          "eigendomsverhoudingcode": {
-            "type": "string",
+          "eigendomsverhoudingCode": {
+            "type": "integer",
             "description": "Geeft de eigendomsverhouding aan (huur of eigendom). code"
           },
-          "eigendomsverhoudingomschrijving": {
+          "eigendomsverhoudingOmschrijving": {
             "type": "string",
             "description": "Geeft de eigendomsverhouding aan (huur of eigendom). omschrijving"
           },
-          "feitelijkgebruikcode": {
-            "type": "string",
+          "feitelijkGebruikCode": {
+            "type": "integer",
             "description": "Feitelijk gebruik van een verblijfsobject. code"
           },
-          "feitelijkgebruikomschrijving": {
+          "feitelijkGebruikOmschrijving": {
             "type": "string",
             "description": "Feitelijk gebruik van een verblijfsobject. omschrijving"
           },
-          "toegangcode": {
+          "toegangCode": {
             "type": "string",
             "description": "Plaats waar zich de toegang tot het verblijfsobject bevindt. code"
           },
-          "toegangomschrijving": {
+          "toegangOmschrijving": {
             "type": "string",
             "description": "Plaats waar zich de toegang tot het verblijfsobject bevindt. omschrijving"
           },
-          "redenopvoercode": {
-            "type": "string",
+          "redenopvoerCode": {
+            "type": "integer",
             "description": "Reden van de opvoer van het verblijfsobject. code"
           },
-          "redenopvoeromschrijving": {
+          "redenopvoerOmschrijving": {
             "type": "string",
             "description": "Reden van de opvoer van het verblijfsobject. omschrijving"
           },
-          "redenafvoercode": {
-            "type": "string",
+          "redenafvoerCode": {
+            "type": "integer",
             "description": "Reden van de afvoer van het verblijfsobject. code"
           },
-          "redenafvoeromschrijving": {
+          "redenafvoerOmschrijving": {
             "type": "string",
             "description": "Reden van de afvoer van het verblijfsobject. omschrijving"
           },
-          "ligtinbuurt": {
-            "type": "string",
+          "ligtInBuurt": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
             "relation": "gebieden:buurten",
             "description": "Buurt waarin het verblijfsobject ligt."
           },
-          "heeftdossier": {
-            "type": "string",
-            "relation": "bag:dossiers",
+          "heeftDossier": {
+            "type": "object",
+            "properties": {
+              "dossier": {
+                "type": "string"
+              }
+            },
+            "relation": "baggob:dossiers",
             "description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie."
           },
-          "bagprocescode": {
-            "type": "string",
+          "bagprocesCode": {
+            "type": "integer",
             "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. code"
           },
-          "bagprocesomschrijving": {
+          "bagprocesOmschrijving": {
             "type": "string",
             "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
           }
-        }
+        },
+        "mainGeometry": "geometrie"
       }
     },
     {
@@ -855,15 +1051,16 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "id": {
+          "identificatie": {
             "type": "string",
-            "description": "Unieke identificatie voor dit object, inclusief volgnummer"
+            "description": "Landelijke identificerende sleutel."
           },
           "volgnummer": {
             "type": "integer",
@@ -871,14 +1068,10 @@
           },
           "registratiedatum": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De datum waarop de toestand is geregistreerd."
           },
-          "identificatie": {
-            "type": "string",
-            "description": "Landelijke identificerende sleutel."
-          },
-          "amsterdamsesleutel": {
+          "amsterdamseSleutel": {
             "type": "string",
             "description": "Amsterdamse identificerende code."
           },
@@ -890,34 +1083,42 @@
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Vorm en ligging van het pand in het Nationale Rijksdriehoekstelsel."
           },
-          "oorspronkelijkbouwjaar": {
+          "oorspronkelijkBouwjaar": {
             "type": "integer",
             "description": "De aanduiding van het jaar waarin een pand oorspronkelijk als bouwkundig gereed is of wordt opgeleverd."
           },
-          "statuscode": {
-            "type": "string",
+          "statusCode": {
+            "type": "integer",
             "description": "De fase van de levenscyclus van een pand, waarin het betreffende pand zich bevindt. code"
           },
-          "statusomschrijving": {
+          "statusOmschrijving": {
             "type": "string",
             "description": "De fase van de levenscyclus van een pand, waarin het betreffende pand zich bevindt. omschrijving"
           },
-          "begingeldigheid": {
+          "beginGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een PAND."
           },
-          "eindgeldigheid": {
+          "eindGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een PAND."
           },
-          "heeftonderzoeken": {
+          "heeftOnderzoeken": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "integer"
+                }
+              }
             },
-            "relation": "bag:onderzoeken",
+            "relation": "baggob:onderzoeken",
             "description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object."
           },
           "documentdatum": {
@@ -933,49 +1134,63 @@
             "type": "string",
             "description": "Naamgeving van een pand (bv. naam van metrostation of bijzonder gebouw)."
           },
-          "liggingcode": {
-            "type": "string",
+          "liggingCode": {
+            "type": "integer",
             "description": "Situering pand met verblijfsobject (vrijstaand, tussenwoning, etc.). code"
           },
-          "liggingomschrijving": {
+          "liggingOmschrijving": {
             "type": "string",
             "description": "Situering pand met verblijfsobject (vrijstaand, tussenwoning, etc.). omschrijving"
           },
-          "typewoonobject": {
+          "typeWoonobject": {
             "type": "string",
             "description": "Eén woning, Meerdere woningen."
           },
-          "ligtinbouwblok": {
-            "type": "string",
+          "ligtInBouwblok": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
             "relation": "gebieden:bouwblokken",
             "description": "Het bouwblok waarin het pand ligt."
           },
-          "aantalbouwlagen": {
+          "aantalBouwlagen": {
             "type": "integer",
             "description": "Aantal bouwlagen van een pand."
           },
-          "hoogstebouwlaag": {
+          "hoogsteBouwlaag": {
             "type": "integer",
             "description": "Hoogste bouwlaag van een pand."
           },
-          "laagstebouwlaag": {
+          "laagsteBouwlaag": {
             "type": "integer",
             "description": "Laagste bouwlaag van een pand."
           },
-          "heeftdossier": {
-            "type": "string",
-            "relation": "bag:dossiers",
+          "heeftDossier": {
+            "type": "object",
+            "properties": {
+              "dossier": {
+                "type": "string"
+              }
+            },
+            "relation": "baggob:dossiers",
             "description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie."
           },
-          "bagprocescode": {
-            "type": "string",
+          "bagprocesCode": {
+            "type": "integer",
             "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. code"
           },
-          "bagprocesomschrijving": {
+          "bagprocesOmschrijving": {
             "type": "string",
             "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
           }
-        }
+        },
+        "mainGeometry": "geometrie"
       }
     },
     {
@@ -986,26 +1201,28 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id", "identificatie"],
-        "display": "id",
+        "identifier": "dossier",
+        "required": ["schema", "dossier"],
+        "display": "dossier",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "string",
-            "description": "Unieke identificatie voor dit object"
           },
           "dossier": {
             "type": "string",
             "description": "Verwijzing vanuit de overige objectklassen."
           },
-          "heeftbrondocumenten": {
+          "heeftBrondocumenten": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "documentnummer": {
+                  "type": "string"
+                }
+              }
             },
-            "relation": "bag:brondocumenten",
+            "relation": "baggob:brondocumenten",
             "description": "De brondocument(en) behorende bij het dossier."
           }
         }
@@ -1019,47 +1236,44 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id", "identificatie"],
-        "display": "id",
+        "identifier": "documentnummer",
+        "required": ["schema", "documentnummer"],
+        "display": "documentnummer",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "string",
-            "description": "Unieke identificatie voor dit object"
           },
           "documentnummer": {
             "type": "string",
             "description": "Identificerende nummer van het document."
           },
-          "bronleveranciercode": {
+          "bronleverancierCode": {
             "type": "string",
             "description": "Verstrekker van brondocumenten en/​of gegevens voortkomend uit het uitoefenen of voorbereiden van een gemeentelijke bevoegdheid, die nodig zijn voor een registratie aan de bronhouder, conform vastgestelde aanleverspecificaties. code"
           },
-          "bronleverancieromschrijving": {
+          "bronleverancierOmschrijving": {
             "type": "string",
             "description": "Verstrekker van brondocumenten en/​of gegevens voortkomend uit het uitoefenen of voorbereiden van een gemeentelijke bevoegdheid, die nodig zijn voor een registratie aan de bronhouder, conform vastgestelde aanleverspecificaties. omschrijving"
           },
-          "typedossiercode": {
+          "typeDossierCode": {
             "type": "string",
             "description": "Het type dossier. code"
           },
-          "typedossieromschrijving": {
+          "typeDossierOmschrijving": {
             "type": "string",
             "description": "Het type dossier. omschrijving"
           },
-          "typebrondocumentcode": {
+          "typeBrondocumentCode": {
             "type": "string",
             "description": "Het type brondocument. code"
           },
-          "typebrondocumentomschrijving": {
+          "typeBrondocumentOmschrijving": {
             "type": "string",
             "description": "Het type brondocument. omschrijving"
           },
           "registratiedatum": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De datum waarop het brondocument is opgeslagen in het register."
           }
         }
@@ -1073,15 +1287,16 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "id": {
+          "identificatie": {
             "type": "string",
-            "description": "Unieke identificatie voor dit object, inclusief volgnummer"
+            "description": "Identificatie van de objectklasse Onderzoek voor intern gebruik."
           },
           "volgnummer": {
             "type": "integer",
@@ -1089,14 +1304,10 @@
           },
           "registratiedatum": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De datum waarop de toestand is geregistreerd."
           },
-          "identificatie": {
-            "type": "string",
-            "description": "Identificatie van de objectklasse Onderzoek voor intern gebruik."
-          },
-          "objectidentificatie": {
+          "objectIdentificatie": {
             "type": "string",
             "description": "Identificerende nummer van het object dat in onderzoek is geplaatst."
           },
@@ -1108,18 +1319,18 @@
             "type": "string",
             "description": "De naam van het kenmerk van het object dat in onderzoek is geplaatst. Het kenmerk kan ook een relatie zijn met een ander object."
           },
-          "inonderzoek": {
+          "inOnderzoek": {
             "type": "string",
             "description": "Indicatie of het kenmerk wel of niet in onderzoek staat."
           },
-          "begingeldigheid": {
+          "beginGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De datum waarop het kenmerk of de relatie van een object bij de bronhouder in onderzoek is geplaatst."
           },
-          "eindgeldigheid": {
+          "eindGeldigheid": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "De datum waarop het onderzoek naar het kenmerk of de relatie van een object door de bronhouder is afgerond."
           },
           "documentdatum": {
@@ -1131,14 +1342,14 @@
             "type": "string",
             "description": "Het nummer van het document waarin de grondslag van het onderzoek wordt vastgelegd."
           },
-          "tijdstipregistratie": {
+          "tijdstipRegistratie": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "Het tijdstip waarop het onderzoek is geregistreerd bij de bronhouder."
           },
-          "eindregistratie": {
+          "eindRegistratie": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "Het tijdstip waarop de registratie van het onderzoek is beëindigd bij de bronhouder."
           }
         }
