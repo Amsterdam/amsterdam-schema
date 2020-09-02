@@ -43,28 +43,28 @@
               "type": "integer",
               "relation": "bag:pand",
               "description": "BAG code van het pand waaronder de verhuurbare eenheid valt.",
-              "provenance": "BAG_pand_id"
+              "provenance": "bag pand id"
             },
             "verblijfsobjectId": {
               "type": "integer",
               "relation": "bag:verblijfsobject",
               "description": "BAG code van het verblijfsobject waaronder de verhuurbare eenheid valt.",
-              "provenance": "BAG_identificatie_verblijfsobject"
+              "provenance": "bag identificatie verblijfsobject"
             },
             "verhuurbareEenheidNummer": {
               "type": "integer",
               "description": "Interne nummering van de verhuurbare eenheid.",
-              "provenance": "VHE_nr."
+              "provenance": "vhe nr."
             },
             "objectNummer": {
               "type": "string",
               "description": "Interne nummering van het object van de verhuurbare eenheid.",
-              "provenance": "Object_nr."
+              "provenance": "object nr."
             },
             "objectStatus": {
               "type": "string",
               "description": "Beheerstatus van het object van de verhuurbare eenheid.",
-              "provenance": "object_status"
+              "provenance": "status object"
             },
             "vastgoedportefeuille": {
               "type": "string",
@@ -73,41 +73,53 @@
             "GrexNummer": {
               "type": "string",
               "description": "Gemeentelijke grondexploitatienummer waaronder de verhuurbare eenheid valt. Bij geen nummer dan tekst: Geen GREX.",
-              "provenance": "GREX_nummer"
+              "provenance": "grex nummer"
             },
             "objectType": {
               "type": "string",
               "description": "Typering van het soort object van de verhuurbare eenheid.",
-              "provenance": "type_object"
+              "provenance": "type object"
             },
             "objectNaam": {
               "type": "string",
               "description": "Naam van het object de verhuurbare eenheid.",
-              "provenance": "naam_object"
+              "provenance": "naam object"
             },
             "verhuurbareEenheidNaam": {
               "type": "string",
               "description": "Naam de verhuurbare eenheid.",
-              "provenance": "naam_VHE"
+              "provenance": "naam vhe"
             },
             "verhuurbareEenheidAdres": {
               "type": "string",
               "description": "Het adres van de verhuurbare eenheid.",
-              "provenance": "adres_VHE"
+              "provenance": "adres vhe"
             },
             "objectEigendomstatus": {
               "type": "string",
               "description": "De eigendomssituatie van het object van de verhuurbare eenheid.",
-              "provenance": "eigendomstatus_object"
+              "provenance": "eigendomstatus object"
             },
-            "oppervlakteIndicatie": {
+            "verhuurbareEenheidEigendomstatus": {
               "type": "string",
-              "description": "De indicatie van het oppervalkte van het object van de verhuurbare eenheid.",
-              "provenance": "oppervalkte_(indicatie)"
+              "description": "De eigendomssituatie van de verhuurbare eenheid.",
+              "provenance": "eigendomstatus vhe"
+            },
+            "oppervlakte": {
+              "type": "number",                
+              "multipleOf": 0.001, 
+              "description": "De indicatie van het oppervlakte van het object van de verhuurbare eenheid.",
+              "provenance": "oppervlakte (indicatie)"
+            },
+            "gemeentelijkVastgoedIndicatie": {
+              "type": "string",
+              "enum": ["Ja", "Nee"],
+              "description": "De indicatie of object valt onder gemeentelijk vastgoed.",
+              "provenance": "filter gv"
             },
             "objectIndicatieGearchiveerd": {
               "type": "string",
-              "enum": ["Nee", "Ja"],
+              "enum": ["Ja", "Nee"],
               "description": "Indicatie gearchiveerd ja of nee van het object van de verhuurbare eenheid.",
               "provenance": "object.gearchiveerd?"
             },
@@ -118,7 +130,7 @@
             "kostenplaatsNaam": {
               "type": "string",
               "description": "Omschrijving van de financiele kostenplaats (bedrijfseenheid) van de verhuurbare eenheid.",
-              "provenance": "naam_kostenplaats"
+              "provenance": "naam kostenplaats"
             },
             "bestuurlijkthema": {
               "type": "string",
@@ -133,7 +145,7 @@
             "huurtypeOfGebruik": {
               "type": "string",
               "description": "Code en naam van de huidige activiteit van de verhuurbare eenheid.",
-              "provenance": "huurtype/feitelijk_gebruik"
+              "provenance": "huurtype/feitelijk gebruik"
             }
           }
         }
