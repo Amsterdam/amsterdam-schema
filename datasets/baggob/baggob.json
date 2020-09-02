@@ -5,6 +5,7 @@
   "status": "niet_beschikbaar",
   "version": "0.0.1",
   "crs": "EPSG:28992",
+  "identifier": "identificatie",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
@@ -550,7 +551,7 @@
             "description": "Beschrijving van de openbare ruimte bijvoorbeeld: Vogel. Wereldwijd komen 24 soorten albatrossen voor. De meeste leven op het zuidelijk halfrond. De grootste albatros heeft een spanwijdte van meer dan drie meter en is daarmee de grootste zeevogel ter wereld."
           },
           "heeftDossier": {
-            "type": "string",
+            "type": "object",
             "properties": {
               "dossier": {
                 "type": "string"
@@ -1204,6 +1205,7 @@
         "identifier": "dossier",
         "required": ["schema", "dossier"],
         "display": "dossier",
+        "isTemporal": false,
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -1239,6 +1241,7 @@
         "identifier": "documentnummer",
         "required": ["schema", "documentnummer"],
         "display": "documentnummer",
+        "isTemporal": false,
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -1249,26 +1252,32 @@
           },
           "bronleverancierCode": {
             "type": "string",
+            "provenance": "bronleveranciercode",
             "description": "Verstrekker van brondocumenten en/​of gegevens voortkomend uit het uitoefenen of voorbereiden van een gemeentelijke bevoegdheid, die nodig zijn voor een registratie aan de bronhouder, conform vastgestelde aanleverspecificaties. code"
           },
           "bronleverancierOmschrijving": {
             "type": "string",
+            "provenance": "bronleverancieromschrijving",
             "description": "Verstrekker van brondocumenten en/​of gegevens voortkomend uit het uitoefenen of voorbereiden van een gemeentelijke bevoegdheid, die nodig zijn voor een registratie aan de bronhouder, conform vastgestelde aanleverspecificaties. omschrijving"
           },
           "typeDossierCode": {
             "type": "string",
+            "provenance": "typedossierCode",
             "description": "Het type dossier. code"
           },
           "typeDossierOmschrijving": {
             "type": "string",
+            "provenance": "typedossierOmschrijving",
             "description": "Het type dossier. omschrijving"
           },
           "typeBrondocumentCode": {
             "type": "string",
+            "provenance": "typebrondocumentCode",
             "description": "Het type brondocument. code"
           },
           "typeBrondocumentOmschrijving": {
             "type": "string",
+            "provenance": "typebrondocumentOmschrijving",
             "description": "Het type brondocument. omschrijving"
           },
           "registratiedatum": {
