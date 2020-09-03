@@ -41,7 +41,7 @@
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Geometrie van het type POINT van de bekeningmaking / kennisgeving."
           },
-          "officielebekendmakingenID": {
+          "officielebekendmakingenId": {
             "type": "integer",
             "description": "Unieke aanduiding van de bekeningmaking / kennisgeving door officielebekendmakingen.nl",
             "provenance": "oid"
@@ -92,11 +92,7 @@
             "provenance": "overheid"
           },
           "boundingBox": {
-            "type": "array",
-            "items": {
-              "type": "number",
-              "multipleOf": 0.001
-            },
+            "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "De geografische bounding box van toepassing op de bekeningmaking / kennisgeving.",
             "provenance": "bbox"
           }
