@@ -1,0 +1,141 @@
+{
+    "type": "dataset",
+    "id": "oplaadpunten",
+    "title": "Oplaadpunten elektrische voertuigen",
+    "description": "Oplaadpunten elektrische voertuigen gemeente Amsterdam",
+    "license": "public",
+    "status": "beschikbaar",
+    "version": "0.0.1",
+    "theme": ["Oplaadpunten", "Ruimte en Topografie"],
+    "publisher": "OIS",
+    "owner": "Gemeente Amsterdam",
+    "authorizationGrantor": "OIS",
+    "keywords": ["oplaadpunten"],
+    "crs": "EPSG:28992",
+    "tables": [
+      {
+        "id": "oplaadpunten",
+        "title": "Oplaadpunten elektrische voertuigen",
+        "type": "table",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schema", "id"],
+          "display": "idBron",
+          "properties": {
+            "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            },
+            "id": {
+              "type": "integer",
+              "description": "Unieke aanduiding van een oplaadpunt."
+            },
+            "geometry": {
+              "$ref": "https://geojson.org/schema/Geometry.json",
+              "description": "Punt definitie van een oplaadpunt."
+            },
+            "idBron": {
+              "type": "string",
+              "description": "Unieke aanduiding van een oplaadpunt vanuit de bron: https://www.allego.eu."
+            },
+            "straat": {
+              "type": "string",
+              "description": "Straatnaam waar het oplaadpunt aanwezig is."
+            },
+            "huisnummer": {
+              "type": "number",
+              "description": "Huisnummer die hoort bij de straat waar het oplaadpunt aanwezig is."
+            },
+            "huisnummertoevoeging": {
+              "type": "string",
+              "description": "Huisnummertoevoeging die hoort bij de straat en huisnummer waar de het oplaadpunt aanwezig is."
+            },
+            "postcode": {
+              "type": "string",
+              "description": "Zes karakters postcodegebied waarbinnen het oplaadpunt valt."
+            },
+            "gebied": {
+              "type": "string",
+              "description": "Gebied waarbinnen het oplaadpunt valt."
+            },
+            "landcode": {
+              "type": "string",
+              "description": "ISO landcode waarbinnen het oplaadpunt valt."
+            },
+            "regio": {
+              "type": "string",
+              "description": "Regio waarbinnen het oplaadpunt valt."
+            },
+            "stad": {
+              "type": "string",
+              "description": "Stad waarbinnen het oplaadpunt valt. In dit geval steden binnen de gemeente Amsterdam."
+            },
+            "leverancier": {
+              "type": "string",
+              "description": "Leverancier van het oplaadpunt."
+            },
+            "beperking": {
+              "type": "string",
+              "description": "Eventuele beperkingen gebruik oplaadpunt."
+            },
+            "aantalConnectoren": {
+              "type": "integer",
+              "description": "Aantal connectoren beschikbaar bij oplaadpunt."
+            },
+            "connectorTypen": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Connectortypen die beschikbaar zijn bij oplaadpunt."
+            },
+            "status": {
+              "type": "string",
+              "enum": ["Available", "Occupied", "Unkown"],
+              "description": "Status beschikbaarheid van het oplaadpunt."
+            },
+            "voertuigTypen": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Voertuigtype die geschikt zijn voor oplaadpunt."
+            },
+            "laadvermogen": {
+              "type": "array",
+              "unit": "kWh",
+              "items": {
+                "type": "string"
+              },
+              "description": "Oplaadvermogens in kilowatts van het oplaadpunt."
+            },
+            "maximumLaadvermogen": {
+              "type": "number",
+              "unit": "kWh",
+              "multipleOf": "0.00000001",
+              "description": "Maximum laadvermogen in kilowatts van het oplaadpunt."
+            },
+            "IdentificatieTypen": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Identificatie typen voor het oplaadpunt."
+            },
+            "datumBijgewerktStatus": {
+              "type": "string",
+              "format": "timestamp",
+              "description": "Datum van update van alleen statusgegevens voor het oplaadpunt."
+            },
+            "datumBijgewerkt": {
+              "type": "string",
+              "format": "timestamp",
+              "description": "Datum van update gegevens voor het oplaadpunt."
+            }
+          }
+        }
+      }
+    ]
+  }
+  
