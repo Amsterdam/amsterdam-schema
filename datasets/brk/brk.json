@@ -1,0 +1,1380 @@
+{
+  "type": "dataset",
+  "id": "brk",
+  "title": "brk",
+  "status": "beschikbaar",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "auth": "BRK/RSN",
+  "identifier": "identificatie",
+  "temporal": {
+    "identifier": "volgnummer",
+    "dimensions": {
+      "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+    }
+  },
+  "tables": [
+    {
+      "id": "kadastraleobjecten",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/brk/kadastraleobjecten.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": ["identificatie", "volgnummer"],
+        "required": ["schema", "id", "identificatie", "volgnummer"],
+        "display": "identificatie",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Neuron ID"
+          },
+          "volgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van het object."
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de toestand is geregistreerd."
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "De unieke aanduiding van een Kadastraal object."
+          },
+          "kadastraleAanduiding": {
+            "type": "string",
+            "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
+          },
+          "aangeduidDoorGemeente": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              }
+            },
+            "relation": "brk:gemeentes",
+            "description": ""
+          },
+          "aangeduidDoorKadastralegemeente": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              }
+            },
+            "relation": "brk:kadastralegemeentes",
+            "description": "De kadastrale gemeente, het eerste gedeelte van de aanduiding van een kadastraal object."
+          },
+          "aangeduidDoorKadastralegemeentecode": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              }
+            },
+            "relation": "brk:kadastralegemeentecodes",
+            "description": ""
+          },
+          "aangeduidDoorKadastralesectie": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              }
+            },
+            "relation": "brk:kadastralesecties",
+            "description": "De kadastrale sectie, het tweede gedeelte van de aanduiding van een kadastraal object."
+          },
+          "perceelnummer": {
+            "type": "integer",
+            "description": "Een numerieke aanduiding van het kadastrale perceel per sectie, deel van de kadastrale aanduiding van de onroerende zaak."
+          },
+          "indexletter": {
+            "type": "string",
+            "description": "Letter Kadastraal object, dit geeft een indicatie voor het type object. G Grond perceel. A Appartementsrecht"
+          },
+          "indexnummer": {
+            "type": "integer",
+            "description": "Volgnummer van het Appartementsrecht"
+          },
+          "gemeente": {
+            "type": "string",
+            "description": ""
+          },
+          "soortGrootteCode": {
+            "type": "string",
+            "description": "Aanduiding van soort grootte code"
+          },
+          "soortGrootteOmschrijving": {
+            "type": "string",
+            "description": "Aanduiding van soort grootte omschrijving"
+          },
+          "grootte": {
+            "type": "number",
+            "description": "De grootte van een kadastraal object is de oppervlakte van het kadastrale perceel. Dit kan bij een deelperceel een geschatte grootte zijn."
+          },
+          "soortCultuurOnbebouwdCode": {
+            "type": "string",
+            "description": "De soort cultuur onbebouwd is een aanduiding voor de aard van de meest significante cultuur van het onbebouwde deel van het kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl Dit kenmerk is in beginsel afgeleid van de notariële akte, maar kan worden bijgesteld op grond van een verzoek van de eigenaar (of een schriftelijk gevolmachtigde namens de eigenaar)per brief, fax of e-mailbericht. Dit kan afwijken van: het feitelijk gebruik in de WOZ; gebruiksdoel in de BAG; SBI-code in het HR. code"
+          },
+          "soortCultuurOnbebouwdOmschrijving": {
+            "type": "string",
+            "description": "De soort cultuur onbebouwd is een aanduiding voor de aard van de meest significante cultuur van het onbebouwde deel van het kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl Dit kenmerk is in beginsel afgeleid van de notariële akte, maar kan worden bijgesteld op grond van een verzoek van de eigenaar (of een schriftelijk gevolmachtigde namens de eigenaar)per brief, fax of e-mailbericht. Dit kan afwijken van: het feitelijk gebruik in de WOZ; gebruiksdoel in de BAG; SBI-code in het HR. omschrijving"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status van het Kadastraal Object ('B' is bestaand)"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Vorm en ligging van de kadastrale sectie in het stelsel van de Rijksdriehoeksmeting (RD)"
+          },
+          "plaatscoordinaten": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "De aanduiding van een kaartpunt voor de weergave van de identificatie van een perceel (centroïde)"
+          },
+          "perceelnummerRotatie": {
+            "type": "number",
+            "description": "Rotatie van het perceelnummer ten behoeve van afbeelding op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen"
+          },
+          "perceelnummerVerschuivingX": {
+            "type": "string",
+            "description": "Coördinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden x"
+          },
+          "perceelnummerVerschuivingY": {
+            "type": "string",
+            "description": "Coördinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden y"
+          },
+          "bijpijlingGeometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Vorm en ligging van de bijpijling (de puur grafische lijn tussen het perceel en het perceelnummer)  in het stelsel van de Rijksdriehoeksmeting (RD)"
+          },
+          "indicatieVoorlopigeGeometrie": {
+            "type": "string",
+            "description": "Indicatie of de geometrie (kadastrale grens) voorlopig is of niet J N"
+          },
+          "koopsom": {
+            "type": "integer",
+            "description": "Het in een ter inschrijving aangeboden stuk vermelde bedrag, waarvoor 1 of meer onroerende zaken zijn verkregen."
+          },
+          "koopsomValutacode": {
+            "type": "string",
+            "description": "Aanduiding van de valutasoort gebruikt bij de koop"
+          },
+          "koopjaar": {
+            "type": "string",
+            "description": "Transactiejaar van de aankoop"
+          },
+          "indicatieMeerObjecten": {
+            "type": "string",
+            "description": "Indicatie dat de koopsom betrekking heeft op meer dan 1 kadastraal object"
+          },
+          "toestandsdatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de geleverde toestand van het kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": ""
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": ""
+          },
+          "inOnderzoek": {
+            "type": "string",
+            "description": "Als dit veld is gevuld geeft dit de omschrijving waarom dit gegeven in onderzoek staat (art. 7n en 7r Kadasterwet)."
+          },
+          "isOntstaanUitGPerceel": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:kadastraleobjecten",
+            "description": "Dit veld is alléén gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
+          },
+          "heeftEenRelatieMetVerblijfsobject": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "bag:verblijfsobjecten",
+            "description": "Relatie naar verblijfsobject"
+          },
+          "isOntstaanUitKadastraalobject": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:kadastraleobjecten",
+            "description": "Onderliggende percelen. Alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
+          }
+        },
+        "mainGeometry": "geometrie"
+      }
+    },
+    {
+      "id": "zakelijkerechten",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/brk/zakelijkerechten.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": ["identificatie", "volgnummer"],
+        "required": ["schema", "id", "identificatie", "volgnummer"],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "volgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van het object."
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de toestand is geregistreerd."
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "De Kadaster identificatie is een door het Kadaster toegekende landelijk uniek nummer aan dit zakelijk recht binnen de kadastrale registratie."
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": ""
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": ""
+          },
+          "belastZakelijkerechten": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:zakelijkerechten",
+            "description": "Dit zakelijk recht belast de volgende Aardzakelijkrechten"
+          },
+          "belastMetZakelijkerechten": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:zakelijkerechten",
+            "description": "Dit zakelijk recht is belast met de volgende Aardzakelijkrechten"
+          },
+          "ontstaanUitZakelijkerechten": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:zakelijkerechten",
+            "description": "Als deze waarde is gevuld, dan is dit recht ontstaan uit een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt (VVE)"
+          },
+          "ontstaanUitAppartementsrechtsplitsingVve": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              }
+            },
+            "relation": "brk:kadastralesubjecten",
+            "description": "VVE Subject ontstaan uit Appartementsrechtsplitsing"
+          },
+          "betrokkenBijZakelijkerechten": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:zakelijkerechten",
+            "description": "Als deze waarde is gevuld, dan is dit recht betrokken bij een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt (VVE)"
+          },
+          "betrokkenBijAppartementsrechtsplitsingVve": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              }
+            },
+            "relation": "brk:kadastralesubjecten",
+            "description": "VVE Subject betrokken bij Appartementsrechtsplitsing"
+          },
+          "isBeperktTot": {
+            "type": "integer",
+            "description": "Is beperkt tot tenaamstelling, dat wil zeggen is beperkt tot een subject"
+          },
+          "rustOpKadastraalobject": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "string"
+              }
+            },
+            "relation": "brk:kadastraleobjecten",
+            "description": "Het kadastraal object en volgnummer waarop het zakelijk recht rust"
+          },
+          "appartementsrechtsplitsingidentificatie": {
+            "type": "string",
+            "description": "De identificatie van de appartementsrechtsplitsing"
+          },
+          "appartementsrechtsplitsingtypeCode": {
+            "type": "string",
+            "description": "Het type appartementsrechtsplitsing. De mogelijke waarden zijn: hoofdsplitsing of ondersplitsing of splitsing afkoop erfpacht. code"
+          },
+          "appartementsrechtsplitsingtypeOmschrijving": {
+            "type": "string",
+            "description": "Het type appartementsrechtsplitsing. De mogelijke waarden zijn: hoofdsplitsing of ondersplitsing of splitsing afkoop erfpacht. omschrijving"
+          },
+          "einddatumAppartementsrechtsplitsing": {
+            "type": "string",
+            "description": "Einddatum van de appartementsrechtsplitsing"
+          },
+          "indicatieActueelAppartementsrechtsplitsing": {
+            "type": "string",
+            "description": "Indicatie van de actualiteit van de appartementsrechtsplitsing"
+          },
+          "aardZakelijkRechtCode": {
+            "type": "string",
+            "description": "De aard van het zakelijk recht code"
+          },
+          "aardZakelijkRechtOmschrijving": {
+            "type": "string",
+            "description": "De aard van het zakelijk recht omschrijving"
+          },
+          "akrAardZakelijkRecht": {
+            "type": "string",
+            "description": "De AKR code van de aard van het zakelijk recht"
+          },
+          "toestandsdatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de geleverde toestand van het onderliggende kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)"
+          }
+        }
+      }
+    },
+    {
+      "id": "kadastralesubjecten",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/brk/kadastralesubjecten.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "identificatie",
+        "required": ["schema", "id", "identificatie"],
+        "display": "identificatie",
+        "isTemporal": false,
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Neuron ID"
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "Het aan dit subject toegekende landelijk unieke nummer"
+          },
+          "typeSubject": {
+            "type": "string",
+            "description": "Afgeleid gegeven. Is het subject een natuurlijk persoon of een niet-natuurlijk persoon"
+          },
+          "beschikkingsbevoegdheidCode": {
+            "type": "string",
+            "description": "Aanduiding van de beschikkingsbevoegdheid van een persoon. code"
+          },
+          "beschikkingsbevoegdheidOmschrijving": {
+            "type": "string",
+            "description": "Aanduiding van de beschikkingsbevoegdheid van een persoon. omschrijving"
+          },
+          "heeftBsnVoor": {
+            "type": "string",
+            "relation": "brp:personen",
+            "description": "Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene bepalingen burgerservicenummer."
+          },
+          "voornamen": {
+            "type": "string",
+            "description": "Voornamen van het subject"
+          },
+          "voorvoegsels": {
+            "type": "string",
+            "description": "Voorvoegsels bij de geslachtsnaam"
+          },
+          "geslachtsnaam": {
+            "type": "string",
+            "description": "Geslachtsnaam van de geregistreerde persoon"
+          },
+          "geslachtCode": {
+            "type": "string",
+            "description": "Geslacht van het geregistreerd persoon. Dit kenmerk kent een domein voor als de persoon in de BRP voorkomt en een domein voor als de persoon niet in de BRP voorkomt. code"
+          },
+          "geslachtOmschrijving": {
+            "type": "string",
+            "description": "Geslacht van het geregistreerd persoon. Dit kenmerk kent een domein voor als de persoon in de BRP voorkomt en een domein voor als de persoon niet in de BRP voorkomt. omschrijving"
+          },
+          "naamGebruikCode": {
+            "type": "string",
+            "description": "Aanduiding naam gebruik code"
+          },
+          "naamGebruikOmschrijving": {
+            "type": "string",
+            "description": "Aanduiding naam gebruik omschrijving"
+          },
+          "geboortedatum": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop een natuurlijk persoon is geboren. Deze datum kan onvolledig zijn (alleen jaar, of alleen jaar en maand bekend)."
+          },
+          "geboorteplaats": {
+            "type": "string",
+            "description": "De geboorteplaats is een plaatsaanduiding, die aangeeft waar de natuurlijke persoon geboren is."
+          },
+          "geboortelandCode": {
+            "type": "string",
+            "description": "Geboorteland is een aanduiding van het land waar de natuurlijke persoon geboren is. code"
+          },
+          "geboortelandOmschrijving": {
+            "type": "string",
+            "description": "Geboorteland is een aanduiding van het land waar de natuurlijke persoon geboren is. omschrijving"
+          },
+          "datumOverlijden": {
+            "type": "string",
+            "description": "De overlijdensdatum is de datum waarop een natuurlijk persoon is overleden."
+          },
+          "indicatieOverleden": {
+            "type": "string",
+            "description": "Indicatie of de persoon al dan niet overleden is. De datum van overlijden is soms niet bekend, maar wel dat iemand overleden is. Dat is uit dit attribuut af te leiden."
+          },
+          "voornamenPartner": {
+            "type": "string",
+            "description": "Voorna(a)m(en) van de gerigstreerde partner"
+          },
+          "voorvoegselsPartner": {
+            "type": "string",
+            "description": "Voorvoegsel van de geregistreerde partner"
+          },
+          "geslachtsnaamPartner": {
+            "type": "string",
+            "description": "Geslachtsna(a)m(en) van de geregistreerde partner"
+          },
+          "heeftRsinVoor": {
+            "type": "string",
+            "$comment": "relation hr:nietnatuurlijkepersonen",
+            "description": "Het Rechtspersonen Samenwerking Identificatie Nummer uit het Handelsregister."
+          },
+          "heeftKvknummerVoor": {
+            "type": "string",
+            "$comment": "relation hr:maatschappelijkeactiviteiten",
+            "description": "Het KvK-nummer uit het Handelsregister."
+          },
+          "rechtsvormCode": {
+            "type": "string",
+            "description": "De juridische vorm van een niet-natuurlijk persoon. code"
+          },
+          "rechtsvormOmschrijving": {
+            "type": "string",
+            "description": "De juridische vorm van een niet-natuurlijk persoon. omschrijving"
+          },
+          "statutaireNaam": {
+            "type": "string",
+            "description": "De naam van de rechtspersoon. Het betreft de naam die is opgenomen in de oprichtingsakte."
+          },
+          "statutaireZetel": {
+            "type": "string",
+            "description": "De statutaire plaats van vestiging."
+          },
+          "woonadresAdresseerbaarObject": {
+            "type": "string",
+            "description": "BAG: Verblijfsobject / Standplaats / Ligplaats adresseerbaar_object"
+          },
+          "woonadresOpenbareRuimte": {
+            "type": "string",
+            "description": "BAG: Verblijfsobject / Standplaats / Ligplaats openbare_ruimte"
+          },
+          "woonadresHuisnummer": {
+            "type": "integer",
+            "description": "BAG: Verblijfsobject / Standplaats / Ligplaats huisnummer"
+          },
+          "woonadresHuisletter": {
+            "type": "string",
+            "description": "BAG: Verblijfsobject / Standplaats / Ligplaats huisletter"
+          },
+          "woonadresHuisnummerToevoeging": {
+            "type": "string",
+            "description": "BAG: Verblijfsobject / Standplaats / Ligplaats huisnummer_toevoeging"
+          },
+          "woonadresPostcode": {
+            "type": "string",
+            "description": "BAG: Verblijfsobject / Standplaats / Ligplaats postcode"
+          },
+          "woonadresWoonplaats": {
+            "type": "string",
+            "description": "BAG: Verblijfsobject / Standplaats / Ligplaats woonplaats"
+          },
+          "landWaarnaarVertrokkenCode": {
+            "type": "string",
+            "description": "Land waar naar vertrokken code"
+          },
+          "landWaarnaarVertrokkenOmschrijving": {
+            "type": "string",
+            "description": "Land waar naar vertrokken omschrijving"
+          },
+          "woonadresBuitenlandAdres": {
+            "type": "string",
+            "description": "Buitenlands adres adres"
+          },
+          "woonadresBuitenlandWoonplaats": {
+            "type": "string",
+            "description": "Buitenlands adres woonplaats"
+          },
+          "woonadresBuitenlandRegio": {
+            "type": "string",
+            "description": "Buitenlands adres regio"
+          },
+          "woonadresBuitenlandNaam": {
+            "type": "string",
+            "description": "Buitenlands adres naam"
+          },
+          "woonadresBuitenlandCode": {
+            "type": "string",
+            "description": "Buitenlands adres code"
+          },
+          "woonadresBuitenlandOmschrijving": {
+            "type": "string",
+            "description": "Buitenlands adres omschrijving"
+          },
+          "postadresAdresseerbaarObject": {
+            "type": "string",
+            "description": "adresseerbaar_object"
+          },
+          "postadresOpenbareRuimte": {
+            "type": "string",
+            "description": "openbare_ruimte"
+          },
+          "postadresHuisnummer": {
+            "type": "integer",
+            "description": "huisnummer"
+          },
+          "postadresHuisletter": {
+            "type": "string",
+            "description": "huisletter"
+          },
+          "postadresHuisnummerToevoeging": {
+            "type": "string",
+            "description": "huisnummer_toevoeging"
+          },
+          "postadresPostcode": {
+            "type": "string",
+            "description": "postcode"
+          },
+          "postadresWoonplaats": {
+            "type": "string",
+            "description": "woonplaats"
+          },
+          "postadresBuitenlandAdres": {
+            "type": "string",
+            "description": "adres"
+          },
+          "postadresBuitenlandWoonplaats": {
+            "type": "string",
+            "description": "woonplaats"
+          },
+          "postadresBuitenlandRegio": {
+            "type": "string",
+            "description": "regio"
+          },
+          "postadresBuitenlandNaam": {
+            "type": "string",
+            "description": "naam"
+          },
+          "postadresBuitenlandCode": {
+            "type": "string",
+            "description": "code"
+          },
+          "postadresBuitenlandOmschrijving": {
+            "type": "string",
+            "description": "omschrijving"
+          },
+          "postadresPostbusNummer": {
+            "type": "string",
+            "description": "nummer"
+          },
+          "postadresPostbusPostcode": {
+            "type": "string",
+            "description": "postcode"
+          },
+          "postadresPostbusWoonplaatsnaam": {
+            "type": "string",
+            "description": "woonplaatsnaam"
+          }
+        }
+      }
+    },
+    {
+      "id": "tenaamstellingen",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/brk/tenaamstellingen.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": ["identificatie", "volgnummer"],
+        "required": ["schema", "volgnummer", "identificatie"],
+        "display": "identificatie",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "De identificatie is een uniek nummer aan deze tenaamstelling binnen de kadastrale registratie."
+          },
+          "volgnummer": {
+            "type": "integer",
+            "description": ""
+          },
+          "vanKadastraalsubject": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              }
+            },
+            "relation": "brk:kadastralesubjecten",
+            "description": "Het Subject waarvoor deze tenaamstelling geldt."
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": ""
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": ""
+          },
+          "aandeelTeller": {
+            "type": "integer",
+            "description": "Aandeel in Recht is het aandeel waarvoor een persoon deelneemt in het Recht teller"
+          },
+          "aandeelNoemer": {
+            "type": "integer",
+            "description": "Aandeel in Recht is het aandeel waarvoor een persoon deelneemt in het Recht noemer"
+          },
+          "geldtVoorTeller": {
+            "type": "integer",
+            "description": "Twee of meer personen kunnen gezamenlijk een aandeel hebben in een recht, waarbij het afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is (als gezamenlijkAandeel bekend is dan is het individuele aandeel niet bekend en omgekeerd). teller"
+          },
+          "geldtVoorNoemer": {
+            "type": "integer",
+            "description": "Twee of meer personen kunnen gezamenlijk een aandeel hebben in een recht, waarbij het afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is (als gezamenlijkAandeel bekend is dan is het individuele aandeel niet bekend en omgekeerd). noemer"
+          },
+          "burgerlijkeStaatTenTijdeVanVerkrijgingCode": {
+            "type": "string",
+            "description": "De burgerlijke staat is een aanduiding voor de leefvorm van een persoon, zoals deze volgens het brondocument ten tijde van de verkrijging van het recht bestond. Leefvorm van een persoon heeft betrekking op huwelijk c.q. geregistreerd partnerschap. code"
+          },
+          "burgerlijkeStaatTenTijdeVanVerkrijgingOmschrijving": {
+            "type": "string",
+            "description": "De burgerlijke staat is een aanduiding voor de leefvorm van een persoon, zoals deze volgens het brondocument ten tijde van de verkrijging van het recht bestond. Leefvorm van een persoon heeft betrekking op huwelijk c.q. geregistreerd partnerschap. omschrijving"
+          },
+          "verkregenNamensSamenwerkingsverbandCode": {
+            "type": "string",
+            "description": "De aard van het samenwerkingsverband (zoals Maatschap, VOF of CV) namens welke een natuurlijk persoon deze tenaamstelling heeft verkregen. code"
+          },
+          "verkregenNamensSamenwerkingsverbandOmschrijving": {
+            "type": "string",
+            "description": "De aard van het samenwerkingsverband (zoals Maatschap, VOF of CV) namens welke een natuurlijk persoon deze tenaamstelling heeft verkregen. omschrijving"
+          },
+          "inOnderzoek": {
+            "type": "string",
+            "description": ""
+          },
+          "vanZakelijkrecht": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "string"
+              }
+            },
+            "relation": "brk:zakelijkerechten",
+            "description": "Het Zakelijk recht waarover deze tenaamstelling gaat."
+          },
+          "isGebaseerdOpStukdeel": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              }
+            },
+            "relation": "brk:stukdelen",
+            "description": "Het Stukdeel waar deze tenaamstelling op gebaseerd is."
+          },
+          "toestandsdatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de geleverde toestand van het onderliggende kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)"
+          }
+        }
+      }
+    },
+    {
+      "id": "aantekeningenrechten",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/brk/aantekeningenrechten.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "id",
+        "required": ["schema", "id", "identificatie"],
+        "display": "identificatie",
+        "isTemporal": false,
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Neuron ID"
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "Het aan deze aantekening toegekende landelijk unieke nummer."
+          },
+          "aardCode": {
+            "type": "string",
+            "description": "De aard van de aantekening. code"
+          },
+          "aardOmschrijving": {
+            "type": "string",
+            "description": "De aard van de aantekening. omschrijving"
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "Omschrijving bij de aantekening"
+          },
+          "betrokkenTenaamstelling": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:tenaamstellingen",
+            "description": "Identificatie van de betrokken tenaamstelling"
+          },
+          "heeftBetrokkenPersoon": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:kadastralesubjecten",
+            "description": "Identificatie van het betrokken subject"
+          },
+          "isGebaseerdOpStukdeel": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:stukdelen",
+            "description": "Identificatie van het betrokken stukdeel"
+          },
+          "einddatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Einddatum geeft aan wanneer een bepaalde aantekening volgens het ingeschreven stuk niet langer meer rechtsgeldig is."
+          },
+          "toestandsdatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de geleverde toestand van het onderliggende kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)"
+          }
+        }
+      }
+    },
+    {
+      "id": "aantekeningenkadastraleobjecten",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/brk/aantekeningenkadastraleobjecten.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": ["identificatie", "volgnummer"],
+        "required": ["schema", "identificatie", "volgnummer"],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "volgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van het object."
+          },
+          "registratiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de toestand is geregistreerd."
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": ""
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": ""
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "Het door het Kadaster toegekende landelijk unieke nummer aan deze aantekening."
+          },
+          "aardCode": {
+            "type": "string",
+            "description": "De aard van de aantekening code"
+          },
+          "aardOmschrijving": {
+            "type": "string",
+            "description": "De aard van de aantekening omschrijving"
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "Omschrijving bij de aantekening"
+          },
+          "heeftBetrokkenPersoon": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:kadastralesubjecten",
+            "description": "Identificatie van het betrokken subject"
+          },
+          "heeftBetrekkingOpKadastraalObject": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "string"
+              }
+            },
+            "relation": "brk:kadastraleobjecten",
+            "description": "Identificatie van het kadastrale object (onroerende zaak)"
+          },
+          "isGebaseerdOpStukdeel": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:stukdelen",
+            "description": "Identificatie van het betrokken stukdeel"
+          },
+          "einddatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Einddatum geeft aan wanneer een bepaalde aantekening volgens het ingeschreven stuk niet langer meer rechtsgeldig is."
+          },
+          "toestandsdatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de geleverde toestand van het onderliggende kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)"
+          }
+        }
+      }
+    },
+    {
+      "id": "stukdelen",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/brk/stukdelen.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "identificatie",
+        "required": ["schema", "id", "identificatie"],
+        "display": "identificatie",
+        "isTemporal": false,
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Neuron ID"
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "Het door het Kadaster toegekende landelijk unieke nummer aan het stukdeel."
+          },
+          "aardCode": {
+            "type": "string",
+            "description": "Aanduiding voor de aard van een deel van het ter inschrijving aangeboden stuk (rechtsfeit). code"
+          },
+          "aardOmschrijving": {
+            "type": "string",
+            "description": "Aanduiding voor de aard van een deel van het ter inschrijving aangeboden stuk (rechtsfeit). omschrijving"
+          },
+          "bedragTransactieBedrag": {
+            "type": "integer",
+            "description": "Het in een ter inschrijving aangeboden stuk vermelde bedrag, waarvoor 1 of meer onroerende zaken zijn verkregen. bedrag"
+          },
+          "bedragTransactieValuta": {
+            "type": "string",
+            "description": "Het in een ter inschrijving aangeboden stuk vermelde bedrag, waarvoor 1 of meer onroerende zaken zijn verkregen. valuta"
+          },
+          "isBronVoorTenaamstelling": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:tenaamstellingen",
+            "description": "Geeft weer welke tenaamstelling is ontstaan op basis van dit stukdeel"
+          },
+          "isBronVoorAantekeningKadastraalObject": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:aantekeningenkadastraleobjecten",
+            "description": "Geeft weer welke aantekening kadastraal object is ontstaan op basis van dit stukdeel"
+          },
+          "isBronVoorAantekeningRecht": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:aantekeningenrechten",
+            "description": "Geeft weer welke aantekening recht is ontstaan op basis van dit stukdeel"
+          },
+          "isBronVoorZakelijkRecht": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "string"
+                }
+              }
+            },
+            "relation": "brk:zakelijkerechten",
+            "description": "Geeft weer welk zakelijk recht is ontstaan op basis van dit stukdeel."
+          },
+          "stukidentificatie": {
+            "type": "string",
+            "description": "Het door het Kadaster toegekende landelijk unieke nummer aan het stuk."
+          },
+          "portefeuillenummerAkr": {
+            "type": "string",
+            "description": "Portefeuillenummer toegekend aan het stuk in het AKR-systeem."
+          },
+          "tijdstipAanbiedingStuk": {
+            "type": "string",
+            "description": "Het tijdstip waarop een ter inschrijving aangeboden stuk is ontvangen met inachtneming van de openingstijden en -dagen van het Kadaster. Als tijdstip van inschrijving geldt het tijdstip van aanbieding van de voor de inschrijving vereiste stukken."
+          },
+          "reeks": {
+            "type": "string",
+            "description": "Verwijzing naar de oorspronkelijke (mogelijk tussentijds vervallen) Kadastervestiging waar het stuk oorspronkelijk is ingeschreven."
+          },
+          "volgnummerStuk": {
+            "type": "integer",
+            "description": "Volgnummer van het stuk."
+          },
+          "registercodeStukCode": {
+            "type": "string",
+            "description": "Het soort register, aangeduid met een code. code"
+          },
+          "registercodeStukOmschrijving": {
+            "type": "string",
+            "description": "Het soort register, aangeduid met een code. omschrijving"
+          },
+          "soortRegisterStukCode": {
+            "type": "string",
+            "description": "Het register waarvan een ter inschrijving aangeboden stuk deel uitmaakt. code"
+          },
+          "soortRegisterStukOmschrijving": {
+            "type": "string",
+            "description": "Het register waarvan een ter inschrijving aangeboden stuk deel uitmaakt. omschrijving"
+          },
+          "deelSoortStuk": {
+            "type": "string",
+            "description": "Identificatie van het stuk binnen zijn soort."
+          },
+          "toestandsdatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de geleverde toestand van het onderliggende kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)"
+          }
+        }
+      }
+    },
+    {
+      "id": "aardzakelijkerechten",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/brk/aardzakelijkerechten.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "identificatie",
+        "required": ["schema", "id", "identificatie"],
+        "display": "identificatie",
+        "isTemporal": false,
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke identificatie voor dit object"
+          },
+          "code": {
+            "type": "integer",
+            "description": "De aard zakelijk recht code"
+          },
+          "waarde": {
+            "type": "string",
+            "description": "Beschrijving van dit aard zakelijk recht"
+          },
+          "datumVanaf": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum vanaf wanneer dit aard zakelijk recht in gebruik genomen is"
+          },
+          "datumTot": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum tot wanneer dit aard zakelijk recht in gebruik geweest is"
+          },
+          "toelichting": {
+            "type": "string",
+            "description": "Toelichting op het gebruik van dit aard zakelijk recht"
+          },
+          "akrCode": {
+            "type": "string",
+            "description": "De AKR Code van dit aard zakelijk recht"
+          }
+        }
+      }
+    },
+    {
+      "id": "gemeentes",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/brk/gemeentes.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "identificatie",
+        "required": ["schema", "id", "identificatie"],
+        "display": "identificatie",
+        "isTemporal": false,
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke identificatie voor dit object"
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "De unieke aanduiding van een gemeente."
+          },
+          "naam": {
+            "type": "string",
+            "description": "De officiële vastgestelde gemeentenaam."
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de gemeente is ontstaan."
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de gemeente is opgeheven."
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Vorm en ligging van de gemeentegrens in het stelsel van de Rijksdriehoekmeting (RD)."
+          }
+        },
+        "mainGeometry": "geometrie"
+      }
+    },
+    {
+      "id": "meta",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/brk/meta.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "id",
+        "required": ["schema", "id"],
+        "display": "id",
+        "isTemporal": false,
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": ""
+          },
+          "kennisgevingsdatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Toestandsdatum, d.i. de laatste aanmaakdatum van de BRK-berichten in de naar DIVA gerepliceerde BRK-levering."
+          }
+        }
+      }
+    },
+    {
+      "id": "kadastralesecties",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/brk/kadastralesecties.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "identificatie",
+        "required": ["schema", "identificatie"],
+        "display": "identificatie",
+        "isTemporal": false,
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "De unieke aanduiding van een Kadastrale sectie."
+          },
+          "code": {
+            "type": "string",
+            "description": "Een alfanumerieke aanduiding van de kadastrale sectie, deel van de kadastrale aanduiding van de onroerende zaak."
+          },
+          "isOnderdeelVanKadastralegemeentecode": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              }
+            },
+            "relation": "brk:kadastralegemeentecodes",
+            "description": "Een alfanumerieke aanduiding van de kadastrale gemeentecode, deel van de kadastrale aanduiding van de onroerende zaak. (bv. ASD02)."
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Vorm en ligging van de kadastrale sectie in het stelsel van de Rijksdriehoekmeting (RD)."
+          }
+        },
+        "mainGeometry": "geometrie"
+      }
+    },
+    {
+      "id": "kadastralegemeentecodes",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/brk/kadastralegemeentecodes.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "identificatie",
+        "required": ["schema", "identificatie"],
+        "display": "identificatie",
+        "isTemporal": false,
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "De unieke aanduiding van een Kadastrale gemeentecode."
+          },
+          "isOnderdeelVanKadastralegemeente": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              }
+            },
+            "relation": "brk:kadastralegemeentes",
+            "description": "De kadastrale gemeente waar de kadastrale gemeentecode onderdeel van is (bv. Sloten)."
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Vorm en ligging van de kadastrale gemeentecode in het stelsel van de Rijksdriehoekmeting (RD)."
+          }
+        },
+        "mainGeometry": "geometrie"
+      }
+    },
+    {
+      "id": "kadastralegemeentes",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/brk/kadastralegemeentes.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "identificatie",
+        "required": ["schema", "identificatie"],
+        "display": "identificatie",
+        "isTemporal": false,
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "De unieke aanduiding van een Kadastrale gemeente."
+          },
+          "ligtInGemeente": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              }
+            },
+            "relation": "brk:gemeentes",
+            "description": "De burgelijke gemeente waarin de kadastrale gemeente ligt."
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Vorm en ligging van de kadastrale gemeente in het stelsel van de Rijksdriehoekmeting (RD)."
+          }
+        },
+        "mainGeometry": "geometrie"
+      }
+    }
+  ]
+}
