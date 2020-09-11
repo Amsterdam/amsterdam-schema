@@ -14,10 +14,9 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "identifier": "id",
-        "mainGeometry": "geometrie",
-        "required": ["schema", "id", "identificatie"],
-        "display": "id",
+        "identifier": "identificatie",
+        "required": ["schema", "identificatie", "volgnummer"],
+        "display": "identificatie",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -30,26 +29,26 @@
             "type": "string",
             "description": "Volgnummer van de beperking."
           },
-          "beperkingcode": {
+          "beperkingCode": {
             "type": "string",
             "description": "De omschrijving van de beperking. code"
           },
-          "beperkingomschrijving": {
+          "beperkingOmschrijving": {
             "type": "string",
             "description": "De omschrijving van de beperking. omschrijving"
           },
-          "begingeldigheid": {
+          "beginGeldigheid": {
             "type": "string",
             "format": "date-time",
             "description": "Datum waarop de beperking in werking treedt."
           },
-          "eindgeldigheid": {
+          "eindGeldigheid": {
             "type": "string",
             "format": "date-time",
             "description": "Datum dat de beperking beëindigd is."
           },
-          "belastkadastraleobjecten": {
-            "type": "array",
+          "belastKadastraleObjecten": {
+            "type": "string",
             "items": {
               "type": "string"
             },
@@ -60,39 +59,49 @@
             "type": "string",
             "description": "Het unieke nummer van het brondocument."
           },
-          "heeftdossier": {
-            "type": "string",
+          "heeftDossier": {
+            "type": "object",
+            "properties": {
+              "dossier": {
+                "type": "string"
+              }
+            },
             "relation": "wkpb:dossiers",
             "description": "Het dossier dat aan de stadia van de beperking ten grondslag ligt."
           },
-          "datumbekendmaking": {
+          "datumBekendmaking": {
             "type": "string",
             "format": "date",
             "description": "Datum ontvangst door het stadsdeel of de dienst, als het gaat om: melding van voornemen tot sanering (Wet bodembescherming, art. 28 juncto 39b); of beslissing in administratief beroep of rechterlijke uitspraak. Datum bekend worden bij het stadsdeel of de dienst, als het een vervallenverklaring (Wkpb, art. 7.4) betreft. Datum bekendmaking of verzending door het stadsdeel of de dienst, als het gaat om: voorbescherming als gemeentelijk monument; een ander besluit (op grond van het Aanwijzingsbesluit Wkpb)."
           },
-          "aardcode": {
-            "type": "string",
+          "aardCode": {
+            "type": "integer",
             "description": "De aard van de handeling die op de beperking heeft plaatsgevonden. code"
           },
-          "aardomschrijving": {
+          "aardOmschrijving": {
             "type": "string",
             "description": "De aard van de handeling die op de beperking heeft plaatsgevonden. omschrijving"
           },
-          "orgaancode": {
-            "type": "string",
+          "orgaanCode": {
+            "type": "integer",
             "description": "Het orgaan dat de beperking heeft opgelegd. code"
           },
-          "orgaanomschrijving": {
+          "orgaanOmschrijving": {
             "type": "string",
             "description": "Het orgaan dat de beperking heeft opgelegd. omschrijving"
           },
-          "persoonsgegevensafschermen": {
+          "persoonsgegevensAfschermen": {
             "type": "boolean",
             "description": "Aanduiding dat de persoonsgegevens moeten worden afgeschermd."
           },
-          "heeftvoorgaandebeperking": {
-            "type": "string",
-            "$comment": "relation wkpb:beperkingen -- self ref, not possible for now, endless recursion *stringify*",
+          "heeftVoorgaandeBeperking": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              }
+            },
+            "relation": "wkpb:beperkingen",
             "description": "Bij het wijzigen, verlengen en beëindigen van een beperking staat hier de identificatie van de voorgaande beperking."
           },
           "registratiedatum": {
@@ -100,11 +109,11 @@
             "format": "date-time",
             "description": "Datum waarop het gegeven in de bron geregistreerd is."
           },
-          "statuscode": {
-            "type": "string",
+          "statusCode": {
+            "type": "integer",
             "description": "De fase van het proces waarin de beperking zich bevindt. code"
           },
-          "statusomschrijving": {
+          "statusOmschrijving": {
             "type": "string",
             "description": "De fase van het proces waarin de beperking zich bevindt. omschrijving"
           },
@@ -112,7 +121,8 @@
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Tweedimensionale ligging, grootte en vorm waarop de beperking volgens het besluit rust."
           }
-        }
+        },
+        "mainGeometry": "geometrie"
       }
     },
     {
@@ -134,10 +144,15 @@
             "type": "string",
             "description": "Verwijzing vanuit de overige objectklassen."
           },
-          "heeftbrondocumenten": {
+          "heeftBrondocumenten": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "documentnummer": {
+                  "type": "string"
+                }
+              }
             },
             "relation": "wkpb:brondocumenten",
             "description": "De brondocument(en) behorende bij het dossier."
