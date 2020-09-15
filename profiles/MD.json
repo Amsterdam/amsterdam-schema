@@ -1,0 +1,18 @@
+{
+    "name": "medewerker",
+    "scopes": ["FP/MD"],
+    "datasets": {
+        "parkeervakken": {
+            "permisssions": "read"  << alles in parkeervakken zien
+        },
+        "klantbeeld": {
+            "tables": {
+                "BvAdresBewonershistorie": {
+                    "bsn": "encoded",  << Alleen encoded BSN
+                    "einddatum_bewoning": "random+-15",  << Random datum +- 15 dagen
+                    "administratienummer": "letters:1"  << eerste letter
+                }
+            }
+        }
+    }
+}
