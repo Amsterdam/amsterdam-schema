@@ -1,82 +1,80 @@
 {
-    "type": "dataset",
-    "id": "openbareverlichting",
-    "title": "Openbareverlichting",
-    "description": "Type, locatie en status van openbareverlichting gemeente Amsterdam.",
-    "license": "public",
-    "status": "beschikbaar",
-    "version": "0.0.1",
-    "theme": ["Openbareverlichting", "Ruimte en Topografie"],
-    "publisher": "OIS",
-    "owner": "Gemeente Amsterdam",
-    "authorizationGrantor": "OIS",
-    "keywords": ["openbareverlichting"],
-    "crs": "EPSG:28992",
-    "tables": [
-      {
-        "id": "openbareverlichting",
-        "title": "Openbareverlichting: Type, locatie en status van openbareverlichting gemeente Amsterdam.",
-        "type": "table",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["schema", "id"],
-          "display": "objectnummer",
-          "properties": {
-            "schema": {
-              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-            },
-            "id": {
-              "type": "integer",
-              "description": "Unieke aanduiding van een openbareverlichting."
-            },
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Geometry.json",
-              "description": "Punt definitie van een openbareverlichting."
-            },
-            "objectId": {
-              "type": "integer",
-              "description": "Een unieke aanduiding van een openbareverlichting door bron.",
-              "provenance": "objectid"
-            } ,
-            "objecttype": {
-              "type": "integer",
-              "description": "Type aanduiding van een openbareverlichting.",
-              "provenance": "objecttype"
-            } ,
-            "objecttypeOmschrijving": {
-              "type": "string",
-              "description": "Omschrijving van type aanduiding van een openbareverlichting."           
-            },
-            "objectnummer": {
-              "type": "string",
-              "description": "Een unieke aanduiding van een openbareverlichting door bron."
-            },
-            "Breedtegraad": {
-              "type": "number",
-              "description": "Breedtegraad van een openbareverlichting.",
-              "provenance": "lat"
-            } ,
-            "Lengtegraad": {
-              "type": "number",
-              "description": "Lengtegraad van een openbareverlichting.",
-              "provenance": "lon"
-            } ,
-            "storingstatus": {
-              "type": "boolean",
-              "enum": [0,1],
-              "description": "Indicatie of een storing bekend is van een openbareverlichting. Waarde 1 is storing, waarde 0 geen storing."
-             
-            }  ,
-            "meldingstatus": {
-              "type": "boolean",
-              "enum": [0,1],
-              "description": "Indicatie of een melding is gemaakt op een openbareverlichting. Waarde 1 is melding, waarde 0 geen melding."
-            }                        
+  "type": "dataset",
+  "id": "openbareverlichting",
+  "title": "Openbareverlichting",
+  "description": "Type, locatie en status van openbareverlichting gemeente Amsterdam.",
+  "license": "public",
+  "status": "beschikbaar",
+  "version": "0.0.1",
+  "theme": ["Openbareverlichting", "Ruimte en Topografie"],
+  "publisher": "OIS",
+  "owner": "Gemeente Amsterdam",
+  "authorizationGrantor": "OIS",
+  "keywords": ["openbareverlichting"],
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "openbareverlichting",
+      "title": "Openbareverlichting: Type, locatie en status van openbareverlichting gemeente Amsterdam.",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "objectnummer",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding van een openbareverlichting."
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Punt definitie van een openbareverlichting."
+          },
+          "objectId": {
+            "type": "integer",
+            "description": "Een unieke aanduiding van een openbareverlichting door bron.",
+            "provenance": "objectid"
+          },
+          "objecttype": {
+            "type": "integer",
+            "description": "Type aanduiding van een openbareverlichting.",
+            "provenance": "objecttype"
+          },
+          "objecttypeOmschrijving": {
+            "type": "string",
+            "description": "Omschrijving van type aanduiding van een openbareverlichting."
+          },
+          "objectnummer": {
+            "type": "string",
+            "description": "Een unieke aanduiding van een openbareverlichting door bron."
+          },
+          "Breedtegraad": {
+            "type": "number",
+            "description": "Breedtegraad van een openbareverlichting.",
+            "provenance": "lat"
+          },
+          "Lengtegraad": {
+            "type": "number",
+            "description": "Lengtegraad van een openbareverlichting.",
+            "provenance": "lon"
+          },
+          "storingstatus": {
+            "type": "boolean",
+            "enum": [0, 1],
+            "description": "Indicatie of een storing bekend is van een openbareverlichting. Waarde 1 is storing, waarde 0 geen storing."
+          },
+          "meldingstatus": {
+            "type": "boolean",
+            "enum": [0, 1],
+            "description": "Indicatie of een melding is gemaakt op een openbareverlichting. Waarde 1 is melding, waarde 0 geen melding."
           }
         }
       }
-    ]
-  }
-  
+    }
+  ]
+}
