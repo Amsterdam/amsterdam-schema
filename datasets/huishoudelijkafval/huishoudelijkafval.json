@@ -60,12 +60,12 @@
           "idNummer": {
             "type": "string",
             "provenance": "container_id_nummer",
-            "description": "Uniek serienummer dat door de fabrikant aan het object is gegeven"
+            "description": "serienummer dat door de fabrikant aan het object is gegeven"
           },
           "serienummer": {
             "type": "string",
             "provenance": "container_serienummer",
-            "description": "Uniek serienummer uitgegeven door de fabrikant"
+            "description": "serienummer uitgegeven door de fabrikant"
           },
           "cluster": {
             "type": "string",
@@ -88,22 +88,11 @@
             "enum": [0, 1, 2],
             "description": "Status van de container,0 - inactief, 1 - actief, 2 - gepland"
           },
-          "fractie": {
+          "fractieCode": {
             "type": "string",
-            "provenance": "container_fractie",
-            "enum": [
-              "Rest",
-              "Papier",
-              "Glas",
-              "Plastic",
-              "Textiel",
-              "Brood",
-              "PMD",
-              "GFT",
-              "Grof",
-              "Anders, leeg, onbekend"
-            ],
-            "description": "Type afvalfractie waarvoor de container is bedoeld"
+            "provenance": "container_fractie_code",
+            "enum": ["1", "2", "3", "4", "5", "6", "9"],
+            "description": "Type afvalfractie code waarvoor de container is bedoeld: 1 - Rest, 2 - Glas, 3 - Papier, 4 - Plastic, 5 - Textiel, 6 - GFT, 9 - Brood"
           },
           "fractieOmschrijving": {
             "provenance": "container_fractie_omschrijving",
@@ -157,7 +146,7 @@
             "description": "indicatie of het object door een bewoner geadopteerd is"
           },
           "locatie": {
-            "type": "integer",
+            "type": "string",
             "provenance": "containerlocatie_id",
             "relation": "huishoudelijkafval:containerlocatie",
             "description": "Identificerend kenmerk van de put waarin de container is geplaatst"
@@ -172,10 +161,6 @@
             "provenance": "containertype_id",
             "relation": "huishoudelijkafval:containertype",
             "description": "Identificerend kenmerk van het containertype"
-          },
-          "gbdBuurtCode": {
-            "type": "string",
-            "description": "Volledige code van de buurt, samengesteld uit stadsdeel,wijk en buurtcode"
           },
           "bagHoofdadresVerblijfsobject": {
             "type": "string",
@@ -222,7 +207,7 @@
           "serienummer": {
             "type": "string",
             "provenance": "containerlocatie_serienummer",
-            "description": "Uniek serienummer uitgegeven door de fabrikant"
+            "description": "serienummer uitgegeven door de fabrikant"
           },
           "status": {
             "type": "integer",
@@ -284,10 +269,6 @@
           "indBevatContainer": {
             "type": "boolean",
             "description": "Indicatie dat de containerlocatie een container bevat"
-          },
-          "gbdBuurtCode": {
-            "type": "string",
-            "description": "Volledige code van de buurt, samengesteld uit stadsdeel,wijk en buurtcode"
           },
           "bagHoofdadresVerblijfsobject": {
             "type": "string",
@@ -440,6 +421,11 @@
             "provenance": "containertype_wijzigingsdatum_dp",
             "format": "date-time",
             "description": "Datum waarop het object is gewijzigd"
+          },
+          "verwijderdDp": {
+            "type": "boolean",
+            "provenance": "containertype_verwijderd_dp",
+            "description": "Indicatie of het object verwijderd is bij de bronhouder"
           }
         }
       }
@@ -505,9 +491,9 @@
             "provenance": "weging_locatienummer",
             "description": "Locatienummer (cluster) zoals door Welvaarts is aangeleverd"
           },
-          "fractiecode": {
+          "fractieCode": {
             "type": "integer",
-            "provenance": "weging_fractiecode",
+            "provenance": "weging_fractie_code",
             "description": "Code afvalfractie zoals door Welvaarts is aangeleverd, 1: Rest, 2: Glas, 3: Papier, 4: Plastic, 5: Textiel, 6: GFT, 7: Grof, 8: PMD, 9: Brood, -99: Onbekend"
           },
           "fractieOmschrijving": {
