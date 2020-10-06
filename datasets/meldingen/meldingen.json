@@ -1,82 +1,82 @@
 {
-    "type": "dataset",
-    "id": "meldingen",
-    "title": "Meldingen",
-    "status": "beschikbaar",
-    "description": "SIA (Signalen Informatievoorziening Amsterdam) meldingen",
-    "version": "0.0.1",
-    "crs": "EPSG:28992",
-    "tables": [
-      {
-        "id": "statistieken",
-        "type": "table",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["schema", "id"],
-          "display": "zaaknummer",
-          "properties": {
-            "schema": {
-              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-            },
-            "id": {
-              "type": "integer",
-              "description": "Unieke aanduiding van de melding."
-            },
-            "datumMelding": {              
-              "type": "string",
-              "format": "date",
-              "description": "Datum van binnenkomst melding.",
-              "provenance": "melding_datum_melding"
-            },
-            "buurtcode": {
-              "type": "string",
-              "description": "Buurtcode waaronder de melding valt.",
-              "provenance": "melding_buurt_code"
-            },
-            "buurtnaam": {
-              "type": "string",
-              "description": "Buurtnaam waaronder de melding valt.",
-              "provenance": "meldingen_buurt_naam"
-            },
-            "wijkcode": {
-              "type": "string",
-              "description": "Wijkcode waaronder de melding valt.",
-              "provenance": "melding_wijk_code"
-            },
-            "wijknaam": {
-              "type": "string",
-              "description": "Wijknaam waaronder de melding valt.",
-              "provenance": "melding_wijk_naam"
-            },
-            "stadsdeelcode": {
-              "type": "string",
-              "description": "Stadsdeelcode waaronder de melding valt.",
-              "provenance": "melding_stadsdeel_code"
-            },
-            "stadsdeelnaam": {
-              "type": "string",
-              "description": "Stadsdeel waaronder de melding valt.",
-              "provenance": "melding_stadsdeel_naam"
-            },
-            "categorie": {
-              "type": "string",
-              "description": "Categorie (onderwerp) waaronder de melding valt.",
-              "provenance": "melding_categorie"
-            },
-            "subrubriek": {
-              "type": "string",
-              "description": "Subcategorie (subonderwerp) waaronder de melding valt.",
-              "provenance": "melding_subrubriek"
-            },
-            "aantal": {
-              "type": "number",
-              "description": "Aantallen meldingen per dag, per buurt en categorie.",
-              "provenance": "melding_aantal"
-            }        }
+  "type": "dataset",
+  "id": "meldingen",
+  "title": "Meldingen",
+  "status": "beschikbaar",
+  "description": "SIA (Signalen Informatievoorziening Amsterdam) meldingen",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "statistieken",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "zaaknummer",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding van de melding."
+          },
+          "datumMelding": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum van binnenkomst melding.",
+            "provenance": "melding_datum_melding"
+          },
+          "buurtcode": {
+            "type": "string",
+            "description": "Buurtcode waaronder de melding valt.",
+            "provenance": "melding_buurt_code"
+          },
+          "buurtnaam": {
+            "type": "string",
+            "description": "Buurtnaam waaronder de melding valt.",
+            "provenance": "meldingen_buurt_naam"
+          },
+          "wijkcode": {
+            "type": "string",
+            "description": "Wijkcode waaronder de melding valt.",
+            "provenance": "melding_wijk_code"
+          },
+          "wijknaam": {
+            "type": "string",
+            "description": "Wijknaam waaronder de melding valt.",
+            "provenance": "melding_wijk_naam"
+          },
+          "stadsdeelcode": {
+            "type": "string",
+            "description": "Stadsdeelcode waaronder de melding valt.",
+            "provenance": "melding_stadsdeel_code"
+          },
+          "stadsdeelnaam": {
+            "type": "string",
+            "description": "Stadsdeel waaronder de melding valt.",
+            "provenance": "melding_stadsdeel_naam"
+          },
+          "categorie": {
+            "type": "string",
+            "description": "Categorie (onderwerp) waaronder de melding valt.",
+            "provenance": "melding_categorie"
+          },
+          "subrubriek": {
+            "type": "string",
+            "description": "Subcategorie (subonderwerp) waaronder de melding valt.",
+            "provenance": "melding_subrubriek"
+          },
+          "aantal": {
+            "type": "number",
+            "description": "Aantallen meldingen per dag, per buurt en categorie.",
+            "provenance": "melding_aantal"
+          }
         }
       }
-    ]
-  }
-  
+    }
+  ]
+}
