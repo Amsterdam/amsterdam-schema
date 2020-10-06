@@ -50,46 +50,6 @@
             "type": "string",
             "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
           },
-          "aangeduidDoorGemeente": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              }
-            },
-            "relation": "brk:gemeentes",
-            "description": ""
-          },
-          "aangeduidDoorKadastralegemeente": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              }
-            },
-            "relation": "brk:kadastralegemeentes",
-            "description": "De kadastrale gemeente, het eerste gedeelte van de aanduiding van een kadastraal object."
-          },
-          "aangeduidDoorKadastralegemeentecode": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              }
-            },
-            "relation": "brk:kadastralegemeentecodes",
-            "description": ""
-          },
-          "aangeduidDoorKadastralesectie": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              }
-            },
-            "relation": "brk:kadastralesecties",
-            "description": "De kadastrale sectie, het tweede gedeelte van de aanduiding van een kadastraal object."
-          },
           "perceelnummer": {
             "type": "integer",
             "description": "Een numerieke aanduiding van het kadastrale perceel per sectie, deel van de kadastrale aanduiding van de onroerende zaak."
@@ -226,22 +186,6 @@
             },
             "relation": "baggob:verblijfsobjecten",
             "description": "Relatie naar verblijfsobject"
-          },
-          "isOntstaanUitKadastraalobject": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "identificatie": {
-                  "type": "string"
-                },
-                "volgnummer": {
-                  "type": "string"
-                }
-              }
-            },
-            "relation": "brk:kadastraleobjecten",
-            "description": "Onderliggende percelen. Alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
           }
         },
         "mainGeometry": "geometrie"
@@ -284,90 +228,6 @@
             "type": "string",
             "format": "date-time",
             "description": ""
-          },
-          "belastZakelijkerechten": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "identificatie": {
-                  "type": "string"
-                },
-                "volgnummer": {
-                  "type": "string"
-                }
-              }
-            },
-            "relation": "brk:zakelijkerechten",
-            "description": "Dit zakelijk recht belast de volgende Aardzakelijkrechten"
-          },
-          "belastMetZakelijkerechten": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "identificatie": {
-                  "type": "string"
-                },
-                "volgnummer": {
-                  "type": "string"
-                }
-              }
-            },
-            "relation": "brk:zakelijkerechten",
-            "description": "Dit zakelijk recht is belast met de volgende Aardzakelijkrechten"
-          },
-          "ontstaanUitZakelijkerechten": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "identificatie": {
-                  "type": "string"
-                },
-                "volgnummer": {
-                  "type": "string"
-                }
-              }
-            },
-            "relation": "brk:zakelijkerechten",
-            "description": "Als deze waarde is gevuld, dan is dit recht ontstaan uit een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt (VVE)"
-          },
-          "ontstaanUitAppartementsrechtsplitsingVve": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              }
-            },
-            "relation": "brk:kadastralesubjecten",
-            "description": "VVE Subject ontstaan uit Appartementsrechtsplitsing"
-          },
-          "betrokkenBijZakelijkerechten": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "identificatie": {
-                  "type": "string"
-                },
-                "volgnummer": {
-                  "type": "string"
-                }
-              }
-            },
-            "relation": "brk:zakelijkerechten",
-            "description": "Als deze waarde is gevuld, dan is dit recht betrokken bij een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt (VVE)"
-          },
-          "betrokkenBijAppartementsrechtsplitsingVve": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              }
-            },
-            "relation": "brk:kadastralesubjecten",
-            "description": "VVE Subject betrokken bij Appartementsrechtsplitsing"
           },
           "isBeperktTot": {
             "type": "integer",
@@ -812,24 +672,6 @@
           "inOnderzoek": {
             "type": "string",
             "description": ""
-          },
-          "vanZakelijkrecht": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              },
-              "volgnummer": {
-                "type": "string"
-              }
-            },
-            "relation": "brk:zakelijkerechten",
-            "description": "Het Zakelijk recht waarover deze tenaamstelling gaat."
-          },
-          "isGebaseerdOpStukdeel": {
-            "type": "string",
-            "relation": "brk:stukdelen",
-            "description": "Het Stukdeel waar deze tenaamstelling op gebaseerd is."
           },
           "toestandsdatum": {
             "type": "string",
