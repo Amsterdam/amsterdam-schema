@@ -15,7 +15,7 @@
         "type": "object",
         "additionalProperties": false,
         "required": ["schema", "id"],
-        "display": "zaaknummer",
+        "display": "id",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -40,6 +40,12 @@
             "description": "Buurtnaam waaronder de melding valt.",
             "provenance": "meldingen_buurt_naam"
           },
+          "buurtid": {
+            "type": "string",
+            "relation": "bag:buurt",
+            "description": "Buurt identificatie waaronder de melding valt.",
+            "provenance": "melding_buurt_id"
+          },
           "wijkcode": {
             "type": "string",
             "description": "Wijkcode waaronder de melding valt.",
@@ -50,6 +56,12 @@
             "description": "Wijknaam waaronder de melding valt.",
             "provenance": "melding_wijk_naam"
           },
+          "wijkid": {
+            "type": "string",
+            "relation": "bag:wijk",
+            "description": "Wijk identificatie waaronder de melding valt.",
+            "provenance": "melding_wijk_id"            
+          },
           "stadsdeelcode": {
             "type": "string",
             "description": "Stadsdeelcode waaronder de melding valt.",
@@ -59,6 +71,12 @@
             "type": "string",
             "description": "Stadsdeel waaronder de melding valt.",
             "provenance": "melding_stadsdeel_naam"
+          },
+          "stadsdeelid": {
+            "type": "string",
+            "relation": "bag:stadsdeel",
+            "description": "Stadsdeel identificatie waaronder de melding valt.",
+            "provenance": "melding_stadsdeel_id"
           },
           "categorie": {
             "type": "string",
