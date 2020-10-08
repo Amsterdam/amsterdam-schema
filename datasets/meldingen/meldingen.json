@@ -24,6 +24,11 @@
             "type": "integer",
             "description": "Unieke aanduiding van de melding."
           },
+          "gebiedstype": {
+            "type": "string",
+            "description": "Type van gebied. Dat kan zijn : gemeente, buurt, wijk of stadsdeel",
+            "provenance": "melding_gebiedstype"
+          },
           "datumMelding": {
             "type": "string",
             "format": "date",
@@ -60,7 +65,7 @@
             "type": "string",
             "relation": "bag:buurtcombinatie",
             "description": "Wijk identificatie waaronder de melding valt.",
-            "provenance": "melding_wijk_id"            
+            "provenance": "melding_wijk_id"
           },
           "stadsdeelcode": {
             "type": "string",
@@ -77,6 +82,16 @@
             "relation": "bag:stadsdeel",
             "description": "Stadsdeel identificatie waaronder de melding valt.",
             "provenance": "melding_stadsdeel_id"
+          },
+          "gemeentecode": {
+            "type": "string",
+            "description": "Gemeentecode waaronder de melding valt.",
+            "provenance": "melding_gemeente_code"
+          },
+          "gemeentenaam": {
+            "type": "string",
+            "description": "Gemeentenaam waaronder de melding valt.",
+            "provenance": "melding_gemeente_naam"
           },
           "categorie": {
             "type": "string",
