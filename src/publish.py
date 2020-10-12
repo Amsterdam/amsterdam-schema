@@ -30,11 +30,6 @@ logger = logging.getLogger("__name__")
 
 publishable_prefixes = ("datasets", "schema@")
 DEFAULT_BASE_URL = "https://schemas.data.amsterdam.nl"
-DEFAULT_GITHUB_URL = (
-    "https://github.com/Amsterdam/amsterdam-schema/archive/develop.zip"
-    if os.getenv("DATAPUNT_ENVIRONMENT", "acceptance") == "acceptance"
-    else "https://github.com/Amsterdam/amsterdam-schema/archive/master.zip"
-)
 
 
 def fetch_publishable_paths(paths):
@@ -134,7 +129,7 @@ def replace_schema_base_url(temp_dir, schema_base_url):
 @click.option(
     "--github-url",
     envvar="GITHUB_ZIP_URL",
-    default=DEFAULT_GITHUB_URL,
+    default="https://github.com/Amsterdam/amsterdam-schema/archive/master.zip",
     help="Override the url to the zip on github (to use a specific branch for testing)",
 )
 @click.option(
