@@ -1,0 +1,3339 @@
+{
+  "type": "dataset",
+  "id": "bgt",
+  "title": "Basisregistratie grootschalige topografie (BGT)",
+  "status": "beschikbaar",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "auth": "BGT",
+  "tables": [
+    {
+      "id": "ligstandplaatsen",
+      "Title": "Lig- en standplaatsen",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "bagIdentificatie",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "bagIdentificatie": {
+            "type": "string",
+            "description": "Unieke identificatie van het object vanuit de basisregistratie adressen en gebouwen (BAG)."
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van object."
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["standplaats", "ligplaats"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "ligstandplaatsenlabel",
+      "Title": "Labels lig- en standplaatsen",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "bagIdentificatie",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "bagIdentificatie": {
+            "type": "string",
+            "description": "Unieke identificatie van het record vanuit de basisregistratie adressen en gebouwen (BAG)."
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het label horende bij het object."
+          },
+          "adres": {
+            "type": "string",
+            "description": "Adres van het object."
+          },
+          "tekst": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Inhoud van label horende bij het object."
+          },
+          "hoek": {
+            "type": "integer",
+            "description": "Graad(°) definitie van het object."
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["standplaats", "ligplaats"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "functioneelbeheergebied",
+      "Title": "Functioneel- of beheergebied",
+      "description": "BGT FGD en BGT plus FGD",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "naam": {
+            "type": "string",
+            "description": "Naam van het object."
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "kering",
+              "begraafplaats",
+              "bushalte",
+              "functioneel_beheer_hondenuitlaatplaats",
+              "halte",
+              "infrastructuur_waterstaatwerken",
+              "recreatie_bungalowpark",
+              "recreatie_park",
+              "recreatie_speeltuin",
+              "recreatie_sportterein",
+              "recreatie_volkstuin"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "bakken",
+      "title": "Bakken",
+      "description": "BGT plus BAK",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "afval_apart_plaats",
+              "afvalbak",
+              "container",
+              "drinkbak",
+              "onbekend"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "borden",
+      "title": "Borden",
+      "description": "BGT plus BRD",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "informatiebord",
+              "onbekend",
+              "plaatsnaambord",
+              "reclamebord",
+              "scheepvaartbord",
+              "straatnaambord",
+              "verkeersbord",
+              "verklikker_transportleiding",
+              "waarschuwingshek",
+              "wegwijzer"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "gebouwinstallatie",
+      "title": "Gebouwinstallatie",
+      "description": "BGT plus GISE",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["bordes", "luifel", "onbekend", "toegangstrap"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "installatie",
+      "title": "Installatie",
+      "description": "BGT plus ISE",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["onbekend", "pomp"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "kunstwerkdeel",
+      "title": "Kunstwerkdeel",
+      "description": "BGT KDL en BGT plus KDL",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "duiker L",
+              "duiker V",
+              "faunavoorziening",
+              "keermuur",
+              "onbekend_L",
+              "gemaal",
+              "hoogspanningsmast_P",
+              "hoogspanningsmast_V",
+              "perron",
+              "sluis",
+              "steiger",
+              "strekdam",
+              "stuw_L",
+              "stuw_V"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "kasten",
+      "title": "Kasten",
+      "description": "BGT plus KST",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "cai-kast",
+              "elektrakast",
+              "gaskast",
+              "gms_kast",
+              "onbekend",
+              "openbare_verlichtingkast",
+              "rioolkast",
+              "telecom_kast",
+              "telkast",
+              "verkeersregelinstallatiekast"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "masten",
+      "title": "Masten",
+      "description": "BGT plus MST",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "bovenleidingmast",
+              "onbekend",
+              "straalzender",
+              "zendmast"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "overigbouwwerk",
+      "title": "Overig bouwwerk",
+      "description": "BGT OBW en BGT plus OBW",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "bunker",
+              "onbekend",
+              "schuur",
+              "voedersilo",
+              "bassin",
+              "bezinkbak",
+              "lage_trafo",
+              "open_loods",
+              "opslagtank",
+              "overkapping",
+              "transitie",
+              "windtrubine"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "scheiding",
+      "title": "Scheiding",
+      "description": "BGT SDG en BGT plus SDG",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["draadraster", "faunaraster", "onbekend_L"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "overigescheiding",
+      "title": "Overige scheiding",
+      "description": "BGT plus OSDG",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "damwand",
+              "geluidscherm",
+              "hek",
+              "kademuur",
+              "muur_L",
+              "muur_V",
+              "onbekend_L",
+              "walbescherming"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "putten",
+      "title": "Putten",
+      "description": "BGT plus PUT",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "waterleidingput",
+              "onbekend",
+              "kolk",
+              "gasput",
+              "drainageput",
+              "brandkraan_-put",
+              "bezine-_olieput",
+              "inspectie-_rioolput"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "straatmeubilair",
+      "title": "Straatmeubilair",
+      "description": "BGT plus SMR",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "telefooncel",
+              "speelvoorziening",
+              "slagboom",
+              "reclamezuil",
+              "picknicktafel",
+              "openbaar_toilet",
+              "lichtpunt",
+              "kunstobject",
+              "herdenkingsmonument",
+              "fietsrek",
+              "bolder",
+              "betaalautomaat",
+              "bank",
+              "abri",
+              "brievenbus",
+              "fietsenkluis"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "sensor",
+      "title": "Sensor",
+      "description": "BGT plus SSR",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["waterstandmeter", "onbekend", "flitser", "camera"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "vegetatieobject",
+      "title": "Vegetatieobject",
+      "description": "BGT plus VGT",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["boom", "haag_L", "haag_V", "onbekend_L", "onbekend_V"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "waterinrichtingselement",
+      "title": "Waterinrichtingselement",
+      "description": "BGT plus WDI",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "geleidewerk",
+              "hoogtemerk",
+              "meerpaal",
+              "onbekend laag",
+              "remmingswerk"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "weginrichtingselement",
+      "title": "Weginrichtingselement",
+      "description": "BGT plus WGI",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "balustrade",
+              "boomspiegel_V",
+              "geleideconstructie_L",
+              "onbekend_V",
+              "lijnafwatering",
+              "molgoot",
+              "rooster_L",
+              "rooster_P",
+              "rooster_V",
+              "wegmarkering_L",
+              "wegmarkering_P",
+              "wegmarkering_V",
+              "wildrooster_L",
+              "wildrooster_V"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "waterinrichtingselement",
+      "title": "Waterinrichtingselement",
+      "description": "BGT plus WDI",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "geleidewerk",
+              "hoogtemerk",
+              "meerpaal",
+              "onbekend_L",
+              "remmingswerk"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    ,
+    {
+      "id": "overbruggingsdeel",
+      "title": "Overbruggingsdeel",
+      "description": "BGT ODL en BGT plus ODL",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["dek", "landhoofd", "pijler", "pyloon", "sloof"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+
+    {
+      "id": "paal",
+      "title": "Paal",
+      "description": "BGT plus PAL",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "afsluitpaal",
+              "drukknoppaal",
+              "haltepaal",
+              "hectometerpaal",
+              "lichtmast",
+              "onbekend",
+              "poller",
+              "portaal",
+              "telpaal",
+              "verkeersbordpaal",
+              "verkeersregelinstallatiepaal",
+              "vlaggenmast"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "begroeidterreindeel",
+      "title": "Begroeid terreindeel",
+      "description": "BGT BTRN",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "boomteelt",
+              "bouwland",
+              "fruitteelt",
+              "gemengd_bos",
+              "grasland_agrarisch",
+              "grasland_overig",
+              "groenvoorziening",
+              "heide",
+              "houtwal",
+              "loofbos",
+              "moeras",
+              "naaldbos",
+              "rietland",
+              "struiken"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "kruinlijn",
+      "title": "Kruinlijn",
+      "description": "BGT KLN",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["kruinlijn"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "openbareruimtelabel",
+      "title": "Openbare ruimte label",
+      "description": "BGT LBL",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "identificatieBagOpr": {
+            "type": "string",
+            "description": "Identificatie BAG openbareruimte object.",
+            "provenance": "identificatieBAGOPR"
+          },
+          "openbareruimteType": {
+            "type": "string",
+            "description": "Omschrijving van type BAG openbareruimte.",
+            "provenance": "openbareruimtetype"
+          },
+          "tekst": {
+            "type": "string",
+            "description": "Omschrijving van type BAG openbareruimte."
+          },
+          "hoek": {
+            "type": "integer",
+            "description": "Graad(°) definitie van het object."
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "administratief_gebied",
+              "kunstwerk",
+              "landschappelijk_gebied",
+              "terrein",
+              "water",
+              "weg"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "nummeraanduidingpandlabel",
+      "title": "Nummeraanduiding pand label",
+      "description": "BGT LBL",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "tekst": {
+            "type": "string",
+            "description": "Tekstgroote van label."
+          },
+          "teskt_afgekort": {
+            "type": "string",
+            "description": "Tekstgroote van afgekort label."
+          },
+          "identificatieBagPand": {
+            "type": "string",
+            "description": "BAG identificatie van pand.",
+            "provenance": "identificatieBAGPND"
+          },
+          "identificatieBagVboLaagsteHuisnummer": {
+            "type": "string",
+            "description": "BAG identificatie van verblijfsobject pand met laagste huisnummer.",
+            "provenance": "identificatieBAGVBOLaagsteHuisnummer"
+          },
+          "identificatieBagVboHoogsteHuisnummer": {
+            "type": "string",
+            "description": "BAG identificatie van verblijfsobject pand met laagste huisnummer.",
+            "provenance": "identificatieBAGVBOHoogsteHuisnummer"
+          },
+          "hoek": {
+            "type": "integer",
+            "description": "Graad(°) definitie van het object."
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["pand"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "spoor",
+      "title": "Spoor",
+      "description": "BGT SPR",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["trein", "tram", "sneltram"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "pand",
+      "title": "Pand",
+      "description": "BGT PND",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["pand"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+
+    {
+      "id": "tunneldeel",
+      "title": "Tunneldeel",
+      "description": "BGT TDL",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["tunneldeel"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "ondersteunendwaterdeel",
+      "title": "Ondersteunend waterdeel",
+      "description": "BGT OWDL",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["oever slootkant"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "waterdeel",
+      "title": "Waterdeel",
+      "description": "BGT WDL",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["greppel droge sloot", "waterloop", "watervlakte"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "wegdeel",
+      "title": "Wegdeel",
+      "description": "BGT WGL",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "baan voor vliegverkeer",
+              "fietspad",
+              "inrit",
+              "ov-baan",
+              "overweg",
+              "parkeervlak",
+              "rijbaan_autosnelweg",
+              "rijbaan_autoweg",
+              "rijbaan_lokale_weg",
+              "rijbaan_regionale_weg",
+              "ruiterpad",
+              "spoorbaan",
+              "voetgangersgebied",
+              "voetpad",
+              "voetpad_op_trap",
+              "woonerf"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "ondersteunendwegdeel",
+      "title": "Ondersteunend wegdeel",
+      "description": "BGT OWGL",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": ["berm", "verkeerseiland"],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    }
+  ]
+}
