@@ -8,8 +8,8 @@
   "auth": "BGT",
   "tables": [
     {
-      "id": "ligstandplaatsen",
-      "Title": "Lig- en standplaatsen",
+      "id": "ligstandplaats",
+      "Title": "Lig- en standplaats",
       "type": "table",
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
@@ -43,8 +43,8 @@
       }
     },
     {
-      "id": "ligstandplaatsenlabel",
-      "Title": "Labels lig- en standplaatsen",
+      "id": "ligstandplaatslabel",
+      "Title": "Labels lig- en standplaats",
       "type": "table",
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
@@ -205,8 +205,8 @@
       }
     },
     {
-      "id": "bakken",
-      "title": "Bakken",
+      "id": "bak",
+      "title": "bak",
       "description": "BGT plus BAK",
       "type": "table",
       "schema": {
@@ -310,8 +310,8 @@
       }
     },
     {
-      "id": "borden",
-      "title": "Borden",
+      "id": "bord",
+      "title": "bord",
       "description": "BGT plus BRD",
       "type": "table",
       "schema": {
@@ -732,8 +732,8 @@
       }
     },
     {
-      "id": "kasten",
-      "title": "Kasten",
+      "id": "kast",
+      "title": "kast",
       "description": "BGT plus KST",
       "type": "table",
       "schema": {
@@ -842,8 +842,8 @@
       }
     },
     {
-      "id": "masten",
-      "title": "Masten",
+      "id": "mast",
+      "title": "mast",
       "description": "BGT plus MST",
       "type": "table",
       "schema": {
@@ -1265,8 +1265,8 @@
       }
     },
     {
-      "id": "putten",
-      "title": "Putten",
+      "id": "put",
+      "title": "put",
       "description": "BGT plus PUT",
       "type": "table",
       "schema": {
@@ -2010,7 +2010,6 @@
         }
       }
     },
-    ,
     {
       "id": "overbruggingsdeel",
       "title": "Overbruggingsdeel",
@@ -2110,7 +2109,6 @@
         }
       }
     },
-
     {
       "id": "paal",
       "title": "Paal",
@@ -2331,6 +2329,111 @@
               "naaldbos",
               "rietland",
               "struiken"
+            ],
+            "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "overigterreindeel",
+      "title": "Overig terreindeel",
+      "description": "BGT OTRN",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "namespaceId": {
+            "type": "string",
+            "description": "Unieke identificatie van de namespace.",
+            "provenance": "identificatie_namespace"
+          },
+          "lokaalId": {
+            "type": "string",
+            "description": "Unieke identificatie van het object.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "startdatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum van het object.",
+            "provenance": "objectbegintijd"
+          },
+          "einddatumObject": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddtijd van het object.",
+            "provenance": "objecteindtijd"
+          },
+          "tijdstipregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van registatie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "lvPublicatiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van publicatie van het object in landelijke voorziening GBT.",
+            "provenance": "lv-publicatiedatum"
+          },
+          "bronhouder": {
+            "type": "string",
+            "description": "Bronhouder object."
+          },
+          "indicatieInOnderzoek": {
+            "type": "string",
+            "enum": ["N", "J"],
+            "description": "Indicatie in onderzoek object.",
+            "provenance": "inonderzoek"
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
+          },
+          "bgtStatus": {
+            "type": "string",
+            "description": "BGT status van het object.",
+            "provenance": "bgt-status"
+          },
+          "bgtPlusStatus": {
+            "type": "string",
+            "description": "BGT plus status van het object.",
+            "provenance": "plus-status"
+          },
+          "bgtType": {
+            "type": "string",
+            "description": "BGT type van het object.",
+            "provenance": "bgt-type"
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "erf",
+              "zand",
+              "onverhard",
+              "open_verharding",
+              "gesloten_verharding"
             ],
             "description": "Typering categorie object."
           }
@@ -2822,7 +2925,6 @@
         }
       }
     },
-
     {
       "id": "tunneldeel",
       "title": "Tunneldeel",
@@ -3331,6 +3433,46 @@
             "type": "string",
             "enum": ["berm", "verkeerseiland"],
             "description": "Typering categorie object."
+          }
+        }
+      }
+    },
+    {
+      "id": "CFT",
+      "title": "CFT boven- en onderbouw",
+      "description": "BGT CFT",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/bgt/bgt.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "lokaalId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identificatie van het record."
+          },
+          "guid": {
+            "type": "string",
+            "description": "Unieke identificatie vanuit bronbestand."
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Poloygoon definitie van het object."
+          },
+          "eindregistratie": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Moment van beëindiging van het object."
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Relatieve verhoogte ligging object."
           }
         }
       }
