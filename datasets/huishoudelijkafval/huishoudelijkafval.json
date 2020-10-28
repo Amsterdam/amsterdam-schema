@@ -638,6 +638,224 @@
           }
         }
       }
+    },
+    {
+      "id": "loopafstand_categorie",
+      "type": "table",
+      "provenance": "afval_loopafstand_categorie ",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "schema"],
+        "display": "id",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding objecttype"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "loopafstandCategorieId": {
+            "type": "string",
+            "provenance": "afval_api_loopafstand_categorie_id",
+            "description": "identificatie categorie loopafstand"
+          },
+          "fractie": {
+            "type": "string",
+            "provenance": "afval_fractie",
+            "description": "Code afvalfractie waarnaar de afstand is bepaald"
+          },
+          "fractieOmschrijving": {
+            "type": "string",
+            "provenance": "afval_fractie_omschrijving",
+            "description": "Omschrijving afvalfractie waarnaar de afstand is bepaald"
+          },
+          "loopafstandCategorieOmschrijving": {
+            "type": "string",
+            "provenance": "loopafstand_categorie_omschrijving",
+            "description": "Omschrijving van de categorie waarin de berekende loopafstand valt"
+          },
+          "loopafstandCategorieVanaf": {
+            "type": "integer",
+            "provenance": "loopafstand_categorie_vanaf",
+            "description": "Ondergrens van de categorie waarin de berekende loopafstand valt"
+          },
+          "loopafstandCategorieTot": {
+            "type": "integer",
+            "provenance": "loopafstand_categorie_tot",
+            "description": "Bovengrens van de categorie waarin de berekende loopafstand valt"
+          },
+          "wijzigingsdatumDp": {
+            "type": "string",
+            "provenance": "wijzigingsdatum_dp",
+            "format": "date-time",
+            "description": "Datum waarop het object is gewijzigd"
+          },
+          "verwijderdDp": {
+            "type": "boolean",
+            "provenance": "verwijderd_dp",
+            "description": "indicatie of het object verwijderd is"
+          }
+        }
+      }
+    },
+    {
+      "id": "bag_object_loopafstand",
+      "type": "table",
+      "provenance": "afval_bag_object_loopafstand ",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "schema"],
+        "display": "id",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "bagObjectId": {
+            "type": "string",
+            "provenance": "bag_object_id",
+            "description": "Uniek identificerend kenmerk van bagobject"
+          },
+          "bagObjectType": {
+            "type": "string",
+            "provenance": "bag_object_type",
+            "description": "BAG objectklasse: pand, ligplaats, standplaats"
+          },
+          "clusterId": {
+            "type": "string",
+            "provenance": "cluster_id",
+            "description": "Uniek identificerend kenmerk van cluster waarnaar de afstand is berekend"
+          },
+          "fractie": {
+            "type": "string",
+            "provenance": "afval_fractie",
+            "description": "Code afvalfractie waarnaar de afstand is bepaald"
+          },
+          "fractieOmschrijving": {
+            "type": "string",
+            "provenance": "afval_fractie_omschrijving",
+            "description": "Omschrijving afvalfractie waarnaar de afstand is bepaald."
+          },
+          "loopafstandCategorieId": {
+            "type": "string",
+            "provenance": "afval_loopafstand_categorie_id",
+            "relation": "huishoudelijkafval:loopafstand_categorie",
+            "description": "relatie naar de categorie waarin de berekende loopafstand valt"
+          },
+          "loopafstand": {
+            "type": "numeric",
+            "provenance": "loopafstand",
+            "description": "Berekende afstand over de weg in meter in RD (epsg:28992) van woning tot cluster van containers van de betreffende afvalfractie"
+          },
+          "geometrie": {
+            "type": "geometry",
+            "provenance": "geometry",
+            "$ref": "https://geojson.org/schema/Point.json",
+            "description": "Geometrie van het type MULTIPOLYGON in RD (epsg:28992))"
+          },
+          "wijzigingsdatumDdp": {
+            "type": "string",
+            "provenance": "wijzigingsdatum_dp",
+            "format": "date-time",
+            "description": "Datum waarop het object is gewijzigd"
+          },
+          "verwijderDp": {
+            "type": "boolean",
+            "provenance": "verwijderd_dp",
+            "description": "indicatie of het object verwijderd is"
+          }
+        }
+      }
+    },
+    {
+      "id": "adres_loopafstand",
+      "type": "table",
+      "provenance": "afval_api_adres_loopafstand",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "schema"],
+        "display": "id",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "adresseerbaarobjectId": {
+            "type": "string",
+            "provenance": "adresseerbaarobject_id",
+            "description": "Uniek identificerend kenmerk van adresseerbaarobject"
+          },
+          "adresseerbaarobjectType": {
+            "type": "string",
+            "provenance": "adresseerbaarobject_type",
+            "description": "Typering adresseerbaar object conform BAG: verblijfsobject, ligplaats , standplaats"
+          },
+          "nummeraanduidingId": {
+            "type": "string",
+            "provenance": "nummeraanduiding_id",
+            "description": "BAG:Landelijke identificatie nummeraanduiding"
+          },
+          "gebruiksdoel": {
+            "type": "string",
+            "provenance": "gebruiksdoel",
+            "description": "BAG:Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan"
+          },
+          "clusterId": {
+            "type": "string",
+            "provenance": "cluster_id",
+            "description": "Uniek identificerend kenmerk van cluster waarnaar de afstand is berekend"
+          },
+          "fractie": {
+            "type": "string",
+            "provenance": "afval_fractie",
+            "description": "Code afvalfractie waarnaar de afstand is bepaald"
+          },
+          "fractieOmschrijving": {
+            "type": "string",
+            "provenance": "afval_fractie_omschrijving",
+            "description": "Omschrijving afvalfractie waarnaar de afstand is bepaald"
+          },
+          "loopafstandCategorieId": {
+            "type": "string",
+            "provenance": "afval_loopafstand_categorie_id",
+            "relation": "huishoudelijkafval:loopafstand_categorie",
+            "description": "relatie naar de categorie waarin de berekende loopafstand valt"
+          },
+          "loopafstand": {
+            "type": "numeric",
+            "provenance": "loopafstand",
+            "description": "Berekende afstand over de weg in meter in RD (epsg:28992) van woning tot cluster van containers van de betreffende afvalfractie"
+          },
+          "geometrie": {
+            "type": "geometry",
+            "provenance": "geometrie",
+            "$ref": "https://geojson.org/schema/Point.json",
+            "description": "Geometrie van het type POINT in RD (epsg:28992)"
+          },
+          "wijzigingsdatumDp": {
+            "type": "string",
+            "provenance": "wijzigingsdatum_dp",
+            "format": "date-time",
+            "description": "Datum waarop het object is gewijzigd"
+          },
+          "verwijderdDp": {
+            "type": "boolean",
+            "provenance": "verwijderd_dp",
+            "description": "indicatie of het object verwijderd is bij de bronhouder"
+          }
+        }
+      }
     }
   ]
 }
