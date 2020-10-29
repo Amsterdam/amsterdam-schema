@@ -47,28 +47,24 @@
             "type": "string",
             "description": "Volgnummer van het object"
           },
-          "tekst_on_mouseover": {
+          "tekstOnMouseover": {
             "type": "string",
             "description": "Volgnummer + locatiebeschrijving"
           },
-          "kleur_op_kaart": {
+          "kleurOpKaart": {
             "type": "string",
-            "provenance": "kleur_op_kaart",
             "description": "Gewenste kleurweergave op de kaart"
           },
-          "op_en_afstap": {
+          "opEnAfstap": {
             "type": "string",
-            "provenance": "op_en_afstap",
             "description": " Indicatie ove opstap of afstaplocatie"
           },
-          "laad_los": {
+          "laadLos": {
             "type": "string",
-            "provenance": "laad_los",
             "description": " Indicatie voor laad en los doeleinden."
           },
-          "e_laadpunt": {
+          "eLaadpunt": {
             "type": "string",
-            "provenance": "e_laadpunt",
             "description": "Indicatie electrische laadpunt voorziening."
           },
           "geometrie": {
@@ -77,22 +73,20 @@
           },
           "verwerkingsdatum": {
             "type": "string",
-            "format":"date",
-            "provenance": "verwerkingsdatum",
+            "format": "date",
             "description": "Datum waarop het object  in het systeem is geregistreerd"
           },
-          "gbd_buurt_id": {
+          "gbdBuurtId": {
             "type": "integer",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject",
             "relation": "gebieden:buurten",
-            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
-            "provenance": "gbd_buurt_id"
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt"
           }
         }
       }
     },
     {
-      "id": "var_ligplaats",
+      "id": "ligplaats",
       "type": "table",
       "provenance": "var_ligplaats",
       "title": "var_ligplaats",
@@ -108,51 +102,43 @@
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "naam_vaartuig": {
+          "naamVaartuig": {
             "type": "string",
             "description": "Naam van vaartuig."
           },
           "naam_klant_kvk": {
             "type": "string",
-            "description": "Naam van klant volgens KvK",
-            "provenance": "naam_klant_kvk"
+            "description": "Naam van klant volgens KvK"
           },
-          "ligplaats_segment": {
+          "ligplaatsSegment": {
             "type": "string",
-            "description": "Categorie van lengte van vaartuigen",
-            "provenance": "ligplaats_segment"
+            "description": "Categorie van lengte van vaartuigen"
           },
-          "kenmerk_vergunning": {
+          "kenmerkVergunning": {
             "type": "string",
-            "description": "Kenmerk van ligplaastvergunning",
-            "provenance": "kenmerk_vergunning"
+            "description": "Kenmerk van ligplaastvergunning"
           },
-          "datum_einde_vergunning": {
+          "datumEindeVergunning": {
             "type": "string",
-            "provenance": "datum_einde_vergunning",
             "description": "Einde van verleende vergunning "
           },
           "id": {
             "type": "string",
-            "description": "Id veld (niet uniek)",
-            "provenance": "id"
+            "description": "Id veld (niet uniek)"
           },
           "verwerkingsdatum": {
             "type": "string",
-            "format":"date",
-            "provenance": "verwerkingsdatum"
+            "format": "date"
           },
-          "gbd_buurt_id": {
+          "gbdBuurtId": {
             "type": "integer",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject",
             "relation": "gebieden:buurten",
-            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
-            "provenance": "gbd_buurt_id"
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt"
           },
-          "locatie_adres": {
+          "locatieAdres": {
             "type": "string",
-            "description": "Locatie beschrijving",
-            "provenance": "locatie_adres"
+            "description": "Locatie beschrijving"
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
