@@ -732,7 +732,8 @@
           },
           "fractieOmschrijving": {
             "type": "string",
-            "description": "Omschrijving afvalfractie waarnaar de afstand is bepaald."
+            "description": "Omschrijving afvalfractie waarnaar de afstand is bepaald.",
+            "provenance": "afval_fractie_omschrijving"
           },
           "loopafstandCategorieId": {
             "type": "string",
@@ -741,12 +742,11 @@
             "description": "relatie naar de categorie waarin de berekende loopafstand valt"
           },
           "loopafstand": {
-            "type": "numeric",
+            "type": "number",
             "description": "Berekende afstand over de weg in meter in RD (epsg:28992) van woning tot cluster van containers van de betreffende afvalfractie"
           },
           "geometrie": {
-            "type": "geometry",
-            "$ref": "https://geojson.org/schema/Point.json",
+            "$ref": "https://geojson.org/schema/Polygon.json",
             "description": "Geometrie van het type MULTIPOLYGON in RD (epsg:28992))"
           },
           "wijzigingsdatumDp": {
@@ -754,7 +754,7 @@
             "format": "date-time",
             "description": "Datum waarop het object is gewijzigd"
           },
-          "verwijderDp": {
+          "verwijderdDp": {
             "type": "boolean",
             "description": "indicatie of het object verwijderd is"
           }
@@ -762,7 +762,7 @@
       }
     },
     {
-      "id": "adres_loopafstand",
+      "id": "adresLoopafstand",
       "type": "table",
       "provenance": "afval_api_adres_loopafstand",
       "schema": {
@@ -811,15 +811,13 @@
           "loopafstandCategorieId": {
             "type": "string",
             "provenance": "afval_loopafstand_categorie_id",
-            "relation": "huishoudelijkafval:loopafstand_categorie",
             "description": "relatie naar de categorie waarin de berekende loopafstand valt"
           },
           "loopafstand": {
-            "type": "numeric",
+            "type": "number",
             "description": "Berekende afstand over de weg in meter in RD (epsg:28992) van woning tot cluster van containers van de betreffende afvalfractie"
           },
           "geometrie": {
-            "type": "geometry",
             "$ref": "https://geojson.org/schema/Point.json",
             "description": "Geometrie van het type POINT in RD (epsg:28992)"
           },
