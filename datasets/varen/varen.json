@@ -1,0 +1,174 @@
+{
+  "type": "dataset",
+  "id": "Varen",
+  "title": "Varen",
+  "description": "Inforatie over de over de pleziervaart en het ligplaatsen register voor de pleziervaart.",
+  "dateCreated": "2020-08-01T00:00:00",
+  "dateModified": "2020-08-01T00:00:00",
+  "license": "Creative Commons, Naamsvermelding",
+  "homepage": "https://data.amsterdam.nl",
+  "language": "nl",
+  "status": "beschikbaar",
+  "version": "0.0.1",
+  "objective": "Programma varen heeft de verplichting om openbare informatie waaronder op en afstap plaatsen te publiceren voor de bewoners van Amsterdam en de ketenpartners.",
+  "temporalUnit": "nvt",
+  "contactPoint": {
+    "name": "",
+    "email": "datapunt@amsterdam.nl"
+  },
+  "accrualPeriodicity": "maandelijks",
+  "spatialDescription": "Gemeente Amsterdam",
+  "theme": "Verkeer",
+  "publisher": "OIS",
+  "owner": "Gemente Amsterdam, Toezicht en Handhaving Openbare Ruimte",
+  "authorizationGrantor": "Toezicht en Handhaving Openbare Ruimte",
+  "keywords": "ligplaatsenregister, varen, opstaplocatie, afstaplocatie, grachten, varen",
+  "hasBeginning": "2020-01-01T00:00:00",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "var_opafstapplaats",
+      "type": "table",
+      "provenance": "var_opafstapplaats",
+      "title": "var_opafstapplaats",
+      "description": "Deze dataset bevat de gegevens over op- en afstaplocaties voor pleziervaart, passagiersvaart en transport over het water. De gemeente wil daarbij voldoende ruimte voor bewoners creëren, onder andere doorbeheersing van het aantal vaarbewegingen en het spreiden van plezier- en passagiersvaart.",
+      "schema": {
+        "required": ["volgnr"],
+        "mainGeometry": "geometrie",
+        "display": "volgnr",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type":"string",
+            "provenance": "var_opafstapplaats_id",
+            "description": "Uniek identificerend kenmerk van het record"  
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@1.1.1#/definitions/schema"
+          },
+          "volgnr": {
+            "type": "string",
+            "description": "Volgnummer van het object"
+          },
+          "tekst_on_mouseover": {
+            "type": "string",
+            "provenance": "tekst_on_mouseover",
+            "description": "Volgnummer + locatiebeschrijving"
+          },
+          "kleur_op_kaart": {
+            "type": "string",
+            "provenance": "kleur_op_kaart",
+            "description": "Gewenste kleurweergave op de kaart"
+          },
+          "op_en_afstap": {
+            "type": "string",
+            "provenance": "op_en_afstap",
+            "description": " Indicatie ove opstap of afstaplocatie"
+          },
+          "laad_los": {
+            "type": "string",
+            "provenance": "laad_los",
+            "description": " Indicatie voor laad en los doeleinden."
+          },
+          "e_laadpunt": {
+            "type": "string",
+            "provenance": "e_laadpunt",
+            "description": "Indicatie electrische laadpunt voorziening."
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Geometrie in RD (epsg:28992)"
+          },
+          "verwerkingsdatum": {
+            "type": "date",
+            "provenance": "verwerkingsdatum",
+            "description": "Datum waarop het object  in het systeem is geregistreerd"
+          },
+          "gbd_buurt_id": {
+            "type": "integer",
+            "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject",
+            "relation": "gebieden:buurten",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+            "provenance": "gbd_buurt_id"
+          }
+        }
+      }
+    },
+    {
+      "id": "var_ligplaats",
+      "type": "table",
+      "provenance": "var_ligplaats",
+      "title": "var_ligplaats",
+      "description": "Deze dataset bevat de gegevens over de ligplaatsen register in Amsterdam.",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "id",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "mainGeometry": "geometrie",
+        "display": "id",
+        "properties": {
+          "id": {
+            "type":"string",
+            "provenance": "var_opafstapplaats_id",
+            "description": "Uniek identificerend kenmerk van het record"  
+              },  
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "naam_vaartuig": {
+            "type": "string",
+            "description": "Naam van vaartuig."
+          },
+          "naam_klant_kvk": {
+            "type": "string",
+            "description": "Naam van klant volgens KvK",
+            "provenance": "naam_klant_kvk"
+          },
+          "ligplaats_segment": {
+            "type": "string",
+            "description": "Categorie van lengte van vaartuigen",
+            "provenance": "ligplaats_segment"
+          },
+          "kenmerk_vergunning": {
+            "type": "string",
+            "description": "Kenmerk van ligplaastvergunning",
+            "provenance": "kenmerk_vergunning"
+          },
+          "datum_einde_vergunning": {
+            "type": "string",
+            "provenance": "datum_einde_vergunning",
+            "description": "Einde van verleende vergunning "
+          },
+          "id_ligplaats": {
+            "type": "string",
+            "description": "Id veld (niet uniek)",
+            "provenance": "id"
+          },
+          "verwerkingsdatum": {
+            "type": "date",
+            "provenance": "verwerkingsdatum"
+          },
+          "gbd_buurt_id": {
+            "type": "integer",
+            "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject",
+            "relation": "gebieden:buurten",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+            "provenance": "gbd_buurt_id"
+          },
+          "locatie_adres": {
+            "type": "string",
+            "description": "Locatie beschrijving",
+            "provenance": "locatie_adres"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Geometrie in RD (epsg:28992)"
+          }
+        }
+      }
+    }
+  ]
+}
