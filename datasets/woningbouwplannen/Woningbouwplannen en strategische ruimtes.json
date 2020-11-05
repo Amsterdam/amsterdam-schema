@@ -140,6 +140,69 @@
       }
     },
     {
+      "id": "gebied_bouwblok_woningen",
+      "type": "table",
+      "provenance": "gebied_bouwblok_woningen",
+      "title": "Aantal woningen in bouwblokken in Amsterdam",
+      "description": "Deze dataset geeft het aantal woningen in een bouwblok weer. Er is onderscheid gemaakt tussen woningen en verblijfsobjecten. Met woningen worden verblijfsobjecten met de volgende gebruiksdoelen bedoeld: 1- Woonfunctie, 2- In combinatie met een woonfunctie. Status: 1- Verblijfsobject gevormd, 2- Niet gerealiseerd verblijfsobject, 3- Verblijfsobject in gebruik (niet ingemeten), 4- Verblijfsobject in gebruik, 5- Verbouwing verblijfsobject. Met verblijfsobjecten worden alle verblijfsobjecten zonder filtering in een bouwblok bedoeld.",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "schema"],
+        "display": "id",
+        "properties": {
+          "id": {
+            "type": "string",
+            "provenance": "identificatie",
+            "description": "Uniek identificerend kenmerk van het bouwblok"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "volgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van het bouwblok"
+          },
+          "code": {
+            "type": "string",
+            "description": "Officiële code van het bouwblok."
+          },
+          "ligtinGbdBrtIdentificatie": {
+            "type": "string",
+            "provenance": "ligtin_gbd_brt_identificatie",
+            "description": "Unieke identificatie van de buurt."
+          },
+          "ligtinGbdBrtVolgnummer": {
+            "type": "string",
+            "provenance": "ligtin_gbd_brt_volgnummer",
+            "description": "Uniek volgnummer van de toestand van de buurt"
+          },
+          "aantalWoningen": {
+            "type": "string",
+            "provenance": "aantal_woningen",
+            "description": "Aantal woningen in het bouwblok met de volgende gebruiksdoelen: 1- Woonfunctie, 2- In combinatie met een woonfunctie. Status: 1- Verblijfsobject gevormd, 2- Niet gerealiseerd verblijfsobject, 3- Verblijfsobject in gebruik (niet ingemeten), 4- Verblijfsobject in gebruik, 5- Verbouwing verblijfsobject"
+          },
+          "aantalVerblijfsobjecten": {
+            "type": "string",
+            "provenance": "aantal_verblijfsobjecten",
+            "description": "Alle verblijfsobjecten in het bouwblok zonder filtering op status en gebruiksdoel."
+          },
+          "wijzigingsdatumDp": {
+              "type": "string",
+              "provenance": "wijzigingsdatum_dp",
+              "format": "date",
+              "description": "Datum waarop het object is gewijzigd"
+          },
+          "verwijderdDp": {
+            "type": "boolean",
+            "provenance": "verwijderd_dp",
+            "description": "indicatie of het object verwijderd is bij de bronhouder"
+        }
+      }
+    }
+  }, 
+    {
         "id": "strategischeruimtes",
         "type": "table",
         "provenance": "wbw_strategischeruimte",
@@ -251,6 +314,7 @@
               "$ref": "https://geojson.org/schema/Geometry.json",
               "description": "Geometrie in RD (epsg:28992)"
             }
+            
           }
         }
       }
