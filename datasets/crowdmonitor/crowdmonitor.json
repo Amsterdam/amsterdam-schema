@@ -5,7 +5,7 @@
     "status": "beschikbaar",
     "description": "Het aantal passanten per locatie, per sensor, per periode. De periode kan zijn 'uur', 'dag' of 'week' en begint op 'datumUur'",
     "version": "0.0.1",
-    "crs": "EPSG:28992",
+    "crs": "EPSG:4326",
     "tables": [
       {
         "id": "passanten",
@@ -15,6 +15,7 @@
           "$schema": "http://json-schema.org/draft-07/schema#",
           "type": "object",
           "additionalProperties": false,
+          "mainGeometry": "geometrie",
           "required": ["schema", "id"],
           "display": "naamLocatie",
           "properties": {
@@ -47,6 +48,13 @@
             "aantalPassanten": {
                 "type": "integer",
                 "description": "Aantal passanten in de periode 'periode' beginnend op 'datumUur'"
+            "gebied": {
+                "type": "string",
+                "description": "Gebied rond de sensor"
+            },
+            "geometrie": {
+                "$ref": "https://geojson.org/schema/Point.json",
+                "description": "Punt die lokatie van sensor aangeeft"
             }
           }
         }
