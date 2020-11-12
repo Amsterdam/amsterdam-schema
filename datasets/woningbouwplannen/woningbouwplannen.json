@@ -54,8 +54,7 @@
           },
           "projectId": {
             "type": "string",
-            "description": "ID van het project voor de QGIS kaart koppeling",
-            "provenance": "project_id"
+            "description": "ID van het project voor de QGIS kaart koppeling"
           },
           "projectfase": {
             "type": "string",
@@ -63,33 +62,27 @@
           },
           "startBouw": {
             "type": "date",
-            "provenance": "start_bouw",
             "description": "Geplande jaar van de 1e paal"
           },
           "aantalWoningenSocialeHuur": {
             "type": "integer",
-            "description": "Aantal te realiseren woningen in de categorie sociale huur",
-            "provenance": "aantal_woningen_sociale_huur"
+            "description": "Aantal te realiseren woningen in de categorie sociale huur"
           },
           "aantalWoningenMiddeldureHuur": {
             "type": "integer",
-            "provenance": "aantal_woningen_middeldure_huur",
             "description": "Aantal te realiseren woningen in de categorie middeldure huur"
           },
           "aantalWoningenDureHuurOfKoop": {
             "type": "integer",
-            "provenance": "aantal_woningen_dure_huur_of_koop",
             "description": "Aantal te realiseren woningen in de categorie dure huur of koop"
           },
           "aantalWoningenDureHuur": {
             "type": "integer",
-            "description": "Aantal te realiseren woningen in de categorie dure huur",
-            "provenance": "aantal_woningen_dure_huur"
+            "description": "Aantal te realiseren woningen in de categorie dure huur"
           },
           "aantalWoningenKoop": {
             "type": "integer",
-            "description": "Aantal te realiseren woningen in de categorie te koop",
-            "provenance": "aantal_woningen_koop"
+            "description": "Aantal te realiseren woningen in de categorie te koop"
           },
           "aantalWoningenNaderTeBepalen": {
             "type": "integer",
@@ -125,8 +118,7 @@
           },
           "verschilTotaalPlanHuidig": {
             "type": "integer",
-            "description": "Verschil tussen aantal woningen huidig en te realiseren woningen",
-            "provenance": "verschil_totaal_plan_huidig"
+            "description": "Verschil tussen aantal woningen huidig en te realiseren woningen"
           },
           "buurten": {
             "type": "array",
@@ -146,7 +138,6 @@
     {
       "id": "gebied_bouwblok_woningen",
       "type": "table",
-      "provenance": "gebied_bouwblok_woningen",
       "title": "Aantal woningen in bouwblokken in Amsterdam",
       "description": "Deze dataset geeft het aantal woningen in een bouwblok weer. Er is onderscheid gemaakt tussen woningen en verblijfsobjecten. Met woningen worden verblijfsobjecten met de volgende gebruiksdoelen bedoeld: 1- Woonfunctie, 2- In combinatie met een woonfunctie. Status: 1- Verblijfsobject gevormd, 2- Niet gerealiseerd verblijfsobject, 3- Verblijfsobject in gebruik (niet ingemeten), 4- Verblijfsobject in gebruik, 5- Verbouwing verblijfsobject. Met verblijfsobjecten worden alle verblijfsobjecten zonder filtering in een bouwblok bedoeld.",
       "schema": {
@@ -190,13 +181,11 @@
           },
           "wijzigingsdatumDp": {
             "type": "string",
-            "provenance": "wijzigingsdatum_dp",
             "format": "date",
             "description": "Datum waarop het object is gewijzigd"
           },
           "verwijderdDp": {
             "type": "boolean",
-            "provenance": "verwijderd_dp",
             "description": "indicatie of het object verwijderd is bij de bronhouder"
           }
         }
@@ -219,7 +208,7 @@
           "id": {
             "type": "integer",
             "description": "Unieke id van het object",
-            "provenance": "wbw_strategischeruimte_id "
+            "provenance": "wbw_strategischeruimte_id"
           },
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -230,8 +219,7 @@
           },
           "cluster_id": {
             "type": "string",
-            "description": "id van cluster (niet uniek)",
-            "provenance": "cluster_id"
+            "description": "id van cluster (niet uniek)"
           },
           "clusternaam": {
             "type": "string",
@@ -239,7 +227,6 @@
           },
           "gebiedId": {
             "type": "string",
-            "provenance": "gebied_id",
             "description": "project gebied_id"
           },
           "gebiednaam": {
@@ -265,8 +252,7 @@
           },
           "aantalWoningenHuidig": {
             "type": "integer",
-            "description": "Totaal aantal woningen huidig",
-            "provenance": "aantal_woningen_huidig"
+            "description": "Totaal aantal woningen huidig"
           },
           "verschilTotaalPlanHuidig": {
             "type": "integer",
@@ -304,13 +290,9 @@
           "id": {
             "type": "string",
             "description": "Unieke identificatie van het pand",
+            "$comment": "relation bag:pand",
             "provenance": "identificatie",
             "uri": "http://bag.basisregistraties.overheid.nl/def/bag#Pand>"
-          },
-          "pand": {
-            "type": "string",
-            "relation": "bag:pand",
-            "provenance": "identificatie"
           },
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
