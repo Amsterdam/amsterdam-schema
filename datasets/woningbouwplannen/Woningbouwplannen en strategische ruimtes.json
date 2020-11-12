@@ -132,6 +132,14 @@
             "description": "Verschil tussen aantal woningen huidig en te realiseren woningen",
             "provenance": "verschil_totaal_plan_huidig"
           },
+          "buurten": {
+            "type": "array",
+            "relation": "gebieden:buurten",
+            "items": {
+              "type": "string"
+            },
+            "description": "Buurten waarin het woningbouwplan ligt"
+          },
           "geometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Geometrie in RD (epsg:28992)"
@@ -273,6 +281,14 @@
               "type": "integer",
               "description": "Verschil tussen aantal woningen huidig en te realiseren woningen",
               "provenance": "verschil_totaal_plan_huidig"
+            },
+            "buurten": {
+              "type": "array",
+              "relation": "gebieden:buurten",
+              "items": {
+                "type": "string"
+              },
+              "description": "Buurten waarin de strategische ruimte(s) ligt"
             },
             "geometrie": {
               "$ref": "https://geojson.org/schema/Geometry.json",
