@@ -18,11 +18,11 @@
   },
   "accrualPeriodicity": "maandelijks",
   "spatialDescription": "Gemeente Amsterdam",
-  "theme": "Verkeer",
+  "theme": ["Verkeer"],
   "publisher": "OIS",
   "owner": "Gemente Amsterdam, Toezicht en Handhaving Openbare Ruimte",
   "authorizationGrantor": "Toezicht en Handhaving Openbare Ruimte",
-  "keywords": "ligplaatsenregister, varen, opstaplocatie, afstaplocatie, grachten, varen",
+  "keywords": ["ligplaatsenregister, varen, opstaplocatie, afstaplocatie, grachten, varen"],
   "hasBeginning": "2020-01-01T00:00:00",
   "crs": "EPSG:28992",
   "tables": [
@@ -70,7 +70,6 @@
           },
           "eLaadpunt": {
             "type": "string",
-            "provenance": "e_laadpunt",
             "description": "Indicatie electrische laadpunt voorziening."
           },
           "geometrie": {
@@ -107,7 +106,6 @@
         "properties": {
           "id": {
             "type": "string",
-            "provenance": "var_ligplaats_id",
             "description": "Uniek identificerend kenmerk van het record"
           },
           "schema": {
@@ -136,11 +134,11 @@
           "idLigplaats": {
             "type": "string",
             "description": "Id veld (niet uniek)",
-            "provenance": "id"
+            "provenance": "var_ligplaats_id"
           },
           "verwerkingsdatum": {
-            "type": "date",
-            "provenance": "verwerkingsdatum"
+            "type": "string",
+            "format": "date"
           },
           "gbdBuurtId": {
             "type": "integer",
@@ -150,8 +148,7 @@
           },
           "locatieAdres": {
             "type": "string",
-            "description": "Locatie beschrijving",
-            "provenance": "locatie_adres"
+            "description": "Locatie beschrijving"
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
