@@ -1,0 +1,490 @@
+{
+  "type": "dataset",
+  "id": "basiskaart",
+  "title": "Basiskaart",
+  "description": "Gegevens uit BGT (basisregistratie grootschalige topografie) en KBK (kleinschalige basis kaart)",
+  "license": "public",
+  "status": "beschikbaar",
+  "version": "0.0.1",
+  "publisher": "OIS",
+  "owner": "Gemeente Amsterdam",
+  "authorizationGrantor": "OIS", 
+  "keywords": ["GBT", "KBK", "KBK10", "KBK50"],
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "gebouwVlak",
+      "title": "Gebouw vlak",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "type",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding van het record.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het object."
+          },
+          "type": {
+            "type": "string",
+            "description": "Typering van het object."
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Getalaanduiding hoogte van het object."
+          },
+          "bron": {
+            "type": "string",
+            "enum": ["gbt", "kbk10", "kbk50"],
+            "description": "Herkomst van het record (GBT, KBK10 of KBK50)."
+          },
+          "minzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van minimale zoomlevel."
+          },
+          "maxzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van maximale zoomlevel."
+          }
+        }
+      }
+    },
+    {
+      "id": "inrichtingselementLijn",
+      "title": "Inrichtingselement lijn",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "type",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding van het record.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Lijn definitie van het object."
+          },
+          "type": {
+            "type": "string",
+            "description": "Typering van het object."
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Getalaanduiding hoogte van het object."
+          },
+          "bron": {
+            "type": "string",
+            "enum": ["gbt", "kbk10", "kbk50"],
+            "description": "Herkomst van het record (GBT, KBK10 of KBK50)."
+          },
+          "minzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van minimale zoomlevel."
+          },
+          "maxzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van maximale zoomlevel."
+          }
+        }
+      }
+    },
+    {
+      "id": "inrichtingselementPunt",
+      "title": "Inrichtingselement punt",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "type",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding van het record.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Punt definitie van het object."
+          },
+          "type": {
+            "type": "string",
+            "description": "Typering van het object."
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Getalaanduiding hoogte van het object."
+          },
+          "bron": {
+            "type": "string",
+            "enum": ["gbt", "kbk10", "kbk50"],
+            "description": "Herkomst van het record (GBT, KBK10 of KBK50)."
+          },
+          "minzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van minimale zoomlevel."
+          },
+          "maxzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van maximale zoomlevel."
+          }
+        }
+      }
+    },
+    {
+      "id": "inrichtingselementVlak",
+      "title": "Inrichtingselement vlak",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "type",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding van het record.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het object."
+          },
+          "type": {
+            "type": "string",
+            "description": "Typering van het object."
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Getalaanduiding hoogte van het object."
+          },
+          "bron": {
+            "type": "string",
+            "enum": ["gbt", "kbk10", "kbk50"],
+            "description": "Herkomst van het record (GBT, KBK10 of KBK50)."
+          },
+          "minzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van minimale zoomlevel."
+          },
+          "maxzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van maximale zoomlevel."
+          }
+        }
+      }
+    },
+    {
+      "id": "spoorLijn",
+      "title": "Spoor lijn",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "type",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding van het record.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Lijn definitie van het object."
+          },
+          "type": {
+            "type": "string",
+            "description": "Typering van het object."
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Getalaanduiding hoogte van het object."
+          },
+          "bron": {
+            "type": "string",
+            "enum": ["gbt", "kbk10", "kbk50"],
+            "description": "Herkomst van het record (GBT, KBK10 of KBK50)."
+          },
+          "minzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van minimale zoomlevel."
+          },
+          "maxzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van maximale zoomlevel."
+          }
+        }
+      }
+    },
+    {
+      "id": "terreindeelVlak",
+      "title": "terreindeel vlak",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "type",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding van het record.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het object."
+          },
+          "type": {
+            "type": "string",
+            "description": "Typering van het object."
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Getalaanduiding hoogte van het object."
+          },
+          "bron": {
+            "type": "string",
+            "enum": ["gbt", "kbk10", "kbk50"],
+            "description": "Herkomst van het record (GBT, KBK10 of KBK50)."
+          },
+          "minzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van minimale zoomlevel."
+          },
+          "maxzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van maximale zoomlevel."
+          }
+        }
+      }
+    },
+    {
+      "id": "waterdeelLijn",
+      "title": "Waterdeel lijn",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "type",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding van het record.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Lijn definitie van het object."
+          },
+          "type": {
+            "type": "string",
+            "description": "Typering van het object."
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Getalaanduiding hoogte van het object."
+          },
+          "bron": {
+            "type": "string",
+            "enum": ["gbt", "kbk10", "kbk50"],
+            "description": "Herkomst van het record (GBT, KBK10 of KBK50)."
+          },
+          "minzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van minimale zoomlevel."
+          },
+          "maxzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van maximale zoomlevel."
+          }
+        }
+      }
+    },
+    {
+      "id": "wegdeelLijn",
+      "title": "Wegdeel lijn",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "type",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding van het record.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Lijn definitie van het object."
+          },
+          "type": {
+            "type": "string",
+            "description": "Typering van het object."
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Getalaanduiding hoogte van het object."
+          },
+          "bron": {
+            "type": "string",
+            "enum": ["gbt", "kbk10", "kbk50"],
+            "description": "Herkomst van het record (GBT, KBK10 of KBK50)."
+          },
+          "minzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van minimale zoomlevel."
+          },
+          "maxzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van maximale zoomlevel."
+          }
+        }
+      }
+    },
+    {
+      "id": "wegdeelVlak",
+      "title": "Wegdeel vlak",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "type",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding van het record.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Polygoon definitie van het object."
+          },
+          "type": {
+            "type": "string",
+            "description": "Typering van het object."
+          },
+          "relatievehoogteligging": {
+            "type": "number",
+            "description": "Getalaanduiding hoogte van het object."
+          },
+          "bron": {
+            "type": "string",
+            "enum": ["gbt", "kbk10", "kbk50"],
+            "description": "Herkomst van het record (GBT, KBK10 of KBK50)."
+          },
+          "minzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van minimale zoomlevel."
+          },
+          "maxzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van maximale zoomlevel."
+          }
+        }
+      }
+    },
+    {
+      "id": "labels",
+      "title": "Labels",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "type",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding van het record.",
+            "provenance": "identificatie_lokaalid"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Punt definitie van het object."
+          },
+          "type": {
+            "type": "string",
+            "description": "Typering waartoe label behoort."
+          },
+          "hoek": {
+            "type": "number",
+            "description": "Meetkundige aanduiding van de ruimte tussen twéé lijnen of vlakken."
+          },
+          "text": {
+            "type": "string",
+            "description": "Tekst van label."
+          },
+          "bron": {
+            "type": "string",
+            "enum": ["gbt", "kbk10", "kbk50"],
+            "description": "Herkomst van het record (GBT, KBK10 of KBK50)."
+          },
+          "minzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van minimale zoomlevel."
+          },
+          "maxzoom": {
+            "type": "integer",
+            "description": "Getalaanduiding van maximale zoomlevel."
+          }
+        }
+      }
+    }
+  ]
+}
