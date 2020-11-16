@@ -43,7 +43,7 @@
           "id": {
             "type": "integer",
             "description": "Unieke id van het object",
-            "provenance": "object_id"
+            "provenance": "wbw_woningbouwplan_id"
           },
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -61,7 +61,7 @@
             "description": "projectfase"
           },
           "startBouw": {
-            "type": "date",
+            "type": "integer",
             "description": "Geplande jaar van de 1e paal"
           },
           "aantalWoningenSocialeHuur": {
@@ -125,7 +125,12 @@
             "relation": "bag:buurt",
             "$comment": "relation gebieden:buurten",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                }
+              }
             },
             "description": "Buurten waarin het woningbouwplan ligt"
           },
@@ -169,20 +174,20 @@
             "description": "Unieke identificatie van de buurt."
           },
           "ligtinGbdBrtVolgnummer": {
-            "type": "string",
+            "type": "integer",
             "description": "Uniek volgnummer van de toestand van de buurt"
           },
           "aantalWoningen": {
-            "type": "string",
+            "type": "integer",
             "description": "Aantal woningen in het bouwblok met de volgende gebruiksdoelen: 1- Woonfunctie, 2- In combinatie met een woonfunctie. Status: 1- Verblijfsobject gevormd, 2- Niet gerealiseerd verblijfsobject, 3- Verblijfsobject in gebruik (niet ingemeten), 4- Verblijfsobject in gebruik, 5- Verbouwing verblijfsobject"
           },
           "aantalVerblijfsobjecten": {
-            "type": "string",
+            "type": "integer",
             "description": "Alle verblijfsobjecten in het bouwblok zonder filtering op status en gebruiksdoel."
           },
           "wijzigingsdatumDp": {
             "type": "string",
-            "format": "date",
+            "format": "date-time",
             "description": "Datum waarop het object is gewijzigd"
           },
           "verwijderdDp": {
@@ -231,7 +236,7 @@
             "description": "project gebied_id"
           },
           "gebiednaam": {
-            "type": "integer",
+            "type": "string",
             "description": "project gebiedsnaam"
           },
           "totaalAantalWoningen": {
@@ -240,11 +245,11 @@
             "description": "Aantal te realisweren woningen"
           },
           "typologie": {
-            "type": "integer",
-            "description": "Buurt ontwikkkeling volgens Amsterdamse ontwikkelstrategie Koers 2025"
+            "type": "string",
+            "description": "Buurt ontwikkeling volgens Amsterdamse ontwikkelstrategie Koers 2025"
           },
           "ingreep": {
-            "type": "integer",
+            "type": "string",
             "description": "Soort ingreep. Bijvoorbeeld: Infra aanpassing, Nieuwbouw en Transformatie"
           },
           "raaktHoofdGroenstructuur": {
@@ -264,7 +269,12 @@
             "relation": "bag:buurt",
             "$comment": "relation gebieden:buurten",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                }
+              }
             },
             "description": "Buurten waarin de strategische ruimte(s) ligt"
           },
