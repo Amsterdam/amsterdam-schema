@@ -170,7 +170,7 @@
           },
           "gbdBuurt": {
             "type": "string",
-            "relation": "gebieden:buurten",
+            "relation": "gebieden:buurten:idententificatie",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject"
           },
@@ -278,7 +278,7 @@
           },
           "gbdBuurt": {
             "type": "string",
-            "relation": "gebieden:buurten",
+            "relation": "gebieden:buurten:idententificatie",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject"
           },
@@ -554,7 +554,7 @@
           },
           "gbdBuurt": {
             "type": "string",
-            "relation": "gebieden:buurten",
+            "relation": "gebieden:buurten:idententificatie",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject"
           },
@@ -657,7 +657,7 @@
           },
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },          
+          },
           "fractie": {
             "type": "string",
             "provenance": "afval_fractie",
@@ -719,8 +719,9 @@
             "type": "string",
             "description": "BAG objectklasse: pand, ligplaats, standplaats"
           },
-          "clusterId": {
+          "cluster": {
             "type": "string",
+            "relation": "huishoudelijkafval:cluster",
             "description": "Uniek identificerend kenmerk van cluster waarnaar de afstand is berekend"
           },
           "fractie": {
@@ -733,7 +734,7 @@
             "description": "Omschrijving afvalfractie waarnaar de afstand is bepaald.",
             "provenance": "afval_fractie_omschrijving"
           },
-          "loopafstandCategorieId": {
+          "loopafstandCategorie": {
             "type": "string",
             "provenance": "afval_loopafstand_categorie_id",
             "relation": "huishoudelijkafval:loopafstand_categorie",
@@ -794,8 +795,9 @@
             "type": "string",
             "description": "BAG:Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan"
           },
-          "clusterId": {
+          "cluster": {
             "type": "string",
+            "relation": "huishoudelijkafval:cluster",
             "description": "Uniek identificerend kenmerk van cluster waarnaar de afstand is berekend"
           },
           "fractie": {
@@ -808,8 +810,9 @@
             "provenance": "afval_fractie_omschrijving",
             "description": "Omschrijving afvalfractie waarnaar de afstand is bepaald"
           },
-          "loopafstandCategorieId": {
+          "loopafstandCategorie": {
             "type": "string",
+            "relation": "huishoudelijkafval:loopafstandCategorie",
             "provenance": "afval_loopafstand_categorie_id",
             "description": "relatie naar de categorie waarin de berekende loopafstand valt"
           },
