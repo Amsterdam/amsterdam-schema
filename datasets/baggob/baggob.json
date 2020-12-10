@@ -219,6 +219,21 @@
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Vorm en ligging van de standplaats in het Nationale Rijksdriehoekstelsel."
           },
+          "gebruiksdoel": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "omschrijving": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan."
+          },
           "beginGeldigheid": {
             "type": "string",
             "format": "date-time",
@@ -369,6 +384,21 @@
           "geometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Vorm en ligging van de ligplaats in het Nationale Rijksdriehoekstelsel."
+          },
+          "gebruiksdoel": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "omschrijving": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan."
           },
           "beginGeldigheid": {
             "type": "string",
@@ -890,15 +920,14 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "string",
-                  "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan. code"
+                  "type": "string"
                 },
                 "omschrijving": {
-                  "type": "string",
-                  "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan. omschrijving"
+                  "type": "string"
                 }
               }
-            }
+            },
+            "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan."
           },
           "oppervlakte": {
             "type": "integer",
