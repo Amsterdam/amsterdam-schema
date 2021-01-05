@@ -477,8 +477,13 @@
             "description": "De unieke aanduiding van het brondocument op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden."
           },
           "ligtInGemeente": {
-            "type": "string",
-            "$comment": "relation brk:gemeentes *stringify*",
+            "type": "object",
+            "properties": {
+                "identificatie": {
+                "type": "string"
+            }
+          },
+            "relation": "brk:gemeentes",
             "description": "De gemeente waar het stadsdeel in ligt."
           },
           "geometrie": {
