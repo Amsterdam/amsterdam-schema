@@ -1,0 +1,311 @@
+{
+  "type": "dataset",
+  "id": "hcbrk",
+  "title": "BRK van HaalCentraal",
+  "status": "beschikbaar",
+  "description": "Deze dataset maakt de HaalCentraal BRK API toegankelijk, bij gebruik van login credentials. De velden zijn gebaseerd op het schema van Haal-Centraal.",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "auth": "BRK/RSN",
+  "tables": [
+    {
+      "id": "kadastraalonroerendezaken",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+         "required": [
+          "identificatie",
+          "domein",
+          "kadastraleAanduiding",
+          "plaatscoordinaten",
+          "type"
+        ],
+        "properties": {
+          "identificatie": {
+            "type": "string",
+            "description": "Alleen cijfers"
+          },
+          "domein": {
+            "type": "string",
+            "description": "Bijv. NL.IMKAD.KadastraalObject"
+          },
+          "begrenzingPerceel": {
+            "$ref": "https://geojson.org/schema/Polygon.json",
+            "description": "Begrenzing perceel"
+          },
+          "perceelnummerRotatie": {
+            "type": "number",
+            "description": "Perceelnummer rotatie"
+          },
+          "plaatscoordinaten": {
+            "$ref": "https://geojson.org/schema/Point.json",
+            "description": "Plaats coordinaten"
+          },
+          "koopsom": {
+            "type": "object",
+            "properties": {
+              "koopsom": {
+                "type": "integer"
+              },
+              "koopjaar": {
+                "type": "integer"
+              }
+            }
+          },
+          "toelichtingBewaarder": {
+            "type": "string",
+            "description": "Hier kan een toelichting staan van de bewaarder."
+          },
+          "type": {
+            "type": "string"
+          },
+          "aardCultuurBebouwd": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "integer"
+              },
+              "waarde": {
+                "type": "string"
+              }
+            }
+          },
+          "kadastraleAanduiding": {
+            "type": "string"
+          },
+          "kadastraleGrootte": {
+            "type": "object",
+            "properties": {
+              "soortGrootte": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "integer"
+                  },
+                  "waarde": {
+                    "type": "string"
+                  }
+                }
+              },
+              "waarde": {
+                "type": "string"
+              }
+            }
+          },
+          "perceelnummerVerschuiving": {
+            "type": "object",
+            "properties": {
+              "deltax": {
+                "type": "number"
+              },
+              "deltay": {
+                "type": "number"
+              }
+            }
+          },
+          "adressen": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "straat": {
+                  "type": "string"
+                },
+                "huisnummer": {
+                  "type": "integer"
+                },
+                "postcode": {
+                  "type": "string"
+                },
+                "woonplaats": {
+                  "type": "string"
+                },
+                "nummeraanduidingIdentificatie": {
+                  "type": "string"
+                },
+                "adresregel1": {
+                  "type": "string"
+                },
+                "adresregel2": {
+                  "type": "string"
+                },
+                "koppelingswijze": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "waarde": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "zakelijkGerechtigdeIdentificaties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "privaatrechtelijkeBeperkingIdentificaties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "hypotheekIdentificaties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "mainGeometry": "begrenzingPerceel"
+      }
+    },
+    {
+      "id": "kadasternatuurlijkpersonen",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "identificatie",
+          "domein",
+          "naam",
+          "geboorte",
+          "geslachtsaanduiding"
+        ],
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          },
+          "domein": {
+            "type": "string"
+          },
+          "woonadres": {
+            "type": "object",
+            "properties": {
+              "adresregel1": {
+                "type": "string"
+              },
+              "adresregel2": {
+                "type": "string"
+              },
+              "adresregel3": {
+                "type": "string"
+              },
+              "land": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "integer"
+                  },
+                  "waarde": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "kadastraalOnroerendeZaakIdentificaties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "landWaarnaarVertrokken": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "waarde": {
+                "type": "string"
+              }
+            }
+          },
+          "geslachtsaanduiding": {
+            "type": "string"
+          },
+          "heeftPartnerschap": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "naam": {
+                  "type": "object",
+                  "properties": {
+                    "geslachtsnaam": {
+                      "type": "string"
+                    },
+                    "voornamen": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "naam": {
+            "type": "object",
+            "properties": {
+              "geslachtsnaam": {
+                "type": "string"
+              },
+              "voornamen": {
+                "type": "string"
+              },
+              "aanschrijfwijze": {
+                "type": "string"
+              },
+              "aanhef": {
+                "type": "string"
+              },
+              "gebruikInLopendeTekst": {
+                "type": "string"
+              }
+            }
+          },
+          "geboorte": {
+            "type": "object",
+            "properties": {
+              "datum": {
+                "type": "object",
+                "properties": {
+                  "datum": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "De volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+                  },
+                  "jaar": {
+                    "type": "integer",
+                    "description": "Het jaar van de datum, als deze bekend is."
+                  },
+                  "maand": {
+                    "type": "integer",
+                    "description": "De maand van de datum, als deze bekend is."
+                  },
+                  "dag": {
+                    "type": "integer",
+                    "description": "De dag van de datum, als deze bekend is."
+                  }
+                },
+                "required": []
+              }
+            },
+            "required": []
+          }
+        }
+      }
+    }
+  ]
+}
