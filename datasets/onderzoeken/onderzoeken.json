@@ -1,0 +1,92 @@
+{
+  "type": "dataset",
+  "id": "onderzoeken",
+  "title": "Historische onderzoeken",
+  "status": "beschikbaar",
+  "description": "Uitgevoerde onderzoeken naar bijvoorbeeld Archeologische verwachtingen (A), Bodemkwaliteit (B), Conventionele explosieven (C) kademuren Dateren (D) en Ondergrondse Obstakels (OO).",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "onderzoeken",
+      "title": "Historische onderzoeken",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "mainGeometry": "geometrie",
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding van een wijk met een beschikbaarheidindicatie voor een Bed & Breakfast vergunning."
+          },
+          "naamRapport": {
+            "type": "string",
+            "description": "Naam rapport met beschrijving aard rapport en/of locatie.",
+            "provenance": "naam"
+          },
+          "nummerRapport": {
+            "type": "string",
+            "description": "Rapportage identificatie nummer.",
+            "provenance": "rapport nummer"
+          },
+          "datumRapport": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum van rapportage.",
+            "provenance": "datum rapport"
+          },
+          "auteurRapport": {
+            "type": "string",
+            "auth": "FP/MDW",
+            "description": "Auteur(s) van rapport.",
+            "provenance": "auteur(s)"
+          },
+          "opdrachtgever": {
+            "type": "string",
+            "description": "Onderzoeksbureau / instantie die opdracht heeft gegeven tot onderzoek."
+          },
+          "opdrachtnemer": {
+            "type": "string",
+            "description": "Onderzoeksbureau / instantie die onderzoek heeft uitgevoerd."
+          },
+          "LocatieOfAdres": {
+            "type": "string",
+            "description": "Plaats of locatie of adres. Soms zijn er geen adresgegevens voor de locatie, of wordt de locatie aangeduid als ‘GVB-terrein west’ of dergelijke.",
+            "provenance": "locatie/adres"
+          },
+          "typeOnderzoek": {
+            "type": "string",
+            "description": "Beschrijving type onderzoek. ABCDOO staat bijvoorbeeld voor Archeologische verwachtingen (A), Bodemkwaliteit (B), Conventionele explosieven (C) kademuren Dateren (D) en Ondergrondse Obstakels (OO). Deze aanduiding wordt intern gebruikt. Maar het type kan ook een onderzoek zijn naar een specifieke verontreiniging of een Risicobeoordeling voor Conventionele explosieven (RCE).",
+            "provenance": "type onderzoek"
+          },
+          "indicatieKwaliteit": {
+            "type": "string",
+            "description": "Aanduiding kwaliteitskenmerk. Dit heeft met name als doel om oudere onderzoeken een oordeel te geven. Voor aanduiding is arbitrair. Er zijn geen normen voor opgesteld.",
+            "provenance": "indicatie kwaliteit"
+          },
+          "beschrijving": {
+            "type": "string",
+            "description": "Korte beschrijving (aanleiding) onderzoek.",
+            "provenance": "opmerking"
+          },
+          "permalink": {
+            "type": "string",
+            "format": "uri",
+            "description": "Verwijzing naar meer informatie. UID van bron (SAA) of een UID bij NAZCA."
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json",
+            "description": "Vlakgeometrie van locatie onderzoek."
+          }
+        }
+      }
+    }
+  ]
+}
