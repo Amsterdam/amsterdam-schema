@@ -1,0 +1,55 @@
+{
+  "type": "dataset",
+  "id": "gbd",
+  "title": "gbd",
+  "status": "beschikbaar",
+  "description": "Grootstedelijke gebieden in 4 categorieën",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "grootstedelijkeProjecten",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id",
+          "geometrie"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json"
+          },
+          "naam": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "description": "Categorie GSP, OD, PHS of PHSOD"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL naar bekendmaking"
+          },
+          "typering": {
+            "type": "string",
+            "description": "Omschrijving type"
+          },
+          "datum": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}
