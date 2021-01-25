@@ -1,0 +1,111 @@
+{
+  "type": "dataset",
+  "id": "corona",
+  "title": "corona",
+  "status": "beschikbaar",
+  "description": "Corona datasets voor handhaving",
+  "version": "0.0.1",
+  "tables": [
+    {
+      "id": "handhaving",
+      "title": "handhaving",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding voor element"
+          },
+          "organisatie": {
+            "type": "string",
+            "description": "Organisatie"
+          },
+          "typeInterventie": {
+            "type": "string",
+            "description": "type van interventie bij handhaving"
+          },
+          "aantal": {
+            "type": "integer",
+            "description": "Aantal handhavingen voor deze week"
+          },
+          "week_nummer": {
+            "type": "integer",
+            "description": "Nummer van de week"
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaartal in YYYY waarop aantallen betrekking hebben."
+          }
+        }
+      }
+    },
+    {
+      "id": "rivm",
+      "title": "Rijksinstituut voor Volksgezondheid en Milieu",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding record"
+          },
+          "datumtijd": {
+            "type": "string",
+            "description": "Datum en tijdstip van vaststelling aantallen per dag voor de gemeente Amsterdam.",
+            "provenance": "date_of_report"
+          },
+          "gemeente_code": {
+            "type": "string",
+            "description": "Identificatiecode zoals RIVM deze hanteert voor de gemeente Amsterdam.",
+            "provenance": "municipality_code"
+          },
+          "gemeente_naam": {
+            "type": "integer",
+            "description": "Naam van de gemeente Amsterdam.",
+            "provenance": "municipality_name"
+          },
+          "provincie": {
+            "type": "integer",
+            "description": "Provincie waarbinnen de gemeente Amsterdam valt.",
+            "provenance": "province"
+          },
+          "aantal_totaal": {
+            "type": "integer",
+            "description": "Totale aantal Corona meldingen van per dag voor de gemeente Amsterdam.",
+            "provenance": "total_reported"
+          },
+          "aantal_ziekenhuisopnames": {
+            "type": "integer",
+            "description": "Aantal Corona opnames ziekenhuis per dag voor de gemeente Amsterdam.",
+            "provenance": "hospital_admission"
+          },
+          "aantal_sterfgevallen": {
+            "type": "integer",
+            "description": "Aantal aan Corona overleden personen per dag voor de gemeente Amsterdam.",
+            "provenance": "deceased"
+          }
+        }
+      }
+    }
+  ]
+}
