@@ -132,6 +132,7 @@
           },
           "meterstand": {
             "type": "number",
+            "multipleOf": 0.001,
             "description": "Laatste meterstand"
           },
           "datumMeterstand": {
@@ -175,16 +176,19 @@
           "tankinhoud1": {
             "type": "number",
             "unit": "l",
+            "multipleOf": 0.001,
             "description": "Brandstofcapaciteit van de hoofdtank in liters"
           },
           "tankinhoud2": {
             "type": "number",
             "unit": "l",
+            "multipleOf": 0.001,
             "description": "Brandstofcapaciteit van tank 2 in liters"
           },
           "tankinhoud3": {
             "type": "number",
             "unit": "l",
+            "multipleOf": 0.001,
             "description": "Brandstofcapaciteit van de tank 3 in liters"
           },
           "verwijderdDp": {
@@ -215,7 +219,6 @@
           },
           "wagenparkMaterieel": {
             "type": "string",
-            "provenance": "wagenpark_materieel_id",
             "relation": "wagenpark:wagenpark_materieel",
             "description": "Uniek identifier voor transport- en werkmaterieel"
           },
@@ -285,7 +288,6 @@
           },
           "wagenparkMaterieel": {
             "type": "string",
-            "provenance": "wagenpark_materieel_id",
             "relation": "wagenpark:wagenpark_materieel",
             "description": "Uniek identifier voor transport- en werkmaterieel"
           },
@@ -352,7 +354,6 @@
           },
           "wagenparkMaterieel": {
             "type": "string",
-            "provenance": "wagenpark_materieel_id",
             "relation": "wagenpark:wagenpark_materieel",
             "description": "Uniek identifier voor transport- en werkmaterieel"
           },
@@ -374,15 +375,17 @@
           },
           "cilinderinhoud": {
             "type": "number",
+            "multipleOf": 0.01,
             "description": "Dit is het totale volume van de verbrandingsruimte van de verbrandingsmotor van het voertuig, uitgedrukt in cm³."
           },
           "massaLedig": {
             "type": "number",
-            "multipleOf": 0.000,
+            "multipleOf": 0.01,
             "description": "Massa ledig voertuig is het gewicht van de voertuig, zonder passagiers en lading"
           },
           "toegestaneMaximumMassa": {
             "type": "number",
+            "multipleOf": 0.01,
             "description": "De technisch toegestane maximummassa van het voertuig, opgegeven door de fabrikant. Deze is bepalend voor de technische voorschriften waaraan het voertuig wordt getoetst bij de eerste toelating."
           },
           "rijklaarMassa": {
@@ -395,10 +398,12 @@
           },
           "lengte": {
             "type": "number",
+            "multipleOf": 0.01,
             "description": "De horizontale afstand tussen twee verticale vlakken die loodrecht staan op het middenlangsvlak van het voertuig en gaan door de uiterste voor- en achterzijde van het voertuig, gemeten in de stand van rechtuitrijden op een horizontaal wegdek; spiegels, zonnekleppen en de bevestigingsdelen daarvan worden buiten beschouwing gelaten."
           },
           "breedte": {
             "type": "number",
+            "multipleOf": 0.01,
             "description": "De horizontale afstand tussen de twee verticale vlakken die evenwijdig lopen aan het middenlangsvlak van het voertuig en gaan door de uiterste linker- en rechterzijde van het voertuig, gemeten in de stand van rechtuitrijden op een horizontaal wegdek; de spiegels en de bevestigingsdelen daarvan worden buiten beschouwing gelaten."
           },
           "technischeMaxMassa": {
@@ -407,10 +412,12 @@
           },
           "wielbasis": {
             "type": "number",
+            "multipleOf": 0.01,
             "description": "De totale wielbasis van een voertuig in centimeters."
           },
           "nettomaximumvermogen": {
             "type": "number",
+            "multipleOf": 0.01,
             "description": "Dit is het maximumvermogen, uitgedrukt in kW, dat de verbrandingsmotor kan leveren bij een bepaald toerental om een voertuig in beweging te brengen"
           },
           "datumKentekenafgifte": {
@@ -435,6 +442,7 @@
           },
           "laadvermogen": {
             "type": "number",
+            "multipleOf": 0.01,
             "description": "Geeft aan hoe zwaar (in kilogram) de lading van bedrijfsauto's en aanhangwagens mag wegen."
           }
         }
@@ -467,16 +475,19 @@
           "hoogte": {
             "type": "number",
             "unit": "cm",
+            "multipleOf": 0.01,
             "description": "Hoogte van het materieel in cm"
           },
           "draaicirkel": {
             "type": "number",
             "unit": "m",
+            "multipleOf": 0.01,
             "description": "Draaicirkel in m"
           },
           "laadcapaciteit": {
             "type": "number",
             "unit": "m3",
+            "multipleOf": 0.01,
             "description": "Maximale netto laadcapaciteit in m3"
           },
           "opbouw1": {
