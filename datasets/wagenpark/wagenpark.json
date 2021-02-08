@@ -1,0 +1,653 @@
+{
+  "id": "Wagenpark",
+  "type": "dataset",
+  "authorizationGrantor": "n.v.t.",
+  "theme": ["duurzaamheid en milieu"],
+  "homepage": "https://data.amsterdam.nl",
+  "owner": "Gemeente Amsterdam, Interne Dienstverlening",
+  "dateModified": "2021-01-27",
+  "spatialDescription": "Gemeente Amsterdam",
+  "version": "1",
+  "title": "Wagenpark",
+  "language": "nl",
+  "dateCreated": "2021-01-27",
+  "license": "Creative Commons, Naamsvermelding",
+  "hasBeginning": "2002-10-31",
+  "hasEnd": "",
+  "accrualPeriodicity": "dagelijks",
+  "publisher": "OIS",
+  "description": "De dataset Wagenparkbeheer bevat stam- en procesgegevens over het Amsterdamse wagenpark (voertuigen en bijbehorend materieel), inclusief gegevens over het onderhoud daarvan. De dataset bestaat uit RDW-plichtige objecten met een kentekennummer (veelal voertuigen) en niet-RDW-plichtige objecten met een eigen Amsterdams identificatienummer (overig materieel). De kenmerken van de objecten zijn gegroepeerd in 6 deeldatasets: materieel (basisgegevens en indien van toepassing ook brandstof- en verbruiksgegevens), financiën (financiële en verzekeringsgegevens), vergunning (vergunning- en ontheffingsgegevens), RDW (gegevens die voortkomen uit het kentekenregister van het Rijksdienst voor Wegverkeer), aeng_kenmerk (kenmerken die speciaal voor Afval&Grondstoffen zijn toegevoegd) en onderhoud (procesgegevens met betrekking tot zowel gepland als ongepland onderhoud en reparaties)",
+  "status": "beschikbaar",
+  "keywords": [
+    "wagenpark",
+    "voertuig",
+    "materieel",
+    "onderhoud",
+    "vuilniswagen",
+    "rdw",
+    "bedrijfsauto",
+    "afval",
+    "grondstoffen"
+  ],
+  "crs": "EPSG:28992",
+  "objective": "Het doel van de dataset Wagenparkbeheer is een goede registratie bij te houden van stam- en procesgegevens over het Amsterdamse Wagenpark en het daarbij behorende onderhoud ter ondersteuning van het beheer van het wagenpark",
+  "temporalUnit": "seconden",
+  "contactPoint": {
+    "name": "",
+    "email": "datapunt@amsterdam.nl"
+  },
+  "tables": [
+    {
+      "id": "materieel",
+      "type": "table",
+      "provenance": "wagenpark_materieel",
+      "description": "Deze end-point bevat de gegevens over transport- of werkmaterieel",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "id",
+        "required": ["id", "schema"],
+        "display": "id",
+        "properties": {
+          "id": {
+            "type": "string",
+            "provenance": "wagenpark_materieel_id",
+            "description": "Uniek identifier voor transport- en werkmaterieel. ID bevat voorloopnullen."
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "objectsoort": {
+            "type": "string",
+            "description": "Soort transport- of werkmaterieel"
+          },
+          "objectomschrijving": {
+            "type": "string",
+            "description": "Omschrijving van het object"
+          },
+          "nummerOud": {
+            "type": "string",
+            "description": "het historische ‘kenteken’ indien van toepassing"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["2", "16"],
+            "description": "Indicator voor actuele status van materieel. 2 = Actief, 16 = Verkoopproces"
+          },
+          "aNummer": {
+            "type": "string",
+            "description": "Uniek Amsterdams nummer voor niet RDW-plichtig materieel"
+          },
+          "kenteken": {
+            "type": "string",
+            "description": "Kenteken van het RDW-plichtig transportmaterieel"
+          },
+          "merk": {
+            "type": "string",
+            "description": "Merk van het transport- of werkmaterieel"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type van het merk van het transport- of werkmaterieel"
+          },
+          "carosserie": {
+            "type": "string",
+            "description": "Carrosserie (koetswerk) van het materieel of nadere omschrijving"
+          },
+          "kleur": {
+            "type": "string",
+            "description": "De kleur van het transport- of werkmaterieel"
+          },
+          "bouwjaar": {
+            "type": "integer",
+            "description": "Bouwjaar van het mobiele materieel"
+          },
+          "thuislocatie": {
+            "type": "string",
+            "description": "Thuislocatie van het mobiele materieel"
+          },
+          "directieOud": {
+            "type": "string",
+            "description": "Oude directienaam of organisatieeenheid"
+          },
+          "directie": {
+            "type": "string",
+            "description": "Verantwoordelijke directie of organisatie"
+          },
+          "afdeling": {
+            "type": "string",
+            "description": "Afdeling, rayon of ander specifiek organisatieonderdeel behorende bij directie"
+          },
+          "bestickering": {
+            "type": "string",
+            "description": "Indicatie of het materieel van bestickering is voor zien"
+          },
+          "wintergebruik": {
+            "type": "boolean",
+            "description": "Specifiek gebruik voor In de winter"
+          },
+          "datumOnderhoud": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Volgende datum periodiek onderhoud"
+          },
+          "meterstand": {
+            "type": "number",
+            "description": "Laatste meterstand"
+          },
+          "datumMeterstand": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Datum van de laatste meterstand"
+          },
+          "datumGebruik": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Startdatum van het gebruik van het materieel"
+          },
+          "ritregistratie": {
+            "type": "string",
+            "description": "Type ritregistratie"
+          },
+          "tankring1": {
+            "type": "string",
+            "description": "Type tankring"
+          },
+          "tankring2": {
+            "type": "string",
+            "description": "Type tankring"
+          },
+          "tankpas": {
+            "type": "string",
+            "description": "Type tankpas"
+          },
+          "hoofdBrandstof": {
+            "type": "string",
+            "description": "Hoofdbrandstof"
+          },
+          "tweedeBrandstof": {
+            "type": "string",
+            "description": "Tweede brandstof"
+          },
+          "derdeBrandstof": {
+            "type": "string",
+            "description": "Derde brandstof"
+          },
+          "tankinhoud1": {
+            "type": "number",
+            "unit": "l",
+            "description": "Brandstofcapaciteit van de hoofdtank in liters"
+          },
+          "tankinhoud2": {
+            "type": "number",
+            "unit": "l",
+            "description": "Brandstofcapaciteit van tank 2 in liters"
+          },
+          "tankinhoud3": {
+            "type": "number",
+            "unit": "l",
+            "description": "Brandstofcapaciteit van de tank 3 in liters"
+          },
+          "verwijderdDp": {
+            "type": "boolean",
+            "description": "Indicatie of het object verwijderd is bij de bronhouder"
+          }
+        }
+      }
+    },
+    {
+      "id": "financien",
+      "type": "table",
+      "provenance": "wagenpark_financien",
+      "description": "Deze end-point bevat de gegevens over financiën van transport- of werkmaterieel",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "id",
+        "required": ["id", "schema"],
+        "display": "id",
+        "properties": {
+          "id": {
+            "type": "string",
+            "provenance": "wagenpark_financien_id",
+            "description": "Uniek identificerend kenmerk."
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "wagenparkMaterieel": {
+            "type": "string",
+            "provenance": "wagenpark_materieel_id",
+            "relation": "wagenpark:wagenpark_materieel",
+            "description": "Uniek identifier voor transport- en werkmaterieel"
+          },
+          "contracteinddatum": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum verkoop/einddatum lease"
+          },
+          "garantiedatum": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum einde garantie"
+          },
+          "polisnummer": {
+            "type": "string",
+            "description": "Polisnummer van de verzekering"
+          },
+          "fiscaleBijtelling": {
+            "type": "boolean",
+            "description": "Fiscale bijtelling"
+          },
+          "verzekeringspolistype": {
+            "type": "string",
+            "description": "Type verzekeringspolis"
+          },
+          "kostenplaats": {
+            "type": "string",
+            "description": "kostenplaats behorende bij de afdeling"
+          },
+          "routecodefb": {
+            "type": "string",
+            "description": "factureercode ten behoeve van financieel beheer"
+          },
+          "eigenaarschap": {
+            "type": "string",
+            "description": "Soort eigenaarschap"
+          },
+          "fabrikant": {
+            "type": "string",
+            "description": "Fabrikant"
+          },
+          "leverancier": {
+            "type": "string",
+            "description": "Leverancier"
+          }
+        }
+      }
+    },
+    {
+      "id": "vergunning",
+      "type": "table",
+      "provenance": "wagenpark_vergunning",
+      "description": "Deze end-point bevat de gegevens over vergunning van transport- of werkmaterieel",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "id",
+        "required": ["id", "schema"],
+        "display": "id",
+        "properties": {
+          "id": {
+            "type": "string",
+            "provenance": "wagenpark_vergunning_id",
+            "description": "Uniek identificerend kenmerk"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "wagenparkMaterieel": {
+            "type": "string",
+            "provenance": "wagenpark_materieel_id",
+            "relation": "wagenpark:wagenpark_materieel",
+            "description": "Uniek identifier voor transport- en werkmaterieel"
+          },
+          "vrijstellingHsb": {
+            "type": "string",
+            "description": "vrijstelling op de houderschapsbelasting (HSB)"
+          },
+          "eurovignet": {
+            "type": "string",
+            "description": "Aanwezigheid Eurovignet "
+          },
+          "ontheffingRvv87": {
+            "type": "string",
+            "provenance": "ontheffing_rvv87",
+            "description": "Ontheffing artikel 87 RVV"
+          },
+          "startdatumRvv87": {
+            "type": "string",
+            "provenance": "startdatum_rvv87",
+            "format": "date",
+            "description": "Startdatum ontheffing artikel 87 RVV"
+          },
+          "einddatumRvv87": {
+            "type": "string",
+            "provenance": "einddatum_rvv87",
+            "format": "date",
+            "description": "Einddatum ontheffing artikel 87 RVV"
+          },
+          "ontheffing7halfton": {
+            "type": "string",
+            "description": "Ontheffing  voor verkeer zwaarder dan 7,5 ton"
+          },
+          "startdatum7halfton": {
+            "type": "string",
+            "format": "date",
+            "description": "Startdatum ontheffing voor verkeer zwaarder dan 7,5 ton"
+          },
+          "einddatum7halfton": {
+            "type": "string",
+            "format": "date",
+            "description": "Einddatum ontheffing voor verkeer zwaarder dan 7,5 ton"
+          }
+        }
+      }
+    },
+    {
+      "id": "rdwKenmerk",
+      "type": "table",
+      "provenance": "wagenpark_rdw_kenmerk",
+      "description": "Deze end-point bevat de gegevens over RDW kenmerken van een transport- of werkmaterieel",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "id",
+        "required": ["id", "schema"],
+        "display": "id",
+        "properties": {
+          "id": {
+            "type": "string",
+            "provenance": "wagenpark_rdw_kenmerk_id",
+            "description": "Uniek identificerend kenmerk"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "wagenparkMaterieel": {
+            "type": "string",
+            "provenance": "wagenpark_materieel_id",
+            "relation": "wagenpark:wagenpark_materieel",
+            "description": "Uniek identifier voor transport- en werkmaterieel"
+          },
+          "uitvoering": {
+            "type": "string",
+            "description": "Uitvoeringscode die onderdeel is van de Europese typegoedkeuring."
+          },
+          "transmissie": {
+            "type": "string",
+            "description": "Soort transmissie van het materieel"
+          },
+          "zitplaatsenAantal": {
+            "type": "integer",
+            "description": "Aantal zitplaatsen"
+          },
+          "cilindersAantal": {
+            "type": "integer",
+            "description": "Het aantal cilinders waarvan de motor van het voertuig is voorzien."
+          },
+          "cilinderinhoud": {
+            "type": "number",
+            "description": "Dit is het totale volume van de verbrandingsruimte van de verbrandingsmotor van het voertuig, uitgedrukt in cm³."
+          },
+          "massaLedig": {
+            "type": "number",
+            "description": "Massa ledig voertuig is het gewicht van de voertuig, zonder passagiers en lading"
+          },
+          "toegestaneMaximumMassa": {
+            "type": "number",
+            "description": "De technisch toegestane maximummassa van het voertuig, opgegeven door de fabrikant. Deze is bepalend voor de technische voorschriften waaraan het voertuig wordt getoetst bij de eerste toelating."
+          },
+          "rijklaarMassa": {
+            "type": "number",
+            "description": "Voor personenauto's, bedrijfsauto's, en bussen geeft deze waarde aan wat de massa van het voertuig is in rijklare toestand, uitgedrukt in kilogram, met een voor"
+          },
+          "wielenAantal": {
+            "type": "integer",
+            "description": "Aantal wielen"
+          },
+          "lengte": {
+            "type": "number",
+            "description": "De horizontale afstand tussen twee verticale vlakken die loodrecht staan op het middenlangsvlak van het voertuig en gaan door de uiterste voor- en achterzijde van het voertuig, gemeten in de stand van rechtuitrijden op een horizontaal wegdek; spiegels, zonnekleppen en de bevestigingsdelen daarvan worden buiten beschouwing gelaten."
+          },
+          "breedte": {
+            "type": "number",
+            "description": "De horizontale afstand tussen de twee verticale vlakken die evenwijdig lopen aan het middenlangsvlak van het voertuig en gaan door de uiterste linker- en rechterzijde van het voertuig, gemeten in de stand van rechtuitrijden op een horizontaal wegdek; de spiegels en de bevestigingsdelen daarvan worden buiten beschouwing gelaten."
+          },
+          "technischeMaxMassa": {
+            "type": "number",
+            "description": "De technisch toegestane maximummassa van het voertuig, opgegeven door de fabrikant. Deze is bepalend voor de technische voorschriften waaraan het voertuig wordt getoetst bij de eerste toelating."
+          },
+          "wielbasis": {
+            "type": "number",
+            "description": "De totale wielbasis van een voertuig in centimeters."
+          },
+          "nettomaximumvermogen": {
+            "type": "number",
+            "description": "Dit is het maximumvermogen, uitgedrukt in kW, dat de verbrandingsmotor kan leveren bij een bepaald toerental om een voertuig in beweging te brengen"
+          },
+          "datumKentekenafgifte": {
+            "type": "string",
+            "format": "date",
+            "provenance": "datum_kentekenafgifte",
+            "description": "Laatste afgiftedatum van het kenteken van het voertuig"
+          },
+          "vervaldatumApk": {
+            "type": "string",
+            "format": "date",
+            "description": "Vervaldatum APK"
+          },
+          "vervaldatumTachograaf": {
+            "type": "string",
+            "format": "date",
+            "description": "Vervaldatum tachograaf"
+          },
+          "assen": {
+            "type": "integer",
+            "description": "Het aantal assen van een voertuig."
+          },
+          "laadvermogen": {
+            "type": "number",
+            "description": "Geeft aan hoe zwaar (in kilogram) de lading van bedrijfsauto's en aanhangwagens mag wegen."
+          }
+        }
+      }
+    },
+    {
+      "id": "aengKenmerk",
+      "type": "table",
+      "provenance": "wagenpark_aeng_kenmerk",
+      "description": "Deze end-point bevat de gegevens die door Afval en Grondstoffen aan deze dataset toegevoegd zijn.",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "id",
+        "required": ["id", "schema"],
+        "display": "id",
+        "properties": {
+          "id": {
+            "type": "string",
+            "provenance": "wagenpark_aeng_kenmerk_id",
+            "description": "Uniek identificerend kenmerk"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "wagenparkMaterieel": {
+            "type": "string",
+            "provenance": "wagenpark_materieel_id",
+            "relation": "wagenpark:wagenpark_materieel",
+            "description": "Uniek identifier voor transport- en werkmaterieel"
+          },
+          "hoogte": {
+            "type": "number",
+            "unit": "cm",
+            "description": "Hoogte van het materieel in cm"
+          },
+          "draaicirkel": {
+            "type": "number",
+            "unit": "m",
+            "description": "Draaicirkel in m"
+          },
+          "laadcapaciteit": {
+            "type": "number",
+            "unit": "m3",
+            "description": "Maximale netto laadcapaciteit in m3"
+          },
+          "opbouw1": {
+            "type": "string",
+            "description": "De uitvoering  van opbouw 1"
+          },
+          "opbouw2": {
+            "type": "string",
+            "description": "De uitvoering  van opbouw 2"
+          },
+          "opbouw3": {
+            "type": "string",
+            "description": "De uitvoering  van opbouw 3"
+          },
+          "ledigingsapparatuur": {
+            "type": "string",
+            "description": "Type ledigingsapparatuur"
+          },
+          "ledigingscategorie": {
+            "type": "string",
+            "description": "Categorie ledigingstype"
+          },
+          "persinrichting": {
+            "type": "string",
+            "description": "Persinrichting"
+          },
+          "kraansysteem": {
+            "type": "string",
+            "description": "Type kraansysteem"
+          },
+          "kraanreikwijdte": {
+            "type": "number",
+            "description": "Reikwijdte van de kraan in m"
+          },
+          "kraancapaciteit": {
+            "type": "number",
+            "description": "Kraancapaciteit in kg/ton"
+          },
+          "aanwezigheidict": {
+            "type": "string",
+            "description": "Aanwezigheid van ICT-systemen/computers/devices"
+          },
+          "spoortype": {
+            "type": "string",
+            "description": "Smalspoor of breedspoor"
+          },
+          "stuurkant": {
+            "type": "string",
+            "description": "Positie van het stuur"
+          },
+          "inzamelfractie": {
+            "type": "string",
+            "description": "Afvalinzamelfractie"
+          },
+          "inzamelmiddel": {
+            "type": "string",
+            "description": "Het middel voor het inzamelen van afval"
+          },
+          "weegsysteem": {
+            "type": "string",
+            "description": "Aanwezigheid van een weegsysteem"
+          }
+        }
+      }
+    },
+    {
+      "id": "onderhoud",
+      "type": "table",
+      "provenance": "wagenpark_onderhoud",
+      "description": "Deze end-point bevat onderhoudgegevens van een transport- of werkmaterieel",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "id",
+        "required": ["id", "schema"],
+        "display": "id",
+        "properties": {
+          "id": {
+            "type": "string",
+            "provenance": "wagenpark_onderhoud_id",
+            "description": "Uniek identificerend kenmerk"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "wagenparkMaterieel": {
+            "type": "string",
+            "provenance": "wagenpark_materieel_id",
+            "relation": "wagenpark:wagenpark_materieel",
+            "description": "Uniek identifier voor transport- en werkmaterieel"
+          },
+          "onderhoudssoortOmschrijving": {
+            "type": "string",
+            "description": "Omschrijving onderhoudsoort"
+          },
+          "werkbeschrijving": {
+            "type": "string",
+            "description": "Beschrijving van het probleem en-of van de te verrichten werkzaamheden"
+          },
+          "datumProcesstatus": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Einde datum van de laatste statusupdate"
+          },
+          "processtatus": {
+            "type": "string",
+            "enum": [
+              "-1",
+              "0",
+              "1",
+              "2",
+              "4",
+              "16",
+              "32",
+              "64",
+              "4096",
+              "8192"
+            ],
+            "description": "Laatste status waarin de proces van het onderhoud zich bevindt. -1 = Niet gedefineerd, 0 = Geen, 1 = Open, 2 = Goedgekeurd, 4 = Actief, 16 = Gereed, 32 = Gesloten, 64 = Aanvraag, 4096 = Compleet, 8192 = Uitgesteld"
+          },
+          "voortgangstatus": {
+            "type": "string",
+            "description": "Laatste status waarin de voortgang van het onderhoud zich bevindt."
+          },
+          "startdatumOnderhoud": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Startdatum van de werkzamheden (gepland)"
+          },
+          "einddatumOnderhoud": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Einddatum van de werkzamheden (gepland)"
+          },
+          "inkooporder": {
+            "type": "string",
+            "description": "Het ordernummer behorende bij de onderhoudwerkzaamheden"
+          },
+          "inRobContract": {
+            "type": "boolean",
+            "description": "Vallen de werkzaamheden in het ROB-contract"
+          },
+          "factuurbedrag": {
+            "type": "number",
+            "description": "Het factuurbedrag van de uitgevoerde werkzaamheden"
+          },
+          "leverancier": {
+            "type": "string",
+            "description": "Leverancier"
+          },
+          "kostenplaats": {
+            "type": "string",
+            "description": "Kostenplaats behorende bij de afdeling"
+          },
+          "verwijderdDp": {
+            "type": "boolean",
+            "description": "Indicatie of het object verwijderd is bij de bronhouder"
+          }
+        }
+      }
+    }
+  ]
+}
