@@ -219,15 +219,17 @@
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Vorm en ligging van de standplaats in het Nationale Rijksdriehoekstelsel."
           },
-          "gebruiksdoelCode": {
-            "type": "string",
-            "provenance": "$.gebruiksdoel.code",
-            "description": "Een categorisering van het gebruiksdoel van de betreffende standplaats, zoals dit door de overheid als zodanig is toegestaan: code"
-          },
-          "gebruiksdoelOmschrijving": {
-            "type": "string",
-            "provenance": "$.gebruiksdoel.omschrijving",
-            "description": "Een categorisering van het gebruiksdoel van de betreffende standplaats, zoals dit door de overheid als zodanig is toegestaan: omschrijving"
+          "gebruiksdoel": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "omschrijving": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Een categorisering van de gebruiksdoelen van de betreffende standplaats, zoals dit door de overheid als zodanig is toegestaan."
           },
           "beginGeldigheid": {
             "type": "string",
@@ -380,15 +382,17 @@
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Vorm en ligging van de ligplaats in het Nationale Rijksdriehoekstelsel."
           },
-          "gebruiksdoelCode": {
-            "type": "string",
-            "provenance": "$.gebruiksdoel.code",
-            "description": "Een categorisering van het gebruiksdoel van de betreffende ligplaats, zoals dit door de overheid als zodanig is toegestaan: code"
-          },
-          "gebruiksdoelOmschrijving": {
-            "type": "string",
-            "provenance": "$.gebruiksdoel.omschrijving",
-            "description": "Een categorisering van het gebruiksdoel van de betreffende ligplaats, zoals dit door de overheid als zodanig is toegestaan: omschrijving"
+          "gebruiksdoel": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "omschrijving": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Een categorisering van de gebruiksdoelen van de betreffende ligplaats, zoals dit door de overheid als zodanig is toegestaan."
           },
           "beginGeldigheid": {
             "type": "string",
