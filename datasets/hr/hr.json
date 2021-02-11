@@ -1,0 +1,185 @@
+{
+  "type": "dataset",
+  "id": "hr",
+  "title": "hr",
+  "status": "beschikbaar",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "maatschappelijkeActiviteiten",
+      "type": "table",
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/hr/maatschappelijke_activiteiten.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "kvknummer",
+        "required": ["schema", "kvknummer"],
+        "display": "kvknummer",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "kvknummer": {
+            "type": "string",
+            "description": "Betreft het identificerende gegeven voor de Maatschappelijke Activiteit, het KvK-nummer."
+          },
+          "datumAanvangMaatschappelijkeActiviteit": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarbij de Maatschappelijke Activiteit in de echte wereld is ontstaan."
+          },
+          "datumEindeMaatschappelijkeActiviteit": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarbij de Maatschappelijke Activiteit in de echte wereld is beëindigd."
+          },
+          "registratieTijdstipMaatschappelijkeActiviteit": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Het tijdstip waarop de maatschappelijke activiteit bij de KvK in het handelsregistere is geregistreerd. Indien het registratietijdstip om (migratie)redenen niet bekend is wordt de waarde 'vastgesteldOnbekend' opgenomen."
+          },
+          "naam": {
+            "type": "string",
+            "description": "De statutaire naam of eerste handelsnaam van de inschrijving."
+          },
+          "heeftBezoekadres": {
+            "type": "string",
+            "$comment": "relation hr:locaties",
+            "description": "Het geregistreerde bezoekadres behorende bij de maatschappelijke activiteit."
+          },
+          "heeftPostadres": {
+            "type": "string",
+            "$comment": "relation hr:locaties",
+            "description": "Het geregistreerde postadres behorende bij de maatschappelijke activiteit."
+          },
+          "communicatienummerToegangscode": {
+            "type": "integer",
+            "description": "Communicatienummer is het telefoon- of faxnummer. Zowel het netnummer als het abonneenummer worden teruggegeven in het nummer. De internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft staat in het veld toegangscode. toegangscode"
+          },
+          "communicatienummerNummer": {
+            "type": "string",
+            "description": "Communicatienummer is het telefoon- of faxnummer. Zowel het netnummer als het abonneenummer worden teruggegeven in het nummer. De internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft staat in het veld toegangscode. nummer"
+          },
+          "communicatienummerSoort": {
+            "type": "string",
+            "description": "Communicatienummer is het telefoon- of faxnummer. Zowel het netnummer als het abonneenummer worden teruggegeven in het nummer. De internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft staat in het veld toegangscode. soort"
+          },
+          "domeinnaamNaam": {
+            "type": "string",
+            "description": "De domeinnaam is de naam waaronder de betrokkene zaken doet of informatie verschaft op het internet, het internetadres (URL). naam"
+          },
+          "emailAdresAdres": {
+            "type": "string",
+            "description": "Het e-mail adres dat de betrokkene open heeft gesteld voor communicatie. adres"
+          },
+          "nonMailing": {
+            "type": "boolean",
+            "description": "Indicator die aangeeft of de inschrijving haar adresgegevens beschikbaar stelt voor mailing-doeleinden."
+          },
+          "incidenteelUitlenenArbeidskrachten": {
+            "type": "boolean",
+            "description": "Indicatie die aangeeft of de ondernemer tijdelijk arbeidskrachten ter beschikking stelt en dit niet onderdeel is van zijn 'reguliere' activiteiten."
+          },
+          "heeftHoofdvestiging": {
+            "type": "string",
+            "$comment": "relation hr:vestigingen",
+            "description": "De vestiging die als hoofdvestiging wordt gebruikt."
+          },
+          "heeftSbiActiviteitenVoorMaatschappelijkeActiviteit": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "$comment": "relation hr:sbi_activiteiten",
+            "description": "De omschrijving van de activiteiten die de maatschappelijke activiteit uitoefent."
+          },
+          "registratieTijdstipOnderneming": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Het tijdstip waarop de maatschappelijke activiteit bij de KvK in het handelsregistere is geregistreerd. Indien het registratietijdstip om (migratie)redenen niet bekend is wordt de waarde 'vastgesteldOnbekend' opgenomen."
+          },
+          "datumAanvangOnderneming": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum van aanvang van de Onderneming."
+          },
+          "datumEindeOnderneming": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum van beëindiging van de Onderneming."
+          },
+          "isOverdrachtVoortzettingOnderneming": {
+            "type": "boolean",
+            "description": "Indicatie of de Onderneming is voortgezet of is overgedragen. Nee betekent Overdracht, Ja betekent Voortzetting."
+          },
+          "datumOverdrachtVoortzettingOnderneming": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop de onderneming is overgedragen of voortgezet."
+          },
+          "totaalWerkzamePersonen": {
+            "type": "integer",
+            "description": "Het totaal aantal werkzame personen bij de onderneming "
+          },
+          "voltijdWerkzamePersonen": {
+            "type": "integer",
+            "description": "Het aantal voltijd (meer dan 15 uur per week) werkzame personen bij de onderneming "
+          },
+          "deeltijdWerkzamePersonen": {
+            "type": "integer",
+            "description": "Het aantal deeltijd (kleiner of gelijk aan 15 uur per week) werkzame personen bij de onderneming"
+          },
+          "heeftSbiActiviteitenVoorOnderneming": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "$comment": "relation hr:sbi_activiteiten",
+            "description": "De omschrijving van de activiteiten die de onderneming uitoefent."
+          },
+          "wordtUitgeoefendInCommercieleVestiging": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "$comment": "relation hr:vestigingen",
+            "description": "Een vestiging is gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een Onderneming of Rechtspersoon plaatsvindt."
+          },
+          "wordtUitgeoefendInNietCommercieleVestiging": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "$comment": "relation hr:vestigingen",
+            "description": "Een vestiging is gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een Onderneming of Rechtspersoon plaatsvindt."
+          },
+          "handeltOnderHandelsnamenOmschrijving": {
+            "type": "string",
+            "description": "Een handelsnaam is een naam waaronder een onderneming handelt. Een onderneming mag meerdere handelsnamen hebben. De handelsnamen van de onderneming zijn een opsomming van alle handelsnamen van alle vestigingen. omschrijving"
+          },
+          "handeltOnderHandelsnamenTijdstipRegistratie": {
+            "type": "string",
+            "format": "date",
+            "description": "Een handelsnaam is een naam waaronder een onderneming handelt. Een onderneming mag meerdere handelsnamen hebben. De handelsnamen van de onderneming zijn een opsomming van alle handelsnamen van alle vestigingen. tijdstip_registratie"
+          },
+          "handeltOnderHandelsnamenDatumAanvangHandelsnaam": {
+            "type": "string",
+            "format": "date",
+            "description": "Een handelsnaam is een naam waaronder een onderneming handelt. Een onderneming mag meerdere handelsnamen hebben. De handelsnamen van de onderneming zijn een opsomming van alle handelsnamen van alle vestigingen. datum_aanvang_handelsnaam"
+          },
+          "handeltOnderHandelsnamenDatumEindeHandelsnaam": {
+            "type": "string",
+            "format": "date",
+            "description": "Een handelsnaam is een naam waaronder een onderneming handelt. Een onderneming mag meerdere handelsnamen hebben. De handelsnamen van de onderneming zijn een opsomming van alle handelsnamen van alle vestigingen. datum_einde_handelsnaam"
+          },
+          "handeltOnderHandelsnamenVolgorde": {
+            "type": "integer",
+            "description": "Een handelsnaam is een naam waaronder een onderneming handelt. Een onderneming mag meerdere handelsnamen hebben. De handelsnamen van de onderneming zijn een opsomming van alle handelsnamen van alle vestigingen. volgorde"
+          }
+        }
+      }
+    }
+  ]
+}
