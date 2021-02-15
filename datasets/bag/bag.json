@@ -24,6 +24,13 @@
         "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
+        "additionalRelations": {
+          "openbareruimtes": {
+            "table": "openbareruimtes",
+            "field": "ligtInWoonplaats",
+            "format": "summary"
+          }
+        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
