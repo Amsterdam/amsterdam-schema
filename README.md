@@ -28,6 +28,8 @@ Each instance of Amsterdam Schema exists of:
 2. Metadata about each table in this single dataset;
 3. For each table, a JSON Schema to describe and validate the data in these tables.
 
+An overview of the current schemas can be found at https://github.com/Amsterdam/amsterdam-schema/tree/master/datasets.
+
 ## Concepts
 
 In Amsterdam Schema, we're using the following concepts:
