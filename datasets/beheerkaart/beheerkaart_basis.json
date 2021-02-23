@@ -1,0 +1,463 @@
+{
+  "type": "dataset",
+  "id": "beheerkaart_basis",
+  "title": "beheerkaart_basis",
+  "status": "beschikbaar",
+  "description": "Voor het beheer van de publieke ruimte, heeft Amsterdam behoefte aan een eenduidige afbakening van de te beheren objecten. De formeel vastgestelde openbare ruimte volstaat hiervoor niet, omdat het uitgaat van de toekenning van officiële straatnamen (besluit) door de gemeenteraad. Daardoor zijn niet alle te beheren objecten onderdeel van de administratieve openbare ruimte. Om die reden heeft OIS de 'te beheren publieke ruimte’ afgeleid uit de basisregistraties grootschalige topografie (BGT) en Kadaster (BRK).",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "eigendomsrecht",
+      "type": "table",
+      "description": "Hulptabel bkt_eigendomsrecht bevat alle grondpercelen waarop op de peildatum een eigendomsrecht (eigendom, erfpacht of opstal) van de gemeente Amsterdam (inclusief Weesp) rust, dat niet zelf weer is belast door een ander eigendomsrecht dan erfpacht of opstal.",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "provenance": "bk_bkt_eigendomsrecht",
+            "description": "Business-key: unieke aanduiding per voorkomen in tabel bkt_eigendomsrecht (samengesteld uit kadastraal object-zakelijk recht-toestandsdatum).",
+            "type": "string"
+          },
+          "peildatumAfleiding": {
+            "description": "Meest recente actuele toestandsdatum in BRK-bron kadastraal object op moment van afleiding.",
+            "type": "string",
+            "format": "date"
+          },
+          "statutaireNaam": {
+            "description": "De naam van de rechtspersoon. Het betreft de naam die is opgenomen in de oprichtingsakte.",
+            "type": "string"
+          },
+          "indEigendomAmsterdam": {
+            "description": "Indicatie eigendom Gemeente Amsterdam inclusief Gemeente Weesp (J/N).",
+            "type": "boolean"
+          },
+          "kotToestandsdatum": {
+            "description": "De datum waarop de geleverde toestand van het kadastraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)",
+            "type": "string",
+            "format": "date"
+          },
+          "kotIdentificatie": {
+            "description": "De unieke aanduiding van een Kadastraal object.",
+            "type": "string"
+          },
+          "kotVolgnummer": {
+            "description": "Uniek volgnummer van de toestand van het kadastraal object.",
+            "type": "integer"
+          },
+          "kotRegistratiedatum": {
+            "description": "De datum waarop de toestand van het kadastraal object is geregistreerd.",
+            "type": "string",
+            "format": "date"
+          },
+          "kotBeginGeldigheid": {
+            "description": "Begindatum van de betreffende toestand (= volgnummer) van het kadastraal object.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "kotEindGeldigheid": {
+            "description": "Einddatum van de betreffende toestand (= volgnummer) van het kadastraal object.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "kotGemeente": {
+            "description": "De burgerlijke gemeente.",
+            "type": "string"
+          },
+          "kotKadastraleAanduiding": {
+            "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer.",
+            "type": "string"
+          },
+          "kotPerceelnummer": {
+            "description": "Een numerieke aanduiding van het kadastrale perceel per sectie, deel van de kadastrale aanduiding van de onroerende zaak.",
+            "type": "string"
+          },
+          "kotIndexletter": {
+            "description": "Letter Kadastraal object, dit geeft een indicatie voor het type object. G Grond perceel. A Appartementsrecht.",
+            "type": "string"
+          },
+          "kotIndexnummer": {
+            "description": "Volgnummer van het Appartementsrecht",
+            "type": "string"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json",
+            "description": "Vorm en ligging van het kadastraal object in het stelsel van de Rijksdriehoeksmeting (RD)"
+          },
+          "zrtIdentificatie": {
+            "description": "De Kadaster identificatie is een door het Kadaster toegekende landelijk uniek nummer aan dit zakelijk recht binnen de kadastrale registratie.",
+            "type": "string"
+          },
+          "zrtVolgnummer": {
+            "description": "Uniek volgnummer van de toestand van het zakelijk recht.",
+            "type": "integer"
+          },
+          "zrtRegistratiedatum": {
+            "description": "De datum waarop de toestand van het zakelijk recht is geregistreerd.",
+            "type": "string",
+            "format": "date"
+          },
+          "zrtBeginGeldigheid": {
+            "description": "Begindatum van de betreffende toestand (= volgnummer) van het zakelijk recht.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "zrtEindGeldigheid": {
+            "description": "Einddatum van de betreffende toestand (= volgnummer) van het zakelijk recht.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "zrtAardZakelijkRechtCode": {
+            "description": "De aard van het zakelijk recht (code).",
+            "type": "string"
+          },
+          "zrtAardZakelijkRechtOmschr": {
+            "description": "De aard van het zakelijk recht (omschrijving).",
+            "type": "string"
+          },
+          "tngBeginGeldigheid": {
+            "description": "Begindatum van de betreffende toestand (= volgnummer) van de tenaamstelling.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "tngEindGeldigheid": {
+            "description": "Einddatum van de betreffende toestand (= volgnummer) van de tenaamstelling.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "ordeAardZakelijkRecht": {
+            "description": "Orde van de aard van het zakelijk recht, in volgorde van afnemend belang: opstal, erfpacht-of-opstal, erfpacht, eigendom.",
+            "type": "integer"
+          },
+          "indicatieBelastRecht": {
+            "description": "Is het eigendomsrecht belast door een ander eigendomsrecht (opstal, erfpacht-of-opstal of erfpacht) (J/N)?",
+            "type": "boolean"
+          },
+          "belastDoorZrtCode": {
+            "description": "Belast door aard van het zakelijk recht (code).",
+            "type": "string"
+          },
+          "belastDoorZrtOmschrijving": {
+            "description": "Belast door aard van het zakelijk recht (omschrijving).",
+            "type": "string"
+          },
+          "belastOrdeAardZakelijkRecht": {
+            "description": "Orde van de aard van het belastend zakelijk recht, in volgorde van afnemend belang: opstal, erfpacht-of-opstal, erfpacht.",
+            "type": "integer"
+          },
+          "indBetrokkenBijSplitsing": {
+            "description": "Is het eigendomsrecht betrokken bij splitsing (J/N)?",
+            "type": "boolean"
+          }
+        },
+        "mainGeometry": "geometrie"
+      }
+    },
+    {
+      "id": "kaart",
+      "type": "table",
+      "description": "Hoofdtabel beheerkaart_basis_kaart bevat de gecombineerde gegevens van alle BGT-objecten van geselecteerde BGT-objectklassen gerelateerd aan BRK-grondpercelen waarop op de peildatum een eigendomsrecht (eigendom, erfpacht of opstal) van de gemeente Amsterdam (inclusief Weesp) rust, dat niet zelf weer is belast door een ander eigendomsrecht dan erfpacht of opstal.",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "provenance": "bk_bkt_beheerkaart_basis",
+            "description": "Business-key: unieke aanduiding per voorkomen in tabel beheerkaart_basis_kaart (bestaande uit bk_bgt_object).",
+            "type": "string"
+          },
+          "peildatumAfleiding": {
+            "description": "Meest recente actuele toestandsdatum in BRK-bron kadastraal object op moment van afleiding.",
+            "type": "string",
+            "format": "date"
+          },
+          "bgtObjectklasse": {
+            "description": "Klasse van het BGT-object.",
+            "type": "string"
+          },
+          "bkBgtObject": {
+            "description": "Unieke aanduiding van het BGT-object (samengesteld uit identificatie_lokaalid-tijdstipregistratie-lv_publicatiedatum).",
+            "type": "string"
+          },
+          "identificatieNamespace": {
+            "description": "null",
+            "type": "string"
+          },
+          "identificatieLokaalid": {
+            "description": "Uniek identificerend kenmerk voor het BGT-object dat onveranderlijk is zolang het object bestaat.",
+            "type": "string"
+          },
+          "objectbegintijd": {
+            "description": "Datum waar op het BGT-object bij de bronhouder is ontstaan.",
+            "type": "string",
+            "format": "date"
+          },
+          "objecteindtijd": {
+            "description": "Datum waarop het BGT-object bij de bronhouder niet meer geldig is.",
+            "type": "string",
+            "format": "date"
+          },
+          "tijdstipregistratie": {
+            "description": "Tijdstip waarop deze instantie van het BGT-object is opgenomen door de bronhouder.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindregistratie": {
+            "description": "Eind van de periode waarop deze instantie van het BGT-object geldig is bij de bronhouder. Wanneer deze waarde niet is ingevuld is de instantie nog geldig.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "lvPublicatiedatum": {
+            "description": "Tijdstip waarop deze instantie van het BGT-object is opgenomen in de landelijke Voorziening.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "bronhouder": {
+            "description": "De bronhouderscode van het BGT-object.",
+            "type": "string"
+          },
+          "inonderzoek": {
+            "description": "Een aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende BGT-object (J/N).",
+            "type": "boolean"
+          },
+          "relatievehoogteligging": {
+            "description": "Aanduiding voor de relatieve hoogte van het BGT-object ten opzichte van het maaiveld (-2, -1, 0, 1, 2, 3).",
+            "type": "string"
+          },
+          "optalud": {
+            "description": "Bevindt het BGT-object zich op een talud (J/N)?",
+            "type": "boolean"
+          },
+          "bgtStatus": {
+            "description": "Binnen de BGT verplichte statusaanduiding gekoppeld aan de levenscyclus van het het BGT-object.",
+            "type": "string"
+          },
+          "plusStatus": {
+            "description": "Binnen de BGT niet-verplichte nadere specificatie van de statusaanduiding gekoppeld aan de levenscyclus van het het BGT-object.",
+            "type": "string"
+          },
+          "bgtFunctie": {
+            "description": "Binnen de BGT verplichte specificatie van het hoofdgebruiksdoel van het BGT-object.",
+            "type": "string"
+          },
+          "bgtFysiekvoorkomen": {
+            "description": "Classificatie binnen de BGT-objectklasse.",
+            "type": "string"
+          },
+          "plusFunctie": {
+            "description": "Binnen de BGT niet-verplichte, nadere specificatie van het hoofdgebruiksdoel van het BGT-object.",
+            "type": "string"
+          },
+          "plusFysiekvoorkomen": {
+            "description": "Binnen de BGT niet-verplichte, nadere specificatie van de classificatie binnen de BGT-objectklasse.",
+            "type": "string"
+          },
+          "bgttype": {
+            "description": "Specificatie van het soort BGT-object binnen de objectklasse.",
+            "type": "string"
+          },
+          "plustype": {
+            "description": "Binnen de BGT niet-verplichte specificatie van het soort BGT-object binnen de objectklasse.",
+            "type": "string"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json",
+            "description": "Vlak-coördinaten van het BGT-object."
+          },
+          "aggOppIntersectie": {
+            "description": "Totaal oppervlak van het deel van dit BGT-object dat overlapt met BRK-kadastraalobjecten waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "type": "number"
+          },
+          "aggFractie": {
+            "description": "Totale fractie van het deel van dit BGT-object dat overlapt met BRK-kadastraalobjecten waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "type": "number"
+          },
+          "aggAantalPercelen": {
+            "description": "Totaal aantal met dit BGT-object overlappende BRK-kadastraalobjecten waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "type": "integer"
+          },
+          "aggGerelateerdePercelen": {
+            "description": "Alle identificaties van de met dit BGT-object overlappende BRK-kadastraalobjecten waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "type": "string"
+          },
+          "aggGrootstePerceel": {
+            "description": "Identificatie van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "type": "string"
+          },
+          "aggAardZakelijkRechtCode": {
+            "description": "Aard zakelijk recht (code) van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "type": "string"
+          },
+          "aggAardZakelijkRechtOmschr": {
+            "description": "Aard zakelijk recht (omschrijving) van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "type": "string"
+          },
+          "aggIndicatieBelastRecht": {
+            "description": "Is het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft, belast door een ander eigendomsrecht (J/N)?",
+            "type": "boolean"
+          },
+          "aggBelastDoorZrtCode": {
+            "description": "Belastend aard zakelijk recht (code) op het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "type": "string"
+          },
+          "aggBelastDoorZrtOmschr": {
+            "description": "Belastend aard zakelijk recht (omschrijving) op het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "type": "string"
+          },
+          "aggIndBetrokkenBijSplitsing": {
+            "description": "Is het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft, betrokken bij splitsing (J/N)?",
+            "type": "boolean"
+          },
+          "kaartUrl": {
+            "description": "Kaart-URL van de vlakgeometrie van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "type": "string"
+          }
+        },
+        "mainGeometry": "geometrie"
+      }
+    },
+    {
+      "id": "bgt",
+      "type": "table",
+      "description": "Hulptabel beheerkaart_basis_bgt bevat de gegevens van alle BGT-objecten van geselecteerde objectklassen en wordt gebruikt om samen met hulptabel bkt_eigendomsrecht de hoofdtabel bkt_beheerkaart_basis te vullen.",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "provenance": "bk_bkt_bgt",
+            "description": "Business-key: unieke aanduiding per voorkomen in tabel beheerkaart_basis_bgt (bestaande uit bk_bgt_object).",
+            "type": "string"
+          },
+          "peildatumAfleiding": {
+            "description": "Meest recente actuele toestandsdatum in BRK-bron kadastraal object op moment van afleiding.",
+            "type": "string",
+            "format": "date"
+          },
+          "bgtObjectklasse": {
+            "description": "Klasse van het BGT-object.",
+            "type": "string"
+          },
+          "bkBgtObject": {
+            "description": "Unieke aanduiding van het BGT-object (samengesteld uit identificatie_lokaalid-tijdstipregistratie-lv_publicatiedatum).",
+            "type": "string"
+          },
+          "identificatieNamespace": {
+            "description": "null",
+            "type": "string"
+          },
+          "identificatieLokaalid": {
+            "description": "Uniek identificerend kenmerk voor het BGT-object dat onveranderlijk is zolang het object bestaat.",
+            "type": "string"
+          },
+          "objectbegintijd": {
+            "description": "Datum waarop het  BGT-object bij de bronhouder is ontstaan.",
+            "type": "string",
+            "format": "date"
+          },
+          "objecteindtijd": {
+            "description": "Datum waarop het BGT-object bij de bronhouder niet meer geldig is.",
+            "type": "string",
+            "format": "date"
+          },
+          "tijdstipregistratie": {
+            "description": "Tijdstip waarop deze instantie van het BGT-object is opgenomen door de bronhouder.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindregistratie": {
+            "description": "Eind van de periode waarop deze instantie van het BGT-object geldig is bij de bronhouder. Wanneer deze waarde niet is ingevuld is de instantie nog geldig.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "lvPublicatiedatum": {
+            "description": "Tijdstip waarop deze instantie van het BGT-object is opgenomen in de landelijke Voorziening.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "bronhouder": {
+            "description": "De bronhouderscode van het BGT-object.",
+            "type": "string"
+          },
+          "inonderzoek": {
+            "description": "Een aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende BGT-object (J/N).",
+            "type": "boolean"
+          },
+          "relatievehoogteligging": {
+            "description": "Aanduiding voor de relatieve hoogte van het BGT-object ten opzichte van het maaiveld (-2, -1, 0, 1, 2, 3).",
+            "type": "string"
+          },
+          "optalud": {
+            "description": "Bevindt het BGT-object zich op een talud (J/N)?",
+            "type": "boolean"
+          },
+          "bgtStatus": {
+            "description": "Binnen de BGT verplichte statusaanduiding gekoppeld aan de levenscyclus van het het BGT-object.",
+            "type": "string"
+          },
+          "plusStatus": {
+            "description": "Binnen de BGT niet-verplichte nadere specificatie van de statusaanduiding gekoppeld aan de levenscyclus van het het BGT-object.",
+            "type": "string"
+          },
+          "bgtFunctie": {
+            "description": "Binnen de BGT verplichte specificatie van het hoofdgebruiksdoel van het BGT-object.",
+            "type": "string"
+          },
+          "bgtFysiekvoorkomen": {
+            "description": "Classificatie binnen de BGT-objectklasse.",
+            "type": "string"
+          },
+          "plusFunctie": {
+            "description": "Binnen de BGT niet-verplichte, nadere specificatie van het hoofdgebruiksdoel van het BGT-object.",
+            "type": "string"
+          },
+          "plusFysiekvoorkomen": {
+            "description": "Binnen de BGT niet-verplichte, nadere specificatie van de classificatie binnen de BGT-objectklasse.",
+            "type": "string"
+          },
+          "bgttype": {
+            "description": "Specificatie van het soort BGT-object binnen de objectklasse.",
+            "type": "string"
+          },
+          "plustype": {
+            "description": "Binnen de BGT niet-verplichte specificatie van het soort BGT-object binnen de objectklasse.",
+            "type": "string"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json",
+            "description": "Vlak-coördinaten van het BGT-object."
+          }
+        },
+        "mainGeometry": "geometrie"
+      }
+    }
+  ]
+}
