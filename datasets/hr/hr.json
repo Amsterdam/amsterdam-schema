@@ -45,34 +45,58 @@
             "type": "string",
             "description": "De statutaire naam of eerste handelsnaam van de inschrijving."
           },
-          "heeftBezoekadres": {
+          "heeftBezoekadresBronwaarde": {
             "type": "string",
+            "provenance": "$.heeftBezoekadres.bronwaarde",
             "$comment": "relation hr:locaties",
             "description": "Het geregistreerde bezoekadres behorende bij de maatschappelijke activiteit."
           },
-          "heeftPostadres": {
+          "heeftPostadresBronwaarde": {
             "type": "string",
+            "provenance": "$.heeftPostadres.bronwaarde",
             "$comment": "relation hr:locaties",
             "description": "Het geregistreerde postadres behorende bij de maatschappelijke activiteit."
           },
-          "communicatienummerToegangscode": {
-            "type": "integer",
+          "communicatienummer": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "soort": {
+                  "type": "string"
+                },
+                "nummer": {
+                  "type": "string"
+                },
+                "toegangscode": {
+                  "type": "string"
+                }
+              }
+            },
             "description": "Communicatienummer is het telefoon- of faxnummer. Zowel het netnummer als het abonneenummer worden teruggegeven in het nummer. De internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft staat in het veld toegangscode. toegangscode"
           },
-          "communicatienummerNummer": {
-            "type": "string",
-            "description": "Communicatienummer is het telefoon- of faxnummer. Zowel het netnummer als het abonneenummer worden teruggegeven in het nummer. De internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft staat in het veld toegangscode. nummer"
-          },
-          "communicatienummerSoort": {
-            "type": "string",
-            "description": "Communicatienummer is het telefoon- of faxnummer. Zowel het netnummer als het abonneenummer worden teruggegeven in het nummer. De internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft staat in het veld toegangscode. soort"
-          },
-          "domeinnaamNaam": {
-            "type": "string",
+          "domeinnaam": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "naam": {
+                  "type": "string"
+                }
+              }
+            },
             "description": "De domeinnaam is de naam waaronder de betrokkene zaken doet of informatie verschaft op het internet, het internetadres (URL). naam"
           },
-          "emailAdresAdres": {
-            "type": "string",
+          "emailAdres": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "adres": {
+                  "type": "string"
+                }
+              }
+            },
             "description": "Het e-mail adres dat de betrokkene open heeft gesteld voor communicatie. adres"
           },
           "nonMailing": {
@@ -83,15 +107,21 @@
             "type": "boolean",
             "description": "Indicatie die aangeeft of de ondernemer tijdelijk arbeidskrachten ter beschikking stelt en dit niet onderdeel is van zijn 'reguliere' activiteiten."
           },
-          "heeftHoofdvestiging": {
+          "heeftHoofdvestigingBronwaarde": {
             "type": "string",
+            "provenance": "$.heeftHoofdvestiging.bronwaarde",
             "$comment": "relation hr:vestigingen",
             "description": "De vestiging die als hoofdvestiging wordt gebruikt."
           },
           "heeftSbiActiviteitenVoorMaatschappelijkeActiviteit": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "bronwaarde": {
+                  "type": "integer"
+                }
+              }
             },
             "$comment": "relation hr:sbi_activiteiten",
             "description": "De omschrijving van de activiteiten die de maatschappelijke activiteit uitoefent."
@@ -135,7 +165,12 @@
           "heeftSbiActiviteitenVoorOnderneming": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "bronwaarde": {
+                  "type": "integer"
+                }
+              }
             },
             "$comment": "relation hr:sbi_activiteiten",
             "description": "De omschrijving van de activiteiten die de onderneming uitoefent."
@@ -143,7 +178,12 @@
           "wordtUitgeoefendInCommercieleVestiging": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "bronwaarde": {
+                  "type": "integer"
+                }
+              }
             },
             "$comment": "relation hr:vestigingen",
             "description": "Een vestiging is gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een Onderneming of Rechtspersoon plaatsvindt."
@@ -151,33 +191,42 @@
           "wordtUitgeoefendInNietCommercieleVestiging": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "bronwaarde": {
+                  "type": "integer"
+                }
+              }
             },
             "$comment": "relation hr:vestigingen",
             "description": "Een vestiging is gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een Onderneming of Rechtspersoon plaatsvindt."
           },
-          "handeltOnderHandelsnamenOmschrijving": {
-            "type": "string",
+          "handeltOnderHandelsnamen": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "volgorde": {
+                  "type": "integer"
+                },
+                "omschrijving": {
+                  "type": "integer"
+                },
+                "tijdstipRegistratie": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "datumEindeHandelsnaam": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "datumAanvangHandelsnaam": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            },
             "description": "Een handelsnaam is een naam waaronder een onderneming handelt. Een onderneming mag meerdere handelsnamen hebben. De handelsnamen van de onderneming zijn een opsomming van alle handelsnamen van alle vestigingen. omschrijving"
-          },
-          "handeltOnderHandelsnamenTijdstipRegistratie": {
-            "type": "string",
-            "format": "date",
-            "description": "Een handelsnaam is een naam waaronder een onderneming handelt. Een onderneming mag meerdere handelsnamen hebben. De handelsnamen van de onderneming zijn een opsomming van alle handelsnamen van alle vestigingen. tijdstip_registratie"
-          },
-          "handeltOnderHandelsnamenDatumAanvangHandelsnaam": {
-            "type": "string",
-            "format": "date",
-            "description": "Een handelsnaam is een naam waaronder een onderneming handelt. Een onderneming mag meerdere handelsnamen hebben. De handelsnamen van de onderneming zijn een opsomming van alle handelsnamen van alle vestigingen. datum_aanvang_handelsnaam"
-          },
-          "handeltOnderHandelsnamenDatumEindeHandelsnaam": {
-            "type": "string",
-            "format": "date",
-            "description": "Een handelsnaam is een naam waaronder een onderneming handelt. Een onderneming mag meerdere handelsnamen hebben. De handelsnamen van de onderneming zijn een opsomming van alle handelsnamen van alle vestigingen. datum_einde_handelsnaam"
-          },
-          "handeltOnderHandelsnamenVolgorde": {
-            "type": "integer",
-            "description": "Een handelsnaam is een naam waaronder een onderneming handelt. Een onderneming mag meerdere handelsnamen hebben. De handelsnamen van de onderneming zijn een opsomming van alle handelsnamen van alle vestigingen. volgorde"
           }
         }
       }
