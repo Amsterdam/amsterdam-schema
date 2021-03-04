@@ -883,7 +883,7 @@
           "soortWerkzaamheden": {
             "type": "string",
             "enum": ["Inzet", "Onderhoud"],
-            "description": "Aard van werkzaamheden: Inzet of onderhoud."
+            "description": "Specificatie van soort planning (Inzet of Onderhoud)."
           },
           "kenteken": {
             "type": "string",
@@ -930,7 +930,7 @@
               "Glas rolcontainer",
               "Papier achterlader"
             ],
-            "description": "Categorie afvalpunt/werkzaamheid, bijvoorbeeld Voertuig transport, kerstbomen, opleiding, glas/papier."
+            "description": "Categorie afvalverwerking waar het voertuig op is gepland."
           },
           "activiteit": {
             "type": "string",
@@ -958,51 +958,51 @@
               "Opleiding"
             ],
             "provenance": "adwh_activiteit",
-            "description": "Afvalinzamelingsactiviteit die uitgevoerd wordt"
+            "description": "Fractie van de afvalverwerking (afgeleid van categorie, werkzaamheden en of memo)."
           },
           "werkzaamhedenCode": {
             "type": "string",
-            "description": "Interne code van uit te voeren werkzaamheden"
+            "description": "Code voor de werkzaamheden waarop het voertuig is gepland."
           },
           "werkzaamhedenOmschrijving": {
             "type": "string",
-            "description": "Omschrijving van interne code van uit te voeren werkzaamheden"
+            "description": "Omschrijving voor de werkzaamheden waarop het voertuig is gepland."
           },
           "werkzaamhedenDatum": {
             "type": "string",
             "format": "date-time",
-            "description": "Planningsdatum uitvoering"
+            "description": "Datum waarop de werkzaamheden zijn gepland."
           },
           "werkzaamhedenStarttijd": {
             "type": "string",
-            "description": "Planningsstarttijd uitvoering"
+            "description": "Starttijd van de werkzaamheden op de WERKZAAMHEDEN_DATUM"
           },
           "werkzaamhedenEindtijd": {
             "type": "string",
-            "description": "Planningseindtijd uitvoering"
+            "description": "Eindtijd van de werkzaamheden op de WERKZAAMHEDEN_DATUM."
           },
           "werkzaamhedenUrenGepland": {
             "type": "number",
             "unit": "uur",
-            "description": "Geplande aantal uren uitvoering"
+            "description": "Berekening van het aantal bruto uren van de werkzaamheden (= eindtijd - starttijd)."
           },
           "pauzeStarttijd": {
             "type": "string",
-            "description": "Starttijd pauze"
+            "description": "Starttijd van de pauze op de WERKZAAMHEDEN_DATUM."
           },
           "pauzeEindtijd": {
             "type": "string",
-            "description": "Eindtijd pauze"
+            "description": "Eindtijd van de pauze op de WERKZAAMHEDEN_DATUM."
           },
           "pauzeUrenGepland": {
             "type": "number",
             "unit": "uur",
-            "description": "Geplande aantal uren pauze."
+            "description": "Berekening van het aantal bruto uren van de pauze (= eindtijd - starttijd)."
           },
           "fase": {
             "type": "string",
             "ennum": ["Teamleiders", "Realisatie", "Plannings"],
-            "description": "Fase uitvoering"
+            "description": "Label van de fase waarin de planning zich bevindt."
           },
           "memo": {
             "type": "string",
@@ -1010,34 +1010,34 @@
           },
           "team": {
             "type": "string",
-            "description": "Team waaronder uitvoering valt."
+            "description": "Team waarvoor de voertuigplanning is gemaakt. In veel gevallen een stadsdeel, maar kan ook bijvoorbeeld Bedrijfsafval Centrum (BAC) zijn)."
           },
           "aantalMedewerkers": {
             "type": "number",
-            "description": "Totaal aantal medewerkers beschikbaar."
+            "description": "Aantal medewerkers dat op het voertuig is gepland."
           },
           "aantalMedewerkersIntern": {
             "type": "number",
-            "description": "Aantal interne medewerkers beschikbaar."
+            "description": "Aantal interne medewerkers dat op het voertuig is gepland."
           },
           "aantalMedewerkersInhuur": {
             "type": "number",
-            "description": "Aantal externe medewerkers beschikbaar."
+            "description": "Aantal externe medewerkers dat op het voertuig is gepland."
           },
           "urenInzetMedewerkerIntern": {
             "type": "number",
             "unit": "uur",
-            "description": "Aantal uren gepland interne medewerkers."
+            "description": "Som van het totaal aantal netto uren van de interne medewerkers die op de planning zijn gezet (excl pauze)."
           },
           "urenInzetMedewerkerInhuur": {
             "type": "number",
             "unit": "uur",
-            "description": "Aantal uren gepland externe medewerkers."
+            "description": "Som van het totaal aantal netto uren van de externe medewerkers die op de planning zijn gezet (excl pauze)."
           },
           "urenInzetVoertuig": {
             "type": "number",
             "unit": "uur",
-            "description": "Aantal uren gepland afvalinzamel voertuig."
+            "description": "Netto inzeturen van het voertuig (bruto - pauze)."
           },
           "datumVerwerktStadsdelen": {
             "type": "string",
@@ -1049,7 +1049,7 @@
             "type": "string",
             "format": "date-time",
             "provenance": "adwh_laatst_gezien_bron",
-            "description": "Moment aanwezigheid gegeven in de (planningsdata)bronsysteem."
+            "description": "Indicatie over de actualiteit van de gegevens in deze set (laatste wijziging in de bron)."
           }
         }
       }
