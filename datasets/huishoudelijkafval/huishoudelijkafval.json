@@ -859,6 +859,199 @@
           }
         }
       }
+    },
+    {
+      "id": "planningVoertuigen",
+      "type": "table",
+      "description": "Planningsgegevens van afvalinzamelingsvoertuigen voor huishoudelijk- en bedrijfsafval",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "schema"],
+        "display": "id",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "provenance": "adwh_versie_id",
+            "description": "Uniek identificerend kenmerk van het record."
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "soortWerkzaamheden": {
+            "type": "string",
+            "enum": ["Inzet", "Onderhoud"],
+            "description": "Aard van werkzaamheden: Inzet of onderhoud."
+          },
+          "kenteken": {
+            "type": "string",
+            "description": "Kenteken afvalinzamelingsvoertuig."
+          },
+          "kentekenKort": {
+            "type": "string",
+            "provenance": "adwh_kenteken",
+            "description": "Kenteken afvalinzamelingsvoertuig zonder koppeltekens (-)."
+          },
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "Overig",
+              "Rest- mini",
+              "Container reiniging",
+              "03. Extern",
+              "Grofvuil-Bijplaatsingen",
+              "Glas- ondergronds",
+              "Perscontainer",
+              "Klein onderhoud",
+              "Waswagen",
+              "Recyclepunten",
+              "Personenvervoer",
+              "Grofvuil-Grofvuil",
+              "Rest rolcontainer",
+              "Combi Glas Papier",
+              "Rest- zakken",
+              "Kerstbomen",
+              "Voertuig transport",
+              "Bijplaatsingen",
+              "Grofvuil-WEB",
+              "Reinigingsrecht",
+              "Papier- ondergronds",
+              "Rest- mini/inpandig/zakken",
+              "Opleiding",
+              "Project",
+              "01. Intern",
+              "02. Wassen",
+              "Rest- ondergronds",
+              "Plastic- ondergronds",
+              "05. Scherm",
+              "P&K rolcontainer",
+              "Glas rolcontainer",
+              "Papier achterlader"
+            ],
+            "description": "Categorie afvalpunt/werkzaamheid, bijvoorbeeld Voertuig transport, kerstbomen, opleiding, glas/papier."
+          },
+          "activiteit": {
+            "type": "string",
+            "enum": [
+              "Grofvuil",
+              "Overig",
+              "Distributie",
+              "Glas_Papier",
+              "Container reiniging",
+              "Perscontainer",
+              "Klein onderhoud",
+              "Recyclepunten",
+              "Personenvervoer",
+              "Papier_Karton",
+              "Karton",
+              "Kerstbomen",
+              "Voertuig transport",
+              "Onderhoud",
+              "Rest",
+              "Bijplaatsingen",
+              "Reinigingsrecht",
+              "Glas",
+              "Papier",
+              "Plastic",
+              "Opleiding"
+            ],
+            "provenance": "adwh_activiteit",
+            "description": "Afvalinzamelingsactiviteit die uitgevoerd wordt"
+          },
+          "werkzaamhedenCode": {
+            "type": "string",
+            "description": "Interne code van uit te voeren werkzaamheden"
+          },
+          "werkzaamhedenOmschrijving": {
+            "type": "string",
+            "description": "Omschrijving van interne code van uit te voeren werkzaamheden"
+          },
+          "werkzaamhedenDatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Planningsdatum uitvoering"
+          },
+          "werkzaamhedenStarttijd": {
+            "type": "string",
+            "description": "Planningsstarttijd uitvoering"
+          },
+          "werkzaamhedenEindtijd": {
+            "type": "string",
+            "description": "Planningseindtijd uitvoering"
+          },
+          "werkzaamhedenUrenGepland": {
+            "type": "number",
+            "unit": "uur",
+            "description": "Geplande aantal uren uitvoering"
+          },
+          "pauzeStarttijd": {
+            "type": "string",
+            "description": "Starttijd pauze"
+          },
+          "pauzeEindtijd": {
+            "type": "string",
+            "description": "Eindtijd pauze"
+          },
+          "pauzeUrenGepland": {
+            "type": "number",
+            "unit": "uur",
+            "description": "Geplande aantal uren pauze."
+          },
+          "fase": {
+            "type": "string",
+            "ennum": ["Teamleiders", "Realisatie", "Plannings"],
+            "description": "Fase uitvoering"
+          },
+          "memo": {
+            "type": "string",
+            "description": "Extra toelichting zoals opgegeven in (planningsdata)bronsysteem."
+          },
+          "team": {
+            "type": "string",
+            "description": "Team waaronder uitvoering valt."
+          },
+          "aantalMedewerkers": {
+            "type": "number",
+            "description": "Totaal aantal medewerkers beschikbaar."
+          },
+          "aantalMedewerkersIntern": {
+            "type": "number",
+            "description": "Aantal interne medewerkers beschikbaar."
+          },
+          "aantalMedewerkersInhuur": {
+            "type": "number",
+            "description": "Aantal externe medewerkers beschikbaar."
+          },
+          "urenInzetMedewerkerIntern": {
+            "type": "number",
+            "unit": "uur",
+            "description": "Aantal uren gepland interne medewerkers."
+          },
+          "urenInzetMedewerkerInhuur": {
+            "type": "number",
+            "unit": "uur",
+            "description": "Aantal uren gepland externe medewerkers."
+          },
+          "urenInzetVoertuig": {
+            "type": "number",
+            "unit": "uur",
+            "description": "Aantal uren gepland afvalinzamel voertuig."
+          },
+          "datumVerwerktStadsdelen": {
+            "type": "string",
+            "format": "date-time",
+            "provenance": "adwh_laatst_gezien",
+            "description": "Moment van laden data vanuit het (planningsdata)bronsysteem in het DWH stadsdelen (als intermediair voor datalevering)."
+          },
+          "datumAanwezigBron": {
+            "type": "string",
+            "format": "date-time",
+            "provenance": "adwh_laatst_gezien_bron",
+            "description": "Moment aanwezigheid gegeven in de (planningsdata)bronsysteem."
+          }
+        }
+      }
     }
   ]
 }
