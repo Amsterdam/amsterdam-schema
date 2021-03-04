@@ -1,0 +1,279 @@
+<pre class='metadata'>
+Title: Amsterdam Schema Specification
+Shortname: ams-schema-spec
+Revision: 1.1.1
+Status: LS
+URL: https://schemas.data.amsterdam.nl/docs/
+Repository: Amsterdam/amsterdam-schema
+Editor: Michiel Trimpe, Gemeente Amsterdam, https://data.amsterdam.nl/
+Abstract: Het Amsterdam Schema is een standaard voor JSON Schema's welke gebruikt kan worden om 
+    datasets in detail op machine readable formaat te kunnen omschrijven zodat deze generiek 
+    verwerkt en ontsloten kunnen worden.
+Markup Shorthands: css no, markdown yes
+Indent: 4
+Default highlight: json
+Boilerplate: copyright no, footer no
+</pre>
+
+
+Introductie {#intro}
+====================
+
+Het Amsterdam Schema is een standaard voor JSON Schema's (ondersteund door het [Amsterdam Meta Schema](https://github.com/Amsterdam/amsterdam-schema)) welke gebruikt kan worden om datasets in detail op machine readable formaat te kunnen omschrijven zodat deze generiek verwerkt en ontsloten kunnen worden.
+
+In dit document omschrijven we welke informatie in het JSON schema opgeslagen kan worden. Ter referentie kunnen  eerste versies van Amsterdam Schemas kunnen [gevonden worden op GitHub](https://github.com/Amsterdam/schemas/).
+
+Het is voor nu belangrijk om mee te nemen dat de definities Eenheden, Autorisatie en Provenance nog niet via het Meta Schema beperkt/enforced aangezien dit gebruikt maakt van de JSON Vocabularies standaard die nog onvoldoende ondersteund wordt door bestaande tooling.
+
+Catalogus (dataset) {#catalogus}
+--------------------------------
+
+Op het dataset niveau is het mogelijk om een aantal properties mee te geven t.b.v. het definieren van de gegevens voor o.a. de DCAT catalogus. De volgende velden zijn reeds gedefinieerd:
+
+* title (string)
+* description (string)
+* homepage (url)
+* language, volgens [ISO 639-1 of ISO 639-2](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_language)
+* dateIssued (date-time)
+* dateModified (date-time)
+* accrualPeriodicity (string)
+* spatialDescription (string)
+* spatialCoordinates (Geometry)
+* theme (array of strings)
+* publisher (string)
+* keywords (array of strings)
+* license (string)
+* crs (string, `EPSG:\d+` code)
+
+Het is de intentie alle relevante DCAT velden te kunnen modelleren dus wanneer er velden ontbreken die wel in de DCAT opgenomen moeten worden zullen deze toegevoegd worden.
+
+Omschrijving (dataset, tabel, veld) {#omschrijving}
+---------------------------------------------------
+
+Op elk niveau kan een semantische omschrijving toegevoegd worden d.m.v. de `title` en `description` property.
+
+```
+"title": "Lengte",
+"description": "Lengte van een verharding"
+```
+
+Het veld-niveau is in dit kader het belangrijkste, al voegt dit waarde toe op elk niveau. De omschrijving van het veld niveau is namelijk wat gezien kan worden als veld-omschrijving op bijvoorbeeld het Data Portaal.
+
+Data Types (veld) {#data-types}
+-------------------------------
+
+De verschillende ondersteunde data types worden allemaal gemodelleerd als concrete JSON Schema type definieringen. Deze zullen dan in doel-systemen naar de juiste veld/kolom-types getransformeerd worden.
+
+
+* Elke regel is adresseerbaar via een unique identifier in één kolom.
+    * Gemodelleerd als `$ref` naar `/definitions/id`.<br /> `"$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id"`
+* Scalaire types
+    * **integer (tiny8, small16, int32, bigint64)**
+        * Gemodelleerd als `integer` met `exclusiveMaximum` en negatief `minimum` van `2^(bits-1)`.<br /> `{"type":"integer", "exclusiveMaximum": 128, "minimum": 128}`
+       * Unsigned integers kunnen een `minimum` van 0 opgeven en `exclusiveMaximum` van `2^bits`<br /> `{"type":"integer", "exclusiveMaximum": 256, "minimum": 0}`
+       * Bij ontbreken van een maximum/minimum wordt een bigint64 gebruikt.
+       * Maximum-/minimumwaardes van meer dan ±2^53-1 (15 decimalen) leveren een waarschuwing op m.b.t. mogelijk inaccurate encodering in JSON.
+       * Unsigned bigint64 wordt niet ondersteund.
+    * **decimal**
+        * Gemodelleerd als `number` met een `multipleOf` van `0.1^schaal`.<br /> `{"type":"number", "multipleOf": 0.01}`
+        * Optionele precisie wordt meegeven via de `maximum` van `10^(precisie-schaal)-1`<br /> e.g. een precisie van 7 bij een schaal van 2 geeft een maximum van `99999`)<br /> `{"type":"number", "multipleOf": 0.01, "maximum": 99999}`
+        * Maximum-/minimumwaardes van meer dan 15 decimalen (±2^53-1) leveren een waarschuwing op m.b.t. mogelijk inaccurate encodering in JSON.
+    * **floating point (half, float, double)**
+       * Gemodelleerd als `number` zonder opgave van `multipleOf`. Opslag gebeurt altijd in double formaat. Half en float kan als annotatie op de `provenance` meegenomen worden.
+       * `dataset: {"provenance": {..., "type": "elasticsearch"}`<br /> `column: {"provenance": {..., "type":"half_float"}`
+    * boolean
+       * Gemodelleerd als `boolean` type.
+    * enum (maximaal 1024 waarden)
+       * Gemodelleerd als een `string` type met `enum` voor de toegestane waardes.
+      * `{"type": "string", "enum": ["rood", "geel", "groen"]}`
+    * text (char, varchar, string)
+      * Gemodelleerd als  `string`<br /> `{"type":"string"}`
+      * Varchar heeft een `maxLength` attribuut<br /> `{"type":"string", "maxLength": 10}`
+      * Char heeft ook een `minLength` attribuut met de gelijke waarde<br /> `{"type":"string", "maxLength": 10, "minLength": 10}`
+    * binary (variable of fixed length)
+      * Gemodelleerd als `string` met `contentEncoding` van type `base64`<br /> `{"type":"string", "contentEncoding": "base64"}`
+      * Fixed length binary kan deels enforced worden via een `maxLength` van via de formule `4*ceil(bytes/3)` en kan meegenomen in de provenance.
+    * Tijd
+        * date (day within calendar)
+            * Gemodelleerd als string met [`date` format](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times)<br /> `{"type":"string", "format": "date"}` ⇒ `"2020-02-20"`
+         * time (time within day, microseconde precisie)
+             * Gemodelleerd als string met [`time` format](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times). Precisie boven de microseconde wordt afgekapt.<br /> `{"type":"string", "format": "time"}` ⇒ `"12:00:00"` of `"12:00:00.000000"`
+         * timestamp (moment in time, microseconde precisie, UTC)
+             * Te modelleren als string met [`date-time` format](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times).<br /> Precisie boven de microseconde wordt afgekapt.<br /> Bij voorkeur wordt gewerkt met een opgegeven tijdszone. Wanneer er geen tijdszone wordt opgegeven levert dit een data-kwaliteit waarschuwing op.<br /> `{"type":"string", "format": "date-time"}` ⇒ `"2020-02-20T12:00:00+01:00"`, `"2020-02-20T12:00:00.000000+01:00"` of `"2020-02-20T12:00:00"`
+             * Te modelleren als string met `date-time` format.<br /> Precisie boven de microseconde wordt afgekapt.<br /> De tijdszone kan weggelaten wanneer deze in de metadata van het veld opgenomen is.<br /> `{"type":"string", "format": "date"}`
+         * interval (maanden, dagen en milliseconden)
+             * Te modelleren als string met een format volgens het [ISO8601 Durations formaat](https://en.wikipedia.org/wiki/ISO_8601#Durations).<br /> Eventueel te valideren via een complexe [[reguliere expressie](https://regex101.com/r/RltxfI/1).
+    * Geometrie (Point, Polygoon, Line String, Multi Point, Multi LineString, Multi Polygon)
+        * Gemodelleerd als GeoJson Schema's Geometry type `"$ref": "https://geojson.org/schema/Geometry.json"` of in context: `"geometry": { "$ref": "https://geojson.org/schema/Geometry.json", "description": "Geografische locatie"}`
+    * Een kolom kan van de logische types zijn:
+        * array (lijst van waardes met mogelijke duplicatie)
+            * Gemodelleerd als List validation met gespecificeerd item type.<br /> `{"type": "array", "items": {"type": "number"}}`
+            * Tuple validatie wordt niet ondersteunt aangezien dit in veel doelrepresentaties een union semantiek vereist. Elk tuple element kan wel een eigen veld gegeven worden.
+        * struct (klasse met gedefinieerde velden en types)
+            * Gemodelleerd als object met typed properties en geen additionele properties<br /> `{"type": "object", "properties": {"count": { "type": "number" }}, "additionalProperties": false}`
+    * Een logisch type kan zelf ook weer een ander logisch type bevatten (e.g. array van structs)<br /> `{"type": "array", "items": {"type": "object", "properties": {"name": { "type": "string" }}, "additionalProperties": false}}`
+    * Een kolom heeft __geen__ UNION semantiek dus kan __niet__ meerdere types waardes te bevatten; behalve null.
+        * Elk veld is nullable tenzij het als `required` property is opgegeven.<br /> `{"type": "object", "properties": {"name": { "type": "string" }}, "required": ["name"], "additionalProperties": false}`
+        * De anyOf operater is dus **niet** toegestaan<br /> <del>`{"anyOf": [{ "type": "integer" }, { "type": "string"}]}`</del>
+    * Arbitrair-geneste data kan alleen, ongeindexeerd, worden opgeslagen als JSON string.
+        * Gemodelleerd als object type zonder type definitie<br /> `{"type": "object"}`
+        * Dit is een **fallback** type en het gebruik hiervan dient waar mogelijk voorkomen te worden.
+        * Gebruik voor bijvoorbeeld een config/properties veld (string keys naar string values) is een voorbeeld van acceptabel gebruik.
+
+Relatering (veld) {#relatering}
+-------------------------------
+
+Gegevens zijn vaak te relateren aan andere informatie. Zo kan een afvalcontainer gekoppeld worden aan een lokatie; maar kan een lokatie ook weer gekoppeld worden aan bijv. een wijk of buurt of ander gebied.
+
+Deze relatering gebeurt altijd op basis van een veld dat de identifier van de andere resource bevat (vergelijkbaar met een foreign key in SQL parlance.)
+
+Wij dwingen geen referentiele integriteit af tussen datasets dus het kan zijn dat relaties naar niet (meer) bestaande entiteiten verwijzen.
+
+Om dit te kunnen koppelen wordt een veld geannoteerd met een relatie omschrijving. Dit kan gebeuren op een string of integer identifier veld; maar ook op een array van identifiers voor many-to-many N:M relaties
+
+Relaties worden gedefinieerd op basis van een URI/URN naar de relevante tabel in een dataset.
+
+`"relation": "bag:pand"`
+
+Voor een enkelvoudige relatie zou dit er als volgt uit zien:
+
+`"hoortBijMeetbout": { "type": "string", "relation": "meetbouten:meetbouten" }`
+
+en voor een meervoudige relatie als:
+
+```
+"refereertAanReferentiepunten": {
+  "type": "array",
+  "relation": "meetbouten:referentiepunten",
+  "items": {
+    "type": "string"
+  }
+}
+```
+
+Temporele referenties worden gedefinieerd als een verwijzing naar zowel de resource identifier als de temporele identifier; bijvoorbeeld:
+
+```
+"ligtInWijk": { 
+  "type": "object", 
+  "relation": "gebieden:wijken",
+  "properties": {
+    "identifier": {
+      "type": "string"
+    },
+    "volgnummer": {
+      "type": "string"
+    }
+  }
+}
+```
+
+Het is belangrijk om op te merken dat dit __geen__ versie van het schema definieert aangezien de koppeling niet zou moeten veranderen n.a.v. schema wijzigingen (elke dataset heeft altijd één unieke identifier waar aan gekoppeld wordt.)
+
+Indien het gewenst is om een inverse relatie op te nemen de weergave van de resource kan dit als volgt weergegeven worden:
+
+```
+"additionalRelations": {
+  "nummeraanduiding": { 
+    "format": "embedded", 
+    "table": "verblijfsobject",
+    "field": "nummeraanduiding"
+  }
+}
+```
+
+
+Eenheden (veld) {#eenheden}
+---------------------------
+
+Op het niveau van individuele velden is het gewenst om de eenheid te modelleren.
+
+Voor het definieren van eenheden gebruiken wij, by default, een string met een eenheid definitie volgens de [UCUM standaard](https://unitsofmeasure.org/ucum.html).
+
+`"unit": "mm/h"`
+
+UCUM heeft geen expliciete ondersteuning voor valuta dus gebruiken we unit annotaties ([ISO 4217 code](https://unitsofmeasure.org/ucum.html|UCUM 2.1§6]]) om valuta te encoderen op basis van hun drie-letterige [[https://en.wikipedia.org/wiki/ISO_4217):
+
+`"unit": "{EUR}/h"`
+
+Het eenhedensysteem kan ook expliciet meegegeven worden door het op te slaan als `object`:
+
+`"unit": {"type": "ucum", "value": "{EUR}/h"}`
+
+Andere system kunnen daardoor ook aangegeven worden:
+
+`"unit": {"type": "pint", "value": "meter"}`
+
+Custom unit systemen zullen echter conversie bemoeilijken en worden derhalve afgeraden door middel van een data-kwaliteits waarschuwing.
+
+Autorisatie (dataset, tabel, veld) {#authorisatie}
+--------------------------------------------------
+
+Autorisatie kan gedefinieerd worden op dataset-, tabel- en veld-niveau.
+
+Er zijn drie bestaande rol-aliassen gedefinieerd: `publiek`, `medewerker` en `medewerker-plus`. Deze zullen in de toekomst overgaan op Active Directory groepen zodra mogelijk.
+
+Op elk niveau kan aangegeven worden wat het hoogste niveau is dat toegang dient te hebben tot alle data op dat niveau en onderliggende niveau's.
+
+Dat wil zeggen dat wanneer bijvoorbeeld de dataset als publiek gekenmerkt is (
+`"autorisatie": "publiek"`) dan zijn per definitie alle tabellen en velden ook publiek beschikbaar.
+
+Indien slechts één tabel publiek is dan wordt de dataset gekenmerkt als bijv. `"autorisatie": "medewerker"` en de publieke tabel als `"autorisatie": "publiek"`.
+
+Zo ook dient een tabel met slechts deels publieke gegevens als `"autorisatie": "medewerker"` gemarkeerd te worden en alle publieke velden d.m.v. `"autorisatie": "publiek"` als publiek gemarkeerd.
+
+Het is ook mogelijk meerdere rollen op te geven in de vorm van een array als `"autorisatie": ["ruimte", "basisinformatie"]`.
+
+Dit zal in de huidige rollenstructuur echter niet nodig zijn aangezien `medewerker` ook `publiek` als rol bevat en `medewerker-plus` ook `medewerker` en `publiek`. Derhalve kan de _huidige_ rollenstructuur altijd zonder array's gemodelleerd worden.
+
+Naar de toekomst toe kan autorisatie uitgebreid worden d.m.v. een object met extra informatie t.b.v. bijvoorbeeld row level security; naar mate dit ondersteund kan worden door de relevante doelrepresentaties.
+
+Provenance (dataset, tabel, veld) {#provenance}
+-----------------------------------------------
+
+Provenance als veld wordt gebruikt om programmatisch informatie op te slaan over de oorsprong van bepaalde data.
+
+In beperkte vorm kan provenance ook gebruikt worden om automatisch verwerking van brongegevens in andere formaten te bewerkstelligen.
+
+Provenance is beschikbaar op zowel dataset-, tabel- als veld-niveau. Het is een vrij veld maar door een object met 'type' te specificeren kunnen specifieke machine readable profielen geactiveerd worden t.b.v. automatische bronverwerking
+
+### Vrije invoer ### {#provenance-vrije-invoer}
+
+Dataset: `"provenance": "Deze dataset wordt handmatig verwerkt door ..."`
+
+Tabel: `"provenance": "Deze tabel is gebaseerd op een CSV bestand aangeleverd door ..."`
+
+Veld: `"provenance": "Ontbrekende IDs zijn m.b.v TextEdit vervangen door UUID hashes van de naam in UTF-8."`
+
+### Postgres ### {#provenance-postgres}
+
+Dataset: `"provenance": { "type": "postgres", "schema": "ruimte" }`
+
+Tabel: `"provenance": { "table": "verhardingen" }`
+
+Veld: `"provenance": { "field": "lengte_m", "type": "NUMERIC(10,2)"}`
+
+### Shapefile ### {#provenance-shapefile}
+
+Dataset: `"provenance": { "type": "shapefile"}`
+
+Tabel: `"provenance": { "file": "asbestdaken_daken.zip" }`
+
+Veld: `"provenance": { "field": "perceel_id"}`
+
+Naamgeving {#naamgeving}
+------------------------
+
+Voor de naamgeving van de velden wordt de camelCase notatie gebruikt. Op implementatie-niveau (bijv. Postgres) wordt
+dit omgezet in snake_case notatie als de meest natuurlijke manier van noteren.
+
+Gebruik duidelijke en begrijpelijke namen voor zowel datasets, tabellen als velden. Het gaat hierbij tenslotte om het beschikbaar
+stellen van data in de vorm van een publieke API die afnemers liefst zonder al te veel extra uitleg moeten kunnen gebruiken.
+
+Een paar vuistregels:
+
+* gebruik camelCase namen
+* gebruik geen ALL_UPPERCASE namen
+* gebruik volledige namen (geen afbrekingen en afkortingen)
+* herhaal de tabelnaam niet in de namen van de velden (dus *niet* container.containerNummmer, maar container.nummer)
+
