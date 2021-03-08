@@ -8,7 +8,8 @@
   "auth": "HR/R",
   "tables": [
     {
-      "id": "maatschappelijkeActiviteiten",
+      "id": "maatschappelijkeactiviteiten",
+      "shortname": "activiteiten",
       "type": "table",
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/hr/maatschappelijke_activiteiten.json",
@@ -114,6 +115,7 @@
             "description": "De vestiging die als hoofdvestiging wordt gebruikt."
           },
           "heeftSbiActiviteitenVoorMaatschappelijkeActiviteit": {
+            "shortname": "sbiMaatschappelijk",
             "type": "array",
             "items": {
               "type": "object",
@@ -163,6 +165,7 @@
             "description": "Het aantal deeltijd (kleiner of gelijk aan 15 uur per week) werkzame personen bij de onderneming"
           },
           "heeftSbiActiviteitenVoorOnderneming": {
+            "shortname": "sbiOnderneming",
             "type": "array",
             "items": {
               "type": "object",
@@ -202,6 +205,7 @@
             "description": "Een vestiging is gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een Onderneming of Rechtspersoon plaatsvindt."
           },
           "handeltOnderHandelsnamen": {
+            "shortname": "handelsnamen",
             "type": "array",
             "items": {
               "type": "object",
@@ -210,7 +214,7 @@
                   "type": "integer"
                 },
                 "omschrijving": {
-                  "type": "integer"
+                  "type": "string"
                 },
                 "tijdstipRegistratie": {
                   "type": "string",
