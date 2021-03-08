@@ -60,14 +60,21 @@ def fetch_repo_root():
     return Path(__file__).resolve().parents[1]
 
 
-def fetch_local_as_publishable(repo_root):
+def fetch_local_as_publishable(repo_root, temp_dir):
     repo_root_name = repo_root.name
+
     publishable_paths = []
-    for subdir in repo_root.iterdir():
+    temp_dir_path = Path(temp_dir)
+    temp_repo_path = temp_dir_path / repo_root_name
+
+    # Copy entire repo to temp_dir, because we want to modify schema_base_url in place
+    shutil.copytree(repo_root, temp_repo_path, dirs_exist_ok=True)
+
+    for subdir in temp_repo_path.iterdir():
         if subdir.is_dir() and subdir.name.startswith(publishable_prefixes):
             for dirpath, dirnames, filenames in os.walk(subdir):
                 if filenames:
-                    subpath = list(Path(dirpath).relative_to(repo_root).parts)
+                    subpath = list(Path(dirpath).relative_to(temp_repo_path).parts)
                     publishable_paths.extend(
                         [[repo_root_name] + subpath + [fn] for fn in filenames]
                     )
@@ -87,10 +94,10 @@ def get_index_file_obj(publishable_paths):
 
 
 def create_object_name(path_parts):
-    """ We need some path mangling and move objects from version directories
-        to the root with an @vx.y.z postfix, e.g.:
-            schema@v1.1.1/row-meta-schema -> row-meta-schema@v1.1.1
-            schema@v1.1.1/meta/auth -> meta/auth@v1.1.1
+    """We need some path mangling and move objects from version directories
+    to the root with an @vx.y.z postfix, e.g.:
+        schema@v1.1.1/row-meta-schema -> row-meta-schema@v1.1.1
+        schema@v1.1.1/meta/auth -> meta/auth@v1.1.1
     """
     parts = path_parts[:]
     # Always remove json extension
@@ -104,9 +111,9 @@ def create_object_name(path_parts):
 
 
 def replace_schema_base_url(temp_dir, schema_base_url):
-    """ Do a replacement of the schema_base_url, needed to
-        valdidate schemas when served from another base url,
-        e.g. for testing
+    """Do a replacement of the schema_base_url, needed to
+    valdidate schemas when served from another base url,
+    e.g. for testing
     """
     for root, dirs, file_names in os.walk(temp_dir):
         root_path = Path(root)
@@ -147,12 +154,11 @@ def main(dp_env, github_url, schema_base_url, use_local):
     # We extract the zip, because otherwise we need a big set
     # of open file handles during upload, now we can use file-paths
     with TemporaryDirectory() as temp_dir:
+        files_root = Path(temp_dir)
         if use_local:
             repo_root = fetch_repo_root()
-            files_root = repo_root.parent
-            publishable_paths = fetch_local_as_publishable(repo_root)
+            publishable_paths = fetch_local_as_publishable(repo_root, temp_dir)
         else:
-            files_root = Path(temp_dir)
             publishable_paths = extract_and_fetch_paths(github_url, temp_dir)
 
         if schema_base_url is not None:

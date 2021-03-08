@@ -4,7 +4,7 @@
   "definitions": {
     "rootProperty": {
       "type": "object",
-      "additionalProperties": true,
+      "additionalProperties": false,
       "properties": {
         "auth": {
           "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/auth"
@@ -12,6 +12,59 @@
 
         "description": {
           "type": "string"
+        },
+
+        "type": {
+          "type": "string"
+        },
+
+        "$comment": {
+          "type": "string"
+        },
+
+        "$ref": {
+          "type": "string",
+          "format": "uri"
+        },
+
+        "shortname": {
+          "type": "string"
+        },
+
+        "items": {
+          "type": "object"
+        },
+
+        "maximum": {
+          "type": "number"
+        },
+
+        "minimum": {
+          "type": "number"
+        },
+
+        "exclusiveMaximum": {
+          "type": "integer"
+        },
+
+        "multipeOf": {
+          "type": "number"
+        },
+
+        "minLength": {
+          "type": "integer"
+        },
+
+        "maxLength": {
+          "type": "integer"
+        },
+
+        "contentEncoding": {
+          "type": "string"
+        },
+
+        "properties": {
+          "type": "object"
         },
 
         "enum": {
@@ -80,14 +133,7 @@
       "allOf": [
         {
           "type": "array",
-          "minItems": 2,
-          "contains": {
-            "const": "id"
-          }
-        },
-        {
-          "type": "array",
-          "minItems": 2,
+          "minItems": 1,
           "contains": {
             "const": "schema"
           }
@@ -97,11 +143,17 @@
     "display": {
       "type": "string"
     },
+    "additionalRelations": {
+      "type": "object"
+    },
+    "isTemporal": {
+      "type": "boolean"
+    },
     "mainGeometry": {
       "type": "string"
     },
     "identifier": {
-      "type": "string"
+      "type": ["array", "string"]
     },
     "properties": {
       "type": "object",
