@@ -1,0 +1,242 @@
+{
+    "type": "dataset",
+    "id": "deelmobiliteit",
+    "title": "Deelmobiliteit",
+    "description": "Locaties en contextuele informatie over deelvoertuigen zoals auto’s, fietsen en scooters.",
+    "license": "public",
+    "status": "beschikbaar",
+    "version": "0.0.1",
+    "theme": [
+      "deelmobiliteit",
+      "Ruimte en Topografie"
+    ],
+    "publisher": "OIS",
+    "owner": "Gemeente Amsterdam",
+    "authorizationGrantor": "OIS",
+    "keywords": [
+      "deelmobiliteit"
+    ],
+    "crs": "EPSG:28992",
+    "tables": [
+      {
+        "id": "scooters",
+        "title": "Scooters",
+        "type": "table",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "schema",
+            "id",
+            "scooterId"
+          ],
+          "display": "scooterId",
+          "mainGeometry": "geometrie",
+          "properties": {
+            "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            },
+            "id": {
+              "type": "integer",
+              "description": "Unieke aanduiding van het record. Hash waarde op basis van scooterId en datumtijdOntvangen (peilmoment)"
+            },
+            "geometrie": {
+              "$ref": "https://geojson.org/schema/Point.json",
+              "description": "Punt definitie van locatie scooter."
+            },
+            "scooterId": {
+              "type": "string",
+              "description": "Bron identifictie code voor een scooter."
+            },
+            "datumtijdOntvangen": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Peilmoment data record."
+            },
+            "exploitant": {
+              "type": "string",
+              "description": "Naam van exploitant scooter."
+            },
+            "statusMotor": {
+              "type": "boolean",
+              "description": "Indicatie of scooter aan- of uitstaat."
+            },
+            "statusBeschikbaar": {
+              "type": "boolean",
+              "description": "Indicatie of scooter wel of niet beschikbaar is (bezet of gereserveerd)."
+            },
+            "naam": {
+              "type": "string",
+              "description": "Optioneel: naam scooter zoals aanwezig in bron."
+            },
+            "maxSnelheid": {
+              "type": "integer",
+              "description": "Optioneel: maximale snelheid scooter."
+            },
+            "huidigeLocatie": {
+              "type": "string",
+              "description": "Optioneel: adres peillocatie scooter."
+            },
+            "kenteken": {
+              "type": "string",
+              "description": "Optioneel: kenteken scooter."
+            },
+            "helmVerplicht": {
+              "type": "boolean",
+              "description": "Optioneel: indicatie verplichting gebruik helm bij scooter."
+            },
+            "helmAantalAanwezig": {
+              "type": "integer",
+              "description": "Optioneel: aantal helmen bij scooter."
+            },
+            "tariefStart": {
+              "type": "number",
+              "description": "Optioneel: starttarief gebruik scooter."
+            },
+            "tariefGebruik": {
+              "type": "number",
+              "description": "Optioneel: gebruikstarief scooter."
+            },
+            "tariefParkeren": {
+              "type": "number",
+              "description": "Optioneel: parkeertarief scooter."
+            }
+          }
+        }
+      },
+      {
+        "id": "autos",
+        "title": "Autos",
+        "type": "table",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "schema",
+            "id",
+            "autoId"
+          ],
+          "display": "autoId",
+          "mainGeometry": "geometrie",
+          "properties": {
+            "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            },
+            "id": {
+              "type": "integer",
+              "description": "Unieke aanduiding van het record. Hash waarde op basis van scooterId en datumtijdOntvangen (peilmoment)"
+            },
+            "geometrie": {
+              "$ref": "https://geojson.org/schema/Point.json",
+              "description": "Punt definitie van locatie auto."
+            },
+            "autoId": {
+              "type": "string",
+              "description": "Bron identifictie code voor een auto."
+            },
+            "datumtijdOntvangen": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Peilmoment data record."
+            },
+            "exploitant": {
+              "type": "string",
+              "description": "Naam van exploitant auto."
+            },
+            "statusBeschikbaar": {
+              "type": "boolean",
+              "description": "Indicatie of auto wel of niet beschikbaar is (bezet of gereserveerd)."
+            },
+            "statusBeschikbaarVan": {
+              "type": "string",
+              "description": "Optioneel: Moment beschikbaar start."
+            },
+            "statusBeschikbaarTot": {
+              "type": "string",
+              "description": "Optioneel: Moment beschikbaar tot."
+            },
+            "naam": {
+              "type": "string",
+              "description": "Optioneel: naam auto zoals aanwezig in bron."
+            },
+            "status_opladen": {
+              "type": "boolean",
+              "description": "Optioneel: indicatie aan het opladen."
+            },
+            "huidigeLocatie": {
+              "type": "string",
+              "description": "Optioneel: adres peillocatie auto."
+            },
+            "kenteken": {
+              "type": "string",
+              "description": "Optioneel: kenteken auto."
+            },
+            "merk": {
+              "type": "string",
+              "description": "Optioneel: merk auto."
+            },
+            "model": {
+              "type": "string",
+              "description": "Optioneel: model auto."
+            },
+            "kleur": {
+              "type": "string",
+              "description": "Optioneel: kleur auto."
+            },
+            "opmerking": {
+              "type": "string",
+              "description": "Optioneel: opmerking over auto."
+            },
+            "brandstofType": {
+              "type": "string",
+              "enum": ["bezine", "elektrisch"],
+              "description": "Optioneel: type brandstof."
+            },
+            "brandstofNiveau": {
+              "type": "integer",
+              "description": "Optioneel: hoeveelheid brandstof aanwezig."
+            },
+            "bereik": {
+              "type": "integer",
+              "description": "Optioneel: bereik auto op volle tank."
+            },
+            "indicatieAutomaat": {
+              "type": "boolean",
+              "description": "Optioneel: indicatie automaat versnellingsbak."
+            },
+            "indicatieWinterbanden": {
+              "type": "boolean",
+              "description": "Optioneel: indicatie voorzien van winterbanden."
+            },
+            "typeSlot": {
+              "type": "string",
+              "description": "Optioneel: soort slot om auto te openen en dicht te doen."
+            },
+            "aantalPersonen": {
+              "type": "integer",
+              "description": "Optioneel: maximaal aantal personen die kunnen plaatsnemen in de auto."
+            },
+            "tariefGebruikUur": {
+              "type": "number",
+              "description": "Optioneel: gebruikstarief per uur."
+            },
+            "tariefGebruikKilometer": {
+              "type": "number",
+              "description": "Optioneel: gebruikstarief per kilometer."
+            },
+            "tariefGebruikDag": {
+              "type": "number",
+              "description": "Optioneel: dagtarief."
+            },
+            "afbeelding": {
+              "type": "string",
+              "format": "uri",
+              "description": "Optioneel: afbeelding van auto."
+            }
+          }
+        }
+      }
+    ]
+  }
