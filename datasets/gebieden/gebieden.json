@@ -477,13 +477,9 @@
             "description": "De unieke aanduiding van het brondocument op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden."
           },
           "ligtInGemeente": {
-            "type": "object",
-            "properties": {
-                "identificatie": {
-                "type": "string"
-            }
-          },
+            "type": "string",
             "relation": "brk:gemeentes",
+            "provenance": "$.ligtInGemeente.identificatie",
             "description": "De gemeente waar het stadsdeel in ligt."
           },
           "geometrie": {
@@ -500,11 +496,7 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "schema",
-          "id",
-          "geometrie"
-        ],
+        "required": ["schema", "id", "geometrie"],
         "display": "id",
         "isTemporal": false,
         "properties": {
