@@ -610,13 +610,9 @@
             "description": ""
           },
           "vanKadastraalsubject": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              }
-            },
+            "type": "string",
             "relation": "brk:kadastralesubjecten",
+            "provenance": "$.vanKadastraalsubject.identificatie",
             "description": "Het Subject waarvoor deze tenaamstelling geldt."
           },
           "beginGeldigheid": {
@@ -1139,13 +1135,9 @@
             "description": "Een alfanumerieke aanduiding van de kadastrale sectie, deel van de kadastrale aanduiding van de onroerende zaak."
           },
           "isOnderdeelVanKadastralegemeentecode": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              }
-            },
+            "type": "string",
             "relation": "brk:kadastralegemeentecodes",
+            "provenance": "$.isOnderdeelVanKadastralegemeentecode.identificatie",
             "description": "Een alfanumerieke aanduiding van de kadastrale gemeentecode, deel van de kadastrale aanduiding van de onroerende zaak. (bv. ASD02)."
           },
           "geometrie": {
@@ -1177,13 +1169,9 @@
             "description": "De unieke aanduiding van een Kadastrale gemeentecode."
           },
           "isOnderdeelVanKadastralegemeente": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              }
-            },
+            "type": "string",
             "relation": "brk:kadastralegemeentes",
+            "provenance": "$.isOnderdeelVanKadastralegemeente.identificatie",
             "description": "De kadastrale gemeente waar de kadastrale gemeentecode onderdeel van is (bv. Sloten)."
           },
           "geometrie": {
@@ -1215,13 +1203,9 @@
             "description": "De unieke aanduiding van een Kadastrale gemeente."
           },
           "ligtInGemeente": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              }
-            },
+            "type": "string",
             "relation": "brk:gemeentes",
+            "provenance": "$.ligtInGemeente.identificatie",
             "description": "De burgelijke gemeente waarin de kadastrale gemeente ligt."
           },
           "geometrie": {
