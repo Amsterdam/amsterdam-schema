@@ -87,9 +87,10 @@ def get_index_file_obj(publishable_paths):
     for path_parts in publishable_paths:
         if path_parts[1] != "datasets":
             continue
-        folder, dataset_ext = path_parts[2:]
+        dataset_ext = path_parts[-1]
+        folder = "/".join(path_parts[2:-1])
         dataset = splitext(dataset_ext)[0]
-        index[folder] = f"{folder}/{dataset}"
+        index[dataset] = f"{folder}/{dataset}"
     return BytesIO(json.dumps(index).encode("utf-8"))
 
 
