@@ -867,7 +867,7 @@
       "description": "Planningsgegevens van afvalinzamelingsvoertuigen voor huishoudelijk- en bedrijfsafval",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",        
+        "type": "object",
         "additionalProperties": false,
         "required": ["id", "schema"],
         "display": "id",
@@ -973,6 +973,11 @@
             "format": "date-time",
             "description": "Datum waarop de werkzaamheden zijn gepland."
           },
+          "werkzaamhedenDatumRef": {
+            "type": "integer",
+            "relation": "kalenderreferentie:datum",
+            "description": "Verwijzing naar datum dimensie."
+          },
           "werkzaamhedenStarttijd": {
             "type": "string",
             "description": "Starttijd van de werkzaamheden op de WERKZAAMHEDEN_DATUM"
@@ -1011,6 +1016,12 @@
           "team": {
             "type": "string",
             "description": "Team waarvoor de voertuigplanning is gemaakt. In veel gevallen een stadsdeel, maar kan ook bijvoorbeeld Bedrijfsafval Centrum (BAC) zijn)."
+          },
+          "voertuigInhuurIndicatie": {
+            "type": "string",
+            "enum": ["Ja", "Nee"],
+            "provenance": "inhuur",
+            "description": "Is het voertuig ingehuurd (Ja / Nee)."
           },
           "aantalMedewerkers": {
             "type": "number",
