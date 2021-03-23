@@ -264,7 +264,7 @@ Veld: `"provenance": { "field": "perceel_id"}`
 Naamgeving {#naamgeving}
 ------------------------
 
-Voor de naamgeving van de velden wordt de camelCase notatie gebruikt. Op implementatie-niveau (bijv. Postgres) wordt
+Voor de naamgeving van de velden wordt de camelCase notatie gebruikt. Op implementatie-niveau (bijv. PostgreSQL) wordt
 dit omgezet in snake_case notatie als de meest natuurlijke manier van noteren.
 
 Gebruik duidelijke en begrijpelijke namen voor zowel datasets, tabellen als velden. Het gaat hierbij tenslotte om het beschikbaar
@@ -277,3 +277,28 @@ Een paar vuistregels:
 * gebruik volledige namen (geen afbrekingen en afkortingen)
 * herhaal de tabelnaam niet in de namen van de velden (dus *niet* container.containerNummmer, maar container.nummer)
 
+Als de namen in het schema te lang worden, kan dit praktische problemen geven bij het aanmaken van tabellen en kolommen
+op basis van het schema. PostgreSQL staat bijvoorbeeld niet meer dan 63 karakters toe voor tabelnamen.
+Het is mogelijk om een alternatieve verkorte naam op te geven voor tabellen en velden met het attribuut `shortname`.
+
+Bijvoorbeeld voor een tabel:
+
+```
+{
+  "id": "maatschappelijkeactiviteiten",
+  "shortname": "activiteiten",
+  "type": "table"
+}
+
+```
+
+Of voor een veld:
+
+```
+    "registratieTijdstipMaatschappelijkeActiviteit": {
+    "shortname": "registratieTijdstip",
+    "type": "string",
+    "format": "date-time"
+}
+
+```
