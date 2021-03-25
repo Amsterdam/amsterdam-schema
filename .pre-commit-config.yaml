@@ -3,10 +3,17 @@
 # Running "make format" fixes most issues for you
 repos:
   - repo: https://github.com/ambv/black
-    rev: stable
+    rev: 20.8b1
     hooks:
       - id: black
         #language_version: python3.8
+  - repo: https://github.com/Amsterdam/schema-tools
+    rev: v0.18.2
+    hooks:
+      - id: validate-schema
+        args: ['https://schemas.data.amsterdam.nl/schema@v1.1.1#']
+        exclude: 'datasets/index.json$'
+
   # - repo: https://github.com/pre-commit/pre-commit-hooks
   #   rev: v2.2.3
   #   hooks:
