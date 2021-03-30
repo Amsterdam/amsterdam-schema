@@ -1114,7 +1114,7 @@
             "format": "date-time",
             "description": "Datum waarop de werkzaamheden zijn gepland."
           },
-           "werkzaamhedenDatumRef": {
+          "werkzaamhedenDatumRef": {
             "type": "integer",
             "relation": "referentiekalender:datum",
             "description": "Verwijzing naar datum dimensie."
@@ -1157,6 +1157,12 @@
           "team": {
             "type": "string",
             "description": "Team waarvoor de voertuigplanning is gemaakt. In veel gevallen een stadsdeel, maar kan ook bijvoorbeeld Bedrijfsafval Centrum (BAC) zijn)."
+          },
+          "voertuigInhuurIndicatie": {
+            "type": "string",
+            "enum": ["Ja", "Nee"],
+            "provenance": "inhuur",
+            "description": "Is het voertuig ingehuurd (Ja / Nee)."
           },
           "aantalMedewerkers": {
             "type": "number",
