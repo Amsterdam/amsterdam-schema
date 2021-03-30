@@ -185,7 +185,75 @@
             "relation": "bag:nummeraanduidingen",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
             "description": "Identificatie nummeraanduiding"
-          }
+          },
+          "containerRalKleurNaam": {
+            "provenance": "container_ral_kleur_naam",
+            "type": "string",
+            "description": "De naam van de ralkelur"
+          },
+          "containerRalKleurCode": {
+            "provenance": "container_ral_kleur_code",
+            "type": "string",
+            "description": "De internationale ralkleurcode."
+          },
+          "containerRalKleurHexcode": {
+            "provenance": "container_ral_kleur_hexcode",
+            "type": "string",
+            "description": "De hexcode van de ralkleur."
+          },
+          "containerChipNummber": {
+            "provenance": "container_chip_nummer",
+            "type": "string",
+            "description": "Het identificatienummer van de chip die registreert wanneer de container wordt geleegd."
+          },
+          "containerUnitCardLezerId": {
+            "provenance": "container_unit_card_lezer_id",
+            "type": "string",
+            "description": "Het identificatienummer van de kaartlezer."
+          },
+          "containerKleur": {
+            "provenance": "container_kleur",
+            "type": "string",
+            "description": "De naam van de kleur"
+          },
+          "containerMark": {
+            "provenance": "container_mark",
+            "type": "integer",
+            "description": ""
+          },
+          "containerDatumVervanging": {
+            "provenance": "container_datum_vervanging",
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop de container wordt vervangen."
+          },
+          "containerDatumWijziging": {
+            "provenance": "container_datum_wijziging",
+            "type": "string",
+            "format": "date-time",
+            "description": "Datum waarop de container is gewijzigd."
+          },
+          "containerEndOfLife": {
+            "provenance": "container_end_of_life",
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop het object het einde van zijn levenscyclus heeft bereikt."
+          },
+          "containerEigenaarschap": {
+            "provenance": "container_eigenaarschap",
+            "type": "string",
+            "description": "De soort eigenaarschap van het oject."
+          },
+          "containerEigenaarschapOpmerking": {
+            "provenance": "container_eigenaarschap_opmerking",
+            "type": "string",
+            "description": "Beschrijving van  het type de eigenaarschap."
+          },
+          "containerOpmerking": {
+            "provenance": "container_opmerking",
+            "type": "string",
+            "description": "Opmerking over het object door de betrokken medewerker."
+          }     
         }
       }
     },
@@ -299,6 +367,53 @@
             "relation": "bag:nummeraanduidingen",
             "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
             "description": "Identificatie nummeraanduiding"
+          },
+          "containerlocatieTypeNaam": {
+            "type": "string",
+            "provenance": "containerlocatie_type_naam",
+            "description": "Het type van de containerlocatie"
+          },
+          "containerlocatieIdNummer": {
+            "type": "string",
+            "provenance": "containerlocatie_id_number",
+            "description": "Serienummer dat door de fabrikant aan het object is gegeven."
+          },
+          "containerlocatieDatumWijziging": {
+            "type": "string",
+            "format": "date-time",
+            "provenance": "containerlocatie_datum_wijziging",
+            "description": "Datum waarop het object is gewijzigd."
+          },
+          "containerlocatieOpmerking": {
+            "type": "string",
+            "provenance": "containerlocatie_opmerking",
+            "description": "Opmerking over het object."
+          },
+          "containerlocatieEndOfLife": {
+            "type": "string",
+            "format": "date",
+            "provenance": "containerlocatie_end_of_life",
+            "description": "Datum waarop het object het einde van zijn levenscyclus heeft bereikt."
+          },
+          "containerlocatieEigenaarschap": {
+            "type": "string",
+            "provenance": "containerlocatie_eigenaarschap",
+            "description": "Soort eigenaarschap"
+          },
+          "containerlocatieEigenaarschapOpmerking": {
+            "type": "string",
+            "provenance": "containerlocatie_eigenaarschap_opmerking",
+            "description": "Beschrijving van het type eigenaarschap."
+          },
+          "containerlocatie_containerlocatie_type_artikelcode": {
+            "type": "string",
+            "provenance": "containerlocatie_containerlocatie_type_artikelcode",
+            "description": ""
+          },
+          "containerlocatieTypeArtikelcode": {
+            "type": "string",
+            "provenance": "containerlocatie_type_artikelcode",
+            "description": "Artikelcode van het containerlocatietype."
           }
         }
       }
@@ -444,6 +559,36 @@
             "type": "boolean",
             "provenance": "containertype_verwijderd_dp",
             "description": "Indicatie of het object verwijderd is bij de bronhouder"
+          },
+          "containertypeArtikelcode": {
+            "type": "string",
+            "provenance": "containertype_artikelcode",
+            "description": "Artikelcodevan het het contaiertype."
+          },
+          "containertypeHijskraantypeNaam": {
+            "type": "string",
+            "provenance": "containertype_hijskraantype_naam",
+            "description": "Naam van het type  hijskraantype."
+          },
+          "containertypeHijskraanOpmerking": {
+            "type": "string",
+            "provenance": "containertype_hijskraan_opmerking",
+            "description": "Opmerking over het hijskraantype"
+          },
+          "containertype_ container_type": {
+            "type": "string",
+            "provenance": "containertype_container_type",
+            "description": "Het type van de container type"
+          },
+          "containertypeCompressieContainerInd": {
+            "type": "boolean",
+            "provenance": "containertype_ compressie_container_ind",
+            "description": "Indicatie voor aanwezigheid van compressie instrument."
+          },
+          "containertypeCompressiefactor": {
+            "type": "string",
+            "provenance": "containertype_compressiefactor",
+            "description": "De compressiefactor van compressie instrument"
           }
         }
       }
@@ -857,6 +1002,7 @@
             "type": "boolean",
             "description": "indicatie of het object verwijderd is bij de bronhouder"
           }
+        
         }
       }
     },
@@ -867,7 +1013,7 @@
       "description": "Planningsgegevens van afvalinzamelingsvoertuigen voor huishoudelijk- en bedrijfsafval",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
+        "type": "object",        
         "additionalProperties": false,
         "required": ["id", "schema"],
         "display": "id",
@@ -973,11 +1119,6 @@
             "format": "date-time",
             "description": "Datum waarop de werkzaamheden zijn gepland."
           },
-          "werkzaamhedenDatumRef": {
-            "type": "integer",
-            "relation": "referentiekalender:datum",
-            "description": "Verwijzing naar datum dimensie."
-          },
           "werkzaamhedenStarttijd": {
             "type": "string",
             "description": "Starttijd van de werkzaamheden op de WERKZAAMHEDEN_DATUM"
@@ -1016,12 +1157,6 @@
           "team": {
             "type": "string",
             "description": "Team waarvoor de voertuigplanning is gemaakt. In veel gevallen een stadsdeel, maar kan ook bijvoorbeeld Bedrijfsafval Centrum (BAC) zijn)."
-          },
-          "voertuigInhuurIndicatie": {
-            "type": "string",
-            "enum": ["Ja", "Nee"],
-            "provenance": "inhuur",
-            "description": "Is het voertuig ingehuurd (Ja / Nee)."
           },
           "aantalMedewerkers": {
             "type": "number",
@@ -1064,6 +1199,6 @@
           }
         }
       }
-    }
+    }  
   ]
 }
