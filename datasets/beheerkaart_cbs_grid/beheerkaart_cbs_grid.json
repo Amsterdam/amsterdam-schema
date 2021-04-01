@@ -1,0 +1,119 @@
+{
+  "type": "dataset",
+  "id": "beheerkaart_cbs_grid",
+  "title": "beheerkaart_cbs_grid",
+  "status": "beschikbaar",
+  "description": "Integratie van elementen beheerkaart publieke ruimte en landelijk CBSgrid",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "100",
+      "type": "table",
+      "provenance": "bkt_beheerkaart_cbs_grid_100",
+      "description": "tabel met CBSgrids en percentages publieke ruimte op basis van de beheerkaart basis",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "mainGeometry": "geometrie",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "provenance": "bk_bkt_cbs_grid",
+            "description": "Business-key: unieke aanduiding record.",
+            "type": "string"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Polygon.json",
+            "description": "Vlak-coördinaten van het BKT-CBS-GRID-100-Vlak."
+          },
+          "buurtnaam": {
+            "type": "string",
+            "description": "Naam van buurt die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "buurtcode": {
+            "type": "string",
+            "description": "Code van buurt die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "dominantbuurt": {
+            "type": "string",
+            "description": "Naam van dominante buurt die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "dominantbuurtcode": {
+            "type": "string",
+            "description": "Code van dominante buurt die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "wijknaam": {
+            "type": "string",
+            "description": "Naam van wijk die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "wijkcode": {
+            "type": "string",
+            "description": "Code van wijk die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "dominantwijk": {
+            "type": "string",
+            "description": "Naam van dominante wijk die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "dominantwijkcode": {
+            "type": "string",
+            "description": "Code van dominante wijk die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "stadsdeelnaam": {
+            "type": "string",
+            "description": "Naam van buurt die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "stadsdeelcode": {
+            "type": "string",
+            "description": "Code van stadsdeel die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "dominantstadsdeel": {
+            "type": "string",
+            "description": "Naam van dominante stadsdeel die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "dominantstadsdeelcode": {
+            "type": "string",
+            "description": "Code van dominante stadsdeel die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "ggwGebiedNaam": {
+            "type": "string",
+            "description": "Naam van gebiedsgerichtwerken gebied die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "ggwGebiedCode": {
+            "type": "string",
+            "description": "Code van gebiedsgerichtwerken gebied die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "dominantGgwGebiedNaam": {
+            "type": "string",
+            "description": "Naam van gebiedsgerichtwerken gebied die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "dominantGgwGebiedcode": {
+            "type": "string",
+            "description": "Code van dominant gebiedsgerichtwerken gebied die overlapt met het BKT-CBS-GRID-100-Vlak."
+          },
+          "percentageBlauw": {
+            "type": "number",
+            "description": "Percentage kleur blauw (bgt_waterdeel) binnen het BKT-CBS-GRID-100-Vlak"
+          },
+          "percentageGrijs": {
+            "type": "number",
+            "description": "Percentage kleur grijs (bgt_wegdeel,bgt_ondersteunend_wegdeel) binnen het BKT-CBS-GRID-100-Vlak."
+          },
+          "percentageOverig": {
+            "type": "number",
+            "description": "Percentage overig (overige bgt_objectklassen) binnen het BKT-CBS-GRID-100-Vlak."
+          },
+          "percentagePubliekeRuimte": {
+            "type": "number",
+            "description": "Totaal percentage publieke ruimte binnen het BKT-CBS-GRID-object."
+          }
+        }
+      }
+    }
+  ]
+}
