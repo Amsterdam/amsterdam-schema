@@ -20,11 +20,9 @@ from os.path import splitext
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from typing import Callable, ContextManager, Iterator, List
-from zipfile import ZipFile
 
 import click
 import in_place
-import requests
 from swiftclient.service import SwiftError, SwiftService, SwiftUploadObject
 
 logger = logging.getLogger("__name__")
@@ -32,30 +30,6 @@ logger = logging.getLogger("__name__")
 
 publishable_prefixes = ("datasets", "schema@")
 DEFAULT_BASE_URL = "https://schemas.data.amsterdam.nl"
-
-
-def fetch_publishable_paths(paths: List[str]) -> List[List[str]]:
-    publishable_paths = []
-    for path in paths:
-        path_parts = path.split("/")
-        if path_parts[1].startswith(publishable_prefixes) and path_parts[-1]:
-            publishable_paths.append(path_parts)
-    return publishable_paths
-
-
-def extract_and_fetch_paths(github_url: str, temp_dir: Path) -> List[List[str]]:
-    response = requests.get(github_url, stream=True)
-    tmp_file = temp_dir / "out.zip"
-    with open(tmp_file, "wb") as wf:
-        shutil.copyfileobj(response.raw, wf)
-
-    with ZipFile(tmp_file, "r") as zip_file:
-        publishable_paths = fetch_publishable_paths(zip_file.namelist())
-        zip_file.extractall(
-            temp_dir,
-            members=("/".join(path_parts) for path_parts in publishable_paths),
-        )
-    return publishable_paths
 
 
 def fetch_local_as_publishable(root_pkg_name: str, temp_dir_path: Path) -> List[List[str]]:
@@ -160,31 +134,16 @@ def replace_schema_base_url(temp_dir: Path, schema_base_url: str) -> None:
     help="Override the environment to be used, values can be 'acceptance' or 'production'",
 )
 @click.option(
-    "--github-url",
-    envvar="GITHUB_ZIP_URL",
-    default="https://github.com/Amsterdam/amsterdam-schema/archive/master.zip",
-    help="Override the url to the zip on github (to use a specific branch for testing)",
-)
-@click.option(
     "--schema-base-url",
     envvar="SCHEMA_BASE_URL",
     help="Override the base url in schema files (for testing)",
 )
-@click.option(
-    "--use-local",
-    is_flag=True,
-    help="Use local schema files, not the github zip archive",
-)
-def main(dp_env: str, github_url: str, schema_base_url: str, use_local: bool) -> None:
+def main(dp_env: str, schema_base_url: str) -> None:
     # We extract the zip, because otherwise we need a big set
     # of open file handles during upload, now we can use file-paths
     with TemporaryDirectory() as temp_dir:
         files_root = Path(temp_dir)
-        if use_local:
-            publishable_paths = fetch_local_as_publishable("amsterdam_schema", files_root)
-        else:
-            publishable_paths = extract_and_fetch_paths(github_url, files_root)
-
+        publishable_paths = fetch_local_as_publishable("amsterdam_schema", files_root)
         if schema_base_url is not None:
             replace_schema_base_url(files_root, schema_base_url)
         index_file_obj = get_index_file_obj(publishable_paths)
