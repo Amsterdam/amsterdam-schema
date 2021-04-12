@@ -52,4 +52,8 @@ repos:
     hooks:
       - id: validate-schema
         args: ['https://schemas.data.amsterdam.nl/schema@v1.1.1#']
-        exclude: 'datasets/index.json$'
+        exclude: |
+            (?x)^(
+                schema.+|             # exclude meta schemas
+                datasets/index.json
+            )$
