@@ -1,0 +1,97 @@
+{
+  "type": "dataset",
+  "id": "rdw",
+  "title": "RDW",
+  "status": "beschikbaar",
+  "description": "De RDW is de organisatie die de registratie van gemotoriseerde voertuigen en rijbewijzen in Nederland verzorgt. De RDW is een zelfstandig bestuursorgaan van de Nederlandse overheid.",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "contactPoint": {
+    "type": "object",
+    "properties": {
+      "name": { "type": "string" },
+      "email": { "type": "string" }
+    }
+  },
+  "objective": "Het doel van deze dataset om op basis van een kenteken contextuele informatie op te vragen.",
+  "tables": [
+    {
+      "id": "rdw",
+      "title": "RDW",
+      "description": "Contextuele informatie over een voertuig op basis van het kenteken. RDW is de bronhouder.",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id", "kenteken"],
+        "display": "kenteken",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke identifictie record."
+          },
+          "kenteken": {
+            "type": "string",
+            "description": "Een nummer (letter- en cijfercombinatie) van een voertuig (exemplaar), aangebracht op een of meer op dat voertuig bevestigde kentekenplaten, en op een bijbehorend (papieren) kentekenbewijs."
+          },
+          "datumEersteToelating": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum van toelating."
+          },
+          "inrichting": {
+            "type": "string",
+            "description": "Omschrijving van de uitvoeringsvorm van de inrichting van een voertuig."
+          },
+          "lengte": {
+            "type": "integer",
+            "description": "Lengte van voertuig"
+          },
+          "massaRijklaar": {
+            "type": "integer",
+            "description": "De massa van het voertuig in bedrijfsklare (en onbeladen) toestand, inclusief koelvloeistof, smeermiddelen, brandstof (90% gevuld), reservewiel voor zover gemonteerd door de fabrikant, eventueel gereedschap en de bestuurder."
+          },
+          "maximumMassaSamenstelling": {
+            "type": "integer",
+            "description": "Het lege gewicht plus het laadvermogen"
+          },
+          "toegestaneMaximumMassaVoertuig": {
+            "type": "integer",
+            "description": "Limiet massa. Is gelijk aan of lager dan de technische maximum massa."
+          },
+          "voertuigsoort": {
+            "type": "string",
+            "description": "Type voertuig."
+          },
+          "aantalAssen": {
+            "type": "integer",
+            "description": "Aantal assen aanwezig."
+          },
+          "asNummer": {
+            "type": "integer",
+            "description": "Nummer van individuele as."
+          },
+          "wettelijkToegestaneMaximumAslast": {
+            "type": "integer",
+            "provenance": "technisch_toegestane_maximum_aslast",
+            "description": "Limiet last voor een as. Kan per as verschillen."
+          },
+          "brandstofType": {
+            "type": "string",
+            "provenance": "brandstof_omschrijving",
+            "description": "Soort brandstof dat wordt gebruikt door voertuig."
+          },
+          "emissiecode": {
+            "type": "string",
+            "provenance": "emissiecode_omschrijving",
+            "description": "De emissieklasse is een cijfer waarmee wordt aangegeven hoe schoon het voertuig is. Hoe hoger het cijfer, hoe schoner het voertuig."
+          }
+        }
+      }
+    }
+  ]
+}
