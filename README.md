@@ -98,3 +98,61 @@ For more information, see (some of these pages are in Dutch):
 - [Amsterdam Schema Validator 👩🏼‍🏫](https://observablehq.com/@bertspaan/amsterdam-schema-validator)
 - [Werkbestand Team Dataservices](https://observablehq.com/@bertspaan/werkbestand-team-dataservices)
 - [Amsterdam Schema Playground 🎠](https://observablehq.com/@bertspaan/amsterdam-schema-playground)
+
+# Publishing
+
+In order to publish the Amsterdam Schema to the object store
+install the Python package included in this repository:
+
+```console
+% python3.8 -m venv venv
+% pip install -U pip setuptools
+% pip install `.[tests,dev]
+```
+
+The extra options `tests` and `dev` are not strictly necessary for publishing,
+but are handy to have installed while working on the schema definitions.
+Once installed publishing could be as simple as running:
+
+```console
+% publish
+```
+
+but it likely isn't.
+
+See, the `publish` tool expects a number of environment variables to be set.
+These are:
+
+```console
+DATAPUNT_ENVIRONMENT=...
+OS_USERNAME="dataservices
+OS_TENANT_NAME=...
+OS_PASSWORD=...
+OS_AUTH_URL=https://identity.stack.cloudvps.com/v2.0
+```
+
+Where the `OS` prefix stands for Object Store,
+and the `...` for values that you should provide.
+
+## Schema updates
+
+New and/or updated schemas require a version bump of
+the Python package and repository.
+Strictly speaking things will,
+at least currently,
+still work without a version bump,
+but we will lose track of what version of the Python package
+published a specific set of schemas.
+
+Find the current version number:
+
+```console
+% grep version setup.cfg
+```
+
+Say it has version `0.0.9`.
+Now bump it to `0.0.10`:
+
+```console
+% tbump 0.0.10
+```
