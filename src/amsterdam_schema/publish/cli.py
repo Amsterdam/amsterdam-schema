@@ -152,23 +152,24 @@ def main(dp_env: str, schema_base_url: str) -> None:
         index_file_obj = get_index_file_obj(publishable_paths)
 
         with SwiftService() as swift:
-            try:
-                uploads = [SwiftUploadObject(index_file_obj, object_name="datasets/index.json")]
-                for path_parts in publishable_paths:
-                    object_name = create_object_name(path_parts)
-                    uploads.append(
-                        SwiftUploadObject(
-                            str(files_root / "/".join(path_parts)),
-                            object_name=object_name,
-                            options={"header": ["content-type:application/json"]},
-                        )
+            upload_objects = [SwiftUploadObject(index_file_obj, object_name="datasets/index.json")]
+            for path_parts in publishable_paths:
+                object_name = create_object_name(path_parts)
+                upload_objects.append(
+                    SwiftUploadObject(
+                        str(files_root / "/".join(path_parts)),
+                        object_name=object_name,
+                        options={"header": ["content-type:application/json"]},
                     )
-                for r in swift.upload(f"schemas-{dp_env}", uploads):
-                    if not r["success"]:
-                        logger.error(r["error"])
-
-            except SwiftError as e:
-                logger.exception(e.value)
+                )
+            uploads = swift.upload(f"schemas-{dp_env}", upload_objects)
+            errors = False
+            for r in uploads:
+                if not r["success"]:
+                    errors = True
+                    logger.error(r["error"])
+            if errors:
+                raise Exception("Failed to publish schemas")
 
 
 if __name__ == "__main__":
