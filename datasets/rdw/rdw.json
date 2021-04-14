@@ -9,22 +9,30 @@
   "contactPoint": {
     "type": "object",
     "properties": {
-      "name": { "type": "string" },
-      "email": { "type": "string" }
+      "name": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      }
     }
   },
   "objective": "Het doel van deze dataset om op basis van een kenteken contextuele informatie op te vragen.",
   "tables": [
     {
-      "id": "rdw",
-      "title": "RDW",
+      "id": "voertuig",
+      "title": "Voertuig",
       "description": "Contextuele informatie over een voertuig op basis van het kenteken. RDW is de bronhouder.",
       "type": "table",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id", "kenteken"],
+        "required": [
+          "schema",
+          "id",
+          "kenteken"
+        ],
         "display": "kenteken",
         "properties": {
           "schema": {
@@ -67,28 +75,41 @@
             "type": "string",
             "description": "Type voertuig."
           },
-          "aantalAssen": {
-            "type": "integer",
-            "description": "Aantal assen aanwezig."
+          "assen": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "aantalAssen": {
+                  "type": "integer",
+                  "description": "Aantal assen aanwezig."
+                },
+                "asNummer": {
+                  "type": "integer",
+                  "description": "Nummer van individuele as."
+                },
+                "technischToegestaneMaximumAslast": {
+                  "type": "integer",
+                  "description": "Limiet last voor een as. Kan per as verschillen."
+                }
+              }
+            }
           },
-          "asNummer": {
-            "type": "integer",
-            "description": "Nummer van individuele as."
-          },
-          "wettelijkToegestaneMaximumAslast": {
-            "type": "integer",
-            "provenance": "technisch_toegestane_maximum_aslast",
-            "description": "Limiet last voor een as. Kan per as verschillen."
-          },
-          "brandstofType": {
-            "type": "string",
-            "provenance": "brandstof_omschrijving",
-            "description": "Soort brandstof dat wordt gebruikt door voertuig."
-          },
-          "emissiecode": {
-            "type": "string",
-            "provenance": "emissiecode_omschrijving",
-            "description": "De emissieklasse is een cijfer waarmee wordt aangegeven hoe schoon het voertuig is. Hoe hoger het cijfer, hoe schoner het voertuig."
+          "brandstof": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "brandstofOmschrijving": {
+                  "type": "string",
+                  "description": "Soort brandstof dat wordt gebruikt door voertuig."
+                },
+                "emissiecodeOmschrijving": {
+                  "type": "string",
+                  "description": "De emissieklasse is een cijfer waarmee wordt aangegeven hoe schoon het voertuig is. Hoe hoger het cijfer, hoe schoner het voertuig."
+                }
+              }
+            }
           }
         }
       }
