@@ -8,14 +8,14 @@
   "crs": "EPSG:28992",
   "tables": [
     {
-      "id": "ligging_lijn_totaal",
+      "id": "liggingLijnTotaal",
       "type": "table",
       "provenance": "leidingeninfrastructuur_ligging_lijn_totaal",
       "title": "leidingeninfrastructuur lijn",
       "description": "Overzicht lijnen infrastructuur op basis van klic meldingen",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "id",
+        "type": "object",
         "additionalProperties": false,
         "required": ["schema", "id"],
         "mainGeometry": "geometrie",
@@ -40,7 +40,7 @@
             "type": "string",
             "description": "Degene die als natuurlijk persoon handelende in de uitoefening van een beroep of bedrijf dan wel als rechtspersoon een net beheert."
           },
-          "diam_mm": {
+          "diamMm": {
             "type": "number",
             "description": "Diameter buis of leiding"
           },
@@ -82,7 +82,7 @@
       }
     },
     {
-      "id": "ligging_punt_totaal",
+      "id": "liggingPuntTotaal",
       "type": "table",
       "provenance": "leidingeninfrastructuur_ligging_punt_totaal",
       "title": "leidingeninfrastructuur punt",
@@ -99,6 +99,9 @@
             "type": "string",
             "provenance": "id",
             "description": "Uniek identificerend kenmerk van het bouwblok"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
           "class": {
             "type": "integer",
@@ -157,14 +160,14 @@
       }
     },
     {
-      "id": "ligging_vlak_totaal",
+      "id": "liggingVlakTotaal",
       "type": "table",
       "provenance": "leidingeninfrastructuur_ligging_vlak_totaal",
       "title": "leidingeninfrastructuur vlak",
       "description": "Overzicht vlakken infrastructuur op basis van klic meldingen",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "id",
+        "type": "object",
         "additionalProperties": false,
         "required": ["schema", "id"],
         "mainGeometry": "geometrie",
@@ -173,6 +176,9 @@
           "id": {
             "type": "integer",
             "description": "Unieke id van het object"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
           "thema": {
             "type": "string",
