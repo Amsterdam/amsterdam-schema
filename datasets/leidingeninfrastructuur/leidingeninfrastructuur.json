@@ -1,0 +1,232 @@
+{
+  "type": "dataset",
+  "id": "leidingeninfrastructuur",
+  "title": "Kabels en leidingen ondergrond",
+  "status": "beschikbaar",
+  "description": "Overzicht leidingen infrastructuur op basis van klic meldingen",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "ligging_lijn_totaal",
+      "type": "table",
+      "provenance": "leidingeninfrastructuur_ligging_lijn_totaal",
+      "title": "leidingeninfrastructuur lijn",
+      "description": "Overzicht lijnen infrastructuur op basis van klic meldingen",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "id",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "mainGeometry": "geometrie",
+        "display": "id",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unieke id van het object"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "thema": {
+            "type": "string",
+            "description": "Thema of discipline waar een leiding of leidingelement toe behoort"
+          },
+          "class": {
+            "type": "string",
+            "description": "Objectklasse of type kabel/leiding"
+          },
+          "beheerder": {
+            "type": "string",
+            "description": "Degene die als natuurlijk persoon handelende in de uitoefening van een beroep of bedrijf dan wel als rechtspersoon een net beheert."
+          },
+          "diam_mm": {
+            "type": "number",
+            "description": "Diameter buis of leiding"
+          },
+          "diepte": {
+            "type": "number",
+            "description": "Diepte t.o.v. maaiveld"
+          },
+          "materiaal": {
+            "type": "string",
+            "description": "Materiaal van de kabel of leiding"
+          },
+          "voltage": {
+            "type": "string",
+            "description": "Het operatieve en nominale voltage van de elektriciteitskabel (indien van toepassing)"
+          },
+          "status": {
+            "type": "string",
+            "description": "De status van het object"
+          },
+          "buurtCode": {
+            "type": "string",
+            "provenance": "buurt_code",
+            "description": "buurt code"
+          },
+          "buurtNaam": {
+            "type": "string",
+            "provenance": "buurt_naam",
+            "description": "buurt naam"
+          },
+          "wkt": {
+            "type": "string",
+            "description": "Naam van  projectgebied"
+          },
+          "geometrie": {
+            "type": "string",
+            "description": "Plan- en besluitvormingsproces ruimtelijke maatregelen"
+          }
+        }
+      }
+    },
+    {
+      "id": "ligging_punt_totaal",
+      "type": "table",
+      "provenance": "leidingeninfrastructuur_ligging_punt_totaal",
+      "title": "leidingeninfrastructuur punt",
+      "description": "Overzicht punten infrastructuur op basis van klic meldingen",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "mainGeometry": "geometrie",
+        "required": ["id", "schema"],
+        "display": "id",
+        "properties": {
+          "id": {
+            "type": "string",
+            "provenance": "id",
+            "description": "Uniek identificerend kenmerk van het bouwblok"
+          },
+          "class": {
+            "type": "integer",
+            "provenance": "class",
+            "description": "Objectklasse of categorie van het leidingelement"
+          },
+          "thema": {
+            "type": "string",
+            "provenance": "thema",
+            "description": "Thema of discipline waar een leiding of leidingelement toe behoort."
+          },
+          "beheerder": {
+            "type": "string",
+            "provenance": "beheerder",
+            "description": "Degene die als natuurlijk persoon handelende in de uitoefening van een beroep of bedrijf dan wel als rechtspersoon een net beheert."
+          },
+          "rotatie": {
+            "type": "string",
+            "provenance": "rotatie",
+            "description": "Hoek waaronder een (label)tekst of symbool wordt weergegeven"
+          },
+          "tekst": {
+            "type": "string",
+            "provenance": "tekst",
+            "description": "Tekst of getal dat een eigenschap omschrijft of kwantificeert en als annotatie op een kaartbeeld wordt afgebeeld"
+          },
+          "type": {
+            "type": "string",
+            "provenance": "type",
+            "description": "type"
+          },
+          "bestand": {
+            "type": "string",
+            "provenance": "bestand",
+            "description": "De naam van het meegeleverde PDF bestand die gekoppeld is aan de geometrie"
+          },
+          "buurtCode": {
+            "type": "string",
+            "provenance": "buurtcode",
+            "description": "buurtcode"
+          },
+          "buurtNaam": {
+            "type": "string",
+            "provenance": "buurtnaam",
+            "description": "buurt naam"
+          },
+          "wkt": {
+            "type": "string",
+            "description": "Geometrie in RD (epsg:28992) tekst weergave"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json",
+            "description": "Geometrie in RD (epsg:28992)"
+          }
+        }
+      }
+    },
+    {
+      "id": "ligging_vlak_totaal",
+      "type": "table",
+      "provenance": "leidingeninfrastructuur_ligging_vlak_totaal",
+      "title": "leidingeninfrastructuur vlak",
+      "description": "Overzicht vlakken infrastructuur op basis van klic meldingen",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "id",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "mainGeometry": "geometrie",
+        "display": "id",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unieke id van het object"
+          },
+          "thema": {
+            "type": "string",
+            "description": "Naam van het project"
+          },
+          "class": {
+            "type": "string",
+            "description": "id van cluster (niet uniek)"
+          },
+          "beheerder": {
+            "type": "string",
+            "description": "Naam van geclusturde plannen"
+          },
+          "evNet": {
+            "type": "string",
+            "provenance": "ev_net",
+            "description": "De naam van het eisvoorzorgnetwerk"
+          },
+          "bestand": {
+            "type": "string",
+            "description": "De naam van het meegeleverde PDF bestand die gekoppeld is aan de geometrie"
+          },
+          "rotatie": {
+            "type": "string",
+            "description": "Hoek waaronder een (label)tekst of symbool wordt weergegeven"
+          },
+          "tekst": {
+            "type": "string",
+            "description": "Tekst of getal dat een eigenschap omschrijft of kwantificeert en als annotatie op een kaartbeeld wordt afgebeeld"
+          },
+          "bronCode": {
+            "type": "string",
+            "description": "de code van de beheerder die een een net of veiligheidsnet beheert"
+          },
+          "buurtCode": {
+            "type": "string",
+            "provenance": "buurtcode",
+            "description": "buurt code"
+          },
+          "buurtNaam": {
+            "type": "string",
+            "provenance": "buurtnaam",
+            "description": "buurt naam"
+          },
+          "wkt": {
+            "type": "string",
+            "description": "Geometrie in RD (epsg:28992) tekst weergave"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json",
+            "description": "Geometrie in RD (epsg:28992)"
+          }
+        }
+      }
+    }
+  ]
+}
