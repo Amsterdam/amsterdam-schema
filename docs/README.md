@@ -1,21 +1,51 @@
 Generating Documentation
 ========================
 
-The Amsterdam Schema Specification is writting using [Bikeshed](https://github.com/tabatkins/bikeshed).
-To generate an HTML version of the specification 
+The Amsterdam Schema Specification is written using
+[Bikeshed](https://github.com/tabatkins/bikeshed).
+
+We will be installing Bikeshed into a separate virtual environment
+to prevent version clashes between its dependencies
+and that of the `amsterdam-schema` project itself.
+We will be calling this virtual environment `dvenv`
+which stands for `docs venv`
+
+To generate an HTML version of the specification
 (assuming you're in the `docs` directory):
 
 ```bash
-cd ../src
-make install
+cd ..
+python3.8 -m venv dvenv
+source dvenv/bin/activate
+pip install -U pip setuptools wheel
+pip install bikeshed
+pip install pygments==2.7.2
 cd docs
 bikeshed spec ams-schema-spec.bs ams-schema-spec.html
 open ams-schema-spec.html
 ```
 
-Bikeshed has a `watch` command 
-that allows you to work on the document 
-while Bikeshed regenerates the HTML upon every document save:
+Note the explicit installation of `pygments`.
+Although the installation of `bikeshed` automatically installs `pygments`,
+we override it with an older version
+to ensure correct highlighting of literals in the spec.
+The error that `pip` displays
+can safely be ignored.
+
+
+After this initial installation
+all you need to do to regenerate the specification
+is to:
+
+* activate the environment: `source dvenv/bin/activate`
+* change to de `docs` directory: `cd docs`
+* and run the bikeshed command: `bikeshed spec ams-schema-spec.bs ams-schema-spec.html`
+
+The `bikeshed` command can be repeated as often as necessary.
+To a better solution,
+while working on the specification,
+would be to use Bikeshed's `watch` subcommand.
+It regenerates the HTML upon every document save:
 
 ```bash
 bikeshed watch ams-schema-spec.bs ams-schema-spec.html
@@ -24,16 +54,19 @@ bikeshed watch ams-schema-spec.bs ams-schema-spec.html
 Bikeshed is very picky about its input.
 In case of errors it will not (re)generate the document.
 To force Bikeshed to generate a document in the presence of errors,
-use the `-f` flag to the `spec` or `watch` command..
+use the `-f` flag to the `spec` or `watch` subcommands.
 This should only be used during development
 and not for generating the final output;
 that should be error free.
 
 Although Bikeshed itself has [extensive documentation](https://tabatkins.github.io/bikeshed/),
 it is not the most author friendly documentation.
-To see how Bikeshed is used 
-look at the [source](https://github.com/tabatkins/bikeshed/blob/master/docs/index.bs) of the Bikeshed documentation.
+To see how Bikeshed is used
+look at the [source](https://github.com/tabatkins/bikeshed/blob/master/docs/index.bs)
+of the Bikeshed documentation.
 
+*IMPORTANT* Don't forget to activate the regular virtual environment `venv`
+if you want to:
 
-
-
+* bump this project's version
+* use the publishing functionality of `amsterdam-schema`. (see `README.md` in project root)

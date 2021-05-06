@@ -107,7 +107,7 @@ install the Python package included in this repository:
 ```console
 % python3.8 -m venv venv
 % pip install -U pip setuptools
-% pip install `.[tests,dev]
+% pip install '.[tests,dev]'
 ```
 
 The extra options `tests` and `dev` are not strictly necessary for publishing,
