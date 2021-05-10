@@ -368,8 +368,8 @@
 /** Subheadings ***************************************************************/
 
 	h1 + h2,
-	#subtitle {
-		/* #subtitle is a subtitle in an H2 under the H1 */
+	#profile-and-date {
+		/* #profile-and-date is a subtitle in an H2 under the H1 */
 		margin-top: 0;
 	}
 	h2 + h3,
@@ -583,34 +583,28 @@
 	a[href] {
 		color: #034575;
 		color: var(--a-normal-text);
-		text-decoration: none;
-		border-bottom: 1px solid #707070;
-		border-bottom: 1px solid var(--a-normal-underline);
-		/* Need a bit of extending for it to look okay */
-		padding: 0 1px 0;
-		margin: 0 -1px 0;
+		text-decoration: underline #707070;
+		text-decoration: underline var(--a-normal-underline);
+		text-decoration-skip-ink: none;
 	}
 	a:visited {
 		color: #034575;
 		color: var(--a-visited-text);
-		border-bottom-color: #bbb;
-		border-bottom-color: var(--a-visited-underline);
+		text-decoration-color: #bbb;
+		text-decoration-color: var(--a-visited-underline);
 	}
 
-	/* Use distinguishing colors when user is interacting with the link */
+	/* Indicate interaction with the link */
 	a[href]:focus,
 	a[href]:hover {
-		background: #f8f8f8;
-		background: rgba(75%, 75%, 75%, .25);
-		background: var(--a-hover-bg);
-		border-bottom-width: 3px;
-		margin-bottom: -2px;
+		text-decoration-thickness: 2px;
+		text-decoratin
 	}
 	a[href]:active {
 		color: #c00;
 		color: var(--a-active-text);
-		border-color: #c00;
-		border-color: var(--a-active-underline);
+		text-decoration-color: #c00;
+		text-decoration-color: var(--a-active-underline);
 	}
 
 	/* Backout above styling for W3C logo */
@@ -1116,9 +1110,12 @@ Possible extra rowspan handling
 
 	.toc a {
 		/* More spacing; use padding to make it part of the click target. */
-		padding-top: 0.1rem;
+		padding: 0.1rem 1px 0;
 		/* Larger, more consistently-sized click target */
 		display: block;
+		/* Switch to using border-bottom for underlines */
+		text-decoration: none;
+		border-bottom: 1px solid;
 		/* Reverse color scheme */
 		color: black;
 		color: var(--toclink-text);
@@ -1130,6 +1127,13 @@ Possible extra rowspan handling
 		color: var(--toclink-visited-text);
 		border-color: #054572;
 		border-color: var(--toclink-visited-underline);
+	}
+	.toc a:focus,
+	.toc a:hover {
+		background: rgba(75%, 75%, 75%, .25);
+		background: var(--a-hover-bg);
+		border-bottom-width: 3px;
+		margin-bottom: -2px;
 	}
 	.toc a:not(:focus):not(:hover) {
 		/* Allow colors to cascade through from link styling */
@@ -1484,9 +1488,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version c5172e83, updated Fri Nov 20 15:35:20 2020 -0800" name="generator">
-  <link href="https://schemas.data.amsterdam.nl/docs/" rel="canonical">
-  <meta content="e5a2d2f2e1cd47f8d9bddd1909d68e5cefee561e" name="document-revision">
+  <meta content="Bikeshed version c6f50773a, updated Fri Apr 16 16:45:47 2021 -0700" name="generator">
+  <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
+  <meta content="f509dd58c0e46644590a994d6dbbf32e21c7d0b8" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1593,9 +1597,9 @@ pre .property::before, pre .property::after {
     --ins-bg: transparent;
 
     --a-normal-text: #034575;
-    --a-normal-underline: #707070;
+    --a-normal-underline: #bbb;
     --a-visited-text: var(--a-normal-text);
-    --a-visited-underline: #bbb;
+    --a-visited-underline: #707070;
     --a-hover-bg: rgba(75%, 75%, 75%, .25);
     --a-active-text: #c00;
     --a-active-underline: #c00;
@@ -1996,11 +2000,11 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Amsterdam Schema Specification</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-03-04">4 March 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-05-10">10 May 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://schemas.data.amsterdam.nl/docs/">https://schemas.data.amsterdam.nl/docs/</a>
+     <dd><a class="u-url" href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html">https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/Amsterdam/amsterdam-schema/issues/">GitHub</a>
      <dt class="editor">Editor:
@@ -2014,7 +2018,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
    <p>Het Amsterdam Schema is een standaard voor JSON Schema’s welke gebruikt kan worden om
 
-    datasets in detail op machine readable formaat te kunnen omschrijven zodat deze generiek 
+    datasets in detail op machine readable formaat te kunnen omschrijven zodat deze generiek
     verwerkt en ontsloten kunnen worden.</p>
   </div>
   <div data-fill-with="at-risk"></div>
@@ -2214,7 +2218,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
          <p>Elk veld is nullable tenzij het als <code class="highlight">required</code> property is opgegeven.<br> <code class="highlight"><c- p>{</c-><c- f>"type"</c-><c- p>:</c-> <c- u>"object"</c-><c- p>,</c-> <c- f>"properties"</c-><c- p>:</c-> <c- p>{</c-><c- f>"name"</c-><c- p>:</c-> <c- p>{</c-> <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-> <c- p>}},</c-> <c- f>"required"</c-><c- p>:</c-> <c- p>[</c-><c- u>"name"</c-><c- p>],</c-> <c- f>"additionalProperties"</c-><c- p>:</c-> <c- kc>false</c-><c- p>}</c-></code></p>
         <li data-md>
          <p>
-          De anyOf operater is dus <strong>niet</strong> toegestaan<br> 
+          De anyOf operater is dus <strong>niet</strong> toegestaan<br>
           <del><code class="highlight"><c- p>{</c-><c- f>"anyOf"</c-><c- p>:</c-> <c- p>[{</c-> <c- f>"type"</c-><c- p>:</c-> <c- u>"integer"</c-> <c- p>},</c-> <c- p>{</c-> <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>}]}</c-></code></del>
          </p>
        </ul>
@@ -2249,8 +2253,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 <c- p>}</c->
 </pre>
    <p>Temporele referenties worden gedefinieerd als een verwijzing naar zowel de resource identifier als de temporele identifier; bijvoorbeeld:</p>
-<pre class="highlight"><c- u>"ligtInWijk"</c->: <c- p>{</c-> 
-  <c- f>"type"</c-><c- p>:</c-> <c- u>"object"</c-><c- p>,</c-> 
+<pre class="highlight"><c- u>"ligtInWijk"</c->: <c- p>{</c->
+  <c- f>"type"</c-><c- p>:</c-> <c- u>"object"</c-><c- p>,</c->
   <c- f>"relation"</c-><c- p>:</c-> <c- u>"gebieden:wijken"</c-><c- p>,</c->
   <c- f>"properties"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"identifier"</c-><c- p>:</c-> <c- p>{</c->
@@ -2265,8 +2269,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>Het is belangrijk om op te merken dat dit __geen__ versie van het schema definieert aangezien de koppeling niet zou moeten veranderen n.a.v. schema wijzigingen (elke dataset heeft altijd één unieke identifier waar aan gekoppeld wordt.)</p>
    <p>Indien het gewenst is om een inverse relatie op te nemen de weergave van de resource kan dit als volgt weergegeven worden:</p>
 <pre class="highlight"><c- u>"additionalRelations"</c->: <c- p>{</c->
-  <c- f>"nummeraanduiding"</c-><c- p>:</c-> <c- p>{</c-> 
-    <c- f>"format"</c-><c- p>:</c-> <c- u>"embedded"</c-><c- p>,</c-> 
+  <c- f>"nummeraanduiding"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"format"</c-><c- p>:</c-> <c- u>"embedded"</c-><c- p>,</c->
     <c- f>"table"</c-><c- p>:</c-> <c- u>"verblijfsobject"</c-><c- p>,</c->
     <c- f>"field"</c-><c- p>:</c-> <c- u>"nummeraanduiding"</c->
   <c- p>}</c->
@@ -2310,7 +2314,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>Tabel: <code class="highlight"><c- u>"provenance"</c->: <c- p>{</c-> <c- f>"file"</c-><c- p>:</c-> <c- u>"asbestdaken_daken.zip"</c-> <c- p>}</c-></code></p>
    <p>Veld: <code class="highlight"><c- u>"provenance"</c->: <c- p>{</c-> <c- f>"field"</c-><c- p>:</c-> <c- u>"perceel_id"</c-><c- p>}</c-></code></p>
    <h3 class="heading settled" data-level="1.8" id="naamgeving"><span class="secno">1.8. </span><span class="content">Naamgeving</span><a class="self-link" href="#naamgeving"></a></h3>
-   <p>Voor de naamgeving van de velden wordt de camelCase notatie gebruikt. Op implementatie-niveau (bijv. Postgres) wordt
+   <p>Voor de naamgeving van de velden wordt de camelCase notatie gebruikt. Op implementatie-niveau (bijv. PostgreSQL) wordt
 dit omgezet in snake_case notatie als de meest natuurlijke manier van noteren.</p>
    <p>Gebruik duidelijke en begrijpelijke namen voor zowel datasets, tabellen als velden. Het gaat hierbij tenslotte om het beschikbaar
 stellen van data in de vorm van een publieke API die afnemers liefst zonder al te veel extra uitleg moeten kunnen gebruiken.</p>
@@ -2325,4 +2329,21 @@ stellen van data in de vorm van een publieke API die afnemers liefst zonder al t
     <li data-md>
      <p>herhaal de tabelnaam niet in de namen van de velden (dus <em>niet</em> container.containerNummmer, maar container.nummer)</p>
    </ul>
+   <p>Als de namen in het schema te lang worden, kan dit praktische problemen geven bij het aanmaken van tabellen en kolommen
+op basis van het schema. PostgreSQL staat bijvoorbeeld niet meer dan 63 karakters toe voor tabelnamen.
+Het is mogelijk om een alternatieve verkorte naam op te geven voor tabellen en velden met het attribuut <code class="highlight">shortname</code>.</p>
+   <p>Bijvoorbeeld voor een tabel:</p>
+<pre class="highlight"><c- p>{</c->
+  <c- f>"id"</c-><c- p>:</c-> <c- u>"maatschappelijkeactiviteiten"</c-><c- p>,</c->
+  <c- f>"shortname"</c-><c- p>:</c-> <c- u>"activiteiten"</c-><c- p>,</c->
+  <c- f>"type"</c-><c- p>:</c-> <c- u>"table"</c->
+<c- p>}</c->
+</pre>
+   <p>Of voor een veld:</p>
+<pre class="highlight">    <c- u>"registratieTijdstipMaatschappelijkeActiviteit"</c->: <c- p>{</c->
+    <c- f>"shortname"</c-><c- p>:</c-> <c- u>"registratieTijdstip"</c-><c- p>,</c->
+    <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+    <c- f>"format"</c-><c- p>:</c-> <c- u>"date-time"</c->
+<c- p>}</c->
+</pre>
   </main>
