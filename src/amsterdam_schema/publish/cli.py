@@ -19,7 +19,7 @@ from io import BytesIO
 from os.path import splitext
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from typing import Callable, ContextManager, Iterator, List
+from typing import Callable, ContextManager, Iterator, List, Tuple
 
 import click
 import in_place
@@ -28,11 +28,16 @@ from swiftclient.service import SwiftService, SwiftUploadObject
 logger = logging.getLogger("__name__")
 
 
-publishable_prefixes = ("datasets", "schema@")
+SCHEMA_PREFIXES = ("datasets", "schema@")
 DEFAULT_BASE_URL = "https://schemas.data.amsterdam.nl"
 
 
-def fetch_local_as_publishable(root_pkg_name: str, temp_dir_path: Path) -> List[List[str]]:
+def fetch_local_as_publishable(
+    root_pkg_name: str,
+    temp_dir_path: Path,
+    publishable_prefixes: Tuple[str, ...] = SCHEMA_PREFIXES,
+    glob: str = "**/*.json",
+) -> List[List[str]]:
     """Fetch publishable artifacts from package as path components.
 
     Not sure how to describe this function best. I've kept the API, or at least that what it
@@ -43,6 +48,8 @@ def fetch_local_as_publishable(root_pkg_name: str, temp_dir_path: Path) -> List[
     Args:
         root_pkg_name: Name of the root package (eg "amsterdam_schema"
         temp_dir_path: Path of the temporary directory to copy publishable artifacts to
+        publishable_prefixes: prefixes of directories to publish parts of
+        glob: Which files to fetch
 
     Returns:
         A list of publishable artifacts in the ``temp_dir_path``. Each publishable
@@ -72,7 +79,7 @@ def fetch_local_as_publishable(root_pkg_name: str, temp_dir_path: Path) -> List[
             )
 
     publishable_paths: List[List[str]] = []
-    for schema_path in dst_path.glob("**/*json"):
+    for schema_path in dst_path.glob(glob):
         sub_path = schema_path.relative_to(dst_path.parent)
         publishable_paths.append(list(sub_path.parts))
 
@@ -139,24 +146,39 @@ def replace_schema_base_url(temp_dir: Path, schema_base_url: str) -> None:
     help="Override the base url in schema files (for testing)",
 )
 def main(dp_env: str, schema_base_url: str) -> None:
-    # We extract the zip, because otherwise we need a big set
-    # of open file handles during upload, now we can use file-paths
+    ROOT_PKG_NAME = "amsterdam_schema"
     with TemporaryDirectory() as temp_dir:
         files_root = Path(temp_dir)
-        publishable_paths = fetch_local_as_publishable("amsterdam_schema", files_root)
+
+        # First fetch the datasets and schemas
+        schema_pub_paths = fetch_local_as_publishable(ROOT_PKG_NAME, files_root)
         if schema_base_url is not None:
             replace_schema_base_url(files_root, schema_base_url)
-        index_file_obj = get_index_file_obj(publishable_paths)
+        index_file_obj = get_index_file_obj(schema_pub_paths)
+
+        # Then fetch the documentation
+        doc_pub_paths = fetch_local_as_publishable(
+            ROOT_PKG_NAME, files_root, ("docs",), "**/*.html"
+        )
 
         with SwiftService() as swift:
             upload_objects = [SwiftUploadObject(index_file_obj, object_name="datasets/index.json")]
-            for path_parts in publishable_paths:
-                object_name = create_object_name(path_parts)
+            for schema_path_parts in schema_pub_paths:
+                object_name = create_object_name(schema_path_parts)
                 upload_objects.append(
                     SwiftUploadObject(
-                        str(files_root / "/".join(path_parts)),
+                        str(files_root / "/".join(schema_path_parts)),
                         object_name=object_name,
                         options={"header": ["content-type:application/json"]},
+                    )
+                )
+            for doc_path_parts in doc_pub_paths:
+                object_name = "/".join(doc_path_parts[1:])
+                upload_objects.append(
+                    SwiftUploadObject(
+                        str(files_root / "/".join(doc_path_parts)),
+                        object_name=object_name,
+                        options={"header": ["content-type:text/html"]},
                     )
                 )
             uploads = swift.upload(f"schemas-{dp_env}", upload_objects)

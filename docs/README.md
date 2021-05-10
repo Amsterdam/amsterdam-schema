@@ -38,7 +38,7 @@ all you need to do to regenerate the specification
 is to:
 
 * activate the environment: `source dvenv/bin/activate`
-* change to de `docs` directory: `cd docs`
+* change to the `docs` directory: `cd docs`
 * and run the bikeshed command: `bikeshed spec ams-schema-spec.bs ams-schema-spec.html`
 
 The `bikeshed` command can be repeated as often as necessary.
@@ -70,3 +70,8 @@ if you want to:
 
 * bump this project's version
 * use the publishing functionality of `amsterdam-schema`. (see `README.md` in project root)
+
+Once a new version of the documentation has been committed it will be published at:
+
+* https://acc.schemas.data.amsterdam.nl/docs/ams-schema-spec.html
+* https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html (after approval in Jenkins)
