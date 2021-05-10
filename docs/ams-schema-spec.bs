@@ -3,11 +3,11 @@ Title: Amsterdam Schema Specification
 Shortname: ams-schema-spec
 Revision: 1.1.1
 Status: LS
-URL: https://schemas.data.amsterdam.nl/docs/
+URL: https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html
 Repository: Amsterdam/amsterdam-schema
 Editor: Michiel Trimpe, Gemeente Amsterdam, https://data.amsterdam.nl/
-Abstract: Het Amsterdam Schema is een standaard voor JSON Schema's welke gebruikt kan worden om 
-    datasets in detail op machine readable formaat te kunnen omschrijven zodat deze generiek 
+Abstract: Het Amsterdam Schema is een standaard voor JSON Schema's welke gebruikt kan worden om
+    datasets in detail op machine readable formaat te kunnen omschrijven zodat deze generiek
     verwerkt en ontsloten kunnen worden.
 Markup Shorthands: css no, markdown yes
 Indent: 4
@@ -154,8 +154,8 @@ en voor een meervoudige relatie als:
 Temporele referenties worden gedefinieerd als een verwijzing naar zowel de resource identifier als de temporele identifier; bijvoorbeeld:
 
 ```
-"ligtInWijk": { 
-  "type": "object", 
+"ligtInWijk": {
+  "type": "object",
   "relation": "gebieden:wijken",
   "properties": {
     "identifier": {
@@ -174,8 +174,8 @@ Indien het gewenst is om een inverse relatie op te nemen de weergave van de reso
 
 ```
 "additionalRelations": {
-  "nummeraanduiding": { 
-    "format": "embedded", 
+  "nummeraanduiding": {
+    "format": "embedded",
     "table": "verblijfsobject",
     "field": "nummeraanduiding"
   }
