@@ -149,6 +149,32 @@
             "relation": "gebieden:wijken",
             "description": "De wijk waar de buurt in ligt."
           },
+          "ligtInGgpgebied": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
+            "relation": "gebieden:ggpgebieden",
+            "description": "Het GGP-gebied waar de buurt in ligt"
+          },
+          "ligtInGgwgebied": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
+            "relation": "gebieden:ggwgebieden",
+            "description": "Het GGW-gebied waar de buurt in ligt"
+          },
           "geometrie": {
             "$ref": "https://geojson.org/schema/Polygon.json",
             "description": "Geometrische beschrijving van een object."
@@ -228,6 +254,32 @@
             },
             "relation": "gebieden:stadsdelen",
             "description": "Het stadsdeel waar de wijk in ligt."
+          },
+          "ligtInGgpgebied": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
+            "relation": "gebieden:ggpgebieden",
+            "description": "Het GGP-gebied waar de buurt in ligt"
+          },
+          "ligtInGgwgebied": {
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              },
+              "volgnummer": {
+                "type": "integer"
+              }
+            },
+            "relation": "gebieden:ggwgebieden",
+            "description": "Het GGW-gebied waar de buurt in ligt"
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/Polygon.json",
