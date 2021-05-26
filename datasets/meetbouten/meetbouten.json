@@ -343,8 +343,13 @@
             "description": "Geometrische ligging van de meetbout"
           },
           "isNapPeilmerk": {
-            "type": "string",
-            "$comment": "nap:peilmerken relation, temporarily removed, dataset not available yet. *stringify*",
+            "type": "object",
+            "properties": {
+              "identificatie": {
+                "type": "string"
+              }
+            },
+            "relation": "nap:peilmerken",
             "description": "Het NAP-peilmerk dat het referentiepunt kan zijn."
           },
           "publiceerbaar": {
