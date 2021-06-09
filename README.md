@@ -124,7 +124,7 @@ See, the `publish` tool expects a number of environment variables to be set.
 These are:
 
 ```console
-DATAPUNT_ENVIRONMENT=[acceptation|production|...]  # default is 'acceptance'
+DATAPUNT_ENVIRONMENT=[acceptance|production|...]  # default is 'acceptance'
 OS_USERNAME=dataservices
 OS_TENANT_NAME=...
 OS_PASSWORD=...
@@ -143,7 +143,7 @@ to follow the references to the metaschema during validation.
 This development location is a `container` on the `dataservices` objectstore.
 
 To create a new container, the `swift` commandline client can be used
-(has been installed via `pip install python-swiftclient`).
+(has been installed as part of `python-swiftclient`) that is a dependency.
 
 Create new container with:
 
