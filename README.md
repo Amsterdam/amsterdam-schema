@@ -124,7 +124,7 @@ See, the `publish` tool expects a number of environment variables to be set.
 These are:
 
 ```console
-DATAPUNT_ENVIRONMENT=[acceptation|production]
+DATAPUNT_ENVIRONMENT=[acceptation|production|...]  # default is 'acceptance'
 OS_USERNAME=dataservices
 OS_TENANT_NAME=...
 OS_PASSWORD=...
@@ -158,11 +158,17 @@ swift post --read-acl ".r:*,.rlistings" <schemas-yourname>
 ```
 
 Change the `SCHEMA_BASE_URL` environment variable to the http address
-of the container you just created:
+of the container you just created.
 
 ```console
 SCHEMA_BASE_URL=https://<OS_TENANT_NAME>.objectstore.eu/<schemas-yourname>
 ```
+
+The name of the objectstore container is constructed from 2 environment variables:
+`$CONTAINER_PREFIX-$DATAPUNT_ENVIRONMENT`
+
+The default value for `CONTAINER_PREFIX` is `schemas-`.
+
 
 ## Schema updates
 
