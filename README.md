@@ -134,6 +134,36 @@ OS_AUTH_URL=https://identity.stack.cloudvps.com/v2.0
 Where the `OS` prefix stands for Object Store,
 and the `...` for values that you should provide.
 
+For development purposes, it can be convenient to publish schemas
+to an isolated development location on the objectstore.
+The `schema:$ref` attributes will be set correctly during the publishing process.
+This is essential for the validator in `schema-tools`
+to follow the references to the metaschema during validation.
+
+This development location is a `container` on the `dataservices` objectstore.
+
+To create a new container, the `swift` commandline client can be used
+(has been installed via `pip install python-swiftclient`).
+
+Create new container with:
+
+```console
+% swift post <schemas-yourname>  # example name, remove <>
+```
+
+Now make this location read-accessible over HTTP with:
+
+```console
+swift post --read-acl ".r:*,.rlistings" <schemas-yourname>
+```
+
+Change the `SCHEMA_BASE_URL` environment variable to the http address
+of the container you just created:
+
+```console
+SCHEMA_BASE_URL=https://<OS_TENANT_NAME>.objectstore.eu/<schemas-yourname>
+```
+
 ## Schema updates
 
 New and/or updated schemas require a version bump of
