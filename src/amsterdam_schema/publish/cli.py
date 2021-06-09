@@ -138,14 +138,23 @@ def replace_schema_base_url(temp_dir: Path, schema_base_url: str) -> None:
     "--dp-env",
     envvar="DATAPUNT_ENVIRONMENT",
     default="acceptance",
-    help="Override the environment to be used, values can be 'acceptance' or 'production'",
+    help="Override the environment to be used, values can be 'acceptance' or 'production'.",
+)
+@click.option(
+    "--container-prefix",
+    envvar="CONTAINER_PREFIX",
+    default="schemas-",
+    help="""Prefix for the name of the objectstore container, default is 'schemas-'
+        This name will be prefixed to the value of DATAPUNT_ENVIRONMENT,
+        to create the full name of the objectstore container.
+    """,
 )
 @click.option(
     "--schema-base-url",
     envvar="SCHEMA_BASE_URL",
-    help="Override the base url in schema files (for testing)",
+    help="Override the base url in schema files (for testing).",
 )
-def main(dp_env: str, schema_base_url: str) -> None:
+def main(dp_env: str, container_prefix: str, schema_base_url: str) -> None:
     ROOT_PKG_NAME = "amsterdam_schema"
     with TemporaryDirectory() as temp_dir:
         files_root = Path(temp_dir)
@@ -181,7 +190,7 @@ def main(dp_env: str, schema_base_url: str) -> None:
                         options={"header": ["content-type:text/html"]},
                     )
                 )
-            uploads = swift.upload(f"schemas-{dp_env}", upload_objects)
+            uploads = swift.upload(f"{container_prefix}{dp_env}", upload_objects)
             errors = False
             for r in uploads:
                 if not r["success"]:
