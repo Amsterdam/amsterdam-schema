@@ -36,7 +36,7 @@
       "id": "mora",
       "type": "table",
       "provenance": "mora_sia",
-      "description": "Open dataset over meldingen openbare ruimte. In deze dataset zit een subset van de de meldingsgegevens van alle meldingen vanaf medio 2018 die binnen de vastgestelde amsterdamse gebiedsindeling vallen. Hierin zijn de volgende hoofdcategorieën meegenomen: Afval, Civiele Constructies, Openbaar groen en water, Overig, Overlast Bedrijven en Horeca, Overlast in de openbare ruimte, Overlast van boten, Overlast van dieren, Overlast van en door personen of groepen, Schoon, Wegen, verkeer, straatmeubilair. De volgende type meldingen zijn uitgesloten in deze dataset:  Meldingen van de overige hoofdcategorieen en meldingen die na binnenkomst zijn gesplitst. Hiervan worden alleen de afgesplitste meldingen meegenomen (dus niet de initiele melding die na splitsing direct gesloten wordt). Vanaf 18 november 2020 zijn gesplitste meldingen 'hoofdmeldingen', wat inhoud dat het niet meenemen van de initiele meldingen voor splitsing alleen geldt voor meldingen tot 18 november 2020",
+      "description": "Open dataset over meldingen openbare ruimte. In deze dataset zit een subset van de de meldingsgegevens van alle meldingen vanaf medio 2018 die binnen de vastgestelde amsterdamse gebiedsindeling vallen. Hierin zijn de volgende hoofdcategorieën meegenomen: Afval, Civiele Constructies, Openbaar groen en water, Overig, Overlast Bedrijven en Horeca, Overlast in de openbare ruimte, Overlast van boten, Overlast van dieren, Overlast van en door personen of groepen, Schoon, Wegen, verkeer, straatmeubilair. De volgende type meldingen zijn uitgesloten in deze dataset:  Meldingen van de overige hoofdcategorieen en meldingen die na binnenkomst zijn gesplitst. Hiervan worden alleen de afgesplitste meldingen meegenomen (dus niet de initiële melding die na splitsing direct gesloten wordt). Vanaf 18 november 2020 zijn gesplitste meldingen 'hoofdmeldingen', wat inhoud dat het niet meenemen van de initiële meldingen voor splitsing alleen geldt voor meldingen tot 18 november 2020",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -219,6 +219,7 @@
           },
           "gbdStadsdeel": {
             "type": "string",
+            "relation": "gebieden:stadsdelen",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
             "description": "Identificerende sleutel van het stadsdeel gebaseerd op de locatie van de melding."
           },
@@ -229,6 +230,7 @@
           },
           "bagWoonplaats": {
             "type": "string",
+            "relation": "bag:woonplaatsen",
             "uri": "https://www.amsterdam.nl/stelselpedia/bag-index/catalogus-bag/objectklasse-woonplaats/",
             "description": "Identificerende sleutel van de woonplaats gebaseerd op de locatie van de melding."
           },
