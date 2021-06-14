@@ -1,0 +1,148 @@
+{
+  "type": "dataset",
+  "id": "stroomstoringen",
+  "title": "Stroomstoringen",
+  "description": "Stroomstoringen (van vandaag) Liander netwerk regio Amsterdam.",
+  "dateCreated": "2021-06-14T00:00:00",
+  "dateModified": "2021-06-14T00:00:00",
+  "license": "Creative Commons, Naamsvermelding",
+  "homepage": "https://data.amsterdam.nl",
+  "language": "nl",
+  "status": "beschikbaar",
+  "version": "1.0.0",
+  "temporalUnit": "nvt",
+  "contactPoint": {
+    "name": "",
+    "email": "datadiensten.ois@amsterdam.nl"
+  },
+  "accrualPeriodicity": "dagelijks",
+  "spatialDescription": "Gemeente Amsterdam",
+  "theme": ["openbareruimte", "electra", "storingen"],
+  "publisher": "OIS",
+  "owner": "Gemeente Amsterdam, Openbareverlichting V&OR",
+  "authorizationGrantor": "Openbareverlichting V&OR",
+  "keywords": ["openbareruimte", "electra", "stroomstoringen"],
+  "hasBeginning": "2021-06-14T00:00:00",
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "stroomstoringen",
+      "type": "table",
+      "title": "Stroomstoringen",
+      "description": "Stroomstoringen (van vandaag) Liander netwerk regio Amsterdam",
+      "schema": {
+        "required": ["id"],
+        "mainGeometry": "geometrie",
+        "display": "id",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "provenance": "objectid",
+            "description": "Uniek identificerend kenmerk stroomstoring."
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@1.1.1#/definitions/schema"
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/MultiPolygon.json",
+            "description": "Polygoon definitie stroomstoring."
+          },
+          "storingNummer": {
+            "type": "integer",
+            "description": "Intern storingsnummer Liander."
+          },
+          "storingGetroffenPostcodes": {
+            "type": "string",
+            "description": "Lijst van getroffen postcodes."
+          },
+          "storingType": {
+            "type": "string",
+            "description": "Type stroomstoring."
+          },
+          "storingEnergiesoort": {
+            "type": "string",
+            "description": "Energiesoort met betrekking tot stroomstoring."
+          },
+          "storingStatus": {
+            "type": "string",
+            "description": "Actuele status storing (met een vertraging van circa 10 min.)"
+          },
+          "storingDatumGemeld": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Datum en tijdstip van melding."
+          },
+          "storingDatumSchatting": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Geschatte datum en tijdstip storing opgelost."
+          },
+          "storingDatumEind": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Eindatum storing."
+          },
+          "storingComponent": {
+            "type": "string",
+            "description": "Component stroomstoring."
+          },
+          "storingOorzaak": {
+            "type": "string",
+            "description": "Oorzaak van stroomstoring."
+          },
+          "storingGetroffenKlanten": {
+            "type": "string",
+            "description": "Indicatie aantal getroffen personen."
+          },
+          "storingGetroffenStraten": {
+            "type": "string",
+            "description": "Indicatie aantal getroffen straten."
+          },
+          "storingDatumWijziging": {
+            "type": "string",
+            "provenance": "storing_datum_change",
+            "description": "Datum wijziging."
+          },
+          "storingServiceUpdate": {
+            "type": "string",
+            "description": "Datum update."
+          },
+          "mutatieActie": {
+            "type": "string",
+            "description": "Soort handeling uitgevoerd."
+          },
+          "datumEind": {
+            "type": "string",
+            "format": "date-time",
+            "provenace": "date_end",
+            "description": "Datum en tijdstip opgelost."
+          },
+          "storingGetroffenPlaatsen": {
+            "type": "string",
+            "description": "Regio waar binnen de storing valt. In dit geval Amsterdam."
+          },
+          "datumLog": {
+            "type": "string",
+            "format": "date-time",
+            "provenace": "log_date",
+            "description": "Interne log datum Liander."
+          },
+          "gestoordGebied": {
+            "type": "string",
+            "provenace": "gestoord_gebied_area",
+            "description": "Gebied wat mede geraakt is door storing."
+          },
+          "gestoordGebiedLengte": {
+            "type": "string",
+            "provenace": "gestoord_gebied_len",
+            "unit": "m",
+            "description": "Lengte Gebied wat mede geraakt is door storing (in meters)."
+          }
+        }
+      }
+    }
+  ]
+}
