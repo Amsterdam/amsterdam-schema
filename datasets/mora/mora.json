@@ -1,7 +1,7 @@
 {
   "id": "mora",
   "type": "dataset",
-  "authorizationGrantor": "Deze gegevens zijn beschikbaar gesteld door ... ",
+  "authorizationGrantor": "Deze gegevens zijn beschikbaar gesteld door gemeente Amsterdam, I-domein.",
   "theme": [
     "duurzaamheid en milieu",
     "Ruimte en Topografie",
@@ -29,14 +29,14 @@
   "temporalUnit": "uren",
   "contactPoint": {
     "name": "",
-    "email": "datapunt@amsterdam.nl"
+    "email": "geoinformatie@amsterdam.nl"
   },
   "tables": [
     {
       "id": "mora",
       "type": "table",
       "provenance": "mora_sia",
-      "description": "Open dataset over meldingen openbare ruimte. In deze dataset zit een subset van de de meldingsgegevens van alle meldingen vanaf 01-10-2018 die binnen de vastgestelde amsterdamse gebiedsindeling vallen. Hierin zijn de volgende hoofdcategorieën meegenomen: Afval, Civiele Constructies, Openbaar groen en water, Overig, Overlast Bedrijven en Horeca, Overlast in de openbare ruimte, Overlast van boten, Overlast van dieren, Overlast van en door personen of groepen, Schoon, Wegen, verkeer, straatmeubilair. De volgende type meldingen zijn uitgesloten in deze dataset:  Meldingen van de overige hoofdcategorieen en meldingen die na binnenkomst zijn gesplitst. Hiervan worden alleen de afgesplitste meldingen meegenomen (dus niet de initiele melding die na splitsing direct gesloten wordt). Vanaf 18 november 2020 zijn gesplitste meldingen ‘hoofdmeldingen’, wat inhoud dat niet meenemen van de initiele meldingen voor splitsing alleen geldt voor meldingen tot 18 november 2020",
+      "description": "Open dataset over meldingen openbare ruimte. In deze dataset zit een subset van de de meldingsgegevens van alle meldingen vanaf medio 2018 die binnen de vastgestelde amsterdamse gebiedsindeling vallen. Hierin zijn de volgende hoofdcategorieën meegenomen: Afval, Civiele Constructies, Openbaar groen en water, Overig, Overlast Bedrijven en Horeca, Overlast in de openbare ruimte, Overlast van boten, Overlast van dieren, Overlast van en door personen of groepen, Schoon, Wegen, verkeer, straatmeubilair. De volgende type meldingen zijn uitgesloten in deze dataset:  Meldingen van de overige hoofdcategorieen en meldingen die na binnenkomst zijn gesplitst. Hiervan worden alleen de afgesplitste meldingen meegenomen (dus niet de initiele melding die na splitsing direct gesloten wordt). Vanaf 18 november 2020 zijn gesplitste meldingen 'hoofdmeldingen', wat inhoud dat het niet meenemen van de initiele meldingen voor splitsing alleen geldt voor meldingen tot 18 november 2020",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -136,11 +136,13 @@
           },
           "anoniemGemeld": {
             "type": "string",
+            "enum": ["ja", "nee"],
             "description": "Indicatie of melder telefoonnummer of naam heeft achtergelaten ja of nee."
           },
           "terugkoppelingMelderTevreden": {
             "type": "string",
-            "description": "Indicator die aangeeft of de melder tevreden is over de afhandeling van de melding ja of nee."
+            "enum": ["ja", "nee"],
+            "description": "Indicator die aangeeft of de melder tevreden is over de afhandeling van de melding ja, nee of leeg (geen terugkoppeling)."
           },
           "terugkoppelingMelder": {
             "type": "string",
