@@ -11,6 +11,12 @@
     {
       "id": "kadastraleobjecten",
       "type": "table",
+      "temporal": {
+        "identifier": "volgnummer",
+        "dimensions": {
+          "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+        }
+      },
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/brk/kadastraleobjecten.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -19,12 +25,6 @@
         "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "identificatie",
-        "temporal": {
-          "identifier": "volgnummer",
-          "dimensions": {
-            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
-          }
-        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -194,6 +194,12 @@
     {
       "id": "zakelijkerechten",
       "type": "table",
+      "temporal": {
+        "identifier": "volgnummer",
+        "dimensions": {
+          "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+        }
+      },
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/brk/zakelijkerechten.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -202,12 +208,6 @@
         "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
-        "temporal": {
-          "identifier": "volgnummer",
-          "dimensions": {
-            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
-          }
-        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -594,6 +594,12 @@
     {
       "id": "tenaamstellingen",
       "type": "table",
+      "temporal": {
+        "identifier": "volgnummer",
+        "dimensions": {
+          "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+        }
+      },
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/brk/tenaamstellingen.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -602,12 +608,6 @@
         "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "volgnummer", "identificatie"],
         "display": "identificatie",
-        "temporal": {
-          "identifier": "volgnummer",
-          "dimensions": {
-            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
-          }
-        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -777,6 +777,12 @@
     {
       "id": "aantekeningenkadastraleobjecten",
       "type": "table",
+      "temporal": {
+        "identifier": "volgnummer",
+        "dimensions": {
+          "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+        }
+      },
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/brk/aantekeningenkadastraleobjecten.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -785,12 +791,6 @@
         "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "identificatie", "volgnummer"],
         "display": "id",
-        "temporal": {
-          "identifier": "volgnummer",
-          "dimensions": {
-            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
-          }
-        },
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
