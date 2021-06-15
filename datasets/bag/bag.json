@@ -10,6 +10,11 @@
     {
       "id": "woonplaatsen",
       "type": "table",
+      "temporal": {
+          "identifier": "volgnummer",
+          "dimensions": {
+            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+          }},
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bag/woonplaatsen.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -18,11 +23,6 @@
         "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
-        "temporal": {
-          "identifier": "volgnummer",
-          "dimensions": {
-            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
-          }},
         "additionalRelations": {
           "openbareruimtes": {
             "table": "openbareruimtes",
@@ -137,6 +137,11 @@
     {
       "id": "standplaatsen",
       "type": "table",
+      "temporal": {
+        "identifier": "volgnummer",
+        "dimensions": {
+          "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+        }},
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bag/standplaatsen.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -145,11 +150,6 @@
         "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
-        "temporal": {
-          "identifier": "volgnummer",
-          "dimensions": {
-            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
-          }},
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -297,6 +297,11 @@
     {
       "id": "ligplaatsen",
       "type": "table",
+      "temporal": {
+        "identifier": "volgnummer",
+        "dimensions": {
+          "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+        }},
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bag/ligplaatsen.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -305,11 +310,6 @@
         "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
-        "temporal": {
-          "identifier": "volgnummer",
-          "dimensions": {
-            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
-          }},
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -457,6 +457,11 @@
     {
       "id": "openbareruimtes",
       "type": "table",
+      "temporal": {
+        "identifier": "volgnummer",
+        "dimensions": {
+          "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+        }},
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bag/openbareruimtes.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -465,11 +470,6 @@
         "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
-        "temporal": {
-          "identifier": "volgnummer",
-          "dimensions": {
-            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
-          }},
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -606,6 +606,11 @@
     {
       "id": "nummeraanduidingen",
       "type": "table",
+      "temporal": {
+        "identifier": "volgnummer",
+        "dimensions": {
+          "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+        }},
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bag/nummeraanduidingen.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -614,11 +619,6 @@
         "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "identificatie", "volgnummer"],
         "display": "identificatie",
-        "temporal": {
-          "identifier": "volgnummer",
-          "dimensions": {
-            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
-          }},
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -802,6 +802,11 @@
     {
       "id": "verblijfsobjecten",
       "type": "table",
+      "temporal": {
+        "identifier": "volgnummer",
+        "dimensions": {
+          "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+        }},
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bag/verblijfsobjecten.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -810,11 +815,6 @@
         "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
-        "temporal": {
-          "identifier": "volgnummer",
-          "dimensions": {
-            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
-          }},
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -1107,6 +1107,11 @@
     {
       "id": "panden",
       "type": "table",
+      "temporal": {
+        "identifier": "volgnummer",
+        "dimensions": {
+          "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+        }},
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bag/panden.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1115,11 +1120,6 @@
         "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
         "display": "id",
-        "temporal": {
-          "identifier": "volgnummer",
-          "dimensions": {
-            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
-          }},
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -1352,6 +1352,11 @@
     {
       "id": "onderzoeken",
       "type": "table",
+      "temporal": {
+        "identifier": "volgnummer",
+        "dimensions": {
+          "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+        }},
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bag/onderzoeken.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1359,11 +1364,6 @@
         "additionalProperties": false,
         "identifier": ["identificatie", "volgnummer"],
         "required": ["schema", "id", "identificatie", "volgnummer"],
-        "temporal": {
-          "identifier": "volgnummer",
-          "dimensions": {
-            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
-          }},
         "display": "id",
         "properties": {
           "schema": {
