@@ -598,7 +598,6 @@
 	a[href]:focus,
 	a[href]:hover {
 		text-decoration-thickness: 2px;
-		text-decoratin
 	}
 	a[href]:active {
 		color: #c00;
@@ -1488,9 +1487,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version c6f50773a, updated Fri Apr 16 16:45:47 2021 -0700" name="generator">
+  <meta content="Bikeshed version 800b43329, updated Tue May 25 14:13:32 2021 -0700" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
-  <meta content="f509dd58c0e46644590a994d6dbbf32e21c7d0b8" name="document-revision">
+  <meta content="3e20ced8fffc724974018f9f3709565a7259760a" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -2000,7 +1999,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Amsterdam Schema Specification</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-05-10">10 May 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-06-15">15 June 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2032,16 +2031,17 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><a href="#omschrijving"><span class="secno">1.2</span> <span class="content">Omschrijving (dataset, tabel, veld)</span></a>
       <li><a href="#data-types"><span class="secno">1.3</span> <span class="content">Data Types (veld)</span></a>
       <li><a href="#relatering"><span class="secno">1.4</span> <span class="content">Relatering (veld)</span></a>
-      <li><a href="#eenheden"><span class="secno">1.5</span> <span class="content">Eenheden (veld)</span></a>
-      <li><a href="#authorisatie"><span class="secno">1.6</span> <span class="content">Autorisatie (dataset, tabel, veld)</span></a>
+      <li><a href="#temporaliteit"><span class="secno">1.5</span> <span class="content">Temporaliteit (tabel)</span></a>
+      <li><a href="#eenheden"><span class="secno">1.6</span> <span class="content">Eenheden (veld)</span></a>
+      <li><a href="#authorisatie"><span class="secno">1.7</span> <span class="content">Autorisatie (dataset, tabel, veld)</span></a>
       <li>
-       <a href="#provenance"><span class="secno">1.7</span> <span class="content">Provenance (dataset, tabel, veld)</span></a>
+       <a href="#provenance"><span class="secno">1.8</span> <span class="content">Provenance (dataset, tabel, veld)</span></a>
        <ol class="toc">
-        <li><a href="#provenance-vrije-invoer"><span class="secno">1.7.1</span> <span class="content">Vrije invoer</span></a>
-        <li><a href="#provenance-postgres"><span class="secno">1.7.2</span> <span class="content">Postgres</span></a>
-        <li><a href="#provenance-shapefile"><span class="secno">1.7.3</span> <span class="content">Shapefile</span></a>
+        <li><a href="#provenance-vrije-invoer"><span class="secno">1.8.1</span> <span class="content">Vrije invoer</span></a>
+        <li><a href="#provenance-postgres"><span class="secno">1.8.2</span> <span class="content">Postgres</span></a>
+        <li><a href="#provenance-shapefile"><span class="secno">1.8.3</span> <span class="content">Shapefile</span></a>
        </ol>
-      <li><a href="#naamgeving"><span class="secno">1.8</span> <span class="content">Naamgeving</span></a>
+      <li><a href="#naamgeving"><span class="secno">1.9</span> <span class="content">Naamgeving</span></a>
      </ol>
    </ol>
   </nav>
@@ -2276,7 +2276,19 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <c- p>}</c->
 <c- p>}</c->
 </pre>
-   <h3 class="heading settled" data-level="1.5" id="eenheden"><span class="secno">1.5. </span><span class="content">Eenheden (veld)</span><a class="self-link" href="#eenheden"></a></h3>
+   <h3 class="heading settled" data-level="1.5" id="temporaliteit"><span class="secno">1.5. </span><span class="content">Temporaliteit (tabel)</span><a class="self-link" href="#temporaliteit"></a></h3>
+   <p>Als een tabel objecten bevat waarvan over de tijd verschillende versies geldig zijn wordt dit in de tabel definitie met het 'temporal' object aangegeven.</p>
+<pre class="highlight"><c- u>"temporal"</c->: <c- p>{</c->
+          <c- f>"identifier"</c-><c- p>:</c-> <c- u>"volgnummer"</c-><c- p>,</c->
+          <c- f>"dimensions"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"geldigOp"</c-><c- p>:</c-> <c- p>[</c-><c- u>"beginGeldigheid"</c-><c- p>,</c-> <c- u>"eindGeldigheid"</c-><c- p>]</c->
+          <c- p>}}</c->,
+</pre>
+   <p>De unieke identifier voor objecten in de tabel, bestaat dan uit de combinatie (een compound key) van het 'identifier' veld in de Dataset en het 'identifier' veld in het 'temporal object.'</p>
+   <p>De array in 'temporal.dimensions.geldigOp' bevat de namen van twee velden met begin en eind geldigheid van een object, ten behoeve van een queries binnen een bepaalde tijdsspanne.
+Een object in de tabel is geldig op de gesloten interval [beginGeldigheid", "eindGeldigheid"].
+Als een tabel niet temporeel is kan het 'temporal' object worden weggelaten.</p>
+   <h3 class="heading settled" data-level="1.6" id="eenheden"><span class="secno">1.6. </span><span class="content">Eenheden (veld)</span><a class="self-link" href="#eenheden"></a></h3>
    <p>Op het niveau van individuele velden is het gewenst om de eenheid te modelleren.</p>
    <p>Voor het definieren van eenheden gebruiken wij, by default, een string met een eenheid definitie volgens de <a href="https://unitsofmeasure.org/ucum.html">UCUM standaard</a>.</p>
    <p><code class="highlight"><c- u>"unit"</c->: <c- u>"mm/h"</c-></code></p>
@@ -2287,7 +2299,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>Andere system kunnen daardoor ook aangegeven worden:</p>
    <p><code class="highlight"><c- u>"unit"</c->: <c- p>{</c-><c- f>"type"</c-><c- p>:</c-> <c- u>"pint"</c-><c- p>,</c-> <c- f>"value"</c-><c- p>:</c-> <c- u>"meter"</c-><c- p>}</c-></code></p>
    <p>Custom unit systemen zullen echter conversie bemoeilijken en worden derhalve afgeraden door middel van een data-kwaliteits waarschuwing.</p>
-   <h3 class="heading settled" data-level="1.6" id="authorisatie"><span class="secno">1.6. </span><span class="content">Autorisatie (dataset, tabel, veld)</span><a class="self-link" href="#authorisatie"></a></h3>
+   <h3 class="heading settled" data-level="1.7" id="authorisatie"><span class="secno">1.7. </span><span class="content">Autorisatie (dataset, tabel, veld)</span><a class="self-link" href="#authorisatie"></a></h3>
    <p>Autorisatie kan gedefinieerd worden op dataset-, tabel- en veld-niveau.</p>
    <p>Er zijn drie bestaande rol-aliassen gedefinieerd: <code class="highlight">publiek</code>, <code class="highlight">medewerker</code> en <code class="highlight">medewerker-plus</code>. Deze zullen in de toekomst overgaan op Active Directory groepen zodra mogelijk.</p>
    <p>Op elk niveau kan aangegeven worden wat het hoogste niveau is dat toegang dient te hebben tot alle data op dat niveau en onderliggende niveau’s.</p>
@@ -2297,23 +2309,23 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>Het is ook mogelijk meerdere rollen op te geven in de vorm van een array als <code class="highlight"><c- u>"autorisatie"</c->: <c- p>[</c-><c- u>"ruimte"</c-><c- p>,</c-> <c- u>"basisinformatie"</c-><c- p>]</c-></code>.</p>
    <p>Dit zal in de huidige rollenstructuur echter niet nodig zijn aangezien <code class="highlight">medewerker</code> ook <code class="highlight">publiek</code> als rol bevat en <code class="highlight">medewerker-plus</code> ook <code class="highlight">medewerker</code> en <code class="highlight">publiek</code>. Derhalve kan de _huidige_ rollenstructuur altijd zonder array’s gemodelleerd worden.</p>
    <p>Naar de toekomst toe kan autorisatie uitgebreid worden d.m.v. een object met extra informatie t.b.v. bijvoorbeeld row level security; naar mate dit ondersteund kan worden door de relevante doelrepresentaties.</p>
-   <h3 class="heading settled" data-level="1.7" id="provenance"><span class="secno">1.7. </span><span class="content">Provenance (dataset, tabel, veld)</span><a class="self-link" href="#provenance"></a></h3>
+   <h3 class="heading settled" data-level="1.8" id="provenance"><span class="secno">1.8. </span><span class="content">Provenance (dataset, tabel, veld)</span><a class="self-link" href="#provenance"></a></h3>
    <p>Provenance als veld wordt gebruikt om programmatisch informatie op te slaan over de oorsprong van bepaalde data.</p>
    <p>In beperkte vorm kan provenance ook gebruikt worden om automatisch verwerking van brongegevens in andere formaten te bewerkstelligen.</p>
    <p>Provenance is beschikbaar op zowel dataset-, tabel- als veld-niveau. Het is een vrij veld maar door een object met 'type' te specificeren kunnen specifieke machine readable profielen geactiveerd worden t.b.v. automatische bronverwerking</p>
-   <h4 class="heading settled" data-level="1.7.1" id="provenance-vrije-invoer"><span class="secno">1.7.1. </span><span class="content">Vrije invoer</span><a class="self-link" href="#provenance-vrije-invoer"></a></h4>
+   <h4 class="heading settled" data-level="1.8.1" id="provenance-vrije-invoer"><span class="secno">1.8.1. </span><span class="content">Vrije invoer</span><a class="self-link" href="#provenance-vrije-invoer"></a></h4>
    <p>Dataset: <code class="highlight"><c- u>"provenance"</c->: <c- u>"Deze dataset wordt handmatig verwerkt door ..."</c-></code></p>
    <p>Tabel: <code class="highlight"><c- u>"provenance"</c->: <c- u>"Deze tabel is gebaseerd op een CSV bestand aangeleverd door ..."</c-></code></p>
    <p>Veld: <code class="highlight"><c- u>"provenance"</c->: <c- u>"Ontbrekende IDs zijn m.b.v TextEdit vervangen door UUID hashes van de naam in UTF-8."</c-></code></p>
-   <h4 class="heading settled" data-level="1.7.2" id="provenance-postgres"><span class="secno">1.7.2. </span><span class="content">Postgres</span><a class="self-link" href="#provenance-postgres"></a></h4>
+   <h4 class="heading settled" data-level="1.8.2" id="provenance-postgres"><span class="secno">1.8.2. </span><span class="content">Postgres</span><a class="self-link" href="#provenance-postgres"></a></h4>
    <p>Dataset: <code class="highlight"><c- u>"provenance"</c->: <c- p>{</c-> <c- f>"type"</c-><c- p>:</c-> <c- u>"postgres"</c-><c- p>,</c-> <c- f>"schema"</c-><c- p>:</c-> <c- u>"ruimte"</c-> <c- p>}</c-></code></p>
    <p>Tabel: <code class="highlight"><c- u>"provenance"</c->: <c- p>{</c-> <c- f>"table"</c-><c- p>:</c-> <c- u>"verhardingen"</c-> <c- p>}</c-></code></p>
    <p>Veld: <code class="highlight"><c- u>"provenance"</c->: <c- p>{</c-> <c- f>"field"</c-><c- p>:</c-> <c- u>"lengte_m"</c-><c- p>,</c-> <c- f>"type"</c-><c- p>:</c-> <c- u>"NUMERIC(10,2)"</c-><c- p>}</c-></code></p>
-   <h4 class="heading settled" data-level="1.7.3" id="provenance-shapefile"><span class="secno">1.7.3. </span><span class="content">Shapefile</span><a class="self-link" href="#provenance-shapefile"></a></h4>
+   <h4 class="heading settled" data-level="1.8.3" id="provenance-shapefile"><span class="secno">1.8.3. </span><span class="content">Shapefile</span><a class="self-link" href="#provenance-shapefile"></a></h4>
    <p>Dataset: <code class="highlight"><c- u>"provenance"</c->: <c- p>{</c-> <c- f>"type"</c-><c- p>:</c-> <c- u>"shapefile"</c-><c- p>}</c-></code></p>
    <p>Tabel: <code class="highlight"><c- u>"provenance"</c->: <c- p>{</c-> <c- f>"file"</c-><c- p>:</c-> <c- u>"asbestdaken_daken.zip"</c-> <c- p>}</c-></code></p>
    <p>Veld: <code class="highlight"><c- u>"provenance"</c->: <c- p>{</c-> <c- f>"field"</c-><c- p>:</c-> <c- u>"perceel_id"</c-><c- p>}</c-></code></p>
-   <h3 class="heading settled" data-level="1.8" id="naamgeving"><span class="secno">1.8. </span><span class="content">Naamgeving</span><a class="self-link" href="#naamgeving"></a></h3>
+   <h3 class="heading settled" data-level="1.9" id="naamgeving"><span class="secno">1.9. </span><span class="content">Naamgeving</span><a class="self-link" href="#naamgeving"></a></h3>
    <p>Voor de naamgeving van de velden wordt de camelCase notatie gebruikt. Op implementatie-niveau (bijv. PostgreSQL) wordt
 dit omgezet in snake_case notatie als de meest natuurlijke manier van noteren.</p>
    <p>Gebruik duidelijke en begrijpelijke namen voor zowel datasets, tabellen als velden. Het gaat hierbij tenslotte om het beschikbaar
