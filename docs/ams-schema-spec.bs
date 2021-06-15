@@ -183,6 +183,26 @@ Indien het gewenst is om een inverse relatie op te nemen de weergave van de reso
 ```
 
 
+Temporaliteit (tabel) {#temporaliteit}
+-----------------------------------------------
+
+Als een tabel objecten bevat waarvan over de tijd verschillende versies geldig zijn wordt dit in de tabel definitie met het 'temporal' object aangegeven.
+
+```
+"temporal": {
+          "identifier": "volgnummer",
+          "dimensions": {
+            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+          }},
+```
+
+De unieke identifier voor objecten in de tabel, bestaat dan uit de combinatie (een compound key) van het 'identifier' veld in de Dataset en het 'identifier' veld in het 'temporal object.'
+
+De array in 'temporal.dimensions.geldigOp' bevat de namen van twee velden met begin en eind geldigheid van een object, ten behoeve van een queries binnen een bepaalde tijdsspanne.
+Een object in de tabel is geldig binnen het gesloten interval [beginGeldigheid", "eindGeldigheid"].
+Als een tabel niet temporeel is kan het 'temporal' object worden weggelaten.
+
+
 Eenheden (veld) {#eenheden}
 ---------------------------
 
