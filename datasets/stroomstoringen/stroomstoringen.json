@@ -15,7 +15,7 @@
     "name": "",
     "email": "datadiensten.ois@amsterdam.nl"
   },
-  "accrualPeriodicity": "dagelijks",
+  "accrualPeriodicity": "elke 10 minuten",
   "spatialDescription": "Gemeente Amsterdam",
   "theme": ["openbareruimte", "electra", "storingen"],
   "publisher": "OIS",
@@ -32,7 +32,6 @@
       "description": "Stroomstoringen (van vandaag) Liander netwerk regio Amsterdam",
       "schema": {
         "required": ["id"],
-        "mainGeometry": "geometrie",
         "display": "id",
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -52,7 +51,7 @@
           },
           "storingNummer": {
             "type": "integer",
-            "description": "Intern storingsnummer Liander."
+            "description": "Intern storingnummer Liander."
           },
           "storingGetroffenPostcodes": {
             "type": "string",
