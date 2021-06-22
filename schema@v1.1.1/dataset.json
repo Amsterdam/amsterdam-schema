@@ -7,8 +7,12 @@
       "$ref": "./schema@v1.1.1#/definitions/basicProperties"
     }
   ],
-  "required": ["tables", "version", "status"],
+  "required": ["tables", "version", "status", "path"],
   "properties": {
+    "path": {
+      "type": "string",
+      "format": "uri"
+    },
     "type": {
       "const": "dataset"
     },
