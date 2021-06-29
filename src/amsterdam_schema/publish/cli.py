@@ -19,7 +19,7 @@ from io import BytesIO
 from os.path import splitext
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from typing import Callable, ContextManager, Iterator, List, Tuple
+from typing import Callable, ContextManager, Dict, Iterator, List, Tuple
 
 import click
 import in_place
@@ -86,16 +86,35 @@ def fetch_local_as_publishable(
     return publishable_paths
 
 
-def get_index_file_obj(publishable_paths: List[List[str]]) -> BytesIO:
-    index = {}
-    for path_parts in publishable_paths:
+def get_index_file_obj(publishable_paths: List[List[str]], files_root: Path) -> BytesIO:
+    """Create index file of all the datasets in JSON format.
+
+    For every dataset.json file it will add an entry of the form:
+    `dataset_id:'path/to/dataset/'`.
+    """
+    index: Dict[str, str] = {}
+    for path_parts in sorted(publishable_paths, key=len):
         if path_parts[1] != "datasets":
             continue
-        dataset_ext = path_parts[-1]
+        file_name = path_parts[-1]
+        if file_name != "dataset.json":
+            continue
+
+        # Grab id from dataset file
+        with open(files_root / Path(*path_parts)) as f:
+            key = json.load(f)["id"]
+
         folder = "/".join(path_parts[2:-1])
-        dataset = splitext(dataset_ext)[0]
-        index[dataset] = f"{folder}/{dataset}"
-    return BytesIO(json.dumps(index).encode("utf-8"))
+
+        # Check for duplicate ids
+        if key in index:
+            raise Exception(
+                f"Datasets with duplicate id:'{key}' \
+                in {folder} and {index[key]}."
+            )
+
+        index[key] = folder
+    return BytesIO(json.dumps(index).encode())
 
 
 def create_object_name(path_parts: List[str]) -> str:
@@ -163,7 +182,7 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str) -> None:
         schema_pub_paths = fetch_local_as_publishable(ROOT_PKG_NAME, files_root)
         if schema_base_url is not None:
             replace_schema_base_url(files_root, schema_base_url)
-        index_file_obj = get_index_file_obj(schema_pub_paths)
+        index_file_obj = get_index_file_obj(schema_pub_paths, files_root)
 
         # Then fetch the documentation
         doc_pub_paths = fetch_local_as_publishable(
