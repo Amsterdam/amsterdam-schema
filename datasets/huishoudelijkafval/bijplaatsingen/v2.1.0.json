@@ -1,0 +1,148 @@
+{
+    "id": "bijplaatsingen",
+    "type": "table",
+    "provenance": "afval_api_waarneming",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "schema"],
+      "display": "id",
+      "properties": {
+        "id": {
+          "type": "string",
+          "provenance": "afval_api_waarneming_id",
+          "description": "Unieke identificatie van het object."
+        },
+        "schema": {
+          "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        },
+        "datumTijdWaarneming": {
+          "type": "string",
+          "format": "date-time",
+          "description": "De datum en het tijdstip waarop de melding is gedaan."
+        },
+        "cluster": {
+          "type": "string",
+          "relation": "huishoudelijkafval:cluster",
+          "description": "Uniek identificerend kenmerk van cluster"
+        },
+        "gbdBuurt": {
+          "type": "string",
+          "relation": "gebieden:buurten",
+          "description": "Unieke identificatie van het object (naam van het kenmerk wijzigt van ID naar Identificatie in 2019)"
+        },
+        "bagOpenbareruimte": {
+          "type": "string",
+          "relation": "bag:openbareruimtes",
+          "description": "Unieke identificatie van het object"
+        },
+        "bagNummeraanduiding": {
+          "type": "string",
+          "relation": "bag:nummeraanduidingen",
+          "description": "Identificatie nummeraanduiding"
+        },
+        "bagVerblijfsobject": {
+          "type": "string",
+          "provenance": "bag_hoofdadres_verblijfsobject_id",
+          "relation": "bag:verblijfsobjecten",
+          "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject."
+        },
+        "geometrie": {
+          "type": "string",
+          "provenance": "waarneming_geometrie",
+          "$ref": "https://geojson.org/schema/Point.json",
+          "description": "Geometrie van het type POINT van de melding RD (epsg:28992)"
+        },
+        "bruingoed": {
+          "type": "boolean",
+          "description": "Aangetroffen afvalsoort (bruingoed) rondom de container(s)"
+        },
+        "containervies": {
+          "type": "boolean",
+          "description": "De uiterlijke toestand van de container(s). Container is vies en moet worden schoongemaakt"
+        },
+        "crowScore": {
+          "type": "string",
+          "provenance": "waarneming_crow_score",
+          "description": "De score van CROW inspectie. A+: 0 stuks afval, A: <= 1 stuk, B: <= 3 stuks, C: <= 5 stuks, D: > 5 stuks"
+        },
+        "glas": {
+          "type": "boolean",
+          "description": "Aangetroffen afvalsoort rondom de container(s)"
+        },
+        "glasgestremd": {
+          "type": "boolean",
+          "description": "De glascontainer is gestremd"
+        },
+        "glastoegankelijk": {
+          "type": "boolean",
+          "description": "De glascontainer is toegangelijk"
+        },
+        "glasvol": {
+          "type": "boolean",
+          "description": "De glascontainer is vol"
+        },
+        "grof": {
+          "type": "boolean",
+          "description": "Aangetroffen afvalsoort (grofvuil) rondom de container(s)"
+        },
+        "handhaving": {
+          "type": "boolean",
+          "description": "Er zijn zijn items aangetroffen met adresgegevens en is er dus handhaving nodig"
+        },
+        "WaardeHandhaving": {
+          "type": "string",
+          "description": "Hoe veel items met adresgegevens zijn er aangetroffen?"
+        },
+        "huisvuil": {
+          "type": "boolean",
+          "description": "Aangetroffen afvalsoort (huisvuil) rondom de container(s)"
+        },
+        "karton": {
+          "type": "boolean",
+          "description": "Aangetroffen afvalsoort (karton) rondom de container(s)"
+        },
+        "overig": {
+          "type": "boolean",
+          "description": "Aangetroffen afvalsoort (overig) rondom de container(s)"
+        },
+        "papiervol": {
+          "type": "boolean",
+          "description": "De papiercontainer is vol"
+        },
+        "papiergestremd": {
+          "type": "boolean",
+          "description": "De papiercontainer is gestremd"
+        },
+        "papiertoegankelijk": {
+          "type": "boolean",
+          "description": "De papiercontainer is toegankelijk"
+        },
+        "restgestremd": {
+          "type": "boolean",
+          "description": "De restcontainer is gestremd"
+        },
+        "resttoegankelijk": {
+          "type": "boolean",
+          "description": "De restcontainer is toegankelijk"
+        },
+        "restvol": {
+          "type": "boolean",
+          "description": "De restcontainer is vol"
+        },
+        "veegvuil": {
+          "type": "boolean",
+          "description": "Aangetroffen afvalsoort (veegvuil) rondom de container(s)"
+        },
+        "zwerfafval": {
+          "type": "boolean",
+          "description": "Aangetroffen afvalsoort (zwerfafval) rondom de container(s)"
+        },
+        "waarnemerRol": {
+          "type": "string",
+          "description": "De rol van de melder"
+        }
+      }
+    }
+  }
