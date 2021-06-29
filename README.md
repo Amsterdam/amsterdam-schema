@@ -58,9 +58,9 @@ For example:
 - The dataset `bag` contains data for each building and address in the city;
 - This dataset contains two tables: `buildings` and `addresses`;
 - To describe this dataset according to Amsterdam Schema,
-  we first describe the metadata of the dataset in a JSON file
+  we first describe the metadata of the dataset
   (such as its identifier, title, description and
-  [DCAT](https://www.w3.org/TR/vocab-dcat-2/) fields);
+  [DCAT](https://www.w3.org/TR/vocab-dcat-2/) fields) in a dataset.json file;
 - For each table in this dataset,
   we describe the table metadata in a separate JSON file.
   We can also choose to combine the dataset and table JSON data in a single JSON file;
