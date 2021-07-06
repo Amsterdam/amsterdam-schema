@@ -8,7 +8,7 @@
   "tables": [
     {
       "id": "maatschappelijkeactiviteiten",
-      "shortname": "maatschAct",
+      "shortname": "mac",
       "type": "table",
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/hr/maatschappelijkeactiviteiten.json",
@@ -27,16 +27,19 @@
             "description": "Betreft het identificerende gegeven voor de Maatschappelijke Activiteit, het KvK-nummer."
           },
           "datumAanvangMaatschappelijkeActiviteit": {
+            "shortname": "datumAanvangMac",
             "type": "string",
             "provenance": "$.datumAanvangMaatschappelijkeActiviteit.formatted",
             "description": "De datum waarbij de Maatschappelijke Activiteit in de echte wereld is ontstaan."
           },
           "datumEindeMaatschappelijkeActiviteit": {
+            "shortname": "datumEindeMac",
             "type": "string",
             "provenance": "$.datumEindeMaatschappelijkeActiviteit.formatted",
             "description": "De datum waarbij de Maatschappelijke Activiteit in de echte wereld is beëindigd."
           },
           "registratieTijdstipMaatschappelijkeActiviteit": {
+            "shortname": "registratieTijdstipMac",
             "type": "string",
             "format": "date-time",
             "description": "Het tijdstip waarop de maatschappelijke activiteit bij de KvK in het handelsregistere is geregistreerd. Indien het registratietijdstip om (migratie)redenen niet bekend is wordt de waarde 'vastgesteldOnbekend' opgenomen."
@@ -132,7 +135,7 @@
             "description": "De vestiging die als hoofdvestiging wordt gebruikt."
           },
           "heeftSbiActiviteitenVoorMaatschappelijkeActiviteit": {
-            "shortname": "sbiVoorMtschAct",
+            "shortname": "sbiVoorMac",
             "type": "array",
             "items": {
               "type": "object",
@@ -193,7 +196,7 @@
             "description": "De omschrijving van de activiteiten die de onderneming uitoefent."
           },
           "wordtUitgeoefendInCommercieleVestiging": {
-            "shortname": "uitgeoefInCommVes",
+            "shortname": "uitgeoefendInCvs",
             "type": "array",
             "items": {
               "type": "object",
@@ -207,7 +210,7 @@
             "description": "Een vestiging is gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een Onderneming of Rechtspersoon plaatsvindt."
           },
           "wordtUitgeoefendInNietCommercieleVestiging": {
-            "shortname": "uitgeoefInNietCommVes",
+            "shortname": "uitgeoefendInNcv",
             "type": "array",
             "items": {
               "type": "object",
@@ -221,7 +224,7 @@
             "description": "Een vestiging is gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een Onderneming of Rechtspersoon plaatsvindt."
           },
           "handeltOnderHandelsnamen": {
-            "shortname": "handelsnamen",
+            "shortname": "handeltOnderHn",
             "type": "array",
             "items": {
               "type": "object",
@@ -520,6 +523,7 @@
             "description": "Een andere naam waaronder de vereniging stichtingen en vereniging van eigenaars ook bekend is."
           },
           "handeltOnderHandelsnamen": {
+            "shortname": "handeltOnderHn",
             "type": "array",
             "items": {
               "type": "object",
@@ -658,6 +662,7 @@
             "description": "De datum/tijd waarop de SBIactiviteit is geregistreerd."
           },
           "heeftAlsMaatschappelijkactiviteit": {
+            "shortname": "heeftAlsMac",
             "type": "object",
             "properties": {
               "kvknummer": {
