@@ -190,6 +190,17 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str) -> None:
         )
 
         with SwiftService() as swift:
+            container = f"{container_prefix}{dp_env}"
+
+            # Delete old objects in datasets
+            deletes = swift.delete(container, options={"prefix": "datasets"})
+            for r in deletes:
+                if not r["success"]:
+                    logger.warn(
+                        f"Warning: Remote object {container}/{r['object']} could not be removed."
+                    )
+
+            # Add new objects
             upload_objects = [SwiftUploadObject(index_file_obj, object_name="datasets/index.json")]
             for schema_path_parts in schema_pub_paths:
                 object_name = create_object_name(schema_path_parts)
@@ -209,7 +220,7 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str) -> None:
                         options={"header": ["content-type:text/html"]},
                     )
                 )
-            uploads = swift.upload(f"{container_prefix}{dp_env}", upload_objects)
+            uploads = swift.upload(container, upload_objects)
             errors = False
             for r in uploads:
                 if not r["success"]:
