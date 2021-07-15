@@ -1,0 +1,211 @@
+{
+	"type": "dataset",
+	"id": "rinoa",
+	"title": "rinoa",
+	"status": "beschikbaar",
+	"description": "Rinoa",
+	"version": "0.0.1",
+	"crs": "EPSG:28992",
+	"tables": [
+		{
+			"id": "contactadressen",
+			"type": "table",
+			"schema": {
+				"$schema": "http://json-schema.org/draft-07/schema#",
+				"type": "object",
+				"required": [
+					"schema",
+					"id"
+				],
+				"display": "contactpunt",
+				"properties": {
+					"schema": {
+						"$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+					},
+					"id": {
+						"type": "integer/autoincrement"
+					},
+					"onderwijsaanbiederId": {
+						"type": "string"
+					},
+					"contactpunt": {
+						"type": "string"
+					},
+					"bezoeknlStraatnaam": {
+						"type": "string"
+					},
+					"bezoeknlHuisnummer": {
+						"type": "integer"
+					},
+					"bezoeknlHuisnummertoevoeging": {
+						"type": "string"
+					},
+					"bezoeknlPostcode": {
+						"type": "string"
+					},
+					"bezoeknlPlaatsnaam": {
+						"type": "string"
+					},
+					"postnlStraatnaam": {
+						"type": "string"
+					},
+					"postnlHuisnummer": {
+						"type": "integer"
+					},
+					"postnlHuisnummertoevoeging": {
+						"type": "string"
+					},
+					"postnlPostcode": {
+						"type": "string"
+					},
+					"postnlPlaatsnaam": {
+						"type": "string"
+					},
+					"emailadres": {
+						"type": "string"
+					},
+					"telefoonnummer": {
+						"type": "string"
+					},
+					"webadres": {
+						"type": "string"
+					},
+					"begindatum": {
+						"type": "string",
+						"format": "date"
+					},
+					"einddatum": {
+						"type": "string",
+						"format": "date"
+					},
+					"context": {
+						"type": "string"
+					},
+					"subcontextNummer": {
+						"type": "integer"
+					}
+				}
+			}
+		},
+		{
+			"id": "onderwijsbesturen",
+			"type": "table",
+			"schema": {
+				"$schema": "http://json-schema.org/draft-07/schema#",
+				"type": "object",
+				"required": [
+					"schema",
+					"id"
+				],
+				"display": "id",
+				"properties": {
+					"schema": {
+						"$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+					},
+					"id": {
+						"type": "string"
+					},
+					"naam": {
+						"type": "string"
+					},
+					"kvkNummer": {
+						"type": "number"
+					},
+					"inBedrijfdatum": {
+						"type": "string",
+						"format": "date"
+					},
+					"uitBedrijfdatum": {
+						"type": "string",
+						"format": "date"
+					},
+					"begindatumPeriode": {
+						"type": "string",
+						"format": "date"
+					},
+					"einddatumPeriode": {
+						"type": "string",
+						"format": "date"
+					},
+					"contactadressen": {
+						"type": "array",
+						"relation": "rinoa:contactadressen"
+					}
+				}
+			}
+		},
+		{
+			"id": "bevoegdGezagErkenningen",
+			"type": "table",
+			"schema": {
+				"$schema": "http://json-schema.org/draft-07/schema#",
+				"type": "object",
+				"required": [
+					"schema",
+					"bevoegdGezagNummer"
+				],
+				"identifier": [
+					"bevoegdGezagNummer"
+				],
+				"display": "id",
+				"properties": {
+					"schema": {
+						"$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+					},
+					"bevoegdGezagNummer": {
+						"type": "integer"
+					},
+					"verkorteNaam": {
+						"type": "string"
+					},
+					"naam": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		{
+			"id": "bevoegdGezagErkenningOnderwijsbestuurRelaties",
+			"type": "table",
+			"schema": {
+				"$schema": "http://json-schema.org/draft-07/schema#",
+				"type": "object",
+				"required": [
+					"schema",
+					"bevoegdGezagNummer",
+					"onderwijsbestuur"
+				],
+				"identifier": [
+					"bevoegdGezagErkenning",
+					"onderwijsbestuur"
+				],
+				"display": "id",
+				"properties": {
+					"schema": {
+						"$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+					},
+					"id": {
+						"type": "integer/autoincrement"
+					},
+					"bevoegdGezagErkenning": {
+						"relation": "rinoa:bevoegdGezagErkenningen",
+						"type": "integer",
+						"description": "Elk onderwijsbestuur heeft 1 BGE"
+					},
+					"onderwijsbestuur": {
+						"type": "string",
+						"relation": "rinoa:onderwijsbestuur"
+					},
+					"begindatum": {
+						"type": "string",
+						"format": "date"
+					},
+					"einddatum": {
+						"type": "string",
+						"format": "date"
+					}
+				}
+			}
+		}
+	]
+}
