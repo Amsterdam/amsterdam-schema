@@ -19,18 +19,11 @@ python3.8 -m venv dvenv
 source dvenv/bin/activate
 pip install -U pip setuptools wheel
 pip install bikeshed
-pip install pygments==2.7.2
 cd docs
 bikeshed spec ams-schema-spec.bs ams-schema-spec.html
 open ams-schema-spec.html
 ```
 
-Note the explicit installation of `pygments`.
-Although the installation of `bikeshed` automatically installs `pygments`,
-we override it with an older version
-to ensure correct highlighting of literals in the spec.
-The error that `pip` displays
-can safely be ignored.
 
 
 After this initial installation
