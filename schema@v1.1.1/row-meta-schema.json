@@ -90,6 +90,18 @@
         "uri": {
           "type": "string",
           "format": "uri-reference"
+        },
+        "unit": {
+          "type": ["string","object"],
+          "required": ["type", "value"],
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
         }
       },
 
