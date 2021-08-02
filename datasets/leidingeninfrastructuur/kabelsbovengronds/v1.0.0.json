@@ -7,132 +7,130 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
-    "required": ["schema", "id"],
+    "required": [
+      "schema",
+      "id"
+    ],
     "mainGeometry": "geometrie",
     "display": "id",
     "properties": {
       "id": {
         "type": "integer",
-        "description": "Unieke id van het object"
+        "description": "Business-key: unieke aanduiding per voorkomen in tabel Kabel_bovengrond (bestaande uit Kabels)."
       },
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-      },     
+      },
       "geometry": {
         "$ref": "https://geojson.org/schema/LineString.json",
-        "description": "Geometrie in RD (epsg:28992)"
+        "description": "Lijn-coördinaten van de bovengrondse kabel (epsg:28992)"
       },
       "inwinningstype": {
         "type": "string",
-        "description": "..."
+        "description": "Kwaliteit van inwinning."
       },
       "thema": {
         "type": "string",
-        "description": "..."
+        "description": "WIBON Thema."
       },
       "klasse": {
         "type": "string",
-        "description": "..."
+        "description": "WIBON Klasse."
       },
       "type": {
         "type": "string",
-        "description": "..."
+        "description": "WIBON Type."
       },
       "zichtbaar": {
         "type": "string",
-        "description": "..."
+        "description": "Zichtbaar (Ja/Nee)."
       },
-      "bovenonder": {
+      "indicatieBovenOnder": {
         "type": "string",
-        "description": "..."
+        "description": "Indicatie: Boven-/ondergronds.",
+        "provenance": "bovenonder"
       },
       "diepte": {
-        "type": "string",
-        "description": "..."
+        "type": "number",
+        "unit": "cm",
+        "description": "Diepte in cm (t.o.v. maaiveld)."
       },
       "nauwkeurigheidDiepte": {
         "type": "string",
-        "description": "..."
+        "description": "Nauwkeurigheid van de diepte."
       },
       "hoogte": {
-        "type": "string",
-        "description": "..."
+        "type": "number",
+        "unit": "cm",
+        "description": "Hoogte in cm. (t.o.v. maaiveld)"
       },
       "nauwkeurigheid_hoogte": {
         "type": "string",
-        "description": "..."
+        "description": "Nauwkeurigheid van de hoogte."
       },
       "hoofdcategorie": {
         "type": "string",
-        "description": "..."
+        "description": "Hoofdcategorie."
       },
       "eigenaar": {
         "type": "string",
-        "description": "..."
+        "description": "Eigenaar van de Kabel."
       },
-      "jva": {
-        "type": "string",
-        "description": "..."
+      "jaarVanAanleg": {
+        "type": "integer",
+        "description": "Jaar van aanleg van de Kabel.",
+        "provenance": "jva"
       },
-      "typeextra": {
+      "typeExtra": {
         "type": "string",
-        "description": "..."
+        "description": "Type extra (AC/DC).",
+        "provenance": "typeextra"
       },
       "functie": {
         "type": "string",
-        "description": "..."
+        "description": "Functie van de Kabel."
       },
       "van": {
         "type": "string",
-        "description": "..."
+        "description": "Van (locatie van de Kabel)."
       },
       "tot": {
         "type": "string",
-        "description": "..."
+        "description": "Tot (locatie van de Kabel)."
       },
       "kast": {
         "type": "string",
-        "description": "..."
+        "description": "Kastnummer waarop de Kabel is aangesloten."
       },
       "groep": {
         "type": "string",
-        "description": "..."
+        "description": "Groepsnummer binnen de Kast waar de Kabel op is aangesloten."
       },
       "kabeltype": {
         "type": "string",
-        "description": "..."
+        "description": "Kabeltype."
       },
       "kabeldiameter": {
         "type": "string",
-        "description": "..."
+        "description": "Kabeldiameter."
       },
       "voltage": {
         "type": "string",
-        "description": "..."
-      },
-      "fase": {
-        "type": "string",
-        "description": "..."
+        "description": "Voltage van de Kabel."
       },
       "bouwtype": {
         "type": "string",
-        "description": "..."
+        "description": "Bouwtype van de Kabel."
       },
-      "bereikbaarheid": {
+      "bereikbaar": {
         "type": "string",
-        "description": "..."
+        "description": "Bereikbaarheid van de Kabel.",
+        "provenance": "bereikbaarheid"
       },
       "lengte": {
-        "type": "string",
-        "description": "..."
-      },
-      "gebruiker": {
-        "type": "string",
-        "description": "..."
-      },
-      "mutatiedatum": {
-        "type": "string",
-        "description": "..."
+        "type": "number",
+        "unit": "cm",
+        "description": "Lengte van de Kabel."
       }
     }
   }

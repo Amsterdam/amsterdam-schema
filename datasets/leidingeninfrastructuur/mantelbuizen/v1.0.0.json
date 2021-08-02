@@ -16,74 +16,73 @@
     "properties": {
       "id": {
         "type": "integer",
-        "description": "Unieke id van het object"
+        "description": "Business-key: unieke aanduiding per voorkomen in tabel Mantelbuizen (bestaande uit Mantelbuizen)."
       },
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
       },
       "geometry": {
-        "$ref": "https://geojson.org/schema/LineString.json",
-        "description": "Geometrie in RD (epsg:28992)"
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Vlak-coördinaten van de Mantelbuis (epsg:28992)"
       },
       "inwinningstype": {
         "type": "string",
-        "description": "..."
+        "description": "Kwaliteit van inwinning ."
       },
       "thema": {
         "type": "string",
-        "description": "..."
+        "description": "WIBON Thema."
       },
       "klasse": {
         "type": "string",
-        "description": "..."
+        "description": "WIBON Klasse."
       },
       "type": {
         "type": "string",
-        "description": "..."
+        "description": "WIBON Type."
       },
       "materiaal": {
         "type": "string",
-        "description": "..."
+        "description": "Materiaal van de Mantelbuis."
       },
       "zichtbaar": {
         "type": "string",
-        "description": "..."
+        "enum": [
+          "ja",
+          "nee"
+        ],
+        "description": "Zichtbaar (Ja/Nee)."
       },
       "diepte": {
-        "type": "string",
-        "description": "..."
+        "type": "number",
+        "unit": "cm",
+        "description": "Diepte in cm. (t.o.v. maaiveld)."
       },
-      "nauwkeurigheid_diepte": {
+      "nauwkeurigheidDiepte": {
         "type": "string",
-        "description": "..."
+        "description": "Nauwkeurigheid van de diepte."
       },
       "hoofdcategorie": {
         "type": "string",
-        "description": "..."
+        "description": "Hoofdcategorie."
       },
       "eigenaar": {
         "type": "string",
-        "description": "..."
+        "description": "Eigenaar van de Mantelbuis."
       },
-      "jva": {
-        "type": "string",
-        "description": "..."
+      "jaarVanAanleg": {
+        "type": "integer",
+        "description": "Jaar van aanleg van de Kabel.",
+        "provenance": "jva"
       },
       "diameter": {
         "type": "string",
-        "description": "..."
+        "description": "Diameter van de Mantelbuis."
       },
       "lengte": {
-        "type": "string",
-        "description": "..."
-      },
-      "gebruiker": {
-        "type": "string",
-        "description": "..."
-      },
-      "mutatiedatum": {
-        "type": "string",
-        "description": "..."
+        "type": "number",
+        "unit": "cm",
+        "description": "Lengte van de Mantelbuis.."
       }
     }
   }
