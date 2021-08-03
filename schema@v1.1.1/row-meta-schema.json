@@ -32,7 +32,7 @@
         },
 
         "items": {
-          "type": "object"
+          "$ref": "#/definitions/rootProperty"
         },
 
         "maximum": {
@@ -64,7 +64,13 @@
         },
 
         "properties": {
-          "type": "object"
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[a-z][ A-Za-z0-9]*$"
+          },
+          "additionalProperties": {
+            "$ref": "#/definitions/rootProperty"
+          }
         },
 
         "enum": {
