@@ -89,7 +89,7 @@ Note: Binnen Amsterdam Schema wordt de Data Catalog Vocabulary (hierna [DCAT]) s
 -->
 Dataset {#datasets}
 ========================================================
-Met een dataset bedoelen we een dataset zoals gedefinieerd in [DCAT]. [DCAT] definieert een dataset als volgt:
+Met een dataset wordt een dataset zoals gedefinieerd in [DCAT] bedoeld. [DCAT] definieert een dataset als volgt:
 > **Dataset**
   A collection of data, published or curated by a single agent or identifiable community.
   The notion of dataset in DCAT is broad and inclusive, with the intention of accommodating resource types arising from all communities.
@@ -440,10 +440,10 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
 
     Dit zijn backwards compatible veranderingen dus het minor versie nummer wordt opgehoogd en de nieuwe versie wordt "1.3.0".
 
-    De nieuwe tabel wordt in een nieuw bestand `personen/v.1.3.0.json` geplaatst.
+    De nieuwe tabel wordt in een nieuw bestand `personen/v1.3.0.json` geplaatst.
     <div class="compare-code">
         <div [SYNCSCROLLA]>
-            `personen/v.1.2.1.json`
+            `personen/v1.2.1.json`
             <pre class="include-code">
                 path: examples/bekendeAmsterdammers/personen/v1.2.1.json
                 highlight: json
@@ -451,7 +451,7 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
             </pre>
         </div>
         <div [SYNCSCROLLB]>
-            `personen/v.1.3.0.json`
+            `personen/v1.3.0.json`
             <pre class="include-code">
                 path: examples/bekendeAmsterdammers/personen/v1.3.0.json
                 highlight: json
@@ -462,15 +462,15 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
 </div>
 
 <div [HIDELINESEXAMPLE]>
-    Nu wordt in de tabel uit het vorige voorbeeld een veld hernoemd, krijgt een string veld een maximale lengte en
+    Nu wordt in de tabel uit het vorige voorbeeld een veld hernoemd, krijgt een string veld een maximale lengte,
     wordt uit een {{enum}} veld een optie verwijderd en wordt een optioneel veld verplicht gemaakt.
 
     Deze veranderingen zijn niet backwards compatible dus het major versie nummer wordt opgehoogd en de nieuwe versie wordt "2.0.0".
 
-    De nieuwe tabel wordt in een nieuw bestand `personen/v.2.0.0.json` geplaatst.
+    De nieuwe tabel wordt in een nieuw bestand `personen/v2.0.0.json` geplaatst.
     <div class="compare-code">
         <div [SYNCSCROLLA]>
-            `personen/v.1.3.0.json`
+            `personen/v1.3.0.json`
             <pre class="include-code">
                 path: examples/bekendeAmsterdammers/personen/v1.3.0.json
                 highlight: json
@@ -478,7 +478,7 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
             </pre>
         </div>
         <div [SYNCSCROLLB]>
-            `personen/v.2.0.0.json`
+            `personen/v2.0.0.json`
             <pre class="include-code">
                 path: examples/bekendeAmsterdammers/personen/v2.0.0.json
                 highlight: json
@@ -491,12 +491,12 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
 <div [HIDELINESEXAMPLE]>
     Voorbeeld in versie 2.0.0" wordt een aantal metadata velden aangepast.
 
-    Deze veranderingen passen de data struktuur niet aan dus het patch nummer wordt opgehoogd en de nieuwe versie wordt "2.0.1".
+    Deze veranderingen passen de data structuur niet aan dus het patch nummer wordt opgehoogd en de nieuwe versie wordt "2.0.1".
 
-    De nieuwe tabel wordt in een nieuw bestand `personen/v.2.0.1.json` geplaatst het oude bestand mag e.v.t. verwijderd worden.
+    De nieuwe tabel wordt in een nieuw bestand `personen/v2.0.1.json` geplaatst het oude bestand mag e.v.t. verwijderd worden.
     <div class="compare-code">
         <div [SYNCSCROLLA]>
-            `personen/v.2.0.0.json`
+            `personen/v2.0.0.json`
             <pre class="include-code">
                 path: examples/bekendeAmsterdammers/personen/v2.0.0.json
                 highlight: json
@@ -504,7 +504,7 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
             </pre>
         </div>
         <div [SYNCSCROLLB]>
-            `personen/v.2.0.1.json`
+            `personen/v2.0.1.json`
             <pre class="include-code">
                 path: examples/bekendeAmsterdammers/personen/v2.0.1.json
                 highlight: json
@@ -547,6 +547,7 @@ Veld {#fields}
 ======================================================
 Een veld beschrijft een eigenschap die een rij in de tabel mag of moet (zie {{required}}) bezitten.
 Een [=veld=] is een concrete JSON Schema type definiering waaraan ook meta-informatie kan worden meegegeven.
+
 Zie [[#data-types]] voor een overzicht van modelleerbare typen en hoe deze binnen Amsterdam-Schema uitgedrukt kunnen worden.
 
 Note: [=veld=] gebruikt een subset van [[!json-schema-validation]]. Een aantal JSON Schema features waaronder union types wordt niet ondersteund.
