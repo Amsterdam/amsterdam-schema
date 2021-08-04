@@ -24,8 +24,6 @@ bikeshed spec ams-schema-spec.bs ams-schema-spec.html
 open ams-schema-spec.html
 ```
 
-
-
 After this initial installation
 all you need to do to regenerate the specification
 is to:
@@ -35,7 +33,7 @@ is to:
 * and run the bikeshed command: `bikeshed spec ams-schema-spec.bs ams-schema-spec.html`
 
 The `bikeshed` command can be repeated as often as necessary.
-To a better solution,
+A better solution,
 while working on the specification,
 would be to use Bikeshed's `watch` subcommand.
 It regenerates the HTML upon every document save:
