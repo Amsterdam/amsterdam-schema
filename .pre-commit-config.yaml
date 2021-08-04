@@ -46,14 +46,19 @@ repos:
     rev: 5.8.0
     hooks:
       - id: isort
-        args: ["--filter-files"]
+        args: ['--filter-files']
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: 'bc48c541add1551be726f23c4294c773442341cb'
+    hooks:
+      - id: prettier
+        files: '\.(js|ts|jsx|tsx|scss|css|yml|yaml|json)$'
   - repo: https://github.com/Amsterdam/schema-tools
     rev: v0.19.0
     hooks:
       - id: validate-schema
         args: ['https://schemas.data.amsterdam.nl/schema@v1.1.1#']
         exclude: |
-            (?x)^(
-                schema.+|             # exclude meta schemas
-                datasets/index.json
-            )$
+          (?x)^(
+              schema.+|             # exclude meta schemas
+              datasets/index.json
+          )$
