@@ -141,7 +141,7 @@ Naast bovenstaande verplichte attributen mag een [=dataset=] ook de volgende eig
 <table dfn-type="attribute" dfn-for=dataset export class="dfn-table">
     <tr><td><dfn>title</dfn>        <td> string     <td> zie [[#omschrijving]] [DCAT § Property:resource_title]([DCATURL]#Property:resource_title)
     <tr><td><dfn>description</dfn>  <td> string     <td> zie [[#omschrijving]] [DCAT § Property:resource_description]([DCATURL]#Property:resource_description)
-    <tr><td><dfn>auth</dfn>         <td> string     <td> zie [[#authorisatie]]
+    <tr><td><dfn>auth</dfn>         <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Default: `"OPENBAAR"` zie [[#autorisatie]]
     <tr><td><dfn>provenance</dfn>   <td> string     <td> zie [[#provenance]]
     <tr><td><dfn>version</dfn>      <td> {{version-string}}     <td> Het versie nummer van deze dataset.
     <tr><td><dfn>homepage</dfn>     <td> {{uri-type|uri}}    <td> Homepage van de dataset
@@ -263,7 +263,7 @@ Tabel {#tables}
 
 Een [=tabel=] definitie bevat het schema waaraan de er toe behorende datarijen moeten voldoen.
 Binnen het schema worden velden gedefinieerd die datarijen moeten of mogen bezitten.
-Daarnaast kan aan een tabel meta informatie en authorisatie instellingen worden meegegeven.
+Daarnaast kan aan een tabel meta informatie en autorisatie instellingen worden meegegeven.
 
 Verplichte attributen {#tabel-mandatory-fields}
 ---------------------------------------------------------
@@ -301,7 +301,7 @@ Een  [=tabel=] mag daarnaast de volgende attributen bezitten:
     <tr><td><dfn>title</dfn>        <td> string <td> zie [[#omschrijving]] Default: Gelijk aan {{tabel/id}}.
     <tr><td><dfn>description</dfn>  <td> string <td> zie [[#omschrijving]]
     <tr><td><dfn>shortname</dfn>    <td> string <td> Verkorte unieke naam van de tabel. zie [[#naamgeving]]
-    <tr><td><dfn>auth</dfn>         <td> string <td> zie [[#authorisatie]]
+    <tr><td><dfn>auth</dfn>         <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Default: `"OPENBAAR"` zie [[#autorisatie]]
     <tr><td><dfn>provenance</dfn>   <td> string <td> zie [[#provenance]]
     <tr><td><dfn>dateCreated</dfn>  <td> {{date-time}} <td> Datum van publicatie.
     <tr><td><dfn>dateModified</dfn> <td> {{date-time}} <td> Meest recente datum waarop de tabel is aangepast.
@@ -594,7 +594,7 @@ Een [=veld=] definitie mag naast het [[#veld-mandatory-fields|verplichte attribu
 <table dfn-type="attribute" dfn-for=veld export class="dfn-table">
     <tr><td><dfn>title</dfn>            <td> string <td> zie [[#omschrijving]] Default: Gelijk aan de naam van het veld.
     <tr><td><dfn>description</dfn>      <td> string <td> zie [[#omschrijving]]
-    <tr><td><dfn>auth</dfn>             <td> string <td> zie [[#authorisatie]]
+    <tr><td><dfn>auth</dfn>             <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Default: `"OPENBAAR"` zie [[#autorisatie]]
     <tr><td><dfn>provenance</dfn>       <td> string <td> zie [[#provenance]]
     <tr><td><dfn>shortname</dfn>        <td> string <td> zie [[#naamgeving]]
     <tr><td><dfn>unit</dfn>             <td> string | object <td> De eenheid van de waarden in dit veld. zie [[#units]]
@@ -1324,7 +1324,7 @@ Omschrijving {#omschrijving}
 ---------------------------------------------------
 
 Op elk niveau kan een semantische omschrijving toegevoegd worden d.m.v. de `title` en `description` attribuut.
-<table dfn-type="attribute" dfn-for=tabel export class="dfn-table">
+<table dfn-type="attribute" export class="dfn-table">
     <tr><td> title       <td> (string) <td> Naam van dit item.
     <tr><td> description <td> (string) <td> Vrije tekst beschrijving van dit item. Mag escape characters zoals newlines bevaten.
 </table>
@@ -1362,32 +1362,110 @@ Het `description` veld is bedoeld voor bijvoorbeeld context (mouseover) menu's b
 Note: Als een [=veld=] geen {{veld/title}} attibuut heeft, wordt de naam van het veld gebruikt.
 
 
-Autorisatie {#authorisatie}
+Autorisatie {#autorisatie}
 ----------------------------------------------------
 
-Issue: Deze sectie is verouderd. Update volgt.
+Op zowel [=dataset=], [=tabel=] als [=veld=] niveau kan een `"auth"` attribuut worden meegegeven om toegang tot een entitieit te beperken.
+<table export class="dfn-table">
+    <tr><td><dfn>auth</dfn> <td> string | array <td> geautoriseerde [=scope|scope(s)=].
+</table>
 
-Issue: De definities Autorisatie en Provenance worden nog niet via het Meta Schema beperkt/enforced
-    aangezien dit gebruikt maakt van de JSON Vocabularies standaard die nog onvoldoende ondersteund wordt door bestaande tooling.
+Het `"auth"` attribuut bevat één of meer scopes, die leesrechten hebben op de entiteit waarop `"auth"` is gedefinieerd.
+Een <dfn export>scope</dfn> is een groep gebruikers (medewerkers) met gedeelde rechten. Een gebruiker kan meerdere scopes hebben.
 
-Autorisatie kan gedefinieerd worden op dataset-, tabel- en veld-niveau.
+Als het `"auth"` attribuut een array bevat is elke scope in de array afzonderlijk geautoriseerd.
+Dus een gebruiker heeft slechts één van de [=scopes=] in een array nodig voor toegang.
 
-Er zijn drie bestaande rol-aliassen gedefinieerd: `publiek`, `medewerker` en `medewerker-plus`. Deze zullen in de toekomst overgaan op Active Directory groepen zodra mogelijk.
+<div class=example>
+    Voorbeeld van een "auth" array op een veld.
+    Zowel scope `"LEVEL/X"` als scope `"LEVEL/Y"` toegang tot het veld. Een gebruiker hoeft niet beide scopes te bezitten.
+    <pre highlight="json">
+        "aantalDuivenOpDeDam": {
+            "title": "aantal duiven op de Dam",
+            "description": "Het gemeten aantal duiven op de de Dam",
+            "auth": ["LEVEL/X", "LEVEL/Y"]
+            "type": "integer"
+        }
+    </pre>
+</div>
 
-Op elk niveau kan aangegeven worden wat het hoogste niveau is dat toegang dient te hebben tot alle data op dat niveau en onderliggende niveau's.
+Als een [=dataset=] geen `"auth"` attribuut heeft is de scope van de [=dataset=] `"OPENBAAR"` en is deze dus publiek toegankelijk.
 
-Dat wil zeggen dat wanneer bijvoorbeeld de dataset als publiek gekenmerkt is (
-`"autorisatie": "publiek"`) dan zijn per definitie alle tabellen en velden ook publiek beschikbaar.
+Als een [=tabel=] geen `"auth"` attribuut heeft is de scope van de [=tabel=] gelijk aan die van de dataset.
 
-Indien slechts één tabel publiek is dan wordt de dataset gekenmerkt als bijv. `"autorisatie": "medewerker"` en de publieke tabel als `"autorisatie": "publiek"`.
+Als een [=veld=] geen `"auth"` attribuut heeft is de scope van het [=veld=] gelijk aan die van de tabel.
 
-Zo ook dient een tabel met slechts deels publieke gegevens als `"autorisatie": "medewerker"` gemarkeerd te worden en alle publieke velden d.m.v. `"autorisatie": "publiek"` als publiek gemarkeerd.
+Een dataset waarin op geen enkel niveau een `"auth"` attribuut bestaat is dus volledig publiek toegankelijk.
+Data kan ook expliciet openbaar worden gemaakt met `"auth" : "OPENBAAR"`.
 
-Het is ook mogelijk meerdere rollen op te geven in de vorm van een array als `"autorisatie": ["ruimte", "basisinformatie"]`.
+<div class=example>
+In dit voorbeeld vindt autorisatie plaats op 3 niveaus.
+Scope `"LEVEL/A"` heeft dataset level autorisatie op gebieden, scope `"LEVEL/B"` heeft tabel level autorisatie op bouwblokken en scope `"LEVEL/C"` heeft autorisatie op veld beginGeldigheid.
 
-Dit zal in de huidige rollenstructuur echter niet nodig zijn aangezien `medewerker` ook `publiek` als rol bevat en `medewerker-plus` ook `medewerker` en `publiek`. Derhalve kan de _huidige_ rollenstructuur altijd zonder array's gemodelleerd worden.
+    * Een user met scope `"LEVEL/A"` mag alles uit de dataset gebieden zien, behalve tabel bouwblokken.
+    * Een user met scope `"LEVEL/B"` mag alle velden van tabel bouwblokken zien, behalve beginGeldigheid.
+    * Een user met scope `"LEVEL/C"` mag veld beginGeldigheid zien.
 
-Naar de toekomst toe kan autorisatie uitgebreid worden d.m.v. een object met extra informatie t.b.v. bijvoorbeeld row level security; naar mate dit ondersteund kan worden door de relevante doelrepresentaties.
+    <pre highlight="json" line-highlight=5,14,36>
+        {
+            "type": "dataset",
+            "id": "gebieden",
+            "title": "gebieden",
+            "auth": "LEVEL/A",
+            "status": "beschikbaar",
+            "crs": "EPSG:28992",
+            "tables": [
+                {
+                "id": "bouwblokken",
+                "mainGeometry": "geometrie",
+                "type": "table",
+                "version": "1.0.0",
+                "auth": "LEVEL/B",
+                "schema": {
+                    "$id": "https://github.com/Amsterdam/schemas/gebieden/bouwblokken.json",
+                    "$schema": "http://json-schema.org/draft-07/schema#",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "identifier": ["id"],
+                    "required": ["schema", "id"],
+                    "display": "id",
+                    "properties": {
+                    "schema": {
+                        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Unieke identificatie voor dit object, inclusief volgnummer"
+                    },
+                    "beginGeldigheid": {
+                        "type": "string",
+                        "format": "date",
+                        "title": "Begin geldigheid",
+                        "description": "De datum waarop het object is gecreëerd.",
+                        "auth": "LEVEL/C"
+                    },
+                    "eindGeldigheid": {
+                        "type": "string",
+                        "format": "date",
+                        "title": "Eind geldigheid",
+                        "description": "De datum waarop het object is komen te vervallen.",
+                        "provenance": "eindgeldigheid"
+                    },
+                    "ligtInBuurt": {
+                        "type": "string",
+                        "relation": "gebieden:buurten",
+                        "provenance": "ligtinbuurt",
+                        "title": "Ligt in buurt",
+                        "description": "De buurt waar het bouwblok in ligt."
+                    }
+                    }
+                }
+                }
+            ]
+        }
+    </pre>
+</div>
+
 
 Provenance {#provenance}
 ------------------------------------------------------
