@@ -1,255 +1,1474 @@
 <pre class='metadata'>
-Title: Amsterdam Schema Specification
+Title: Amsterdam Schema Specificatie
 Shortname: ams-schema-spec
-Revision: 1.1.1
+Revision: 2.0.0
 Status: LS
 URL: https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html
 Repository: Amsterdam/amsterdam-schema
 Editor: Michiel Trimpe, Gemeente Amsterdam, https://data.amsterdam.nl/
-Abstract: Het Amsterdam Schema is een standaard voor JSON Schema's welke gebruikt kan worden om
-    datasets in detail op machine readable formaat te kunnen omschrijven zodat deze generiek
-    verwerkt en ontsloten kunnen worden.
+Abstract: Het Amsterdam Schema is een op JSON Schema’s gebaseerde standaard (ondersteund door het Amsterdam Meta Schema)
+    om datasets in een machine leesbaar formaat te beschrijven en op generieke wijze te verwerken en te ontsluiten.
 Markup Shorthands: css no, markdown yes
 Indent: 4
-Default highlight: json
+Default highlight: js
+Logo: https://api.data.amsterdam.nl/api/gemeente_Amsterdam_logo.svg
+Favicon: https://data.amsterdam.nl/favicon.png
 Boilerplate: copyright no, footer no
+Max ToC Depth: 2
+Text Macro: DCAT <a data-link-type=biblio data-lt="vocab-dcat-2" data-biblio-type=informative>DCAT</a>
+Text Macro: DCATURL https://www.w3.org/TR/vocab-dcat-2/
+Text Macro: BP <blockquote class="best-practice"> **Best Practice**
+Text Macro: BPE </blockquote>
+Text Macro: CONST *constant*
+Text Macro: HIDELINESEXAMPLE class="example hide-lines" onClick="this.classList.toggle('hide-lines');this.classList.toggle('unhide-lines');"
+Text Macro: SYNCSCROLLA class="a" onscroll="let sibling =this.nextElementSibling; sibling.scrollTop=this.scrollTop;sibling.scrollLeft=this.scrollLeft;"
+Text Macro: SYNCSCROLLB class="b" onscroll="let sibling =this.previousElementSibling; sibling.scrollTop=this.scrollTop;sibling.scrollLeft=this.scrollLeft;"
 </pre>
 
-
+<!--
+████ ██    ██ ████████ ████████   ███████
+ ██  ███   ██    ██    ██     ██ ██     ██
+ ██  ████  ██    ██    ██     ██ ██     ██
+ ██  ██ ██ ██    ██    ████████  ██     ██
+ ██  ██  ████    ██    ██   ██   ██     ██
+ ██  ██   ███    ██    ██    ██  ██     ██
+████ ██    ██    ██    ██     ██  ███████
+-->
 Introductie {#intro}
 ====================
+> **Doelstelling**<br/>
+    Alle data van gemeente Amsterdam binnen één machine verwerkbaar universeel formaat beschrijven,
+    zodat het geautomatiseerd verwerkt en ontsloten kan worden.
+    En zo vanuit de [tada principes](https://www.amsterdam.nl/innovatie/digitalisering-technologie/tada-principes/) bij dragen aan een transparante, datagedreven organisatie.
 
-Het Amsterdam Schema is een standaard voor JSON Schema's (ondersteund door het [Amsterdam Meta Schema](https://github.com/Amsterdam/amsterdam-schema)) welke gebruikt kan worden om datasets in detail op machine readable formaat te kunnen omschrijven zodat deze generiek verwerkt en ontsloten kunnen worden.
+Het Amsterdam Schema is een standaard voor het beschrijven van datasets.
+De structuur van de data kan samen met meta-informatie in een machine verwerkbaar formaat vastgelegd worden.
+Zo kunnen datasets automatisch verwerkt en ontsloten worden.
 
-In dit document omschrijven we welke informatie in het JSON schema opgeslagen kan worden. Ter referentie kunnen  eerste versies van Amsterdam Schemas kunnen [gevonden worden op GitHub](https://github.com/Amsterdam/schemas/).
+Dit document legt uit hoe een dataset volgens de Amsterdam Schema standaard beschreven wordt.
 
-Het is voor nu belangrijk om mee te nemen dat de definities Eenheden, Autorisatie en Provenance nog niet via het Meta Schema beperkt/enforced aangezien dit gebruikt maakt van de JSON Vocabularies standaard die nog onvoldoende ondersteund wordt door bestaande tooling.
+<div class=example>
+    Neem bijvoorbeeld een dataset over monumenten. <br/>
+    Van deze dataset kan worden vastgelegd:
+    * dat het de  object typen *standbeelden* en *gebouwen* heeft,
+    * dat gebouwen de eigenschappen *bouwjaar* (getal), *type* (enum), *functie* (tekst) hebben.
+    * en wat *type* en *functie* precies betekent.
+</div>
 
-Catalogus (dataset) {#catalogus}
---------------------------------
+Note: Een actueel overzicht van gepubliceerde Amsterdam Schemas is te vinden op [GitHub](https://github.com/Amsterdam/amsterdam-schema/tree/master/datasets).
 
-Op het dataset niveau is het mogelijk om een aantal properties mee te geven t.b.v. het definieren van de gegevens voor o.a. de DCAT catalogus. De volgende velden zijn reeds gedefinieerd:
-
-* title (string)
-* description (string)
-* homepage (url)
-* language, volgens [ISO 639-1 of ISO 639-2](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_language)
-* dateIssued (date-time)
-* dateModified (date-time)
-* accrualPeriodicity (string)
-* spatialDescription (string)
-* spatialCoordinates (Geometry)
-* theme (array of strings)
-* publisher (string)
-* keywords (array of strings)
-* license (string)
-* crs (string, `EPSG:\d+` code)
-
-Het is de intentie alle relevante DCAT velden te kunnen modelleren dus wanneer er velden ontbreken die wel in de DCAT opgenomen moeten worden zullen deze toegevoegd worden.
-
-Omschrijving (dataset, tabel, veld) {#omschrijving}
----------------------------------------------------
-
-Op elk niveau kan een semantische omschrijving toegevoegd worden d.m.v. de `title` en `description` property.
-
-```
-"title": "Lengte",
-"description": "Lengte van een verharding"
-```
-
-Het veld-niveau is in dit kader het belangrijkste, al voegt dit waarde toe op elk niveau. De omschrijving van het veld niveau is namelijk wat gezien kan worden als veld-omschrijving op bijvoorbeeld het Data Portaal.
-
-Data Types (veld) {#data-types}
--------------------------------
-
-De verschillende ondersteunde data types worden allemaal gemodelleerd als concrete JSON Schema type definieringen. Deze zullen dan in doel-systemen naar de juiste veld/kolom-types getransformeerd worden.
+Note: Amsterdam Schema is gebaseerd op [JSON Schema's](https://json-schema.org).
 
 
-* Elke regel is adresseerbaar via een unique identifier in één kolom.
-    * Gemodelleerd als `$ref` naar `/definitions/id`.<br /> `"$ref": "https://ams-schema.glitch.me/schema@v0.1#/definitions/id"`
-* Scalaire types
-    * **integer (tiny8, small16, int32, bigint64)**
-        * Gemodelleerd als `integer` met `exclusiveMaximum` en negatief `minimum` van `2^(bits-1)`.<br /> `{"type":"integer", "exclusiveMaximum": 128, "minimum": 128}`
-       * Unsigned integers kunnen een `minimum` van 0 opgeven en `exclusiveMaximum` van `2^bits`<br /> `{"type":"integer", "exclusiveMaximum": 256, "minimum": 0}`
-       * Bij ontbreken van een maximum/minimum wordt een bigint64 gebruikt.
-       * Maximum-/minimumwaardes van meer dan ±2^53-1 (15 decimalen) leveren een waarschuwing op m.b.t. mogelijk inaccurate encodering in JSON.
-       * Unsigned bigint64 wordt niet ondersteund.
-    * **decimal**
-        * Gemodelleerd als `number` met een `multipleOf` van `0.1^schaal`.<br /> `{"type":"number", "multipleOf": 0.01}`
-        * Optionele precisie wordt meegeven via de `maximum` van `10^(precisie-schaal)-1`<br /> e.g. een precisie van 7 bij een schaal van 2 geeft een maximum van `99999`)<br /> `{"type":"number", "multipleOf": 0.01, "maximum": 99999}`
-        * Maximum-/minimumwaardes van meer dan 15 decimalen (±2^53-1) leveren een waarschuwing op m.b.t. mogelijk inaccurate encodering in JSON.
-    * **floating point (half, float, double)**
-       * Gemodelleerd als `number` zonder opgave van `multipleOf`. Opslag gebeurt altijd in double formaat. Half en float kan als annotatie op de `provenance` meegenomen worden.
-       * `dataset: {"provenance": {..., "type": "elasticsearch"}`<br /> `column: {"provenance": {..., "type":"half_float"}`
-    * boolean
-       * Gemodelleerd als `boolean` type.
-    * enum (maximaal 1024 waarden)
-       * Gemodelleerd als een `string` type met `enum` voor de toegestane waardes.
-      * `{"type": "string", "enum": ["rood", "geel", "groen"]}`
-    * text (char, varchar, string)
-      * Gemodelleerd als  `string`<br /> `{"type":"string"}`
-      * Varchar heeft een `maxLength` attribuut<br /> `{"type":"string", "maxLength": 10}`
-      * Char heeft ook een `minLength` attribuut met de gelijke waarde<br /> `{"type":"string", "maxLength": 10, "minLength": 10}`
-    * binary (variable of fixed length)
-      * Gemodelleerd als `string` met `contentEncoding` van type `base64`<br /> `{"type":"string", "contentEncoding": "base64"}`
-      * Fixed length binary kan deels enforced worden via een `maxLength` van via de formule `4*ceil(bytes/3)` en kan meegenomen in de provenance.
-    * Tijd
-        * date (day within calendar)
-            * Gemodelleerd als string met [`date` format](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times)<br /> `{"type":"string", "format": "date"}` ⇒ `"2020-02-20"`
-         * time (time within day, microseconde precisie)
-             * Gemodelleerd als string met [`time` format](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times). Precisie boven de microseconde wordt afgekapt.<br /> `{"type":"string", "format": "time"}` ⇒ `"12:00:00"` of `"12:00:00.000000"`
-         * timestamp (moment in time, microseconde precisie, UTC)
-             * Te modelleren als string met [`date-time` format](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times).<br /> Precisie boven de microseconde wordt afgekapt.<br /> Bij voorkeur wordt gewerkt met een opgegeven tijdszone. Wanneer er geen tijdszone wordt opgegeven levert dit een data-kwaliteit waarschuwing op.<br /> `{"type":"string", "format": "date-time"}` ⇒ `"2020-02-20T12:00:00+01:00"`, `"2020-02-20T12:00:00.000000+01:00"` of `"2020-02-20T12:00:00"`
-             * Te modelleren als string met `date-time` format.<br /> Precisie boven de microseconde wordt afgekapt.<br /> De tijdszone kan weggelaten wanneer deze in de metadata van het veld opgenomen is.<br /> `{"type":"string", "format": "date"}`
-         * interval (maanden, dagen en milliseconden)
-             * Te modelleren als string met een format volgens het [ISO8601 Durations formaat](https://en.wikipedia.org/wiki/ISO_8601#Durations).<br /> Eventueel te valideren via een complexe [[reguliere expressie](https://regex101.com/r/RltxfI/1).
-    * Geometrie (Point, Polygoon, Line String, Multi Point, Multi LineString, Multi Polygon)
-        * Gemodelleerd als GeoJson Schema's Geometry type `"$ref": "https://geojson.org/schema/Geometry.json"` of in context: `"geometry": { "$ref": "https://geojson.org/schema/Geometry.json", "description": "Geografische locatie"}`
-    * Een kolom kan van de logische types zijn:
-        * array (lijst van waardes met mogelijke duplicatie)
-            * Gemodelleerd als List validation met gespecificeerd item type.<br /> `{"type": "array", "items": {"type": "number"}}`
-            * Tuple validatie wordt niet ondersteunt aangezien dit in veel doelrepresentaties een union semantiek vereist. Elk tuple element kan wel een eigen veld gegeven worden.
-        * struct (klasse met gedefinieerde velden en types)
-            * Gemodelleerd als object met typed properties en geen additionele properties<br /> `{"type": "object", "properties": {"count": { "type": "number" }}, "additionalProperties": false}`
-    * Een logisch type kan zelf ook weer een ander logisch type bevatten (e.g. array van structs)<br /> `{"type": "array", "items": {"type": "object", "properties": {"name": { "type": "string" }}, "additionalProperties": false}}`
-    * Een kolom heeft __geen__ UNION semantiek dus kan __niet__ meerdere types waardes te bevatten; behalve null.
-        * Elk veld is nullable tenzij het als `required` property is opgegeven.<br /> `{"type": "object", "properties": {"name": { "type": "string" }}, "required": ["name"], "additionalProperties": false}`
-        * De anyOf operater is dus **niet** toegestaan<br /> <del>`{"anyOf": [{ "type": "integer" }, { "type": "string"}]}`</del>
-    * Arbitrair-geneste data kan alleen, ongeindexeerd, worden opgeslagen als JSON string.
-        * Gemodelleerd als object type zonder type definitie<br /> `{"type": "object"}`
-        * Dit is een **fallback** type en het gebruik hiervan dient waar mogelijk voorkomen te worden.
-        * Gebruik voor bijvoorbeeld een config/properties veld (string keys naar string values) is een voorbeeld van acceptabel gebruik.
+Overzicht {#overzicht}
+--------------------------------------------------
+Een dataset wordt beschreven in één of meer JSON bestanden.
 
-Relatering (veld) {#relatering}
--------------------------------
+Binnen deze bestanden bestaan de volgende niveaus:
+: [[#datasets| dataset]]
+:: Een samenhangende collectie van data met één beheerder of beherende instantie.
+    Zoals bedoeld in [[VOCAB-DCAT-2#dcat-scope|DCAT]].
+    Op dit niveau wordt voornamelijk meta-informatie over de herkomst en aard van de data meegegeven, zoals de naam, beschrijving, licentie en publicatie datum.
+    Een dataset bevat minstens één tabel.
+: [[#tables|tabel]]
+:: Beschrijft een type object dat in de dataset voorkomt. Bevat een set van velden die beschrijft welke eigenschappen datarijen in deze tabel moeten of mogen bezitten.
+: [[#fields|veld]]
+:: Beschrijft de eigenschappen van rijen in een tabel, zoals de naam en het datatype van een eigenschap. Vergelijkbaar met de kolommen van een database.
 
-Gegevens zijn vaak te relateren aan andere informatie. Zo kan een afvalcontainer gekoppeld worden aan een lokatie; maar kan een lokatie ook weer gekoppeld worden aan bijv. een wijk of buurt of ander gebied.
-
-Deze relatering gebeurt altijd op basis van een veld dat de identifier van de andere resource bevat (vergelijkbaar met een foreign key in SQL parlance.)
-
-Wij dwingen geen referentiele integriteit af tussen datasets dus het kan zijn dat relaties naar niet (meer) bestaande entiteiten verwijzen.
-
-Om dit te kunnen koppelen wordt een veld geannoteerd met een relatie omschrijving. Dit kan gebeuren op een string of integer identifier veld; maar ook op een array van identifiers voor many-to-many N:M relaties
-
-Relaties worden gedefinieerd op basis van een URI/URN naar de relevante tabel in een dataset.
-
-`"relation": "bag:pand"`
-
-Voor een enkelvoudige relatie zou dit er als volgt uit zien:
-
-`"hoortBijMeetbout": { "type": "string", "relation": "meetbouten:meetbouten" }`
-
-en voor een meervoudige relatie als:
-
-```
-"refereertAanReferentiepunten": {
-  "type": "array",
-  "relation": "meetbouten:referentiepunten",
-  "items": {
-    "type": "string"
-  }
-}
-```
-
-Temporele referenties worden gedefinieerd als een verwijzing naar zowel de resource identifier als de temporele identifier; bijvoorbeeld:
-
-```
-"ligtInWijk": {
-  "type": "object",
-  "relation": "gebieden:wijken",
-  "properties": {
-    "identifier": {
-      "type": "string"
-    },
-    "volgnummer": {
-      "type": "string"
-    }
-  }
-}
-```
-
-Het is belangrijk om op te merken dat dit __geen__ versie van het schema definieert aangezien de koppeling niet zou moeten veranderen n.a.v. schema wijzigingen (elke dataset heeft altijd één unieke identifier waar aan gekoppeld wordt.)
-
-Indien het gewenst is om een inverse relatie op te nemen de weergave van de resource kan dit als volgt weergegeven worden:
-
-```
-"additionalRelations": {
-  "nummeraanduiding": {
-    "format": "embedded",
-    "table": "verblijfsobject",
-    "field": "nummeraanduiding"
-  }
-}
-```
+Note: Binnen Amsterdam Schema wordt de Data Catalog Vocabulary (hierna [DCAT]) standaard gebruikt. DCAT is een naamgevings standaard voor het publiceren van data catalogi op het web.
 
 
-Temporaliteit (tabel) {#temporaliteit}
+<!--
+████████     ███    ████████    ███     ██████  ████████ ████████
+██     ██   ██ ██      ██      ██ ██   ██    ██ ██          ██
+██     ██  ██   ██     ██     ██   ██  ██       ██          ██
+██     ██ ██     ██    ██    ██     ██  ██████  ██████      ██
+██     ██ █████████    ██    █████████       ██ ██          ██
+██     ██ ██     ██    ██    ██     ██ ██    ██ ██          ██
+████████  ██     ██    ██    ██     ██  ██████  ████████    ██
+-->
+Dataset {#datasets}
+========================================================
+Met een dataset wordt een dataset zoals gedefinieerd in [DCAT] bedoeld. [DCAT] definieert een dataset als volgt:
+> **Dataset**
+  A collection of data, published or curated by a single agent or identifiable community.
+  The notion of dataset in DCAT is broad and inclusive, with the intention of accommodating resource types arising from all communities.
+  Data comes in many forms including numbers, text, pixels, imagery, sound and other multi-media, and potentially other types,
+  any of which might be collected into a dataset. (From [[VOCAB-DCAT-2#dcat-scope]])
+
+Verplichte attributen {#dataset-mandatory-fields}
+-------------------------------------------------------
+Een <dfn dfn export>dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON bestand met in ieder geval de volgende velden:
+<table dfn-type="attribute" dfn-for=dataset export class="dfn-table">
+    <tr><td><dfn>id</dfn>       <td> {{id-type|identifier}} <td> Unieke identifier voor deze dataset. Moet voldoen aan [[#naamgeving]]. Conform \[DCAT § resource_identifier](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_identifier).
+    <tr><td><dfn>type</dfn>     <td> {{schema-type}}        <td> Type van dit bestand, in dit geval `"dataset"`.
+    <tr><td><dfn>status</dfn>   <td> string
+        <td> Publicatie status van de dataset
+            <details>
+                <summary>Toegestane waarden</summary>
+                    * "beschikbaar"
+                    * "niet_beschikbaar"
+            </details>
+    <tr><td><dfn>tables</dfn>   <td> array
+        <td> Tabellen in deze dataset. Moet minimaal 1 element bevatten.
+            <details>
+                <summary>Valide elementen</summary>
+                * een [=tabel=] json object
+                * een referentie naar een JSON bestand van een tabel.
+                    Zie [[#table-refs]] voor details.
+            </details>
+</table>
+
+Advisement: Let op: Zie [[#naamgeving]] voor de eisen waaraan {{dataset/id}} moet voldoen.
+
+<div class=example>
+    Een minimale dataset definitie. De 'title' en 'description' velden zijn niet verplicht,
+    maar het is best practice ze toe te voegen.
+    <pre class=include-code>
+        path: examples/minimaal/dataset.json
+        highlight: json
+    </pre>
+</div>
+
+[BP]
+    Zet bij datasets met meer dan één tabel alle tabellen in hun een eigen bestand
+    en gebruik [=tabel referenties=]. Dit komt de leesbaarheid ten goede en maakt versioning mogelijk.
+[BPE]
+
+Optionele attributen {#dataset-optional-fields}
+--------------------------------------------------------
+Naast bovenstaande verplichte attributen mag een [=dataset=] ook de volgende eigenschappen bevatten.
+<table dfn-type="attribute" dfn-for=dataset export class="dfn-table">
+    <tr><td><dfn>title</dfn>        <td> string     <td> zie [[#omschrijving]] [DCAT § Property:resource_title]([DCATURL]#Property:resource_title)
+    <tr><td><dfn>description</dfn>  <td> string     <td> zie [[#omschrijving]] [DCAT § Property:resource_description]([DCATURL]#Property:resource_description)
+    <tr><td><dfn>auth</dfn>         <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Default: `"OPENBAAR"` zie [[#autorisatie]]
+    <tr><td><dfn>provenance</dfn>   <td> string     <td> zie [[#provenance]]
+    <tr><td><dfn>version</dfn>      <td> {{version-string}}     <td> Het versie nummer van deze dataset.
+    <tr><td><dfn>homepage</dfn>     <td> {{uri-type|uri}}    <td> Homepage van de dataset
+</table>
+
+[BP]
+    Voeg altijd op zijn minst een title en description toe.
+[BPE]
+
+### DCAT velden ### {#dataset-dcat-fields}
+Het is mogelijk op dataset niveau extra eigenschappen met meta-gegevens mee te geven.
+Dit kan indien gewenst worden gebruikt om automatisch een [DCAT] catalogus te genereren.
+De volgende velden zijn toegestaan:
+<table dfn-type="attribute" dfn-for=dataset export class="dfn-table">
+    <tr><td><dfn>language</dfn>             <td> string <td> Taal van de dataset volgens [ISO 639-1](http://id.loc.gov/vocabulary/iso639-1.html) of [ISO 639-2](http://id.loc.gov/vocabulary/iso639-2.html) Conform \[DCAT § resource_language](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_language)
+    <tr><td><dfn>dateCreated</dfn>          <td> {{date-time}} <td> Datum van publicatie. Conform \[DCAT § resource_release_date]([DCATURL]#Property:resource_release_date)
+    <tr><td><dfn>dateModified</dfn>         <td> {{date-time}} <td> Meest recente datum waarop de dataset is aangepast. Conform \[DCAT § resource_update_date]([DCATURL]#Property:resource_update_date)
+    <tr><td><dfn>accrualPeriodicity</dfn>   <td> string <td> Frequentie waarmee de dataset gepubliceerd wordt. Conform \[DCAT § dataset_frequency]([DCATURL]#Property:dataset_frequency)
+    <tr><td><dfn>spatialDescription</dfn>   <td> string <td>
+    <tr><td><dfn>spatialCoordinates</dfn>   <td> Geometry <td> Een [GeoJSON](https://geojson.org/) geometry
+    <tr><td><dfn>theme</dfn>                <td> array (string) <td> Array van themas Conform \[DCAT § resource_theme]([DCATURL]#Property:resource_theme)
+    <tr><td><dfn>publisher</dfn>            <td> string <td> Uitgever Conform \[DCAT § resource_publisher]([DCATURL]#Property:resource_publisher)
+    <tr><td><dfn>owner</dfn>                <td> string <td> Conform? \[DCAT § resource_creator]([DCATURL]#Property:resource_creator)
+    <tr><td><dfn>authorizationGrantor</dfn> <td> string <td>
+    <tr><td><dfn>hasBeginning</dfn>         <td> {{date-time}} <td>
+    <tr><td><dfn>hasEnd</dfn>               <td> {{date-time}} <td>
+    <tr><td><dfn>objective</dfn>            <td> string <td>
+    <tr><td><dfn>temporalUnit</dfn>         <td> string <td>  Eenheid van temporaliteit Conform? \[DCAT § dataset_temporal_resolution]([DCATURL]#Property:dataset_temporal_resolution)
+    <tr><td><dfn>spatial</dfn>              <td> string <td>
+    <tr><td><dfn>legalBasis</dfn>           <td> string <td>
+    <tr><td><dfn>contactPoint</dfn>         <td> {{contact}}
+        <td> Contact gegevens Conform \[DCAT § resource_contact_point]([DCATURL]#Property:resource_contact_point) van de technisch contact persoon.
+            Bij problemen of foutmeldingen in de dataverwerking wordt (automatisch) met dit punt contact opgenomen.
+    <tr><td><dfn>keywords</dfn>             <td> array (string) <td> Array van keywords Conform \[DCAT § resource_keyword]([DCATURL]#Property:resource_keyword)
+    <tr><td><dfn>license</dfn>              <td> string <td> Licentie Conform \[DCAT § resource_license]([DCATURL]#Property:resource_license)
+    <tr><td><dfn>crs</dfn>
+        <td> enum(string)
+        <td> Coordinate reference System
+            <details>
+                <summary>Opties</summary>
+                    * "EPSG:28992"
+                    * "EPSG:4326"
+            </details>
+            Zie [[SDW-BP#CRS-background]] voor meer informatie.
+</table>
+
+Note: De intentie is dat alle relevante [DCAT] velden te modelleren zijn. Wanneer velden ontbreken
+    die wel in de [DCAT] zijn opgenomen, zullen deze worden toegevoegd.
+
+Issue: Niet alle DCAT velden zijn gemodelleerd. Daarnaast zijn komt van sommige velden de naamgeving niet overeen met de DCAT spec.
+
+Issue: Sommige velden missen een beschrijving
+
+Tabel referenties {#table-refs}
+----------------------------------------------------------
+Tabel referenties zijn verwijzingen naar JSON bestanden waarin een [=tabel=] gedefinieerd wordt.
+Dit maakt het mogelijk om elke tabel in een dataset in een eigen bestand te definieeren.
+Tabel referenties zijn gebaseerd op [[JSON-SCHEMA#ref]].
+
+Een <dfn export>tabel referentie</dfn> is een JSON object met in ieder geval de volgende attributen:
+<table dfn-type="attribute" dfn-for=table-ref export class="dfn-table">
+    <tr><td><dfn>id</dfn>   <td> {{id-type|identifier}} <td> Binnen deze dataset unieke identifier voor deze tabel. Zou gelijk moeten zijn aan tabel.id. Moet voldoen aan [[#naamgeving]].
+    <tr><td><dfn lt="ref">$ref</dfn> <td> {{uri-reference}}
+        <td> URI-Reference naar JSON bestand met de [=tabel=] definitie zonder de bestandsextensie.
+            De reference is altijd relatief aan de locatie van het dataset bestand.
+        </td>
+</table>
+
+Optioneel kan een object met actieve versies van de tabel worden meegegeven.
+Actieve versies zijn alle versies die actief worden onderhouden en ondersteund.
+<table dfn-type="attribute" dfn-for=table-ref export class="dfn-table">
+    <tr><td><dfn>activeVersions</dfn> <td> object <td> Dit object bevat elementen van de vorm:
+        <pre>
+            "MAJOR.MINOR.PATCH": "path/to/tableVersion/file"
+        </pre>
+        activeVersions moet in iedergeval een element bevatten voor de versie waaraan wordt verwezen in het {{table-ref/ref|$ref}} veld.
+</table>
+
+Wanneer activeVersions is gedefinieerd, wordt de versie waaraan verwezen wordt in {{table-ref/ref|$ref}} als de default versie beschouwd.
+
+Zie [[#versioning]] voor meer details over versionering en versienummers.
+
+Note: Eventuele non-default versies worden in de huidige versie van DSO-api nog niet opgenomen.
+
+Elk tabel definitie bestand **zou** samen met andere versies van dezelfde tabel
+in een eigen map moeten staan waarvan de naam gelijk is aan de tabel id.
+De bestandsnaam van een tabel definite bestand **zou** gelijk moeten zijn aan het versienummer van de tabel voorafgegaan door 'v' met een '.json' extensie.
+Het pad gezien vanuit de locatie van het dataset bestand **zou** dus de volgende vorm moeten hebben:
+    ```bash
+    <tabelid>/v<major>.<minor>.<patch>.json
+    ```
+
+Advisement: Van deze bestandsnaam en padstructuur moet niet worden afgeweken behalve als daar een zwaarwegende reden voor is.
+
+<div [HIDELINESEXAMPLE]>
+    Voorbeeld van een dataset met twee tabel referenties.
+
+    Een `locaties` tabel in `./locaties/v1.0.0.json`.<br/>
+    En een `personen` tabel in `./personen/v2.0.1.json`, waarvan ook de oudere versie `1.3.0` beschikbaar is.
+    <pre class="include-code">
+            path: examples/bekendeAmsterdammers/dataset.json
+            highlight: json
+            line-highlight: 7-20
+        </pre>
+</div>
+
+
+<!--
+████████    ███    ████████  ████████ ██
+   ██      ██ ██   ██     ██ ██       ██
+   ██     ██   ██  ██     ██ ██       ██
+   ██    ██     ██ ████████  ██████   ██
+   ██    █████████ ██     ██ ██       ██
+   ██    ██     ██ ██     ██ ██       ██
+   ██    ██     ██ ████████  ████████ ████████
+-->
+Tabel {#tables}
+======================================================
+
+Een [=tabel=] definitie bevat het schema waaraan de er toe behorende datarijen moeten voldoen.
+Binnen het schema worden velden gedefinieerd die datarijen moeten of mogen bezitten.
+Daarnaast kan aan een tabel meta informatie en autorisatie instellingen worden meegegeven.
+
+Verplichte attributen {#tabel-mandatory-fields}
+---------------------------------------------------------
+Een <dfn dfn export>tabel</dfn> binnen Amsterdam-Schema is een JSON object met in ieder geval de volgende attributen.
+<table dfn-type="attribute" dfn-for=tabel export class="dfn-table">
+    <tr><td><dfn>id</dfn>       <td> {{id-type|identifier}} <td> Naam van de tabel. Unieke (binnen de parent dataset) identifier voor deze tabel. Moet voldoen aan [[#naamgeving]].
+    <tr><td><dfn>type</dfn>     <td> {{schema-type}}        <td> Type van dit bestand, in dit geval `"table"`.
+    <tr><td><dfn>version</dfn>  <td> {{version-string}}     <td> Het versie nummer van deze tabel. Zie [[#versioning]]
+    <tr><td><dfn>schema</dfn>   <td> object
+        <td> Het schema van objecten in de tabel. zie [[#tabel-schema]]
+            <details>
+                <summary>Valide elementen</summary>
+                * een [=schema-object=]
+                * een [[JSON-SCHEMA#ref|referentie]] naar een JSON bestand van een [=schema-object=].
+            </details>
+</table>
+
+Advisement: Let op: Zie [[#naamgeving]] voor de eisen waaraan {{tabel/id}} moet voldoen.
+
+<div [HIDELINESEXAMPLE]>
+    Voorbeeld van een minimale tabel definitie. De {{tabel/title}} en {{tabel/description}} velden zijn niet verplicht,
+    maar het is best practice ze toe te voegen.
+    <pre class="include-code">
+        path: examples/minimaal/personen/v1.0.0.json
+        highlight: json
+        line-highlight: 0-7,25-27
+    </pre>
+</div>
+
+
+Optionele attributen {#tabel-optional-fields}
+---------------------------------------------------------
+Een  [=tabel=] mag daarnaast de volgende attributen bezitten:
+<table dfn-type="attribute" dfn-for=tabel export class="dfn-table">
+    <tr><td><dfn>title</dfn>        <td> string <td> zie [[#omschrijving]] Default: Gelijk aan {{tabel/id}}.
+    <tr><td><dfn>description</dfn>  <td> string <td> zie [[#omschrijving]]
+    <tr><td><dfn>shortname</dfn>    <td> string <td> Verkorte unieke naam van de tabel. zie [[#naamgeving]]
+    <tr><td><dfn>auth</dfn>         <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Default: `"OPENBAAR"` zie [[#autorisatie]]
+    <tr><td><dfn>provenance</dfn>   <td> string <td> zie [[#provenance]]
+    <tr><td><dfn>dateCreated</dfn>  <td> {{date-time}} <td> Datum van publicatie.
+    <tr><td><dfn>dateModified</dfn> <td> {{date-time}} <td> Meest recente datum waarop de tabel is aangepast.
+    <tr><td><dfn>license</dfn>      <td> string <td> Licentie
+    <tr><td><dfn>temporal</dfn>     <td> [=temporal-object=] <td> Definieert tijdsafhankelijke geldigheid van objecten. zie [[#temporaliteit]]
+</table>
+
+[BP]
+    Voeg altijd op zijn minst een {{tabel/title}} en {{tabel/description}} toe.
+[BPE]
+
+Schema {#tabel-schema}
+------------------------------------------
+
+Het <dfn lt=schema|schema-object export>schema</dfn> object beschrijft de eigenschappen van rijen in de tabel.
+
+Een [=schema=] object moet in ieder geval de volgende attributen bezitten:
+<table dfn-type="attribute" dfn-for=schema export class="dfn-table">
+    <tr><td><dfn>$schema</dfn>      <td> string <td> [CONST] `"http://json-schema.org/draft-07/schema#"`
+    <tr><td><dfn>type</dfn>         <td> string <td> [CONST] `"object"`
+    <tr><td><dfn>required</dfn>     <td> array (string) <td> Namen van [=veld|velden=] die niet `null` mogen bevatten. Bevat minstens `"schema"`.
+    <tr><td><dfn>display</dfn>      <td> string
+        <td>  De naam van het [=veld=] dat titel van objecten bevat.
+            Voor afnemers die een samenvattende titel van een object willen tonen. Default: gelijk aan {{schema/identifier}}.
+    <tr><td><dfn>properties</dfn>   <td> object
+        <td> Collectie van [=veld|velden=] die rijen in de tabel mogen bezitten. Bevat daarnaast een 'schema.$ref' attribuut.
+            Veldnamen moeten beginnen met een kleine letter gevolgd door een alphanummerieke reeks en moeten voldoen aan [[#naamgeving]].
+    <tr><td><dfn>properties.schema</dfn>   <td> [[JSON-SCHEMA#ref|§ref]]  <td> [CONST] `{"$ref":"https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"}`
+</table>
+
+Daarnaast mag een [=schema=] object de volgende attributen bezitten:
+<table dfn-type="attribute" dfn-for=schema export class="dfn-table">
+    <tr><td><dfn>$id</dfn>                      <td> string <td>
+    <tr><td><dfn>additionalProperties</dfn>     <td> bool <td> [CONST] `false` Geeft aan dat objecten geen extra velden mogen hebben.
+    <tr><td><dfn>mainGeometry</dfn>             <td> string <td> De naam van het primaire geometrie veld. Default: `"geometry"` zie [[#geometry]]
+    <tr><td><dfn>identifier</dfn>               <td> string | array (string)
+        <td>Naam van het [=veld=] dat de unieke identifier van een rij is, of een array van veldnamen die samen een unieke key vormen.
+            Het veld of de velden waar hier naar verwezen wordt moeten van het [[#data-types-string|string]] type zijn.
+</table>
+
+Issue: Het identifier veld moet string zijn. De array optie wordt binnenkort verwijderd.
+
+<div [HIDELINESEXAMPLE]>
+    Voorbeeld van een schema.
+
+    Het {{display}} veld zorgt ervoor dat niet de "id" de maar de "naam" van een persoon als samenvattende titel wordt gebruikt.
+    <pre class=include-code>
+        path: examples/minimaal/personen/v1.0.0.json
+        highlight: json
+        line-highlight: 7-25
+    </pre>
+</div>
+
+
+Temporaliteit {#temporaliteit}
 -----------------------------------------------
 
-Als een tabel objecten bevat waarvan over de tijd verschillende versies geldig zijn wordt dit in de tabel definitie met het 'temporal' object aangegeven.
+Als een tabel objecten bevat die slechts beperkte tijd geldig zijn of waarvan over de tijd verschillende versies geldig zijn,
+wordt dit in de tabel definitie met het <dfn lt=temporal-object|temporal export>temporal</dfn> object aangegeven.
 
-```
-"temporal": {
-          "identifier": "volgnummer",
-          "dimensions": {
-            "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
-          }},
-```
+Een [=temporal=] object heeft in ieder geval de volgende attributen.
+<table dfn-type="attribute" dfn-for=temporal export class="dfn-table">
+    <tr><td><dfn>identifier</dfn>                <td> string
+        <td> Naam van het veld dat de versie van een object identificeert.
+            De combinatie van dit veld en het veld waarnaar wordt verwezen in het {{schema/identifier}} attribuut van schema moet uniek zijn voor elke regel in de tabel.
+    <tr><td><dfn>dimensions.geldigOp</dfn> <td> array (string)<td> De namen van de velden die de geldigheid van een object begrenzen. Heeft 2 elementen.
+</table>
 
-De unieke identifier voor objecten in de tabel, bestaat dan uit de combinatie (een compound key) van het 'identifier' veld in de Dataset en het 'identifier' veld in het 'temporal object.'
+Note: Momenteel wordt alleen de dimensie "geldigOp" ondersteund.
+      In de toekomst kunnen hier andere dimensies zoals "inWerkingOp" en "beschikbaarOp" aan toegevoegd worden.
 
-De array in 'temporal.dimensions.geldigOp' bevat de namen van twee velden met begin en eind geldigheid van een object, ten behoeve van een queries binnen een bepaalde tijdsspanne.
-Een object in de tabel is geldig binnen het gesloten interval [beginGeldigheid", "eindGeldigheid"].
-Als een tabel niet temporeel is kan het 'temporal' object worden weggelaten.
+De array in {{temporal/dimensions.geldigOp|temporal.dimensions.geldigOp}} bevat de namen van twee velden met begin en eind geldigheid van een object.
+Een object in de tabel is geldig binnen het gesloten interval ["beginGeldigheid", "eindGeldigheid"].
+
+Als een tabel niet temporeel is kan het [=temporal|temporal object=] worden weggelaten.
+
+<div class=example>
+Voorbeeld van een temporal object.
+    ```json
+        "temporal": {
+            "identifier": "volgnummer",
+            "dimensions": {
+                "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+            }
+        }
+    ```
+</div>
 
 
-Eenheden (veld) {#eenheden}
+Versionering {#versioning}
+--------------------------
+Verschillende versies van een tabel worden van elkaar onderscheiden door middel van versienummers.
+
+Een geversioneerde tabel moet in een eigen bestand staan.
+De bestandsnaam van de tabel **zou** gelijk moeten zijn aan het versienummer van de tabel voorafgegaan door 'v' met een '.json' extensie.
+Zie [[#table-refs]] voor hoe in de dataset naar een tabel bestand moet worden verwezen.
+
+Voor versienummers wordt gebruik gemaakt van semantic versioning. Dit betekent dat de versienummers betekenis hebben.
+Zo valt met een blik op het versienummer iets te zeggen over de aard van de gedane aanpassing.
+
+Het versie nummer bestaat uit 3 getallen gescheiden door punten `MAJOR.MINOR.PATCH`:
+    * **major** versie bumps vinden plaats bij veranderingen die *niet backwards compatible* zijn.
+        Dit zijn alle aanpassingen waarbij het kan voorkomen dat bestaande data niet aan het nieuwe schema voldoet.
+    * **minor** versies zijn *volledig backwards compatible*. Alle bestaande data, blijft geldig in het nieuwe schema.
+    * **patch** versies bevatten *alleen metadata aanpassingen*, waarbij de datastructuur gelijk blijft.
+
+**Metadata aanpassingen** zijn veranderingen aan een of meer van de volgende attributen:
+    * "title" op [=dataset=], [=tabel=] of [=veld=] niveau
+    * "description" op [=dataset=], [=tabel=] of [=veld=] niveau
+    * "shortname" op [=dataset=], [=tabel=] of [=veld=] niveau
+    * "{{unit}}"
+    * "{{display}}"
+
+**Backwards compatible** veranderingen zijn:
+    * een optioneel [=veld=] is toegevoegd.
+    * input mogelijkheden van een veld zijn verruimd (zoals wanneer een waarde aan {{enum}} is toegevoegd,
+        of een {{maximum}} of {{minimum}} is verruimd).
+    * een verplicht veld is optioneel gemaakt
+
+**Niet backwards compatible** zijn alle andere aanpassingen.
+
+<div class="example">
+    Voorbeelden van niet backwards compatible aanpassingen:
+        * een nieuw verplicht [=veld=] is toegevoegd
+        * een optioneel veld is verplicht gemaakt
+        * een veld is verwijderd of hernoemd
+        * input mogelijkheden van een veld zijn beperkt. (zoals wanneer een waarde uit een {{enum}} is verwijderd,
+            of een {{maximum}} of {{minimum}} verkleind)
+</div>
+
+
+Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
+
+<div [HIDELINESEXAMPLE]>
+    Voorbeeld aan versie "1.2.1" van de personen tabel wordt een nieuw optioneel veld toegevoegd en aan een bestaand {{enum}} veld wordt een optie toegevoegd.
+
+    Dit zijn backwards compatible veranderingen dus het minor versie nummer wordt opgehoogd en de nieuwe versie wordt "1.3.0".
+
+    De nieuwe tabel wordt in een nieuw bestand `personen/v1.3.0.json` geplaatst.
+    <div class="compare-code">
+        <div [SYNCSCROLLA]>
+            `personen/v1.2.1.json`
+            <pre class="include-code">
+                path: examples/bekendeAmsterdammers/personen/v1.2.1.json
+                highlight: json
+                line-highlight: 5,28
+            </pre>
+        </div>
+        <div [SYNCSCROLLB]>
+            `personen/v1.3.0.json`
+            <pre class="include-code">
+                path: examples/bekendeAmsterdammers/personen/v1.3.0.json
+                highlight: json
+                line-highlight: 5,28, 30-38
+            </pre>
+        </div>
+    </div>
+</div>
+
+<div [HIDELINESEXAMPLE]>
+    Nu wordt in de tabel uit het vorige voorbeeld een veld hernoemd, krijgt een string veld een maximale lengte,
+    wordt uit een {{enum}} veld een optie verwijderd en wordt een optioneel veld verplicht gemaakt.
+
+    Deze veranderingen zijn niet backwards compatible dus het major versie nummer wordt opgehoogd en de nieuwe versie wordt "2.0.0".
+
+    De nieuwe tabel wordt in een nieuw bestand `personen/v2.0.0.json` geplaatst.
+    <div class="compare-code">
+        <div [SYNCSCROLLA]>
+            `personen/v1.3.0.json`
+            <pre class="include-code">
+                path: examples/bekendeAmsterdammers/personen/v1.3.0.json
+                highlight: json
+                line-highlight: 5,10,18,20,28
+            </pre>
+        </div>
+        <div [SYNCSCROLLB]>
+            `personen/v2.0.0.json`
+            <pre class="include-code">
+                path: examples/bekendeAmsterdammers/personen/v2.0.0.json
+                highlight: json
+                line-highlight: 5,10,18-19,21,29
+            </pre>
+        </div>
+    </div>
+</div>
+
+<div [HIDELINESEXAMPLE]>
+    Voorbeeld in versie 2.0.0" wordt een aantal metadata velden aangepast.
+
+    Deze veranderingen passen de data structuur niet aan dus het patch nummer wordt opgehoogd en de nieuwe versie wordt "2.0.1".
+
+    De nieuwe tabel wordt in een nieuw bestand `personen/v2.0.1.json` geplaatst het oude bestand mag e.v.t. verwijderd worden.
+    <div class="compare-code">
+        <div [SYNCSCROLLA]>
+            `personen/v2.0.0.json`
+            <pre class="include-code">
+                path: examples/bekendeAmsterdammers/personen/v2.0.0.json
+                highlight: json
+                line-highlight: 5-6,11,27,33
+            </pre>
+        </div>
+        <div [SYNCSCROLLB]>
+            `personen/v2.0.1.json`
+            <pre class="include-code">
+                path: examples/bekendeAmsterdammers/personen/v2.0.1.json
+                highlight: json
+                line-highlight: 5-6,11,27,33
+            </pre>
+        </div>
+    </div>
+</div>
+
+<div [HIDELINESEXAMPLE]>
+    Om de nieuwe versie van de tabel aan de [=dataset=] toe te voegen, moet de [=tabel referentie=] in de dataset ook aangepast worden.
+    De default versie van de tabel is nu "2.0.1".
+
+    In dit geval staat de versie "1.3.0" ook in {{activeVersions}} zodat de oudere versie van de data ook beschikbaar blijft.
+    Dit is optioneel.
+
+    <div style="text-align:center;">
+        `personen/dataset.json`
+        <pre class="include-code">
+            path: examples/bekendeAmsterdammers/dataset.json
+            highlight: json
+            line-highlight: 1,8-15,33
+        </pre>
+    </div>
+</div>
+
+Note: Deze semantic versioning standaard is geinspireerd door [[SCHEMVER inline]] wat weer is gebaseerd op [[SEMVER inline]].
+
+
+<!--
+██     ██ ████████ ██       ████████
+██     ██ ██       ██       ██     ██
+██     ██ ██       ██       ██     ██
+██     ██ ██████   ██       ██     ██
+ ██   ██  ██       ██       ██     ██
+  ██ ██   ██       ██       ██     ██
+   ███    ████████ ████████ ████████
+-->
+Veld {#fields}
+======================================================
+Een veld beschrijft een eigenschap die een rij in de tabel mag of moet (zie {{required}}) bezitten.
+Een [=veld=] is een concrete JSON Schema type definiering waaraan ook meta-informatie kan worden meegegeven.
+
+Zie [[#data-types]] voor een overzicht van modelleerbare typen en hoe deze binnen Amsterdam-Schema uitgedrukt kunnen worden.
+
+Note: [=veld=] gebruikt een subset van [[!json-schema-validation]]. Een aantal JSON Schema features waaronder union types wordt niet ondersteund.
+
+Advisement: Let op: Zie [[#naamgeving]] voor de eisen waaraan de namen van velden moeten voldoen.
+
+Verplichte attributen {#veld-mandatory-fields}
+--------------------------------------------------------------------
+Een <dfn export>veld</dfn> is een JSON object met in ieder geval één en niet meer dan één van de volgende twee attributen.
+<table dfn-type="attribute" dfn-for=veld export class="dfn-table">
+    <tr><td><dfn>type</dfn>             <td> string
+        <td> [[#data-types| Data type]] van het veld.  Volgens [[json-schema-validation#rfc.section.6.1.1]]. Zie [[#data-types]] voor details.
+            <details>
+                <summary>Toegestane waarden</summary>
+                    * "[[#data-types-int|integer]]"
+                    * "[[#data-types-number|number]]"
+                    * "[[#data-types-bool|boolean]]"
+                    * "[[#data-types-string|string]]"
+                    * "null"
+                    * "[[#data-types-object|object]]"
+                    * "[[#data-types-array|array]]"
+
+            </details>
+     <tr><td><dfn lt=ref>$ref</dfn>  <td> enum({{uri-type|uri}})
+         <td> URI van een GeoJSON geometry schema definitie. zie [[#geometry]]
+            <details>
+                <summary>Opties</summary>
+                    * "https://geojson.org/schema/Geometry.json"
+                    * "https://geojson.org/schema/MultiPolygon.json"
+                    * "https://geojson.org/schema/Polygon.json"
+                    * "https://geojson.org/schema/Point.json"
+                    * "https://geojson.org/schema/MultiLineString.json"
+                    * "https://geojson.org/schema/LineString.json"
+                    * "https://geojson.org/schema/MultiPoint.json"
+            </details>
+         </td>
+</table>
+
+Note: Let op, een veld moet dus een {{veld/type}} **of** een {{veld/ref|$ref}} attribuut hebben, beide is **niet** toegestaan.
+
+Toegestane attributen {#permitted-attributes}
+--------------------------------------------------------------------
+Een [=veld=] definitie mag naast het [[#veld-mandatory-fields|verplichte attribuut]] optioneel de volgende meta-data attributen bevatten:
+<table dfn-type="attribute" dfn-for=veld export class="dfn-table">
+    <tr><td><dfn>title</dfn>            <td> string <td> zie [[#omschrijving]] Default: Gelijk aan de naam van het veld.
+    <tr><td><dfn>description</dfn>      <td> string <td> zie [[#omschrijving]]
+    <tr><td><dfn>auth</dfn>             <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Default: `"OPENBAAR"` zie [[#autorisatie]]
+    <tr><td><dfn>provenance</dfn>       <td> string <td> zie [[#provenance]]
+    <tr><td><dfn>shortname</dfn>        <td> string <td> zie [[#naamgeving]]
+    <tr><td><dfn>unit</dfn>             <td> string | object <td> De eenheid van de waarden in dit veld. zie [[#units]]
+    <tr><td><dfn>relation</dfn>         <td> string <td> Beschrijft relaties tussen velden. zie [[#relatering]]
+    <tr><td><dfn>uri</dfn>              <td> {{uri-reference}} <td> Een verwijzing de definitie van de waarden in dit veld.
+</table>
+
+[BP]
+    Voeg altijd op zijn minst een '{{veld/title}}' en '{{veld/description}}' toe.
+[BPE]
+
+Naast bovenstaande attributen mag een [=veld=] uitsluitend de volgende subset van attributen uit [[!json-schema-validation| JSON Schema]] bevatten:
+<table dfn-type="attribute" dfn-for=veld export class="dfn-table">
+    <tr><td><dfn>$comment</dfn>         <td> string <td> Developer commentaar bij het veld.
+    <tr><td><dfn>items</dfn>            <td> [=veld=]
+        <td> JSON Schema van de elementen in de array. (verplicht voor array type)
+            In tegenstelling tot JSON Schema wordt een `array` hier niet ondersteund. Zie [#data-types-array].
+    <tr><td><dfn>maximum</dfn>          <td> number <td> Inclusieve maximum waarde (voor integer en number type)
+    <tr><td><dfn>minimum</dfn>          <td> number <td> Inclusieve minimum waarde (voor integer en number type)
+    <tr><td><dfn>exclusiveMaximum</dfn> <td> integer <td> Exclusieve maximum waarde (voor integer en number type)
+    <tr><td><dfn>multipleOf</dfn>       <td> number <td> Waarde moet meervoud zijn van (voor integer en number type)
+    <tr><td><dfn>minLength</dfn>        <td> integer <td> Mimimum lengte (voor string type)
+    <tr><td><dfn>maxLength</dfn>        <td> integer <td> Maximum lengte (voor string type)
+    <tr><td><dfn>contentEncoding</dfn>  <td> string <td> Encoding (voor string type)
+    <tr><td><dfn>properties</dfn>       <td> object <td> Attributen van objecten (voor object type)
+    <tr><td><dfn>enum</dfn>             <td> array <td> Lijst van maximaal 1024 toegestane waarden.
+    <tr><td><dfn>format</dfn>           <td> string
+        <td> String formats (voor string type) Conform [[json-schema-validation#rfc.section.7.3]].
+            <details>
+                <summary>Opties</summary>
+                    * "date-time"
+                    * "time"
+                    * "date"
+                    * "duration"
+                    * "email"
+                    * "idn-email"
+                    * "hostname"
+                    * "idn-hostname"
+                    * "ipv4"
+                    * "ipv6"
+                    * "uri"
+                    * "uri-reference"
+                    * "iri"
+                    * "iri-reference"
+            </details>
+
+</table>
+
+<div class=example>
+    Voorbeeld van een veld.
+    <pre class=include-code>
+        path: examples/bekendeAmsterdammers/personen/v1.2.1.json
+        highlight: json
+        show: 24-29
+    </pre>
+</div>
+
+<div class=example>
+    Voorbeeld van een geometrie veld.
+    <pre highlight="json">
+        "locatie": {
+            "title": "Locatie",
+            "description": "Coordinaten van het middelpunt van het plein",
+            "$ref" : "https://geojson.org/schema/Point.json"
+        }
+    </pre>
+</div>
+
+Data types {#data-types}
+-------------------------------
+
+Velden worden allemaal gemodelleerd als concrete JSON Schema type definieringen,
+deze moeten in doel-systemen naar de juiste veld/kolom-types getransformeerd worden.
+(Zie ook [Type-specific keywords](https://json-schema.org/understanding-json-schema/reference/type.html) in de JSON Schema specificatie).
+
+Deze sectie bevat een overzicht van de door Amsterdam Schema ondersteunde JSON Schema typen, voorbeelden van gebruik en
+welke (SQL) data typen gebruikt zouden moeten worden om de JSON Schema typen te interpreteren.
+
+<table class=lst-table>
+    <tr><td> [[#data-types-int]]       <td> [[#data-types-time]]
+    <tr><td> [[#data-types-number]]    <td> [[#geometry]]
+    <tr><td> [[#data-types-bool]]      <td> [[#data-types-object]]
+    <tr><td> [[#data-types-string]]    <td> [[#data-types-array]]
+</table>
+
+Note: UNION types worden niet ondersteund, een kolom kan dus niet meerdere typen waardes bevatten, behalve `null`.
+    De anyOf operater is dus **niet** toegestaan<br /> <del>`{"anyOf": [{ "type": "integer" }, { "type": "string"}]}`</del>
+
+Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie {{required}}.
+
+### integer ### {#data-types-int}
+    Een integer moet standaard worden geinterpreteerd als een 64bit signed integer.
+    Een integer in Amsterdam Schema heeft dus een range van `[-(2^64)+1, (2^64)-1]`, maar gebruik van getallen buiten de range `[-(2^53)+1, (2^53)-1]`,
+    wordt in lijn met [[RFC7159#section-6]] afgeraden omdat dit door veelgebruikte doelsystemen ([[IEEE754]])
+    niet wordt ondersteund. Als een {{maximum}} en/of {{minimum}} buiten de laatst genoemde range is ingesteld wordt een waarschuwing gegeven.
+
+    <div class=example>
+        Dit veld moet worden geinterpreteerd als een 64bit signed integer zoals een SQL "BIGINT".
+        <pre highlight="json">
+            "aantalDuivenOpDeDam": {
+                "title": "aantal duiven op de Dam",
+                "description": "Het gemeten aantal duiven op de de Dam",
+                "type": "integer"
+            }
+        </pre>
+    </div>
+
+    <div class=example>
+        Dit veld resulteerd in een waarschuwing.
+        <pre highlight="json">
+            "zandkorrelsOpBlijburg": {
+                "title": "zandkorrels op Blijburg",
+                "description": "Het aantal aantal zandkorrels op het strand van Blijburg.",
+                "type": "integer",
+                "maximum": 1E19
+            }
+        </pre>
+    </div>
+
+    Daar waar een kleiner bereik is gegeven door middel van een of meer van de attributen {{maximum}}, {{minimum}} of {{exclusiveMaximum}}
+    kan een native datatype met een geschikt bereik worden toegepast.
+    Zo kan een `integer` met een {{exclusiveMaximum}} `< 2^(N-1)` en {{minimum}} `>= 2^(N-1)` altijd worden geinterpreteerd als een N-bits signed integer.
+    <div class=example>
+        Dit veld kan veilig als 32 bit signed integer (zoals een SQL `INTEGER`) worden geinterpreteerd. (`2147483648 = 2^(32-1)`)
+        <pre highlight="json">
+            "hoogteTenOpzichteVanNormaalAmsterdamsPijl": {
+                "title": "Hoogte ten opzichte van NAP",
+                "shortname": "hoogteNAP"
+                "description": "Hoogte van de locatie ten opzichte van NAP in cm.",
+                "type": "integer",
+                "exclusiveMaximum": 2147483648,
+                "minimum": -2147483648,
+                "unit": "cm"
+            }
+        </pre>
+    </div>
+
+    Een integer met een {{minimum}} `>= 0` en een {{exclusiveMaximum}} `< 2^N` kan altijd worden geinterpreteerd als een N-bits unsigned integer.
+    <div class=example>
+        Dit veld kan veilig als 8 bit unsigned integer zoals een SQL `TINYINT` worden geinterpreteerd.
+        <pre highlight="json">
+            "weeknummer": {
+                "title": "weeknummer",
+                "description": "weeknummer",
+                "type": "integer",
+                "exclusiveMaximum": 256,
+                "minimum": 0,
+            }
+        </pre>
+    </div>
+
+    Het wordt aangeraden om de toegestane waarden in een veld altijd te beperken tot realistische waarden om fouten te voorkomen.
+    <pre class=example highlight="json">
+        "decennium": {
+            "title": "decennium",
+            "description": "Een decennium in het bestaan van de stad.",
+            "type": "integer",
+            "exclusiveMaximum": 2121,
+            "minimum": 1300,
+            "multipleOf": 10
+        }
+    </pre>
+
+
+### number ### {#data-types-number}
+    Number wordt gebruikt voor velden met reële getallen. Als geen {{multipleOf}} attribuut is meegegeven moet een `number` veld worden geinterpreteerd
+    als een 64bits floating-point getal (`double`) zoals een SQL `DOUBLE`.
+    Dit veld moet worden geinterpreteerd als een Double zoals een SQL `DOUBLE`.
+    <pre class=example highlight="json">
+        "gevelHoek": {
+            "title": "gevel hoek",
+            "description": "Hoek van de gevel met de verticaal in graden",
+            "type": "number"
+        }
+    </pre>
+
+    Wanneer aan een `number` veld een {{multipleOf}} attribuut is meegegeven moet dit veld worden geinterpreteerd
+    als fixed-point type met `schaal=log(multipleOf)/log(0.1)` (zodat {{multipleOf}}`=0.1^schaal`).
+    <div class=example>
+        Dit veld moet worden geinterpreteerd als een fixed-point type met schaal=2 zoals een SQL `DECIMAL(10,2)`.
+        <pre highlight="json">
+            "gevelHoek": {
+                "title": "gevel hoek",
+                "description": "Hoek van de gevel met de verticaal in graden",
+                "type": "number",
+                "multipleOf": 0.01
+            }
+        </pre>
+    </div>
+
+    Als een maximum attribuut is meegegeven kan een native type met een geschikte precisie worden gebruikt.
+            `precisie = log(maximum + 1)/log(10) + schaal` (zodat {{maximum}}`=10^(precisie-schaal) -1`).
+    <div class=example>
+        Dit veld moet worden geinterpreteerd als een fixed-point type met schaal=2 en precisie>=4 zoals een SQL `DECIMAL(4,2)`.
+        <pre highlight="json">
+            "gevelHoek": {
+                "title": "gevel hoek",
+                "description": "Hoek van de gevel met de verticaal in graden",
+                "type": "number",
+                "multipleOf": 0.01
+                "maximum": 90
+                "minimum": -90
+            }
+        </pre>
+    </div>
+
+    [BP]
+        Beperk numerieke velden altijd tot realistische waarden met {{maximum}}, {{minimum}} of {{exclusiveMaximum}} om fouten te voorkomen,
+        en doelsystemen de juiste datatypen te laten gebruiken.
+    [BPE]
+
+### boolean ### {#data-types-bool}
+    Een [=veld=] van het type `"boolean"` wordt gebruikt voor boolean, (`true`, `false`) waarden.
+    <pre class=example highlight="json">
+        "isGepubliceerd": {
+            "title": "Is gepubliceerd",
+            "description": "Dit artikel is gepubliceerd.",
+            "type": "boolean",
+        }
+    </pre>
+
+### string ### {#data-types-string}
+    String velden worden gebruikt voor tekst, enums, tijd, datum en binary data.
+    Waarden in een `string` veld moeten standaard worden geinterpreteerd als van een string type zoals een SQL `TEXT`.
+    <pre class=example highlight="json">
+        "beschrijving": {
+            "title": "Beschrijving",
+            "description": "Beschrijving van het pand.",
+            "type": "string",
+        }
+    </pre>
+
+    Waar een {{maxLength}} attribuut is meegegeven aan een `string` veld kan een geschikt limited width string type zoals een SQL `VARCHAR` worden gebruikt.
+    <pre class=example highlight="json">
+        "bekendeUitspraak": {
+            "title": "Bekende uitspraak",
+            "description": "Bekende uitspraak van de persoon.",
+            "type": "string",
+            "maxLength": 50
+        }
+    </pre>
+
+    Als een `string` veld een {{minLength}} en een {{maxLength}} attribuut van gelijke waarde heeft kan het veld worden geinterpreteerd als een fixed width string
+    zoals een SQL `CHAR`.
+    <pre class=example highlight="json">
+        "taalcode": {
+            "title": "taalcode",
+            "description": "Taalcode volgens de ISO639-2 standaard.",
+            "type": "string",
+            "maxLength": 3
+            "minLength": 3
+        }
+    </pre>
+
+    Wanneer in een `text` veld een beperkte set waarden is toegestaan door middel van het {{enum}} attribuut,
+    zou het veld moeten worden geinterpreteerd als een enumerator type zoals een SQL `ENUM`.
+    <div class=example>
+        Dit veld zou moeten worden geinterpreteerd als een enumerator zoals een SQL `ENUM`.
+        <pre highlight="json">
+            "beroep": {
+                "title": "beroep",
+                "description": "Beroep van de persoon.",
+                "type": "string",
+                "enum": ["voetballer", "filosoof", "beide"]
+            }
+        </pre>
+    </div>
+
+    Een text veld met {{contentEncoding}} gelijk aan "base64" zou moeten worden geinterpreteerd als binary data.
+    <div class=example>
+        Dit veld zou moeten worden geinterpreteerd als binary data, zoals een SQL `VARBINARY`.
+        <pre highlight="json">
+            "hash": {
+                "title": "hash",
+                "description": "SHA512 hash",
+                "type": "string",
+                "contentEncoding": "base64"
+            }
+        </pre>
+    </div>
+
+    Wanneer een {{maxLength}} attribuut is meegegeven aan een `string` veld zou het veld moeten worden geinterpreteerd
+    als een fixed width binary type zoals een SQL `BINARY`, met {{maxLength}}`=4*ceil(bytes/3)`.
+    <div class=example>
+        Dit veld zou moeten worden geinterpreteerd als fixed length binary data, zoals een SQL `BINARY`.
+        <pre highlight="json">
+            "hash": {
+                "title": "hash",
+                "description": "SHA512 hash",
+                "type": "string",
+                "contentEncoding": "base64",
+                "maxLength": 88
+            }
+        </pre>
+    </div>
+
+
+### tijd ### {#data-types-time}
+    Met het {{format}} attribuut kan een `string` veld worden geformatteerd als tijds of datum eenheid. Een `string` [=veld=] met een {{format}}
+    gelijk aan `"time"`, `"date"`, `"date-time"` of `"duration"` zou moeten worden geinterpreteerd als een
+    [[ISO8601]] conform Datum of tijd type zoals een SQL `DATE`, `TIME` of `DATETIME`.
+
+    Note: De maximale precisie van de tijdseenheden is microseconde.
+
+    Note: Bij een `"date-time"` wordt aangeraden om een tijdszone op te geven. Wanneer de tijdszone ontbreekt wordt een data-kwaliteit waarschuwing gegeven.
+
+    <div class=example>
+        Dit veld zou moeten worden geinterpreteerd als een [[ISO8601]] Datum type in YYYY-MM-DD formaat, zoals een SQL `DATE`.
+        <pre highlight="json">
+            "publicatieDatum": {
+                "title": "publicatie datum",
+                "description": "Datum van publicatie",
+                "type": "string",
+                "format": "date"
+            }
+        </pre>
+    </div>
+
+    <div class=example>
+        Dit veld zou moeten worden geinterpreteerd als een [[ISO8601]] conform tijd type, zoals een SQL `TIME`.
+        <pre highlight="json">
+            "publicatieTijd": {
+                "title": "publicatie tijd",
+                "description": "Tijd van publicatie",
+                "type": "string",
+                "format": "time"
+            }
+        </pre>
+    </div>
+
+    <div class=example>
+        Dit veld zou moeten worden geinterpreteerd als een [[ISO8601]] conform datum-tijd type, zoals een SQL `DATETIME`.
+        <pre highlight="json">
+            "tijdEnDatumVanPublicatie": {
+                "title": "Tijd en datum van publicatie",
+                "description": "Tijd en datum van publicatie",
+                "type": "string",
+                "format": "date-time"
+            }
+        </pre>
+    </div>
+
+    <div class=example>
+        Dit veld zou moeten worden geinterpreteerd als een [[ISO8601]] conform tijdsduur type, zoals een postgreSQL `INTERVAL`.
+        <pre highlight="json">
+            "duur": {
+                "title": "Evenements duur",
+                "description": "Tijdsduur dat het evenement open is voor publiek.",
+                "type": "string",
+                "format": "duration"
+            }
+        </pre>
+    </div>
+
+
+### geometrie ### {#geometry}
+    Een geometrie veld wordt gedefinieerd als een verwijzing naar de relevante GeoJSON Schema definitie.
+    Alle GeoJSON geometrie typen (*Point*, *Polygon*, *Line String*, *Multi Point*, *Multi LineString*,
+    en *Multi Polygon*) worden ondersteund.
+
+    <div class=example>
+        Voorbeeld van een geometrie veld.
+        <pre class=example class="include-code">
+            path: examples/bekendeAmsterdammers/pleinen/v1.0.0.json
+            highlight: json
+            show: 25-29
+        </pre>
+    </div>
+
+    Een tabel schema mag meerdere geometrie velden bezitten.
+    Bijvoorbeeld de contour van een object in een *Polygon* en de centrale coordinaten van het object in een *Point*.
+
+    Doelsystemen die slechts één geometrie veld per object ondersteunen moeten gebruik maken van het veld waarnaar wordt
+    verwezen in het {{mainGeometry}} attribuut van de [=tabel=]. Als de tabel geen expliciet {{mainGeometry}} attribuut heeft
+    is dit de default waarde: `"Geometry"`.
+
+    Note: Als een tabel één of meerdere geometrie velden heeft, maar geen van deze velden `"Geometry"` heet,
+        **moet** één van de velden als primaire geometrie worden aangegeven in {{mainGeometry}}.
+
+    <div [HIDELINESEXAMPLE]>
+        Voorbeeld van een tabel met meerdere geometrie velden. Het veld `"lokatie"` is hier als primaire geometrie
+        aangegeven in "{{mainGeometry}}".
+        <pre class="include-code">
+            path: examples/bekendeAmsterdammers/pleinen/v1.0.0.json
+            highlight: json
+            line-highlight: 0-7,25-34
+        </pre>
+    </div>
+
+    Op dataset niveau kan het toegepaste coordinaat referentie systeem worden meegegeven in het {{dataset/crs}} attribuut.
+
+
+### object ### {#data-types-object}
+    Een [=veld=] van type `object` kan gestructureerde data (objecten of structs) bevatten.
+    Een `object` veld zou een {{veld/properties}} attribuut moeten bezitten waarin de structuur van de datawaarden
+     in het veld wordt vastgelegd.
+    Het {{veld/properties}} attribuut is een object met daarin de [=veld=] definities van de eigenschappen van de datawaarden.
+
+    Note: Het {{veld/properties}} attribuut moet geen `object` of `array` [=veld|velden=] bevatten.
+        Geneste data is in een gestructureerd object veld niet toegestaan.
+
+    <div class=example>
+        Een voorbeeld van een object veld.
+        <pre highlight="json">
+            "adres": {
+                "title": "Adres",
+                "description": "Het adres.",
+                "type": "object",
+                "properties": {
+                    "functieAdres": {
+                        "type": "string",
+                        "title": "Functie adres",
+                        "description": "Aanduiding van het soort adres. Mogelijke waarden: W (woonadres), B (briefadres).",
+                        "enum": ["W", "B"]
+                    },
+                    "huisnummer": {
+                        "type": "integer",
+                        "exclusiveMaximum": 2147483648,
+                        "minimum": 0
+
+                    },
+                    "toevoeging": {
+                        "type": "string"
+                    },
+                    "postcode": {
+                        "description": "Volledige postcode zonder spaties.",
+                        "type": "string"
+                        "minLength": 6,
+                        "maxLength": 6
+                    },
+                    "straatnaam": {
+                        "type": "string"
+                    }
+                }
+            }
+        </pre>
+    </div>
+
+    Note: De velden in {{veld/properties}} zijn altijd nullable.
+
+    Als een `object` veld een {{veld/properties}} attribuut bevat (gestructureerd is), moet het in doelsystemen geinterpreteerd worden als een SQL `STRUCT` type.
+    Als een `object` veld geen {{veld/properties}} attribuut heeft (ongestructureerd is) kan het in doelsystemen slechts ongeindexeerd worden opgeslagen in bijvoorbeeld een JSON string.
+
+    Daarom moet het gebruik van `object` velden zonder {{veld/properties}} attribuut waar mogelijk worden vermeden.
+    Een config/properties veld van string keys naar string waarden is een voorbeeld van acceptabel gebruik van een ongestructureerd `object` veld.
+
+
+### array ### {#data-types-array}
+    Een [=veld=] van type `array` kan meerdere elementen van hetzelfde type bevatten, met mogelijke duplicatie.
+    Een `array` veld **moet** een {{veld/items}} attribuut hebben, dit **moet** een [=veld=] object zijn.
+
+    Note: De optie van een {{veld/items}} array uit de [[json-schema-validation|JSON Schema specificatie]] wordt niet ondersteund.
+        Een `array` kan dus slechts één type waarde bevatten (geen UNION types).
+
+    Het {{veld/items}} attribuut is een [=veld=] object, maar de meta-data attributen {{veld/title}}, {{veld/description}}, {{veld/auth}}, {{veld/provenance}}, {{veld/shortname}} en {{veld/relation}} hebben in {{veld/items}} geen effect en zouden moeten worden weggelaten.
+
+    Note: Een array van arrays is niet toegestaan. Dus {{veld/items}} mag zelf niet het type `array` hebben.
+
+    <div class=example>
+        Een array van integers.
+        <pre highlight="json">
+            "weeknummers": {
+                "title": "weeknummers",
+                "description": "Weeknummers.",
+                "type": "array",
+                "items": {
+                    "type": "integer",
+                    "exclusiveMaximum": 256,
+                    "minimum": 0,
+                }
+            }
+        </pre>
+    </div>
+
+    <div class=example>
+        Een array van objecten.
+        <pre highlight="json">
+            "metingen": {
+                "title": "metingen",
+                "description": "Uitgevoerde metingen.",
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "meetonzekerheid": {
+                            "title": "Meetonzekerheid",
+                            "description": "Onzekerheid van de meting.",
+                            "type": "number",
+                            "minimum": 0
+                        },
+                        "waarde": {
+                            "title": "Waarde",
+                            "description": "De gemeten waarde.",
+                            "type": "number"
+                        }
+                    }
+                }
+            }
+        </pre>
+    </div>
+
+Issue: Het is onduidelijk of `unit` in een array moet worden meegegeven in het items attribuut  als `veld.items.unit` of in het hoofd object als `veld.unit`.
+
+
+Relaties {#relatering}
+-------------------------------
+Met het {{relation}} attribuut van een [=veld=] kunnen relaties tussen tabellen worden gedefinieerd.
+Dit kan zowel een relatie tussen tabellen in één dataset als tussen tabellen in verschillende datasets zijn.
+Met het relation attribuut wordt verwezen naar het identifier veld van de andere tabel.
+Dit is vergelijkbaar met een foreign key relatie in SQL.
+
+Het {{relation}} attribuut moet altijd de vorm `"<dataset-id>:<tabel-id>"` hebben.
+Van de waarden in een relation veld wordt verwacht dat ze gelijk zijn aan
+de unieke identifier van een rij in de tabel waaraan gerefereerd wordt.
+
+Note: Dit is niet verplicht, referentiele integriteit wordt niet afgedwongen.
+    Het kan dus voorkomen dat relaties naar niet (meer) bestaande entiteiten verwijzen.
+
+In het geval dat gerefereerd wordt aan een tabel zonder temporaliteit, moet het
+verwijzende veld dus van type `string` zijn.
+
+<div class=example>
+    Voorbeeld van een relatie veld voor een enkelvoudige relatie met de tabel "meetbouten" in de
+    dataset "meetbouten".
+    <pre highlight="json">
+        "hoortBijMeetbout": {
+            "title": "hoort bij meetbout",
+            "description": "De meetbout waarop de meting is gedaan."
+            "type": "string",
+            "relation": "meetbouten:meetbouten"
+        }
+    </pre>
+</div>
+
+Als gerefereerd wordt aan een tabel met temporaliteit, bestaat de unieke identifier van
+een object in die tabel uit twee velden; de tabel identifier en de temporele identifier
+(zie [[#temporaliteit]]). In dit geval moet het verwijzende veld van het type `object` zijn
+en twee string `properties` bevatten.
+
+<div class=example>
+    Voorbeeld van een relatie veld voor een enkelvoudige relatie met de temporele tabel "wijken" in de
+    dataset "gebieden".
+    <pre highlight="json">
+        "ligtInWijk": {
+            "title": "ligt in wijk",
+            "description": "De wijk waar de buurt in ligt.",
+            "type": "object",
+            "relation": "gebieden:wijken",
+            "properties": {
+                "identifier": {
+                "type": "string"
+                },
+                "volgnummer": {
+                "type": "string"
+                }
+            }
+        }
+    </pre>
+</div>
+
+Voor meervoudige (Many-To-Many) relaties wordt een [[#data-types-array| array]] veld gebruikt met een relation attibuut.
+
+<div class=example>
+    Voorbeeld van een relatie veld voor een meervoudige relatie met de tabel "referentiepunten"
+    in de dataset "meetbouten".
+    <pre highlight="json">
+        "refereertAanReferentiepunten": {
+            "shortname": "referentiepunten",
+            "title": "refereert aan referentiepunten",
+            "description": "De referentiepunten waar aan de meetbout refereert.",
+            "type": "array",
+            "relation": "meetbouten:referentiepunten",
+            "items": {
+                "type": "string"
+            }
+        }
+    </pre>
+</div>
+
+<div class=example>
+    Voorbeeld van een relatie veld voor een meervoudige relatie met een temporele tabel "panden"
+    in de dataset "bag".
+    <pre highlight="json">
+        "ligtInPanden": {
+            "title": "ligt in panden",
+            "relation": "bag:panden",
+            "description": "De unieke landelijke aanduidingen van de panden waarvan het verblijfsobject onderdeel uitmaakt.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "identificatie": {
+                  "type": "string"
+                },
+                "volgnummer": {
+                  "type": "integer"
+                }
+              }
+            }
+        }
+    </pre>
+</div>
+
+
+Eenheden {#units}
 ---------------------------
 
-Op het niveau van individuele velden is het gewenst om de eenheid te modelleren.
+Het is mogelijk om bij een veld de eenheid mee te geven in het {{veld/unit}} attribuut als meta-informatie voor user interfaces.
+Dit is slechts bedoeld ter informatie van de eindgebruiker,
+er worden dus geen automatische bewerkingen (zoals bijvoorbeeld eenheid conversies) uitgevoerd op basis van dit veld.
 
-Voor het definieren van eenheden gebruiken wij, by default, een string met een eenheid definitie volgens de [UCUM standaard](https://unitsofmeasure.org/ucum.html).
+Voor het definieren van een eenheid wordt standaard een string met de eenheid volgens de [[!UCUM inline]] codering gebruikt.
 
-`"unit": "mm/h"`
+<pre class=example highlight=json>
+    "unit": "mm/h"
+</pre>
 
-UCUM heeft geen expliciete ondersteuning voor valuta dus gebruiken we unit annotaties ([ISO 4217 code](https://unitsofmeasure.org/ucum.html|UCUM 2.1§6]]) om valuta te encoderen op basis van hun drie-letterige [[https://en.wikipedia.org/wiki/ISO_4217):
+Note: Zie [deze link](https://ucum.org/trac/wiki/adoption/common) voor een overzicht van veelgebruikte eenheden in UCUM formaat.
 
-`"unit": "{EUR}/h"`
+Voor valuta wordt de drie-letterige [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) codering gebruikt
+binnen een [UCUM 2.1§6](https://ucum.org/ucum.html#section-Character-Set-and-Lexical-Rules) unit annotatie.
+<pre class=example highlight=json>
+    "unit": "{EUR}/h"
+</pre>
 
-Het eenhedensysteem kan ook expliciet meegegeven worden door het op te slaan als `object`:
+De eenheidscodering kan ook expliciet meegegeven worden door {{veld/unit}} een `object` mee te geven.
+Een {{veld/unit}} object moet de volgende attributen bevatten.
+<table dfn-type="attribute" dfn-for=unit export class="dfn-table">
+    <tr><td><dfn>type</dfn>       <td> string <td> de eenheidscodering
+    <tr><td><dfn>value</dfn>      <td> string <td> de eenheid
+</table>
 
-`"unit": {"type": "ucum", "value": "{EUR}/h"}`
+<pre class=example highlight=json>
+    "unit": {"type": "ucum", "value": "{EUR}/h"}
+</pre>
 
-Andere system kunnen daardoor ook aangegeven worden:
+Zo kunnen ook andere eenheidscoderingen gebruikt worden.
+<pre class=example highlight=json>
+"unit": {"type": "pint", "value": "meter"}
+</pre>
 
-`"unit": {"type": "pint", "value": "meter"}`
+[BP]
+    Gebruik de UCUM standaard om eenheden te coderen. Niet standaard coderingssystemen worden afgeraden.
+[BPE]
 
-Custom unit systemen zullen echter conversie bemoeilijken en worden derhalve afgeraden door middel van een data-kwaliteits waarschuwing.
 
-Autorisatie (dataset, tabel, veld) {#authorisatie}
---------------------------------------------------
+<!--
+██    ██    ███       ███    ██     ██  ██████   ████████ ██     ██ ████ ██    ██  ██████
+███   ██   ██ ██     ██ ██   ███   ███ ██    ██  ██       ██     ██  ██  ███   ██ ██    ██
+████  ██  ██   ██   ██   ██  ████ ████ ██        ██       ██     ██  ██  ████  ██ ██
+██ ██ ██ ██     ██ ██     ██ ██ ███ ██ ██   ████ ██████   ██     ██  ██  ██ ██ ██ ██   ████
+██  ████ █████████ █████████ ██     ██ ██    ██  ██        ██   ██   ██  ██  ████ ██    ██
+██   ███ ██     ██ ██     ██ ██     ██ ██    ██  ██         ██ ██    ██  ██   ███ ██    ██
+██    ██ ██     ██ ██     ██ ██     ██  ██████   ████████    ███    ████ ██    ██  ██████
+-->
+Naamgeving {#naamgeving}
+====================================
+De data die in Amsterdam Schema wordt beschreven wordt publiek ontsloten en heeft veel externe afnemers. Het is
+dus heel belangrijk dat naamgeving correct, helder en eenduidig is, ook voor mensen die niet dagelijks met deze gegevens werken.
+Amsterdam Schema is ontworpen om door automatische systemen verwerkt te kunnen worden, ook daarom is het belangrijk dat de naamgeving
+aan een strak stramien voldoet.
 
-Autorisatie kan gedefinieerd worden op dataset-, tabel- en veld-niveau.
+Namen van [=datasets=], [=tabel|tabellen=] en [=veld|velden=] **moeten**:
+<ul style="list-style: none;">
+    <li><dfn lt="camelCase" export>1.</dfn> gebruik maken van camelCase.</li>
+    <li><dfn lt="noAbrev" export>2.</dfn> geen afkortingen of afbrekingen bevatten.</li>
+    <li><dfn lt="nouns" export>3.</dfn> bestaan uit zelfstandignaamwoorden.</li>
+    <li><dfn lt="unique" export>4.</dfn> uniek zijn binnen hun scope. (respectievelijk: De hele catalogus, de dataset of de tabel)</li>
+</ul>
+De namen van [=tabel|tabellen=] (zoals gegeven in {{tabel/id}}) en [=veld|velden=]
+worden onderdeel van de URI waarop deze entiteiten ontsloten worden, en moeten daarom aan extra eisen voldoen.
 
-Er zijn drie bestaande rol-aliassen gedefinieerd: `publiek`, `medewerker` en `medewerker-plus`. Deze zullen in de toekomst overgaan op Active Directory groepen zodra mogelijk.
+<dfn lt="plural" export>5.</dfn> Namen van tabellen **moeten** in meervoudsvorm zijn, behalve als sprake is van een enkelvoudige entiteit. Conform [[REST-API-DESIGN-RULES#api-54]].
 
-Op elk niveau kan aangegeven worden wat het hoogste niveau is dat toegang dient te hebben tot alle data op dat niveau en onderliggende niveau's.
+<dfn lt="noRepeat" export>6.</dfn> Namen van velden **moeten** geen herhaling van de tabel naam bevatten. (dus **niet** `container.containerNummmer`, maar `container.nummer`)
 
-Dat wil zeggen dat wanneer bijvoorbeeld de dataset als publiek gekenmerkt is (
-`"autorisatie": "publiek"`) dan zijn per definitie alle tabellen en velden ook publiek beschikbaar.
+Note: Gebruik duidelijke en begrijpelijke namen voor zowel datasets, tabellen als velden. De data wordt onsloten op een publieke API,
+    dus de naamgeving moet zonder veel uitleg duidelijk zijn voor externe afnemers.
 
-Indien slechts één tabel publiek is dan wordt de dataset gekenmerkt als bijv. `"autorisatie": "medewerker"` en de publieke tabel als `"autorisatie": "publiek"`.
 
-Zo ook dient een tabel met slechts deels publieke gegevens als `"autorisatie": "medewerker"` gemarkeerd te worden en alle publieke velden d.m.v. `"autorisatie": "publiek"` als publiek gemarkeerd.
+Shortname {#shortname}
+----------------------------------------
+Te lange namen in het schema kunnen problemen geven bij het aanmaken van tabellen en kolommen op basis van het schema.
+PostgreSQL staat bijvoorbeeld niet meer dan 63 karakters toe voor tabelnamen.
 
-Het is ook mogelijk meerdere rollen op te geven in de vorm van een array als `"autorisatie": ["ruimte", "basisinformatie"]`.
+Op zowel [=tabel=] als [=veld=] niveau is het mogelijk om een alternatieve verkorte naam op te geven met het attribuut `shortname`.
+Het shortname attribuut mag wel afkortingen bevatten ([=noAbrev|regel 2=] geldt niet) maar moet verder aan dezelfde eisen voldoen als de naam die erdoor wordt afgekort.
 
-Dit zal in de huidige rollenstructuur echter niet nodig zijn aangezien `medewerker` ook `publiek` als rol bevat en `medewerker-plus` ook `medewerker` en `publiek`. Derhalve kan de _huidige_ rollenstructuur altijd zonder array's gemodelleerd worden.
+<div class=example>
+    Gebruik van shortname in een tabel.
+    <pre highlight=json>
+        {
+            "id": "maatschappelijkeActiviteiten",
+            "shortname": "activiteiten",
+            "type": "table"
+            ...
+        }
+    </pre>
+</div>
 
-Naar de toekomst toe kan autorisatie uitgebreid worden d.m.v. een object met extra informatie t.b.v. bijvoorbeeld row level security; naar mate dit ondersteund kan worden door de relevante doelrepresentaties.
+<div class=example>
+    Gebruik van shortname in een veld.
+    <pre highlight=json>
+        "registratieTijdstipMaatschappelijkeActiviteit": {
+            "shortname": "registratieTijdstip",
+            "type": "string",
+            "format": "date-time"
+        }
+    </pre>
+</div>
 
-Provenance (dataset, tabel, veld) {#provenance}
------------------------------------------------
+
+<!--
+   ███    ████████ ████████ ████████  ████ ████████  ██     ██ ████████ ████████  ██████
+  ██ ██      ██       ██    ██     ██  ██  ██     ██ ██     ██    ██    ██       ██    ██
+ ██   ██     ██       ██    ██     ██  ██  ██     ██ ██     ██    ██    ██       ██
+██     ██    ██       ██    ████████   ██  ████████  ██     ██    ██    ██████    ██████
+█████████    ██       ██    ██   ██    ██  ██     ██ ██     ██    ██    ██             ██
+██     ██    ██       ██    ██    ██   ██  ██     ██ ██     ██    ██    ██       ██    ██
+██     ██    ██       ██    ██     ██ ████ ████████   ███████     ██    ████████  ██████
+-->
+Generieke attributen {#gen-attributes}
+===================================================
+Deze attributen kunnen op elk niveau bestaan.
+
+Omschrijving {#omschrijving}
+---------------------------------------------------
+
+Op elk niveau kan een semantische omschrijving toegevoegd worden d.m.v. de `title` en `description` attribuut.
+<table dfn-type="attribute" export class="dfn-table">
+    <tr><td> title       <td> (string) <td> Naam van dit item.
+    <tr><td> description <td> (string) <td> Vrije tekst beschrijving van dit item. Mag escape characters zoals newlines bevaten.
+</table>
+
+De `title` kan bijvoorbeeld in frontend applicaties worden gebruikt als label voor een invoerveld.
+Het `description` veld is bedoeld voor bijvoorbeeld context (mouseover) menu's bij een invoerveld of voor informatie velden.
+
+<div class=example>
+    `title` en `description` van een [=Dataset=].
+    <pre class=include-code>
+        path: examples/bekendeAmsterdammers/dataset.json
+        highlight: json
+        show: 4-5
+    </pre>
+</div>
+
+<div class=example>
+    `title` en `description` van een [=Tabel=].
+    <pre class=include-code>
+        path: examples/bekendeAmsterdammers/locaties/v1.0.0.json
+        highlight: json
+        show: 4-5
+    </pre>
+</div>
+
+<div class=example>
+    `title` en `description` in een [=Veld=].
+    <pre class=include-code>
+        path: examples/bekendeAmsterdammers/locaties/v1.0.0.json
+        highlight: json
+        show: 44-45
+    </pre>
+</div>
+
+Note: Als een [=veld=] geen {{veld/title}} attibuut heeft, wordt de naam van het veld gebruikt.
+
+
+Autorisatie {#autorisatie}
+----------------------------------------------------
+
+Op zowel [=dataset=], [=tabel=] als [=veld=] niveau kan een `"auth"` attribuut worden meegegeven om toegang tot een entitieit te beperken.
+<table export class="dfn-table">
+    <tr><td><dfn>auth</dfn> <td> string | array <td> geautoriseerde [=scope|scope(s)=].
+</table>
+
+Het `"auth"` attribuut bevat één of meer scopes, die leesrechten hebben op de entiteit waarop `"auth"` is gedefinieerd.
+Een <dfn export>scope</dfn> is een groep gebruikers (medewerkers) met gedeelde rechten. Een gebruiker kan meerdere scopes hebben.
+
+Als het `"auth"` attribuut een array bevat is elke scope in de array afzonderlijk geautoriseerd.
+Dus een gebruiker heeft slechts één van de [=scopes=] in een array nodig voor toegang.
+
+<div class=example>
+    Voorbeeld van een "auth" array op een veld.
+    Zowel scope `"LEVEL/X"` als scope `"LEVEL/Y"` toegang tot het veld. Een gebruiker hoeft niet beide scopes te bezitten.
+    <pre highlight="json">
+        "aantalDuivenOpDeDam": {
+            "title": "aantal duiven op de Dam",
+            "description": "Het gemeten aantal duiven op de de Dam",
+            "auth": ["LEVEL/X", "LEVEL/Y"]
+            "type": "integer"
+        }
+    </pre>
+</div>
+
+Als een [=dataset=] geen `"auth"` attribuut heeft is de scope van de [=dataset=] `"OPENBAAR"` en is deze dus publiek toegankelijk.
+
+Als een [=tabel=] geen `"auth"` attribuut heeft is de scope van de [=tabel=] gelijk aan die van de dataset.
+
+Als een [=veld=] geen `"auth"` attribuut heeft is de scope van het [=veld=] gelijk aan die van de tabel.
+
+Een dataset waarin op geen enkel niveau een `"auth"` attribuut bestaat is dus volledig publiek toegankelijk.
+Data kan ook expliciet openbaar worden gemaakt met `"auth" : "OPENBAAR"`.
+
+<div class=example>
+In dit voorbeeld vindt autorisatie plaats op 3 niveaus.
+Scope `"LEVEL/A"` heeft dataset level autorisatie op gebieden, scope `"LEVEL/B"` heeft tabel level autorisatie op bouwblokken en scope `"LEVEL/C"` heeft autorisatie op veld beginGeldigheid.
+
+    * Een user met scope `"LEVEL/A"` mag alles uit de dataset gebieden zien, behalve tabel bouwblokken.
+    * Een user met scope `"LEVEL/B"` mag alle velden van tabel bouwblokken zien, behalve beginGeldigheid.
+    * Een user met scope `"LEVEL/C"` mag veld beginGeldigheid zien.
+
+    <pre highlight="json" line-highlight=5,14,36>
+        {
+            "type": "dataset",
+            "id": "gebieden",
+            "title": "gebieden",
+            "auth": "LEVEL/A",
+            "status": "beschikbaar",
+            "crs": "EPSG:28992",
+            "tables": [
+                {
+                "id": "bouwblokken",
+                "mainGeometry": "geometrie",
+                "type": "table",
+                "version": "1.0.0",
+                "auth": "LEVEL/B",
+                "schema": {
+                    "$id": "https://github.com/Amsterdam/schemas/gebieden/bouwblokken.json",
+                    "$schema": "http://json-schema.org/draft-07/schema#",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "identifier": ["id"],
+                    "required": ["schema", "id"],
+                    "display": "id",
+                    "properties": {
+                    "schema": {
+                        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Unieke identificatie voor dit object, inclusief volgnummer"
+                    },
+                    "beginGeldigheid": {
+                        "type": "string",
+                        "format": "date",
+                        "title": "Begin geldigheid",
+                        "description": "De datum waarop het object is gecreëerd.",
+                        "auth": "LEVEL/C"
+                    },
+                    "eindGeldigheid": {
+                        "type": "string",
+                        "format": "date",
+                        "title": "Eind geldigheid",
+                        "description": "De datum waarop het object is komen te vervallen.",
+                        "provenance": "eindgeldigheid"
+                    },
+                    "ligtInBuurt": {
+                        "type": "string",
+                        "relation": "gebieden:buurten",
+                        "provenance": "ligtinbuurt",
+                        "title": "Ligt in buurt",
+                        "description": "De buurt waar het bouwblok in ligt."
+                    }
+                    }
+                }
+                }
+            ]
+        }
+    </pre>
+</div>
+
+
+Provenance {#provenance}
+------------------------------------------------------
 
 Provenance als veld wordt gebruikt om programmatisch informatie op te slaan over de oorsprong van bepaalde data.
 
@@ -281,44 +1500,251 @@ Tabel: `"provenance": { "file": "asbestdaken_daken.zip" }`
 
 Veld: `"provenance": { "field": "perceel_id"}`
 
-Naamgeving {#naamgeving}
-------------------------
 
-Voor de naamgeving van de velden wordt de camelCase notatie gebruikt. Op implementatie-niveau (bijv. PostgreSQL) wordt
-dit omgezet in snake_case notatie als de meest natuurlijke manier van noteren.
+<!--
+████████ ██    ██ ████████  ████████  ██████
+   ██     ██  ██  ██     ██ ██       ██    ██
+   ██      ████   ██     ██ ██       ██
+   ██       ██    ████████  ██████    ██████
+   ██       ██    ██        ██             ██
+   ██       ██    ██        ██       ██    ██
+   ██       ██    ██        ████████  ██████
+-->
+Attribuut typen {#attr-types}
+==================================================
+<table class="dfn-table">
+    <tr><td><dfn typedef export lt=id|id-type>identifier</dfn>
+        <td> (string | integer)
+        <td> Een unieke identifier in de vorm van een integer of een alphanumerieke reeks, startend met een lowercase letter.
+    <tr><td><dfn typedef export>date-time</dfn>
+        <td> (string)
+        <td> Een als datetime geformatteerde string. Conform [[json-schema-validation#rfc.section.7.3.1]].
+    <tr><td><dfn typedef lt=uri|uri-type export>uri</dfn>
+        <td> (string)
+        <td> Een als URI geformatteerde string. Conform [[json-schema-validation#rfc.section.7.3.5]].
+        <tr><td><dfn typedef export>uri-reference</dfn>
+        <td> (string)
+        <td> Een als URI Reference geformatteerde string. Conform [[json-schema-validation#rfc.section.7.3.5]].
+    <tr><td><dfn typedef export lt=type|schema-type>schema-type</dfn>
+        <td> (enum-string)
+        <td> Het binnen Amsterdam-Schema bekende [[!JSON-SCHEMA inline]] type waaraan het object voldoet.
+            <details>
+                <summary>Opties</summary>
+                    * "dataset"
+                    * "table"
+            </details>
+    <tr><td><dfn typedef export lt=version|version-string>version</dfn>
+        <td> (string)
+        <td> Version string van de vorm "<MAJOR>.<MINOR>.<PATCH>" of "<MAJOR>.<MINOR>" (patch nummer is optioneel)
+    <tr><td><dfn typedef export lt=contact|contactPoint>contact</dfn>
+        <td> (object)
+        <td> Contact gegevens. Een object met de volgende optionele velden:
+            <ul dfn-type="attribute" dfn-for=contact noexport>
+                * <dfn>name</dfn> (string) Naam van het contact
+                * <dfn>email</dfn> (string) Email adres van het contact
+            </ul>
+</table>
 
-Gebruik duidelijke en begrijpelijke namen voor zowel datasets, tabellen als velden. Het gaat hierbij tenslotte om het beschikbaar
-stellen van data in de vorm van een publieke API die afnemers liefst zonder al te veel extra uitleg moeten kunnen gebruiken.
 
-Een paar vuistregels:
+<!--
+████████  ████ ████████  ██       ████  ███████   ██████   ████████     ███    ████████  ██     ██ ██    ██
+██     ██  ██  ██     ██ ██        ██  ██     ██ ██    ██  ██     ██   ██ ██   ██     ██ ██     ██  ██  ██
+██     ██  ██  ██     ██ ██        ██  ██     ██ ██        ██     ██  ██   ██  ██     ██ ██     ██   ████
+████████   ██  ████████  ██        ██  ██     ██ ██   ████ ████████  ██     ██ ████████  █████████    ██
+██     ██  ██  ██     ██ ██        ██  ██     ██ ██    ██  ██   ██   █████████ ██        ██     ██    ██
+██     ██  ██  ██     ██ ██        ██  ██     ██ ██    ██  ██    ██  ██     ██ ██        ██     ██    ██
+████████  ████ ████████  ████████ ████  ███████   ██████   ██     ██ ██     ██ ██        ██     ██    ██
+-->
+<pre class=biblio>
+    {
+        "json-schema": {
+            "href": "https://json-schema.org/draft/2020-12/json-schema-core.html",
+            "title": "JSON Schema"
+        },
+        "json-schema-validation": {
+            "href": "https://json-schema.org/draft/2020-12/json-schema-validation.html",
+            "title": "JSON Schema"
+        },
+        "json-schema-string":{
+            "href": "https://json-schema.org/understanding-json-schema/reference/string.html",
+            "title":"JSON Schema string"
+        },
+        "semver": {
+            "href": "https://semver.org/",
+            "title": "SemVer"
+        },
+        "schemver": {
+            "href": "https://snowplowanalytics.com/blog/2014/05/13/introducing-schemaver-for-semantic-versioning-of-schemas/",
+            "title": "SchemaVer"
+        },
+        "ucum": {
+          "href": "https://unitsofmeasure.org/ucum.html",
+          "title": "The Unified Code for Units of Measure"
+        },
+        "rest-api-design-rules": {
+            "href": "https://publicatie.centrumvoorstandaarden.nl/api/adr/",
+            "title": "REST-API Design Rules"
+        },
+        "sdw-bp": {
+            "href": "https://www.w3.org/TR/sdw-bp/",
+            "title": "SDOW best practices"
+        },
+        "IEEE754": {
+            "href":"https://datatracker.ietf.org/doc/html/rfc7159#ref-IEEE754",
+            "title":"IEEE754"
+        },
+        "rfc7159": {
+            "href":"https://datatracker.ietf.org/doc/html/rfc7159",
+            "title":"RFC7159"
+        },
+        "ISO8601": {
+            "href":"https://www.iso.org/iso-8601-date-and-time-format.html",
+            "title":"ISO8601"
+        }
+    }
+</pre>
 
-* gebruik camelCase namen
-* gebruik geen ALL_UPPERCASE namen
-* gebruik volledige namen (geen afbrekingen en afkortingen)
-* herhaal de tabelnaam niet in de namen van de velden (dus *niet* container.containerNummmer, maar container.nummer)
+<!-- Force bib entries that are only deep referenced to appear in bibliography, this is a workaround for a bug in bikeshed -->
+<div style="display:none">
+    [[!json-schema-validation inline | ]]  [[SDW-BP inline | ]] [[REST-API-DESIGN-RULES]] [[RFC7159]] [[json-schema-string]]
+</div>
 
-Als de namen in het schema te lang worden, kan dit praktische problemen geven bij het aanmaken van tabellen en kolommen
-op basis van het schema. PostgreSQL staat bijvoorbeeld niet meer dan 63 karakters toe voor tabelnamen.
-Het is mogelijk om een alternatieve verkorte naam op te geven voor tabellen en velden met het attribuut `shortname`.
 
-Bijvoorbeeld voor een tabel:
+<style>
+    p[data-fill-with="logo"] {
+        width: 180px;
+        height: 180px;
+        float: right;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url("[LOGO]");
+    }
+    #toc::before {
+        content: "[TITLE]";
+        background: rgb(0, 90, 156);
+        color: var(--tocsidebar-bg);
+        font-size: 18px;
+        text-orientation: inherit;
+        writing-mode: sideways-lr;
+        position: fixed;
+        padding-left: 3px;
+        padding-bottom: 50px;
+        padding-top: 50px;
+        left: 0;
+        top: 0;
+        height: max-content;
+    }
+    dfn.idl-code code {
+       font-size: initial;
+       background: none !important;
+       font-weight: bolder;
+       line-height: 24px;
+       font-family: sans-serif;
+       padding: 0;
+        border-radius: 0;
+        display: inline-block;
+    }
+    .idl-code code c-[kc],
+    .idl-code code c-[kr] {
+        color: black;
+        font-family: sans-serif;
+    }
 
-```
-{
-  "id": "maatschappelijkeactiviteiten",
-  "shortname": "activiteiten",
-  "type": "table"
-}
+    .best-practice {
+        border-color: blue;
+        background: rgba(0,0,255,.05);
+    }
+    .dfn-table, .lst-table {
+        width: 100%;
+        width: -moz-available;
+        width: -webkit-fill-available;
+        width: stretch;
+    }
 
-```
+    .dfn-table td {
+        vertical-align: top;
+        padding: .5em;
+    }
+    .dfn-table td:first-child {
+        min-width: 150px;
+    }
 
-Of voor een veld:
+    .dfn-table tr:nth-child(even) {
+        background: #F5F5F5;
+    }
 
-```
-    "registratieTijdstipMaatschappelijkeActiviteit": {
-    "shortname": "registratieTijdstip",
-    "type": "string",
-    "format": "date-time"
-}
+    .compare-code div {
+        width: 50%;
+        float: left;
+        display: block;
+        overflow: auto;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
 
-```
+    .compare-code div:first-child {
+        width:calc(50% - 2px);
+        margin-right: 2px;
+    }
+
+    .compare-code pre {
+        width: max-content;
+        padding: 0 ! important;
+        min-width: 100%;
+    }
+
+    .compare-code .line.highlight-line {
+        transition-property: background;
+        transition-duration: 50ms;
+    }
+
+    .compare-code:hover .line.highlight-line {
+        background: #0A84FF2B;
+    }
+
+    .compare-code .line-no.highlight-line[data-line]::before,
+    .compare-code .line-no[data-line]::before,
+    .compare-code .line-no.highlight-line {
+        background: blue;
+        padding: 0.1em;
+        content: none;
+    }
+
+    /* Fix background of code inside an example */
+    pre.highlight:not(.idl) {
+        background: #eee !important;
+    }
+
+    .unhide-lines .line-no.highlight-line,
+    .unhide-lines .line-no.highlight-line[data-line]::before,
+    .unhide-lines .line-no[data-line]::before,
+    .hide-lines .line-no.highlight-line[data-line]::before,
+    .hide-lines .line-no[data-line]::before,
+    .hide-lines .line-no.highlight-line {
+        padding: 0.1em;
+        content: none !important;
+    }
+
+    .hide-lines .line:not(.highlight-line), .hide-lines .line-no:not(.highlight-line) {
+        height: 0;
+        overflow: hidden;
+        font-size: 0;
+    }
+
+    .hide-lines .line.highlight-line + .line-no:not(.highlight-line) + .line::before {
+        content: "...";
+        font-size: initial;
+        margin-left: 25px;
+    }
+
+    .hide-lines .line.highlight-line + .line-no:not(.highlight-line),
+    .hide-lines .line.highlight-line + .line-no:not(.highlight-line) + .line {
+        height: initial;
+        background: var(--highlight-hover-bg);
+    }
+    .unhide-lines pre ,
+    .hide-lines pre {
+        cursor: pointer;
+    }
+</style>

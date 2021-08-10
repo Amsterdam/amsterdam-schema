@@ -1,142 +1,141 @@
 {
-    "type": "dataset",
-    "id": "spoorlijnen",
-    "title": "Spoorlijnen",
-    "description": "Informatie over metro- en tramspoorlijnen",
-    "license": "public",
-    "status": "beschikbaar",
-    "version": "0.0.1",
-    "publisher": "OIS",
-    "owner": "Gemeente Amsterdam",
-    "authorizationGrantor": "OIS",
-    "keywords": ["spoorlijnen", "metro", "tram"],
-    "crs": "EPSG:28992",
-    "tables": [
-      {
-        "id": "metro",
-        "title": "Metro",
-        "type": "table",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["schema", "id"],
-          "display": "spoorlijnId",
-          "properties": {
-            "schema": {
-              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-            },
-            "id": {
-              "type": "integer"
-            },
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Geometry.json"
-            },
-            "spoorlijnId": {
-              "type": "string",
-              "provenance": "kge"
-            },
-            "spoorlijnIdType": {
-              "type": "string",
-              "provenance": "trace"
-            },
-            "spoorlijnIdSubtype": {
-              "type": "string",
-              "provenance": "element"
-            },
-            "beginKm": {
-              "type": "number",
-              "multipleOf": 0.01,
-              "description": "beginpunt in kilometers"
-            },
-            "eindKm": {
-              "type": "number",
-              "multipleOf": 0.01,
-              "description": "eindpunt in kilometers"
-            },
-            "lengte": {
-              "type": "integer",
-              "description": "totale lengte spoor"
-            },
-            "aantalSporen": {
-              "type": "integer",
-              "provenance": "aantal_spo"
-            },
-            "typeUitlijning": {
-              "type": "string",
-              "provenance": "allignemen"
-            },
-            "station": {
-              "type": "string"
-            },
-            "objecttype": {
-              "type": "string"
-            },
-            "treinFrequentie": {
-              "type": "integer",
-              "provenance": "treinfrequ"
-            },
-            "maximaleSnelheid": {
-              "type": "integer",
-              "provenance": "max_snelhe"
-            },
-            "exploitatieSnelheid": {
-              "type": "integer",
-              "provenance": "exploitati"
-            },
-            "matched_r": {
-              "type": "integer",
-              "provenance": "_matched_r"
-            },
-            "lengteGis": {
-              "type": "number",
-              "multipleOf": 0.01
-            },
-            "typeDecos": {
-              "type": "string"
-            },
-            "lengteGisAfgrond": {
-              "type": "number",
-              "multipleOf": 0.01,
-              "provenance": "lengtegis"
-            },
-            "wisselNummer": {
-              "type": "string",
-              "provenance": "wisselnr"
-            }
-          }
-        }
-      },
-      {
-        "id": "tram",
-        "title": "tram",
-        "type": "table",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["schema", "id"],
-          "display": "id",
-          "properties": {
-            "schema": {
-              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-            },
-            "id": {
-              "type": "integer"
-            },
-            "geometry": {
-              "$ref": "https://geojson.org/schema/Geometry.json"
-            },
-            "volgorde": {
-              "type": "string"
-            },
-            "eenrichtingIndicatie": {
-              "type": "boolean",
-              "provenance": "one_way"
-            }
+  "type": "dataset",
+  "id": "spoorlijnen",
+  "title": "Spoorlijnen",
+  "description": "Informatie over metro- en tramspoorlijnen",
+  "license": "public",
+  "status": "beschikbaar",
+  "version": "0.0.1",
+  "publisher": "OIS",
+  "owner": "Gemeente Amsterdam",
+  "authorizationGrantor": "OIS",
+  "keywords": ["spoorlijnen", "metro", "tram"],
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "metro",
+      "title": "Metro",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "spoorlijnId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json"
+          },
+          "spoorlijnId": {
+            "type": "string",
+            "provenance": "kge"
+          },
+          "spoorlijnIdType": {
+            "type": "string",
+            "provenance": "trace"
+          },
+          "spoorlijnIdSubtype": {
+            "type": "string",
+            "provenance": "element"
+          },
+          "beginKm": {
+            "type": "number",
+            "multipleOf": 0.01,
+            "description": "beginpunt in kilometers"
+          },
+          "eindKm": {
+            "type": "number",
+            "multipleOf": 0.01,
+            "description": "eindpunt in kilometers"
+          },
+          "lengte": {
+            "type": "integer",
+            "description": "totale lengte spoor"
+          },
+          "aantalSporen": {
+            "type": "integer",
+            "provenance": "aantal_spo"
+          },
+          "typeUitlijning": {
+            "type": "string",
+            "provenance": "allignemen"
+          },
+          "station": {
+            "type": "string"
+          },
+          "objecttype": {
+            "type": "string"
+          },
+          "treinFrequentie": {
+            "type": "integer",
+            "provenance": "treinfrequ"
+          },
+          "maximaleSnelheid": {
+            "type": "integer",
+            "provenance": "max_snelhe"
+          },
+          "exploitatieSnelheid": {
+            "type": "integer",
+            "provenance": "exploitati"
+          },
+          "matched_r": {
+            "type": "integer",
+            "provenance": "_matched_r"
+          },
+          "lengteGis": {
+            "type": "number",
+            "multipleOf": 0.01
+          },
+          "typeDecos": {
+            "type": "string"
+          },
+          "lengteGisAfgrond": {
+            "type": "number",
+            "multipleOf": 0.01,
+            "provenance": "lengtegis"
+          },
+          "wisselNummer": {
+            "type": "string",
+            "provenance": "wisselnr"
           }
         }
       }
-    ]
-  }
-  
+    },
+    {
+      "id": "tram",
+      "title": "tram",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["schema", "id"],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json"
+          },
+          "volgorde": {
+            "type": "string"
+          },
+          "eenrichtingIndicatie": {
+            "type": "boolean",
+            "provenance": "one_way"
+          }
+        }
+      }
+    }
+  ]
+}

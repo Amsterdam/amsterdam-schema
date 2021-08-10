@@ -1,0 +1,37 @@
+{
+  "id": "pleinen",
+  "type": "table",
+  "title": "Pleinen",
+  "version": "1.0.0",
+  "description": "Pleinen van amsterdam. (Een voorbeeld tabel met geometrie velden)",
+  "mainGeometry": "lokatie",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": ["id", "schema"],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke aanduiding van het plein"
+      },
+      "naam": {
+        "type": "string",
+        "description": "Naam van het plein"
+      },
+      "lokatie": {
+        "title": "Lokatie",
+        "description": "Coordinaten van het middelpunt van het plein",
+        "$ref" : "https://geojson.org/schema/Point.json"
+      },
+      "contour": {
+        "title": "Contour",
+        "description": "Polygoon van de contour van het plein.",
+        "$ref" : "https://geojson.org/schema/Polygon.json"
+      }
+    }
+  }
+}

@@ -4,18 +4,18 @@
   "type": "object",
   "temporal": {
     "type": "object",
-    "required":["identifier", "dimensions"],
+    "required": ["identifier", "dimensions"],
     "identifier": "string",
-    "unit":"string",
+    "unit": "string",
     "dimensions": {
-      "type":"object",
+      "type": "object",
       "geldigOp": {
         "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "minItems": 2,
-      "maxItems": 2
+        "items": {
+          "type": "string"
+        },
+        "minItems": 2,
+        "maxItems": 2
       }
     }
   },
@@ -25,11 +25,14 @@
     }
   ],
   "required": [
-    "schema"
+    "schema", "version"
   ],
   "properties": {
     "type": {
       "const": "table"
+    },
+    "shortname": {
+      "type": "string"
     },
     "schema": {
       "oneOf": [
@@ -38,9 +41,7 @@
         },
         {
           "type": "object",
-          "required": [
-            "$ref"
-          ],
+          "required": ["$ref"],
           "additionalProperties": false,
           "properties": {
             "$ref": {

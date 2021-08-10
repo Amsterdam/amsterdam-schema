@@ -19,19 +19,10 @@ python3.8 -m venv dvenv
 source dvenv/bin/activate
 pip install -U pip setuptools wheel
 pip install bikeshed
-pip install pygments==2.7.2
 cd docs
 bikeshed spec ams-schema-spec.bs ams-schema-spec.html
 open ams-schema-spec.html
 ```
-
-Note the explicit installation of `pygments`.
-Although the installation of `bikeshed` automatically installs `pygments`,
-we override it with an older version
-to ensure correct highlighting of literals in the spec.
-The error that `pip` displays
-can safely be ignored.
-
 
 After this initial installation
 all you need to do to regenerate the specification
@@ -42,7 +33,7 @@ is to:
 * and run the bikeshed command: `bikeshed spec ams-schema-spec.bs ams-schema-spec.html`
 
 The `bikeshed` command can be repeated as often as necessary.
-To a better solution,
+A better solution,
 while working on the specification,
 would be to use Bikeshed's `watch` subcommand.
 It regenerates the HTML upon every document save:

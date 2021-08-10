@@ -32,7 +32,7 @@
         },
 
         "items": {
-          "type": "object"
+          "$ref": "#/definitions/rootProperty"
         },
 
         "maximum": {
@@ -47,7 +47,7 @@
           "type": "integer"
         },
 
-        "multipeOf": {
+        "multipleOf": {
           "type": "number"
         },
 
@@ -64,7 +64,13 @@
         },
 
         "properties": {
-          "type": "object"
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[a-z][ A-Za-z0-9]*$"
+          },
+          "additionalProperties": {
+            "$ref": "#/definitions/rootProperty"
+          }
         },
 
         "enum": {
@@ -90,6 +96,19 @@
         "uri": {
           "type": "string",
           "format": "uri-reference"
+        },
+
+        "unit": {
+          "type": ["string","object"],
+          "required": ["type", "value"],
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
         }
       },
 
@@ -106,7 +125,16 @@
           "required": ["$ref"],
           "properties": {
             "$ref": {
-              "type": "string"
+              "type": "string",
+              "enum":[
+                "https://geojson.org/schema/Geometry.json",
+                "https://geojson.org/schema/MultiPolygon.json",
+                "https://geojson.org/schema/Polygon.json",
+                "https://geojson.org/schema/Point.json",
+                "https://geojson.org/schema/MultiLineString.json",
+                "https://geojson.org/schema/LineString.json",
+                "https://geojson.org/schema/MultiPoint.json"
+              ]
             }
           }
         }
