@@ -3,12 +3,12 @@
 # Running "make format" fixes most issues for you
 repos:
   - repo: https://github.com/ambv/black
-    rev: 20.8b1
+    rev: 21.7b0
     hooks:
       - id: black
         language_version: python3.8
   - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.0
+    rev: 3.9.2
     hooks:
       - id: flake8
         additional_dependencies:
@@ -26,7 +26,7 @@ repos:
           - flake8-colors
           - flake8-raise
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+    rev: v4.0.1
     hooks:
       - id: check-json
       - id: check-merge-conflict
@@ -37,23 +37,19 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
+      - id: pretty-format-json
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.812
+    rev: v0.910
     hooks:
       - id: mypy
         language_version: python3
   - repo: https://github.com/pycqa/isort
-    rev: 5.8.0
+    rev: 5.9.3
     hooks:
       - id: isort
         args: ['--filter-files']
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: 'bc48c541add1551be726f23c4294c773442341cb'
-    hooks:
-      - id: prettier
-        files: '\.(js|ts|jsx|tsx|scss|css|yml|yaml|json)$'
   - repo: https://github.com/Amsterdam/schema-tools
-    rev: v0.19.0
+    rev: v0.23.2
     hooks:
       - id: validate-schema
         args: ['https://schemas.data.amsterdam.nl/schema@v1.1.1#']
