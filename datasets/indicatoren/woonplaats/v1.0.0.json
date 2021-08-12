@@ -34,7 +34,7 @@
         "description": "Aantal van de registraties waarop de de indicator van toepassing is."
       },
       "indNoemer": {
-        "type": "integer",
+        "type": "number",
         "description": "Totaal aantal van de registraties waarover de indicator-waarde is berekend."
       },
       "indNorm": {
@@ -51,7 +51,7 @@
       },
       "indPeildatumAfleiding": {
         "type": "string",
-        "format": "date",
+        "format": "date-time",
         "description": "Peildatum van de brondata waarop de indicatorwaarde is berekend."
       },
       "indDefinitie": {
@@ -142,25 +142,23 @@
         "type": "string",
         "description": "Unieke identifier van de doelenboom waarop de indicator betrekking heeft (indien van toepassing)."
       },
-      "indActiviteitDoelenboom": {
+      "indDoelenboomActiviteit": {
         "type": "string",
         "description": "Naam van de doelenboom waarop de indicator betrekking heeft (indien van toepassing)."
       },
-      "bagWoonplaatsIdentificatie": {
+      "bagWoonplaats": {
         "type": "integer",
-        "relation": "bag:woonplaats",
+        "relation": "bag:woonplaatsen",
         "uri": "https://www.amsterdam.nl/stelselpedia/bag-index/catalogus-bag/objectklasse-woonplaats/",
         "description": "Verwijzing naar de unieke identifier van de woonplaats waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
       },
-      "gbdWoonplaatsVolgnummer": {
+      "bagWoonplaatsVolgnummer": {
         "type": "integer",
-        "relation": "gebieden:buurten",
         "uri": "https://www.amsterdam.nl/stelselpedia/bag-index/catalogus-bag/objectklasse-woonplaats/",
         "description": "Volgnummer van de woonplaatsregistratie waarop de indicator-waarde is gebaseerd (leeg is altijd meest recente)."
       },
       "bagWoonplaatsNaam": {
         "type": "string",
-        "relation": "bag:woonplaats",
         "uri": "https://www.amsterdam.nl/stelselpedia/bag-index/catalogus-bag/objectklasse-woonplaats/",
         "description": "Naam van de woonplaats waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
       }
