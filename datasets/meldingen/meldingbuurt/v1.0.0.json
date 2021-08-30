@@ -1,0 +1,62 @@
+{
+    "id": "meldingbuurt",
+    "type": "table",
+    "description": "Deze dataset bevat meldingen over de Openbare Ruimte in Amsterdam voor de website Mijn Amsterdam.",
+    "objective": "Het doel van deze dataset is de bewoner in staat stellen om openstaande meldingen op een kaart te volgen.",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "id",
+        "required": [
+            "id",
+            "schema"
+        ],
+        "display": "id",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            },
+            "id": {
+                "type": "integer",
+                "provenance": "mora_id",
+                "description": "Identificatienummer van de melding."
+            },
+            "categorie": {
+                "type": "string",
+                "provenance": "mora_categorie",
+                "description": "De hoofdcategorie waaronder de melding valt. De volgende categorieën worden niet gepubliceerd: ondermijning, wonen, overlast van personen en groepen."
+            },
+            "subcategorie": {
+                "type": "string",
+                "provenance": "mora_subcategorie",
+                "description": "De subcategorie waaronder de melding valt. De volgende subcategorieën worden niet gepubliceerd: fraude, vuurwerkoverlast, vermoeden, daklozen-bedelen, drank-en-drugsoverlast, jongerenoverlast, overige-overlast-door-personen, overlast-door-afsteken-vuurwerk, overlast-van-taxis-bussen-en-fietstaxis, wildplassen-poepen-overgeven, leegstand, onderhuur-en-adreskwaliteit, vakantieverhuur, wonen-overig, woningdelen-spookburgers, woningkwaliteit."
+            },
+            "status": {
+                "type": "string",
+                "provenance": "mora_status",
+                "description": "De status van de melding. De API levert alleen status 'in behandeling'. Deze zijn een samenvoeging van: gemeld, in afwachting van behandeling, in behandeling, on hold, ingepland, te verzenden naar extern systeem, heropend, verzoek tot afhandeling, verzonden naar extern systeem, verzending naar extern systeem mislukt, melding is afgehandeld in extern systeem."
+            },
+            "datumCreatie": {
+                "type": "date-time",
+                "provenance": "mora_datum_creatie",
+                "description": "Datum waarop de melding aangemaakt is."
+            },
+            "datumWijziging": {
+                "type": "date-time",
+                "provenance": "mora_datum_wijziging",
+                "description": "Datum waarop de melding aangepast is."
+            },
+            "geometrie": {
+                "provenance": "mora_geometrie",
+                "$ref": "https://geojson.org/schema/Point.json",
+                "description": "Puntlokatie van de melding (epsg:28992)."
+            },
+            "geometrieVisualisatie": {
+                "provenance": "mora_geometrie_visualsatie",
+                "$ref": "https://geojson.org/schema/Point.json",
+                "description": "Puntlokatie van de melding (epsg:28992). Deze geometrie is bedoeld om de meldingen op de kaart te tonen in de openbare ruimte (sommige meldingen hebben betrekking op een pand). Als de locatie van een melding op een pand of op de lijn van een pand is, is de geolocatie van deze melding verplaatst naar de dichtbijzijnde lijn van de openbare ruimte."
+            }
+        }
+    }
+}
