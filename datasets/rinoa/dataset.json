@@ -139,6 +139,10 @@
           "contactadressen": {
             "type": "array",
             "relation": "rinoa:contactadressen"
+          },
+          "onderwijsaanbiedergroepen": {
+            "type": "array",
+            "relation": "rinoa:onderwijsaanbiedergroepen"
           }
         }
       }
@@ -203,7 +207,297 @@
           },
           "onderwijsbestuur": {
             "type": "string",
+            "relation": "rinoa:onderwijsbestuur"
+          },
+          "begindatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "einddatum": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    },
+    {
+      "id": "onderwijsbestuurOnderwijsaanbiederRelaties",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "required": [
+          "schema",
+          "onderwijsbestuur",
+          "onderwijsaanbieder"
+        ],
+        "identifier": [
+          "onderwijsbestuur",
+          "onderwijsaanbieder"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer/autoincrement"
+          },
+          "onderwijsaanbieder": {
+            "relation": "rinoa:onderwijsaanbieders",
+            "type": "string",
+            "description": "Aanbieder"
+          },
+          "onderwijsbestuur": {
+            "relation": "rinoa:onderwijsbesturen",
+            "type": "string",
+            "description": "besturen"
+          },
+          "begindatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "einddatum": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    },
+    {
+      "id": "onderwijsbestuurOnderwijsaanbiedergroepRelaties",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "required": [
+          "schema",
+          "onderwijsbestuur",
+          "onderwijsaanbiedergroep"
+        ],
+        "identifier": [
+          "onderwijsbestuur",
+          "onderwijsaanbiedergroep"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer/autoincrement"
+          },
+          "onderwijsaanbiedergroep": {
+            "relation": "rinoa:onderwijsaanbiedergroepen",
+            "type": "string",
+            "description": "Groep"
+          },
+          "onderwijsbestuur": {
+            "relation": "rinoa:onderwijsbesturen",
+            "type": "string",
+            "description": "besturen"
+          },
+          "begindatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "einddatum": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    },
+    {
+      "id": "onderwijsaanbiedergroepOnderwijsaanbiederRelaties",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "required": [
+          "schema",
+          "onderwijsaanbiedergroep",
+          "onderwijsaanbieder"
+        ],
+        "identifier": [
+          "onderwijsaanbiedergroep",
+          "onderwijsaanbieder"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer/autoincrement"
+          },
+          "onderwijsaanbiedergroep": {
+            "relation": "rinoa:onderwijsaanbiedergroepen",
+            "type": "string",
+            "description": "Groep"
+          },
+          "onderwijsaanbieder": {
+            "relation": "rinoa:onderwijsaanbieders",
+            "type": "string",
+            "description": "Aanbieder"
+          },
+          "begindatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "einddatum": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    },
+    {
+      "id": "onderwijsaanbiedergroepen",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "required": [
+          "schema",
+          "id"
+        ],
+        "display": "onderwijsaanbiedergroepId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer/autoincrement"
+          },
+          "onderwijsaanbiedergroepId": {
+            "type": "string"
+          },
+          "naam": {
+            "type": "string"
+          },
+          "internationaleNaam": {
+            "type": "string"
+          },
+          "inBedrijfdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "uitBedrijfdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "begindatumPeriode": {
+            "type": "string",
+            "format": "date"
+          },
+          "einddatumPeriode": {
+            "type": "string",
+            "format": "date"
+          },
+          "onderwijsbesturen": {
+            "type": "array",
             "relation": "rinoa:onderwijsbesturen"
+          },
+          "onderwijsaanbieders": {
+            "type": "array",
+            "relation": "rinoa:onderwijsaanbieders"
+          }
+        }
+      }
+    },
+    {
+      "id": "onderwijsaanbieders",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "required": [
+          "schema",
+          "id"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer/autoincrement"
+          },
+          "onderwijsaanbiederId": {
+            "type": "string"
+          },
+          "naam": {
+            "type": "string"
+          },
+          "internationaleNaam": {
+            "type": "string"
+          },
+          "eigenOnderwijsaanbiederSleutel": {
+            "type": "string"
+          },
+          "inBedrijfdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "uitBedrijfdatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "begindatumPeriode": {
+            "type": "string",
+            "format": "date"
+          },
+          "einddatumPeriode": {
+            "type": "string",
+            "format": "date"
+          },
+          "onderwijsbesturen": {
+            "type": "array",
+            "relation": "rinoa:onderwijsbesturen"
+          },
+          "onderwijsaanbiedergroepen": {
+            "type": "array",
+            "relation": "rinoa:onderwijsaanbiedergroepen"
+          }
+        }
+      }
+    },
+    {
+      "id": "onderwijsaanbiederOnderwijsInstellingsErkenningRelaties",
+      "type": "table",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "required": [
+          "schema",
+          "onderwijsaanbieder",
+          "brinnummer"
+        ],
+        "identifier": [
+          "onderwijsaanbieder",
+          "brinnummer"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer/autoincrement"
+          },
+          "onderwijsaanbieder": {
+            "relation": "rinoa:onderwijsaanbieders",
+            "type": "string",
+            "description": "Aanbieder"
+          },
+          "onderwijsinstellingerkenning": {
+            "type": "string",
+            "description": "Erkenning"
+          },
+          "brinnummer": {
+            "type": "integer",
+            "description": "BRIN"
           },
           "begindatum": {
             "type": "string",
