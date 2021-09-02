@@ -1,12 +1,11 @@
 {
   "type": "dataset",
-  "id": "hcbrk",
-  "title": "BRK van HaalCentraal",
+  "id": "haalcentraal_brk",
+  "title": "BRK van Haal Centraal",
   "status": "beschikbaar",
-  "description": "Deze dataset maakt de HaalCentraal BRK API toegankelijk, bij gebruik van login credentials. De velden zijn gebaseerd op het schema van Haal-Centraal.",
+  "description": "Deze dataset maakt de Haal Centraal BRK API toegankelijk, bij gebruik van login credentials. De velden zijn gebaseerd op het schema van Haal Centraal.",
   "version": "0.0.1",
   "crs": "EPSG:28992",
-  "auth": "BRK/RSN",
   "tables": [
     {
       "id": "kadastraalonroerendezaken",
@@ -15,7 +14,8 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-         "required": [
+        "identifier": "identificatie",
+        "required": [
           "identificatie",
           "domein",
           "kadastraleAanduiding",
@@ -45,6 +45,7 @@
           },
           "koopsom": {
             "type": "object",
+            "auth": "BRK/RO",
             "properties": {
               "koopsom": {
                 "type": "integer"
@@ -56,12 +57,14 @@
           },
           "toelichtingBewaarder": {
             "type": "string",
+            "auth": "BRK/RO",
             "description": "Hier kan een toelichting staan van de bewaarder."
           },
           "type": {
             "type": "string"
           },
           "aardCultuurBebouwd": {
+            "auth": "BRK/RO",
             "type": "object",
             "properties": {
               "code": {
@@ -146,12 +149,14 @@
             }
           },
           "zakelijkGerechtigdeIdentificaties": {
+            "auth": "BRK/RO",
             "type": "array",
             "items": {
               "type": "string"
             }
           },
           "privaatrechtelijkeBeperkingIdentificaties": {
+            "auth": "BRK/RO",
             "type": "array",
             "items": {
               "type": "string"
@@ -159,6 +164,7 @@
           },
           "hypotheekIdentificaties": {
             "type": "array",
+            "auth": "BRK/RO",
             "items": {
               "type": "string"
             }
@@ -170,10 +176,12 @@
     {
       "id": "kadasternatuurlijkpersonen",
       "type": "table",
+      "auth": ["BRK/RS", "BRK/RSN"],
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "identifier": "identificatie",
         "required": [
           "identificatie",
           "domein",
@@ -218,6 +226,7 @@
           },
           "kadastraalOnroerendeZaakIdentificaties": {
             "type": "array",
+            "auth": "BRK/RSN",
             "items": {
               "type": "string"
             }
