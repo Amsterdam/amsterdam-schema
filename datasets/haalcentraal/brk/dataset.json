@@ -15,7 +15,9 @@
         "type": "object",
         "additionalProperties": false,
         "identifier": "identificatie",
+        "display": "identificatie",
         "required": [
+          "schema",
           "identificatie",
           "domein",
           "kadastraleAanduiding",
@@ -23,6 +25,9 @@
           "type"
         ],
         "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
           "identificatie": {
             "type": "string",
             "description": "Alleen cijfers"
