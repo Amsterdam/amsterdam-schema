@@ -3,7 +3,7 @@
   "id": "beheerkaart_basis",
   "title": "beheerkaart_basis",
   "status": "beschikbaar",
-  "description": "Voor het beheer van de publieke ruimte, heeft Amsterdam behoefte aan een eenduidige afbakening van de te beheren objecten. De formeel vastgestelde openbare ruimte volstaat hiervoor niet, omdat het uitgaat van de toekenning van officiële straatnamen (besluit) door de gemeenteraad. Daardoor zijn niet alle te beheren objecten onderdeel van de administratieve openbare ruimte. Om die reden heeft OIS de 'te beheren publieke ruimte’ afgeleid uit de basisregistraties grootschalige topografie (BGT) en Kadaster (BRK).",
+  "description": "Voor het beheer van de publieke ruimte, heeft Amsterdam behoefte aan een eenduidige afbakening van de te beheren objecten. De formeel vastgestelde openbare ruimte volstaat hiervoor niet, omdat het uitgaat van de toekenning van offici\u00eble straatnamen (besluit) door de gemeenteraad. Daardoor zijn niet alle te beheren objecten onderdeel van de administratieve openbare ruimte. Om die reden heeft OIS de 'te beheren publieke ruimte\u2019 afgeleid uit de basisregistraties grootschalige topografie (BGT) en Kadaster (BRK).",
   "version": "0.0.1",
   "crs": "EPSG:28992",
   "tables": [
@@ -16,7 +16,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id"],
+        "required": [
+          "schema",
+          "id"
+        ],
         "display": "id",
         "properties": {
           "schema": {
@@ -123,7 +126,7 @@
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Vlak-coördinaten van het BGT-object."
+            "description": "Vlak-co\u00f6rdinaten van het BGT-object."
           },
           "aggOppIntersectie": {
             "description": "Totaal oppervlak van het deel van dit BGT-object dat overlapt met BRK-kadastraalobjecten waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
@@ -186,7 +189,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id"],
+        "required": [
+          "schema",
+          "id"
+        ],
         "display": "id",
         "properties": {
           "schema": {
@@ -340,7 +346,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id"],
+        "required": [
+          "schema",
+          "id"
+        ],
         "display": "id",
         "properties": {
           "schema": {
@@ -447,7 +456,7 @@
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Vlak-coördinaten van het BGT-object."
+            "description": "Vlak-co\u00f6rdinaten van het BGT-object."
           }
         },
         "mainGeometry": "geometrie"

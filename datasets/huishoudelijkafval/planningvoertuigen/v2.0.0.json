@@ -7,7 +7,10 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
-    "required": ["id", "schema"],
+    "required": [
+      "id",
+      "schema"
+    ],
     "display": "id",
     "properties": {
       "id": {
@@ -20,7 +23,10 @@
       },
       "soortWerkzaamheden": {
         "type": "string",
-        "enum": ["Inzet", "Onderhoud"],
+        "enum": [
+          "Inzet",
+          "Onderhoud"
+        ],
         "description": "Specificatie van soort planning (Inzet of Onderhoud)."
       },
       "kenteken": {
@@ -144,7 +150,11 @@
       },
       "fase": {
         "type": "string",
-        "ennum": ["Teamleiders", "Realisatie", "Plannings"],
+        "ennum": [
+          "Teamleiders",
+          "Realisatie",
+          "Plannings"
+        ],
         "description": "Label van de fase waarin de planning zich bevindt."
       },
       "memo": {
@@ -157,7 +167,10 @@
       },
       "voertuigInhuurIndicatie": {
         "type": "string",
-        "enum": ["Ja", "Nee"],
+        "enum": [
+          "Ja",
+          "Nee"
+        ],
         "provenance": "inhuur",
         "description": "Is het voertuig ingehuurd (Ja / Nee)."
       },

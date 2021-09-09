@@ -2,15 +2,20 @@
   "type": "dataset",
   "id": "deelmobiliteit",
   "title": "Deelmobiliteit",
-  "description": "Locaties en contextuele informatie over deelvoertuigen zoals auto’s, fietsen en scooters.",
+  "description": "Locaties en contextuele informatie over deelvoertuigen zoals auto\u2019s, fietsen en scooters.",
   "license": "public",
   "status": "beschikbaar",
   "version": "0.0.1",
-  "theme": ["deelmobiliteit", "Ruimte en Topografie"],
+  "theme": [
+    "deelmobiliteit",
+    "Ruimte en Topografie"
+  ],
   "publisher": "OIS",
   "owner": "Gemeente Amsterdam",
   "authorizationGrantor": "OIS",
-  "keywords": ["deelmobiliteit"],
+  "keywords": [
+    "deelmobiliteit"
+  ],
   "crs": "EPSG:28992",
   "tables": [
     {
@@ -21,7 +26,11 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id", "scooterId"],
+        "required": [
+          "schema",
+          "id",
+          "scooterId"
+        ],
         "display": "scooterId",
         "mainGeometry": "geometrie",
         "properties": {
@@ -108,7 +117,11 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id", "autoId"],
+        "required": [
+          "schema",
+          "id",
+          "autoId"
+        ],
         "display": "autoId",
         "mainGeometry": "geometrie",
         "properties": {
@@ -186,7 +199,10 @@
           },
           "brandstofType": {
             "type": "string",
-            "enum": ["bezine", "elektrisch"],
+            "enum": [
+              "bezine",
+              "elektrisch"
+            ],
             "description": "Optioneel: type brandstof."
           },
           "brandstofNiveau": {

@@ -7,7 +7,10 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
-    "required": ["schema", "id"],
+    "required": [
+      "schema",
+      "id"
+    ],
     "display": "bouwstroompuntId",
     "properties": {
       "schema": {
@@ -35,11 +38,14 @@
         "type": "string",
         "provenance": "capacity",
         "unit": "A",
-        "description": "Capaciteit in Ampère."
+        "description": "Capaciteit in Amp\u00e8re."
       },
       "locatie": {
         "type": "string",
-        "enum": ["Bovengronds", "Ondergronds"],
+        "enum": [
+          "Bovengronds",
+          "Ondergronds"
+        ],
         "provenance": "positioning",
         "description": "Locatie van bouwstroompunt (boven- of ondergronds)."
       },
@@ -73,7 +79,10 @@
       },
       "vergunningsplichtig": {
         "type": "boolean",
-        "enum": [true, false],
+        "enum": [
+          true,
+          false
+        ],
         "provenance": "licence_needed",
         "description": "Indicatie vergunningplichting voor gebruik."
       },

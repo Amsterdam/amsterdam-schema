@@ -9,7 +9,11 @@
   "publisher": "OIS",
   "owner": "Gemeente Amsterdam",
   "authorizationGrantor": "OIS",
-  "keywords": ["risicozones", "bedrijven", "infrastructuur"],
+  "keywords": [
+    "risicozones",
+    "bedrijven",
+    "infrastructuur"
+  ],
   "crs": "EPSG:28992",
   "tables": [
     {
@@ -20,7 +24,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id"],
+        "required": [
+          "schema",
+          "id"
+        ],
         "mainGeometry": "geometrie",
         "display": "id",
         "properties": {
@@ -48,7 +55,11 @@
           },
           "typeContour": {
             "type": "string",
-            "enum": ["ligging-lpgtank", "invloedsgebied-groepsrisico", "plaatsgebondenrisico"],
+            "enum": [
+              "ligging-lpgtank",
+              "invloedsgebied-groepsrisico",
+              "plaatsgebondenrisico"
+            ],
             "description": "typering van contour tank"
           },
           "afstandseis": {
@@ -57,7 +68,12 @@
           },
           "afstandseisVoldoetIndicatie": {
             "type": "string",
-            "enum": ["J", "N", "?", "NVT"],
+            "enum": [
+              "J",
+              "N",
+              "?",
+              "NVT"
+            ],
             "description": "Indicatie of bedrijf voldoet aan gestelde afstand voor veiligheid.",
             "provenance": "voldoet"
           }
@@ -72,7 +88,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id"],
+        "required": [
+          "schema",
+          "id"
+        ],
         "mainGeometry": "geometrie",
         "display": "stationnummer",
         "properties": {
@@ -133,18 +152,30 @@
           },
           "ligging": {
             "type": "string",
-            "enum": ["Buitengebied", "Industriegebied", "Woongebied"],
+            "enum": [
+              "Buitengebied",
+              "Industriegebied",
+              "Woongebied"
+            ],
             "description": "Soort ligging waar bedrijf is geplaatst."
           },
           "tankaanwezigIndicatie": {
             "type": "string",
-            "enum": ["Ja", "nee"],
+            "enum": [
+              "Ja",
+              "nee"
+            ],
             "description": "Indicatie aanwezigheid van een tank.",
             "provenance": "tank_aanwezig"
           },
           "tankpositie": {
             "type": "string",
-            "enum": ["Ondergronds", "Bovengronds", "ingeterpt", "n.v.t."],
+            "enum": [
+              "Ondergronds",
+              "Bovengronds",
+              "ingeterpt",
+              "n.v.t."
+            ],
             "description": "Positie van tank.",
             "provenance": "tank_positie"
           },
@@ -155,7 +186,10 @@
           },
           "vulpuntaanwezigIndicatie": {
             "type": "string",
-            "enum": ["Ja", "nee"],
+            "enum": [
+              "Ja",
+              "nee"
+            ],
             "description": "Indicatie aanwezigheid van een vulpunt.",
             "provenance": "vulpunt_aanwezig"
           },
@@ -179,7 +213,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id"],
+        "required": [
+          "schema",
+          "id"
+        ],
         "mainGeometry": "geometrie",
         "display": "id",
         "properties": {
@@ -208,7 +245,12 @@
           },
           "afstandseisVoldoetIndicatie": {
             "type": "string",
-            "enum": ["J", "N", "?", "NVT"],
+            "enum": [
+              "J",
+              "N",
+              "?",
+              "NVT"
+            ],
             "description": "Indicatie of bedrijf voldoet aan gestelde afstand voor veiligheid.",
             "provenance": "voldoet"
           },
@@ -229,7 +271,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id"],
+        "required": [
+          "schema",
+          "id"
+        ],
         "mainGeometry": "geometrie",
         "display": "id",
         "properties": {
@@ -265,7 +310,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id"],
+        "required": [
+          "schema",
+          "id"
+        ],
         "mainGeometry": "geometrie",
         "display": "id",
         "properties": {
@@ -304,7 +352,10 @@
           },
           "bevoegdgezag": {
             "type": "string",
-            "enum": ["provincie", "gemeente"],
+            "enum": [
+              "provincie",
+              "gemeente"
+            ],
             "description": "Instantie (provincie of gemeente) die verantwoordelijk is voor risicobewaking.",
             "provenance": "bevoegd_gezag"
           },
@@ -331,7 +382,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id"],
+        "required": [
+          "schema",
+          "id"
+        ],
         "mainGeometry": "geometrie",
         "display": "id",
         "properties": {
@@ -374,7 +428,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id"],
+        "required": [
+          "schema",
+          "id"
+        ],
         "mainGeometry": "geometrie",
         "display": "id",
         "properties": {
@@ -400,7 +457,10 @@
           },
           "typeContour": {
             "type": "string",
-            "enum": ["Invloedsgebied", "Plaatsgebonden risico 10-6"],
+            "enum": [
+              "Invloedsgebied",
+              "Plaatsgebonden risico 10-6"
+            ],
             "description": "Typering contour."
           },
           "afstandseis": {
@@ -409,7 +469,12 @@
           },
           "afstandseisVoldoetIndicatie": {
             "type": "string",
-            "enum": ["J", "N", "?", "NVT"],
+            "enum": [
+              "J",
+              "N",
+              "?",
+              "NVT"
+            ],
             "description": "Indicatie of bedrijf voldoet aan gestelde afstand voor veiligheid.",
             "provenance": "voldoet"
           }
@@ -424,7 +489,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id"],
+        "required": [
+          "schema",
+          "id"
+        ],
         "mainGeometry": "geometrie",
         "display": "id",
         "properties": {
@@ -460,7 +528,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id"],
+        "required": [
+          "schema",
+          "id"
+        ],
         "mainGeometry": "geometrie",
         "display": "id",
         "properties": {
@@ -486,7 +557,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id"],
+        "required": [
+          "schema",
+          "id"
+        ],
         "mainGeometry": "geometrie",
         "display": "id",
         "properties": {
@@ -503,7 +577,11 @@
           },
           "type": {
             "type": "string",
-            "enum": ["spoorweg", "vaarweg", "autoweg"],
+            "enum": [
+              "spoorweg",
+              "vaarweg",
+              "autoweg"
+            ],
             "description": "Typering van infrastructuur."
           }
         }

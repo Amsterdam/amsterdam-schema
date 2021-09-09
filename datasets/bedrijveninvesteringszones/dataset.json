@@ -6,11 +6,16 @@
   "license": "public",
   "status": "beschikbaar",
   "version": "0.0.1",
-  "theme": ["Bedrijveninvesteringszones", "Ruimte en Topografie"],
+  "theme": [
+    "Bedrijveninvesteringszones",
+    "Ruimte en Topografie"
+  ],
   "publisher": "OIS",
   "owner": "Gemeente Amsterdam",
   "authorizationGrantor": "OIS",
-  "keywords": ["bedrijveninvesteringszones"],
+  "keywords": [
+    "bedrijveninvesteringszones"
+  ],
   "crs": "EPSG:28992",
   "tables": [
     {
@@ -21,7 +26,10 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema", "id"],
+        "required": [
+          "schema",
+          "id"
+        ],
         "display": "naam",
         "properties": {
           "schema": {
@@ -41,7 +49,11 @@
           },
           "type": {
             "type": "string",
-            "enum": ["gebruikers", "eigenaren", "gebruikers en eigenaren "],
+            "enum": [
+              "gebruikers",
+              "eigenaren",
+              "gebruikers en eigenaren "
+            ],
             "description": "Type bedrijfsinvesteringszone. Dit kan zijn: gebruikers, eigenaren of gebruikers en eigenaren.",
             "provenance": "biz_type"
           },
@@ -52,7 +64,10 @@
           },
           "heffingsgrondslag": {
             "type": "string",
-            "enum": ["heffing van een vast bedrag", "heffing op basis van waardeklassen"],
+            "enum": [
+              "heffing van een vast bedrag",
+              "heffing op basis van waardeklassen"
+            ],
             "description": "Grondslag van de heffing op de bedrijfsinvesteringszone die toepassing is."
           },
           "heffingstarief": {

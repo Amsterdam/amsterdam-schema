@@ -9,15 +9,19 @@
   "tables": [
     {
       "id": "maatschappelijkeactiviteiten",
-      "shortname": "mac",
       "type": "table",
+      "version": "0.0.1",
+      "shortname": "mac",
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/hr/maatschappelijkeactiviteiten.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
         "identifier": "kvknummer",
-        "required": ["schema", "kvknummer"],
+        "required": [
+          "schema",
+          "kvknummer"
+        ],
         "display": "kvknummer",
         "properties": {
           "schema": {
@@ -37,7 +41,7 @@
             "shortname": "datumEindeMac",
             "type": "string",
             "provenance": "$.datumEindeMaatschappelijkeActiviteit.formatted",
-            "description": "De datum waarbij de Maatschappelijke Activiteit in de echte wereld is beëindigd."
+            "description": "De datum waarbij de Maatschappelijke Activiteit in de echte wereld is be\u00ebindigd."
           },
           "registratieTijdstipMaatschappelijkeActiviteit": {
             "shortname": "registratieTijdstipMac",
@@ -162,7 +166,7 @@
           "datumEindeOnderneming": {
             "type": "string",
             "provenance": "$.datumEindeOnderneming.formatted",
-            "description": "De datum van beëindiging van de Onderneming."
+            "description": "De datum van be\u00ebindiging van de Onderneming."
           },
           "isOverdrachtVoortzettingOnderneming": {
             "type": "boolean",
@@ -258,10 +262,14 @@
     {
       "id": "locaties",
       "type": "table",
+      "version": "0.0.1",
       "temporal": {
         "identifier": "volgnummer",
         "dimensions": {
-          "geldigOp": ["beginGeldigheid", "eindGeldigheid"]
+          "geldigOp": [
+            "beginGeldigheid",
+            "eindGeldigheid"
+          ]
         }
       },
       "schema": {
@@ -269,8 +277,15 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "identifier": ["identificatie", "volgnummer"],
-        "required": ["schema", "identificatie", "volgnummer"],
+        "identifier": [
+          "identificatie",
+          "volgnummer"
+        ],
+        "required": [
+          "schema",
+          "identificatie",
+          "volgnummer"
+        ],
         "display": "id",
         "properties": {
           "schema": {
@@ -302,7 +317,7 @@
           "datumEinde": {
             "type": "string",
             "provenance": "$.datumEinde.formatted",
-            "description": "De datum waarbij de locatie is beëindigd."
+            "description": "De datum waarbij de locatie is be\u00ebindigd."
           },
           "afgeschermd": {
             "type": "boolean",
@@ -418,13 +433,17 @@
     {
       "id": "vestigingen",
       "type": "table",
+      "version": "0.0.1",
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/hr/vestigingen.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
         "identifier": "vestigingsnummer",
-        "required": ["schema", "vestigingsnummer"],
+        "required": [
+          "schema",
+          "vestigingsnummer"
+        ],
         "display": "vestigingsnummer",
         "properties": {
           "schema": {
@@ -449,7 +468,7 @@
             "type": "string",
             "format": "date",
             "provenance": "$.datumEinde.formatted",
-            "description": "De datum waarbij de vestiging is beëindigd."
+            "description": "De datum waarbij de vestiging is be\u00ebindigd."
           },
           "datumVoortzetting": {
             "type": "string",
@@ -459,11 +478,11 @@
           },
           "isCommercieleVestiging": {
             "type": "boolean",
-            "description": "Geeft aan of dit een commerciële vestiging betreft. Als false, dan een niet-commerciële vestiging."
+            "description": "Geeft aan of dit een commerci\u00eble vestiging betreft. Als false, dan een niet-commerci\u00eble vestiging."
           },
           "eersteHandelsnaam": {
             "type": "string",
-            "description": "De eerste-handelsnaam betreft een samengesteld veld over de vestiging. Als het een niet-commerciële vestiging betreft is dit de naam, als het een commerciele vestiging betreft is dit de eerste handelsnaam."
+            "description": "De eerste-handelsnaam betreft een samengesteld veld over de vestiging. Als het een niet-commerci\u00eble vestiging betreft is dit de naam, als het een commerciele vestiging betreft is dit de eerste handelsnaam."
           },
           "heeftAlsPostadres": {
             "type": "object",
@@ -513,11 +532,11 @@
           },
           "naam": {
             "type": "string",
-            "description": "De naam van de niet-commerciële vestiging."
+            "description": "De naam van de niet-commerci\u00eble vestiging."
           },
           "verkorteNaam": {
             "type": "string",
-            "description": "De administratieve naam van de niet-commerciële vestiging in het handelsregister indien de naam langer is dan 45 karakters."
+            "description": "De administratieve naam van de niet-commerci\u00eble vestiging in het handelsregister indien de naam langer is dan 45 karakters."
           },
           "ookGenoemd": {
             "type": "string",
@@ -547,7 +566,7 @@
                 }
               }
             },
-            "description": "Een handelsnaam is een naam waaronder de commerciële vestiging handelt. Een vestiging mag meerdere handelsnamen hebben. omschrijving"
+            "description": "Een handelsnaam is een naam waaronder de commerci\u00eble vestiging handelt. Een vestiging mag meerdere handelsnamen hebben. omschrijving"
           },
           "totaalWerkzamePersonen": {
             "type": "integer",
@@ -563,15 +582,15 @@
           },
           "importeert": {
             "type": "boolean",
-            "description": "Indicatie of de commerciële activiteit Import betreft."
+            "description": "Indicatie of de commerci\u00eble activiteit Import betreft."
           },
           "exporteert": {
             "type": "boolean",
-            "description": "Indicatie of de commerciële activiteit Export betreft."
+            "description": "Indicatie of de commerci\u00eble activiteit Export betreft."
           },
           "activiteitenOmschrijving": {
             "type": "string",
-            "description": "De omschrijving van de activiteiten die de vestiging uitoefent. De beschrijving bevat de nadere aanduiding van de commerciële activiteiten of de nadere aanduiding van de niet-commerciële activiteiten."
+            "description": "De omschrijving van de activiteiten die de vestiging uitoefent. De beschrijving bevat de nadere aanduiding van de commerci\u00eble activiteiten of de nadere aanduiding van de niet-commerci\u00eble activiteiten."
           },
           "heeftSbiActiviteiten": {
             "type": "array",
@@ -584,7 +603,7 @@
               }
             },
             "relation": "hr:sbiactiviteiten",
-            "description": "SBI Activiteiten die bij deze commerciële of niet commerciële vestiging horen."
+            "description": "SBI Activiteiten die bij deze commerci\u00eble of niet commerci\u00eble vestiging horen."
           },
           "isOvergegaanInVestiging": {
             "type": "array",
@@ -615,13 +634,17 @@
     {
       "id": "sbiactiviteiten",
       "type": "table",
+      "version": "0.0.1",
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/hr/sbiactiviteiten.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
         "identifier": "sbiActiviteitNummer",
-        "required": ["schema", "sbiActiviteitNummer"],
+        "required": [
+          "schema",
+          "sbiActiviteitNummer"
+        ],
         "display": "sbiActiviteitNummer",
         "properties": {
           "schema": {
@@ -655,7 +678,7 @@
           "datumEindeSbiactiviteit": {
             "type": "string",
             "provenance": "$.datumEindeSbiactiviteit.formatted",
-            "description": "De datum waarop de SBIactiviteit is beëindigd."
+            "description": "De datum waarop de SBIactiviteit is be\u00ebindigd."
           },
           "tijdstipRegistratie": {
             "type": "string",

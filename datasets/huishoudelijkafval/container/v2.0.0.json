@@ -8,7 +8,10 @@
     "additionalProperties": false,
     "mainGeometry": "geometrie",
     "identifier": "id",
-    "required": ["id", "schema"],
+    "required": [
+      "id",
+      "schema"
+    ],
     "display": "id",
     "properties": {
       "schema": {
@@ -47,13 +50,25 @@
       "status": {
         "type": "integer",
         "provenance": "container_status",
-        "enum": [0, 1, 2],
+        "enum": [
+          0,
+          1,
+          2
+        ],
         "description": "Status van de container,0 - inactief, 1 - actief, 2 - gepland"
       },
       "fractieCode": {
         "type": "string",
         "provenance": "container_fractie_code",
-        "enum": ["1", "2", "3", "4", "5", "6", "9"],
+        "enum": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "9"
+        ],
         "description": "Type afvalfractie code waarvoor de container is bedoeld: 1 - Rest, 2 - Glas, 3 - Papier, 4 - Plastic, 5 - Textiel, 6 - GFT, 9 - Brood"
       },
       "fractieOmschrijving": {
@@ -65,7 +80,7 @@
         "provenance": "container_datum_creatie",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop het object is gecreëerd in container management systeem"
+        "description": "Datum waarop het object is gecre\u00eberd in container management systeem"
       },
       "datumPlaatsing": {
         "provenance": "container_datum_plaatsing",
