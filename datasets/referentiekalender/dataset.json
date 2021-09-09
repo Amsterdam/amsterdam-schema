@@ -3,14 +3,22 @@
   "id": "referentiekalender",
   "title": "Referentiekalender",
   "status": "beschikbaar",
-  "description": "Een generieke hiërarchisch dataset met datum (yyyy-mm-dd) als laagste granulariteitsniveau.",
+  "description": "Een generieke hi\u00ebrarchisch dataset met datum (yyyy-mm-dd) als laagste granulariteitsniveau.",
   "version": "0.0.1",
   "crs": "EPSG:28992",
-  "theme": ["kalender", "referentie", "datum"],
+  "theme": [
+    "kalender",
+    "referentie",
+    "datum"
+  ],
   "owner": "Gemeente Amsterdam",
   "accrualPeriodicity": "dagelijks",
   "publisher": "OIS",
-  "keywords": ["kalender", "referentie", "datum"],
+  "keywords": [
+    "kalender",
+    "referentie",
+    "datum"
+  ],
   "contactPoint": {
     "name": "",
     "email": "datadiensten.ois@amsterdam.nl"
@@ -19,12 +27,15 @@
     {
       "id": "datum",
       "type": "table",
-      "description": "Per datum (yyyy-mm-dd) de gerelateerde hiërarchische gegevens.",
+      "description": "Per datum (yyyy-mm-dd) de gerelateerde hi\u00ebrarchische gegevens.",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "schema"],
+        "required": [
+          "id",
+          "schema"
+        ],
         "display": "id",
         "properties": {
           "id": {
@@ -278,7 +289,7 @@
           },
           "niveaucode": {
             "type": "string",
-            "description": "Code die aangeeft tot welk hiërarchische niveau van de datum dimensie het record behoort. Op het laagste niveau zit 'Dag' met één record per dag, op het hoogste niveau 'Jaar' met een record per jaar."
+            "description": "Code die aangeeft tot welk hi\u00ebrarchische niveau van de datum dimensie het record behoort. Op het laagste niveau zit 'Dag' met \u00e9\u00e9n record per dag, op het hoogste niveau 'Jaar' met een record per jaar."
           }
         }
       }

@@ -4,7 +4,9 @@
   "definitions": {
     "rootProperty": {
       "type": "object",
-      "required": ["description"],
+      "required": [
+        "description"
+      ],
       "properties": {
         "description": {
           "type": "string"
@@ -12,7 +14,9 @@
       },
       "oneOf": [
         {
-          "required": ["type"],
+          "required": [
+            "type"
+          ],
           "properties": {
             "type": {
               "type": "string"
@@ -20,7 +24,9 @@
           }
         },
         {
-          "required": ["$ref"],
+          "required": [
+            "$ref"
+          ],
           "properties": {
             "$ref": {
               "type": "string"
@@ -31,7 +37,12 @@
     }
   },
   "type": "object",
-  "required": ["$schema", "type", "properties", "required"],
+  "required": [
+    "$schema",
+    "type",
+    "properties",
+    "required"
+  ],
   "additionalProperties": false,
   "properties": {
     "$schema": {
@@ -66,14 +77,19 @@
     },
     "properties": {
       "type": "object",
-      "required": ["id", "schema"],
+      "required": [
+        "id",
+        "schema"
+      ],
       "propertyNames": {
         "pattern": "^[a-z][A-Za-z0-9]*$"
       },
       "properties": {
         "id": {
           "type": "object",
-          "required": ["$ref"],
+          "required": [
+            "$ref"
+          ],
           "properties": {
             "description": {
               "type": "string"
@@ -85,7 +101,9 @@
         },
         "schema": {
           "type": "object",
-          "required": ["$ref"],
+          "required": [
+            "$ref"
+          ],
           "properties": {
             "description": {
               "type": "string"
@@ -97,7 +115,9 @@
         },
         "geometry": {
           "type": "object",
-          "required": ["$ref"],
+          "required": [
+            "$ref"
+          ],
           "properties": {
             "$ref": {
               "type": "string",

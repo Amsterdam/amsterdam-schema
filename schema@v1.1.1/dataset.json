@@ -7,7 +7,10 @@
       "$ref": "./schema@v1.1.1#/definitions/basicProperties"
     }
   ],
-  "required": ["tables", "status"],
+  "required": [
+    "tables",
+    "status"
+  ],
   "properties": {
     "type": {
       "const": "dataset"
@@ -17,7 +20,10 @@
     },
     "status": {
       "type": "string",
-      "enum": ["beschikbaar", "niet_beschikbaar"]
+      "enum": [
+        "beschikbaar",
+        "niet_beschikbaar"
+      ]
     },
     "homepage": {
       "type": "string",
@@ -85,7 +91,10 @@
     "crs": {
       "description": "Coordinate reference system",
       "type": "string",
-      "enum": ["EPSG:28992", "EPSG:4326"]
+      "enum": [
+        "EPSG:28992",
+        "EPSG:4326"
+      ]
     },
     "tables": {
       "type": "array",

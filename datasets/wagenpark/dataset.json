@@ -1,9 +1,14 @@
 {
   "id": "wagenpark",
   "type": "dataset",
-  "auth": ["FP/MDW", "FP/WAGENPARK"],
+  "auth": [
+    "FP/MDW",
+    "FP/WAGENPARK"
+  ],
   "authorizationGrantor": "n.v.t.",
-  "theme": ["duurzaamheid en milieu"],
+  "theme": [
+    "duurzaamheid en milieu"
+  ],
   "homepage": "https://data.amsterdam.nl",
   "owner": "Gemeente Amsterdam, Interne Dienstverlening",
   "dateModified": "2021-01-27",
@@ -17,7 +22,7 @@
   "hasEnd": "",
   "accrualPeriodicity": "dagelijks",
   "publisher": "OIS",
-  "description": "De dataset Wagenparkbeheer bevat stam- en procesgegevens over het Amsterdamse wagenpark (voertuigen en bijbehorend materieel), inclusief gegevens over het onderhoud daarvan. De dataset bestaat uit RDW-plichtige objecten met een kentekennummer (veelal voertuigen) en niet-RDW-plichtige objecten met een eigen Amsterdams identificatienummer (overig materieel). De kenmerken van de objecten zijn gegroepeerd in 6 deeldatasets: materieel (basisgegevens en indien van toepassing ook brandstof- en verbruiksgegevens), financiën (financiële en verzekeringsgegevens), vergunning (vergunning- en ontheffingsgegevens), RDW (gegevens die voortkomen uit het kentekenregister van het Rijksdienst voor Wegverkeer), aeng_kenmerk (kenmerken die speciaal voor Afval&Grondstoffen zijn toegevoegd) en onderhoud (procesgegevens met betrekking tot zowel gepland als ongepland onderhoud en reparaties)",
+  "description": "De dataset Wagenparkbeheer bevat stam- en procesgegevens over het Amsterdamse wagenpark (voertuigen en bijbehorend materieel), inclusief gegevens over het onderhoud daarvan. De dataset bestaat uit RDW-plichtige objecten met een kentekennummer (veelal voertuigen) en niet-RDW-plichtige objecten met een eigen Amsterdams identificatienummer (overig materieel). De kenmerken van de objecten zijn gegroepeerd in 6 deeldatasets: materieel (basisgegevens en indien van toepassing ook brandstof- en verbruiksgegevens), financi\u00ebn (financi\u00eble en verzekeringsgegevens), vergunning (vergunning- en ontheffingsgegevens), RDW (gegevens die voortkomen uit het kentekenregister van het Rijksdienst voor Wegverkeer), aeng_kenmerk (kenmerken die speciaal voor Afval&Grondstoffen zijn toegevoegd) en onderhoud (procesgegevens met betrekking tot zowel gepland als ongepland onderhoud en reparaties)",
   "status": "beschikbaar",
   "keywords": [
     "wagenpark",
@@ -47,7 +52,10 @@
         "type": "object",
         "additionalProperties": false,
         "identifier": "wagenparkMaterieelId",
-        "required": ["wagenparkMaterieelId", "schema"],
+        "required": [
+          "wagenparkMaterieelId",
+          "schema"
+        ],
         "display": "wagenparkMaterieelId",
         "properties": {
           "wagenparkMaterieelId": {
@@ -67,11 +75,14 @@
           },
           "nummerOud": {
             "type": "string",
-            "description": "het historische ‘kenteken’ indien van toepassing"
+            "description": "het historische \u2018kenteken\u2019 indien van toepassing"
           },
           "status": {
             "type": "string",
-            "enum": ["2", "16"],
+            "enum": [
+              "2",
+              "16"
+            ],
             "description": "Indicator voor actuele status van materieel. 2 = Actief, 16 = Verkoopproces"
           },
           "aNummer": {
@@ -202,13 +213,16 @@
     {
       "id": "financien",
       "type": "table",
-      "description": "Deze end-point bevat de gegevens over financiën van transport- of werkmaterieel",
+      "description": "Deze end-point bevat de gegevens over financi\u00ebn van transport- of werkmaterieel",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
         "identifier": "wagenparkFinancienId",
-        "required": ["wagenparkFinancienId", "schema"],
+        "required": [
+          "wagenparkFinancienId",
+          "schema"
+        ],
         "display": "wagenparkFinancienId",
         "properties": {
           "wagenparkFinancienId": {
@@ -277,7 +291,10 @@
         "type": "object",
         "additionalProperties": false,
         "identifier": "wagenparkVergunningId",
-        "required": ["wagenparkVergunningId", "schema"],
+        "required": [
+          "wagenparkVergunningId",
+          "schema"
+        ],
         "display": "wagenparkVergunningId",
         "properties": {
           "wagenparkVergunningId": {
@@ -343,7 +360,10 @@
         "type": "object",
         "additionalProperties": false,
         "identifier": "wagenparkRdwKenmerkId",
-        "required": ["wagenparkRdwKenmerkId", "schema"],
+        "required": [
+          "wagenparkRdwKenmerkId",
+          "schema"
+        ],
         "display": "wagenparkRdwKenmerkId",
         "properties": {
           "wagenparkRdwKenmerkId": {
@@ -377,7 +397,7 @@
           "cilinderinhoud": {
             "type": "number",
             "multipleOf": 0.01,
-            "description": "Dit is het totale volume van de verbrandingsruimte van de verbrandingsmotor van het voertuig, uitgedrukt in cm³."
+            "description": "Dit is het totale volume van de verbrandingsruimte van de verbrandingsmotor van het voertuig, uitgedrukt in cm\u00b3."
           },
           "massaLedig": {
             "type": "number",
@@ -458,7 +478,10 @@
         "type": "object",
         "additionalProperties": false,
         "identifier": "wagenparkAengKenmerkId",
-        "required": ["wagenparkAengKenmerkId", "schema"],
+        "required": [
+          "wagenparkAengKenmerkId",
+          "schema"
+        ],
         "display": "wagenparkAengKenmerkId",
         "properties": {
           "wagenparkAengKenmerkId": {
@@ -564,7 +587,10 @@
         "type": "object",
         "additionalProperties": false,
         "identifier": "wagenparkOnderhoudId",
-        "required": ["wagenparkOnderhoudId", "schema"],
+        "required": [
+          "wagenparkOnderhoudId",
+          "schema"
+        ],
         "display": "wagenparkOnderhoudId",
         "properties": {
           "wagenparkOnderhoudId": {
@@ -594,7 +620,18 @@
           },
           "processtatus": {
             "type": "string",
-            "enum": ["-1", "0", "1", "2", "4", "16", "32", "64", "4096", "8192"],
+            "enum": [
+              "-1",
+              "0",
+              "1",
+              "2",
+              "4",
+              "16",
+              "32",
+              "64",
+              "4096",
+              "8192"
+            ],
             "description": "Laatste status waarin de proces van het onderhoud zich bevindt. -1 = Niet gedefineerd, 0 = Geen, 1 = Open, 2 = Goedgekeurd, 4 = Actief, 16 = Gereed, 32 = Gesloten, 64 = Aanvraag, 4096 = Compleet, 8192 = Uitgesteld"
           },
           "voortgangstatus": {

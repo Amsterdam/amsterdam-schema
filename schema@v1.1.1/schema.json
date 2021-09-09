@@ -13,48 +13,42 @@
   "definitions": {
     "basicProperties": {
       "type": "object",
-      "required": ["id", "type"],
+      "required": [
+        "id",
+        "type"
+      ],
       "properties": {
         "auth": {
           "$ref": "#/definitions/auth"
         },
-
         "dateCreated": {
           "type": "string",
           "format": "date-time"
         },
-
         "dateModified": {
           "type": "string",
           "format": "date-time"
         },
-
         "description": {
           "$ref": "#/definitions/description"
         },
-
         "id": {
           "$ref": "#/definitions/id"
         },
-
         "license": {
           "type": "string"
         },
-
         "provenance": {
           "$ref": "https://schemas.data.amsterdam.nl/meta/provenance@v1.1.1#properties/provenance"
         },
-
         "title": {
           "$ref": "#/definitions/title"
         },
-
         "type": {
           "$ref": "#/definitions/type"
         }
       }
     },
-
     "idString": {
       "type": "string",
       "minLength": 1,
@@ -72,7 +66,10 @@
     },
     "type": {
       "type": "string",
-      "enum": ["dataset", "table"]
+      "enum": [
+        "dataset",
+        "table"
+      ]
     },
     "schema": {
       "type": "string",
@@ -89,13 +86,17 @@
     },
     "version": {
       "type": "string",
-      "pattern":"^(\\d+\\.)(\\d+\\.)?(\\d+)$"
+      "pattern": "^(\\d+\\.)(\\d+\\.)?(\\d+)$"
     },
     "contactPoint": {
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
-        "email": { "type": "string" }
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
       }
     },
     "auth": {

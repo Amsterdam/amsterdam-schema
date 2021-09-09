@@ -152,13 +152,13 @@ def replace_schema_base_url(temp_dir: Path, schema_base_url: str) -> None:
                         file.write(line)
 
 
-@click.command()
+@click.command()  # type: ignore[misc]
 @click.option(
     "--dp-env",
     envvar="DATAPUNT_ENVIRONMENT",
     default="acceptance",
     help="Override the environment to be used, values can be 'acceptance' or 'production'.",
-)
+)  # type: ignore[misc]
 @click.option(
     "--container-prefix",
     envvar="CONTAINER_PREFIX",
@@ -167,12 +167,12 @@ def replace_schema_base_url(temp_dir: Path, schema_base_url: str) -> None:
         This name will be prefixed to the value of DATAPUNT_ENVIRONMENT,
         to create the full name of the objectstore container.
     """,
-)
+)  # type: ignore[misc]
 @click.option(
     "--schema-base-url",
     envvar="SCHEMA_BASE_URL",
     help="Override the base url in schema files (for testing).",
-)
+)  # type: ignore[misc]
 def main(dp_env: str, container_prefix: str, schema_base_url: str) -> None:
     ROOT_PKG_NAME = "amsterdam_schema"
     with TemporaryDirectory() as temp_dir:
