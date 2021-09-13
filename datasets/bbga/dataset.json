@@ -4,15 +4,13 @@
   "title": "BBGA",
   "status": "beschikbaar",
   "description": "Basisbestand Gebieden Amsterdam",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "crs": "EPSG:4326",
   "tables": [
     {
       "id": "indicatorenDefinities",
-      "title": "Metadata Indicatoren en Definities",
+      "title": "Metedata Indicatoren en Definities",
       "type": "table",
-      "version": "0.0.1",
-      "crs": "EPSG:4326",
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bbga/indicatoren_definities.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -123,7 +121,6 @@
       "title": "Kerncijfers",
       "description": "Kerncijfers op het niveau van de meest gebruikte gebiedsindelingen in Amsterdam: stadsdelen, de 22 gebieden van het gebiedsgericht werken, wijken, buurten, winkel- en werkgebieden, PC4 en twee alternatieve buurtindelingen van de stadsdelen.",
       "type": "table",
-      "version": "0.0.1",
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bbga/kerncijfers.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -160,7 +157,6 @@
       "title": "Statistieken",
       "description": "Stedelijke gemiddelden en standaardafwijkingen.",
       "type": "table",
-      "version": "0.0.1",
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bbga/statistieken.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -191,55 +187,6 @@
             "type": "string",
             "relation": "bbga:indicatorenDefinities",
             "description": "De variabele in kwestie."
-          }
-        }
-      }
-    },
-    {
-      "id": "cijfers",
-      "title": "Kerncijfers plus stedelijke gemiddelden en standaardafwijkingen.",
-      "description": "Dit is de samenvoeging van kerncijfers + statistieken. BELANGRIJK: hoewel de statistieken per gebiedsindeling worden weergegeven zijn het _stedelijke_ statistieken voor een gegeven jaar en indicator.",
-      "type": "table",
-      "version": "0.0.1",
-      "schema": {
-        "$id": "https://github.com/Amsterdam/schemas/bbga/cijfers.json",
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "identifier": ["indicatorDefinitieId", "jaar", "gebiedcode15"],
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["schema"],
-        "display": "indicatorDefinitie",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "jaar": {
-            "type": "integer",
-            "minimum": 1300,
-            "maximum": 2121
-          },
-          "gebiedcode15": {
-            "type": "string"
-          },
-          "waarde": {
-            "type": "number"
-          },
-          "indicatorDefinitie": {
-            "type": "string",
-            "relation": "bbga:indicatorenDefinities",
-            "description": "De variabele in kwestie."
-          },
-          "stedelijkGemiddelde": {
-            "type": "number",
-            "description": "Het stedelijk gemiddelde voor een gegeven jaar en indicator."
-          },
-          "stedelijkStandaardafwijking": {
-            "type": "number",
-            "description": "De stedelijke standaarddeviatie voor een gegeven jaar en indicator."
-          },
-          "statistiekBron": {
-            "type": "string",
-            "description": "Bron van de stedelijke statistieken."
           }
         }
       }
