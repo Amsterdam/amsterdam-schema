@@ -9,7 +9,8 @@
   "tables": [
     {
       "id": "indicatorenDefinities",
-      "title": "Metedata Indicatoren en Definities",
+      "title": "Metadata Indicatoren en Definities",
+      "version": "0.0.1",
       "type": "table",
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bbga/indicatoren_definities.json",
@@ -17,7 +18,10 @@
         "identifier": "variabele",
         "type": "object",
         "additionalProperties": false,
-        "required": ["variabele", "schema"],
+        "required": [
+          "variabele",
+          "schema"
+        ],
         "display": "variabele",
         "properties": {
           "schema": {
@@ -120,14 +124,21 @@
       "id": "kerncijfers",
       "title": "Kerncijfers",
       "description": "Kerncijfers op het niveau van de meest gebruikte gebiedsindelingen in Amsterdam: stadsdelen, de 22 gebieden van het gebiedsgericht werken, wijken, buurten, winkel- en werkgebieden, PC4 en twee alternatieve buurtindelingen van de stadsdelen.",
+      "version": "0.0.1",
       "type": "table",
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bbga/kerncijfers.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "identifier": ["indicatorDefinitieId", "jaar", "gebiedcode15"],
+        "identifier": [
+          "indicatorDefinitieId",
+          "jaar",
+          "gebiedcode15"
+        ],
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema"],
+        "required": [
+          "schema"
+        ],
         "display": "indicatorDefinitie",
         "properties": {
           "schema": {
@@ -156,14 +167,20 @@
       "id": "statistieken",
       "title": "Statistieken",
       "description": "Stedelijke gemiddelden en standaardafwijkingen.",
+      "version": "0.0.1",
       "type": "table",
       "schema": {
         "$id": "https://github.com/Amsterdam/schemas/bbga/statistieken.json",
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "identifier": ["indicatorDefinitieId", "jaar"],
+        "identifier": [
+          "indicatorDefinitieId",
+          "jaar"
+        ],
         "type": "object",
         "additionalProperties": false,
-        "required": ["schema"],
+        "required": [
+          "schema"
+        ],
         "display": "indicatorDefinitie",
         "properties": {
           "schema": {
