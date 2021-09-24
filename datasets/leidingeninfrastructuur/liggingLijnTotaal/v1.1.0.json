@@ -1,0 +1,80 @@
+{
+  "id": "liggingLijnTotaal",
+  "type": "table",
+  "provenance": "leidingeninfrastructuur_ligging_lijn_totaal",
+  "title": "leidingeninfrastructuur lijn",
+  "description": "Overzicht lijnen infrastructuur op basis van klic meldingen",
+  "auth": "FP/MDW",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "geometrie",
+    "display": "id",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "Unieke id van het object"
+      },
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "thema": {
+        "type": "string",
+        "description": "Thema of discipline waar een leiding of leidingelement toe behoort"
+      },
+      "class": {
+        "type": "string",
+        "description": "Objectklasse of type kabel/leiding"
+      },
+      "beheerder": {
+        "type": "string",
+        "description": "Degene die als natuurlijk persoon handelende in de uitoefening van een beroep of bedrijf dan wel als rechtspersoon een net beheert."
+      },
+      "diamMm": {
+        "type": "number",
+        "description": "Diameter buis of leiding"
+      },
+      "diepte": {
+        "type": "number",
+        "description": "Diepte t.o.v. maaiveld"
+      },
+      "materiaal": {
+        "type": "string",
+        "description": "Materiaal van de kabel of leiding"
+      },
+      "voltage": {
+        "type": "string",
+        "description": "Het operatieve en nominale voltage van de elektriciteitskabel (indien van toepassing)"
+      },
+      "status": {
+        "type": "string",
+        "description": "De status van het object"
+      },
+	  "opvraagdatum": {
+        "type": "date-time",
+        "description": "De datum en het tijdstip waarop de gegevens zijn opgevraagd"
+      },
+      "buurtcode": {
+        "type": "string",
+        "description": "Buurtcode"
+      },
+      "buurtnaam": {
+        "type": "string",
+        "description": "Buurtnaam"
+      },
+      "wkt": {
+        "type": "string",
+        "description": "Naam van projectgebied"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/LineString.json",
+        "description": "Geometrie in RD (epsg:28992)"
+      }
+    }
+  }
+}
