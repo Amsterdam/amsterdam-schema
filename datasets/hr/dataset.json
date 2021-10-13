@@ -191,10 +191,13 @@
           },
           "heeftSbiActiviteitenVoorOnderneming": {
             "shortname": "sbiVoorOnderneming",
-            "type": "object",
-            "properties": {
-              "sbiActiviteitNummer": {
-                "type": "string"
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "sbiActiviteitNummer": {
+                  "type": "string"
+                }
               }
             },
             "relation": "hr:sbiactiviteiten",
