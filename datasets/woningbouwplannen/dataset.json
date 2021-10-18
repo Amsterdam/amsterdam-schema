@@ -18,11 +18,17 @@
   },
   "accrualPeriodicity": "jaarlijks",
   "spatialDescription": "Gemeente Amsterdam",
-  "theme": "Wonen",
+  "theme": [
+    "Wonen"
+  ],
   "publisher": "OIS",
   "owner": "Gemeente Amsterdam, Grond en Ontwikkeling en Ruimte en Duurzaamheid",
   "authorizationGrantor": "Grond en Ontwikkeling en Ruimte en Duurzaamheid",
-  "keywords": "wonen, woningbouwplannen, strategischeruimtes",
+  "keywords": [
+    "wonen",
+    "woningbouwplannen",
+    "strategischeruimtes"
+  ],
   "hasBeginning": "2020-01-01T00:00:00",
   "crs": "EPSG:28992",
   "tables": [
@@ -35,7 +41,7 @@
       "description": "De aantallen vormen de planvoorraad. Dit zijn niet de aantallen die definitief worden gerealiseerd. Ervaring leert dat een deel van de planvoorraad wordt opgeschoven. Niet alle woningbouw initiatieven doorlopen de verschillende plaberumfasen. Met name kleinere particuliere projecten worden in de regel pas toegevoegd aan de monitor zodra er een intentieovereenkomst of afsprakenbrief is getekend.",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "id",
+        "type": "object",
         "additionalProperties": false,
         "required": [
           "schema",
@@ -213,7 +219,7 @@
       "description": "De aantallen vormen de planvoorraad. Dit zijn niet de aantallen die definitief worden gerealiseerd. Ervaring leert dat een deel van de planvoorraad wordt opgeschoven. Niet alle woningbouw initiatieven doorlopen de verschillende plaberumfasen. Met name kleinere particuliere projecten worden in de regel pas toegevoegd aan de monitor zodra er een intentieovereenkomst of afsprakenbrief is getekend.",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "id",
+        "type": "object",
         "additionalProperties": false,
         "required": [
           "schema",
@@ -234,7 +240,7 @@
             "type": "string",
             "description": "Naam van het project"
           },
-          "cluster_id": {
+          "clusterId": {
             "type": "string",
             "description": "id van cluster (niet uniek)"
           },
@@ -299,7 +305,7 @@
       "description": "Deze tabel bevat een slectie uit de BAG-pand tabel met de volgen de statussen: Bouwvergunning verleend, Sloopvergunning verleend, Verbouwing pand, Bouw gestart ",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "id",
+        "type": "object",
         "additionalProperties": false,
         "required": [
           "schema",
