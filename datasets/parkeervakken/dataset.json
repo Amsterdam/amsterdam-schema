@@ -25,7 +25,7 @@
             "description": ""
           },
           "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.0#/definitions/schema"
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
           "buurtcode": {
             "type": "string",
@@ -84,24 +84,29 @@
                   "description": ""
                 },
                 "beginTijd": {
-                  "type": "time",
+                  "type": "string",
+                  "format": "time",
                   "description": ""
                 },
                 "eindTijd": {
-                  "type": "time",
+                  "type": "string",
+                  "format": "time",
                   "description": ""
                 },
                 "beginDatum": {
-                  "type": "date",
+                  "type": "string",
+                  "format": "date",
                   "description": ""
                 },
                 "eindDatum": {
-                  "type": "date",
+                  "type": "string",
+                  "format": "date",
                   "description": ""
                 },
                 "dagen": {
                   "type": "array",
-                  "entity": {
+                  "description": "",
+                  "items": {
                     "type": "string"
                   }
                 },
