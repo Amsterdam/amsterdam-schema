@@ -18,11 +18,20 @@
   },
   "accrualPeriodicity": "maandelijks",
   "spatialDescription": "Gemeente Amsterdam",
-  "theme": "Ondergrond",
+  "theme": [
+    "Ondergrond"
+  ],
   "publisher": "OIS",
   "owner": "Gemeente Amsterdam, V&OR assetmanager verhardingen",
   "authorizationGrantor": "Assetmanager verhardingen",
-  "keywords": "Verhardingen,Fietspad,Berm,Voetpad, Busbaan, Rijbaan",
+  "keywords": [
+    "Verhardingen",
+    "Fietspad",
+    "Berm",
+    "Voetpad",
+    "Busbaan",
+    "Rijbaan"
+  ],
   "hasBeginning": "2020-01-01T00:00:00",
   "crs": "EPSG:28992",
   "tables": [
@@ -35,6 +44,7 @@
       "description": "Informatie over rioolleidingen",
       "schema": {
         "required": [
+          "schema",
           "objnr"
         ],
         "identifier": "objnr",
@@ -45,7 +55,7 @@
         "additionalProperties": false,
         "properties": {
           "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@1.1.1#/definitions/schema"
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
           "objnr": {
             "type": "number",
