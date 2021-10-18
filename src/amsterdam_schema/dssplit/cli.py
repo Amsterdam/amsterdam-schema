@@ -11,7 +11,7 @@ import click
 def main(dataset_in_file: BufferedReader, dataset_out_dir: Path) -> None:
     """Split up a single dataset json schema file into separate files.
 
-    DATASET_IN_PATH: Path to dataset.json that needs to be split up in tables.
+    DATASET_IN_FILE: Path to dataset.json that needs to be split up in tables.
     DATASET_OUT_DIR: Path where output files need to be placed.
     """
     dataset = json.load(dataset_in_file)
@@ -20,8 +20,9 @@ def main(dataset_in_file: BufferedReader, dataset_out_dir: Path) -> None:
     for table in dataset["tables"]:
         version = table["version"]
         table_id = table["id"]
-        ref = f"{table_id}/v{version}"
-        table_dir = dataset_out_dir / table_id
+        lower_table_id = table_id.lower()
+        ref = f"{lower_table_id}/v{version}"
+        table_dir = dataset_out_dir / lower_table_id
         table_dir.mkdir(parents=True, exist_ok=True)
         table_file = table_dir / f"v{version}.json"
         with table_file.open("w") as tf:
@@ -30,7 +31,7 @@ def main(dataset_in_file: BufferedReader, dataset_out_dir: Path) -> None:
             {
                 "id": table_id,
                 "$ref": ref,
-                "activeVersions": {f"v{version}": ref},
+                "activeVersions": {version: ref},
             }
         )
 
