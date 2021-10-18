@@ -8,6 +8,8 @@ on:
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
+    env:
+      SCHEMA_URL: https://schemas.data.amsterdam.nl/datasets/
     steps:
       - uses: actions/checkout@v2
         with:
