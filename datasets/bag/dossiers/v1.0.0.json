@@ -1,0 +1,39 @@
+{
+  "id": "dossiers",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$id": "https://github.com/Amsterdam/schemas/bag/dossiers.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "dossier",
+    "required": [
+      "schema",
+      "dossier"
+    ],
+    "display": "dossier",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "dossier": {
+        "type": "string",
+        "description": "Verwijzing vanuit de overige objectklassen."
+      },
+      "heeftBrondocumenten": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "documentnummer": {
+              "type": "string"
+            }
+          }
+        },
+        "relation": "bag:brondocumenten",
+        "description": "De brondocument(en) behorende bij het dossier."
+      }
+    }
+  }
+}

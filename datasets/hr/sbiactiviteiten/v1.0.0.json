@@ -1,0 +1,83 @@
+{
+  "id": "sbiactiviteiten",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$id": "https://github.com/Amsterdam/schemas/hr/sbiactiviteiten.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "sbiActiviteitNummer",
+    "required": [
+      "schema",
+      "sbiActiviteitNummer"
+    ],
+    "display": "sbiActiviteitNummer",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "sbiActiviteitNummer": {
+        "type": "string",
+        "description": "Samenstelling van KvK-nummer en/of Vestigingsnummer of {BSN- of RSIN-nummer}"
+      },
+      "sbiCode": {
+        "type": "string",
+        "description": "Codering van activiteiten binnen HR volgens de standaard bedrijfsindeling (SBI) 2008."
+      },
+      "omschrijving": {
+        "type": "string",
+        "description": "De omschrijving van de SBIcode."
+      },
+      "isHoofdactiviteit": {
+        "type": "boolean",
+        "description": "Is de SBI activiteit de hoofdactiviteit. Bij vestiging of rechtspersoon is een hoofdactiviteit aanwezig. Bij MAC of onderneming kunnen meerdere hoofdactiviteiten zijn."
+      },
+      "volgorde": {
+        "type": "integer",
+        "description": "De volgorde van de (hoofd) SBIactiviteit."
+      },
+      "datumAanvangSbiactiviteit": {
+        "type": "string",
+        "provenance": "$.datumAanvangSbiactiviteit.formatted",
+        "description": "De datum waarop de SBIactiviteit is gestart of geregistreerd."
+      },
+      "datumEindeSbiactiviteit": {
+        "type": "string",
+        "provenance": "$.datumEindeSbiactiviteit.formatted",
+        "description": "De datum waarop de SBIactiviteit is be\u00ebindigd."
+      },
+      "tijdstipRegistratie": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum/tijd waarop de SBIactiviteit is geregistreerd."
+      },
+      "heeftAlsMaatschappelijkactiviteit": {
+        "shortname": "heeftAlsMac",
+        "type": "object",
+        "properties": {
+          "kvknummer": {
+            "type": "string"
+          }
+        },
+        "relation": "hr:maatschappelijkeactiviteiten",
+        "description": "Maatschappelijke activiteit (of onderneming) die bij deze SBIactiviteit hoort."
+      },
+      "heeftAlsVestiging": {
+        "type": "object",
+        "properties": {
+          "vestigingsnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "hr:vestigingen",
+        "description": "De commerciele of niet-commerciele vestiging die bij deze SBIactiviteit hoort."
+      },
+      "heeftAlsRechtspersoon": {
+        "type": "string",
+        "$comment": "relation hr:rechtspersoon *stringify*",
+        "description": "De rechtspersoon die bij deze SBIactiviteit hoort ({RSIN of BSN})."
+      }
+    }
+  }
+}
