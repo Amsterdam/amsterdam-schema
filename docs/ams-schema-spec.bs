@@ -101,7 +101,7 @@ Verplichte attributen {#dataset-mandatory-fields}
 Een <dfn dfn export>dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON bestand met in ieder geval de volgende velden:
 <table dfn-type="attribute" dfn-for=dataset export class="dfn-table">
     <tr><td><dfn>id</dfn>       <td> {{id-type|identifier}} <td> Unieke identifier voor deze dataset. Moet voldoen aan [[#naamgeving]]. Conform \[DCAT § resource_identifier](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_identifier).
-    <tr><td><dfn>type</dfn>     <td> {{schema-type}}        <td> Type van dit bestand, in dit geval `"dataset"`.
+    <tr><td><dfn>schematype</dfn>     <td> {{schema-type}}        <td> Type van dit bestand, in dit geval `"dataset"`.
     <tr><td><dfn>status</dfn>   <td> string
         <td> Publicatie status van de dataset
             <details>
@@ -270,7 +270,7 @@ Verplichte attributen {#tabel-mandatory-fields}
 Een <dfn dfn export>tabel</dfn> binnen Amsterdam-Schema is een JSON object met in ieder geval de volgende attributen.
 <table dfn-type="attribute" dfn-for=tabel export class="dfn-table">
     <tr><td><dfn>id</dfn>       <td> {{id-type|identifier}} <td> Naam van de tabel. Unieke (binnen de parent dataset) identifier voor deze tabel. Moet voldoen aan [[#naamgeving]].
-    <tr><td><dfn>type</dfn>     <td> {{schema-type}}        <td> Type van dit bestand, in dit geval `"table"`.
+    <tr><td><dfn>schematype</dfn>     <td> {{schema-type}}        <td> Type van dit bestand, in dit geval `"table"`.
     <tr><td><dfn>version</dfn>  <td> {{version-string}}     <td> Het versie nummer van deze tabel. Zie [[#versioning]]
     <tr><td><dfn>schema</dfn>   <td> object
         <td> Het schema van objecten in de tabel. zie [[#tabel-schema]]
@@ -1289,7 +1289,7 @@ Het shortname attribuut mag wel afkortingen bevatten ([=noAbrev|regel 2=] geldt 
         {
             "id": "maatschappelijkeActiviteiten",
             "shortname": "activiteiten",
-            "type": "table"
+            "schematype": "table"
             ...
         }
     </pre>
@@ -1408,7 +1408,7 @@ Scope `"LEVEL/A"` heeft dataset level autorisatie op gebieden, scope `"LEVEL/B"`
 
     <pre highlight="json" line-highlight=5,14,36>
         {
-            "type": "dataset",
+            "schematype": "dataset",
             "id": "gebieden",
             "title": "gebieden",
             "auth": "LEVEL/A",
@@ -1418,7 +1418,7 @@ Scope `"LEVEL/A"` heeft dataset level autorisatie op gebieden, scope `"LEVEL/B"`
                 {
                 "id": "bouwblokken",
                 "mainGeometry": "geometrie",
-                "type": "table",
+                "schematype": "table",
                 "version": "1.0.0",
                 "auth": "LEVEL/B",
                 "schema": {
