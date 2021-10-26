@@ -16,7 +16,16 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "identifier": "burgerservicenummer",
+        "required": [
+          "schema",
+          "burgerservicenummer"
+        ],
+        "display": "burgerservicenummer",
         "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
           "geslachtsaanduiding": {
             "type": "string",
             "description": "Mogelijke waarden: M (man), V (vrouw), O (onbekend)"
@@ -55,11 +64,9 @@
                     "type": "string",
                     "description": "Leesbare naam van de adellijkeTitelPredikaat."
                   }
-                },
-                "required": []
+                }
               }
-            },
-            "required": []
+            }
           },
           "leeftijd": {
             "type": "integer",
@@ -92,11 +99,9 @@
                     "type": "integer",
                     "description": "De dag van de datum, als deze bekend is."
                   }
-                },
-                "required": []
+                }
               }
-            },
-            "required": []
+            }
           },
           "verblijfplaats": {
             "type": "object",
@@ -135,8 +140,7 @@
                     "type": "integer",
                     "description": "De dag van de datum, als deze bekend is."
                   }
-                },
-                "required": []
+                }
               },
               "datumInschrijvingInGemeente": {
                 "type": "object",
@@ -159,8 +163,7 @@
                     "type": "integer",
                     "description": "De dag van de datum, als deze bekend is."
                   }
-                },
-                "required": []
+                }
               },
               "gemeenteVanInschrijving": {
                 "type": "object",
@@ -174,16 +177,11 @@
                     "type": "string",
                     "description": "Leesbare naam van de gemeente."
                   }
-                },
-                "required": []
+                }
               }
-            },
-            "required": []
+            }
           }
-        },
-        "required": [
-          "burgerservicenummer"
-        ]
+        }
       }
     }
   ]
