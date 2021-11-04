@@ -9,7 +9,8 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     env:
-      SCHEMA_URL: https://schemas.data.amsterdam.nl/datasets/
+      SCHEMA_LOADER: schematools.loaders:schema_file_loader
+      SCHEMA_PATH: datasets/
     steps:
       - uses: actions/checkout@v2
         with:
