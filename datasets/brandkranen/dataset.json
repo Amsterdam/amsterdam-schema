@@ -1,0 +1,97 @@
+{
+    "id": "brandkranen",
+    "type": "dataset",
+    "auth": "FP/MDW",
+    "authorizationGrantor": "n.v.t.",
+    "theme": [
+        "Veiligheid, wonen"
+    ],
+    "homepage": "https://data.amsterdam.nl",
+    "owner": "Waternet",
+    "dateModified": "2021-01-01",
+    "spatialDescription": "De stad Amsterdam",
+    "version": "1.0.0",
+    "title": "Brandkranen",
+    "language": "nl",
+    "dateCreated": "2021-01-01",
+    "license": "Creative Commons, Naamsvermelding",
+    "hasBeginning": "",
+    "hasEnd": "",
+    "accrualPeriodicity": "eenmalig",
+    "publisher": "OIS",
+    "description": "De dataset bevat de  brandkranen openbare in de openbare ruimte.",
+    "status": "beschikbaar",
+    "keywords": [
+        "brandweer",
+        "brandkranen"
+    ],
+    "crs": "EPSG:28992",
+    "objective": " ",
+    "temporalUnit": "",
+    "contactPoint": {
+        "name": "",
+        "email": "datadiensten.ois@amsterdam.nl"
+    },
+    "tables": [
+        {
+            "id": "brandkranen",
+            "type": "table",
+            "version": "1.0.0",
+            "description": "De dataset bevat de openbare brandkranen in Amsterdam.",
+            "schema": {
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "type": "object",
+                "additionalProperties": false,
+                "identifier": "id",
+                "required": [
+                    "id",
+                    "schema"
+                ],
+                "mainGeometry": "geometrie",
+                "display": "id",
+                "properties": {
+                    "schema": {
+                        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+                    },
+                    "id": {
+                        "title":"ID",
+                        "type": "string",
+                        "provenance": "brandkranen_id",
+                        "description": "Unieke identifier van het object."
+                    },
+                    "adres": {
+                        "title":"Adres",
+                        "provenance": "brandkranen_adres",
+                        "type": "string",
+                        "description": "Adresgegevens (straat en huisnummmer) volgens de bron."
+                    },
+                    "postcode": {
+                        "title":"Poscode",
+                        "provenance": "brandkranen_postcode",
+                        "type": "string",
+                        "description": "De postcode (poscode 4) van het bject volgens de bron."
+                    },
+                    "geometrie": {
+                        "title":"Geometrie",
+                        "provenance": "brandkranen_geometrie",
+                        "$ref": "https://geojson.org/schema/Point.json",
+                        "description": "Geometrie van het type POINT van de brandkraan in Rijksdriehoeksmeting  (epsg:28992)"
+                    },
+                    "gbdBuurtIdentificatie": {
+                        "title":"ID van de buurt",
+                        "type": "string",
+                        "relation": "gebieden:buurten",
+                        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+                        "description": "Unie­ke iden­ti­fi­ca­tie van het ob­ject (naam van het ken­merk wij­zigt van ID naar Iden­ti­fi­ca­tie in 2019)"
+                    },
+                    "gbdBuurtCode": {
+                        "title":"Buurtcode",
+                        "type": "string",
+                        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+                        "description": "Unie­ke code (hier­in zie je de Stads­deel- en Wijk­co­de te­rug)"
+                    }
+                }
+            }
+        }
+    ]
+}
