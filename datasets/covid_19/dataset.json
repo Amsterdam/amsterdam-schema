@@ -5,7 +5,7 @@
   "description": "Gebieden die op grond van artikel 2.8 van de Algemene Plaatselijke Verordening (APV) als algemeen overlastgebied of als dealeroverlastgebied (of beiden) zijn aagewezen",
   "license": "public",
   "status": "beschikbaar",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "theme": [
     "covid19",
     "Ruimte en Topografie",
@@ -21,226 +21,30 @@
   "tables": [
     {
       "id": "alcoholverkoopverbod",
-      "title": "Covid19 alcoholverkoopverbod gebiedsrestricties",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "omschrijving",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding voor COVID19 restrictiegebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Polygoon definitie van het restrictiegebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code van het type restrictie. Dit kan zijn: (AVV) alcoholverkoopverbod."
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "Omschrijving code van het type restrictie. Dit kan zijn: Alcoholverkoopverbod.",
-            "provenance": "typering"
-          },
-          "naam": {
-            "type": "string",
-            "provenance": "oov_naam",
-            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
-          },
-          "geldigheid": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur in dagen."
-          },
-          "tijd": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur in tijd."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "URL naar webpagina voor meer informatie."
-          }
-        }
+      "$ref": "alcoholverkoopverbod/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "alcoholverkoopverbod/v1.0.0"
       }
     },
     {
       "id": "straatartiestverbod",
-      "title": "Covid19 straatartiestenverbod gebiedsrestricties",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "omschrijving",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding voor COVID19 restrictiegebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Polygoon definitie van het restrictiegebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code van het type restrictie. Dit kan zijn: (SAV) straatartiestenverbod."
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "Omschrijving code van het type restrictie. Dit kan zijn: Straatartiestenverbod.",
-            "provenance": "typering"
-          },
-          "naam": {
-            "type": "string",
-            "provenance": "oov_naam",
-            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
-          },
-          "geldigheid": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur in dagen."
-          },
-          "tijd": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur in tijd."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "URL naar webpagina voor meer informatie."
-          }
-        }
+      "$ref": "straatartiestverbod/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "straatartiestverbod/v1.0.0"
       }
     },
     {
       "id": "gebiedsverbod",
-      "title": "Covid19 gebiedsverbod gebiedsrestricties",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "omschrijving",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding voor COVID19 restrictiegebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Polygoon definitie van het restrictiegebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code van het type restrictie. Dit kan zijn: (GVP) gebiedsverbod."
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "Omschrijving code van het type restrictie. Dit kan zijn: Gebiedsverbod.",
-            "provenance": "typering"
-          },
-          "naam": {
-            "type": "string",
-            "provenance": "oov_naam",
-            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
-          },
-          "geldigheid": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur in dagen."
-          },
-          "tijd": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur in tijd."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "URL naar webpagina voor meer informatie."
-          }
-        }
+      "$ref": "gebiedsverbod/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "gebiedsverbod/v1.0.0"
       }
     },
     {
       "id": "mondmaskerverplichting",
-      "title": "Covid19 mondmaskerverplichting gebiedsrestricties",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "omschrijving",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding voor COVID19 restrictiegebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Polygoon definitie van het restrictiegebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code van het type restrictie: (MMP) mondmaskerverplichting."
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "Omschrijving code van het type restrictie. Dit kan zijn: Mondmaskerverplichting.",
-            "provenance": "typering"
-          },
-          "naam": {
-            "type": "string",
-            "provenance": "oov_naam",
-            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
-          },
-          "geldigheid": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur in dagen."
-          },
-          "tijd": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur in tijd."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "URL naar webpagina voor meer informatie."
-          }
-        }
+      "$ref": "mondmaskerverplichting/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "mondmaskerverplichting/v1.0.0"
       }
     }
   ]

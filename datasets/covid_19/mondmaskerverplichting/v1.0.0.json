@@ -1,0 +1,51 @@
+{
+  "id": "mondmaskerverplichting",
+  "title": "Covid19 mondmaskerverplichting gebiedsrestricties",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding voor COVID19 restrictiegebied."
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Polygoon definitie van het restrictiegebied."
+      },
+      "type": {
+        "type": "string",
+        "description": "Code van het type restrictie: (MMP) mondmaskerverplichting."
+      },
+      "naam": {
+        "type": "string",
+        "provenance": "oov_naam",
+        "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het restrictiegebied van toepassing."
+      },
+      "geldigheid": {
+        "type": "string",
+        "description": "Beschrijving van de geldigheidsduur in dagen."
+      },
+      "tijd": {
+        "type": "string",
+        "description": "Beschrijving van de geldigheidsduur in tijd."
+      },
+      "url": {
+        "type": "string",
+        "format": "uri",
+        "description": "URL naar webpagina voor meer informatie."
+      }
+    }
+  }
+}
