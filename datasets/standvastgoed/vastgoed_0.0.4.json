@@ -1,0 +1,477 @@
+{
+  "type": "dataset",
+  "id": "standVastgoed",
+  "version": "0.0.4",
+  "status": "beschikbaar",
+  "auth": "FP/MDW",
+  "title": "stand van de vastgoedgegevens",
+  "description": "stand op één bepaalde peildatum van gegevens in het vastgoed domein",
+  "publisher": "Onderzoek en Statistiek, team Basisstatistiek",
+  "contactPoint" : {
+    "vcard:fn" : "Basisstatistiek",
+    "vcard:hasEmail" : "basisstatistiek.ois@amsterdam.nl"
+  },
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "gebouwen",
+      "type": "table",
+      "version": "1.0.0",
+      "description": "Alle adresseerbare objecten (verblijfsobjecten, lig- en standplaatsen) met hun kenmerken en gebiedsindeling",
+      "temporal": {
+        "identifier": "nummeraanduidingVolgnummer",
+        "dimensions": {
+          "geldigOp": [
+            "standBeginGeldigheid",
+            "standEindGeldigheid"
+          ]
+        }
+      },
+      "schema": {
+        "$id": "https://github.com/Amsterdam/schemas/standvastgoed",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+          "id"
+        ],
+        "required": [
+          "schema",
+          "id"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke identificatie voor dit object op basis van identificatie, volgnummer en geldigheid"
+          },
+          "standBeginGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De ingangsdatum van de geldigheid van de stand"
+          },
+          "standEindGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De einddatum van de geldigheid van de stand"
+          },
+          "adresseerbaarObjectIdentificatie": {
+            "type": "string",
+            "description": "Landelijke identificerende sleutel van adresseerbaar object (verblijfsobject, ligplaats, standplaats)"
+          },
+          "adresseerbaarObjectVolgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van het adresseerbaar object"
+          },
+          "adresseerbaarObjectBeginGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een adresseerbaar object"
+          },
+          "adresseerbaarObjectEindGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een adresseerbaar object"
+          },
+          "adresseerbaarObjectStatusCode": {
+            "type": "integer",
+            "provenance": "$.status.code",
+            "description": "Code voor de fase van de levenscyclus van een adresseerbaar object verblijfsobject, waarin het zich bevindt"
+          },
+          "adresseerbaarObjectStatusOmschrijving": {
+            "type": "string",
+            "provenance": "$.status.omschrijving",
+            "description": "Omschrijving voor de fase van de levenscyclus van een adresseerbaar object verblijfsobject, waarin het zich bevindt"
+          },
+          "verblijfsobjectBouwjaarWoningvoorraad": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De aanduiding van het jaar waarin een verblijfsobject als bouwkundig gereed is of wordt opgeleverd"
+          },
+          "typeAdresseerbaarObjectCode": {
+            "provenance": "$.typeAdresseerbaarObject.code",
+            "type": "integer",
+            "description": "De code van het type adresseerbaar object, waaraan een nummeraanduiding is toegekend"
+          },
+          "typeAdresseerbaarObjectOmschrijving": {
+            "provenance": "$.typeAdresseerbaarObject.omschrijving",
+            "type": "string",
+            "description": "De omschrijving van het type adresseerbaar object, waaraan een nummeraanduiding is toegekend"
+          },
+          "adresseerbaarObjectRegistratiedatum": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de toestand van het adresseerbaar object is geregistreerd"
+          },
+          "NummeraanduidingIdentificatie": {
+            "type": "string",
+            "description": "Landelijke identificerende sleutel van de nummeraanduiding"
+          },
+          "NummeraanduidingVolgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van de nummeraanduiding"
+          },
+          "OpenbareRuimteIdentificatie": {
+            "type": "string",
+            "description": "Landelijke identificerende sleutel van de openbare ruimte"
+          },
+          "OpenbareRuimteVolgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van de openbare ruimte"
+          },
+          "OpenbareRuimteNaam": {
+            "type": "string",
+            "description": "Offici\u00eble naam openbare ruimte"
+          },
+          "huisnummer": {
+            "type": "integer",
+            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering"
+          },
+          "huisletter": {
+            "type": "string",
+            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken"
+          },
+          "huisnummertoevoeging": {
+            "type": "string",
+            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
+          },
+          "postcode": {
+            "type": "string",
+            "description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)."
+          },
+          "WoonplaatsIdentificatie": {
+            "type": "string",
+            "description": "Landelijke identificerende sleutel van de woonplaats"
+          },
+          "WoonplaatsVolgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van de woonplaats"
+          },
+          "WoonplaatsNaam": {
+            "type": "string",
+            "description": "Offici\u00eble naam van de woonplaats"
+          },
+          "typeAdres": {
+            "type": "string",
+            "description": "Hiermee wordt aangegeven of het een relatie betreft vanuit een hoofdadres. Anders is er sprake van een nevenadres"
+          },
+          "nummeraanduidingStatusCode": {
+            "type": "integer",
+            "provenance": "$.status.code",
+            "description": "Code voor de fase van de levenscyclus van een adresseerbaar object verblijfsobject, waarin het zich bevindt"
+          },
+          "nummeraanduidingStatusOmschrijving": {
+            "type": "string",
+            "provenance": "$.status.omschrijving",
+            "description": "Omschrijving voor de fase van de levenscyclus van een adresseerbaar object verblijfsobject, waarin het zich bevindt"
+          },
+          "adres27": {
+            "type": "string",
+            "description": "Combinatie van adres kenmerken (27 karakters lang): openbareRuimteIdentificatie, huisnummer, huisletter en huisnummertoevoeging"
+          },
+          "adres17": {
+            "type": "string",
+            "description": "Combinatie van adres kenmerken (17 karakters lang): postcode, huisnummer, huisletter en huisnummertoevoeging"
+          },
+          "gebruiksdoel": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "omschrijving": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan."
+          },
+          "gebruiksdoelWoonfunctieCode": {
+            "type": "integer",
+            "provenance": "$.gebruiksdoelWoonfunctie.code",
+            "description": "Code van de Amsterdamse uitbreiding op gebruiksdoel woonfunctie"
+          },
+          "gebruiksdoelWoonfunctieOmschrijving": {
+            "provenance": "$.gebruiksdoelWoonfunctie.omschrijving",
+            "type": "string",
+            "description": "Omschrijving van de Amsterdamse uitbreiding op gebruiksdoel woonfunctie"
+          },
+          "gebruiksdoelGezondheidszorgfunctieCode": {
+            "type": "integer",
+            "provenance": "$.gebruiksdoelGezondheidszorgfunctie.code",
+            "description": "Code van de Amsterdamse uitbreiding op gebruiksdoel gezondheidszorgfunctie"
+          },
+          "gebruiksdoelGezondheidszorgfunctieOmschrijving": {
+            "type": "string",
+            "provenance": "$.gebruiksdoelGezondheidszorgfunctie.omschrijving",
+            "description": "Omschrijving van de Amsterdamse uitbreiding op gebruiksdoel gezondheidszorgfunctie"
+          },
+          "aantalEenhedenComplex": {
+            "type": "integer",
+            "description": "Aantal eenheden complex per verblijfsobject (all\u00e9\u00e9n bij een speciale  woonfunctie of gezondheidszorgfunctie)."
+          },
+          "verblijfsobjectOppervlakte": {
+            "type": "integer",
+            "description": "De gebruiksoppervlakte van het verblijfsobject conform hetgeen in NEN 2580 is vastgelegd omtrent gebruiksoppervlakte"
+          },
+          "woningvoorraad": {
+            "type": "boolean",
+            "description": "Verblijfsobjecten met een woonfunctie en status in gebruik of in verbouwing worden tot de woningvoorraad gerekend"
+          },
+          "verblijfsobjectVerdiepingToegang": {
+            "type": "integer",
+            "description": "Aanduiding op welke verdieping zich de toegang tot het verblijfsobject bevindt"
+          },
+          "verblijfsobjectAantalBouwlagen": {
+            "type": "integer",
+            "description": "Aantal bouwlagen van een verblijfsobject"
+          },
+          "verblijfsobjectHoogsteBouwlaag": {
+            "type": "integer",
+            "description": "Hoogste bouwlaag van een verblijfsobject"
+          },
+          "verblijfsobjectLaagsteBouwlaag": {
+            "type": "integer",
+            "description": "Laagste bouwlaag van een verblijfsobject"
+          },
+          "verblijfsobjectAantalKamers": {
+            "type": "integer",
+            "description": "Geeft het aantal kamers aan binnen het verblijfsobject"
+          },
+          "verblijfsobjectToegang": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "Code van de plaats waar zich de toegang tot het verblijfsobject bevindt"
+                },
+                "omschrijving": {
+                  "type": "string",
+                  "description": "Omschrijving van de plaats waar zich de toegang tot het verblijfsobject bevindt"
+                }
+              }
+            }
+          },
+          "adresseerbaarObjectRedenopvoerCode": {
+            "type": "integer",
+            "provenance": "$.redenopvoer.code",
+            "description": "Code van de reden van de opvoer van het adresseerbare object"
+          },
+          "adresseerbaarObjectRedenopvoerOmschrijving": {
+            "type": "string",
+            "provenance": "$.redenopvoer.omschrijving",
+            "description": "Omschrijving van de reden van de opvoer van het adresseerbare object"
+          },
+          "adresseerbaarObjectRedenafvoerCode": {
+            "type": "integer",
+            "provenance": "$.redenafvoer.code",
+            "description": "Code van de reden van de afvoer van het adresseerbare object"
+          },
+          "adresseerbaarObjectRedenafvoerOmschrijving": {
+            "type": "string",
+            "provenance": "$.redenafvoer.omschrijving",
+            "description": "Omschrijving van de reden van de afvoer van het adresseerbare object"
+          },
+          "adresseerbaarObjectAanduidingInOnderzoek": {
+            "type": "boolean",
+            "description": "Hiermee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object"
+          },
+          "adresseerbaarObjectGeconstateerd": {
+            "type": "boolean",
+            "description": "Dit geeft aan dat een gegeven in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument"
+          },
+          "wozSoortDeelObjectCode": {
+            "type": "string",
+            "provenance": "$.soortobject.code",
+            "description": "Code van de aanduiding van het soort object ten behoeve van een correcte bepaling van de waarde"
+          },
+          "wozSoortDeelObjectOmschrijving": {
+            "type": "string",
+            "provenance": "$.soortobject.omschrijving",
+            "description": "Omschrijving van de aanduiding van het soort object ten behoeve van een correcte bepaling van de waarde"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "De locatie van het verblijfsobject in het Nationale Rijksdriehoekstelsel."
+          },
+          "aantalPanden": {
+            "type": "integer",
+            "description": "Geeft aan in hoeveel panden het verblijfsobject ligt"
+          },
+          "pandIdentificatie": {
+            "type": "string",
+            "description": "Landelijke identificerende sleutel van het pand"
+          },
+          "pandVolgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van het pand"
+          },
+          "pandTypewoonobject": {
+            "type": "string",
+            "description": "E\u00e9n woning, Meerdere woningen."
+          },
+          "pandLiggingCode": {
+            "type": "integer",
+            "provenance": "$.ligging.code",
+            "description": "Code van de situering pand met verblijfsobject (vrijstaand, tussenwoning, etc.)"
+          },
+          "pandLiggingOmschrijving": {
+            "type": "string",
+            "provenance": "$.ligging.omschrijving",
+            "description": "Omschrijving van de situering pand met verblijfsobject (vrijstaand, tussenwoning, etc.)"
+          },
+          "pandOorspronkelijkBouwjaar": {
+            "type": "integer",
+            "description": "De aanduiding van het jaar waarin een pand oorspronkelijk als bouwkundig gereed is of wordt opgeleverd."
+          },
+          "pandStatusCode": {
+            "type": "integer",
+            "provenance": "$.status.code",
+            "description": "Code van de fase van de levenscyclus van een pand"
+          },
+          "pandStatusOmschrijving": {
+            "type": "string",
+            "provenance": "$.status.omschrijving",
+            "description": "Omschrijving van de fase van de levenscyclus van een pand"
+          },
+          "pandAantalBouwlagen": {
+            "type": "integer",
+            "description": "Aantal bouwlagen van een pand."
+          },
+          "pandHoogsteBouwlaag": {
+            "type": "integer",
+            "description": "Hoogste bouwlaag van een pand."
+          },
+          "pandLaagsteBouwlaag": {
+            "type": "integer",
+            "description": "Laagste bouwlaag van een pand."
+          },
+          "pandGeometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Vorm en ligging van het pand in het Nationale Rijksdriehoekstelsel."
+          },
+          "tehuis": {
+            "type": "boolean",
+            "description": "Indicatie of verblijfsobject onderdeel is van een tehuis"
+          },
+          "bouwblokIdentificatie": {
+            "type": "string",
+            "description": "Unieke identificatie van het bouwblok"
+          },
+          "bouwblokVolgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van het bouwblok"
+          },
+          "bouwblokCode": {
+            "type": "string",
+            "description": "Offici\u00eble code van het bouwblok"
+          },
+          "buurtIdentificatie": {
+            "type": "string",
+            "description": "Unieke identificatie van de buurt"
+          },
+          "buurtVolgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van de buurt"
+          },
+          "buurtCode": {
+            "type": "string",
+            "description": "Offici\u00eble code van de buurt"
+          },
+          "buurtNaam": {
+            "type": "string",
+            "description": "De naam van de buurt."
+          },
+          "wijkIdentificatie": {
+            "type": "string",
+            "description": "Unieke identificatie van de wijk"
+          },
+          "wijkVolgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van de wijk"
+          },
+          "wijkCode": {
+            "type": "string",
+            "description": "Offici\u00eble code van de wijk"
+          },
+          "wijkNaam": {
+            "type": "string",
+            "description": "De naam van de wijk"
+          },
+          "ggwgebiedIdentificatie": {
+            "type": "string",
+            "description": "Unieke identificatie van het gebiedsgericht werken gebied"
+          },
+          "ggwgebiedVolgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van het gebiedsgericht werken gebied"
+          },
+          "ggwgebiedCode": {
+            "type": "string",
+            "description": "Offici\u00eble code van het gebiedsgericht werken gebied"
+          },
+          "ggwgebiedNaam": {
+            "type": "string",
+            "description": "De naam van het gebiedsgericht werken gebied"
+          },
+          "ggpgebiedIdentificatie": {
+            "type": "string",
+            "description": "Unieke identificatie van het gebiedsgericht werken praktijk gebied"
+          },
+          "ggpgebiedVolgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van het gebiedsgericht werken praktijk gebied"
+          },
+          "ggpgebiedCode": {
+            "type": "string",
+            "description": "Offici\u00eble code van het gebiedsgericht werken praktijk gebied"
+          },
+          "ggpgebiedNaam": {
+            "type": "string",
+            "description": "De naam van het gebiedsgericht werken praktijk gebied"
+          },
+          "stadsdeelIdentificatie": {
+            "type": "string",
+            "description": "Unieke identificatie van het stadsdeel"
+          },
+          "stadsdeelVolgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van het stadsdeel"
+          },
+          "stadsdeelCode": {
+            "type": "string",
+            "description": "Offici\u00eble code van het stadsdeel"
+          },
+          "stadsdeelNaam": {
+            "type": "string",
+            "description": "De naam van het stadsdeel"
+          },
+          "gemeenteIdentificatie": {
+            "type": "string",
+            "description": "Unieke identificatie van de gemeente (afkomstig van het Kadaster)"
+          },
+          "gemeenteVolgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van de gemeente (afkomstig van het Kadaster)"
+          },
+          "gemeenteCode": {
+            "type": "string",
+            "description": "Offici\u00eble code van de gemeente (afkomstig van het Kadaster)"
+          },
+          "gemeenteNaam": {
+            "type": "string",
+            "description": "De naam van de gemeente (afkomstig van het Kadaster)"
+          }
+        },
+        "mainGeometry": "geometrie"
+      }
+    }
+  ]
+}
