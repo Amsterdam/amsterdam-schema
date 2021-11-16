@@ -1,7 +1,7 @@
 {
   "type": "dataset",
   "id": "standVastgoed",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "status": "beschikbaar",
   "auth": "FP/MDW",
   "title": "stand van de vastgoedgegevens",
@@ -49,85 +49,85 @@
             "title": "id",
             "description": "Unieke identificatie voor dit object op basis van identificatie, volgnummer en geldigheid"
           },
-          "standBeginGeldigheid": {
+          "standBegingeldigheid": {
             "type": "string",
             "format": "date-time",
-            "title": "standBeginGeldigheid",
-            "shortname": "standBeginGeldigheid",
+            "title": "standBegingeldigheid",
+            "shortname": "standBegingeldigheid",
             "description": "De ingangsdatum van de geldigheid van de stand"
           },
-          "standEindGeldigheid": {
+          "standEindgeldigheid": {
             "type": "string",
             "format": "date-time",
-            "title": "standEindGeldigheid",
-            "shortname": "standEindGeldigheid",
+            "title": "standEindgeldigheid",
+            "shortname": "standEindgeldigheid",
             "description": "De einddatum van de geldigheid van de stand"
           },
-          "adresseerbaarObjectIdentificatie": {
+          "adresseerbaarobjectIdentificatie": {
             "type": "string",
-            "title": "adresseerbaarObjectIdentificatie",
+            "title": "adresseerbaarobjectIdentificatie",
             "shortname": "aotId",
             "description": "Landelijke identificerende sleutel van adresseerbaar object (verblijfsobject, ligplaats, standplaats)"
           },
-          "adresseerbaarObjectVolgnummer": {
+          "adresseerbaarobjectVolgnummer": {
             "type": "integer",
-            "title": "adresseerbaarObjectVolgnummer",
-            "shortname": "aotVolgnr",
+            "title": "adresseerbaarobjectVolgnummer",
+            "shortname": "aotVolgnummer",
             "description": "Uniek volgnummer van de toestand van het adresseerbaar object"
           },
-          "adresseerbaarObjectBeginGeldigheid": {
+          "adresseerbaarobjectBegingeldigheid": {
             "type": "string",
             "format": "date-time",
-            "title": "adresseerbaarObjectBeginGeldigheid",
-            "shortname": "aotBeginGeldigheid",
+            "title": "adresseerbaarobjectBegingeldigheid",
+            "shortname": "aotBegingeldigheid",
             "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een adresseerbaar object"
           },
-          "adresseerbaarObjectEindGeldigheid": {
+          "adresseerbaarobjectEindgeldigheid": {
             "type": "string",
             "format": "date-time",
-            "title": "adresseerbaarObjectEindGeldigheid",
-            "shortname": "aotEindGeldigheid",
+            "title": "adresseerbaarobjectEindgeldigheid",
+            "shortname": "aotEindgeldigheid",
             "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een adresseerbaar object"
           },
-          "adresseerbaarObjectStatusCode": {
+          "adresseerbaarobjectStatusCode": {
             "type": "integer",
             "provenance": "$.status.code",
-            "title": "adresseerbaarObjectStatusCode",
+            "title": "adresseerbaarobjectStatusCode",
             "shortname": "aotStatusCode",
             "description": "Code voor de fase van de levenscyclus van een adresseerbaar object verblijfsobject, waarin het zich bevindt"
           },
-          "adresseerbaarObjectStatusOmschrijving": {
+          "adresseerbaarobjectStatusOmschrijving": {
             "type": "string",
             "provenance": "$.status.omschrijving",
-            "title": "adresseerbaarObjectStatusOmschrijving",
-            "shortname": "aotStatusOms",
+            "title": "adresseerbaarobjectStatusOmschrijving",
+            "shortname": "aotStatusOmschrijving",
             "description": "Omschrijving voor de fase van de levenscyclus van een adresseerbaar object verblijfsobject, waarin het zich bevindt"
           },
-          "verblijfsobjectBouwjaarWoningvoorraad": {
+          "verblijfsobjectBouwjaar": {
             "type": "string",
             "format": "date-time",
-            "title": "verblijfsobjectBouwjaarWoningvoorraad",
+            "title": "verblijfsobjectBouwjaar",
             "shortname": "votBouwjaar",
             "description": "De aanduiding van het jaar waarin een verblijfsobject als bouwkundig gereed is of wordt opgeleverd"
           },
-          "typeAdresseerbaarObjectCode": {
+          "typeAdresseerbaarobjectCode": {
             "type": "integer",
-            "provenance": "$.typeAdresseerbaarObject.code",
-            "title": "typeAdresseerbaarObjectCode",
+            "provenance": "$.typeAdresseerbaarobject.code",
+            "title": "typeAdresseerbaarobjectCode",
             "shortname": "typeAotCode",
             "description": "De code van het type adresseerbaar object, waaraan een nummeraanduiding is toegekend"
           },
-          "typeAdresseerbaarObjectOmschrijving": {
+          "typeAdresseerbaarobjectOmschrijving": {
             "type": "string",
-            "provenance": "$.typeAdresseerbaarObject.omschrijving",
-            "title": "typeAdresseerbaarObjectOmschrijving",
-            "shortname": "typeAotOms",
+            "provenance": "$.typeAdresseerbaarobject.omschrijving",
+            "title": "typeAdresseerbaarobjectOmschrijving",
+            "shortname": "typeAotOmschrijving",
             "description": "De omschrijving van het type adresseerbaar object, waaraan een nummeraanduiding is toegekend"
           },
-          "adresseerbaarObjectRegistratiedatum": {
+          "adresseerbaarobjectRegistratiedatum": {
             "type": "string",
             "format": "date-time",
-            "title": "adresseerbaarObjectRegistratiedatum",
+            "title": "adresseerbaarobjectRegistratiedatum",
             "shortname": "aotRegistratiedatum",
             "description": "De datum waarop de toestand van het adresseerbaar object is geregistreerd"
           },
@@ -140,25 +140,25 @@
           "nummeraanduidingVolgnummer": {
             "type": "integer",
             "title": "nummeraanduidingVolgnummer",
-            "shortname": "nagVolgnr",
+            "shortname": "nagVolgnummer",
             "description": "Uniek volgnummer van de toestand van de nummeraanduiding"
           },
-          "openbareRuimteIdentificatie": {
+          "openbareruimteIdentificatie": {
             "type": "string",
-            "title": "openbareRuimteIdentificatie",
+            "title": "openbareruimteIdentificatie",
             "shortname": "oreid",
             "description": "Landelijke identificerende sleutel van de openbare ruimte"
           },
-          "openbareRuimteVolgnummer": {
+          "openbareruimteVolgnummer": {
             "type": "integer",
-            "title": "openbareRuimteVolgnummer",
-            "shortname": "oreVolgnr",
+            "title": "openbareruimteVolgnummer",
+            "shortname": "oreVolgnummer",
             "description": "Uniek volgnummer van de toestand van de openbare ruimte"
           },
-          "openbareRuimteNaam": {
+          "openbareruimteNaam": {
             "type": "string",
-            "title": "openbareRuimteNaam",
-            "shortname": "oreNaam",
+            "title": "openbareruimteNaam",
+            "shortname": "naam",
             "description": "Offici\u00eble naam openbare ruimte"
           },
           "huisnummer": {
@@ -190,13 +190,13 @@
           "woonplaatsVolgnummer": {
             "type": "integer",
             "title": "woonplaatsVolgnummer",
-            "shortname": "wpsVolgnr",
+            "shortname": "wpsVolgnummer",
             "description": "Uniek volgnummer van de toestand van de woonplaats"
           },
           "woonplaatsNaam": {
             "type": "string",
             "title": "woonplaatsNaam",
-            "shortname": "wpsNaam",
+            "shortname": "woonplaats",
             "description": "Offici\u00eble naam van de woonplaats"
           },
           "typeAdres": {
@@ -215,13 +215,13 @@
             "type": "string",
             "provenance": "$.status.omschrijving",
             "title": "nummeraanduidingStatusOmschrijving",
-            "shortname": "nagStatusOms",
+            "shortname": "nagStatusOmschrijving",
             "description": "Omschrijving voor de fase van de levenscyclus van een adresseerbaar object verblijfsobject, waarin het zich bevindt"
           },
           "adres27": {
             "type": "string",
             "title": "adres27",
-            "description": "Combinatie van adres kenmerken (27 karakters lang): openbareRuimteIdentificatie, huisnummer, huisletter en huisnummertoevoeging"
+            "description": "Combinatie van adres kenmerken (27 karakters lang): openbareruimteIdentificatie, huisnummer, huisletter en huisnummertoevoeging"
           },
           "adres17": {
             "type": "string",
@@ -229,18 +229,7 @@
             "description": "Combinatie van adres kenmerken (17 karakters lang): postcode, huisnummer, huisletter en huisnummertoevoeging"
           },
           "gebruiksdoel": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "omschrijving": {
-                  "type": "string"
-                }
-              }
-            },
+            "type": "string",
             "title": "gebruiksdoel",
             "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan."
           },
@@ -248,28 +237,28 @@
             "type": "integer",
             "provenance": "$.gebruiksdoelWoonfunctie.code",
             "title": "gebruiksdoelWoonfunctieCode",
-            "shortname": "gebruiksdoelWoonCode",
+            "shortname": "gebruiksdoelWoonfunctieCode",
             "description": "Code van de Amsterdamse uitbreiding op gebruiksdoel woonfunctie"
           },
           "gebruiksdoelWoonfunctieOmschrijving": {
             "type": "string",
             "provenance": "$.gebruiksdoelWoonfunctie.omschrijving",
             "title": "gebruiksdoelWoonfunctieOmschrijving",
-            "shortname": "gebruiksdoelWoonOms",
+            "shortname": "gebruiksdoelWoonfunctieOmschrijving",
             "description": "Omschrijving van de Amsterdamse uitbreiding op gebruiksdoel woonfunctie"
           },
           "gebruiksdoelGezondheidszorgfunctieCode": {
             "type": "integer",
             "provenance": "$.gebruiksdoelGezondheidszorgfunctie.code",
             "title": "gebruiksdoelGezondheidszorgfunctieCode",
-            "shortname": "gebruiksdoelGezondheidCode",
+            "shortname": "gebruiksdoelGezondheidszorgfunctieCode",
             "description": "Code van de Amsterdamse uitbreiding op gebruiksdoel gezondheidszorgfunctie"
           },
           "gebruiksdoelGezondheidszorgfunctieOmschrijving": {
             "type": "string",
             "provenance": "$.gebruiksdoelGezondheidszorgfunctie.omschrijving",
             "title": "gebruiksdoelGezondheidszorgfunctieOmschrijving",
-            "shortname": "gebruiksdoelGezondheidOms",
+            "shortname": "gebruiksdoelGezondheidszorgfunctieOmschrijving",
             "description": "Omschrijving van de Amsterdamse uitbreiding op gebruiksdoel gezondheidszorgfunctie"
           },
           "aantalEenhedenComplex": {
@@ -282,11 +271,6 @@
             "title": "verblijfsobjectOppervlakte",
             "shortname": "votOppervlakte",
             "description": "De gebruiksoppervlakte van het verblijfsobject conform hetgeen in NEN 2580 is vastgelegd omtrent gebruiksoppervlakte"
-          },
-          "woningvoorraad": {
-            "type": "boolean",
-            "title": "woningvoorraad",
-            "description": "Verblijfsobjecten met een woonfunctie en status in gebruik of in verbouwing worden tot de woningvoorraad gerekend"
           },
           "verblijfsobjectVerdiepingToegang": {
             "type": "integer",
@@ -319,75 +303,68 @@
             "description": "Geeft het aantal kamers aan binnen het verblijfsobject"
           },
           "verblijfsobjectToegang": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "string",
-                  "description": "Code van de plaats waar zich de toegang tot het verblijfsobject bevindt"
-                },
-                "omschrijving": {
-                  "type": "string",
-                  "description": "Omschrijving van de plaats waar zich de toegang tot het verblijfsobject bevindt"
-                }
-              }
-            },
+            "type": "string",
             "title": "verblijfsobjectToegang",
             "shortname": "votToegang"
           },
-          "adresseerbaarObjectRedenopvoerCode": {
+          "adresseerbaarobjectRedenopvoerCode": {
             "type": "integer",
             "provenance": "$.redenopvoer.code",
-            "title": "adresseerbaarObjectRedenopvoerCode",
+            "title": "adresseerbaarobjectRedenopvoerCode",
             "shortname": "aotRedenOpvoerCode",
             "description": "Code van de reden van de opvoer van het adresseerbare object"
           },
-          "adresseerbaarObjectRedenopvoerOmschrijving": {
+          "adresseerbaarobjectRedenopvoerOmschrijving": {
             "type": "string",
             "provenance": "$.redenopvoer.omschrijving",
-            "title": "adresseerbaarObjectRedenopvoerOmschrijving",
-            "shortname": "aotRedenOpvoerOms",
+            "title": "adresseerbaarobjectRedenopvoerOmschrijving",
+            "shortname": "aotRedenOpvoerOmschrijving",
             "description": "Omschrijving van de reden van de opvoer van het adresseerbare object"
           },
-          "adresseerbaarObjectRedenafvoerCode": {
+          "adresseerbaarobjectRedenafvoerCode": {
             "type": "integer",
             "provenance": "$.redenafvoer.code",
-            "title": "adresseerbaarObjectRedenafvoerCode",
+            "title": "adresseerbaarobjectRedenafvoerCode",
             "shortname": "aotRedenAfvoerCode",
             "description": "Code van de reden van de afvoer van het adresseerbare object"
           },
-          "adresseerbaarObjectRedenafvoerOmschrijving": {
+          "adresseerbaarobjectRedenafvoerOmschrijving": {
             "type": "string",
             "provenance": "$.redenafvoer.omschrijving",
-            "title": "adresseerbaarObjectRedenafvoerOmschrijving",
-            "shortname": "aotRedenAfvoerOms",
+            "title": "adresseerbaarobjectRedenafvoerOmschrijving",
+            "shortname": "aotRedenAfvoerOmschrijving",
             "description": "Omschrijving van de reden van de afvoer van het adresseerbare object"
           },
-          "adresseerbaarObjectAanduidingInOnderzoek": {
+          "adresseerbaarobjectAanduidingInOnderzoek": {
             "type": "boolean",
-            "title": "adresseerbaarObjectAanduidingInOnderzoek",
+            "title": "adresseerbaarobjectAanduidingInOnderzoek",
             "shortname": "aotInOnderzoek",
             "description": "Hiermee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object"
           },
-          "adresseerbaarObjectGeconstateerd": {
+          "adresseerbaarobjectGeconstateerd": {
             "type": "boolean",
-            "title": "adresseerbaarObjectGeconstateerd",
+            "title": "adresseerbaarobjectGeconstateerd",
             "shortname": "aotGeconstateerd",
             "description": "Dit geeft aan dat een gegeven in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument"
           },
-          "soortDeelObjectCode": {
+          "wozSoortDeelObjectCode": {
             "type": "string",
-            "provenance": "$.soortobject.code",
-            "title": "soortDeelObjectCode",
+            "provenance": "$.soortdeelobject.code",
+            "title": "wozSoortDeelobjectCode",
+            "shortname": "wozSoortDeelobjectCode",
             "description": "Code van de aanduiding van het soort object ten behoeve van een correcte bepaling van de waarde"
           },
-          "soortDeelObjectOmschrijving": {
+          "wozSoortDeelObjectOmschrijving": {
             "type": "string",
-            "provenance": "$.soortobject.omschrijving",
-            "title": "soortDeelObjectOmschrijving",
-            "shortname": "soortDeelObjectOms",
+            "provenance": "$.soortdeelobject.omschrijving",
+            "title": "wozSoortDeelobjectOmschrijving",
+            "shortname": "wozSoortDeelobjectOmschrijving",
             "description": "Omschrijving van de aanduiding van het soort object ten behoeve van een correcte bepaling van de waarde"
+          },
+          "woningvoorraad": {
+            "type": "boolean",
+            "title": "woningvoorraad",
+            "description": "Verblijfsobjecten met een woonfunctie en status in gebruik of in verbouwing worden tot de woningvoorraad gerekend"
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
@@ -408,7 +385,7 @@
           "pandVolgnummer": {
             "type": "integer",
             "title": "pandVolgnummer",
-            "shortname": "pndVolgnr",
+            "shortname": "pndVolgnummer",
             "description": "Uniek volgnummer van de toestand van het pand"
           },
           "pandTypeWoonobject": {
@@ -428,7 +405,7 @@
             "type": "string",
             "provenance": "$.ligging.omschrijving",
             "title": "pandLiggingOmschrijving",
-            "shortname": "pndLiggingOms",
+            "shortname": "pndLiggingOmschrijving",
             "description": "Omschrijving van de situering pand met verblijfsobject (vrijstaand, tussenwoning, etc.)"
           },
           "pandOorspronkelijkBouwjaar": {
@@ -448,7 +425,7 @@
             "type": "string",
             "provenance": "$.status.omschrijving",
             "title": "pandStatusOmschrijving",
-            "shortname": "pndStatusOms",
+            "shortname": "pndStatusOmschrijving",
             "description": "Omschrijving van de fase van de levenscyclus van een pand"
           },
           "pandAantalBouwlagen": {
@@ -489,7 +466,7 @@
           "bouwblokVolgnummer": {
             "type": "integer",
             "title": "bouwblokVolgnummer",
-            "shortname": "bbkVolgnr",
+            "shortname": "bbkVolgnummer",
             "description": "Uniek volgnummer van de toestand van het bouwblok"
           },
           "bouwblokCode": {
@@ -507,7 +484,7 @@
           "buurtVolgnummer": {
             "type": "integer",
             "title": "buurtVolgnummer",
-            "shortname": "brtVolgnr",
+            "shortname": "brtVolgnummer",
             "description": "Uniek volgnummer van de toestand van de buurt"
           },
           "buurtCode": {
@@ -531,7 +508,7 @@
           "wijkVolgnummer": {
             "type": "integer",
             "title": "wijkVolgnummer",
-            "shortname": "wijkVolgnr",
+            "shortname": "wijkVolgnummer",
             "description": "Uniek volgnummer van de toestand van de wijk"
           },
           "wijkCode": {
@@ -555,7 +532,7 @@
           "ggwgebiedVolgnummer": {
             "type": "integer",
             "title": "ggwgebiedVolgnummer",
-            "shortname": "ggwVolgnr",
+            "shortname": "ggwVolgnummer",
             "description": "Uniek volgnummer van de toestand van het gebiedsgericht werken gebied"
           },
           "ggwgebiedCode": {
@@ -579,7 +556,7 @@
           "ggpgebiedVolgnummer": {
             "type": "integer",
             "title": "ggpgebiedVolgnummer",
-            "shortname": "ggpVolgnr",
+            "shortname": "ggpVolgnummer",
             "description": "Uniek volgnummer van de toestand van het gebiedsgericht werken praktijk gebied"
           },
           "ggpgebiedCode": {
@@ -603,7 +580,7 @@
           "stadsdeelVolgnummer": {
             "type": "integer",
             "title": "stadsdeelVolgnummer",
-            "shortname": "sdlVolgnr",
+            "shortname": "sdlVolgnummer",
             "description": "Uniek volgnummer van de toestand van het stadsdeel"
           },
           "stadsdeelCode": {
@@ -627,7 +604,7 @@
           "gemeenteVolgnummer": {
             "type": "integer",
             "title": "gemeenteVolgnummer",
-            "shortname": "gmeVolgnr",
+            "shortname": "gmeVolgnummer",
             "description": "Uniek volgnummer van de toestand van de gemeente (afkomstig van het Kadaster)"
           },
           "gemeenteCode": {
