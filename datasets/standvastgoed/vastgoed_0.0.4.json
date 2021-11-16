@@ -104,11 +104,10 @@
             "description": "Omschrijving voor de fase van de levenscyclus van een adresseerbaar object verblijfsobject, waarin het zich bevindt"
           },
           "verblijfsobjectBouwjaar": {
-            "type": "string",
-            "format": "date-time",
+            "type": "integer",
             "title": "verblijfsobjectBouwjaar",
             "shortname": "votBouwjaar",
-            "description": "De aanduiding van het jaar waarin een verblijfsobject als bouwkundig gereed is of wordt opgeleverd"
+            "description": "De aanduiding van het jaar waarin een verblijfsobject als bouwkundig gereed is of wordt opgeleverd. Alleen indien verblijfsobject voorkomt in woningvoorraad"
           },
           "typeAdresseerbaarobjectCode": {
             "type": "integer",
@@ -366,9 +365,10 @@
             "title": "woningvoorraad",
             "description": "Verblijfsobjecten met een woonfunctie en status in gebruik of in verbouwing worden tot de woningvoorraad gerekend"
           },
-          "geometrie": {
+          "adresseerbaarobjectGeometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
-            "title": "geometrie",
+            "title": "adresseerbaarobjectGeometrie",
+            "shortname": "geometrie",
             "description": "De locatie van het verblijfsobject in het Nationale Rijksdriehoekstelsel."
           },
           "aantalPanden": {
@@ -606,12 +606,6 @@
             "title": "gemeenteVolgnummer",
             "shortname": "gmeVolgnummer",
             "description": "Uniek volgnummer van de toestand van de gemeente (afkomstig van het Kadaster)"
-          },
-          "gemeenteCode": {
-            "type": "string",
-            "title": "gemeenteCode",
-            "shortname": "gmeCode",
-            "description": "Offici\u00eble code van de gemeente (afkomstig van het Kadaster)"
           },
           "gemeenteNaam": {
             "type": "string",
