@@ -18,7 +18,7 @@ def remove_prefix(text: str, prefix: str) -> str:
 @click.argument("dataset_in_file", type=click.File("rb"))  # type: ignore[misc]
 @click.argument("table_id", required=False)  # type: ignore[misc]
 @click.option(  # type: ignore[misc]
-    "-b", "bump_type", default="minor", type=click.Choice(("major", "minor"))
+    "-b", "bump_type", default="minor", type=click.Choice(("major", "minor", "patch"))
 )
 def main(dataset_in_file: BufferedReader, table_id: str, bump_type: str) -> None:
     """Bump the version of table.
