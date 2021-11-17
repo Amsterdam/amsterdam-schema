@@ -12,7 +12,7 @@
  *   - .toc for the Table of Contents (<ol class="toc">)
  *     + <span class="secno"> for the section numbers
  *   - #toc for the Table of Contents (<nav id="toc">)
- *   - ul.index for Indices (<a href="#ref">term</a><span>, in § N.M</span>)
+ *   - ul.index for Indices (<a href="#ref">term</a><span>, in §N.M</span>)
  *   - table.index for Index Tables (e.g. for properties or elements)
  *
  * Structural Markup
@@ -1487,10 +1487,10 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version d7036035b, updated Fri Oct 8 17:07:11 2021 -0700" name="generator">
+  <meta content="Bikeshed version bb6b91100, updated Mon Jul 12 16:52:37 2021 -0700" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="c0cf283cb70d2269888746e4c8dbaf63245b4dd3" name="document-revision">
+  <meta content="01153b34e8c1141c6a138c52de1ad6ef171c6a22" name="document-revision">
 <style>
     p[data-fill-with="logo"] {
         width: 180px;
@@ -1870,16 +1870,6 @@ figcaption:not(.no-marker)::before {
 
 .dfn-paneled { cursor: pointer; }
 </style>
-<style>/* style-issues */
-
-a[href].issue-return {
-    float: right;
-    float: inline-end;
-    color: var(--issueheading-text);
-    font-weight: bold;
-    text-decoration: none;
-}
-</style>
 <style>/* style-line-highlighting */
 
 :root {
@@ -2234,7 +2224,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Amsterdam Schema Specificatie</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-10-25">25 October 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-11-17">17 November 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2364,7 +2354,7 @@ Een dataset bevat minstens één tabel.</p>
     <p><strong>Dataset</strong> A collection of data, published or curated by a single agent or identifiable community.
 The notion of dataset in DCAT is broad and inclusive, with the intention of accommodating resource types arising from all communities.
 Data comes in many forms including numbers, text, pixels, imagery, sound and other multi-media, and potentially other types,
-any of which might be collected into a dataset. (From <a href="https://www.w3.org/TR/vocab-dcat-2/#dcat-scope">Data Catalog Vocabulary (DCAT) - Version 2 § dcat-scope</a>)</p>
+any of which might be collected into a dataset. (From <a href="https://www.w3.org/TR/vocab-dcat-2/#dcat-scope">Data Catalog Vocabulary (DCAT) - Version 2 §dcat-scope</a>)</p>
    </blockquote>
    <h3 class="heading settled" data-level="2.1" id="dataset-mandatory-fields"><span class="secno">2.1. </span><span class="content">Verplichte attributen</span><a class="self-link" href="#dataset-mandatory-fields"></a></h3>
     Een <dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="dataset">dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON bestand met in ieder geval de volgende velden:
@@ -2561,7 +2551,7 @@ De volgende velden zijn toegestaan:
           <p>"EPSG:4326"</p>
         </ul>
        </details>
-        Zie <a href="https://www.w3.org/TR/sdw-bp/#CRS-background">SDOW best practices § CRS-background</a> voor meer informatie.
+        Zie <a href="https://www.w3.org/TR/sdw-bp/#CRS-background">SDOW best practices §CRS-background</a> voor meer informatie.
    </table>
    <p class="note" role="note"><span>Note:</span> De intentie is dat alle relevante <a data-link-type="biblio" href="#biblio-vocab-dcat-2">DCAT</a> velden te modelleren zijn. Wanneer velden ontbreken
     die wel in de <a data-link-type="biblio" href="#biblio-vocab-dcat-2">DCAT</a> zijn opgenomen, zullen deze worden toegevoegd.</p>
@@ -2570,7 +2560,7 @@ De volgende velden zijn toegestaan:
    <h3 class="heading settled" data-level="2.3" id="table-refs"><span class="secno">2.3. </span><span class="content">Tabel referenties</span><a class="self-link" href="#table-refs"></a></h3>
     Tabel referenties zijn verwijzingen naar JSON bestanden waarin een <a data-link-type="dfn" href="#tabel" id="ref-for-tabel①">tabel</a> gedefinieerd wordt.
 Dit maakt het mogelijk om elke tabel in een dataset in een eigen bestand te definieeren.
-Tabel referenties zijn gebaseerd op <a href="https://json-schema.org/draft/2020-12/json-schema-core.html#ref">JSON Schema § ref</a>.
+Tabel referenties zijn gebaseerd op <a href="https://json-schema.org/draft/2020-12/json-schema-core.html#ref">JSON Schema §ref</a>.
    <p>Een <dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="tabel-referentie">tabel referentie</dfn> is een JSON object met in ieder geval de volgende attributen:</p>
    <table class="dfn-table">
     <tbody>
@@ -2899,7 +2889,7 @@ of een <code class="idl"><a data-link-type="idl" href="#dom-veld-maximum" id="re
 <pre class="include-code highlight line-numbered"><span class="line-no highlight-line" data-line="1"></span><span class="line highlight-line"><c- p>{</c-></span><span class="line-no"></span><span class="line">  <c- f>"id"</c-><c- p>:</c-> <c- u>"bekendeAmsterdammers"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"type"</c-><c- p>:</c-> <c- u>"dataset"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"title"</c-><c- p>:</c-> <c- u>"Bekende Amsterdammers"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"description"</c-><c- p>:</c-> <c- u>"Bekende historische personen die in Amsterdam hebben gewoond.\n (Een voorbeeld dataset)"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"status"</c-><c- p>:</c-> <c- u>"beschikbaar"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"tables"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no highlight-line" data-line="8"></span><span class="line highlight-line">    <c- p>{</c-></span><span class="line-no highlight-line" data-line="9"></span><span class="line highlight-line">      <c- f>"$ref"</c-><c- p>:</c-> <c- u>"personen/v2.0.1"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="10"></span><span class="line highlight-line">      <c- f>"id"</c-><c- p>:</c-> <c- u>"personen"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="11"></span><span class="line highlight-line">      <c- f>"activeVersions"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="12"></span><span class="line highlight-line">        <c- f>"1.3.0"</c-><c- p>:</c-> <c- u>"personen/v1.3.0"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="13"></span><span class="line highlight-line">        <c- f>"2.0.1"</c-><c- p>:</c-> <c- u>"personen/v2.0.1"</c-></span><span class="line-no highlight-line" data-line="14"></span><span class="line highlight-line">      <c- p>}</c-></span><span class="line-no highlight-line" data-line="15"></span><span class="line highlight-line">    <c- p>},</c-></span><span class="line-no"></span><span class="line">    <c- p>{</c-></span><span class="line-no"></span><span class="line">      <c- f>"$ref"</c-><c- p>:</c-> <c- u>"locaties/v1.0.0"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">      <c- f>"id"</c-><c- p>:</c-> <c- u>"locaties"</c-></span><span class="line-no"></span><span class="line">    <c- p>}</c-></span><span class="line-no"></span><span class="line">  <c- p>]</c-></span><span class="line-no"></span><span class="line"><c- p>}</c-></span></pre>
     </div>
    </div>
-   <p class="note" role="note"><span>Note:</span> Deze semantic versioning standaard is geinspireerd door <a data-biblio-display="inline" data-link-type="biblio" href="https://snowplowanalytics.com/blog/2014/05/13/introducing-schemaver-for-semantic-versioning-of-schemas/"><cite>SchemaVer</cite></a> wat weer is gebaseerd op <a data-biblio-display="inline" data-link-type="biblio" href="https://semver.org/"><cite>SemVer</cite></a>.</p>
+   <p class="note" role="note"><span>Note:</span> Deze semantic versioning standaard is geinspireerd door <a data-biblio-display="inline" data-link-type="biblio" href="https://snowplowanalytics.com/blog/2014/05/13/introducing-schemaver-for-semantic-versioning-of-schemas/">SchemaVer</a> wat weer is gebaseerd op <a data-biblio-display="inline" data-link-type="biblio" href="https://semver.org/">SemVer</a>.</p>
    <h2 class="heading settled" data-level="4" id="fields"><span class="secno">4. </span><span class="content">Veld</span><a class="self-link" href="#fields"></a></h2>
     Een veld beschrijft een eigenschap die een rij in de tabel mag of moet (zie <code class="idl"><a data-link-type="idl" href="#dom-schema-required" id="ref-for-dom-schema-required">required</a></code>) bezitten.
 Een <a data-link-type="dfn" href="#veld" id="ref-for-veld⑨">veld</a> is een concrete JSON Schema type definiering waaraan ook meta-informatie kan worden meegegeven.
@@ -2914,7 +2904,7 @@ Een <a data-link-type="dfn" href="#veld" id="ref-for-veld⑨">veld</a> is een co
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="veld" data-dfn-type="attribute" data-export id="dom-veld-type"><code class="highlight">type</code></dfn>
       <td> string
       <td>
-        <a href="#data-types"> Data type</a> van het veld.  Volgens <a href="https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.6.1.1">JSON Schema § rfc.section.6.1.1</a>. Zie <a href="#data-types">§ 4.3 Data types</a> voor details.
+        <a href="#data-types"> Data type</a> van het veld.  Volgens <a href="https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.6.1.1">JSON Schema §rfc.section.6.1.1</a>. Zie <a href="#data-types">§ 4.3 Data types</a> voor details.
        <details>
         <summary>Toegestane waarden</summary>
         <ul>
@@ -3052,7 +3042,7 @@ Een <a data-link-type="dfn" href="#veld" id="ref-for-veld⑨">veld</a> is een co
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="veld" data-dfn-type="attribute" data-export id="dom-veld-format"><code class="highlight">format</code></dfn>
       <td> string
       <td>
-        String formats (voor string type) Conform <a href="https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3">JSON Schema § rfc.section.7.3</a>.
+        String formats (voor string type) Conform <a href="https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3">JSON Schema §rfc.section.7.3</a>.
        <details>
         <summary>Opties</summary>
         <ul>
@@ -3136,7 +3126,7 @@ welke (SQL) data typen gebruikt zouden moeten worden om de JSON Schema typen te 
    <h4 class="heading settled" data-level="4.3.1" id="data-types-int"><span class="secno">4.3.1. </span><span class="content">integer</span><a class="self-link" href="#data-types-int"></a></h4>
     Een integer moet standaard worden geinterpreteerd als een 64bit signed integer.
     Een integer in Amsterdam Schema heeft dus een range van <code class="highlight"><c- p>[</c-><c- o>-</c-><c- p>(</c-><c- mf>2</c-><c- o>^</c-><c- mf>64</c-><c- p>)</c-><c- o>+</c-><c- mf>1</c-><c- p>,</c-> <c- p>(</c-><c- mf>2</c-><c- o>^</c-><c- mf>64</c-><c- p>)</c-><c- o>-</c-><c- mf>1</c-><c- p>]</c-></code>, maar gebruik van getallen buiten de range <code class="highlight"><c- p>[</c-><c- o>-</c-><c- p>(</c-><c- mf>2</c-><c- o>^</c-><c- mf>53</c-><c- p>)</c-><c- o>+</c-><c- mf>1</c-><c- p>,</c-> <c- p>(</c-><c- mf>2</c-><c- o>^</c-><c- mf>53</c-><c- p>)</c-><c- o>-</c-><c- mf>1</c-><c- p>]</c-></code>,
-    wordt in lijn met <a href="https://datatracker.ietf.org/doc/html/rfc7159#section-6">RFC7159 § section-6</a> afgeraden omdat dit door veelgebruikte doelsystemen (<a data-link-type="biblio" href="#biblio-ieee754">[IEEE754]</a>)
+    wordt in lijn met <a href="https://datatracker.ietf.org/doc/html/rfc7159#section-6">RFC7159 §section-6</a> afgeraden omdat dit door veelgebruikte doelsystemen (<a data-link-type="biblio" href="#biblio-ieee754">[IEEE754]</a>)
     niet wordt ondersteund. Als een <code class="idl"><a data-link-type="idl" href="#dom-veld-maximum" id="ref-for-dom-veld-maximum②">maximum</a></code> en/of <code class="idl"><a data-link-type="idl" href="#dom-veld-minimum" id="ref-for-dom-veld-minimum②">minimum</a></code> buiten de laatst genoemde range is ingesteld wordt een waarschuwing gegeven.
    <div class="example" id="example-668c3991">
     <a class="self-link" href="#example-668c3991"></a> Dit veld moet worden geinterpreteerd als een 64bit signed integer zoals een SQL "BIGINT".
@@ -3352,13 +3342,13 @@ welke (SQL) data typen gebruikt zouden moeten worden om de JSON Schema typen te 
     Een geometrie veld wordt gedefinieerd als een verwijzing naar de relevante GeoJSON Schema definitie.
     Alle GeoJSON geometrie typen (<em>Point</em>, <em>Polygon</em>, <em>Line String</em>, <em>Multi Point</em>, <em>Multi LineString</em>,
     en <em>Multi Polygon</em>) worden ondersteund.
-   <div class="example" id="example-54337012">
-    <a class="self-link" href="#example-54337012"></a> Voorbeeld van een geometrie veld.
-<pre class="include-code highlight">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
-        <c- f>"description"</c-><c- p>:</c-> <c- u>"Naam van het plein"</c->
-      <c- p>},</c->
-      <c- f>"lokatie"</c-><c- p>:</c-> <c- p>{</c->
+   <div class="example" id="example-a753d38b">
+    <a class="self-link" href="#example-a753d38b"></a> Voorbeeld van een geometrie veld.
+<pre class="include-code highlight">      <c- f>"lokatie"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"title"</c-><c- p>:</c-> <c- u>"Lokatie"</c-><c- p>,</c->
+        <c- f>"description"</c-><c- p>:</c-> <c- u>"Coordinaten van het middelpunt van het plein"</c-><c- p>,</c->
+        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://geojson.org/schema/Point.json"</c->
+      <c- p>},</c->
 </pre>
    </div>
    <p>Een tabel schema mag meerdere geometrie velden bezitten.
@@ -3370,7 +3360,7 @@ welke (SQL) data typen gebruikt zouden moeten worden om de JSON Schema typen te 
    <div class="example hide-lines" id="example-d313cbc2" onclick="this.classList.toggle(&apos;hide-lines&apos;);this.classList.toggle(&apos;unhide-lines&apos;);">
     <a class="self-link" href="#example-d313cbc2"></a> Voorbeeld van een tabel met meerdere geometrie velden. Het veld <code class="highlight"><c- u>"lokatie"</c-></code> is hier als primaire geometrie
         aangegeven in "<code class="idl"><a data-link-type="idl" href="#dom-schema-maingeometry" id="ref-for-dom-schema-maingeometry③">mainGeometry</a></code>".
-<pre class="include-code highlight line-numbered"><span class="line-no highlight-line" data-line="1"></span><span class="line highlight-line"><c- p>{</c-></span><span class="line-no highlight-line" data-line="2"></span><span class="line highlight-line">  <c- f>"id"</c-><c- p>:</c-> <c- u>"pleinen"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="3"></span><span class="line highlight-line">  <c- f>"type"</c-><c- p>:</c-> <c- u>"table"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="4"></span><span class="line highlight-line">  <c- f>"title"</c-><c- p>:</c-> <c- u>"Pleinen"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="5"></span><span class="line highlight-line">  <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="6"></span><span class="line highlight-line">  <c- f>"description"</c-><c- p>:</c-> <c- u>"Pleinen van amsterdam. (Een voorbeeld tabel met geometrie velden)"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="7"></span><span class="line highlight-line">  <c- f>"mainGeometry"</c-><c- p>:</c-> <c- u>"lokatie"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">    <c- f>"$schema"</c-><c- p>:</c-> <c- u>"http://json-schema.org/draft-07/schema#"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"type"</c-><c- p>:</c-> <c- u>"object"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"required"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no"></span><span class="line">      <c- u>"id"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">      <c- u>"schema"</c-></span><span class="line-no"></span><span class="line">    <c- p>],</c-></span><span class="line-no"></span><span class="line">    <c- f>"display"</c-><c- p>:</c-> <c- u>"id"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"properties"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">      <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"</c-></span><span class="line-no"></span><span class="line">      <c- p>},</c-></span><span class="line-no"></span><span class="line">      <c- f>"id"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Unieke aanduiding van het plein"</c-></span><span class="line-no"></span><span class="line">      <c- p>},</c-></span><span class="line-no"></span><span class="line">      <c- f>"naam"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="25"></span><span class="line highlight-line">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="26"></span><span class="line highlight-line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Naam van het plein"</c-></span><span class="line-no highlight-line" data-line="27"></span><span class="line highlight-line">      <c- p>},</c-></span><span class="line-no highlight-line" data-line="28"></span><span class="line highlight-line">      <c- f>"lokatie"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="29"></span><span class="line highlight-line">        <c- f>"title"</c-><c- p>:</c-> <c- u>"Lokatie"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="30"></span><span class="line highlight-line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Coordinaten van het middelpunt van het plein"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="31"></span><span class="line highlight-line">        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://geojson.org/schema/Point.json"</c-></span><span class="line-no highlight-line" data-line="32"></span><span class="line highlight-line">      <c- p>},</c-></span><span class="line-no highlight-line" data-line="33"></span><span class="line highlight-line">      <c- f>"contour"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="34"></span><span class="line highlight-line">        <c- f>"title"</c-><c- p>:</c-> <c- u>"Contour"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Polygoon van de contour van het plein."</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://geojson.org/schema/Polygon.json"</c-></span><span class="line-no"></span><span class="line">      <c- p>}</c-></span><span class="line-no"></span><span class="line">    <c- p>}</c-></span><span class="line-no"></span><span class="line">  <c- p>}</c-></span><span class="line-no"></span><span class="line"><c- p>}</c-></span></pre>
+<pre class="include-code highlight line-numbered"><span class="line-no highlight-line" data-line="1"></span><span class="line highlight-line"><c- p>{</c-></span><span class="line-no highlight-line" data-line="2"></span><span class="line highlight-line">  <c- f>"id"</c-><c- p>:</c-> <c- u>"pleinen"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="3"></span><span class="line highlight-line">  <c- f>"type"</c-><c- p>:</c-> <c- u>"table"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="4"></span><span class="line highlight-line">  <c- f>"title"</c-><c- p>:</c-> <c- u>"Pleinen"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="5"></span><span class="line highlight-line">  <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="6"></span><span class="line highlight-line">  <c- f>"description"</c-><c- p>:</c-> <c- u>"Pleinen van amsterdam. (Een voorbeeld tabel met geometrie velden)"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="7"></span><span class="line highlight-line">  <c- f>"mainGeometry"</c-><c- p>:</c-> <c- u>"lokatie"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">    <c- f>"$schema"</c-><c- p>:</c-> <c- u>"http://json-schema.org/draft-07/schema#"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"type"</c-><c- p>:</c-> <c- u>"object"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"required"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no"></span><span class="line">      <c- u>"id"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">      <c- u>"schema"</c-></span><span class="line-no"></span><span class="line">    <c- p>],</c-></span><span class="line-no"></span><span class="line">    <c- f>"display"</c-><c- p>:</c-> <c- u>"id"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"properties"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">      <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"</c-></span><span class="line-no"></span><span class="line">      <c- p>},</c-></span><span class="line-no"></span><span class="line">      <c- f>"id"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Unieke aanduiding van het plein"</c-></span><span class="line-no"></span><span class="line">      <c- p>},</c-></span><span class="line-no"></span><span class="line">      <c- f>"naam"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Naam van het plein"</c-></span><span class="line-no"></span><span class="line">      <c- p>},</c-></span><span class="line-no highlight-line" data-line="28"></span><span class="line highlight-line">      <c- f>"lokatie"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="29"></span><span class="line highlight-line">        <c- f>"title"</c-><c- p>:</c-> <c- u>"Lokatie"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="30"></span><span class="line highlight-line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Coordinaten van het middelpunt van het plein"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="31"></span><span class="line highlight-line">        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://geojson.org/schema/Point.json"</c-></span><span class="line-no highlight-line" data-line="32"></span><span class="line highlight-line">      <c- p>},</c-></span><span class="line-no highlight-line" data-line="33"></span><span class="line highlight-line">      <c- f>"contour"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="34"></span><span class="line highlight-line">        <c- f>"title"</c-><c- p>:</c-> <c- u>"Contour"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="35"></span><span class="line highlight-line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Polygoon van de contour van het plein."</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="36"></span><span class="line highlight-line">        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://geojson.org/schema/Polygon.json"</c-></span><span class="line-no highlight-line" data-line="37"></span><span class="line highlight-line">      <c- p>}</c-></span><span class="line-no"></span><span class="line">    <c- p>}</c-></span><span class="line-no"></span><span class="line">  <c- p>}</c-></span><span class="line-no"></span><span class="line"><c- p>}</c-></span></pre>
    </div>
    <p>Op dataset niveau kan het toegepaste coordinaat referentie systeem worden meegegeven in het <code class="idl"><a data-link-type="idl" href="#dom-dataset-crs" id="ref-for-dom-dataset-crs">crs</a></code> attribuut.</p>
    <h4 class="heading settled" data-level="4.3.7" id="data-types-object"><span class="secno">4.3.7. </span><span class="content">object</span><a class="self-link" href="#data-types-object"></a></h4>
@@ -3555,7 +3545,7 @@ en twee string <code class="highlight">properties</code> bevatten.</p>
    <p>Het is mogelijk om bij een veld de eenheid mee te geven in het <code class="idl"><a data-link-type="idl" href="#dom-veld-unit" id="ref-for-dom-veld-unit①">unit</a></code> attribuut als meta-informatie voor user interfaces.
 Dit is slechts bedoeld ter informatie van de eindgebruiker,
 er worden dus geen automatische bewerkingen (zoals bijvoorbeeld eenheid conversies) uitgevoerd op basis van dit veld.</p>
-   <p>Voor het definieren van een eenheid wordt standaard een string met de eenheid volgens de <a data-biblio-display="inline" data-link-type="biblio" href="https://unitsofmeasure.org/ucum.html"><cite>The Unified Code for Units of Measure</cite></a> codering gebruikt.</p>
+   <p>Voor het definieren van een eenheid wordt standaard een string met de eenheid volgens de <a data-biblio-display="inline" data-link-type="biblio" href="https://unitsofmeasure.org/ucum.html">The Unified Code for Units of Measure</a> codering gebruikt.</p>
 <pre class="example highlight" id="example-989e57f4"><a class="self-link" href="#example-989e57f4"></a><c- f>"unit"</c-><c- p>:</c-> <c- u>"mm/h"</c->
 </pre>
    <p class="note" role="note"><span>Note:</span> Zie <a href="https://ucum.org/trac/wiki/adoption/common">deze link</a> voor een overzicht van veelgebruikte eenheden in UCUM formaat.</p>
@@ -3597,7 +3587,7 @@ aan een strak stramien voldoet.
     <li><dfn data-dfn-type="dfn" data-export data-lt="unique" id="unique">4.<a class="self-link" href="#unique"></a></dfn> uniek zijn binnen hun scope. (respectievelijk: De hele catalogus, de dataset of de tabel)
    </ul>
     De namen van <a data-link-type="dfn" href="#tabel" id="ref-for-tabel①⓪">tabellen</a> (zoals gegeven in <code class="idl"><a data-link-type="idl" href="#dom-tabel-id" id="ref-for-dom-tabel-id②">id</a></code>) en <a data-link-type="dfn" href="#veld" id="ref-for-veld②④">velden</a> worden onderdeel van de URI waarop deze entiteiten ontsloten worden, en moeten daarom aan extra eisen voldoen.
-   <p><dfn data-dfn-type="dfn" data-export data-lt="plural" id="plural">5.<a class="self-link" href="#plural"></a></dfn> Namen van tabellen <strong>moeten</strong> in meervoudsvorm zijn, behalve als sprake is van een enkelvoudige entiteit. Conform <a href="https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-54">REST-API Design Rules § api-54</a>.</p>
+   <p><dfn data-dfn-type="dfn" data-export data-lt="plural" id="plural">5.<a class="self-link" href="#plural"></a></dfn> Namen van tabellen <strong>moeten</strong> in meervoudsvorm zijn, behalve als sprake is van een enkelvoudige entiteit. Conform <a href="https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-54">REST-API Design Rules §api-54</a>.</p>
    <p><dfn data-dfn-type="dfn" data-export data-lt="noRepeat" id="norepeat">6.<a class="self-link" href="#norepeat"></a></dfn> Namen van velden <strong>moeten</strong> geen herhaling van de tabel naam bevatten. (dus <strong>niet</strong> <code class="highlight">container<c- p>.</c->containerNummmer</code>, maar <code class="highlight">container<c- p>.</c->nummer</code>)</p>
    <p class="note" role="note"><span>Note:</span> Gebruik duidelijke en begrijpelijke namen voor zowel datasets, tabellen als velden. De data wordt onsloten op een publieke API,
     dus de naamgeving moet zonder veel uitleg duidelijk zijn voor externe afnemers.</p>
@@ -3729,20 +3719,20 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export id="typedefdef-date-time"><code class="highlight">date<c- o>-</c->time</code></dfn>
       <td> (string)
-      <td> Een als datetime geformatteerde string. Conform <a href="https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1">JSON Schema § rfc.section.7.3.1</a>.
+      <td> Een als datetime geformatteerde string. Conform <a href="https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1">JSON Schema §rfc.section.7.3.1</a>.
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export data-lt="uri|uri-type" id="typedefdef-uri"><code class="highlight">uri</code></dfn>
       <td> (string)
-      <td> Een als URI geformatteerde string. Conform <a href="https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.5">JSON Schema § rfc.section.7.3.5</a>.
+      <td> Een als URI geformatteerde string. Conform <a href="https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.5">JSON Schema §rfc.section.7.3.5</a>.
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export id="typedefdef-uri-reference"><code class="highlight">uri<c- o>-</c->reference</code></dfn>
       <td> (string)
-      <td> Een als URI Reference geformatteerde string. Conform <a href="https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.5">JSON Schema § rfc.section.7.3.5</a>.
+      <td> Een als URI Reference geformatteerde string. Conform <a href="https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.5">JSON Schema §rfc.section.7.3.5</a>.
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export data-lt="type|schema-type" id="typedefdef-type"><code class="highlight">schema<c- o>-</c->type</code></dfn>
       <td> (enum-string)
       <td>
-        Het binnen Amsterdam-Schema bekende <a data-biblio-display="inline" data-link-type="biblio" href="https://json-schema.org/draft/2020-12/json-schema-core.html"><cite>JSON Schema</cite></a> type waaraan het object voldoet.
+        Het binnen Amsterdam-Schema bekende <a data-biblio-display="inline" data-link-type="biblio" href="https://json-schema.org/draft/2020-12/json-schema-core.html">JSON Schema</a> type waaraan het object voldoet.
        <details>
         <summary>Opties</summary>
         <ul>
@@ -3787,228 +3777,228 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#dom-dataset-accrualperiodicity">accrualPeriodicity</a><span>, in § 2.2.1</span>
-   <li><a href="#dom-table-ref-activeversions">activeVersions</a><span>, in § 2.3</span>
-   <li><a href="#dom-schema-additionalproperties">additionalProperties</a><span>, in § 3.3</span>
+   <li><a href="#dom-dataset-accrualperiodicity">accrualPeriodicity</a><span>, in §2.2.1</span>
+   <li><a href="#dom-table-ref-activeversions">activeVersions</a><span>, in §2.3</span>
+   <li><a href="#dom-schema-additionalproperties">additionalProperties</a><span>, in §3.3</span>
    <li>
     auth
     <ul>
-     <li><a href="#dom-dataset-auth">attribute for dataset</a><span>, in § 2.2</span>
-     <li><a href="#dom-tabel-auth">attribute for tabel</a><span>, in § 3.2</span>
-     <li><a href="#dom-veld-auth">attribute for veld</a><span>, in § 4.2</span>
-     <li><a href="#auth">definition of</a><span>, in § 6.2</span>
+     <li><a href="#dom-dataset-auth">attribute for dataset</a><span>, in §2.2</span>
+     <li><a href="#dom-tabel-auth">attribute for tabel</a><span>, in §3.2</span>
+     <li><a href="#dom-veld-auth">attribute for veld</a><span>, in §4.2</span>
+     <li><a href="#auth">definition of</a><span>, in §6.2</span>
     </ul>
-   <li><a href="#dom-dataset-authorizationgrantor">authorizationGrantor</a><span>, in § 2.2.1</span>
-   <li><a href="#camelcase">camelCase</a><span>, in § 5</span>
-   <li><a href="#dom-veld-comment">$comment</a><span>, in § 4.2</span>
-   <li><a href="#typedefdef-contact">contact</a><span>, in § 7</span>
+   <li><a href="#dom-dataset-authorizationgrantor">authorizationGrantor</a><span>, in §2.2.1</span>
+   <li><a href="#camelcase">camelCase</a><span>, in §5</span>
+   <li><a href="#dom-veld-comment">$comment</a><span>, in §4.2</span>
+   <li><a href="#typedefdef-contact">contact</a><span>, in §7</span>
    <li>
     contactPoint
     <ul>
-     <li><a href="#typedefdef-contact">(typedef)</a><span>, in § 7</span>
-     <li><a href="#dom-dataset-contactpoint">attribute for dataset</a><span>, in § 2.2.1</span>
+     <li><a href="#typedefdef-contact">(typedef)</a><span>, in §7</span>
+     <li><a href="#dom-dataset-contactpoint">attribute for dataset</a><span>, in §2.2.1</span>
     </ul>
-   <li><a href="#dom-veld-contentencoding">contentEncoding</a><span>, in § 4.2</span>
-   <li><a href="#dom-dataset-crs">crs</a><span>, in § 2.2.1</span>
-   <li><a href="#dataset">dataset</a><span>, in § 2.1</span>
+   <li><a href="#dom-veld-contentencoding">contentEncoding</a><span>, in §4.2</span>
+   <li><a href="#dom-dataset-crs">crs</a><span>, in §2.2.1</span>
+   <li><a href="#dataset">dataset</a><span>, in §2.1</span>
    <li>
     dateCreated
     <ul>
-     <li><a href="#dom-dataset-datecreated">attribute for dataset</a><span>, in § 2.2.1</span>
-     <li><a href="#dom-tabel-datecreated">attribute for tabel</a><span>, in § 3.2</span>
+     <li><a href="#dom-dataset-datecreated">attribute for dataset</a><span>, in §2.2.1</span>
+     <li><a href="#dom-tabel-datecreated">attribute for tabel</a><span>, in §3.2</span>
     </ul>
    <li>
     dateModified
     <ul>
-     <li><a href="#dom-dataset-datemodified">attribute for dataset</a><span>, in § 2.2.1</span>
-     <li><a href="#dom-tabel-datemodified">attribute for tabel</a><span>, in § 3.2</span>
+     <li><a href="#dom-dataset-datemodified">attribute for dataset</a><span>, in §2.2.1</span>
+     <li><a href="#dom-tabel-datemodified">attribute for tabel</a><span>, in §3.2</span>
     </ul>
-   <li><a href="#typedefdef-date-time">date-time</a><span>, in § 7</span>
+   <li><a href="#typedefdef-date-time">date-time</a><span>, in §7</span>
    <li>
     description
     <ul>
-     <li><a href="#dom-dataset-description">attribute for dataset</a><span>, in § 2.2</span>
-     <li><a href="#dom-tabel-description">attribute for tabel</a><span>, in § 3.2</span>
-     <li><a href="#dom-veld-description">attribute for veld</a><span>, in § 4.2</span>
+     <li><a href="#dom-dataset-description">attribute for dataset</a><span>, in §2.2</span>
+     <li><a href="#dom-tabel-description">attribute for tabel</a><span>, in §3.2</span>
+     <li><a href="#dom-veld-description">attribute for veld</a><span>, in §4.2</span>
     </ul>
-   <li><a href="#dom-temporal-dimensionsgeldigop">dimensions.geldigOp</a><span>, in § 3.4</span>
-   <li><a href="#dom-schema-display">display</a><span>, in § 3.3</span>
-   <li><a href="#dom-contact-email">email</a><span>, in § 7</span>
-   <li><a href="#dom-veld-enum">enum</a><span>, in § 4.2</span>
-   <li><a href="#dom-veld-exclusivemaximum">exclusiveMaximum</a><span>, in § 4.2</span>
-   <li><a href="#dom-veld-format">format</a><span>, in § 4.2</span>
-   <li><a href="#dom-dataset-hasbeginning">hasBeginning</a><span>, in § 2.2.1</span>
-   <li><a href="#dom-dataset-hasend">hasEnd</a><span>, in § 2.2.1</span>
-   <li><a href="#dom-dataset-homepage">homepage</a><span>, in § 2.2</span>
-   <li><a href="#dom-schema-id">$id</a><span>, in § 3.3</span>
+   <li><a href="#dom-temporal-dimensionsgeldigop">dimensions.geldigOp</a><span>, in §3.4</span>
+   <li><a href="#dom-schema-display">display</a><span>, in §3.3</span>
+   <li><a href="#dom-contact-email">email</a><span>, in §7</span>
+   <li><a href="#dom-veld-enum">enum</a><span>, in §4.2</span>
+   <li><a href="#dom-veld-exclusivemaximum">exclusiveMaximum</a><span>, in §4.2</span>
+   <li><a href="#dom-veld-format">format</a><span>, in §4.2</span>
+   <li><a href="#dom-dataset-hasbeginning">hasBeginning</a><span>, in §2.2.1</span>
+   <li><a href="#dom-dataset-hasend">hasEnd</a><span>, in §2.2.1</span>
+   <li><a href="#dom-dataset-homepage">homepage</a><span>, in §2.2</span>
+   <li><a href="#dom-schema-id">$id</a><span>, in §3.3</span>
    <li>
     id
     <ul>
-     <li><a href="#typedefdef-id">(typedef)</a><span>, in § 7</span>
-     <li><a href="#dom-dataset-id">attribute for dataset</a><span>, in § 2.1</span>
-     <li><a href="#dom-tabel-id">attribute for tabel</a><span>, in § 3.1</span>
-     <li><a href="#dom-table-ref-id">attribute for table-ref</a><span>, in § 2.3</span>
+     <li><a href="#typedefdef-id">(typedef)</a><span>, in §7</span>
+     <li><a href="#dom-dataset-id">attribute for dataset</a><span>, in §2.1</span>
+     <li><a href="#dom-tabel-id">attribute for tabel</a><span>, in §3.1</span>
+     <li><a href="#dom-table-ref-id">attribute for table-ref</a><span>, in §2.3</span>
     </ul>
    <li>
     identifier
     <ul>
-     <li><a href="#dom-schema-identifier">attribute for schema</a><span>, in § 3.3</span>
-     <li><a href="#dom-temporal-identifier">attribute for temporal</a><span>, in § 3.4</span>
+     <li><a href="#dom-schema-identifier">attribute for schema</a><span>, in §3.3</span>
+     <li><a href="#dom-temporal-identifier">attribute for temporal</a><span>, in §3.4</span>
     </ul>
-   <li><a href="#typedefdef-id">id-type</a><span>, in § 7</span>
-   <li><a href="#dom-veld-items">items</a><span>, in § 4.2</span>
-   <li><a href="#dom-dataset-keywords">keywords</a><span>, in § 2.2.1</span>
-   <li><a href="#dom-dataset-language">language</a><span>, in § 2.2.1</span>
-   <li><a href="#dom-dataset-legalbasis">legalBasis</a><span>, in § 2.2.1</span>
+   <li><a href="#typedefdef-id">id-type</a><span>, in §7</span>
+   <li><a href="#dom-veld-items">items</a><span>, in §4.2</span>
+   <li><a href="#dom-dataset-keywords">keywords</a><span>, in §2.2.1</span>
+   <li><a href="#dom-dataset-language">language</a><span>, in §2.2.1</span>
+   <li><a href="#dom-dataset-legalbasis">legalBasis</a><span>, in §2.2.1</span>
    <li>
     license
     <ul>
-     <li><a href="#dom-dataset-license">attribute for dataset</a><span>, in § 2.2.1</span>
-     <li><a href="#dom-tabel-license">attribute for tabel</a><span>, in § 3.2</span>
+     <li><a href="#dom-dataset-license">attribute for dataset</a><span>, in §2.2.1</span>
+     <li><a href="#dom-tabel-license">attribute for tabel</a><span>, in §3.2</span>
     </ul>
-   <li><a href="#dom-schema-maingeometry">mainGeometry</a><span>, in § 3.3</span>
-   <li><a href="#dom-veld-maximum">maximum</a><span>, in § 4.2</span>
-   <li><a href="#dom-veld-maxlength">maxLength</a><span>, in § 4.2</span>
-   <li><a href="#dom-veld-minimum">minimum</a><span>, in § 4.2</span>
-   <li><a href="#dom-veld-minlength">minLength</a><span>, in § 4.2</span>
-   <li><a href="#dom-veld-multipleof">multipleOf</a><span>, in § 4.2</span>
-   <li><a href="#dom-contact-name">name</a><span>, in § 7</span>
-   <li><a href="#noabrev">noAbrev</a><span>, in § 5</span>
-   <li><a href="#norepeat">noRepeat</a><span>, in § 5</span>
-   <li><a href="#nouns">nouns</a><span>, in § 5</span>
-   <li><a href="#dom-dataset-objective">objective</a><span>, in § 2.2.1</span>
-   <li><a href="#dom-dataset-owner">owner</a><span>, in § 2.2.1</span>
-   <li><a href="#plural">plural</a><span>, in § 5</span>
+   <li><a href="#dom-schema-maingeometry">mainGeometry</a><span>, in §3.3</span>
+   <li><a href="#dom-veld-maximum">maximum</a><span>, in §4.2</span>
+   <li><a href="#dom-veld-maxlength">maxLength</a><span>, in §4.2</span>
+   <li><a href="#dom-veld-minimum">minimum</a><span>, in §4.2</span>
+   <li><a href="#dom-veld-minlength">minLength</a><span>, in §4.2</span>
+   <li><a href="#dom-veld-multipleof">multipleOf</a><span>, in §4.2</span>
+   <li><a href="#dom-contact-name">name</a><span>, in §7</span>
+   <li><a href="#noabrev">noAbrev</a><span>, in §5</span>
+   <li><a href="#norepeat">noRepeat</a><span>, in §5</span>
+   <li><a href="#nouns">nouns</a><span>, in §5</span>
+   <li><a href="#dom-dataset-objective">objective</a><span>, in §2.2.1</span>
+   <li><a href="#dom-dataset-owner">owner</a><span>, in §2.2.1</span>
+   <li><a href="#plural">plural</a><span>, in §5</span>
    <li>
     properties
     <ul>
-     <li><a href="#dom-schema-properties">attribute for schema</a><span>, in § 3.3</span>
-     <li><a href="#dom-veld-properties">attribute for veld</a><span>, in § 4.2</span>
+     <li><a href="#dom-schema-properties">attribute for schema</a><span>, in §3.3</span>
+     <li><a href="#dom-veld-properties">attribute for veld</a><span>, in §4.2</span>
     </ul>
-   <li><a href="#dom-schema-propertiesschema">properties.schema</a><span>, in § 3.3</span>
+   <li><a href="#dom-schema-propertiesschema">properties.schema</a><span>, in §3.3</span>
    <li>
     provenance
     <ul>
-     <li><a href="#dom-dataset-provenance">attribute for dataset</a><span>, in § 2.2</span>
-     <li><a href="#dom-tabel-provenance">attribute for tabel</a><span>, in § 3.2</span>
-     <li><a href="#dom-veld-provenance">attribute for veld</a><span>, in § 4.2</span>
+     <li><a href="#dom-dataset-provenance">attribute for dataset</a><span>, in §2.2</span>
+     <li><a href="#dom-tabel-provenance">attribute for tabel</a><span>, in §3.2</span>
+     <li><a href="#dom-veld-provenance">attribute for veld</a><span>, in §4.2</span>
     </ul>
-   <li><a href="#dom-dataset-publisher">publisher</a><span>, in § 2.2.1</span>
+   <li><a href="#dom-dataset-publisher">publisher</a><span>, in §2.2.1</span>
    <li>
     ref
     <ul>
-     <li><a href="#dom-table-ref-ref">attribute for table-ref</a><span>, in § 2.3</span>
-     <li><a href="#dom-veld-ref">attribute for veld</a><span>, in § 4.1</span>
+     <li><a href="#dom-table-ref-ref">attribute for table-ref</a><span>, in §2.3</span>
+     <li><a href="#dom-veld-ref">attribute for veld</a><span>, in §4.1</span>
     </ul>
-   <li><a href="#dom-veld-relation">relation</a><span>, in § 4.2</span>
-   <li><a href="#dom-schema-required">required</a><span>, in § 3.3</span>
-   <li><a href="#dom-schema-schema">$schema</a><span>, in § 3.3</span>
+   <li><a href="#dom-veld-relation">relation</a><span>, in §4.2</span>
+   <li><a href="#dom-schema-required">required</a><span>, in §3.3</span>
+   <li><a href="#dom-schema-schema">$schema</a><span>, in §3.3</span>
    <li>
     schema
     <ul>
-     <li><a href="#dom-tabel-schema">attribute for tabel</a><span>, in § 3.1</span>
-     <li><a href="#schema">definition of</a><span>, in § 3.3</span>
+     <li><a href="#dom-tabel-schema">attribute for tabel</a><span>, in §3.1</span>
+     <li><a href="#schema">definition of</a><span>, in §3.3</span>
     </ul>
-   <li><a href="#schema">schema-object</a><span>, in § 3.3</span>
-   <li><a href="#typedefdef-type">schema-type</a><span>, in § 7</span>
-   <li><a href="#scope">scope</a><span>, in § 6.2</span>
+   <li><a href="#schema">schema-object</a><span>, in §3.3</span>
+   <li><a href="#typedefdef-type">schema-type</a><span>, in §7</span>
+   <li><a href="#scope">scope</a><span>, in §6.2</span>
    <li>
     shortname
     <ul>
-     <li><a href="#dom-tabel-shortname">attribute for tabel</a><span>, in § 3.2</span>
-     <li><a href="#dom-veld-shortname">attribute for veld</a><span>, in § 4.2</span>
+     <li><a href="#dom-tabel-shortname">attribute for tabel</a><span>, in §3.2</span>
+     <li><a href="#dom-veld-shortname">attribute for veld</a><span>, in §4.2</span>
     </ul>
-   <li><a href="#dom-dataset-spatial">spatial</a><span>, in § 2.2.1</span>
-   <li><a href="#dom-dataset-spatialcoordinates">spatialCoordinates</a><span>, in § 2.2.1</span>
-   <li><a href="#dom-dataset-spatialdescription">spatialDescription</a><span>, in § 2.2.1</span>
-   <li><a href="#dom-dataset-status">status</a><span>, in § 2.1</span>
-   <li><a href="#tabel">tabel</a><span>, in § 3.1</span>
-   <li><a href="#tabel-referentie">tabel referentie</a><span>, in § 2.3</span>
-   <li><a href="#dom-dataset-tables">tables</a><span>, in § 2.1</span>
+   <li><a href="#dom-dataset-spatial">spatial</a><span>, in §2.2.1</span>
+   <li><a href="#dom-dataset-spatialcoordinates">spatialCoordinates</a><span>, in §2.2.1</span>
+   <li><a href="#dom-dataset-spatialdescription">spatialDescription</a><span>, in §2.2.1</span>
+   <li><a href="#dom-dataset-status">status</a><span>, in §2.1</span>
+   <li><a href="#tabel">tabel</a><span>, in §3.1</span>
+   <li><a href="#tabel-referentie">tabel referentie</a><span>, in §2.3</span>
+   <li><a href="#dom-dataset-tables">tables</a><span>, in §2.1</span>
    <li>
     temporal
     <ul>
-     <li><a href="#dom-tabel-temporal">attribute for tabel</a><span>, in § 3.2</span>
-     <li><a href="#temporal-object">definition of</a><span>, in § 3.4</span>
+     <li><a href="#dom-tabel-temporal">attribute for tabel</a><span>, in §3.2</span>
+     <li><a href="#temporal-object">definition of</a><span>, in §3.4</span>
     </ul>
-   <li><a href="#temporal-object">temporal-object</a><span>, in § 3.4</span>
-   <li><a href="#dom-dataset-temporalunit">temporalUnit</a><span>, in § 2.2.1</span>
-   <li><a href="#dom-dataset-theme">theme</a><span>, in § 2.2.1</span>
+   <li><a href="#temporal-object">temporal-object</a><span>, in §3.4</span>
+   <li><a href="#dom-dataset-temporalunit">temporalUnit</a><span>, in §2.2.1</span>
+   <li><a href="#dom-dataset-theme">theme</a><span>, in §2.2.1</span>
    <li>
     title
     <ul>
-     <li><a href="#dom-dataset-title">attribute for dataset</a><span>, in § 2.2</span>
-     <li><a href="#dom-tabel-title">attribute for tabel</a><span>, in § 3.2</span>
-     <li><a href="#dom-veld-title">attribute for veld</a><span>, in § 4.2</span>
+     <li><a href="#dom-dataset-title">attribute for dataset</a><span>, in §2.2</span>
+     <li><a href="#dom-tabel-title">attribute for tabel</a><span>, in §3.2</span>
+     <li><a href="#dom-veld-title">attribute for veld</a><span>, in §4.2</span>
     </ul>
    <li>
     type
     <ul>
-     <li><a href="#typedefdef-type">(typedef)</a><span>, in § 7</span>
-     <li><a href="#dom-dataset-type">attribute for dataset</a><span>, in § 2.1</span>
-     <li><a href="#dom-schema-type">attribute for schema</a><span>, in § 3.3</span>
-     <li><a href="#dom-tabel-type">attribute for tabel</a><span>, in § 3.1</span>
-     <li><a href="#dom-unit-type">attribute for unit</a><span>, in § 4.5</span>
-     <li><a href="#dom-veld-type">attribute for veld</a><span>, in § 4.1</span>
+     <li><a href="#typedefdef-type">(typedef)</a><span>, in §7</span>
+     <li><a href="#dom-dataset-type">attribute for dataset</a><span>, in §2.1</span>
+     <li><a href="#dom-schema-type">attribute for schema</a><span>, in §3.3</span>
+     <li><a href="#dom-tabel-type">attribute for tabel</a><span>, in §3.1</span>
+     <li><a href="#dom-unit-type">attribute for unit</a><span>, in §4.5</span>
+     <li><a href="#dom-veld-type">attribute for veld</a><span>, in §4.1</span>
     </ul>
-   <li><a href="#unique">unique</a><span>, in § 5</span>
-   <li><a href="#dom-veld-unit">unit</a><span>, in § 4.2</span>
+   <li><a href="#unique">unique</a><span>, in §5</span>
+   <li><a href="#dom-veld-unit">unit</a><span>, in §4.2</span>
    <li>
     uri
     <ul>
-     <li><a href="#typedefdef-uri">(typedef)</a><span>, in § 7</span>
-     <li><a href="#dom-veld-uri">attribute for veld</a><span>, in § 4.2</span>
+     <li><a href="#typedefdef-uri">(typedef)</a><span>, in §7</span>
+     <li><a href="#dom-veld-uri">attribute for veld</a><span>, in §4.2</span>
     </ul>
-   <li><a href="#typedefdef-uri-reference">uri-reference</a><span>, in § 7</span>
-   <li><a href="#typedefdef-uri">uri-type</a><span>, in § 7</span>
-   <li><a href="#dom-unit-value">value</a><span>, in § 4.5</span>
-   <li><a href="#veld">veld</a><span>, in § 4.1</span>
+   <li><a href="#typedefdef-uri-reference">uri-reference</a><span>, in §7</span>
+   <li><a href="#typedefdef-uri">uri-type</a><span>, in §7</span>
+   <li><a href="#dom-unit-value">value</a><span>, in §4.5</span>
+   <li><a href="#veld">veld</a><span>, in §4.1</span>
    <li>
     version
     <ul>
-     <li><a href="#typedefdef-version">(typedef)</a><span>, in § 7</span>
-     <li><a href="#dom-dataset-version">attribute for dataset</a><span>, in § 2.2</span>
-     <li><a href="#dom-tabel-version">attribute for tabel</a><span>, in § 3.1</span>
+     <li><a href="#typedefdef-version">(typedef)</a><span>, in §7</span>
+     <li><a href="#dom-dataset-version">attribute for dataset</a><span>, in §2.2</span>
+     <li><a href="#dom-tabel-version">attribute for tabel</a><span>, in §3.1</span>
     </ul>
-   <li><a href="#typedefdef-version">version-string</a><span>, in § 7</span>
+   <li><a href="#typedefdef-version">version-string</a><span>, in §7</span>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
    <dt id="biblio-json-schema">[JSON-SCHEMA]
-   <dd><a href="https://json-schema.org/draft/2020-12/json-schema-core.html"><cite>JSON Schema</cite></a>. URL: <a href="https://json-schema.org/draft/2020-12/json-schema-core.html">https://json-schema.org/draft/2020-12/json-schema-core.html</a>
+   <dd><a href="https://json-schema.org/draft/2020-12/json-schema-core.html">JSON Schema</a>. URL: <a href="https://json-schema.org/draft/2020-12/json-schema-core.html">https://json-schema.org/draft/2020-12/json-schema-core.html</a>
    <dt id="biblio-json-schema-validation">[JSON-SCHEMA-VALIDATION]
-   <dd><a href="https://json-schema.org/draft/2020-12/json-schema-validation.html"><cite>JSON Schema</cite></a>. URL: <a href="https://json-schema.org/draft/2020-12/json-schema-validation.html">https://json-schema.org/draft/2020-12/json-schema-validation.html</a>
+   <dd><a href="https://json-schema.org/draft/2020-12/json-schema-validation.html">JSON Schema</a>. URL: <a href="https://json-schema.org/draft/2020-12/json-schema-validation.html">https://json-schema.org/draft/2020-12/json-schema-validation.html</a>
    <dt id="biblio-ucum">[UCUM]
-   <dd><a href="https://unitsofmeasure.org/ucum.html"><cite>The Unified Code for Units of Measure</cite></a>. URL: <a href="https://unitsofmeasure.org/ucum.html">https://unitsofmeasure.org/ucum.html</a>
+   <dd><a href="https://unitsofmeasure.org/ucum.html">The Unified Code for Units of Measure</a>. URL: <a href="https://unitsofmeasure.org/ucum.html">https://unitsofmeasure.org/ucum.html</a>
   </dl>
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
    <dt id="biblio-ieee754">[IEEE754]
-   <dd><a href="https://datatracker.ietf.org/doc/html/rfc7159#ref-IEEE754"><cite>IEEE754</cite></a>. URL: <a href="https://datatracker.ietf.org/doc/html/rfc7159#ref-IEEE754">https://datatracker.ietf.org/doc/html/rfc7159#ref-IEEE754</a>
+   <dd><a href="https://datatracker.ietf.org/doc/html/rfc7159#ref-IEEE754">IEEE754</a>. URL: <a href="https://datatracker.ietf.org/doc/html/rfc7159#ref-IEEE754">https://datatracker.ietf.org/doc/html/rfc7159#ref-IEEE754</a>
    <dt id="biblio-iso8601">[ISO8601]
-   <dd><a href="https://www.iso.org/iso-8601-date-and-time-format.html"><cite>ISO8601</cite></a>. URL: <a href="https://www.iso.org/iso-8601-date-and-time-format.html">https://www.iso.org/iso-8601-date-and-time-format.html</a>
+   <dd><a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO8601</a>. URL: <a href="https://www.iso.org/iso-8601-date-and-time-format.html">https://www.iso.org/iso-8601-date-and-time-format.html</a>
    <dt id="biblio-json-schema-string">[JSON-SCHEMA-STRING]
-   <dd><a href="https://json-schema.org/understanding-json-schema/reference/string.html"><cite>JSON Schema string</cite></a>. URL: <a href="https://json-schema.org/understanding-json-schema/reference/string.html">https://json-schema.org/understanding-json-schema/reference/string.html</a>
+   <dd><a href="https://json-schema.org/understanding-json-schema/reference/string.html">JSON Schema string</a>. URL: <a href="https://json-schema.org/understanding-json-schema/reference/string.html">https://json-schema.org/understanding-json-schema/reference/string.html</a>
    <dt id="biblio-rest-api-design-rules">[REST-API-DESIGN-RULES]
-   <dd><a href="https://publicatie.centrumvoorstandaarden.nl/api/adr/"><cite>REST-API Design Rules</cite></a>. URL: <a href="https://publicatie.centrumvoorstandaarden.nl/api/adr/">https://publicatie.centrumvoorstandaarden.nl/api/adr/</a>
+   <dd><a href="https://publicatie.centrumvoorstandaarden.nl/api/adr/">REST-API Design Rules</a>. URL: <a href="https://publicatie.centrumvoorstandaarden.nl/api/adr/">https://publicatie.centrumvoorstandaarden.nl/api/adr/</a>
    <dt id="biblio-rfc7159">[RFC7159]
-   <dd><a href="https://datatracker.ietf.org/doc/html/rfc7159"><cite>RFC7159</cite></a>. URL: <a href="https://datatracker.ietf.org/doc/html/rfc7159">https://datatracker.ietf.org/doc/html/rfc7159</a>
+   <dd><a href="https://datatracker.ietf.org/doc/html/rfc7159">RFC7159</a>. URL: <a href="https://datatracker.ietf.org/doc/html/rfc7159">https://datatracker.ietf.org/doc/html/rfc7159</a>
    <dt id="biblio-schemver">[SCHEMVER]
-   <dd><a href="https://snowplowanalytics.com/blog/2014/05/13/introducing-schemaver-for-semantic-versioning-of-schemas/"><cite>SchemaVer</cite></a>. URL: <a href="https://snowplowanalytics.com/blog/2014/05/13/introducing-schemaver-for-semantic-versioning-of-schemas/">https://snowplowanalytics.com/blog/2014/05/13/introducing-schemaver-for-semantic-versioning-of-schemas/</a>
+   <dd><a href="https://snowplowanalytics.com/blog/2014/05/13/introducing-schemaver-for-semantic-versioning-of-schemas/">SchemaVer</a>. URL: <a href="https://snowplowanalytics.com/blog/2014/05/13/introducing-schemaver-for-semantic-versioning-of-schemas/">https://snowplowanalytics.com/blog/2014/05/13/introducing-schemaver-for-semantic-versioning-of-schemas/</a>
    <dt id="biblio-sdw-bp">[SDW-BP]
-   <dd><a href="https://www.w3.org/TR/sdw-bp/"><cite>SDOW best practices</cite></a>. URL: <a href="https://www.w3.org/TR/sdw-bp/">https://www.w3.org/TR/sdw-bp/</a>
+   <dd><a href="https://www.w3.org/TR/sdw-bp/">SDOW best practices</a>. URL: <a href="https://www.w3.org/TR/sdw-bp/">https://www.w3.org/TR/sdw-bp/</a>
    <dt id="biblio-semver">[SEMVER]
-   <dd><a href="https://semver.org/"><cite>SemVer</cite></a>. URL: <a href="https://semver.org/">https://semver.org/</a>
+   <dd><a href="https://semver.org/">SemVer</a>. URL: <a href="https://semver.org/">https://semver.org/</a>
    <dt id="biblio-vocab-dcat-2">[VOCAB-DCAT-2]
-   <dd>Riccardo Albertoni; et al. <a href="https://www.w3.org/TR/vocab-dcat-2/"><cite>Data Catalog Vocabulary (DCAT) - Version 2</cite></a>. 4 February 2020. REC. URL: <a href="https://www.w3.org/TR/vocab-dcat-2/">https://www.w3.org/TR/vocab-dcat-2/</a>
+   <dd>Riccardo Albertoni; et al. <a href="https://www.w3.org/TR/vocab-dcat-2/">Data Catalog Vocabulary (DCAT) - Version 2</a>. 4 February 2020. REC. URL: <a href="https://www.w3.org/TR/vocab-dcat-2/">https://www.w3.org/TR/vocab-dcat-2/</a>
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
-   <div class="issue"> Niet alle DCAT velden zijn gemodelleerd. Daarnaast zijn komt van sommige velden de naamgeving niet overeen met de DCAT spec. <a class="issue-return" href="#issue-794e3780" title="Jump to section">↵</a></div>
-   <div class="issue"> Sommige velden missen een beschrijving <a class="issue-return" href="#issue-fe7b94ef" title="Jump to section">↵</a></div>
-   <div class="issue"> Het identifier veld moet string zijn. De array optie wordt binnenkort verwijderd. <a class="issue-return" href="#issue-38d85a92" title="Jump to section">↵</a></div>
-   <div class="issue"> Het is onduidelijk of <code class="highlight">unit</code> in een array moet worden meegegeven in het items attribuut  als <code class="highlight">veld<c- p>.</c->items<c- p>.</c->unit</code> of in het hoofd object als <code class="highlight">veld<c- p>.</c->unit</code>. <a class="issue-return" href="#issue-44526bd2" title="Jump to section">↵</a></div>
+   <div class="issue"> Niet alle DCAT velden zijn gemodelleerd. Daarnaast zijn komt van sommige velden de naamgeving niet overeen met de DCAT spec.<a href="#issue-794e3780"> ↵ </a></div>
+   <div class="issue"> Sommige velden missen een beschrijving<a href="#issue-fe7b94ef"> ↵ </a></div>
+   <div class="issue"> Het identifier veld moet string zijn. De array optie wordt binnenkort verwijderd.<a href="#issue-38d85a92"> ↵ </a></div>
+   <div class="issue"> Het is onduidelijk of <code class="highlight">unit</code> in een array moet worden meegegeven in het items attribuut  als <code class="highlight">veld<c- p>.</c->items<c- p>.</c->unit</code> of in het hoofd object als <code class="highlight">veld<c- p>.</c->unit</code>.<a href="#issue-44526bd2"> ↵ </a></div>
   </div>
   <aside class="dfn-panel" data-for="dataset">
    <b><a href="#dataset">#dataset</a></b><b>Referenced in:</b>
