@@ -1,5 +1,5 @@
 {
-  "id": "bor_inspecties",
+  "id": "borInspecties",
   "type": "dataset",
   "auth": "FP/MDW",
   "authorizationGrantor": "Directie Stadsbeheer",
@@ -63,7 +63,6 @@
           "id": {
             "type": "string",
             "description": "Unieke aanduiding van het record.",
-            "profenance": "bk_apt_sch_inspection"
           },
           "environment": {
             "type": "string",
@@ -163,8 +162,7 @@
             "description": "Y-coordinaat van meting (RD EPSG:28992)"
           },
           "geometry": {
-            "type": "string",
-            "profenance": "geometry_coordinates",
+            "provenance": "geometry_coordinates",
             "description": "Coordinaten van de feature (RD EPSG:28992)",
             "$ref": "https://geojson.org/schema/Geometry.json"
           },
@@ -196,12 +194,12 @@
             "type": "string",
             "description": "Naam van de beeldmeetlat optie (bijv. A+)"
           },
-          "TypeOptionDescription": {
+          "typeOptionDescription": {
             "provenance": "inspection_type_option_description",
             "type": "string",
             "description": "Omschrijving van de beeldmeetlat optie"
           },
-          "TypeOptionMeasuring": {
+          "typeOptionMeasuring": {
             "provenance": "inspection_type_option_measuring",
             "type": "string",
             "description": "Meetinstructie van de beeldmeetlat optie, bevat html"
@@ -211,7 +209,6 @@
             "description": "Uniek identificatie van het object"
           },
           "cbsgridGeometrie": {
-            "type": "string",
             "$ref": "https://geojson.org/schema/Polygon.json",
             "description": "Geometrie CBS rastercode (CRS28992RES100M)"
           },
@@ -219,7 +216,7 @@
             "type": "string",
             "relation": "gebieden:buurten",
             "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
-            "description": "Unie­ke code (hier­in zie je de Stads­deel- en Wijk­co­de te­rug) (dominant) "
+            "description": "Unieke code (hier­in zie je de Stadsdeel- en Wijk­co­de te­rug) (dominant) "
           },
           "buurtnaamDominant": {
             "type": "string",
