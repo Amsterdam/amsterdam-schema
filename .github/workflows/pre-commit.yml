@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v2
         with:
-          python-version: '3.8.x'
+          python-version: '3.9.x'
       - id: changed-datasets
         # We are only interested in changed and new (not deleted) datasets
         run: echo "::set-output name=CHANGED_DATASETS::$(git diff --name-only --diff-filter=d origin/master.. -- | grep dataset.json)"
@@ -34,3 +34,18 @@ jobs:
       - uses: pre-commit/action@v2.0.3
         with:
           extra_args: validate-schema --files ${{ steps.changed-datasets.outputs.CHANGED_DATASETS }}
+
+      - uses: pre-commit/action@v2.0.3
+        with:
+          extra_args: --files ${{ steps.changed-datasets.outputs.CHANGED_DATASETS }}
+      - name: Check for modified files
+        id: git-check
+        run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
+      - name: Push changes
+        if: steps.git-check.outputs.modified == 'true'
+        run: |
+          git config --global user.name 'GitHub Actions: auto-format'
+          git config --global user.email 'datapunt@amsterdam.nl'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git commit -am "Auto-format using the pre-commit hooks"
+          git push
