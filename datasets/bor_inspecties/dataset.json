@@ -1,0 +1,302 @@
+{
+  "id": "bor_inspecties",
+  "type": "dataset",
+  "auth": "FP/MDW",
+  "authorizationGrantor": "Directie Stadsbeheer",
+  "theme": [
+    "duurzaamheid en milieu",
+    "Ruimte en Topografie",
+    "Beheer openbare ruimte"
+  ],
+  "homepage": "https://data.amsterdam.nl",
+  "owner": "Gemeente Amsterdam, Stadsbeheer",
+  "dateModified": "2021-04-27",
+  "spatialDescription": "Gemeente Amsterdam",
+  "version": "1.0.0",
+  "title": "BOR Inspecties",
+  "language": "nl",
+  "dateCreated": "",
+  "license": "Creative Commons, Naamsvermelding",
+  "hasBeginning": "2017-01-29",
+  "hasEnd": "",
+  "accrualPeriodicity": "maandelijks",
+  "publisher": "OIS",
+  "description": "Binnen de Gemeente Amsterdam wordt op verschillende niveaus inspecties uitgevoerd door verschillende directies en partijen. Bijvoorbeeld inspecties voor het dagelijkse onderhoud of technische inspecties voor vervangingsplannen.  Soms met een gelijke- methodiek en andere momenten een andere methodiek (CROW, NEN, etc.). Onder de dataset “inspecties” vind je diverse inspectie tabellen",
+  "status": "beschikbaar",
+  "keywords": [
+    "inspecties",
+    "crow",
+    "beeldmeetlat",
+    "openbare ruimte",
+    "Stadswerken"
+  ],
+  "crs": "EPSG:28992",
+  "objective": "Bevat monitoring en inspectie data over de kwaliteit van de openbare ruimte van willekeurige meetlocaties binnen de gemeente Amsterdam (o.a. Weesp). ",
+  "temporalUnit": "seconden",
+  "contactPoint": {
+    "name": "",
+    "email": "datapunt@amsterdam.nl"
+  },
+  "tables": [
+    {
+      "id": "monitorbeeldkwaliteit",
+      "type": "table",
+      "version": "1.0.0",
+      "title": "Monitorbeeldkwaliteit",
+      "description": "Deze tabel bevat de inspecties die zijn uitgevoerd voor het dagelijkse onderhoud Beheer Openbare Ruimte. Hiervoor wordt merendeels de CROW 380 methodiek gebruikt. Enkele inspecties worden met een ander doel uitgevoerd en hanteren daarom niet de CROW 380 methodiek.",
+      "provenance": "apt_inspecties",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "mainGeometry": "geometry",
+        "identifier": "id",
+        "required": [
+          "id",
+          "schema"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding van het record.",
+            "profenance": "bk_apt_sch_inspection"
+          },
+          "environment": {
+            "type": "string",
+            "description": "Lijst bevat de volgende eigenschappen. environment Omgevingsparameter waarin de inspectie heeft plaatsgevonden (bijv. amsterdam, amsterdam2019, amsterdamcentrum, etc.)"
+          },
+          "inspectionRoundType": {
+            "type": "string",
+            "description": " "
+          },
+          "inspectionRoundId": {
+            "type": "string",
+            "description": "Het id van de schouwronde"
+          },
+          "inspectionRoundUri": {
+            "type": "string",
+            "description": "Link naar de gehele schouwronde"
+          },
+          "inspectionRoundName": {
+            "type": "string",
+            "description": "Naam van de schouwronde"
+          },
+          "inspectieRoundPeriodeStart": {
+            "type": "string",
+            "description": "Unix timestamp met geplande startdatum en tijd"
+          },
+          "inspectionRoundPeriodeEnd": {
+            "type": "string",
+            "description": "Unix timestamp met geplande einddatum en tijd"
+          },
+          "inspectionRoundModifiededAt": {
+            "type": "string",
+            "description": "Unix timestamp met laatste modificatiedatum en tijd"
+          },
+          "inspectionIds": {
+            "type": "string",
+            "description": "Het id van de inspectie"
+          },
+          "inspectionCreatedAt": {
+            "type": "string",
+            "description": "Unix timestamp met aanmaakdatum"
+          },
+          "resultsAboveMinvalue": {
+            "type": "boolean",
+            "provenance": "all_results_above_minimum_value",
+            "description": "true ( = geen afkeur) / false ( = bevat afkeur)"
+          },
+          "inspectionFinishedAt": {
+            "type": "string",
+            "description": "Unix timestamp met sluitingsdatum en tijd"
+          },
+          "inspectionResultFiledAt": {
+            "type": "string",
+            "description": "Unix timestamp met laatste modificatiedatum"
+          },
+          "closingUserName": {
+            "type": "string",
+            "description": "Gebruiker die de inspectie heeft gefinaliseerd"
+          },
+          "scoreId": {
+            "type": "string",
+            "description": "Het id van het resultaat"
+          },
+          "score": {
+            "type": "string",
+            "enum": [
+              "A+",
+              "A",
+              "B",
+              "C",
+              "D",
+              "NVT"
+            ],
+            "description": "A+, A, B, C, D of NVT"
+          },
+          "scoreCreatedAt": {
+            "type": "string",
+            "description": "Unix timestamp met aanmaakdatum en tijd."
+          },
+          "creatingUserId": {
+            "type": "string",
+            "description": "Id van de inspecteur. Deze id is uniek ongeacht de evironment."
+          },
+          "creatingUserName": {
+            "type": "string",
+            "description": "Volledige naam van de inspecteur."
+          },
+          "photosPhotoUri": {
+            "type": "string",
+            "description": "Link naar de foto"
+          },
+          "xMeting": {
+            "type": "string",
+            "description": "X-coordinaat van meting (RD EPSG:28992)"
+          },
+          "yMeting": {
+            "type": "string",
+            "description": "Y-coordinaat van meting (RD EPSG:28992)"
+          },
+          "geometry": {
+            "type": "string",
+            "profenance": "geometry_coordinates",
+            "description": "Coordinaten van de feature (RD EPSG:28992)",
+            "$ref": "https://geojson.org/schema/Geometry.json"
+          },
+          "inspectionTypeId": {
+            "type": "string",
+            "description": "Id van de beeldmeetlat"
+          },
+          "inspectionTypeUri": {
+            "type": "string",
+            "description": "Link naar de beeldmeetlat info"
+          },
+          "inspectionTypeName": {
+            "type": "string",
+            "description": "Link naar de beeldmeetlat info"
+          },
+          "crowCode": {
+            "type": "string",
+            "description": "CROW unieke code van de beeldmeetlat (RAW code)"
+          },
+          "inspectionTypeOptionId": {
+            "type": "string",
+            "description": "Id van de beeldmeetlat optie"
+          },
+          "inspectionTypeOptionUri": {
+            "type": "string",
+            "description": "Link naar de beeldmeetlat optie"
+          },
+          "inspectionTypeOptionName": {
+            "type": "string",
+            "description": "Naam van de beeldmeetlat optie (bijv. A+)"
+          },
+          "TypeOptionDescription": {
+            "provenance": "inspection_type_option_description",
+            "type": "string",
+            "description": "Omschrijving van de beeldmeetlat optie"
+          },
+          "TypeOptionMeasuring": {
+            "provenance": "inspection_type_option_measuring",
+            "type": "string",
+            "description": "Meetinstructie van de beeldmeetlat optie, bevat html"
+          },
+          "cbsgridId": {
+            "type": "string",
+            "description": "Uniek identificatie van het object"
+          },
+          "cbsgridGeometrie": {
+            "type": "string",
+            "$ref": "https://geojson.org/schema/Polygon.json",
+            "description": "Geometrie CBS rastercode (CRS28992RES100M)"
+          },
+          "buurtcodeDominant": {
+            "type": "string",
+            "relation": "gebieden:buurten",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+            "description": "Unie­ke code (hier­in zie je de Stads­deel- en Wijk­co­de te­rug) (dominant) "
+          },
+          "buurtnaamDominant": {
+            "type": "string",
+            "description": "De naam van het ob­ject (dominant: De buurt waar het grootste gedeelte van de oppervlakte van het meetgebied ligt.)"
+          },
+          "buurtnaam": {
+            "type": "string",
+            "description": "De naam van het ob­ject"
+          },
+          "buurtcode": {
+            "type": "string",
+            "relation": "gebieden:buurten",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+            "description": "Unie­ke code (hier­in zie je de Stads­deel- en Wijk­co­de te­rug)"
+          },
+          "wijknaamDominant": {
+            "type": "string",
+            "relation": "gebieden:wijken",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/wijk",
+            "description": "De naam van het ob­ject (dominant: De wijk waar het grootste gedeelte van de oppervlakte van het meetgebied ligt.)"
+          },
+          "wijkcodeDominant": {
+            "type": "string",
+            "description": "Vol­le­di­ge, sa­men­ge­stel­de, code, be­staan­de uit stads­deel­co­de en wijk­co­de(dominant)"
+          },
+          "wijknaam": {
+            "type": "string",
+            "description": "De naam van het ob­ject"
+          },
+          "wijkcode": {
+            "type": "string",
+            "relation": "gebieden:wijken",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/wijk",
+            "description": "Vol­le­di­ge, sa­men­ge­stel­de, code, be­staan­de uit stads­deel­co­de en wijk­co­de"
+          },
+          "stadsdeelnaamDominant": {
+            "type": "string",
+            "description": "De naam van het ob­ject (dominant: Het  stadsdeel waar het grootste gedeelte van de oppervlakte van het meetgebied ligt.)"
+          },
+          "stadsdeelcodeDominant": {
+            "type": "string",
+            "relation": "gebieden:stadsdelen",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
+            "description": "Of­fi­ciële code van het ob­ject (dominant)"
+          },
+          "stadsdeelnaam": {
+            "type": "string",
+            "description": "De naam van het ob­ject."
+          },
+          "stadsdeelcode": {
+            "type": "string",
+            "relation": "gebieden:stadsdelen",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
+            "description": "Of­fi­ciële code van het ob­ject."
+          },
+          "ggwnaamDominant": {
+            "type": "string",
+            "description": "De naam van het ob­ject (dominant: Gebiedsgericht werken waar het grootste gedeelte van de oppervlakte van het meetgebied ligt.)"
+          },
+          "ggwcodeDominant": {
+            "type": "string",
+            "relation": "gebieden:ggwgebieden",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
+            "description": "Of­fi­ciële code van het ob­ject (dominant)."
+          },
+          "ggwnaam": {
+            "type": "string",
+            "description": "De naam van het ob­ject."
+          },
+          "ggwcode": {
+            "type": "string",
+            "relation": "gebieden:ggwgebieden",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
+            "description": "Of­fi­ciële code van het ob­ject."
+          }
+        }
+      }
+    }
+  ]
+}
