@@ -1,27 +1,28 @@
 {
-  "id": "inspecties",
+  "id": "bor_inspecties",
   "type": "dataset",
   "auth": "FP/MDW",
   "authorizationGrantor": "Directie Stadsbeheer",
   "theme": [
     "duurzaamheid en milieu",
-    "Ruimte en Topografie"
+    "Ruimte en Topografie",
+    "Beheer openbare ruimte"
   ],
   "homepage": "https://data.amsterdam.nl",
   "owner": "Gemeente Amsterdam, Stadsbeheer",
   "dateModified": "2021-04-27",
   "spatialDescription": "Gemeente Amsterdam",
   "version": "1.0.0",
-  "title": "Inspecties",
+  "title": "BOR Inspecties",
   "language": "nl",
   "dateCreated": "",
-  "license": "Anders, Niet Open",
+  "license": "Creative Commons, Naamsvermelding",
   "hasBeginning": "2017-01-29",
   "hasEnd": "",
   "accrualPeriodicity": "maandelijks",
   "publisher": "OIS",
   "description": "Binnen de Gemeente Amsterdam wordt op verschillende niveaus inspecties uitgevoerd door verschillende directies en partijen. Bijvoorbeeld inspecties voor het dagelijkse onderhoud of technische inspecties voor vervangingsplannen.  Soms met een gelijke- methodiek en andere momenten een andere methodiek (CROW, NEN, etc.). Onder de dataset “inspecties” vind je diverse inspectie tabellen",
-  "status": "niet_beschikbaar",
+  "status": "beschikbaar",
   "keywords": [
     "inspecties",
     "crow",
@@ -40,7 +41,7 @@
     {
       "id": "monitorbeeldkwaliteit",
       "type": "table",
-      "version": "1.0.0", 
+      "version": "1.0.0",
       "title": "Monitorbeeldkwaliteit",
       "description": "Deze tabel bevat de inspecties die zijn uitgevoerd voor het dagelijkse onderhoud Beheer Openbare Ruimte. Hiervoor wordt merendeels de CROW 380 methodiek gebruikt. Enkele inspecties worden met een ander doel uitgevoerd en hanteren daarom niet de CROW 380 methodiek.",
       "provenance": "apt_inspecties",
@@ -48,7 +49,7 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
-        "mainGeometry": "geometrie",
+        "mainGeometry": "geometry",
         "identifier": "id",
         "required": [
           "id",
@@ -61,7 +62,8 @@
           },
           "id": {
             "type": "string",
-            "description": "Unieke aanduiding van het record."
+            "description": "Unieke aanduiding van het record.",
+            "profenance": "bk_apt_sch_inspection"
           },
           "environment": {
             "type": "string",
@@ -160,9 +162,11 @@
             "type": "string",
             "description": "Y-coordinaat van meting (RD EPSG:28992)"
           },
-          "geometryCoordinates": {
+          "geometry": {
             "type": "string",
-            "description": "Coordinaten van de feature (RD EPSG:28992)"
+            "profenance": "geometry_coordinates",
+            "description": "Coordinaten van de feature (RD EPSG:28992)",
+            "$ref": "https://geojson.org/schema/Geometry.json"
           },
           "inspectionTypeId": {
             "type": "string",
@@ -192,12 +196,12 @@
             "type": "string",
             "description": "Naam van de beeldmeetlat optie (bijv. A+)"
           },
-          "typeOptionDescription": {
+          "TypeOptionDescription": {
             "provenance": "inspection_type_option_description",
             "type": "string",
             "description": "Omschrijving van de beeldmeetlat optie"
           },
-          "typeOptionMeasuring": {
+          "TypeOptionMeasuring": {
             "provenance": "inspection_type_option_measuring",
             "type": "string",
             "description": "Meetinstructie van de beeldmeetlat optie, bevat html"
@@ -208,10 +212,13 @@
           },
           "cbsgridGeometrie": {
             "type": "string",
+            "$ref": "https://geojson.org/schema/Polygon.json",
             "description": "Geometrie CBS rastercode (CRS28992RES100M)"
           },
           "buurtcodeDominant": {
             "type": "string",
+            "relation": "gebieden:buurten",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke code (hier­in zie je de Stads­deel- en Wijk­co­de te­rug) (dominant) "
           },
           "buurtnaamDominant": {
@@ -224,15 +231,19 @@
           },
           "buurtcode": {
             "type": "string",
+            "relation": "gebieden:buurten",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
             "description": "Unie­ke code (hier­in zie je de Stads­deel- en Wijk­co­de te­rug)"
           },
           "wijknaamDominant": {
             "type": "string",
+            "relation": "gebieden:wijken",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/wijk",
             "description": "De naam van het ob­ject (dominant: De wijk waar het grootste gedeelte van de oppervlakte van het meetgebied ligt.)"
           },
           "wijkcodeDominant": {
             "type": "string",
-            "description": "Vol­le­di­ge, sa­men­ge­stel­de, code, be­staan­de uit stads­deel­co­de en wijk­co­de (dominant)"
+            "description": "Vol­le­di­ge, sa­men­ge­stel­de, code, be­staan­de uit stads­deel­co­de en wijk­co­de(dominant)"
           },
           "wijknaam": {
             "type": "string",
@@ -240,6 +251,8 @@
           },
           "wijkcode": {
             "type": "string",
+            "relation": "gebieden:wijken",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/wijk",
             "description": "Vol­le­di­ge, sa­men­ge­stel­de, code, be­staan­de uit stads­deel­co­de en wijk­co­de"
           },
           "stadsdeelnaamDominant": {
@@ -248,6 +261,8 @@
           },
           "stadsdeelcodeDominant": {
             "type": "string",
+            "relation": "gebieden:stadsdelen",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
             "description": "Of­fi­ciële code van het ob­ject (dominant)"
           },
           "stadsdeelnaam": {
@@ -256,6 +271,8 @@
           },
           "stadsdeelcode": {
             "type": "string",
+            "relation": "gebieden:stadsdelen",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
             "description": "Of­fi­ciële code van het ob­ject."
           },
           "ggwnaamDominant": {
@@ -264,6 +281,8 @@
           },
           "ggwcodeDominant": {
             "type": "string",
+            "relation": "gebieden:ggwgebieden",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
             "description": "Of­fi­ciële code van het ob­ject (dominant)."
           },
           "ggwnaam": {
@@ -272,6 +291,8 @@
           },
           "ggwcode": {
             "type": "string",
+            "relation": "gebieden:ggwgebieden",
+            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
             "description": "Of­fi­ciële code van het ob­ject."
           }
         }
