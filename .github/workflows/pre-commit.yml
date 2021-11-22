@@ -23,7 +23,7 @@ jobs:
           python-version: '3.9.x'
       - id: changed-datasets
         # We are only interested in changed and new (not deleted) datasets
-        run: echo "::set-output name=CHANGED_DATASETS::$(git diff --name-only --diff-filter=d origin/master.. -- | grep dataset.json)"
+        run: echo "::set-output name=CHANGED_DATASETS::$(git diff --name-only --diff-filter=d origin/master.. -- | grep dataset)"
         shell: bash
       - run: |
           echo "Datasets to be validated:"
