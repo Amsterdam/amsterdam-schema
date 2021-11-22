@@ -31,11 +31,13 @@ jobs:
           do
             echo $ds
           done
-      - uses: pre-commit/action@v2.0.3
+      - name: "Validate changed schemas"
+        uses: pre-commit/action@v2.0.3
         with:
           extra_args: validate-schema --files ${{ steps.changed-datasets.outputs.CHANGED_DATASETS }}
 
-      - uses: pre-commit/action@v2.0.3
+      - name: "Auto-format changed schemas"
+        uses: pre-commit/action@v2.0.3
         with:
           extra_args: --files ${{ steps.changed-datasets.outputs.CHANGED_DATASETS }}
           token: ${{ secrets.GITHUB_TOKEN }}
