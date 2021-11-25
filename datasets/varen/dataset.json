@@ -2,7 +2,7 @@
   "type": "dataset",
   "id": "varen",
   "title": "Varen",
-  "description": "Inforatie over de over de pleziervaart en het ligplaatsen register voor de pleziervaart.",
+  "description": "Informatie over de over de pleziervaart en het ligplaatsen register voor de pleziervaart.",
   "dateCreated": "2020-08-01T00:00:00",
   "dateModified": "2020-08-01T00:00:00",
   "license": "Creative Commons, Naamsvermelding",
@@ -22,7 +22,7 @@
     "Verkeer"
   ],
   "publisher": "OIS",
-  "owner": "Gemente Amsterdam, Toezicht en Handhaving Openbare Ruimte",
+  "owner": "Gemeente Amsterdam, Toezicht en Handhaving Openbare Ruimte",
   "authorizationGrantor": "Toezicht en Handhaving Openbare Ruimte",
   "keywords": [
     "ligplaatsenregister",
@@ -40,26 +40,26 @@
       "type": "table",
       "version": "1.0.0",
       "provenance": "var_opafstapplaats",
-      "title": "opafstapplaats",
+      "title": "Op- en afstapplaats",
       "description": "Deze dataset bevat de gegevens over op- en afstaplocaties voor pleziervaart, passagiersvaart en transport over het water. De gemeente wil daarbij voldoende ruimte voor bewoners cre\u00ebren, onder andere doorbeheersing van het aantal vaarbewegingen en het spreiden van plezier- en passagiersvaart.",
       "schema": {
-        "required": [
-          "schema",
-          "volgnr"
-        ],
-        "mainGeometry": "geometrie",
-        "display": "volgnr",
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "mainGeometry": "geometrie",
+        "display": "id",
         "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
           "id": {
             "type": "string",
             "provenance": "var_opafstapplaats_id",
             "description": "Uniek identificerend kenmerk van het record"
-          },
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
           "volgnr": {
             "type": "string",
@@ -121,12 +121,13 @@
         "mainGeometry": "geometrie",
         "display": "id",
         "properties": {
-          "id": {
-            "type": "string",
-            "description": "Uniek identificerend kenmerk van het record"
-          },
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Uniek identificerend kenmerk van het record",
+            "provenance": "var_ligplaats_id"
           },
           "naamVaartuig": {
             "type": "string",
@@ -151,7 +152,7 @@
           "idLigplaats": {
             "type": "string",
             "description": "Id veld (niet uniek)",
-            "provenance": "var_ligplaats_id"
+            "provenance": "id"
           },
           "verwerkingsdatum": {
             "type": "string",
