@@ -320,7 +320,7 @@ Het <dfn lt=schema|schema-object export>schema</dfn> object beschrijft de eigens
 
 Een [=schema=] object moet in ieder geval de volgende attributen bezitten:
 <table dfn-type="attribute" dfn-for=schema export class="dfn-table">
-    <tr><td><dfn>$schema</dfn>      <td> string <td> [CONST] `"http://json-schema.org/draft-07/schema#"`
+    <tr><td><dfn>$schema</dfn>      <td> string <td> [CONST] `"https://json-schema.org/draft/2019-09/schema"`
     <tr><td><dfn>type</dfn>         <td> string <td> [CONST] `"object"`
     <tr><td><dfn>required</dfn>     <td> array (string) <td> Namen van [=veld|velden=] die niet `null` mogen bevatten. Bevat minstens `"schema"`.
     <tr><td><dfn>display</dfn>      <td> string
@@ -1423,7 +1423,7 @@ Scope `"LEVEL/A"` heeft dataset level autorisatie op gebieden, scope `"LEVEL/B"`
                 "auth": "LEVEL/B",
                 "schema": {
                     "$id": "https://github.com/Amsterdam/schemas/gebieden/bouwblokken.json",
-                    "$schema": "http://json-schema.org/draft-07/schema#",
+                    "$schema": "https://json-schema.org/draft/2019-09/schema",
                     "type": "object",
                     "additionalProperties": false,
                     "identifier": ["id"],
