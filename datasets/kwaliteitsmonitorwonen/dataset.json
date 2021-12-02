@@ -1,0 +1,160 @@
+{
+  "id": "kwaliteitsmonitorwonen",
+  "type": "dataset",
+  "title": "Kwaliteitsmonitor Wonen",
+  "description": "Per verblijfsobject de kenmerken van de woningvoorraad van de gemeente Amsterdam.",
+  "version": "1.0.0",
+  "status": "beschikbaar",
+  "theme": [
+    "Wonen"
+  ],
+  "publisher": "OIS",
+  "owner": "Gemeente Amsterdam",
+  "keywords": [
+    "Wonen"
+  ],
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "kwaliteitsmonitorwonen",
+      "type": "table",
+      "version": "1.0.0",
+      "title": "Kwaliteitsmonitor Wonen",
+      "schema": {
+        "required": [
+          "id",
+          "schema"
+        ],
+        "display": "naam",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding objecttype"
+          },
+          "vbo_identificatie": {
+            "type": "string",
+            "description": "Unieke identificatie van het verblijfsobject"
+          },
+          "vbo_geometrie": {
+            "description": "Geometrie van het type POINT van het verblijfsobject",
+            "$ref": "https://geojson.org/schema/Point.json"
+          },
+          "vbo_oppervlakte": {
+            "type": "integer",
+            "description": "De oppervlakte van het verblijfsobject"
+          },
+          "vbo_gebruiksdoel": {
+            "type": "string",
+            "description": "Het gebruiksdoel van het verblijfsobject"
+          },
+          "pnd_identificatie": {
+            "type": "integer",
+            "description": "Unieke identificatie van het pand"
+          },
+          "pnd_geometrie": {
+            "description": "Geometrie van het type MULTIPOLYGON van het pand",
+            "$ref": "https://geojson.org/schema/Multipolygon.json"
+          },
+          "pnd_geometrie_middelpunt": {
+            "description": "Geometrie van het middelpunt van het pand van het type POINT",
+            "$ref": "https://geojson.org/schema/Point.json"
+          },
+          "pnd_oorspronkelijkbouwjaar": {
+            "type": "integer",
+            "description": "Oorspronkelijke bouwjaar van het pand"
+          },
+          "pnd_ligging": {
+            "type": "string",
+            "description": "Ligging van het pand"
+          },
+          "mnt_monumentstatus": {
+            "type": "string",
+            "description": "Monumentstatus van het pand"
+          },
+          "bsd_ligt_in_beschermd_gebied": {
+            "type": "string",
+            "description": "Ligt het verblijfsobject in een beschermd gebied?"
+          },
+          "bsd_beschermd_stadsdorpsgezicht": {
+            "type": "string",
+            "description": "Tot welk gebied van het beschermd stadsdorpsgezicht het verblijfsobject behoord"
+          },
+          "adres": {
+            "type": "string",
+            "description": "Adres van het verblijfsobject"
+          },
+          "huisnummer": {
+            "type": "integer",
+            "description": "Huisnummer van het verblijfsobject"
+          },
+          "huisletter": {
+            "type": "string",
+            "description": "Huisletter van het verblijfsobject"
+          },
+          "huisnummertoevoeging": {
+            "type": "string",
+            "description": "Huisnummertoevoeging van het verblijfsobject"
+          },
+          "postcode": {
+            "type": "string",
+            "description": "Postcode van het verblijfsobject"
+          },
+          "woonplaats": {
+            "type": "string",
+            "description": "Woonplaats van het verblijfsobject"
+          },
+          "bouwblok_code": {
+            "type": "string",
+            "description": "Bouwblok code"
+          },
+          "buurt_naam": {
+            "type": "string",
+            "description": "Naam van de buurt van het verblijfsobject"
+          },
+          "buurt_code": {
+            "type": "string",
+            "description": "Code van de buurt van het verblijfsobject"
+          },
+          "wijk_naam": {
+            "type": "string",
+            "description": "Naam van de wijk van het verblijfsobject"
+          },
+          "wijk_code": {
+            "type": "string",
+            "description": "Code van de wijk van het verblijfsobject"
+          },
+          "stadsdeel_naam": {
+            "type": "string",
+            "description": "Naam van het stadsdeel van het verblijfsobject"
+          },
+          "stadsdeel_code": {
+            "type": "string",
+            "description": "Code van het stadsdeel van het verblijfsobject"
+          },
+          "gebiedsgericht_werken_naam": {
+            "type": "string",
+            "description": "Naam van het gebiedsgericht werken"
+          },
+          "gebiedsgericht_werken_code": {
+            "type": "string",
+            "description": "Code van het gebiedsgericht werken"
+          },
+          "vve_is_eigendom_vve": {
+            "type": "string",
+            "description": "Is het verblijfsobject eigendom van de VVE?"
+          },
+          "vve_statutaire_naam": {
+            "type": "string",
+            "description": "Statutaire naam van de VVE"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          }
+        }
+      }
+    }
+  ]
+}
