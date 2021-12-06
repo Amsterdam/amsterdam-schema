@@ -17,19 +17,22 @@
   "tables": [
     {
       "id": "kwaliteitsmonitorwonen",
+	  "title": "Per verblijfsobject de kenmerken van de woningvoorraad van de gemeente Amsterdam.",
       "type": "table",
       "version": "1.0.0",
-      "title": "Kwaliteitsmonitor Wonen",
       "schema": {
+		 "$schema": "http://json-schema.org/draft-07/schema#",
+		 "type": "object",
+		 "additionalProperties": false,
         "required": [
           "id",
           "schema"
         ],
-        "display": "naam",
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
+        "display": "id",      
         "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
           "id": {
             "type": "string",
             "description": "Unieke aanduiding objecttype"
@@ -76,7 +79,7 @@
           },
           "bsdLigtInBeschermdGebied": {
             "type": "string",
-            "description": "Ligt het verblijfsobject in een beschermd gebied?"
+            "description": "Ja/Nee indicator welke aangeeft of het verblijfsobject in een beschermd stads- of dorpgezicht valt"
           },
           "bsdBeschermdStadsdorpsgezicht": {
             "type": "string",
@@ -144,7 +147,7 @@
           },
           "vveIsEigendomVve": {
             "type": "string",
-            "description": "Is het verblijfsobject eigendom van de VVE?"
+            "description": "Ja/Nee indicator welke aangeeft of het verblijfsobject eigendom is van de VVE?"
           },
           "vveStatutaireNaam": {
             "type": "string",
