@@ -11,7 +11,7 @@
       "id": "adressen",
       "type": "table",
       "version": "0.0.1",
-      "description": "Het adres is de benaming van een locatie bestaande uit straatnaam, huisnummer, (mogelijk met huisletter, huisnummertoevoeging, postcode) en woonplaatsnaam. Dit is de vereenvoudigde samenstelling van de offici\ufffdle naamgeving gebaseerd op woonplaats, openbare ruimte en nummeraanduiding.",
+      "description": "Het adres is de benaming van een locatie bestaande uit straatnaam, huisnummer, (mogelijk met huisletter, huisnummertoevoeging, postcode) en woonplaatsnaam. Dit is de vereenvoudigde samenstelling van de offici\u00eble naamgeving gebaseerd op woonplaats, openbare ruimte en nummeraanduiding.",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -20,22 +20,7 @@
         "display": "nummeraanduidingIdentificatie",
         "required": [
           "schema",
-          "straat",
-          "huisnummer",
-          "huisletter",
-          "huisnummertoevoeging",
-          "postcode",
-          "woonplaats",
-          "adresregel1",
-          "adresregel2",
-          "korteNaam",
-          "nummeraanduidingIdentificatie",
-          "openbareRuimteIdentificatie",
-          "woonplaatsIdentificatie",
-          "adresseerbaarObjectIdentificatie",
-          "pandIdentificaties",
-          "isNevenadres",
-          "geconstateerd"
+          "nummeraanduidingIdentificatie"
         ],
         "properties": {
           "schema": {
@@ -79,7 +64,7 @@
           },
           "korteNaam": {
             "type": "string",
-            "description": "De offici\ufffdle openbareruimtenaam of een verkorte versie. Beide hebben maximaal 24 tekens."
+            "description": "De offici\u00eble openbareruimtenaam of een verkorte versie. Beide hebben maximaal 24 tekens."
           },
           "openbareRuimteIdentificatie": {
             "type": "string"
@@ -155,6 +140,7 @@
     },
     {
       "id": "adresseerbareobjecten",
+      "shortname": "addrobj",
       "type": "table",
       "version": "0.0.1",
       "description": "Een adresseerbaarobject is een standplaats, ligplaats of verblijfsobject.",
@@ -168,16 +154,7 @@
         "required": [
           "schema",
           "identificatie",
-          "domein",
-          "type",
-          "documentdatum",
-          "gebruiksdoelen",
-          "geconstateerd",
-          "geometrie",
-          "pandIdentificaties",
-          "nummeraanduidingIdentificaties",
-          "oppervlakte",
-          "status"
+          "geometrie"
         ],
         "properties": {
           "schema": {
@@ -313,15 +290,7 @@
         "required": [
           "schema",
           "identificatie",
-          "domein",
-          "geometrie",
-          "oorspronkelijkBouwjaar",
-          "status",
-          "geconstateerd",
-          "documentdatum",
-          "documentnummer",
-          "adresseerbaarObjectIdentificaties",
-          "nummeraanduidingIdentificaties"
+          "geometrie"
         ],
         "properties": {
           "schema": {
