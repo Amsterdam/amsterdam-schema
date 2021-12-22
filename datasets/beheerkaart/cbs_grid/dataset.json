@@ -16,7 +16,7 @@
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
-        "mainGeometry": "cbs_geometrie_100",
+        "mainGeometry": "cbsGeometrie_100",
         "additionalProperties": false,
         "required": [
           "schema",
@@ -29,8 +29,8 @@
           },
           "id": {
             "provenance": "bk_cbs_grid_100_asd",
-            "description": "Business-key: unieke aanduiding record (BKT-CBS-grid-100-vlak).",
-            "type": "string"
+            "type": "string",
+            "description": "Business-key: unieke aanduiding record (BKT-CBS-grid-100-vlak)."
           },
           "rasterActief": {
             "type": "boolean",
@@ -110,23 +110,33 @@
           },
           "percentageBlauw": {
             "type": "number",
-            "description": "Percentage kleur blauw (bgt_waterdeel) binnen het BKT-CBS-grid-100-vlak."
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Percentage  [10-100] kleur blauw (bgt_waterdeel) binnen het BKT-CBS-grid-100-vlak."
           },
           "percentageGrijs": {
             "type": "number",
-            "description": "Percentage kleur grijs (bgt_wegdeel, bgt_ondersteunend_wegdeel) binnen het BKT-CBS-grid-100-vlak."
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Percentage  [10-100] kleur grijs (bgt_wegdeel, bgt_ondersteunend_wegdeel) binnen het BKT-CBS-grid-100-vlak."
           },
           "percentageGroen": {
             "type": "number",
-            "description": "Percentage kleur groen (bgt_begroeid_terrein) binnen het BKT-CBS-grid-100-vlak."
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Percentage  [10-100] kleur groen (bgt_begroeid_terrein) binnen het BKT-CBS-grid-100-vlak."
           },
           "percentageOverig": {
             "type": "number",
-            "description": "Percentage overig (overige bgt_objectklassen) binnen het BKT-CBS-grid-100-vlak."
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Percentage  [10-100] overig (overige bgt_objectklassen) binnen het BKT-CBS-grid-100-vlak."
           },
           "percentagePubliekeRuimte": {
             "type": "number",
-            "description": "Totaal percentage publieke ruimte (>=10%) binnen het BKT-CBS-grid-100-vlak."
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Totaal percentage  [10-100] publieke ruimte (>=10%) binnen het BKT-CBS-grid-100-vlak."
           }
         }
       }
@@ -140,7 +150,7 @@
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
-        "mainGeometry": "cbs_geometrie_10",
+        "mainGeometry": "cbsGeometrie_10",
         "additionalProperties": false,
         "required": [
           "schema",
@@ -153,12 +163,12 @@
           },
           "id": {
             "provenance": "bk_cbs_grid_10_asd",
-            "description": "Business-key: unieke aanduiding record (BKT-CBS-grid-10-vlak).",
-            "type": "string"
+            "type": "string",
+            "description": "Business-key: unieke aanduiding record (BKT-CBS-grid-10-vlak)."
           },
           "bk_cbs_grid_100_asd": {
-            "description": "Verwijzing naar omvattend BKT-CBS-grid-100-vlak).",
-            "type": "string"
+            "type": "string",
+            "description": "Verwijzing naar omvattend BKT-CBS-grid-100-vlak)."
           },
           "rasterActief": {
             "type": "boolean",
@@ -238,23 +248,33 @@
           },
           "percentageBlauw": {
             "type": "number",
-            "description": "Percentage kleur blauw (bgt_waterdeel) binnen het BKT-CBS-grid-10-vlak."
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Percentage  [1-100] kleur blauw (bgt_waterdeel) binnen het BKT-CBS-grid-10-vlak."
           },
           "percentageGrijs": {
             "type": "number",
-            "description": "Percentage kleur grijs (bgt_wegdeel, bgt_ondersteunend_wegdeel) binnen het BKT-CBS-grid-10-vlak."
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Percentage  [1-100] kleur grijs (bgt_wegdeel, bgt_ondersteunend_wegdeel) binnen het BKT-CBS-grid-10-vlak."
           },
           "percentageGroen": {
             "type": "number",
-            "description": "Percentage kleur groen (bgt_begroeid_terrein) binnen het BKT-CBS-grid-10-vlak."
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Percentage  [1-100] kleur groen (bgt_begroeid_terrein) binnen het BKT-CBS-grid-10-vlak."
           },
           "percentageOverig": {
             "type": "number",
-            "description": "Percentage overig (overige bgt_objectklassen) binnen het BKT-CBS-grid-10-vlak."
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Percentage  [1-100] overig (overige bgt_objectklassen) binnen het BKT-CBS-grid-10-vlak."
           },
           "percentagePubliekeRuimte": {
             "type": "number",
-            "description": "Totaal percentage publieke ruimte (>=1%) binnen het BKT-CBS-grid-10-vlak."
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Totaal percentage  [1-100] publieke ruimte (>=1%) binnen het BKT-CBS-grid-10-vlak."
           }
         }
       }
