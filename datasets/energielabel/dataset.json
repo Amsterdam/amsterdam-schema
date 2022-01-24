@@ -1,0 +1,191 @@
+{
+  "id": "energielabel",
+  "type": "dataset",
+  "title": "Energielabel",
+  "description": "De energielabel per verblijfsobject van de gemeente Amsterdam.",
+  "version": "1.0.0",
+  "status": "beschikbaar",
+  "theme": [
+    "energielabel"
+  ],
+  "publisher": "OIS",
+  "owner": "Gemeente Amsterdam",
+  "keywords": [
+    "Energielabel"
+  ],
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "energielabel",
+	  "title": "De energielabel per verblijfsobject van de gemeente Amsterdam.",
+      "type": "table",
+      "version": "1.0.0",
+      "schema": {
+		 "$schema": "http://json-schema.org/draft-07/schema#",
+		 "type": "object",
+		 "additionalProperties": false,
+        "required": [
+          "id",
+          "schema"
+        ],
+        "display": "id",      
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding energielabel"
+          },
+          "opnamedatum": {
+            "type": "date",
+            "description": "Datum van de opname van de energielabel"
+          },
+          "opnametype": {
+            "type": "string",
+			"description": "Het opnametype van de energielabel"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status"
+          },
+          "berekeningstype": {
+            "type": "string",
+            "description": "Berekeningstype van de energielabel"
+          },
+          "energieprestatieindex": {
+            "type": "string",
+            "description": "De energieprestatieindex van het verblijfsobject"
+          },
+          "energieklasse": {
+			"type": "string",
+            "description": "De energieklasse van het verblijfsobject"
+          },
+          "energielabelIsPrive": {
+			"type": "boolean",
+            "description": "-"
+          },
+          "isOpBasisVanReferentieGebouw": {
+            "type": "boolean",
+            "description": "-"
+          },
+          "gebouwklasse": {
+            "type": "string",
+            "description": "De energieklasse van het gebouw"
+          },
+          "metingGeldigTot": {
+            "type": "date",
+            "description": "Datum geldigheid van de meting van de energielabel"
+          },
+          "registratiedatum": {
+            "type": "date",
+            "description": "Datum waarop de energielabel is geregistreerd"
+          },
+          "postcode": {
+            "type": "string",
+            "description": "postcode van het verblijfsobject"
+          },
+          "huisnummer": {
+            "type": "integer",
+            "description": "Huisnummer van het verblijfsobject"
+          },
+          "huisnummertoevoeging": {
+            "type": "string",
+            "description": "Huisnummertoevoeging van het verblijfsobject"
+          },
+          "detailaanduiding": {
+            "type": "string",
+            "description": "-"
+          },
+          "bagVerblijfsobjectId": {
+            "type": "string",
+            "description": "Id van het verblijfsobject in de BAG"
+          },
+          "bagLigplaatsId": {
+            "type": "string",
+            "description": "Id van de ligplaats in de BAG"
+          },
+		  "bagStandplaatsId": {
+            "type": "string",
+            "description": "Id van de standplaats in de BAG"
+          },
+          "bagPandId": {
+            "type": "string",
+            "description": "Id van het pand in de BAG"
+          },
+          "gebouwtype": {
+            "type": "string",
+            "description": "Soort gebouwtype"
+          },
+          "gebouwsubtype": {
+            "type": "string",
+            "description": "Soort gebouwsubtype"
+          },
+          "projectnaam": {
+            "type": "string",
+            "description": "Naam van het project dat bij het verblijfsobject behoort"
+          },
+          "projectobject": {
+            "type": "string",
+            "description": "projectobject"			
+          },
+          "sbicode": {
+            "type": "string",
+            "description": "Standaard bedrijfsindeling code"
+          },
+          "gebruiksoppervlakte": {
+            "type": "string",
+            "description": "Oppervlakte dat gemeten is op vloerniveau van het verblijfsobject"
+          },
+          "energiebehoefte": {
+            "type": "string",
+            "description": "Energiebehoefte per verblijfsobject"
+          },
+          "eisEnergiebehoefte": {
+            "type": "string",
+            "description": "Eis energiebehoefte per verblijfsobject"
+          },
+          "primaireFossieleEnergie": {
+            "type": "string",
+            "description": "Is een optelsom van het primair energiegebruik voor verwarming, koeling, warmtapwaterbereiding en ventilatoren"
+          },
+		  "eisPrimaireFossieleEnergie": {
+            "type": "string",
+            "description": "Eis primaire fossiele energie"
+          },
+		  "primaireFossieleEnergieEmgForfaitair": {
+            "type": "string",
+            "description": "Primaire fossiele energie emg forfaitair"
+          },
+		  "aandeelHernieuwbareEnergie": {
+            "type": "string",
+            "description": "Aandeel hernieuwbare energie"
+          },
+		  "eisAandeelHernieuwbareEnergie": {
+            "type": "string",
+            "description": "Eis aandeel hernieuwbare energie"
+          },
+		  "aandeelHernieuwbareEnergieEmgForfaitair": {
+            "type": "string",
+            "description": "Aandeel hernieuwbare energie Emg forfaitair"
+          },
+		  "temperatuuroverschrijding": {
+            "type": "string",
+            "description": "Temperatuuroverschrijding"
+          },
+		  "eisTemperatuuroverschrijding": {
+            "type": "string",
+            "description": "Eis temperatuuroverschrijding"
+          },
+		  "warmtebehoefte": {
+            "type": "string",
+            "description": "Warmte Behoefte"
+          },
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          }
+        }
+      }
+    }
+  ]
+}
