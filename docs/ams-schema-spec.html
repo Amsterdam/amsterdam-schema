@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version bb6b91100, updated Mon Jul 12 16:52:37 2021 -0700" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="fa6ba350ca9707e8da640dbcbdfca464c75bb64f" name="document-revision">
+  <meta content="a34178eb86e5e82f1b69afddc0d159beb51fbffa" name="document-revision">
 <style>
     p[data-fill-with="logo"] {
         width: 180px;
@@ -2224,7 +2224,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Amsterdam Schema Specificatie</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2021-11-29">29 November 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-01-26">26 January 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2383,6 +2383,22 @@ any of which might be collected into a dataset. (From <a href="https://www.w3.or
         </ul>
        </details>
      <tr>
+      <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-contactpoint"><code class="highlight">contactPoint</code><a class="self-link" href="#dom-dataset-contactpoint"></a></dfn>
+      <td> <code class="idl"><a data-link-type="idl" href="#typedefdef-contact" id="ref-for-typedefdef-contact">contact</a></code>
+      <td> Contact gegevens van de persoon of afdeling waar inhoudelijke vragen over de dataset aan gericht moeten worden. Dit is meestal de bronhouder. (Deze gegevens worden publiek zichtbaar)
+     <tr>
+      <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-authorizationgrantor"><code class="highlight">authorizationGrantor</code><a class="self-link" href="#dom-dataset-authorizationgrantor"></a></dfn>
+      <td> string
+      <td> Naam van de afdeling verantwoordelijk voor authorisatie op deze dataset. Dit is meestal de bronhouder.
+     <tr>
+      <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-owner"><code class="highlight">owner</code><a class="self-link" href="#dom-dataset-owner"></a></dfn>
+      <td> string
+      <td> Eigenaar van de data  Default: <code class="highlight"><c- u>"Gemeente Amsterdam"</c-></code>
+     <tr>
+      <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-publisher"><code class="highlight">publisher</code><a class="self-link" href="#dom-dataset-publisher"></a></dfn>
+      <td> string
+      <td> <em>constant</em> <code class="highlight"><c- u>"datapunt@amsterdam.nl"</c-></code> Ontsluiter van de data verantwoordelijk voor technisch beheer. Conform <a href="https://www.w3.org/TR/vocab-dcat-2/#Property:resource_publisher">DCAT § resource_publisher</a>
+     <tr>
       <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-tables"><code class="highlight">tables</code><a class="self-link" href="#dom-dataset-tables"></a></dfn>
       <td> array
       <td>
@@ -2399,8 +2415,8 @@ Zie <a href="#table-refs">§ 2.3 Tabel referenties</a> voor details.</p>
        </details>
    </table>
    <p><strong class="advisement"> Let op: Zie <a href="#naamgeving">§ 5 Naamgeving</a> voor de eisen waaraan <code class="idl"><a data-link-type="idl" href="#dom-dataset-id" id="ref-for-dom-dataset-id">id</a></code> moet voldoen.</strong></p>
-   <div class="example" id="example-6a0e68a5">
-    <a class="self-link" href="#example-6a0e68a5"></a> Een minimale dataset definitie. De 'title' en 'description' velden zijn niet verplicht,
+   <div class="example" id="example-35fad26f">
+    <a class="self-link" href="#example-35fad26f"></a> Een minimale dataset definitie. De 'title' en 'description' velden zijn niet verplicht,
     maar het is best practice ze toe te voegen.
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bekendeAmsterdammers"</c-><c- p>,</c->
@@ -2409,6 +2425,13 @@ Zie <a href="#table-refs">§ 2.3 Tabel referenties</a> voor details.</p>
   <c- f>"description"</c-><c- p>:</c-> <c- u>"Een collectie van bekende Amsterdammers.\n (Een voorbeeld dataset)"</c-><c- p>,</c->
   <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c->
   <c- f>"status"</c-><c- p>:</c-> <c- u>"beschikbaar"</c-><c- p>,</c->
+  <c- f>"contactPoint"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"name"</c-><c- p>:</c-><c- u>"Team Bekende Amsterdammers"</c-><c- p>,</c->
+    <c- f>"email"</c-><c- p>:</c-> <c- u>"tba@amsterdam.nl"</c->
+  <c- p>},</c->
+  <c- f>"authorizationGrantor"</c-><c- p>:</c-> <c- u>"Team Bekende Amsterdammers"</c-><c- p>,</c->
+  <c- f>"owner"</c-><c- p>:</c-> <c- u>"Gemeente Amsterdam"</c-><c- p>,</c->
+  <c- f>"publisher"</c-><c- p>:</c-> <c- u>"datapunt@amsterdam.nl"</c-><c- p>,</c->
   <c- f>"tables"</c-><c- p>:</c-> <c- p>[</c->
     <c- p>{</c->
       <c- f>"$ref"</c-><c- p>:</c-> <c- u>"personen/v1.0.0"</c-><c- p>,</c->
@@ -2489,18 +2512,6 @@ De volgende velden zijn toegestaan:
       <td> array (string)
       <td> Array van themas Conform <a href="https://www.w3.org/TR/vocab-dcat-2/#Property:resource_theme">DCAT § resource_theme</a>
      <tr>
-      <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-publisher"><code class="highlight">publisher</code><a class="self-link" href="#dom-dataset-publisher"></a></dfn>
-      <td> string
-      <td> Uitgever Conform <a href="https://www.w3.org/TR/vocab-dcat-2/#Property:resource_publisher">DCAT § resource_publisher</a>
-     <tr>
-      <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-owner"><code class="highlight">owner</code><a class="self-link" href="#dom-dataset-owner"></a></dfn>
-      <td> string
-      <td> Conform? <a href="https://www.w3.org/TR/vocab-dcat-2/#Property:resource_creator">DCAT § resource_creator</a>
-     <tr>
-      <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-authorizationgrantor"><code class="highlight">authorizationGrantor</code><a class="self-link" href="#dom-dataset-authorizationgrantor"></a></dfn>
-      <td> string
-      <td>
-     <tr>
       <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-hasbeginning"><code class="highlight">hasBeginning</code><a class="self-link" href="#dom-dataset-hasbeginning"></a></dfn>
       <td> <code class="idl"><a data-link-type="idl" href="#typedefdef-date-time" id="ref-for-typedefdef-date-time②">date-time</a></code>
       <td>
@@ -2524,11 +2535,6 @@ De volgende velden zijn toegestaan:
       <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-legalbasis"><code class="highlight">legalBasis</code><a class="self-link" href="#dom-dataset-legalbasis"></a></dfn>
       <td> string
       <td>
-     <tr>
-      <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-contactpoint"><code class="highlight">contactPoint</code><a class="self-link" href="#dom-dataset-contactpoint"></a></dfn>
-      <td> <code class="idl"><a data-link-type="idl" href="#typedefdef-contact" id="ref-for-typedefdef-contact">contact</a></code>
-      <td> Contact gegevens Conform <a href="https://www.w3.org/TR/vocab-dcat-2/#Property:resource_contact_point">DCAT § resource_contact_point</a> van de technisch contact persoon.
-            Bij problemen of foutmeldingen in de dataverwerking wordt (automatisch) met dit punt contact opgenomen.
      <tr>
       <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-keywords"><code class="highlight">keywords</code><a class="self-link" href="#dom-dataset-keywords"></a></dfn>
       <td> array (string)
@@ -3788,7 +3794,7 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
      <li><a href="#dom-veld-auth">attribute for veld</a><span>, in §4.2</span>
      <li><a href="#auth">definition of</a><span>, in §6.2</span>
     </ul>
-   <li><a href="#dom-dataset-authorizationgrantor">authorizationGrantor</a><span>, in §2.2.1</span>
+   <li><a href="#dom-dataset-authorizationgrantor">authorizationGrantor</a><span>, in §2.1</span>
    <li><a href="#camelcase">camelCase</a><span>, in §5</span>
    <li><a href="#dom-veld-comment">$comment</a><span>, in §4.2</span>
    <li><a href="#typedefdef-contact">contact</a><span>, in §7</span>
@@ -3796,7 +3802,7 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
     contactPoint
     <ul>
      <li><a href="#typedefdef-contact">(typedef)</a><span>, in §7</span>
-     <li><a href="#dom-dataset-contactpoint">attribute for dataset</a><span>, in §2.2.1</span>
+     <li><a href="#dom-dataset-contactpoint">attribute for dataset</a><span>, in §2.1</span>
     </ul>
    <li><a href="#dom-veld-contentencoding">contentEncoding</a><span>, in §4.2</span>
    <li><a href="#dom-dataset-crs">crs</a><span>, in §2.2.1</span>
@@ -3867,7 +3873,7 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
    <li><a href="#norepeat">noRepeat</a><span>, in §5</span>
    <li><a href="#nouns">nouns</a><span>, in §5</span>
    <li><a href="#dom-dataset-objective">objective</a><span>, in §2.2.1</span>
-   <li><a href="#dom-dataset-owner">owner</a><span>, in §2.2.1</span>
+   <li><a href="#dom-dataset-owner">owner</a><span>, in §2.1</span>
    <li><a href="#plural">plural</a><span>, in §5</span>
    <li>
     properties
@@ -3883,7 +3889,7 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
      <li><a href="#dom-tabel-provenance">attribute for tabel</a><span>, in §3.2</span>
      <li><a href="#dom-veld-provenance">attribute for veld</a><span>, in §4.2</span>
     </ul>
-   <li><a href="#dom-dataset-publisher">publisher</a><span>, in §2.2.1</span>
+   <li><a href="#dom-dataset-publisher">publisher</a><span>, in §2.1</span>
    <li>
     ref
     <ul>
@@ -4335,7 +4341,7 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
   <aside class="dfn-panel" data-for="typedefdef-contact">
    <b><a href="#typedefdef-contact">#typedefdef-contact</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-typedefdef-contact">2.2.1. DCAT velden</a>
+    <li><a href="#ref-for-typedefdef-contact">2.1. Verplichte attributen</a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */

@@ -9,7 +9,11 @@
   ],
   "required": [
     "tables",
-    "status"
+    "status",
+    "contactPoint",
+    "authorizationGrantor",
+    "owner",
+    "publisher"
   ],
   "properties": {
     "schema": {
@@ -50,10 +54,12 @@
       }
     },
     "publisher": {
-      "type": "string"
+      "type": "string",
+      "const": "datapunt@amsterdam.nl"
     },
     "owner": {
-      "type": "string"
+      "type": "string",
+      "default": "Gemeente Amsterdam"
     },
     "authorizationGrantor": {
       "type": "string"
