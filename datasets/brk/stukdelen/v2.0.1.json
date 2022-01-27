@@ -1,7 +1,7 @@
 {
   "id": "stukdelen",
   "type": "table",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "auth": "BRK/RSN",
   "schema": {
     "$id": "https://github.com/Amsterdam/schemas/brk/stukdelen.json",
@@ -38,11 +38,37 @@
       },
       "bedragTransactieBedrag": {
         "type": "integer",
+        "provenance": "$.bedragTransactie.bedrag",
         "description": "Het in een ter inschrijving aangeboden stuk vermelde bedrag, waarvoor 1 of meer onroerende zaken zijn verkregen. bedrag"
       },
       "bedragTransactieValuta": {
         "type": "string",
+        "provenance": "$.bedragTransactie.valuta",
         "description": "Het in een ter inschrijving aangeboden stuk vermelde bedrag, waarvoor 1 of meer onroerende zaken zijn verkregen. valuta"
+      },
+      "isBronVoorTenaamstelling": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "string"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "relation": "brk:tenaamstellingen",
+        "description": "Geeft weer welke tenaamstelling is ontstaan op basis van dit stukdeel"
       },
       "isBronVoorAantekeningKadastraalObject": {
         "type": "array",
@@ -53,7 +79,7 @@
               "type": "string"
             },
             "volgnummer": {
-              "type": "integer"
+              "type": "string"
             },
             "beginGeldigheid": {
               "type": "string",
@@ -90,7 +116,7 @@
               "type": "string"
             },
             "volgnummer": {
-              "type": "integer"
+              "type": "string"
             },
             "beginGeldigheid": {
               "type": "string",

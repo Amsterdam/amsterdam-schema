@@ -1,7 +1,7 @@
 {
   "id": "kadastraleobjecten",
   "type": "table",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "auth": "BRK/RSN",
   "temporal": {
     "identifier": "volgnummer",
@@ -52,6 +52,46 @@
       "kadastraleAanduiding": {
         "type": "string",
         "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
+      },
+      "aangeduidDoorGemeente": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "brk:gemeentes",
+        "description": ""
+      },
+      "aangeduidDoorKadastralegemeente": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "brk:kadastralegemeentes",
+        "description": "De kadastrale gemeente, het eerste gedeelte van de aanduiding van een kadastraal object."
+      },
+      "aangeduidDoorKadastralegemeentecode": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "brk:kadastralegemeentecodes",
+        "description": ""
+      },
+      "aangeduidDoorKadastralesectie": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "brk:kadastralesecties",
+        "description": "De kadastrale sectie, het tweede gedeelte van de aanduiding van een kadastraal object."
       },
       "perceelnummer": {
         "type": "integer",
@@ -125,10 +165,12 @@
       },
       "perceelnummerVerschuivingX": {
         "type": "string",
+        "provenance": "$.perceelnummerVerschuiving.x",
         "description": "Co\u00f6rdinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden x"
       },
       "perceelnummerVerschuivingY": {
         "type": "string",
+        "provenance": "$.perceelnummerVerschuiving.y",
         "description": "Co\u00f6rdinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden y"
       },
       "bijpijlingGeometrie": {
@@ -174,6 +216,30 @@
         "type": "string",
         "description": "Als dit veld is gevuld geeft dit de omschrijving waarom dit gegeven in onderzoek staat (art. 7n en 7r Kadasterwet)."
       },
+      "isOntstaanUitGPerceel": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "string"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "relation": "brk:kadastraleobjecten",
+        "description": "Dit veld is all\u00e9\u00e9n gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
+      },
       "heeftEenRelatieMetVerblijfsobject": {
         "type": "array",
         "items": {
@@ -183,12 +249,44 @@
               "type": "string"
             },
             "volgnummer": {
-              "type": "integer"
+              "type": "string"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
             }
           }
         },
         "relation": "bag:verblijfsobjecten",
         "description": "Relatie naar verblijfsobject"
+      },
+      "isOntstaanUitKadastraalobject": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "string"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "relation": "brk:kadastraleobjecten",
+        "description": "Onderliggende percelen. Alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
       }
     },
     "mainGeometry": "geometrie"

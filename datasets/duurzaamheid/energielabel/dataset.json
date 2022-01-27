@@ -6,7 +6,11 @@
   "description": "De energielabel per verblijfsobject van de gemeente Amsterdam.",
   "version": "1.0.0",
   "status": "beschikbaar",
-  "contactPoint": { "name":"Datateam Omgevingswet", "email": "datateam.ruimte@amsterdam.nl" },
+
+  "contactPoint": {
+    "name": "Datateam Omgevingswet",
+    "email": "datateam.ruimte@amsterdam.nl"
+  },
   "authorizationGrantor": "Datateam Omgevingswet",
   "theme": [
     "energielabel"
@@ -20,13 +24,14 @@
   "tables": [
     {
       "id": "energielabel",
-	  "title": "De energielabel per verblijfsobject van de gemeente Amsterdam.",
+
+      "title": "De energielabel per verblijfsobject van de gemeente Amsterdam.",
       "type": "table",
       "version": "1.0.0",
       "schema": {
-		 "$schema": "http://json-schema.org/draft-07/schema#",
-		 "type": "object",
-		 "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
         "required": [
           "id",
           "schema"
@@ -42,12 +47,12 @@
           },
           "opnamedatum": {
             "type": "string",
-			"format": "date",
+            "format": "date",
             "description": "Datum van de opname van de energielabel"
           },
           "opnametype": {
             "type": "string",
-			"description": "Het opnametype van de energielabel"
+            "description": "Het opnametype van de energielabel"
           },
           "status": {
             "type": "string",
@@ -62,16 +67,16 @@
             "description": "De energieprestatieindex van het verblijfsobject"
           },
           "energieklasse": {
-			"type": "string",
+		    	  "type": "string",
             "description": "De energieklasse van het verblijfsobject"
           },
           "energielabelIsPrive": {
-			"type": "boolean",
+			      "type": "boolean",
             "description": "-"
           },
           "isOpBasisVanReferentieGebouw": {
             "type": "boolean",
-			"title": "is op basis van referentie gebouw",
+      			"title": "is op basis van referentie gebouw",
             "description": "-"
           },
           "gebouwklasse": {
@@ -80,19 +85,19 @@
           },
           "metingGeldigTot": {
             "type": "string",
-			"format": "date",
+            "format": "date",
             "description": "Datum geldigheid van de meting van de energielabel"
           },
           "registratiedatum": {
             "type": "string",
-			"format": "date",
+      			"format": "date",
             "description": "Datum waarop de energielabel is geregistreerd"
           },
           "postcode": {
             "type": "string",
             "description": "postcode van het verblijfsobject",
-			"maxLength": 6,
-			"minLength": 6
+      			"maxLength": 6,
+			      "minLength": 6
           },
           "huisnummer": {
             "type": "integer",
@@ -109,22 +114,22 @@
           "bagVerblijfsobjectId": {
             "type": "string",
             "description": "Id van het verblijfsobject in de BAG",
-			"relation": "bag:verblijfsobjecten"
+            "relation": "bag:verblijfsobjecten"
           },
           "bagLigplaatsId": {
             "type": "string",
             "description": "Id van de ligplaats in de BAG",
-			"relation": "bag:ligplaatsen"
+            "relation": "bag:ligplaatsen"
           },
-		  "bagStandplaatsId": {
+          "bagStandplaatsId": {
             "type": "string",
             "description": "Id van de standplaats in de BAG",
-			"relation": "bag:standplaatsen"
+            "relation": "bag:standplaatsen"
           },
           "bagPandId": {
             "type": "string",
             "description": "Id van het pand in de BAG",
-			"relation": "bag:panden"
+            "relation": "bag:panden"
           },
           "gebouwtype": {
             "type": "string",
@@ -140,7 +145,7 @@
           },
           "projectobject": {
             "type": "string",
-            "description": "projectobject"			
+            "description": "projectobject"
           },
           "sbicode": {
             "type": "string",
@@ -162,35 +167,35 @@
             "type": "string",
             "description": "Is een optelsom van het primair energiegebruik voor verwarming, koeling, warmtapwaterbereiding en ventilatoren"
           },
-		  "eisPrimaireFossieleEnergie": {
+		      "eisPrimaireFossieleEnergie": {
             "type": "string",
             "description": "Eis primaire fossiele energie"
           },
-		  "primaireFossieleEnergieEmgForfaitair": {
+		      "primaireFossieleEnergieEmgForfaitair": {
             "type": "string",
             "description": "Primaire fossiele energie emg forfaitair"
           },
-		  "aandeelHernieuwbareEnergie": {
+		      "aandeelHernieuwbareEnergie": {
             "type": "string",
             "description": "Aandeel hernieuwbare energie"
           },
-		  "eisAandeelHernieuwbareEnergie": {
+		      "eisAandeelHernieuwbareEnergie": {
             "type": "string",
             "description": "Eis aandeel hernieuwbare energie"
           },
-		  "aandeelHernieuwbareEnergieEmgForfaitair": {
+		      "aandeelHernieuwbareEnergieEmgForfaitair": {
             "type": "string",
             "description": "Aandeel hernieuwbare energie Emg forfaitair"
           },
-		  "temperatuuroverschrijding": {
+		      "temperatuuroverschrijding": {
             "type": "string",
             "description": "Temperatuuroverschrijding"
           },
-		  "eisTemperatuuroverschrijding": {
+		      "eisTemperatuuroverschrijding": {
             "type": "string",
             "description": "Eis temperatuuroverschrijding"
           },
-		  "warmtebehoefte": {
+		      "warmtebehoefte": {
             "type": "string",
             "description": "Warmte Behoefte"
           },

@@ -1,7 +1,7 @@
 {
   "id": "zakelijkerechten",
   "type": "table",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "auth": "BRK/RSN",
   "temporal": {
     "identifier": "volgnummer",
@@ -55,6 +55,123 @@
         "format": "date-time",
         "description": ""
       },
+      "belastZakelijkerechten": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "string"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "relation": "brk:zakelijkerechten",
+        "description": "Dit zakelijk recht belast de volgende Aardzakelijkrechten"
+      },
+      "belastMetZakelijkerechten": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "string"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "relation": "brk:zakelijkerechten",
+        "description": "Dit zakelijk recht is belast met de volgende Aardzakelijkrechten"
+      },
+      "ontstaanUitZakelijkerechten": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "string"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "relation": "brk:zakelijkerechten",
+        "description": "Als deze waarde is gevuld, dan is dit recht ontstaan uit een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt (VVE)"
+      },
+      "ontstaanUitAppartementsrechtsplitsingVve": {
+        "shortname": "ontstaanUitApptrechtsplitsingVve",
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "brk:kadastralesubjecten",
+        "description": "Als deze waarde is gevuld, dan is dit recht betrokken bij een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt (VVE)"
+      },
+      "betrokkenBijZakelijkerechten": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "string"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "relation": "brk:zakelijkerechten",
+        "description": "Als deze waarde is gevuld, dan is dit recht ontstaan uit een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt (VVE)"
+      },
+      "betrokkenBijAppartementsrechtsplitsingVve": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "brk:kadastralesubjecten",
+        "description": "VVE Subject betrokken bij Appartementsrechtsplitsing"
+      },
       "isBeperktTot": {
         "type": "integer",
         "description": "Is beperkt tot tenaamstelling, dat wil zeggen is beperkt tot een subject"
@@ -66,7 +183,7 @@
             "type": "string"
           },
           "volgnummer": {
-            "type": "integer"
+            "type": "string"
           },
           "beginGeldigheid": {
             "type": "string",

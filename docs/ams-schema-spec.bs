@@ -109,6 +109,11 @@ Een <dfn dfn export>dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON b
                     * "beschikbaar"
                     * "niet_beschikbaar"
             </details>
+    <tr><td><dfn>contactPoint</dfn>         <td> {{contact}}
+        <td> Contact gegevens van de persoon of afdeling waar inhoudelijke vragen over de dataset aan gericht moeten worden. Dit is meestal de bronhouder. (Deze gegevens worden publiek zichtbaar)
+    <tr><td><dfn>authorizationGrantor</dfn> <td> string     <td> Naam van de afdeling verantwoordelijk voor authorisatie op deze dataset. Dit is meestal de bronhouder.
+    <tr><td><dfn>owner</dfn>                <td> string     <td> Eigenaar van de data  Default: `"Gemeente Amsterdam"`
+    <tr><td><dfn>publisher</dfn>            <td> string     <td> [CONST] `"datapunt@amsterdam.nl"` Ontsluiter van de data verantwoordelijk voor technisch beheer. Conform \[DCAT § resource_publisher]([DCATURL]#Property:resource_publisher)
     <tr><td><dfn>tables</dfn>   <td> array
         <td> Tabellen in deze dataset. Moet minimaal 1 element bevatten.
             <details>
@@ -163,18 +168,12 @@ De volgende velden zijn toegestaan:
     <tr><td><dfn>spatialDescription</dfn>   <td> string <td>
     <tr><td><dfn>spatialCoordinates</dfn>   <td> Geometry <td> Een [GeoJSON](https://geojson.org/) geometry
     <tr><td><dfn>theme</dfn>                <td> array (string) <td> Array van themas Conform \[DCAT § resource_theme]([DCATURL]#Property:resource_theme)
-    <tr><td><dfn>publisher</dfn>            <td> string <td> Uitgever Conform \[DCAT § resource_publisher]([DCATURL]#Property:resource_publisher)
-    <tr><td><dfn>owner</dfn>                <td> string <td> Conform? \[DCAT § resource_creator]([DCATURL]#Property:resource_creator)
-    <tr><td><dfn>authorizationGrantor</dfn> <td> string <td>
     <tr><td><dfn>hasBeginning</dfn>         <td> {{date-time}} <td>
     <tr><td><dfn>hasEnd</dfn>               <td> {{date-time}} <td>
     <tr><td><dfn>objective</dfn>            <td> string <td>
     <tr><td><dfn>temporalUnit</dfn>         <td> string <td>  Eenheid van temporaliteit Conform? \[DCAT § dataset_temporal_resolution]([DCATURL]#Property:dataset_temporal_resolution)
     <tr><td><dfn>spatial</dfn>              <td> string <td>
     <tr><td><dfn>legalBasis</dfn>           <td> string <td>
-    <tr><td><dfn>contactPoint</dfn>         <td> {{contact}}
-        <td> Contact gegevens Conform \[DCAT § resource_contact_point]([DCATURL]#Property:resource_contact_point) van de technisch contact persoon.
-            Bij problemen of foutmeldingen in de dataverwerking wordt (automatisch) met dit punt contact opgenomen.
     <tr><td><dfn>keywords</dfn>             <td> array (string) <td> Array van keywords Conform \[DCAT § resource_keyword]([DCATURL]#Property:resource_keyword)
     <tr><td><dfn>license</dfn>              <td> string <td> Licentie Conform \[DCAT § resource_license]([DCATURL]#Property:resource_license)
     <tr><td><dfn>crs</dfn>
