@@ -6,10 +6,15 @@
   "description": "De energielabel per verblijfsobject van de gemeente Amsterdam.",
   "version": "1.0.0",
   "status": "beschikbaar",
+  "contactPoint": {
+    "name": "Datateam Omgevingswet",
+    "email": "datateam.ruimte@amsterdam.nl"
+  },
+  "authorizationGrantor": "Datateam Omgevingswet",
   "theme": [
     "energielabel"
   ],
-  "publisher": "OIS",
+  "publisher": "datapunt@amsterdam.nl",
   "owner": "Gemeente Amsterdam",
   "keywords": [
     "Energielabel"
@@ -18,18 +23,18 @@
   "tables": [
     {
       "id": "energielabel",
-	  "title": "De energielabel per verblijfsobject van de gemeente Amsterdam.",
+      "title": "De energielabel per verblijfsobject van de gemeente Amsterdam.",
       "type": "table",
       "version": "1.0.0",
       "schema": {
-		 "$schema": "http://json-schema.org/draft-07/schema#",
-		 "type": "object",
-		 "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
         "required": [
           "id",
           "schema"
         ],
-        "display": "id",      
+        "display": "id",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -40,12 +45,12 @@
           },
           "opnamedatum": {
             "type": "string",
-			      "format": "date",
+            "format": "date",
             "description": "Datum van de opname van de energielabel"
           },
           "opnametype": {
             "type": "string",
-			      "description": "Het opnametype van de energielabel"
+            "description": "Het opnametype van de energielabel"
           },
           "status": {
             "type": "string",
@@ -60,15 +65,16 @@
             "description": "De energieprestatieindex van het verblijfsobject"
           },
           "energieklasse": {
-			      "type": "string",
+            "type": "string",
             "description": "De energieklasse van het verblijfsobject"
           },
           "energielabelIsPrive": {
-			      "type": "boolean",
+            "type": "boolean",
             "description": "-"
           },
           "isOpBasisVanReferentieGebouw": {
             "type": "boolean",
+            "title": "is op basis van referentie gebouw",
             "description": "-"
           },
           "gebouwklasse": {
@@ -87,7 +93,9 @@
           },
           "postcode": {
             "type": "string",
-            "description": "postcode van het verblijfsobject"
+            "description": "postcode van het verblijfsobject",
+            "maxLength": 6,
+            "minLength": 6
           },
           "huisnummer": {
             "type": "integer",
@@ -103,19 +111,23 @@
           },
           "bagVerblijfsobjectId": {
             "type": "string",
-            "description": "Id van het verblijfsobject in de BAG"
+            "description": "Id van het verblijfsobject in de BAG",
+            "relation": "bag:verblijfsobjecten"
           },
           "bagLigplaatsId": {
             "type": "string",
-            "description": "Id van de ligplaats in de BAG"
+            "description": "Id van de ligplaats in de BAG",
+            "relation": "bag:ligplaatsen"
           },
           "bagStandplaatsId": {
             "type": "string",
-            "description": "Id van de standplaats in de BAG"
+            "description": "Id van de standplaats in de BAG",
+            "relation": "bag:standplaatsen"
           },
           "bagPandId": {
             "type": "string",
-            "description": "Id van het pand in de BAG"
+            "description": "Id van het pand in de BAG",
+            "relation": "bag:panden"
           },
           "gebouwtype": {
             "type": "string",
@@ -131,7 +143,7 @@
           },
           "projectobject": {
             "type": "string",
-            "description": "projectobject"			
+            "description": "projectobject"
           },
           "sbicode": {
             "type": "string",
@@ -181,7 +193,7 @@
             "type": "string",
             "description": "Eis temperatuuroverschrijding"
           },
-        "warmtebehoefte": {
+          "warmtebehoefte": {
             "type": "string",
             "description": "Warmte Behoefte"
           }
