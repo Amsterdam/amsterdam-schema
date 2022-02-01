@@ -6,9 +6,11 @@
   "auth": "FP/MDW",
   "title": "stand van de gegevens over bedrijven / vestigingen",
   "description": "stand op \u00e9\u00e9n bepaalde peildatum van gegevens in het domein van bedrijvigheid",
-  "publisher": "Onderzoek en Statistiek, Basisstatistiek",
+  "owner": "Gemeente Amsterdam",
+  "publisher": "datapunt@amsterdam.nl",
+  "authorizationGrantor": "Onderzoek en Statistiek",
   "contactPoint": {
-    "name": "Basisstatistiek",
+    "name": "Onderzoek en Statistiek",
     "email": "basisstatistiek.ois@amsterdam.nl"
   },
   "crs": "EPSG:28992",
@@ -28,7 +30,9 @@
         ],
         "required": [
           "schema",
-          "id"
+          "id",
+          "vestigingsnummer",
+          "handelsnaam"
         ],
         "display": "id",
         "properties": {
@@ -160,7 +164,7 @@
             "shortname": "caStraatnaam",
             "description": "Officiële naam openbare ruimte van het correspondentieadres"
           },
-          "correspondentiadresHuisnummer": {
+          "correspondentieadresHuisnummer": {
             "type": "integer",
             "title": "correspondentieadresHuisnummer",
             "shortname": "caHuisnummer",
@@ -188,7 +192,7 @@
             "type": "string",
             "title": "correspondentieadresGemeenteCode",
             "shortname": "caGemeenteCode",
-            "description": "Naam van de gemeente van het correspondentieadres"
+            "description": "Code van de gemeente van het correspondentieadres"
           },
           "correspondentieadresGemeenteNaam": {
             "type": "string",
@@ -236,7 +240,7 @@
           },
           "standaardbedrijfsindelingSectieOmschrijving": {
             "type": "string",
-            "title": "standaardbedrijfsindelingSectiemschrijving",
+            "title": "standaardbedrijfsindelingSectieOmschrijving",
             "shortname": "sbiSectieOmschrijving",
             "description": "Omschrijving van de sectie van de standaardbedrijfsgroepindeling waartoe de vestiging behoort"
           },
@@ -288,30 +292,22 @@
             "shortname": "peildatumWpVestiging",
             "description": "De datum waarop het aantal werkzame personen van de vestiging is vastgesteld"
           },
-          "importCode": {
-            "type": "string",
-            "title": "importCode",
-            "description": "Code die aangeeft of de vestiging importeert"
+          "indicatieImport": {
+            "type": "boolean",
+            "title": "indicatieImport",
+            "shortname": "indImport",
+            "description": "Indicatie of de vestiging importeert"
           },
-          "importOmschrijving": {
-            "type": "string",
-            "title": "importOmschrijving",
-            "description": "Omschrijving van de code die aangeeft of de vestiging importeert"
-          },
-          "exportCode": {
-            "type": "string",
-            "title": "exportCode",
-            "description": "Code die aangeeft of de vestiging exporteert"
-          },
-          "exportOmschrijving": {
-            "type": "string",
-            "title": "exportOmschrijving",
-            "description": "Omschrijving van de code die aangeeft of de vestiging exporteert"
+          "indicatieExport": {
+            "type": "boolean",
+            "title": "indicatieExport",
+            "shortname": "indExport",
+            "description": "Indicatie of de vestiging exporteert"
           },
           "telefoonnummer": {
             "type": "string",
             "title": "telefoonnummer",
-            "description": "Het telefoonnumer van de vestiging"
+            "description": "Het telefoonnummer van de vestiging"
           },
           "telefoonnummerMobiel": {
             "type": "string",
@@ -321,24 +317,18 @@
           "email": {
             "type": "string",
             "title": "email",
-            "description": "Het emailadres van de vestiging"
+            "description": "Het email-adres van de vestiging"
           },
           "website": {
             "type": "string",
             "title": "website",
             "description": "De door de vestiging, vereniging of stichting geregistreerde domeinnaam"
           },
-          "nonmailingIndicatorCode": {
-            "type": "string",
-            "title": "nonmailingIndicatorCode",
-            "shortname": "nonmailingCode",
-            "description": "Code die aangeeft of vestigingen toestaan dat hun gegevens aan derden worden geleverd ten beheve van direct marketing activiteiten"
-          },
-          "nonmailingIndicatorOmschrijving": {
-            "type": "string",
-            "title": "nonmailingIndicatorOmschrijving",
-            "shortname": "nonmailingOmschrijving",
-            "description": "Omschrijving van de code van de non mailings indicator"
+          "indicatieNonmailing": {
+            "type": "boolean",
+            "title": "indicatieNonmailing",
+            "shortname": "indNonmailing",
+            "description": "Indicatie of vestigingen toestaan dat hun gegevens aan derden worden geleverd t.b.v. direct marketing activiteiten. Indien ja, dan is er geen toestemming."
           },
           "hoofdNevenVestigingCode": {
             "type": "string",
@@ -350,15 +340,11 @@
             "title": "hoofdNevenVestigingOmschrijving",
             "description": "Omschrijving van de code of de vestiging gekenmerkt is als hoofd- of nevenvestiging"
           },
-          "economischActiefCode": {
-            "type": "string",
-            "title": "economischActiefCode",
-            "description": "Code die aangeeft of de vestiging deelneemt aan het economisch verkeer"
-          },
-          "economischActiefOmschrijving": {
-            "type": "string",
-            "title": "economischActiefOmschrijving",
-            "description": "Omschrijving van de code of de vestiging deelneemt aan het economisch verkeer"
+          "indicatieEconomischActief": {
+            "type": "boolean",
+            "title": "indicatieEconomischActief",
+            "shortname": "indEconomischActief",
+            "description": "Indicatie of de vestiging deelneemt aan het economisch verkeer"
           },
           "creatieveSectorCode": {
             "type": "string",
@@ -443,7 +429,7 @@
             "description": "De gebruiksoppervlakte van het verblijfsobject waar de vestiging in is gevestigd conform hetgeen in NEN 2580 is vastgelegd omtrent gebruiksoppervlakte"
           },
           "geometrie": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
+            "$ref": "https://geojson.org/schema/Point.json",
             "title": "geometrie",
             "description": "Vorm en ligging van de vestiging in het Nationale Rijksdriehoekstelsel."
           },
@@ -575,7 +561,6 @@
         }
       },
       "mainGeometry": "geometrie"
-    }
     }
   ]
 }
