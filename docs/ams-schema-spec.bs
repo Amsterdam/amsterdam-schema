@@ -1,13 +1,13 @@
 <pre class='metadata'>
 Title: Amsterdam Schema Specificatie
 Shortname: ams-schema-spec
-Revision: 2.0.0
+Revision: 2.0.1
 Status: LS
 URL: https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html
 Repository: Amsterdam/amsterdam-schema
 Editor: Michiel Trimpe, Gemeente Amsterdam, https://data.amsterdam.nl/
 Abstract: Het Amsterdam Schema is een op JSON Schema’s gebaseerde standaard (ondersteund door het Amsterdam Meta Schema)
-    om datasets in een machine leesbaar formaat te beschrijven en op generieke wijze te verwerken en te ontsluiten.
+    om datasets in een machineleesbaar format te beschrijven en op generieke wijze te verwerken en te ontsluiten.
 Markup Shorthands: css no, markdown yes
 Indent: 4
 Default highlight: js
@@ -37,15 +37,15 @@ Text Macro: SYNCSCROLLB class="b" onscroll="let sibling =this.previousElementSib
 Introductie {#intro}
 ====================
 > **Doelstelling**<br/>
-    Alle data van gemeente Amsterdam binnen één machine verwerkbaar universeel formaat beschrijven,
+    Alle data van gemeente Amsterdam binnen één machine verwerkbaar universeel format beschrijven,
     zodat het geautomatiseerd verwerkt en ontsloten kan worden.
     En zo vanuit de [tada principes](https://www.amsterdam.nl/innovatie/digitalisering-technologie/tada-principes/) bij dragen aan een transparante, datagedreven organisatie.
 
 Het Amsterdam Schema is een standaard voor het beschrijven van datasets.
-De structuur van de data kan samen met meta-informatie in een machine verwerkbaar formaat vastgelegd worden.
+De structuur van de data kan samen met meta-informatie in een machineverwerkbaar format vastgelegd worden.
 Zo kunnen datasets automatisch verwerkt en ontsloten worden.
 
-Dit document legt uit hoe een dataset volgens de Amsterdam Schema standaard beschreven wordt.
+Dit document legt uit hoe een dataset volgens de Amsterdam Schema-standaard beschreven wordt.
 
 <div class=example>
     Neem bijvoorbeeld een dataset over monumenten. <br/>
@@ -55,7 +55,7 @@ Dit document legt uit hoe een dataset volgens de Amsterdam Schema standaard besc
     * en wat *type* en *functie* precies betekent.
 </div>
 
-Note: Een actueel overzicht van gepubliceerde Amsterdam Schemas is te vinden op [GitHub](https://github.com/Amsterdam/amsterdam-schema/tree/master/datasets).
+Note: Een actueel overzicht van gepubliceerde Amsterdam Schema's is te vinden op [GitHub](https://github.com/Amsterdam/amsterdam-schema/tree/master/datasets).
 
 Note: Amsterdam Schema is gebaseerd op [JSON Schema's](https://json-schema.org).
 
@@ -68,14 +68,14 @@ Binnen deze bestanden bestaan de volgende niveaus:
 : [[#datasets| dataset]]
 :: Een samenhangende collectie van data met één beheerder of beherende instantie.
     Zoals bedoeld in [[VOCAB-DCAT-2#dcat-scope|DCAT]].
-    Op dit niveau wordt voornamelijk meta-informatie over de herkomst en aard van de data meegegeven, zoals de naam, beschrijving, licentie en publicatie datum.
+    Op dit niveau wordt voornamelijk meta-informatie over de herkomst en aard van de data meegegeven, zoals de naam, beschrijving, licentie en publicatiedatum.
     Een dataset bevat minstens één tabel.
 : [[#tables|tabel]]
 :: Beschrijft een type object dat in de dataset voorkomt. Bevat een set van velden die beschrijft welke eigenschappen datarijen in deze tabel moeten of mogen bezitten.
 : [[#fields|veld]]
 :: Beschrijft de eigenschappen van rijen in een tabel, zoals de naam en het datatype van een eigenschap. Vergelijkbaar met de kolommen van een database.
 
-Note: Binnen Amsterdam Schema wordt de Data Catalog Vocabulary (hierna [DCAT]) standaard gebruikt. DCAT is een naamgevings standaard voor het publiceren van data catalogi op het web.
+Note: Binnen Amsterdam Schema wordt de Data Catalog Vocabulary (hierna [DCAT]) standaard gebruikt. DCAT is een naamgevingsstandaard voor het publiceren van datacatalogi op het web.
 
 
 <!--
@@ -103,15 +103,15 @@ Een <dfn dfn export>dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON b
     <tr><td><dfn>id</dfn>       <td> {{id-type|identifier}} <td> Unieke identifier voor deze dataset. Moet voldoen aan [[#naamgeving]]. Conform \[DCAT § resource_identifier](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_identifier).
     <tr><td><dfn>type</dfn>     <td> {{schema-type}}        <td> Type van dit bestand, in dit geval `"dataset"`.
     <tr><td><dfn>status</dfn>   <td> string
-        <td> Publicatie status van de dataset
+        <td> Publicatiestatus van de dataset
             <details>
                 <summary>Toegestane waarden</summary>
                     * "beschikbaar"
                     * "niet_beschikbaar"
             </details>
     <tr><td><dfn>contactPoint</dfn>         <td> {{contact}}
-        <td> Contact gegevens van de persoon of afdeling waar inhoudelijke vragen over de dataset aan gericht moeten worden. Dit is meestal de bronhouder. (Deze gegevens worden publiek zichtbaar)
-    <tr><td><dfn>authorizationGrantor</dfn> <td> string     <td> Naam van de afdeling verantwoordelijk voor authorisatie op deze dataset. Dit is meestal de bronhouder.
+        <td> Contactgegevens van de persoon of afdeling waar inhoudelijke vragen over de dataset aan gericht moeten worden. Dit is meestal de bronhouder. (Deze gegevens worden publiek zichtbaar.)
+    <tr><td><dfn>authorizationGrantor</dfn> <td> string     <td> Naam van de afdeling verantwoordelijk voor autorisatie op deze dataset. Dit is meestal de bronhouder.
     <tr><td><dfn>owner</dfn>                <td> string     <td> Eigenaar van de data  Default: `"Gemeente Amsterdam"`
     <tr><td><dfn>publisher</dfn>            <td> string     <td> [CONST] `"datapunt@amsterdam.nl"` Ontsluiter van de data verantwoordelijk voor technisch beheer. Conform \[DCAT § resource_publisher]([DCATURL]#Property:resource_publisher)
     <tr><td><dfn>tables</dfn>   <td> array
@@ -194,9 +194,9 @@ Issue: Niet alle DCAT velden zijn gemodelleerd. Daarnaast zijn komt van sommige 
 
 Issue: Sommige velden missen een beschrijving
 
-Tabel referenties {#table-refs}
+Tabelreferenties {#table-refs}
 ----------------------------------------------------------
-Tabel referenties zijn verwijzingen naar JSON bestanden waarin een [=tabel=] gedefinieerd wordt.
+Tabelreferenties zijn verwijzingen naar JSON-bestanden waarin een [=tabel=] gedefinieerd wordt.
 Dit maakt het mogelijk om elke tabel in een dataset in een eigen bestand te definieeren.
 Tabel referenties zijn gebaseerd op [[JSON-SCHEMA#ref]].
 
@@ -266,7 +266,7 @@ Daarnaast kan aan een tabel meta informatie en autorisatie instellingen worden m
 
 Verplichte attributen {#tabel-mandatory-fields}
 ---------------------------------------------------------
-Een <dfn dfn export>tabel</dfn> binnen Amsterdam-Schema is een JSON object met in ieder geval de volgende attributen.
+Een <dfn dfn export>tabel</dfn> binnen Amsterdam Schema is een JSON object met in ieder geval de volgende attributen.
 <table dfn-type="attribute" dfn-for=tabel export class="dfn-table">
     <tr><td><dfn>id</dfn>       <td> {{id-type|identifier}} <td> Naam van de tabel. Unieke (binnen de parent dataset) identifier voor deze tabel. Moet voldoen aan [[#naamgeving]].
     <tr><td><dfn>type</dfn>     <td> {{schema-type}}        <td> Type van dit bestand, in dit geval `"table"`.
@@ -338,7 +338,7 @@ Daarnaast mag een [=schema=] object de volgende attributen bezitten:
     <tr><td><dfn>mainGeometry</dfn>             <td> string <td> De naam van het primaire geometrie veld. Default: `"geometry"` zie [[#geometry]]
     <tr><td><dfn>identifier</dfn>               <td> string | array (string)
         <td>Naam van het [=veld=] dat de unieke identifier van een rij is, of een array van veldnamen die samen een unieke key vormen.
-            Het veld of de velden waar hier naar verwezen wordt moeten van het [[#data-types-string|string]] type zijn.
+            Het veld of de velden waar hier naar verwezen wordt moeten van het type [[#data-types-string|string]] of het type [[#data-types-int|integer]] zijn.
 </table>
 
 Issue: Het identifier veld moet string zijn. De array optie wordt binnenkort verwijderd.
@@ -547,7 +547,7 @@ Veld {#fields}
 Een veld beschrijft een eigenschap die een rij in de tabel mag of moet (zie {{required}}) bezitten.
 Een [=veld=] is een concrete JSON Schema type definiering waaraan ook meta-informatie kan worden meegegeven.
 
-Zie [[#data-types]] voor een overzicht van modelleerbare typen en hoe deze binnen Amsterdam-Schema uitgedrukt kunnen worden.
+Zie [[#data-types]] voor een overzicht van modelleerbare typen en hoe deze binnen Amsterdam Schema uitgedrukt kunnen worden.
 
 Note: [=veld=] gebruikt een subset van [[!json-schema-validation]]. Een aantal JSON Schema features waaronder union types wordt niet ondersteund.
 
@@ -679,19 +679,19 @@ welke (SQL) data typen gebruikt zouden moeten worden om de JSON Schema typen te 
     <tr><td> [[#data-types-string]]    <td> [[#data-types-array]]
 </table>
 
-Note: UNION types worden niet ondersteund, een kolom kan dus niet meerdere typen waardes bevatten, behalve `null`.
+Note: UNION types worden niet ondersteund: een kolom kan niet meerdere typen waardes bevatten, behalve `null`.
     De anyOf operater is dus **niet** toegestaan<br /> <del>`{"anyOf": [{ "type": "integer" }, { "type": "string"}]}`</del>
 
 Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie {{required}}.
 
 ### integer ### {#data-types-int}
-    Een integer moet standaard worden geinterpreteerd als een 64bit signed integer.
-    Een integer in Amsterdam Schema heeft dus een range van `[-(2^64)+1, (2^64)-1]`, maar gebruik van getallen buiten de range `[-(2^53)+1, (2^53)-1]`,
+    Een integer bevat de (decimale representatie van) een 64-bits signed integer.
+    Een integer in Amsterdam Schema heeft dus een range van `[-(2^63), (2^63)-1]`, maar gebruik van getallen buiten het bereik `[-(2^53)+1, (2^53)-1]`
     wordt in lijn met [[RFC7159#section-6]] afgeraden omdat dit door veelgebruikte doelsystemen ([[IEEE754]])
     niet wordt ondersteund. Als een {{maximum}} en/of {{minimum}} buiten de laatst genoemde range is ingesteld wordt een waarschuwing gegeven.
 
     <div class=example>
-        Dit veld moet worden geinterpreteerd als een 64bit signed integer zoals een SQL "BIGINT".
+        Dit veld bevat een 64-bits signed integer, zoals een "BIGINT" in SQL.
         <pre highlight="json">
             "aantalDuivenOpDeDam": {
                 "title": "aantal duiven op de Dam",
@@ -702,7 +702,7 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
     </div>
 
     <div class=example>
-        Dit veld resulteerd in een waarschuwing.
+        Dit veld resulteert in een waarschuwing.
         <pre highlight="json">
             "zandkorrelsOpBlijburg": {
                 "title": "zandkorrels op Blijburg",
@@ -901,7 +901,7 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
     Note: Bij een `"date-time"` wordt aangeraden om een tijdszone op te geven. Wanneer de tijdszone ontbreekt wordt een data-kwaliteit waarschuwing gegeven.
 
     <div class=example>
-        Dit veld zou moeten worden geinterpreteerd als een [[ISO8601]] Datum type in YYYY-MM-DD formaat, zoals een SQL `DATE`.
+        Dit veld zou moeten worden geinterpreteerd als een [[ISO8601]] Datum type in het format YYYY-MM-DD, zoals een SQL `DATE`.
         <pre highlight="json">
             "publicatieDatum": {
                 "title": "publicatie datum",
@@ -1102,18 +1102,20 @@ Relaties {#relatering}
 -------------------------------
 Met het {{relation}} attribuut van een [=veld=] kunnen relaties tussen tabellen worden gedefinieerd.
 Dit kan zowel een relatie tussen tabellen in één dataset als tussen tabellen in verschillende datasets zijn.
-Met het relation attribuut wordt verwezen naar het identifier veld van de andere tabel.
+Met het relation-attribuut wordt verwezen naar het identifierveld van de andere tabel.
 Dit is vergelijkbaar met een foreign key relatie in SQL.
 
-Het {{relation}} attribuut moet altijd de vorm `"<dataset-id>:<tabel-id>"` hebben.
+Het attribuut {{relation}} moet altijd een string bevatten
+van de vorm `"<dataset-id>:<tabel-id>"`.
 Van de waarden in een relation veld wordt verwacht dat ze gelijk zijn aan
 de unieke identifier van een rij in de tabel waaraan gerefereerd wordt.
 
-Note: Dit is niet verplicht, referentiele integriteit wordt niet afgedwongen.
+Note: Dit is niet verplicht, referentiële integriteit wordt niet afgedwongen.
     Het kan dus voorkomen dat relaties naar niet (meer) bestaande entiteiten verwijzen.
 
 In het geval dat gerefereerd wordt aan een tabel zonder temporaliteit, moet het
-verwijzende veld dus van type `string` zijn.
+type van het verwijzende veld overeenkomen met het type van de identifier
+van de andere tabel.
 
 <div class=example>
     Voorbeeld van een relatie veld voor een enkelvoudige relatie met de tabel "meetbouten" in de
@@ -1131,7 +1133,8 @@ verwijzende veld dus van type `string` zijn.
 Als gerefereerd wordt aan een tabel met temporaliteit, bestaat de unieke identifier van
 een object in die tabel uit twee velden; de tabel identifier en de temporele identifier
 (zie [[#temporaliteit]]). In dit geval moet het verwijzende veld van het type `object` zijn
-en twee string `properties` bevatten.
+en twee `properties` bevatten, met namen en types die overeenkomen met de `identifier`
+en de `temporal` van het object waarnaar verwezen wordt.
 
 <div class=example>
     Voorbeeld van een relatie veld voor een enkelvoudige relatie met de temporele tabel "wijken" in de
@@ -1144,10 +1147,10 @@ en twee string `properties` bevatten.
             "relation": "gebieden:wijken",
             "properties": {
                 "identifier": {
-                "type": "string"
+                    "type": "string"
                 },
                 "volgnummer": {
-                "type": "string"
+                    "type": "string"
                 }
             }
         }
@@ -1157,7 +1160,7 @@ en twee string `properties` bevatten.
 Voor meervoudige (Many-To-Many) relaties wordt een [[#data-types-array| array]] veld gebruikt met een relation attibuut.
 
 <div class=example>
-    Voorbeeld van een relatie veld voor een meervoudige relatie met de tabel "referentiepunten"
+    Voorbeeld van een relatieveld voor een meervoudige relatie met de tabel "referentiepunten"
     in de dataset "meetbouten".
     <pre highlight="json">
         "refereertAanReferentiepunten": {
@@ -1174,7 +1177,7 @@ Voor meervoudige (Many-To-Many) relaties wordt een [[#data-types-array| array]] 
 </div>
 
 <div class=example>
-    Voorbeeld van een relatie veld voor een meervoudige relatie met een temporele tabel "panden"
+    Voorbeeld van een relatieveld voor een meervoudige relatie met een temporele tabel "panden"
     in de dataset "bag".
     <pre highlight="json">
         "ligtInPanden": {
@@ -1183,15 +1186,15 @@ Voor meervoudige (Many-To-Many) relaties wordt een [[#data-types-array| array]] 
             "description": "De unieke landelijke aanduidingen van de panden waarvan het verblijfsobject onderdeel uitmaakt.",
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "identificatie": {
-                  "type": "string"
-                },
-                "volgnummer": {
-                  "type": "integer"
+                "type": "object",
+                "properties": {
+                    "identificatie": {
+                        "type": "string"
+                    },
+                    "volgnummer": {
+                        "type": "integer"
+                    }
                 }
-              }
             }
         }
     </pre>
@@ -1211,10 +1214,10 @@ Voor het definieren van een eenheid wordt standaard een string met de eenheid vo
     "unit": "mm/h"
 </pre>
 
-Note: Zie [deze link](https://ucum.org/trac/wiki/adoption/common) voor een overzicht van veelgebruikte eenheden in UCUM formaat.
+Note: Zie [deze link](https://ucum.org/trac/wiki/adoption/common) voor een overzicht van veelgebruikte eenheden in UCUM-format.
 
-Voor valuta wordt de drie-letterige [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) codering gebruikt
-binnen een [UCUM 2.1§6](https://ucum.org/ucum.html#section-Character-Set-and-Lexical-Rules) unit annotatie.
+Voor valuta's wordt de drieletterige codering [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) gebruikt
+binnen een [UCUM 2.1§6](https://ucum.org/ucum.html#section-Character-Set-and-Lexical-Rules) unitannotatie.
 <pre class=example highlight=json>
     "unit": "{EUR}/h"
 </pre>
@@ -1236,7 +1239,7 @@ Zo kunnen ook andere eenheidscoderingen gebruikt worden.
 </pre>
 
 [BP]
-    Gebruik de UCUM standaard om eenheden te coderen. Niet standaard coderingssystemen worden afgeraden.
+    Gebruik de UCUM-standaard om eenheden te coderen. Niet-standaard-coderingssystemen worden afgeraden.
 [BPE]
 
 
@@ -1268,7 +1271,7 @@ worden onderdeel van de URI waarop deze entiteiten ontsloten worden, en moeten d
 
 <dfn lt="plural" export>5.</dfn> Namen van tabellen **moeten** in meervoudsvorm zijn, behalve als sprake is van een enkelvoudige entiteit. Conform [[REST-API-DESIGN-RULES#api-54]].
 
-<dfn lt="noRepeat" export>6.</dfn> Namen van velden **moeten** geen herhaling van de tabel naam bevatten. (dus **niet** `container.containerNummmer`, maar `container.nummer`)
+<dfn lt="noRepeat" export>6.</dfn> Namen van velden **moeten** geen herhaling van de tabel naam bevatten. (Dus **niet** `container.containerNummmer`, maar `container.nummer`.)
 
 Note: Gebruik duidelijke en begrijpelijke namen voor zowel datasets, tabellen als velden. De data wordt onsloten op een publieke API,
     dus de naamgeving moet zonder veel uitleg duidelijk zijn voor externe afnemers.
@@ -1277,7 +1280,7 @@ Note: Gebruik duidelijke en begrijpelijke namen voor zowel datasets, tabellen al
 Shortname {#shortname}
 ----------------------------------------
 Te lange namen in het schema kunnen problemen geven bij het aanmaken van tabellen en kolommen op basis van het schema.
-PostgreSQL staat bijvoorbeeld niet meer dan 63 karakters toe voor tabelnamen.
+PostgreSQL staat bijvoorbeeld niet meer dan 63 tekens toe voor tabelnamen.
 
 Op zowel [=tabel=] als [=veld=] niveau is het mogelijk om een alternatieve verkorte naam op te geven met het attribuut `shortname`.
 Het shortname attribuut mag wel afkortingen bevatten ([=noAbrev|regel 2=] geldt niet) maar moet verder aan dezelfde eisen voldoen als de naam die erdoor wordt afgekort.
@@ -1322,14 +1325,14 @@ Deze attributen kunnen op elk niveau bestaan.
 Omschrijving {#omschrijving}
 ---------------------------------------------------
 
-Op elk niveau kan een semantische omschrijving toegevoegd worden d.m.v. de `title` en `description` attribuut.
+Op elk niveau kan een semantische omschrijving toegevoegd worden d.m.v. de attributen `title` en `description`.
 <table dfn-type="attribute" export class="dfn-table">
     <tr><td> title       <td> (string) <td> Naam van dit item.
-    <tr><td> description <td> (string) <td> Vrije tekst beschrijving van dit item. Mag escape characters zoals newlines bevaten.
+    <tr><td> description <td> (string) <td> Beschrijving van dit item, vrije tekst. Mag escape characters zoals newlines bevaten.
 </table>
 
-De `title` kan bijvoorbeeld in frontend applicaties worden gebruikt als label voor een invoerveld.
-Het `description` veld is bedoeld voor bijvoorbeeld context (mouseover) menu's bij een invoerveld of voor informatie velden.
+De `title` kan bijvoorbeeld in frontendapplicaties worden gebruikt als label voor een invoerveld.
+Het `description` veld is bedoeld voor bijvoorbeeld contextmenu's (mouseover) bij een invoerveld of voor informatievelden.
 
 <div class=example>
     `title` en `description` van een [=Dataset=].
@@ -1358,21 +1361,21 @@ Het `description` veld is bedoeld voor bijvoorbeeld context (mouseover) menu's b
     </pre>
 </div>
 
-Note: Als een [=veld=] geen {{veld/title}} attibuut heeft, wordt de naam van het veld gebruikt.
+Note: Als een [=veld=] geen {{veld/title}}-attibuut heeft, wordt de naam van het veld gebruikt.
 
 
 Autorisatie {#autorisatie}
 ----------------------------------------------------
 
-Op zowel [=dataset=], [=tabel=] als [=veld=] niveau kan een `"auth"` attribuut worden meegegeven om toegang tot een entitieit te beperken.
+Op zowel [=dataset=], [=tabel=] als [=veld=] niveau kan een `"auth"`-attribuut worden meegegeven om toegang tot een entitieit te beperken.
 <table export class="dfn-table">
     <tr><td><dfn>auth</dfn> <td> string | array <td> geautoriseerde [=scope|scope(s)=].
 </table>
 
-Het `"auth"` attribuut bevat één of meer scopes, die leesrechten hebben op de entiteit waarop `"auth"` is gedefinieerd.
+Het `"auth"`-attribuut bevat één of meer scopes, die leesrechten hebben op de entiteit waarop `"auth"` is gedefinieerd.
 Een <dfn export>scope</dfn> is een groep gebruikers (medewerkers) met gedeelde rechten. Een gebruiker kan meerdere scopes hebben.
 
-Als het `"auth"` attribuut een array bevat is elke scope in de array afzonderlijk geautoriseerd.
+Als het `"auth"`-attribuut een array bevat is elke scope in de array afzonderlijk geautoriseerd.
 Dus een gebruiker heeft slechts één van de [=scopes=] in een array nodig voor toegang.
 
 <div class=example>
@@ -1509,12 +1512,12 @@ Veld: `"provenance": { "field": "perceel_id"}`
    ██       ██    ██        ██       ██    ██
    ██       ██    ██        ████████  ██████
 -->
-Attribuut typen {#attr-types}
+Attribuuttypen {#attr-types}
 ==================================================
 <table class="dfn-table">
     <tr><td><dfn typedef export lt=id|id-type>identifier</dfn>
-        <td> (string | integer)
-        <td> Een unieke identifier in de vorm van één of meer letters, startend met een lowercase letter eventueel gevolgd door een cijferreeks voorafgegaan door een underscore '_'.
+        <td> string
+        <td> Een unieke identifier in de vorm van één of meer letters, startend met een kleine letter en eventueel gevolgd door een cijferreeks voorafgegaan door een underscore '_'.
     <tr><td><dfn typedef export>date-time</dfn>
         <td> (string)
         <td> Een als datetime geformatteerde string. Conform [[json-schema-validation#rfc.section.7.3.1]].
@@ -1526,7 +1529,7 @@ Attribuut typen {#attr-types}
         <td> Een als URI Reference geformatteerde string. Conform [[json-schema-validation#rfc.section.7.3.5]].
     <tr><td><dfn typedef export lt=type|schema-type>schema-type</dfn>
         <td> (enum-string)
-        <td> Het binnen Amsterdam-Schema bekende [[!JSON-SCHEMA inline]] type waaraan het object voldoet.
+        <td> Het binnen Amsterdam Schema bekende [[!JSON-SCHEMA inline]] type waaraan het object voldoet.
             <details>
                 <summary>Opties</summary>
                     * "dataset"
@@ -1537,7 +1540,7 @@ Attribuut typen {#attr-types}
         <td> Version string van de vorm "<MAJOR>.<MINOR>.<PATCH>" of "<MAJOR>.<MINOR>" (patch nummer is optioneel)
     <tr><td><dfn typedef export lt=contact|contactPoint>contact</dfn>
         <td> (object)
-        <td> Contact gegevens. Een object met de volgende optionele velden:
+        <td> Contactgegevens. Een object met de volgende optionele velden:
             <ul dfn-type="attribute" dfn-for=contact noexport>
                 * <dfn>name</dfn> (string) Naam van het contact
                 * <dfn>email</dfn> (string) Email adres van het contact
