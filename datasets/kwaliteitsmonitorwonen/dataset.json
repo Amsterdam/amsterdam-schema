@@ -5,32 +5,38 @@
   "description": "Per verblijfsobject de kenmerken van de woningvoorraad van de gemeente Amsterdam.",
   "version": "1.0.0",
   "status": "beschikbaar",
+  "publisher": "datapunt@amsterdam.nl",
+  "authorizationGrantor": "Datateam Omgevingswet",
+  "contactPoint": {
+    "name": "Datateam Omgevingswet",
+    "email": "datateam.ruimte@amsterdam.nl"
+  },
   "theme": [
     "Wonen"
   ],
-  "publisher": "OIS",
   "owner": "Gemeente Amsterdam",
   "keywords": [
     "Kwaliteitsmonitor",
-	"Wonen"
+    "Wonen"
   ],
   "crs": "EPSG:28992",
   "auth": "FP/WONEN",
   "tables": [
     {
       "id": "wonen",
-	  "title": "Per verblijfsobject de kenmerken van de woningvoorraad van de gemeente Amsterdam.",
+      "title": "Per verblijfsobject de kenmerken van de woningvoorraad van de gemeente Amsterdam.",
       "type": "table",
       "version": "1.0.0",
       "schema": {
-		 "$schema": "http://json-schema.org/draft-07/schema#",
-		 "type": "object",
-		 "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
         "required": [
           "id",
           "schema"
         ],
-        "display": "id",      
+        "display": "id",
+        "mainGeometry": "pndGeometrieMiddelpunt",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -154,9 +160,6 @@
           "vveStatutaireNaam": {
             "type": "string",
             "description": "Statutaire naam van de VVE"
-          },
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           }
         }
       }
