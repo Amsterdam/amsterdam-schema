@@ -23,6 +23,7 @@ from typing import Callable, ContextManager, Dict, Iterator, List, Tuple
 
 import click
 import in_place
+from azure.storage.blob import BlobServiceClient, ContentSettings
 from swiftclient.service import SwiftService, SwiftUploadObject
 
 logger = logging.getLogger("__name__")
@@ -30,6 +31,7 @@ logger = logging.getLogger("__name__")
 
 SCHEMA_PREFIXES = ("datasets", "schema@")
 DEFAULT_BASE_URL = "https://schemas.data.amsterdam.nl"
+SCHEMAS_SA_NAME = os.getenv("SCHEMAS_SA_NAME", "devschemassa")
 
 
 def fetch_local_as_publishable(
@@ -148,8 +150,98 @@ def replace_schema_base_url(temp_dir: Path, schema_base_url: str) -> None:
             if file_path.suffix == ".json":
                 with in_place.InPlace(root_path / file_name) as file:
                     for line in file:
-                        line = line.replace(DEFAULT_BASE_URL, schema_base_url)
+                        line = line.replace(DEFAULT_BASE_URL, schema_base_url)  # type: ignore
                         file.write(line)
+
+
+def azure_blob_uploader(
+    files_root: Path,
+    schema_pub_paths: List[List[str]],
+    doc_pub_paths: List[List[str]],
+    container: str,
+    index_file_obj: BytesIO,
+) -> None:
+    """Upload files to the Azure blob storage."""
+    json_content_settings = ContentSettings(content_type="application/json")
+    html_content_settings = ContentSettings(content_type="text/html")
+    credential = os.getenv("SCHEMAS_SA_KEY")
+    if credential is None:
+        raise Exception("SCHEMAS_SA_KEY not set")
+
+    blob_srv = BlobServiceClient(
+        f"https://{SCHEMAS_SA_NAME}.blob.core.windows.net", credential=credential
+    )
+
+    # First delete all blobs in the container
+    container_client = blob_srv.get_container_client("schemas")
+
+    container_client.delete_blobs(
+        *(b.name for b in container_client.list_blobs())
+    )  # 256 items limit?
+
+    blob = blob_srv.get_blob_client(container, "datasets/index.json")
+    blob.upload_blob(index_file_obj, content_settings=json_content_settings, overwrite=True)
+    for schema_path_parts in schema_pub_paths:
+        file_path = str(files_root / "/".join(schema_path_parts))
+        blob = blob_srv.get_blob_client(container, create_object_name(schema_path_parts))
+        with open(file_path, "rb") as bf:
+            blob.upload_blob(bf, content_settings=json_content_settings, overwrite=True)
+
+    for doc_path_parts in doc_pub_paths:
+        file_path = str(files_root / "/".join(doc_path_parts))
+        object_name = "/".join(doc_path_parts[1:])
+
+        blob = blob_srv.get_blob_client(container, object_name)
+        with open(file_path, "rb") as bf:
+            blob.upload_blob(bf, content_settings=html_content_settings, overwrite=True)
+
+
+def swift_uploader(
+    files_root: Path,
+    schema_pub_paths: List[List[str]],
+    doc_pub_paths: List[List[str]],
+    container: str,
+    index_file_obj: BytesIO,
+) -> None:
+    """Upload files to the Swift objectstore."""
+    with SwiftService() as swift:
+
+        # Delete old objects in datasets
+        deletes = swift.delete(container, options={"prefix": "datasets"})
+        for r in deletes:
+            if not r["success"]:
+                logger.warn(
+                    f"Warning: Remote object {container}/{r['object']} could not be removed."
+                )
+
+        # Add new objects
+        upload_objects = [SwiftUploadObject(index_file_obj, object_name="datasets/index.json")]
+        for schema_path_parts in schema_pub_paths:
+            object_name = create_object_name(schema_path_parts)
+            upload_objects.append(
+                SwiftUploadObject(  # type: ignore
+                    str(files_root / "/".join(schema_path_parts)),
+                    object_name=object_name,
+                    options={"header": ["content-type:application/json"]},
+                )
+            )
+        for doc_path_parts in doc_pub_paths:
+            object_name = "/".join(doc_path_parts[1:])
+            upload_objects.append(
+                SwiftUploadObject(  # type: ignore
+                    str(files_root / "/".join(doc_path_parts)),
+                    object_name=object_name,
+                    options={"header": ["content-type:text/html"]},
+                )
+            )
+        uploads = swift.upload(container, upload_objects)
+        errors = False
+        for r in uploads:
+            if not r["success"]:
+                errors = True
+                logger.error(r["error"])
+        if errors:
+            raise Exception("Failed to publish schemas")
 
 
 @click.command()  # type: ignore[misc]
@@ -173,7 +265,14 @@ def replace_schema_base_url(temp_dir: Path, schema_base_url: str) -> None:
     envvar="SCHEMA_BASE_URL",
     help="Override the base url in schema files (for testing).",
 )  # type: ignore[misc]
-def main(dp_env: str, container_prefix: str, schema_base_url: str) -> None:
+@click.option(
+    "--storage-type",
+    default="swift",
+    help="""Type of storage that is used for the schema files.
+        Possible values are: `swift`,`azure`.""",
+)  # type: ignore[misc]
+def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type: str) -> None:
+    """Publish a set of amsterdam schema files to a storage container."""
     ROOT_PKG_NAME = "amsterdam_schema"
     with TemporaryDirectory() as temp_dir:
         files_root = Path(temp_dir)
@@ -189,45 +288,20 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str) -> None:
             ROOT_PKG_NAME, files_root, ("docs",), "**/*.html"
         )
 
-        with SwiftService() as swift:
-            container = f"{container_prefix}{dp_env}"
+        container = f"{container_prefix}{dp_env}"
 
-            # Delete old objects in datasets
-            deletes = swift.delete(container, options={"prefix": "datasets"})
-            for r in deletes:
-                if not r["success"]:
-                    logger.warn(
-                        f"Warning: Remote object {container}/{r['object']} could not be removed."
-                    )
-
-            # Add new objects
-            upload_objects = [SwiftUploadObject(index_file_obj, object_name="datasets/index.json")]
-            for schema_path_parts in schema_pub_paths:
-                object_name = create_object_name(schema_path_parts)
-                upload_objects.append(
-                    SwiftUploadObject(
-                        str(files_root / "/".join(schema_path_parts)),
-                        object_name=object_name,
-                        options={"header": ["content-type:application/json"]},
-                    )
-                )
-            for doc_path_parts in doc_pub_paths:
-                object_name = "/".join(doc_path_parts[1:])
-                upload_objects.append(
-                    SwiftUploadObject(
-                        str(files_root / "/".join(doc_path_parts)),
-                        object_name=object_name,
-                        options={"header": ["content-type:text/html"]},
-                    )
-                )
-            uploads = swift.upload(container, upload_objects)
-            errors = False
-            for r in uploads:
-                if not r["success"]:
-                    errors = True
-                    logger.error(r["error"])
-            if errors:
-                raise Exception("Failed to publish schemas")
+        if storage_type == "azure":
+            logger.info("Using azure blob uploader")
+            azure_blob_uploader(
+                files_root, schema_pub_paths, doc_pub_paths, container, index_file_obj
+            )
+        elif storage_type == "swift":
+            logger.info("Using swift uploader")
+            swift_uploader(files_root, schema_pub_paths, doc_pub_paths, container, index_file_obj)
+        else:
+            raise ValueError(
+                f"Unknown storage_type {storage_type}, possible values `swift` or `azure`"
+            )
 
 
 if __name__ == "__main__":

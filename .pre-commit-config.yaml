@@ -13,6 +13,7 @@ repos:
       - id: flake8
         additional_dependencies:
           - flake8-bandit
+          - bandit<1.7.3  # pinning, because 1.7.3 is imcompatible, flake8-bandit needs to fix this
           - flake8-bugbear
           - flake8-builtins
           - flake8-comprehensions
@@ -23,7 +24,6 @@ repos:
           - flake8-string-format
           - flake8-blind-except
           - flake8-debugger
-          - flake8-colors
           - flake8-raise
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
