@@ -3,7 +3,7 @@
 # Running "make format" fixes most issues for you
 repos:
   - repo: https://github.com/ambv/black
-    rev: 21.11b1
+    rev: 22.1.0
     hooks:
       - id: black
         language_version: python3.9
@@ -26,7 +26,7 @@ repos:
           - flake8-colors
           - flake8-raise
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.1.0
     hooks:
       - id: check-json
       - id: check-merge-conflict
@@ -40,7 +40,7 @@ repos:
       - id: pretty-format-json
         args: [--autofix, --indent=2, --no-sort-keys]
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.910-1
+    rev: v0.931
     hooks:
       - id: mypy
         language_version: python3
@@ -50,7 +50,7 @@ repos:
       - id: isort
         args: ['--filter-files']
   - repo: https://github.com/Amsterdam/schema-tools
-    rev: v3.4.0
+    rev: v3.4.1
     hooks:
       - id: validate-schema
         args: ['https://schemas.data.amsterdam.nl/schema@v1.1.1#']

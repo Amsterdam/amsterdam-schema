@@ -1,9 +1,8 @@
 {
   "id": "vestigingen",
   "type": "table",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "schema": {
-    "$id": "https://github.com/Amsterdam/schemas/hr/vestigingen.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
@@ -62,7 +61,7 @@
             "type": "integer"
           }
         },
-        "relation": "hr:locaties",
+        "relation": "handelsregister:locaties",
         "description": "Het geregistreerde postadres behorende bij de vestiging."
       },
       "heeftAlsBezoekadres": {
@@ -75,28 +74,50 @@
             "type": "integer"
           }
         },
-        "relation": "hr:locaties",
+        "relation": "handelsregister:locaties",
         "description": "Het geregistreerde bezoekadres behorende bij de vestiging."
       },
-      "communicatienummerToegangscode": {
-        "type": "integer",
-        "description": "Communicatienummer is het telefoon- of faxnummer. Zowel het netnummer als het abonneenummer worden teruggegeven in het nummer. De internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft staat in het veld toegangscode. toegangscode"
+      "communicatienummer": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "toegangscode": {
+              "type": "integer"
+            },
+            "nummer": {
+              "type": "string"
+            },
+            "soort": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Communicatienummer is het telefoon- of faxnummer. Zowel het netnummer als het abonneenummer worden teruggegeven in het nummer. De internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft staat in het veld toegangscode."
       },
-      "communicatienummerNummer": {
-        "type": "string",
-        "description": "Communicatienummer is het telefoon- of faxnummer. Zowel het netnummer als het abonneenummer worden teruggegeven in het nummer. De internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft staat in het veld toegangscode. nummer"
+      "domeinnaam": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "naam": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "De domeinnaam is de naam waaronder de betrokkene zaken doet of informatie verschaft op het internet, het internetadres (URL)"
       },
-      "communicatienummerSoort": {
-        "type": "string",
-        "description": "Communicatienummer is het telefoon- of faxnummer. Zowel het netnummer als het abonneenummer worden teruggegeven in het nummer. De internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft staat in het veld toegangscode. soort"
-      },
-      "domeinnaamNaam": {
-        "type": "string",
-        "description": "De domeinnaam is de naam waaronder de betrokkene zaken doet of informatie verschaft op het internet, het internetadres (URL). naam"
-      },
-      "emailadresAdres": {
-        "type": "string",
-        "description": "Het e-mail adres dat de betrokkene open heeft gesteld voor communicatie. adres"
+      "emailadres": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "naam": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Het e-mail adres dat de betrokkene open heeft gesteld voor communicatie."
       },
       "naam": {
         "type": "string",
@@ -170,7 +191,7 @@
             }
           }
         },
-        "relation": "hr:sbiactiviteiten",
+        "relation": "handelsregister:sbiactiviteiten",
         "description": "SBI Activiteiten die bij deze commerci\u00eble of niet commerci\u00eble vestiging horen."
       },
       "isOvergegaanInVestiging": {
@@ -183,7 +204,7 @@
             }
           }
         },
-        "relation": "hr:vestigingen",
+        "relation": "handelsregister:vestigingen",
         "description": "Dit legt de relatie van de afgesloten vestiging met de samengevoegde vestiging."
       },
       "isEenUitoefeningVan": {
@@ -193,7 +214,7 @@
             "type": "string"
           }
         },
-        "relation": "hr:maatschappelijkeactiviteiten",
+        "relation": "handelsregister:maatschappelijkeactiviteiten",
         "description": "Maatschappelijke activiteit die bij deze vestiging hoort."
       }
     }

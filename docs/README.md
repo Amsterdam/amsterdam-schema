@@ -15,7 +15,7 @@ To generate an HTML version of the specification
 
 ```bash
 cd ..
-python3.8 -m venv dvenv
+python3.9 -m venv dvenv
 source dvenv/bin/activate
 pip install -U pip setuptools wheel
 pip install bikeshed
