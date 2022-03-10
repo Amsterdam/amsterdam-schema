@@ -61,12 +61,18 @@
             "type": "date-time",
             "description": "Datum waarop ruimtelijke indeling van kracht is geworden"
           },
+          "geometry": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "title": "geometry",
+            "description": "Vorm en ligging van de ruimtelijke indeling"
+          },
           "parentId": {
             "title": "parentId",
             "type": "integer",
             "description": "Verwijzende identificatie naar bovenliggende ruimtelijke indeling",
             "relation": "statistieken:spatialdimensions"
           }
-        }
+        },
+        "mainGeometry": "geometry"
       }
     }
