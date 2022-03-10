@@ -1,642 +1,119 @@
 {
-  "type": "dataset",
   "id": "overlastgebieden",
-  "title": "Overlastgebieden",
-  "description": "Gebieden die op grond van artikel 2.8 van de Algemene Plaatselijke Verordening (APV) als algemeen overlastgebied of als dealeroverlastgebied (of beiden) zijn aagewezen",
-  "license": "public",
-  "status": "beschikbaar",
-  "version": "0.0.1",
+  "type": "dataset",
+  "authorizationGrantor": "n.v.t.",
   "theme": [
-    "overlastgebieden",
-    "Ruimte en Topografie",
-    "Algemene Plaatselijke Verordening"
+    "openbare orde en veiligheid"
   ],
+  "homepage": "https://data.amsterdam.nl",
+  "owner": "Gemeente Amsterdam, Openbare Orde en Veiligheid Amsterdam",
+  "dateModified": "2022-02-23T00:00:00+01:00",
+  "spatialDescription": "Gemeente Amsterdam",
+  "version": "1.0.0",
+  "default_version": "1.0.0",
+  "title": "Overlastgebieden gemeente Amsterdam",
+  "language": "nl",
+  "dateCreated": "2020-02-09T00:00:00+01:00",
+  "license": "Creative Commons, Naamsvermelding",
+  "hasBeginning": "2020-02-09T00:00:00+01:00",
+  "accrualPeriodicity": "dagelijks",
   "publisher": "datapunt@amsterdam.nl",
-  "owner": "Gemeente Amsterdam",
-  "authorizationGrantor": "OIS",
   "contactPoint": {
     "name": "Datateam Generiek",
     "email": ""
   },
+  "description": "Overlastgebieden Amsterdam.",
+  "status": "beschikbaar",
   "keywords": [
-    "overlastgebieden"
+    "openbare orde en veiligheid",
+    "overlastgebieden",
+    "verboden"
   ],
   "crs": "EPSG:28992",
+  "objective": "Publiceren van de locaties voor verboden activiteiten of gedragingen in de openbare ruimte.",
   "tables": [
     {
-      "id": "vuurwerkvrij",
-      "title": "Vuurwerkvrijezones",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "type",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het overlastgebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Polygoon definitie van het overlastgebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code die het type overlastgebied aangeeft: (VVZ) vuurwerkvrijzone."
-          },
-          "soort": {
-            "type": "string",
-            "description": "Soort overlastgebied."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "Verwijzing naar aanvullende informatie."
-          },
-          "oovNaam": {
-            "type": "string",
-            "description": "Naam overlastgebied zoals gedefinieerd door Openbare Orde en Veiligheid (OOV)."
-          },
-          "geldigheidPeriode": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduurperiode.",
-            "provenance": "geldigheid"
-          },
-          "geldigheidSpecificatie": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur per dag vermeld zoals op donderdag, vrijdag en zaterdag  van 16.00 tot 04.00 uur \u00e9n op zondag van 16.00 tot 03.00 uur.",
-            "provenance": "tijd"
-          }
-        }
+      "id": "alcoholverbod",
+      "$ref": "alcoholverbod/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "alcoholverbod/v1.0.0"
       }
     },
     {
       "id": "algemeenoverlast",
-      "title": "Algemeen overlastgebied",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "type",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het overlastgebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Polygoon definitie van het overlastgebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code die het type overlastgebied aangeeft: (AOG) algemeen overlastgebied."
-          },
-          "soort": {
-            "type": "string",
-            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "Verwijzing naar aanvullende informatie."
-          },
-          "oovNaam": {
-            "type": "string",
-            "description": "Naam overlastgebied zoals gedefinieerd door Openbare Orde en Veiligheid (OOV)."
-          },
-          "geldigheidPeriode": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduurperiode.",
-            "provenance": "geldigheid"
-          },
-          "geldigheidSpecificatie": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur per dag vermeld zoals op donderdag, vrijdag en zaterdag  van 16.00 tot 04.00 uur \u00e9n op zondag van 16.00 tot 03.00 uur.",
-            "provenance": "tijd"
-          }
-        }
-      }
-    },
-    {
-      "id": "dealeroverlast",
-      "title": "Dealeroverlastgebied",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "type",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het overlastgebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Polygoon definitie van het overlastgebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code die het type overlastgebied aangeeft: (DOG) dealeroverlastgebied."
-          },
-          "soort": {
-            "type": "string",
-            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "Verwijzing naar aanvullende informatie."
-          },
-          "oovNaam": {
-            "type": "string",
-            "description": "Naam overlastgebied zoals gedefinieerd door Openbare Orde en Veiligheid (OOV)."
-          },
-          "geldigheidPeriode": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduurperiode.",
-            "provenance": "geldigheid"
-          },
-          "geldigheidSpecificatie": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur per dag vermeld zoals op donderdag, vrijdag en zaterdag  van 16.00 tot 04.00 uur \u00e9n op zondag van 16.00 tot 03.00 uur.",
-            "provenance": "tijd"
-          }
-        }
-      }
-    },
-    {
-      "id": "uitgaansoverlast",
-      "title": "Uitgaansoverlastgebied",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "type",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het overlastgebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Polygoon definitie van het overlastgebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code die het type overlastgebied aangeeft: (OUG) Uitgaansoverlastgebied."
-          },
-          "soort": {
-            "type": "string",
-            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "Verwijzing naar aanvullende informatie."
-          },
-          "oovNaam": {
-            "type": "string",
-            "description": "Naam overlastgebied zoals gedefinieerd door Openbare Orde en Veiligheid (OOV)."
-          },
-          "geldigheidPeriode": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduurperiode.",
-            "provenance": "geldigheid"
-          },
-          "geldigheidSpecificatie": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur per dag vermeld zoals op donderdag, vrijdag en zaterdag  van 16.00 tot 04.00 uur \u00e9n op zondag van 16.00 tot 03.00 uur.",
-            "provenance": "tijd"
-          }
-        }
-      }
-    },
-    {
-      "id": "alcoholverbod",
-      "title": "Alcoholverbodgebied",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "type",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het overlastgebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Polygoon definitie van het overlastgebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code die het type overlastgebied aangeeft: (AVG) alcoholverbodgebied."
-          },
-          "soort": {
-            "type": "string",
-            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "Verwijzing naar aanvullende informatie."
-          },
-          "oovNaam": {
-            "type": "string",
-            "description": "Naam overlastgebied zoals gedefinieerd door Openbare Orde en Veiligheid (OOV)."
-          },
-          "geldigheidPeriode": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduurperiode.",
-            "provenance": "geldigheid"
-          },
-          "geldigheidSpecificatie": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur per dag vermeld zoals op donderdag, vrijdag en zaterdag  van 16.00 tot 04.00 uur \u00e9n op zondag van 16.00 tot 03.00 uur.",
-            "provenance": "tijd"
-          }
-        }
-      }
-    },
-    {
-      "id": "taxistandplaats",
-      "title": "Taxistandplaats",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "type",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het overlastgebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Polygoon definitie van het overlastgebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code die het type overlastgebied aangeeft: (TAXI) taxistandplaats."
-          },
-          "soort": {
-            "type": "string",
-            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "Verwijzing naar aanvullende informatie."
-          },
-          "oovNaam": {
-            "type": "string",
-            "description": "Naam overlastgebied zoals gedefinieerd door Openbare Orde en Veiligheid (OOV)."
-          },
-          "geldigheidPeriode": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduurperiode.",
-            "provenance": "geldigheid"
-          },
-          "geldigheidSpecificatie": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur per dag vermeld zoals op donderdag, vrijdag en zaterdag  van 16.00 tot 04.00 uur \u00e9n op zondag van 16.00 tot 03.00 uur.",
-            "provenance": "tijd"
-          }
-        }
-      }
-    },
-    {
-      "id": "cameratoezicht",
-      "title": "Cameratoezichtgebied",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "type",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het overlastgebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Polygoon definitie van het overlastgebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code die het type overlastgebied aangeeft: (CTG) cameratoezichtgebied."
-          },
-          "soort": {
-            "type": "string",
-            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "Verwijzing naar aanvullende informatie."
-          },
-          "oovNaam": {
-            "type": "string",
-            "description": "Naam overlastgebied zoals gedefinieerd door Openbare Orde en Veiligheid (OOV)."
-          },
-          "geldigheidPeriode": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduurperiode.",
-            "provenance": "geldigheid"
-          },
-          "geldigheidSpecificatie": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur per dag vermeld zoals op donderdag, vrijdag en zaterdag  van 16.00 tot 04.00 uur \u00e9n op zondag van 16.00 tot 03.00 uur.",
-            "provenance": "tijd"
-          }
-        }
+      "$ref": "algemeenoverlast/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "algemeenoverlast/v1.0.0"
       }
     },
     {
       "id": "barbecueverbod",
-      "title": "Barbecueverbodgebied",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "type",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het overlastgebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Polygoon definitie van het overlastgebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code die het type overlastgebied aangeeft: (BBQ) barbecueverbodgebied."
-          },
-          "soort": {
-            "type": "string",
-            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "Verwijzing naar aanvullende informatie."
-          },
-          "oovNaam": {
-            "type": "string",
-            "description": "Naam overlastgebied zoals gedefinieerd door Openbare Orde en Veiligheid (OOV)."
-          },
-          "geldigheidPeriode": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduurperiode.",
-            "provenance": "geldigheid"
-          },
-          "geldigheidSpecificatie": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur per dag vermeld zoals op donderdag, vrijdag en zaterdag  van 16.00 tot 04.00 uur \u00e9n op zondag van 16.00 tot 03.00 uur.",
-            "provenance": "tijd"
-          }
-        }
+      "$ref": "barbecueverbod/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "barbecueverbod/v1.0.0"
       }
     },
     {
-      "id": "rondleidingverbod",
-      "title": "Rondleidingverbodgebied",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "type",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het overlastgebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Polygoon definitie van het overlastgebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code die het type overlastgebied aangeeft: (RLV) rondleidingverbodgebied."
-          },
-          "soort": {
-            "type": "string",
-            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "Verwijzing naar aanvullende informatie."
-          },
-          "oovNaam": {
-            "type": "string",
-            "description": "Naam overlastgebied zoals gedefinieerd door Openbare Orde en Veiligheid (OOV)."
-          },
-          "geldigheidPeriode": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduurperiode.",
-            "provenance": "geldigheid"
-          },
-          "geldigheidSpecificatie": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur per dag vermeld zoals op donderdag, vrijdag en zaterdag  van 16.00 tot 04.00 uur \u00e9n op zondag van 16.00 tot 03.00 uur.",
-            "provenance": "tijd"
-          }
-        }
+      "id": "cameratoezicht",
+      "$ref": "cameratoezicht/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "cameratoezicht/v1.0.0"
       }
     },
     {
-      "id": "messenverbod",
-      "title": "Messenverbodgebied",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "type",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het overlastgebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Polygoon definitie van het overlastgebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code die het type overlastgebied aangeeft: (MVG) messenverbodgebied."
-          },
-          "soort": {
-            "type": "string",
-            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "Verwijzing naar aanvullende informatie."
-          },
-          "oovNaam": {
-            "type": "string",
-            "description": "Naam overlastgebied zoals gedefinieerd door Openbare Orde en Veiligheid (OOV)."
-          },
-          "geldigheidPeriode": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduurperiode.",
-            "provenance": "geldigheid"
-          },
-          "geldigheidSpecificatie": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur per dag vermeld zoals op donderdag, vrijdag en zaterdag  van 16.00 tot 04.00 uur \u00e9n op zondag van 16.00 tot 03.00 uur.",
-            "provenance": "tijd"
-          }
-        }
+      "id": "dealeroverlast",
+      "$ref": "dealeroverlast/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "dealeroverlast/v1.0.0"
       }
     },
     {
       "id": "groepsfietsverbod",
-      "title": "Groepsfietsverbodgebied",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "type",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het overlastgebied."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Polygoon definitie van het overlastgebied."
-          },
-          "type": {
-            "type": "string",
-            "description": "Code die het type overlastgebied aangeeft: (GFG) groepsfietsverbodgebied."
-          },
-          "soort": {
-            "type": "string",
-            "description": "Naam zoals gedefinieerd door Openbare Orde en Veiligheid (OOV) van het overlastgebied van toepassing."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "description": "Verwijzing naar aanvullende informatie."
-          },
-          "oovNaam": {
-            "type": "string",
-            "description": "Naam overlastgebied zoals gedefinieerd door Openbare Orde en Veiligheid (OOV)."
-          },
-          "geldigheidPeriode": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduurperiode.",
-            "provenance": "geldigheid"
-          },
-          "geldigheidSpecificatie": {
-            "type": "string",
-            "description": "Beschrijving van de geldigheidsduur per dag vermeld zoals op donderdag, vrijdag en zaterdag  van 16.00 tot 04.00 uur \u00e9n op zondag van 16.00 tot 03.00 uur.",
-            "provenance": "tijd"
-          }
-        }
+      "$ref": "groepsfietsverbod/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "groepsfietsverbod/v1.0.0"
+      }
+    },
+    {
+      "id": "messenverbod",
+      "$ref": "messenverbod/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "messenverbod/v1.0.0"
+      }
+    },
+    {
+      "id": "rondleidingverbod",
+      "$ref": "rondleidingverbod/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "rondleidingverbod/v1.0.0"
+      }
+    },
+    {
+      "id": "straatartiestverbod",
+      "$ref": "straatartiestverbod/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "straatartiestverbod/v1.0.0"
+      }
+    },
+    {
+      "id": "taxistandplaats",
+      "$ref": "taxistandplaats/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "taxistandplaats/v1.0.0"
+      }
+    },
+    {
+      "id": "uitgaansoverlast",
+      "$ref": "uitgaansoverlast/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "uitgaansoverlast/v1.0.0"
+      }
+    },
+    {
+      "id": "vuurwerkvrij",
+      "$ref": "vuurwerkvrij/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "vuurwerkvrij/v1.0.0"
       }
     }
   ]
