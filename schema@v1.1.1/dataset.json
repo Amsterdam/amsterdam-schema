@@ -10,7 +10,6 @@
   "required": [
     "tables",
     "status",
-    "contactPoint",
     "authorizationGrantor",
     "owner",
     "publisher"
@@ -54,8 +53,12 @@
       }
     },
     "publisher": {
-      "type": "string",
-      "const": "datapunt@amsterdam.nl"
+      "description": "Naam van het datateam.",
+      "type": "string"
+    },
+    "creator": {
+      "description": "Naam van de bronhouder.",
+      "type": "string"
     },
     "owner": {
       "type": "string",
@@ -92,7 +95,11 @@
     },
     "contactPoint": {
       "description": "Person and (optional) e-mail.",
-      "$ref": "./schema@v1.1.1#/definitions/contactPoint"
+      "$ref": "./schema@v1.1.1#/definitions/contactPoint",
+      "default": {
+        "name": "datapunt",
+        "email": "datapunt@amsterdam.nl"
+      }
     },
     "crs": {
       "description": "Coordinate reference system",
