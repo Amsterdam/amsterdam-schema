@@ -1,7 +1,7 @@
 <pre class='metadata'>
 Title: Amsterdam Schema Specificatie
 Shortname: ams-schema-spec
-Revision: 2.0.1
+Revision: 2.1.0
 Status: LS
 URL: https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html
 Repository: Amsterdam/amsterdam-schema
@@ -24,6 +24,8 @@ Text Macro: HIDELINESEXAMPLE class="example hide-lines" onClick="this.classList.
 Text Macro: SYNCSCROLLA class="a" onscroll="let sibling =this.nextElementSibling; sibling.scrollTop=this.scrollTop;sibling.scrollLeft=this.scrollLeft;"
 Text Macro: SYNCSCROLLB class="b" onscroll="let sibling =this.previousElementSibling; sibling.scrollTop=this.scrollTop;sibling.scrollLeft=this.scrollLeft;"
 </pre>
+
+Advisement: De meest recente aanpassing aan deze specificatie is:<br/> [[#lastchange]]
 
 <!--
 ████ ██    ██ ████████ ████████   ███████
@@ -109,11 +111,10 @@ Een <dfn dfn export>dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON b
                     * "beschikbaar"
                     * "niet_beschikbaar"
             </details>
-    <tr><td><dfn>contactPoint</dfn>         <td> {{contact}}
-        <td> Contactgegevens van de persoon of afdeling waar inhoudelijke vragen over de dataset aan gericht moeten worden. Dit is meestal de bronhouder. (Deze gegevens worden publiek zichtbaar.)
-    <tr><td><dfn>authorizationGrantor</dfn> <td> string     <td> Naam van de afdeling verantwoordelijk voor autorisatie op deze dataset. Dit is meestal de bronhouder.
-    <tr><td><dfn>owner</dfn>                <td> string     <td> Eigenaar van de data  Default: `"Gemeente Amsterdam"`
-    <tr><td><dfn>publisher</dfn>            <td> string     <td> [CONST] `"datapunt@amsterdam.nl"` Ontsluiter van de data verantwoordelijk voor technisch beheer. Conform \[DCAT § resource_publisher]([DCATURL]#Property:resource_publisher)
+    <tr><td><dfn>authorizationGrantor</dfn> <td> string     <td> E-mailadres van de afdeling verantwoordelijk voor autorisatie op deze dataset. Dit is meestal de bronhouder. Aan dit adres worden authorisatie verzoeken gericht.
+    <tr><td><dfn>creator</dfn>              <td> string     <td> Team, afdeling of organisatie die de data produceert, meestal de bronhouder. Wanneer data van meerdere bronhouders wordt gecomineerd, wordt hier de opdrachtgever bedoelt.
+    <tr><td><dfn>owner</dfn>                <td> string     <td> Juridisch eigenaar van de data. Bijvoorbeeld `"Gemeente Amsterdam, Directie Wonen"` of `"Centraal Bureau voor de Statistiek"`  Default: `"Gemeente Amsterdam"`
+    <tr><td><dfn>publisher</dfn>            <td> string     <td> Het team verantwoordelijk voor het technisch ontsluiten van de data. Meestal het datateam. Conform \[DCAT § resource_publisher]([DCATURL]#Property:resource_publisher)
     <tr><td><dfn>tables</dfn>   <td> array
         <td> Tabellen in deze dataset. Moet minimaal 1 element bevatten.
             <details>
@@ -125,6 +126,8 @@ Een <dfn dfn export>dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON b
 </table>
 
 Advisement: Let op: Zie [[#naamgeving]] voor de eisen waaraan {{dataset/id}} moet voldoen.
+
+Note: Als een dataset nog niet klaar is voor publicatie, zet de {{dataset/status}} dan op `"niet_beschikbaar"`. Zo wordt de dataset nog niet zichtbaar in doelsystemen.
 
 <div class=example>
     Een minimale dataset definitie. De 'title' en 'description' velden zijn niet verplicht,
@@ -144,6 +147,8 @@ Optionele attributen {#dataset-optional-fields}
 --------------------------------------------------------
 Naast bovenstaande verplichte attributen mag een [=dataset=] ook de volgende eigenschappen bevatten.
 <table dfn-type="attribute" dfn-for=dataset export class="dfn-table">
+    <tr><td><dfn>contactPoint</dfn>         <td> {{contact}}
+        <td> Contactgegevens van de persoon of afdeling verantwoordelijk voor eerstelijns ondersteuning bij deze dataset. Hier kunnen mensen met vragen over de dataset terecht. (Deze gegevens worden publiek zichtbaar.) Wanneer dit veld niet is gegeven, is impliciet de default waarde van toepassing. Default: `{"name": "Datapunt", "email": "datapunt@amsterdam.nl"}`
     <tr><td><dfn>title</dfn>        <td> string     <td> zie [[#omschrijving]] [DCAT § Property:resource_title]([DCATURL]#Property:resource_title)
     <tr><td><dfn>description</dfn>  <td> string     <td> zie [[#omschrijving]] [DCAT § Property:resource_description]([DCATURL]#Property:resource_description)
     <tr><td><dfn>auth</dfn>         <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Default: `"OPENBAAR"` zie [[#autorisatie]]
@@ -243,7 +248,7 @@ Advisement: Van deze bestandsnaam en padstructuur moet niet worden afgeweken beh
     <pre class="include-code">
             path: examples/datasets/bekendeAmsterdammers/dataset.json
             highlight: json
-            line-highlight: 14-27
+            line-highlight: 11-24
         </pre>
 </div>
 
@@ -1546,6 +1551,35 @@ Attribuuttypen {#attr-types}
                 * <dfn>email</dfn> (string) Email adres van het contact
             </ul>
 </table>
+
+<!--
+ ██████  ██     ██    ███    ██    ██  ██████   ████████ ██        ███████   ██████
+██    ██ ██     ██   ██ ██   ███   ██ ██    ██  ██       ██       ██     ██ ██    ██
+██       ██     ██  ██   ██  ████  ██ ██        ██       ██       ██     ██ ██
+██       █████████ ██     ██ ██ ██ ██ ██   ████ ██████   ██       ██     ██ ██   ████
+██       ██     ██ █████████ ██  ████ ██    ██  ██       ██       ██     ██ ██    ██
+██    ██ ██     ██ ██     ██ ██   ███ ██    ██  ██       ██       ██     ██ ██    ██
+ ██████  ██     ██ ██     ██ ██    ██  ██████   ████████ ████████  ███████   ██████
+-->
+Changelog {#changelog}
+==================================================
+Dit is een chronologisch overzicht van aanpassingen aan de amsterdam-schema specificatie.
+Uitsluitend normatieve aanpassingen aan de specificatie worden vermeld. Aanpassingen aan voorbeelden,
+waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
+
+<!-- Allways move the lastchange tag to the latest entry, so the correct entry is linked at the top of the page. -->
+<!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
+
+[2.1.0] Dataset contact gegevens (2022-03-17) {#lastchange}
+------------------------------------------------
+> **Doelstelling**<br/>
+    Meerdere aanpassingen aan dataset velden voor contactgegevens.
+    Met als doel om alle teams en organisaties die een rol hebben bij het ontsluiten van een dataset
+    te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen worden.
+
+* Nieuw optioneel veld {{dataset/creator}} toegevoegd.
+* Het veld {{dataset/publisher}} heeft geen constant waarde meer. En bevat nu de naam van het datateam dat de dataset ontsluit.
+* Het veld {{dataset/contactPoint}} is nu optioneel en bevat een standaard waarde.
 
 
 <!--
