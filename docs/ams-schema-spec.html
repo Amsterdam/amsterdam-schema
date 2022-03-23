@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version bb6b91100, updated Mon Jul 12 16:52:37 2021 -0700" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="34ed7e7e807fc0743627d41609ccdd60fc28287f" name="document-revision">
+  <meta content="7d12785766f623319eaaa936c260a865667864b9" name="document-revision">
 <style>
     p[data-fill-with="logo"] {
         width: 180px;
@@ -2224,7 +2224,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Amsterdam Schema Specificatie</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-03-17">17 March 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-03-23">23 March 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2295,7 +2295,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li>
      <a href="#changelog"><span class="secno">8</span> <span class="content">Changelog</span></a>
      <ol class="toc">
-      <li><a href="#lastchange"><span class="secno">8.1</span> <span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span></a>
+      <li><a href="#lastchange"><span class="secno">8.1</span> <span class="content">[2.1.1] crs attribuut verplicht bij geometrie velden (2022-03-23)</span></a>
+      <li><a href="#change20220317"><span class="secno">8.2</span> <span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -2312,7 +2313,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </ol>
   </nav>
   <main>
-   <p><strong class="advisement"> De meest recente aanpassing aan deze specificatie is:<br> <a href="#lastchange">§ 8.1 [2.1.0] Dataset contact gegevens (2022-03-17)</a></strong></p>
+   <p><strong class="advisement"> De meest recente aanpassing aan deze specificatie is:<br> <a href="#lastchange">§ 8.1 [2.1.1] crs attribuut verplicht bij geometrie velden (2022-03-23)</a></strong></p>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introductie</span><a class="self-link" href="#intro"></a></h2>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Alle data van gemeente Amsterdam binnen één machine verwerkbaar universeel format beschrijven,
@@ -2481,6 +2482,22 @@ Zie <a href="#table-refs">§ 2.3 Tabelreferenties</a> voor details.</p>
       <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-homepage"><code class="highlight">homepage</code><a class="self-link" href="#dom-dataset-homepage"></a></dfn>
       <td> <code class="idl"><a data-link-type="idl" href="#typedefdef-uri" id="ref-for-typedefdef-uri">uri</a></code>
       <td> Homepage van de dataset
+     <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-crs"><code class="highlight">crs</code></dfn>
+      <td> enum(string)
+      <td>
+        Coordinate reference System
+       <details open>
+        <summary>Opties</summary>
+        <ul>
+         <li data-md>
+          <p>"EPSG:28992"</p>
+         <li data-md>
+          <p>"EPSG:4326"</p>
+        </ul>
+       </details>
+        Dit veld is <strong>verplicht</strong> voor datasets waarvan één of meerdere tabellen één of meer <a href="#geometry">§ 4.3.6 geometrie</a> velden bevatten.
+            Zie <a href="https://www.w3.org/TR/sdw-bp/#CRS-background">SDOW best practices §CRS-background</a> voor meer informatie.
    </table>
    <p></p>
    <blockquote class="best-practice"> <strong>Best Practice</strong> Voeg altijd op zijn minst een title en description toe. </blockquote>
@@ -2551,21 +2568,6 @@ De volgende velden zijn toegestaan:
       <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-license"><code class="highlight">license</code><a class="self-link" href="#dom-dataset-license"></a></dfn>
       <td> string
       <td> Licentie Conform <a href="https://www.w3.org/TR/vocab-dcat-2/#Property:resource_license">DCAT § resource_license</a>
-     <tr>
-      <td><dfn class="dfn-paneled idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-crs"><code class="highlight">crs</code></dfn>
-      <td> enum(string)
-      <td>
-        Coordinate reference System
-       <details>
-        <summary>Opties</summary>
-        <ul>
-         <li data-md>
-          <p>"EPSG:28992"</p>
-         <li data-md>
-          <p>"EPSG:4326"</p>
-        </ul>
-       </details>
-        Zie <a href="https://www.w3.org/TR/sdw-bp/#CRS-background">SDOW best practices §CRS-background</a> voor meer informatie.
    </table>
    <p class="note" role="note"><span>Note:</span> De intentie is dat alle relevante <a data-link-type="biblio" href="#biblio-vocab-dcat-2">DCAT</a> velden te modelleren zijn. Wanneer velden ontbreken
     die wel in de <a data-link-type="biblio" href="#biblio-vocab-dcat-2">DCAT</a> zijn opgenomen, zullen deze worden toegevoegd.</p>
@@ -3370,12 +3372,13 @@ welke (SQL) data typen gebruikt zouden moeten worden om de JSON Schema typen te 
     verwezen in het <code class="idl"><a data-link-type="idl" href="#dom-schema-maingeometry" id="ref-for-dom-schema-maingeometry">mainGeometry</a></code> attribuut van de <a data-link-type="dfn" href="#tabel" id="ref-for-tabel⑧">tabel</a>. Als de tabel geen expliciet <code class="idl"><a data-link-type="idl" href="#dom-schema-maingeometry" id="ref-for-dom-schema-maingeometry①">mainGeometry</a></code> attribuut heeft
     is dit de default waarde: <code class="highlight"><c- u>"Geometry"</c-></code>.</p>
    <p class="note" role="note"><span>Note:</span> Als een tabel één of meerdere geometrie velden heeft, maar geen van deze velden <code class="highlight"><c- u>"Geometry"</c-></code> heet, <strong>moet</strong> één van de velden als primaire geometrie worden aangegeven in <code class="idl"><a data-link-type="idl" href="#dom-schema-maingeometry" id="ref-for-dom-schema-maingeometry②">mainGeometry</a></code>.</p>
+   <p class="note" role="note"><span>Note:</span> Als een tabel een geometrie veld bevat, moet op dataset niveau het coordinaat
+    referentie systeem worden aangegeven in het <code class="idl"><a data-link-type="idl" href="#dom-dataset-crs" id="ref-for-dom-dataset-crs">crs</a></code> attribuut.</p>
    <div class="example hide-lines" id="example-d313cbc2" onclick="this.classList.toggle(&apos;hide-lines&apos;);this.classList.toggle(&apos;unhide-lines&apos;);">
     <a class="self-link" href="#example-d313cbc2"></a> Voorbeeld van een tabel met meerdere geometrie velden. Het veld <code class="highlight"><c- u>"lokatie"</c-></code> is hier als primaire geometrie
         aangegeven in "<code class="idl"><a data-link-type="idl" href="#dom-schema-maingeometry" id="ref-for-dom-schema-maingeometry③">mainGeometry</a></code>".
 <pre class="include-code highlight line-numbered"><span class="line-no highlight-line" data-line="1"></span><span class="line highlight-line"><c- p>{</c-></span><span class="line-no highlight-line" data-line="2"></span><span class="line highlight-line">  <c- f>"id"</c-><c- p>:</c-> <c- u>"pleinen"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="3"></span><span class="line highlight-line">  <c- f>"type"</c-><c- p>:</c-> <c- u>"table"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="4"></span><span class="line highlight-line">  <c- f>"title"</c-><c- p>:</c-> <c- u>"Pleinen"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="5"></span><span class="line highlight-line">  <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="6"></span><span class="line highlight-line">  <c- f>"description"</c-><c- p>:</c-> <c- u>"Pleinen van amsterdam. (Een voorbeeld tabel met geometrie velden)"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="7"></span><span class="line highlight-line">  <c- f>"mainGeometry"</c-><c- p>:</c-> <c- u>"lokatie"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">    <c- f>"$schema"</c-><c- p>:</c-> <c- u>"http://json-schema.org/draft-07/schema#"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"type"</c-><c- p>:</c-> <c- u>"object"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"required"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no"></span><span class="line">      <c- u>"id"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">      <c- u>"schema"</c-></span><span class="line-no"></span><span class="line">    <c- p>],</c-></span><span class="line-no"></span><span class="line">    <c- f>"display"</c-><c- p>:</c-> <c- u>"id"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"properties"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">      <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"</c-></span><span class="line-no"></span><span class="line">      <c- p>},</c-></span><span class="line-no"></span><span class="line">      <c- f>"id"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Unieke aanduiding van het plein"</c-></span><span class="line-no"></span><span class="line">      <c- p>},</c-></span><span class="line-no"></span><span class="line">      <c- f>"naam"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Naam van het plein"</c-></span><span class="line-no"></span><span class="line">      <c- p>},</c-></span><span class="line-no highlight-line" data-line="28"></span><span class="line highlight-line">      <c- f>"lokatie"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="29"></span><span class="line highlight-line">        <c- f>"title"</c-><c- p>:</c-> <c- u>"Lokatie"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="30"></span><span class="line highlight-line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Coordinaten van het middelpunt van het plein"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="31"></span><span class="line highlight-line">        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://geojson.org/schema/Point.json"</c-></span><span class="line-no highlight-line" data-line="32"></span><span class="line highlight-line">      <c- p>},</c-></span><span class="line-no highlight-line" data-line="33"></span><span class="line highlight-line">      <c- f>"contour"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="34"></span><span class="line highlight-line">        <c- f>"title"</c-><c- p>:</c-> <c- u>"Contour"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="35"></span><span class="line highlight-line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Polygoon van de contour van het plein."</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="36"></span><span class="line highlight-line">        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://geojson.org/schema/Polygon.json"</c-></span><span class="line-no highlight-line" data-line="37"></span><span class="line highlight-line">      <c- p>}</c-></span><span class="line-no"></span><span class="line">    <c- p>}</c-></span><span class="line-no"></span><span class="line">  <c- p>}</c-></span><span class="line-no"></span><span class="line"><c- p>}</c-></span></pre>
    </div>
-   <p>Op dataset niveau kan het toegepaste coordinaat referentie systeem worden meegegeven in het <code class="idl"><a data-link-type="idl" href="#dom-dataset-crs" id="ref-for-dom-dataset-crs">crs</a></code> attribuut.</p>
    <h4 class="heading settled" data-level="4.3.7" id="data-types-object"><span class="secno">4.3.7. </span><span class="content">object</span><a class="self-link" href="#data-types-object"></a></h4>
     Een <a data-link-type="dfn" href="#veld" id="ref-for-veld①⑥">veld</a> van type <code class="highlight">object</code> kan gestructureerde data (objecten of structs) bevatten.
     Een <code class="highlight">object</code> veld zou een <code class="idl"><a data-link-type="idl" href="#dom-veld-properties" id="ref-for-dom-veld-properties">properties</a></code> attribuut moeten bezitten waarin de structuur van de datawaarden
@@ -3791,7 +3794,16 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
     Dit is een chronologisch overzicht van aanpassingen aan de amsterdam-schema specificatie.
 Uitsluitend normatieve aanpassingen aan de specificatie worden vermeld. Aanpassingen aan voorbeelden,
 waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
-   <h3 class="heading settled" data-level="8.1" id="lastchange"><span class="secno">8.1. </span><span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span><a class="self-link" href="#lastchange"></a></h3>
+   <h3 class="heading settled" data-level="8.1" id="lastchange"><span class="secno">8.1. </span><span class="content">[2.1.1] crs attribuut verplicht bij geometrie velden (2022-03-23)</span><a class="self-link" href="#lastchange"></a></h3>
+   <blockquote>
+    <p><strong>Doelstelling</strong><br> Het coordinaat referentie systeem van een dataset met geo data moet bekend zijn voor correct functioneren van
+doelsystemen.</p>
+   </blockquote>
+   <ul>
+    <li data-md>
+     <p>Het <code class="idl"><a data-link-type="idl" href="#dom-dataset-crs" id="ref-for-dom-dataset-crs①">crs</a></code> veld is verplicht geworden wanneer één of meerdere tabellen een <a href="#geometry">§ 4.3.6 geometrie</a> veld bevatten.</p>
+   </ul>
+   <h3 class="heading settled" data-level="8.2" id="change20220317"><span class="secno">8.2. </span><span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span><a class="self-link" href="#change20220317"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Meerdere aanpassingen aan dataset velden voor contactgegevens.
 Met als doel om alle teams en organisaties die een rol hebben bij het ontsluiten van een dataset
@@ -3833,7 +3845,7 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
     </ul>
    <li><a href="#dom-veld-contentencoding">contentEncoding</a><span>, in §4.2</span>
    <li><a href="#dom-dataset-creator">creator</a><span>, in §2.1</span>
-   <li><a href="#dom-dataset-crs">crs</a><span>, in §2.2.1</span>
+   <li><a href="#dom-dataset-crs">crs</a><span>, in §2.2</span>
    <li><a href="#dataset">dataset</a><span>, in §2.1</span>
    <li>
     dateCreated
@@ -4059,25 +4071,26 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
   <aside class="dfn-panel" data-for="dom-dataset-creator">
    <b><a href="#dom-dataset-creator">#dom-dataset-creator</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-dataset-creator">8.1. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
+    <li><a href="#ref-for-dom-dataset-creator">8.2. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-dataset-publisher">
    <b><a href="#dom-dataset-publisher">#dom-dataset-publisher</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-dataset-publisher">8.1. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
+    <li><a href="#ref-for-dom-dataset-publisher">8.2. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-dataset-contactpoint">
    <b><a href="#dom-dataset-contactpoint">#dom-dataset-contactpoint</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-dataset-contactpoint">8.1. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
+    <li><a href="#ref-for-dom-dataset-contactpoint">8.2. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-dataset-crs">
    <b><a href="#dom-dataset-crs">#dom-dataset-crs</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-dataset-crs">4.3.6. geometrie</a>
+    <li><a href="#ref-for-dom-dataset-crs①">8.1. [2.1.1] crs attribuut verplicht bij geometrie velden (2022-03-23)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="tabel-referentie">

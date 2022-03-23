@@ -1,7 +1,7 @@
 <pre class='metadata'>
 Title: Amsterdam Schema Specificatie
 Shortname: ams-schema-spec
-Revision: 2.1.0
+Revision: 2.1.1
 Status: LS
 URL: https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html
 Repository: Amsterdam/amsterdam-schema
@@ -155,6 +155,16 @@ Naast bovenstaande verplichte attributen mag een [=dataset=] ook de volgende eig
     <tr><td><dfn>provenance</dfn>   <td> string     <td> zie [[#provenance]]
     <tr><td><dfn>version</dfn>      <td> {{version-string}}     <td> Het versie nummer van deze dataset.
     <tr><td><dfn>homepage</dfn>     <td> {{uri-type|uri}}    <td> Homepage van de dataset
+    <tr><td><dfn>crs</dfn>
+        <td> enum(string)
+        <td> Coordinate reference System
+            <details open>
+                <summary>Opties</summary>
+                    * "EPSG:28992"
+                    * "EPSG:4326"
+            </details>
+            Dit veld is **verplicht** voor datasets waarvan één of meerdere tabellen één of meer [[#geometry]] velden bevatten.
+            Zie [[SDW-BP#CRS-background]] voor meer informatie.
 </table>
 
 [BP]
@@ -181,15 +191,6 @@ De volgende velden zijn toegestaan:
     <tr><td><dfn>legalBasis</dfn>           <td> string <td>
     <tr><td><dfn>keywords</dfn>             <td> array (string) <td> Array van keywords Conform \[DCAT § resource_keyword]([DCATURL]#Property:resource_keyword)
     <tr><td><dfn>license</dfn>              <td> string <td> Licentie Conform \[DCAT § resource_license]([DCATURL]#Property:resource_license)
-    <tr><td><dfn>crs</dfn>
-        <td> enum(string)
-        <td> Coordinate reference System
-            <details>
-                <summary>Opties</summary>
-                    * "EPSG:28992"
-                    * "EPSG:4326"
-            </details>
-            Zie [[SDW-BP#CRS-background]] voor meer informatie.
 </table>
 
 Note: De intentie is dat alle relevante [DCAT] velden te modelleren zijn. Wanneer velden ontbreken
@@ -978,6 +979,9 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
     Note: Als een tabel één of meerdere geometrie velden heeft, maar geen van deze velden `"Geometry"` heet,
         **moet** één van de velden als primaire geometrie worden aangegeven in {{mainGeometry}}.
 
+    Note: Als een tabel een geometrie veld bevat, moet op dataset niveau het coordinaat
+    referentie systeem worden aangegeven in het {{dataset/crs}} attribuut.
+
     <div [HIDELINESEXAMPLE]>
         Voorbeeld van een tabel met meerdere geometrie velden. Het veld `"lokatie"` is hier als primaire geometrie
         aangegeven in "{{mainGeometry}}".
@@ -987,8 +991,6 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
             line-highlight: 0-7,28-37
         </pre>
     </div>
-
-    Op dataset niveau kan het toegepaste coordinaat referentie systeem worden meegegeven in het {{dataset/crs}} attribuut.
 
 
 ### object ### {#data-types-object}
@@ -1570,7 +1572,15 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 <!-- Allways move the lastchange tag to the latest entry, so the correct entry is linked at the top of the page. -->
 <!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
 
-[2.1.0] Dataset contact gegevens (2022-03-17) {#lastchange}
+[2.1.1] crs attribuut verplicht bij geometrie velden (2022-03-23) {#lastchange}
+------------------------------------------------
+> **Doelstelling**<br/>
+    Het coordinaat referentie systeem van een dataset met geo data moet bekend zijn voor correct functioneren van
+    doelsystemen.
+
+* Het {{dataset/crs}} veld is verplicht geworden wanneer één of meerdere tabellen een [[#geometry]] veld bevatten.
+
+[2.1.0] Dataset contact gegevens (2022-03-17) {#change20220317}
 ------------------------------------------------
 > **Doelstelling**<br/>
     Meerdere aanpassingen aan dataset velden voor contactgegevens.
