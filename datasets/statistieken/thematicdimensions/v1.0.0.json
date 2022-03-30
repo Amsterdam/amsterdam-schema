@@ -1,0 +1,55 @@
+    {
+      "id": "thematicdimensions",
+      "title": "Tabel met de thematische indelingen, waartegen statistieken kunnen worden afgezet",
+      "type": "table",
+      "version": "1.0.0",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "identifier": "id",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "description",
+          "schema"
+        ],
+        "display": "name",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "title": "id",
+            "type": "integer",
+            "description": "Unieke identificatie van thematische indeling"
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Naam van thematische indeling"
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "Beschrijving / definitie / herkomst van thematische indeling"
+          },
+          "source": {
+            "title": "source",
+            "type": "string",
+            "description": "Naam van bron dataset / attribuut waarop indeling is gebaseerd"
+          },
+          "version": {
+            "title": "version",
+            "type": "string",
+            "description": "Versienummer van definitie van de thematische indeling"
+          },
+          "parentId": {
+            "title": "parentId",
+            "type": "integer",
+            "description": "Verwijzende identificatie naar bovenliggende thematische indeling",
+            "relation": "statistieken:thematicdimensions"
+          }
+        }
+      }
+    }

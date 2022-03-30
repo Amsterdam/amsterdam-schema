@@ -1,0 +1,19 @@
+name: CI
+
+# Run this workflow every time a commit is pushed to main
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+    build:
+        name: Trigger "Publish Schema" pipeline on Azure DevOps.
+        runs-on: ubuntu-latest
+        steps:
+        - name: Call Azure
+          uses: Azure/pipelines@v1
+          with:
+            azure-devops-project-url: ${{ secrets.AZURE_DEVOPS_URL }}
+            azure-pipeline-name: ${{ secrets.AZURE_DEVOPS_PIPELINE }}
+            azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
