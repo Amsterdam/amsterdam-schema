@@ -1487,10 +1487,10 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 2e3c4c68b, updated Fri Jan 14 14:49:00 2022 -0800" name="generator">
+  <meta content="Bikeshed version d7036035b, updated Fri Oct 8 17:07:11 2021 -0700" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="f3f69ad030b99cc43db36d6f8fcbbc763b627219" name="document-revision">
+  <meta content="cd08b1c5956522afad89e95b704ed3430571421d" name="document-revision">
 <style>
     p[data-fill-with="logo"] {
         width: 180px;
@@ -2234,7 +2234,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Amsterdam Schema Specificatie</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-03-01">1 March 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-03-30">30 March 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2610,7 +2610,7 @@ Actieve versies zijn alle versies die actief worden onderhouden en ondersteund.<
 in een eigen map moeten staan waarvan de naam gelijk is aan de tabel id.
 De bestandsnaam van een tabel definite bestand <strong>zou</strong> gelijk moeten zijn aan het versienummer van de tabel voorafgegaan door 'v' met een '.json' extensie.
 Het pad gezien vanuit de locatie van het dataset bestand <strong>zou</strong> dus de volgende vorm moeten hebben:</p>
-<pre class="language-bash highlight">&lt;tabelid>/v&lt;major>.&lt;minor>.&lt;patch>.json
+<pre class="language-bash highlight">    &lt;tabelid>/v&lt;major>.&lt;minor>.&lt;patch>.json
 </pre>
    <p><strong class="advisement"> Van deze bestandsnaam en padstructuur moet niet worden afgeweken behalve als daar een zwaarwegende reden voor is.</strong></p>
    <div class="example hide-lines" id="example-7a31c51e" onclick="this.classList.toggle(&apos;hide-lines&apos;);this.classList.toggle(&apos;unhide-lines&apos;);">
@@ -2785,12 +2785,12 @@ Een object in de tabel is geldig binnen het gesloten interval ["beginGeldigheid"
    <p>Als een tabel niet temporeel is kan het <a data-link-type="dfn" href="#temporal-object" id="ref-for-temporal-object②">temporal object</a> worden weggelaten.</p>
    <div class="example" id="example-f91888dd">
     <a class="self-link" href="#example-f91888dd"></a> Voorbeeld van een temporal object.
-<pre class="language-json highlight"><c- f>"temporal"</c-><c- p>:</c-> <c- p>{</c->
-    <c- f>"identifier"</c-><c- p>:</c-> <c- u>"volgnummer"</c-><c- p>,</c->
-    <c- f>"dimensions"</c-><c- p>:</c-> <c- p>{</c->
-        <c- f>"geldigOp"</c-><c- p>:</c-> <c- p>[</c-><c- u>"beginGeldigheid"</c-><c- p>,</c-> <c- u>"eindGeldigheid"</c-><c- p>]</c->
-    <c- p>}</c->
-<c- p>}</c->
+<pre class="language-json highlight">        <c- f>"temporal"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"identifier"</c-><c- p>:</c-> <c- u>"volgnummer"</c-><c- p>,</c->
+            <c- f>"dimensions"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"geldigOp"</c-><c- p>:</c-> <c- p>[</c-><c- u>"beginGeldigheid"</c-><c- p>,</c-> <c- u>"eindGeldigheid"</c-><c- p>]</c->
+            <c- p>}</c->
+        <c- p>}</c->
 </pre>
    </div>
    <h3 class="heading settled" data-level="3.5" id="versioning"><span class="secno">3.5. </span><span class="content">Versionering</span><a class="self-link" href="#versioning"></a></h3>
@@ -3600,7 +3600,7 @@ aan een strak stramien voldoet.
    <ul style="list-style: none;">
     <li><dfn data-dfn-type="dfn" data-export data-lt="camelCase" id="camelcase">1.<a class="self-link" href="#camelcase"></a></dfn> gebruik maken van camelCase.
     <li><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="noAbrev" id="noabrev">2.</dfn> geen afkortingen of afbrekingen bevatten.
-    <li><dfn data-dfn-type="dfn" data-export data-lt="nouns" id="nouns">3.<a class="self-link" href="#nouns"></a></dfn> bestaan uit zelfstandignaamwoorden.
+    <li><dfn data-dfn-type="dfn" data-export data-lt="nouns" id="nouns">3.<a class="self-link" href="#nouns"></a></dfn> bestaan uit zelfstandige naamwoorden (met uitzondering van de namen van relatievelden).
     <li><dfn data-dfn-type="dfn" data-export data-lt="unique" id="unique">4.<a class="self-link" href="#unique"></a></dfn> uniek zijn binnen hun scope. (respectievelijk: De hele catalogus, de dataset of de tabel)
    </ul>
     De namen van <a data-link-type="dfn" href="#tabel" id="ref-for-tabel①⓪">tabellen</a> (zoals gegeven in <code class="idl"><a data-link-type="idl" href="#dom-tabel-id" id="ref-for-dom-tabel-id②">id</a></code>) en <a data-link-type="dfn" href="#veld" id="ref-for-veld②④">velden</a> worden onderdeel van de URI waarop deze entiteiten ontsloten worden, en moeten daarom aan extra eisen voldoen.
