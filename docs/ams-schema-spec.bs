@@ -1,7 +1,7 @@
 <pre class='metadata'>
 Title: Amsterdam Schema Specificatie
 Shortname: ams-schema-spec
-Revision: 2.1.1
+Revision: 2.1.2
 Status: LS
 URL: https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html
 Repository: Amsterdam/amsterdam-schema
@@ -331,6 +331,7 @@ Een [=schema=] object moet in ieder geval de volgende attributen bezitten:
     <tr><td><dfn>display</dfn>      <td> string
         <td>  De naam van het [=veld=] dat titel van objecten bevat.
             Voor afnemers die een samenvattende titel van een object willen tonen. Default: gelijk aan {{schema/identifier}}.
+            Het veld dat hier genoemd wordt mag geen {{veld/auth}} attribuut bevatten.
     <tr><td><dfn>properties</dfn>   <td> object
         <td> Collectie van [=veld|velden=] die rijen in de tabel mogen bezitten. Bevat daarnaast een 'schema.$ref' attribuut.
             Veldnamen moeten beginnen met een kleine letter gevolgd door een alfanumerieke reeks en moeten voldoen aan [[#naamgeving]].
@@ -345,6 +346,7 @@ Daarnaast mag een [=schema=] object de volgende attributen bezitten:
     <tr><td><dfn>identifier</dfn>               <td> string | array (string)
         <td>Naam van het [=veld=] dat de unieke identifier van een rij is, of een array van veldnamen die samen een unieke key vormen.
             Het veld of de velden waar hier naar verwezen wordt moeten van het type [[#data-types-string|string]] of het type [[#data-types-int|integer]] zijn.
+            en mogen geen {{veld/auth}} attribuut bevatten.
 </table>
 
 Issue: Het identifier veld moet string zijn. De array optie wordt binnenkort verwijderd.
@@ -599,7 +601,9 @@ Een [=veld=] definitie mag naast het [[#veld-mandatory-fields|verplichte attribu
 <table dfn-type="attribute" dfn-for=veld export class="dfn-table">
     <tr><td><dfn>title</dfn>            <td> string <td> zie [[#omschrijving]] Default: Gelijk aan de naam van het veld.
     <tr><td><dfn>description</dfn>      <td> string <td> zie [[#omschrijving]]
-    <tr><td><dfn>auth</dfn>             <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Default: `"OPENBAAR"` zie [[#autorisatie]]
+    <tr><td><dfn>auth</dfn>             <td> string | array
+        <td> geautoriseerde [=scope|scope(s)=]. Default: `"OPENBAAR"` zie [[#autorisatie]]
+            Niet toegestaan in velden waarnaar wordt verwezen in {{schema/identifier}} of {{schema/display}}.
     <tr><td><dfn>provenance</dfn>       <td> string <td> zie [[#provenance]]
     <tr><td><dfn>shortname</dfn>        <td> string <td> zie [[#naamgeving]]
     <tr><td><dfn>unit</dfn>             <td> string | object <td> De eenheid van de waarden in dit veld. zie [[#units]]
@@ -1572,7 +1576,16 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 <!-- Allways move the lastchange tag to the latest entry, so the correct entry is linked at the top of the page. -->
 <!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
 
-[2.1.1] crs attribuut verplicht bij geometrie velden (2022-03-23) {#lastchange}
+[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13) {#lastchange}
+------------------------------------------------
+> **Doelstelling**<br/>
+    De velden waar naar verwezen wordt in {{schema/identifier}} en {{schema/display}} moeten zichtbaar zijn voor iedereen
+    die toegang heeft tot de tabel. Deze velden mogen dus geen {{veld/auth}} bevatten.
+
+* De velden waar naar verwezen wordt in de {{schema/identifier}} en {{schema/display}} attributen
+    mogen geen {{veld/auth}} attribuut bevatten.
+
+[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23) {#change20220323}
 ------------------------------------------------
 > **Doelstelling**<br/>
     Het coordinaat referentie systeem van een dataset met geo data moet bekend zijn voor correct functioneren van
