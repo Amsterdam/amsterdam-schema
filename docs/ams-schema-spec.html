@@ -1487,11 +1487,10 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version d7036035b, updated Fri Oct 8 17:07:11 2021 -0700" name="generator">
+  <meta content="Bikeshed version bb6b91100, updated Mon Jul 12 16:52:37 2021 -0700" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="cd08b1c5956522afad89e95b704ed3430571421d" name="document-revision">
-
+  <meta content="1044a2f8419ad61d69bc343ead55155649d60a4e" name="document-revision">
 <style>
     p[data-fill-with="logo"] {
         width: 180px;
@@ -2225,7 +2224,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Amsterdam Schema Specificatie</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-03-30">30 March 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-04-13">13 April 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2296,8 +2295,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li>
      <a href="#changelog"><span class="secno">8</span> <span class="content">Changelog</span></a>
      <ol class="toc">
-      <li><a href="#lastchange"><span class="secno">8.1</span> <span class="content">[2.1.1] crs attribuut verplicht bij geometrie velden (2022-03-23)</span></a>
-      <li><a href="#change20220317"><span class="secno">8.2</span> <span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span></a>
+      <li><a href="#lastchange"><span class="secno">8.1</span> <span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span></a>
+      <li><a href="#change20220323"><span class="secno">8.2</span> <span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span></a>
+      <li><a href="#change20220317"><span class="secno">8.3</span> <span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -2314,7 +2314,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </ol>
   </nav>
   <main>
-   <p><strong class="advisement"> De meest recente aanpassing aan deze specificatie is:<br> <a href="#lastchange">§ 8.1 [2.1.1] crs attribuut verplicht bij geometrie velden (2022-03-23)</a></strong></p>
+   <p><strong class="advisement"> De meest recente aanpassing aan deze specificatie is:<br> <a href="#lastchange">§ 8.1 [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</a></strong></p>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introductie</span><a class="self-link" href="#intro"></a></h2>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Alle data van gemeente Amsterdam binnen één machine verwerkbaar universeel format beschrijven,
@@ -2726,6 +2726,7 @@ Daarnaast kan aan een tabel meta informatie en autorisatie instellingen worden m
       <td> string
       <td> De naam van het <a data-link-type="dfn" href="#veld" id="ref-for-veld①">veld</a> dat titel van objecten bevat.
             Voor afnemers die een samenvattende titel van een object willen tonen. Default: gelijk aan <code class="idl"><a data-link-type="idl" href="#dom-schema-identifier" id="ref-for-dom-schema-identifier">identifier</a></code>.
+            Het veld dat hier genoemd wordt mag geen <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth">auth</a></code> attribuut bevatten.
      <tr>
       <td><dfn class="idl-code" data-dfn-for="schema" data-dfn-type="attribute" data-export id="dom-schema-properties"><code class="highlight">properties</code><a class="self-link" href="#dom-schema-properties"></a></dfn>
       <td> object
@@ -2756,6 +2757,7 @@ Daarnaast kan aan een tabel meta informatie en autorisatie instellingen worden m
       <td> string | array (string)
       <td>Naam van het <a data-link-type="dfn" href="#veld" id="ref-for-veld③">veld</a> dat de unieke identifier van een rij is, of een array van veldnamen die samen een unieke key vormen.
             Het veld of de velden waar hier naar verwezen wordt moeten van het type <a href="#data-types-string">string</a> of het type <a href="#data-types-int">integer</a> zijn.
+            en mogen geen <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth①">auth</a></code> attribuut bevatten.
    </table>
    <p class="issue" id="issue-38d85a92"><a class="self-link" href="#issue-38d85a92"></a> Het identifier veld moet string zijn. De array optie wordt binnenkort verwijderd.</p>
    <div class="example hide-lines" id="example-a1f4253e" onclick="this.classList.toggle(&apos;hide-lines&apos;);this.classList.toggle(&apos;unhide-lines&apos;);">
@@ -2982,7 +2984,7 @@ Een <a data-link-type="dfn" href="#veld" id="ref-for-veld⑨">veld</a> is een co
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="veld" data-dfn-type="attribute" data-export id="dom-veld-auth"><code class="highlight">auth</code></dfn>
       <td> string | array
-      <td> geautoriseerde <a data-link-type="dfn" href="#scope" id="ref-for-scope②">scope(s)</a>. Default: <code class="highlight"><c- u>"OPENBAAR"</c-></code> zie <a href="#autorisatie">§ 6.2 Autorisatie</a>
+      <td> geautoriseerde <a data-link-type="dfn" href="#scope" id="ref-for-scope②">scope(s)</a>. Default: <code class="highlight"><c- u>"OPENBAAR"</c-></code> zie <a href="#autorisatie">§ 6.2 Autorisatie</a> Niet toegestaan in velden waarnaar wordt verwezen in <code class="idl"><a data-link-type="idl" href="#dom-schema-identifier" id="ref-for-dom-schema-identifier②">identifier</a></code> of <code class="idl"><a data-link-type="idl" href="#dom-schema-display" id="ref-for-dom-schema-display②">display</a></code>.
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="veld" data-dfn-type="attribute" data-export id="dom-veld-provenance"><code class="highlight">provenance</code></dfn>
       <td> string
@@ -3432,7 +3434,7 @@ welke (SQL) data typen gebruikt zouden moeten worden om de JSON Schema typen te 
     Een <code class="highlight">array</code> veld <strong>moet</strong> een <code class="idl"><a data-link-type="idl" href="#dom-veld-items" id="ref-for-dom-veld-items">items</a></code> attribuut hebben, dit <strong>moet</strong> een <a data-link-type="dfn" href="#veld" id="ref-for-veld②⓪">veld</a> object zijn.
    <p class="note" role="note"><span>Note:</span> De optie van een <code class="idl"><a data-link-type="idl" href="#dom-veld-items" id="ref-for-dom-veld-items①">items</a></code> array uit de <a data-link-type="biblio" href="#biblio-json-schema-validation">JSON Schema specificatie</a> wordt niet ondersteund.
         Een <code class="highlight">array</code> kan dus slechts één type waarde bevatten (geen UNION types).</p>
-   <p>Het <code class="idl"><a data-link-type="idl" href="#dom-veld-items" id="ref-for-dom-veld-items②">items</a></code> attribuut is een <a data-link-type="dfn" href="#veld" id="ref-for-veld②①">veld</a> object, maar de meta-data attributen <code class="idl"><a data-link-type="idl" href="#dom-veld-title" id="ref-for-dom-veld-title①">title</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-description" id="ref-for-dom-veld-description①">description</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth">auth</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-provenance" id="ref-for-dom-veld-provenance">provenance</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-shortname" id="ref-for-dom-veld-shortname">shortname</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-veld-relation" id="ref-for-dom-veld-relation">relation</a></code> hebben in <code class="idl"><a data-link-type="idl" href="#dom-veld-items" id="ref-for-dom-veld-items③">items</a></code> geen effect en zouden moeten worden weggelaten.</p>
+   <p>Het <code class="idl"><a data-link-type="idl" href="#dom-veld-items" id="ref-for-dom-veld-items②">items</a></code> attribuut is een <a data-link-type="dfn" href="#veld" id="ref-for-veld②①">veld</a> object, maar de meta-data attributen <code class="idl"><a data-link-type="idl" href="#dom-veld-title" id="ref-for-dom-veld-title①">title</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-description" id="ref-for-dom-veld-description①">description</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth②">auth</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-provenance" id="ref-for-dom-veld-provenance">provenance</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-shortname" id="ref-for-dom-veld-shortname">shortname</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-veld-relation" id="ref-for-dom-veld-relation">relation</a></code> hebben in <code class="idl"><a data-link-type="idl" href="#dom-veld-items" id="ref-for-dom-veld-items③">items</a></code> geen effect en zouden moeten worden weggelaten.</p>
    <p class="note" role="note"><span>Note:</span> Een array van arrays is niet toegestaan. Dus <code class="idl"><a data-link-type="idl" href="#dom-veld-items" id="ref-for-dom-veld-items④">items</a></code> mag zelf niet het type <code class="highlight">array</code> hebben.</p>
    <div class="example" id="example-2e361c91">
     <a class="self-link" href="#example-2e361c91"></a> Een array van integers.
@@ -3795,7 +3797,17 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
     Dit is een chronologisch overzicht van aanpassingen aan de amsterdam-schema specificatie.
 Uitsluitend normatieve aanpassingen aan de specificatie worden vermeld. Aanpassingen aan voorbeelden,
 waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
-   <h3 class="heading settled" data-level="8.1" id="lastchange"><span class="secno">8.1. </span><span class="content">[2.1.1] crs attribuut verplicht bij geometrie velden (2022-03-23)</span><a class="self-link" href="#lastchange"></a></h3>
+   <h3 class="heading settled" data-level="8.1" id="lastchange"><span class="secno">8.1. </span><span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span><a class="self-link" href="#lastchange"></a></h3>
+   <blockquote>
+    <p><strong>Doelstelling</strong><br> De velden waar naar verwezen wordt in <code class="idl"><a data-link-type="idl" href="#dom-schema-identifier" id="ref-for-dom-schema-identifier③">identifier</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-schema-display" id="ref-for-dom-schema-display③">display</a></code> moeten zichtbaar zijn voor iedereen
+die toegang heeft tot de tabel. Deze velden mogen dus geen <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth③">auth</a></code> bevatten.</p>
+   </blockquote>
+   <ul>
+    <li data-md>
+     <p>De velden waar naar verwezen wordt in de <code class="idl"><a data-link-type="idl" href="#dom-schema-identifier" id="ref-for-dom-schema-identifier④">identifier</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-schema-display" id="ref-for-dom-schema-display④">display</a></code> attributen
+mogen geen <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth④">auth</a></code> attribuut bevatten.</p>
+   </ul>
+   <h3 class="heading settled" data-level="8.2" id="change20220323"><span class="secno">8.2. </span><span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span><a class="self-link" href="#change20220323"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Het coordinaat referentie systeem van een dataset met geo data moet bekend zijn voor correct functioneren van
 doelsystemen.</p>
@@ -3804,7 +3816,7 @@ doelsystemen.</p>
     <li data-md>
      <p>Het <code class="idl"><a data-link-type="idl" href="#dom-dataset-crs" id="ref-for-dom-dataset-crs①">crs</a></code> veld is verplicht geworden wanneer één of meerdere tabellen een <a href="#geometry">§ 4.3.6 geometrie</a> veld bevatten.</p>
    </ul>
-   <h3 class="heading settled" data-level="8.2" id="change20220317"><span class="secno">8.2. </span><span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span><a class="self-link" href="#change20220317"></a></h3>
+   <h3 class="heading settled" data-level="8.3" id="change20220317"><span class="secno">8.3. </span><span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span><a class="self-link" href="#change20220317"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Meerdere aanpassingen aan dataset velden voor contactgegevens.
 Met als doel om alle teams en organisaties die een rol hebben bij het ontsluiten van een dataset
@@ -4072,26 +4084,26 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
   <aside class="dfn-panel" data-for="dom-dataset-creator">
    <b><a href="#dom-dataset-creator">#dom-dataset-creator</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-dataset-creator">8.2. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
+    <li><a href="#ref-for-dom-dataset-creator">8.3. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-dataset-publisher">
    <b><a href="#dom-dataset-publisher">#dom-dataset-publisher</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-dataset-publisher">8.2. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
+    <li><a href="#ref-for-dom-dataset-publisher">8.3. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-dataset-contactpoint">
    <b><a href="#dom-dataset-contactpoint">#dom-dataset-contactpoint</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-dataset-contactpoint">8.2. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
+    <li><a href="#ref-for-dom-dataset-contactpoint">8.3. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-dataset-crs">
    <b><a href="#dom-dataset-crs">#dom-dataset-crs</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-dataset-crs">4.3.6. geometrie</a>
-    <li><a href="#ref-for-dom-dataset-crs①">8.1. [2.1.1] crs attribuut verplicht bij geometrie velden (2022-03-23)</a>
+    <li><a href="#ref-for-dom-dataset-crs①">8.2. [2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="tabel-referentie">
@@ -4169,6 +4181,8 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
    <ul>
     <li><a href="#ref-for-dom-schema-display">3.3. Schema</a>
     <li><a href="#ref-for-dom-schema-display①">3.5. Versionering</a>
+    <li><a href="#ref-for-dom-schema-display②">4.2. Toegestane attributen</a>
+    <li><a href="#ref-for-dom-schema-display③">8.1. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</a> <a href="#ref-for-dom-schema-display④">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-schema-maingeometry">
@@ -4182,6 +4196,8 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
    <ul>
     <li><a href="#ref-for-dom-schema-identifier">3.3. Schema</a>
     <li><a href="#ref-for-dom-schema-identifier①">3.4. Temporaliteit</a>
+    <li><a href="#ref-for-dom-schema-identifier②">4.2. Toegestane attributen</a>
+    <li><a href="#ref-for-dom-schema-identifier③">8.1. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</a> <a href="#ref-for-dom-schema-identifier④">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="temporal-object">
@@ -4245,7 +4261,9 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
   <aside class="dfn-panel" data-for="dom-veld-auth">
    <b><a href="#dom-veld-auth">#dom-veld-auth</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-veld-auth">4.3.8. array</a>
+    <li><a href="#ref-for-dom-veld-auth">3.3. Schema</a> <a href="#ref-for-dom-veld-auth①">(2)</a>
+    <li><a href="#ref-for-dom-veld-auth②">4.3.8. array</a>
+    <li><a href="#ref-for-dom-veld-auth③">8.1. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</a> <a href="#ref-for-dom-veld-auth④">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-veld-provenance">
