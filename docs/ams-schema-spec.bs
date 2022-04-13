@@ -1,7 +1,7 @@
 <pre class='metadata'>
 Title: Amsterdam Schema Specificatie
 Shortname: ams-schema-spec
-Revision: 2.1.2
+Revision: 2.1.3
 Status: LS
 URL: https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html
 Repository: Amsterdam/amsterdam-schema
@@ -111,6 +111,7 @@ Een <dfn dfn export>dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON b
                     * "beschikbaar"
                     * "niet_beschikbaar"
             </details>
+            <tr><td><dfn>auth</dfn>         <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Voor openbare data: `"OPENBAAR"`. zie [[#autorisatie]]
     <tr><td><dfn>authorizationGrantor</dfn> <td> string     <td> E-mailadres van de afdeling verantwoordelijk voor autorisatie op deze dataset. Dit is meestal de bronhouder. Aan dit adres worden authorisatie verzoeken gericht.
     <tr><td><dfn>creator</dfn>              <td> string     <td> Team, afdeling of organisatie die de data produceert, meestal de bronhouder. Wanneer data van meerdere bronhouders wordt gecomineerd, wordt hier de opdrachtgever bedoelt.
     <tr><td><dfn>owner</dfn>                <td> string     <td> Juridisch eigenaar van de data. Bijvoorbeeld `"Gemeente Amsterdam, Directie Wonen"` of `"Centraal Bureau voor de Statistiek"`  Default: `"Gemeente Amsterdam"`
@@ -151,7 +152,6 @@ Naast bovenstaande verplichte attributen mag een [=dataset=] ook de volgende eig
         <td> Contactgegevens van de persoon of afdeling verantwoordelijk voor eerstelijns ondersteuning bij deze dataset. Hier kunnen mensen met vragen over de dataset terecht. (Deze gegevens worden publiek zichtbaar.) Wanneer dit veld niet is gegeven, is impliciet de default waarde van toepassing. Default: `{"name": "Datapunt", "email": "datapunt@amsterdam.nl"}`
     <tr><td><dfn>title</dfn>        <td> string     <td> zie [[#omschrijving]] [DCAT § Property:resource_title]([DCATURL]#Property:resource_title)
     <tr><td><dfn>description</dfn>  <td> string     <td> zie [[#omschrijving]] [DCAT § Property:resource_description]([DCATURL]#Property:resource_description)
-    <tr><td><dfn>auth</dfn>         <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Default: `"OPENBAAR"` zie [[#autorisatie]]
     <tr><td><dfn>provenance</dfn>   <td> string     <td> zie [[#provenance]]
     <tr><td><dfn>version</dfn>      <td> {{version-string}}     <td> Het versie nummer van deze dataset.
     <tr><td><dfn>homepage</dfn>     <td> {{uri-type|uri}}    <td> Homepage van de dataset
@@ -249,7 +249,7 @@ Advisement: Van deze bestandsnaam en padstructuur moet niet worden afgeweken beh
     <pre class="include-code">
             path: examples/datasets/bekendeAmsterdammers/dataset.json
             highlight: json
-            line-highlight: 11-24
+            line-highlight: 12-25
         </pre>
 </div>
 
@@ -306,7 +306,7 @@ Een  [=tabel=] mag daarnaast de volgende attributen bezitten:
     <tr><td><dfn>title</dfn>        <td> string <td> zie [[#omschrijving]] Default: Gelijk aan {{tabel/id}}.
     <tr><td><dfn>description</dfn>  <td> string <td> zie [[#omschrijving]]
     <tr><td><dfn>shortname</dfn>    <td> string <td> Verkorte unieke naam van de tabel. zie [[#naamgeving]]
-    <tr><td><dfn>auth</dfn>         <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Default: `"OPENBAAR"` zie [[#autorisatie]]
+    <tr><td><dfn>auth</dfn>         <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Default: gelijk aan waarde in dataset/{{dataset/auth}}, zie [[#autorisatie]].
     <tr><td><dfn>provenance</dfn>   <td> string <td> zie [[#provenance]]
     <tr><td><dfn>dateCreated</dfn>  <td> {{date-time}} <td> Datum van publicatie.
     <tr><td><dfn>dateModified</dfn> <td> {{date-time}} <td> Meest recente datum waarop de tabel is aangepast.
@@ -454,7 +454,7 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v1.2.1.json
                 highlight: json
-                line-highlight: 5,28
+                line-highlight: 5,28,31-34
             </pre>
         </div>
         <div [SYNCSCROLLB]>
@@ -462,7 +462,7 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v1.3.0.json
                 highlight: json
-                line-highlight: 5,28, 30-38
+                line-highlight: 5,28, 31-35,37-44
             </pre>
         </div>
     </div>
@@ -481,7 +481,7 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v1.3.0.json
                 highlight: json
-                line-highlight: 5,10,18,20,28
+                line-highlight: 5,10-13,19-23,31-35
             </pre>
         </div>
         <div [SYNCSCROLLB]>
@@ -489,7 +489,7 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v2.0.0.json
                 highlight: json
-                line-highlight: 5,10,18-19,21,29
+                line-highlight: 5,10-14,20-25,33-40
             </pre>
         </div>
     </div>
@@ -507,7 +507,7 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v2.0.0.json
                 highlight: json
-                line-highlight: 5-6,11,27,33
+                line-highlight: 5-6,15,31,44
             </pre>
         </div>
         <div [SYNCSCROLLB]>
@@ -515,7 +515,7 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v2.0.1.json
                 highlight: json
-                line-highlight: 5-6,11,27,33
+                line-highlight: 5-6,15,31,44
             </pre>
         </div>
     </div>
@@ -533,7 +533,7 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
         <pre class="include-code">
             path: examples/datasets/bekendeAmsterdammers/dataset.json
             highlight: json
-            line-highlight: 1,15-22,40
+            line-highlight: 1,13-20,26
         </pre>
     </div>
 </div>
@@ -602,7 +602,7 @@ Een [=veld=] definitie mag naast het [[#veld-mandatory-fields|verplichte attribu
     <tr><td><dfn>title</dfn>            <td> string <td> zie [[#omschrijving]] Default: Gelijk aan de naam van het veld.
     <tr><td><dfn>description</dfn>      <td> string <td> zie [[#omschrijving]]
     <tr><td><dfn>auth</dfn>             <td> string | array
-        <td> geautoriseerde [=scope|scope(s)=]. Default: `"OPENBAAR"` zie [[#autorisatie]]
+        <td> geautoriseerde [=scope|scope(s)=]. Default: gelijk aan waarde in tabel/{{tabel/auth}}, zie [[#autorisatie]].
             Niet toegestaan in velden waarnaar wordt verwezen in {{schema/identifier}} of {{schema/display}}.
     <tr><td><dfn>provenance</dfn>       <td> string <td> zie [[#provenance]]
     <tr><td><dfn>shortname</dfn>        <td> string <td> zie [[#naamgeving]]
@@ -1402,14 +1402,12 @@ Dus een gebruiker heeft slechts één van de [=scopes=] in een array nodig voor 
     </pre>
 </div>
 
-Als een [=dataset=] geen `"auth"` attribuut heeft is de scope van de [=dataset=] `"OPENBAAR"` en is deze dus publiek toegankelijk.
+Op dataset niveau is het {{dataset/auth}} attribuut verplicht. Bij een openbare [=dataset=] krijgt het {{dataset/auth}} attribuut
+de waarde `"OPENBAAR"`.
 
 Als een [=tabel=] geen `"auth"` attribuut heeft is de scope van de [=tabel=] gelijk aan die van de dataset.
 
 Als een [=veld=] geen `"auth"` attribuut heeft is de scope van het [=veld=] gelijk aan die van de tabel.
-
-Een dataset waarin op geen enkel niveau een `"auth"` attribuut bestaat is dus volledig publiek toegankelijk.
-Data kan ook expliciet openbaar worden gemaakt met `"auth" : "OPENBAAR"`.
 
 <div class=example>
 In dit voorbeeld vindt autorisatie plaats op 3 niveaus.
@@ -1575,8 +1573,17 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 
 <!-- Allways move the lastchange tag to the latest entry, so the correct entry is linked at the top of the page. -->
 <!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
+<!-- Update the version number in the metadata at the top and refer to it here. -->
 
-[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13) {#lastchange}
+[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13) {#lastchange}
+------------------------------------------------
+> **Doelstelling**<br/>
+    Alle datasets zijn openbaar tenzij. Maar om onbedoelde openbaarmaking te voorkomen, moet dit altijd expliciet
+    ingevuld worden.
+
+* Het {{dataset/auth}} attribuut is verplicht gemaakt.
+
+[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13) {#20220413-1}
 ------------------------------------------------
 > **Doelstelling**<br/>
     De velden waar naar verwezen wordt in {{schema/identifier}} en {{schema/display}} moeten zichtbaar zijn voor iedereen
