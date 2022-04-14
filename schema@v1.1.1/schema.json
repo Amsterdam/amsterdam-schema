@@ -46,6 +46,12 @@
         },
         "type": {
           "$ref": "#/definitions/type"
+        },
+        "reasonsNonPublic": {
+          "type": "array",
+          "items": {
+            "$ref": "./schema@v1.1.1#/definitions/nonPubReason"
+          }
         }
       }
     },
@@ -69,6 +75,27 @@
       "enum": [
         "dataset",
         "table"
+      ]
+    },
+    "nonPubReason": {
+      "type": "string",
+      "description": "Reden voor niet openbaarmaking. Obv uitzonderingen in Hoofdstuk 5 Woo.",
+      "enum": [
+        "5.1 1a: Gevaar voor eenheid van de Kroon",
+        "5.1 1b: Gevaar voor staatsveiligheid",
+        "5.1 1c: Bevat persoonsgegevens",
+        "5.1 2a: Zwaarwegend belang: internationale betrekkingen",
+        "5.1 2b: Zwaarwegende economische of financi\u00eble belangen van publiekrechtelijke lichamen (bevat geen mileu-informatie)",
+        "5.1 2b: Zwaarwegende economische of financi\u00eble belangen van publiekrechtelijke lichamen (bevat mileu-informatie met betrekking op handelingen met een vertrouwelijk karakter)",
+        "5.1 2c: Zwaarwegend belang: opsporing en vervolging van strafbare feiten",
+        "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen",
+        "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer",
+        "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens",
+        "5.1 2g: Zwaarwegend belang: bescherming van het milieu waarop deze informatie betrekking heeft",
+        "5.1 2h: Zwaarwegend belang: beveiliging van personen en bedrijven en het voorkomen van sabotage",
+        "5.2 1: Bevat persoonlijke beleidsopvattingen (bevat geen milieu-informatie)",
+        "5.2 3: Zwaarwegend belang: persoonlijke beleidsopvattingen (bevat milieu-informatie)",
+        "nader te bepalen"
       ]
     },
     "schema": {
