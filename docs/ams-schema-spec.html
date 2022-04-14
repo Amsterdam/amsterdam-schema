@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version bb6b91100, updated Mon Jul 12 16:52:37 2021 -0700" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="c4a9e8e1eaa5f476a6bce165a012576523224310" name="document-revision">
+  <meta content="5ca4412f2eb0bf15c23199264d23649d2c76e134" name="document-revision">
 <style>
     p[data-fill-with="logo"] {
         width: 180px;
@@ -2224,7 +2224,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Amsterdam Schema Specificatie</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-04-13">13 April 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-04-14">14 April 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2478,6 +2478,10 @@ Zie <a href="#table-refs">§ 2.3 Tabelreferenties</a> voor details.</p>
       <td> string
       <td> zie <a href="#provenance">§ 6.3 Provenance</a>
      <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-reasonsnonpublic"><code class="highlight">reasonsNonPublic</code></dfn>
+      <td> array(<code class="idl"><a data-link-type="idl" href="#typedefdef-nonpubreason" id="ref-for-typedefdef-nonpubreason">nonPubReason</a></code>)
+      <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de <a data-link-type="biblio" href="#biblio-woo">[Woo]</a>. (Vanaf 1 mei 2022 verplicht wanneer <code class="idl"><a data-link-type="idl" href="#dom-dataset-auth" id="ref-for-dom-dataset-auth">auth</a></code> niet gelijk is aan <code class="highlight"><c- u>"OPENBAAR"</c-></code>) zie <a href="#autorisatie">§ 6.2 Autorisatie</a>
+     <tr>
       <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-version"><code class="highlight">version</code><a class="self-link" href="#dom-dataset-version"></a></dfn>
       <td> <code class="idl"><a data-link-type="idl" href="#typedefdef-version" id="ref-for-typedefdef-version">version-string</a></code>
       <td> Het versie nummer van deze dataset.
@@ -2681,7 +2685,12 @@ Daarnaast kan aan een tabel meta informatie en autorisatie instellingen worden m
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-auth"><code class="highlight">auth</code></dfn>
       <td> string | array
-      <td> geautoriseerde <a data-link-type="dfn" href="#scope" id="ref-for-scope①">scope(s)</a>. Default: gelijk aan waarde in dataset/<code class="idl"><a data-link-type="idl" href="#dom-dataset-auth" id="ref-for-dom-dataset-auth">auth</a></code>, zie <a href="#autorisatie">§ 6.2 Autorisatie</a>.
+      <td> geautoriseerde <a data-link-type="dfn" href="#scope" id="ref-for-scope①">scope(s)</a>. Default: gelijk aan waarde in dataset/<code class="idl"><a data-link-type="idl" href="#dom-dataset-auth" id="ref-for-dom-dataset-auth①">auth</a></code>, zie <a href="#autorisatie">§ 6.2 Autorisatie</a>.
+     <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-reasonsnonpublic"><code class="highlight">reasonsNonPublic</code></dfn>
+      <td> array(<code class="idl"><a data-link-type="idl" href="#typedefdef-nonpubreason" id="ref-for-typedefdef-nonpubreason①">nonPubReason</a></code>)
+      <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de <a data-link-type="biblio" href="#biblio-woo">[Woo]</a>.
+            (Vanaf 1 mei 2022 verplicht wanneer de dataset openbaar is maar het <code class="idl"><a data-link-type="idl" href="#dom-tabel-auth" id="ref-for-dom-tabel-auth">auth</a></code> atribuut van de tabel niet gelijk is aan "OPENBAAR") zie <a href="#autorisatie">§ 6.2 Autorisatie</a>
      <tr>
       <td><dfn class="idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-provenance"><code class="highlight">provenance</code><a class="self-link" href="#dom-tabel-provenance"></a></dfn>
       <td> string
@@ -2986,8 +2995,13 @@ Een <a data-link-type="dfn" href="#veld" id="ref-for-veld⑨">veld</a> is een co
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="veld" data-dfn-type="attribute" data-export id="dom-veld-auth"><code class="highlight">auth</code></dfn>
       <td> string | array
-      <td> geautoriseerde <a data-link-type="dfn" href="#scope" id="ref-for-scope②">scope(s)</a>. Default: gelijk aan waarde in tabel/<code class="idl"><a data-link-type="idl" href="#dom-tabel-auth" id="ref-for-dom-tabel-auth">auth</a></code>, zie <a href="#autorisatie">§ 6.2 Autorisatie</a>.
+      <td> geautoriseerde <a data-link-type="dfn" href="#scope" id="ref-for-scope②">scope(s)</a>. Default: gelijk aan waarde in tabel/<code class="idl"><a data-link-type="idl" href="#dom-tabel-auth" id="ref-for-dom-tabel-auth①">auth</a></code>, zie <a href="#autorisatie">§ 6.2 Autorisatie</a>.
             Niet toegestaan in velden waarnaar wordt verwezen in <code class="idl"><a data-link-type="idl" href="#dom-schema-identifier" id="ref-for-dom-schema-identifier②">identifier</a></code> of <code class="idl"><a data-link-type="idl" href="#dom-schema-display" id="ref-for-dom-schema-display②">display</a></code>.
+     <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="veld" data-dfn-type="attribute" data-export id="dom-veld-reasonsnonpublic"><code class="highlight">reasonsNonPublic</code></dfn>
+      <td> array(<code class="idl"><a data-link-type="idl" href="#typedefdef-nonpubreason" id="ref-for-typedefdef-nonpubreason②">nonPubReason</a></code>)
+      <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de <a data-link-type="biblio" href="#biblio-woo">[Woo]</a>.
+            (Vanaf 1 mei 2022 verplicht wanneer de tabel openbaar is maar het <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth②">auth</a></code> atribuut van het veld niet gelijk is aan "OPENBAAR") zie <a href="#autorisatie">§ 6.2 Autorisatie</a>
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="veld" data-dfn-type="attribute" data-export id="dom-veld-provenance"><code class="highlight">provenance</code></dfn>
       <td> string
@@ -3437,7 +3451,7 @@ welke (SQL) data typen gebruikt zouden moeten worden om de JSON Schema typen te 
     Een <code class="highlight">array</code> veld <strong>moet</strong> een <code class="idl"><a data-link-type="idl" href="#dom-veld-items" id="ref-for-dom-veld-items">items</a></code> attribuut hebben, dit <strong>moet</strong> een <a data-link-type="dfn" href="#veld" id="ref-for-veld②⓪">veld</a> object zijn.
    <p class="note" role="note"><span>Note:</span> De optie van een <code class="idl"><a data-link-type="idl" href="#dom-veld-items" id="ref-for-dom-veld-items①">items</a></code> array uit de <a data-link-type="biblio" href="#biblio-json-schema-validation">JSON Schema specificatie</a> wordt niet ondersteund.
         Een <code class="highlight">array</code> kan dus slechts één type waarde bevatten (geen UNION types).</p>
-   <p>Het <code class="idl"><a data-link-type="idl" href="#dom-veld-items" id="ref-for-dom-veld-items②">items</a></code> attribuut is een <a data-link-type="dfn" href="#veld" id="ref-for-veld②①">veld</a> object, maar de meta-data attributen <code class="idl"><a data-link-type="idl" href="#dom-veld-title" id="ref-for-dom-veld-title①">title</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-description" id="ref-for-dom-veld-description①">description</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth②">auth</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-provenance" id="ref-for-dom-veld-provenance">provenance</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-shortname" id="ref-for-dom-veld-shortname">shortname</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-veld-relation" id="ref-for-dom-veld-relation">relation</a></code> hebben in <code class="idl"><a data-link-type="idl" href="#dom-veld-items" id="ref-for-dom-veld-items③">items</a></code> geen effect en zouden moeten worden weggelaten.</p>
+   <p>Het <code class="idl"><a data-link-type="idl" href="#dom-veld-items" id="ref-for-dom-veld-items②">items</a></code> attribuut is een <a data-link-type="dfn" href="#veld" id="ref-for-veld②①">veld</a> object, maar de meta-data attributen <code class="idl"><a data-link-type="idl" href="#dom-veld-title" id="ref-for-dom-veld-title①">title</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-description" id="ref-for-dom-veld-description①">description</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth③">auth</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-provenance" id="ref-for-dom-veld-provenance">provenance</a></code>, <code class="idl"><a data-link-type="idl" href="#dom-veld-shortname" id="ref-for-dom-veld-shortname">shortname</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-veld-relation" id="ref-for-dom-veld-relation">relation</a></code> hebben in <code class="idl"><a data-link-type="idl" href="#dom-veld-items" id="ref-for-dom-veld-items③">items</a></code> geen effect en zouden moeten worden weggelaten.</p>
    <p class="note" role="note"><span>Note:</span> Een array van arrays is niet toegestaan. Dus <code class="idl"><a data-link-type="idl" href="#dom-veld-items" id="ref-for-dom-veld-items④">items</a></code> mag zelf niet het type <code class="highlight">array</code> hebben.</p>
    <div class="example" id="example-2e361c91">
     <a class="self-link" href="#example-2e361c91"></a> Een array van integers.
@@ -3699,10 +3713,13 @@ Dus een gebruiker heeft slechts één van de <a data-link-type="dfn" href="#scop
 <c- p>}</c->
 </pre>
    </div>
-   <p>Op dataset niveau is het <code class="idl"><a data-link-type="idl" href="#dom-dataset-auth" id="ref-for-dom-dataset-auth①">auth</a></code> attribuut verplicht. Bij een openbare <a data-link-type="dfn" href="#dataset" id="ref-for-dataset⑧">dataset</a> krijgt het <code class="idl"><a data-link-type="idl" href="#dom-dataset-auth" id="ref-for-dom-dataset-auth②">auth</a></code> attribuut
+   <p>Op dataset niveau is het <code class="idl"><a data-link-type="idl" href="#dom-dataset-auth" id="ref-for-dom-dataset-auth②">auth</a></code> attribuut verplicht. Bij een openbare <a data-link-type="dfn" href="#dataset" id="ref-for-dataset⑧">dataset</a> krijgt het <code class="idl"><a data-link-type="idl" href="#dom-dataset-auth" id="ref-for-dom-dataset-auth③">auth</a></code> attribuut
 de waarde <code class="highlight"><c- u>"OPENBAAR"</c-></code>.</p>
    <p>Als een <a data-link-type="dfn" href="#tabel" id="ref-for-tabel①④">tabel</a> geen <code class="highlight"><c- u>"auth"</c-></code> attribuut heeft is de scope van de <a data-link-type="dfn" href="#tabel" id="ref-for-tabel①⑤">tabel</a> gelijk aan die van de dataset.</p>
    <p>Als een <a data-link-type="dfn" href="#veld" id="ref-for-veld②⑨">veld</a> geen <code class="highlight"><c- u>"auth"</c-></code> attribuut heeft is de scope van het <a data-link-type="dfn" href="#veld" id="ref-for-veld③⓪">veld</a> gelijk aan die van de tabel.</p>
+   <p>Op het eerste niveau waarop data niet openbaar wordt gemaakt moet met ingang van 1 mei 2022 een '"reasonsNonPublic"' attribuut bestaan.
+Dus als een dataset openbaar is, maar deze een tabel bevat waarop een <code class="idl"><a data-link-type="idl" href="#dom-tabel-auth" id="ref-for-dom-tabel-auth②">auth</a></code> attribuut met een andere waarde dan "OPENBAAR" bestaat.
+Moet in de betreffende tabel of tabellen een <code class="idl"><a data-link-type="idl" href="#dom-tabel-reasonsnonpublic" id="ref-for-dom-tabel-reasonsnonpublic">reasonsNonPublic</a></code> attribuut bestaan.</p>
    <div class="example" id="example-2b7721a6">
     <a class="self-link" href="#example-2b7721a6"></a> In dit voorbeeld vindt autorisatie plaats op 3 niveaus.
 Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level autorisatie op gebieden, scope <code class="highlight"><c- u>"LEVEL/B"</c-></code> heeft tabel level autorisatie op bouwblokken en scope <code class="highlight"><c- u>"LEVEL/C"</c-></code> heeft autorisatie op veld beginGeldigheid.
@@ -3756,7 +3773,7 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
       <td> (enum-string)
       <td>
         Het binnen Amsterdam Schema bekende <a data-biblio-display="inline" data-link-type="biblio" href="https://json-schema.org/draft/2020-12/json-schema-core.html">JSON Schema</a> type waaraan het object voldoet.
-       <details>
+       <details open>
         <summary>Opties</summary>
         <ul>
          <li data-md>
@@ -3765,6 +3782,50 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
           <p>"table"</p>
         </ul>
        </details>
+     <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export data-lt="nonPubReason" id="typedefdef-nonpubreason"><code class="highlight">reden<c- o>-</c->niet<c- o>-</c->publiek</code></dfn>
+      <td> (enum-string)
+      <td>
+        Grond voor het niet openbaar maken van data op basis van de uitzonderingen in Hoofdstuk 5 van de <a data-link-type="biblio" href="#biblio-woo">Wet Open Overheid</a> (Woo).
+       <p>Met <code class="highlight"><c- u>"5.1 1a"</c-></code>, wordt bedoeld Wet Open Overheid Artikel 5.1, eerste lid, onderdeel a.
+            De beschrijvingen volgend op de wetsverwijzing zijn niet volledig en dienen slechts ter illustratie.
+            Kijk voor de exacte definitie van een uitzondering in hoofdstuk 5 van de Woo.</p>
+       <details open>
+        <summary>Opties</summary>
+        <ul>
+         <li data-md>
+          <p>"5.1 1a: Gevaar voor eenheid van de Kroon",</p>
+         <li data-md>
+          <p>"5.1 1b: Gevaar voor staatsveiligheid",</p>
+         <li data-md>
+          <p>"5.1 1c: Bevat persoonsgegevens",</p>
+         <li data-md>
+          <p>"5.1 2a: Zwaarwegend belang: internationale betrekkingen",</p>
+         <li data-md>
+          <p>"5.1 2b: Zwaarwegende economische of financiële belangen van publiekrechtelijke lichamen (bevat geen mileu-informatie)",</p>
+         <li data-md>
+          <p>"5.1 2b: Zwaarwegende economische of financiële belangen van publiekrechtelijke lichamen (bevat mileu-informatie met betrekking op handelingen met een vertrouwelijk karakter)",</p>
+         <li data-md>
+          <p>"5.1 2c: Zwaarwegend belang: opsporing en vervolging van strafbare feiten",</p>
+         <li data-md>
+          <p>"5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen",</p>
+         <li data-md>
+          <p>"5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer",</p>
+         <li data-md>
+          <p>"5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens",</p>
+         <li data-md>
+          <p>"5.1 2g: Zwaarwegend belang: bescherming van het milieu waarop deze informatie betrekking heeft",</p>
+         <li data-md>
+          <p>"5.1 2h: Zwaarwegend belang: beveiliging van personen en bedrijven en het voorkomen van sabotage",</p>
+         <li data-md>
+          <p>"5.2 1: Bevat persoonlijke beleidsopvattingen (bevat geen milieu-informatie)",</p>
+         <li data-md>
+          <p>"5.2 3: Zwaarwegend belang: persoonlijke beleidsopvattingen (bevat milieu-informatie)",</p>
+         <li data-md>
+          <p>"nader te bepalen"</p>
+        </ul>
+       </details>
+        De laatste optie ("nader te bepalen") is niet toegestaan wanneer <code class="idl"><a data-link-type="idl" href="#dom-dataset-status" id="ref-for-dom-dataset-status①">status</a></code>=<code class="highlight"><c- u>"beschikbaar"</c-></code>.
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export data-lt="version|version-string" id="typedefdef-version"><code class="highlight">version</code></dfn>
       <td> (string)
@@ -3801,22 +3862,29 @@ Uitsluitend normatieve aanpassingen aan de specificatie worden vermeld. Aanpassi
 waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
    <h3 class="heading settled" data-level="8.1" id="lastchange"><span class="secno">8.1. </span><span class="content">[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</span><a class="self-link" href="#lastchange"></a></h3>
    <blockquote>
-    <p><strong>Doelstelling</strong><br> Alle datasets zijn openbaar tenzij. Maar om onbedoelde openbaarmaking te voorkomen, moet dit altijd expliciet
-ingevuld worden.</p>
+    <p><strong>Doelstelling</strong><br> Alle datasets zijn openbaar tenzij obv de Wet Open Overheid.
+Maar om onbedoelde openbaarmaking te voorkomen, moet dit altijd expliciet
+ingevuld worden. Voor data die niet publiek is moet de uitzonderingsgrond worden vermeld.</p>
    </blockquote>
    <ul>
     <li data-md>
-     <p>Het <code class="idl"><a data-link-type="idl" href="#dom-dataset-auth" id="ref-for-dom-dataset-auth③">auth</a></code> attribuut is verplicht gemaakt.</p>
+     <p>Het <code class="idl"><a data-link-type="idl" href="#dom-dataset-auth" id="ref-for-dom-dataset-auth④">auth</a></code> attribuut is verplicht gemaakt.</p>
+    <li data-md>
+     <p>Het dataset attribuut <code class="idl"><a data-link-type="idl" href="#dom-dataset-reasonsnonpublic" id="ref-for-dom-dataset-reasonsnonpublic">reasonsNonPublic</a></code> is toegevoegd.</p>
+    <li data-md>
+     <p>Het tabel attribuut <code class="idl"><a data-link-type="idl" href="#dom-tabel-reasonsnonpublic" id="ref-for-dom-tabel-reasonsnonpublic①">reasonsNonPublic</a></code> is toegevoegd.</p>
+    <li data-md>
+     <p>Het veld attribuut <code class="idl"><a data-link-type="idl" href="#dom-veld-reasonsnonpublic" id="ref-for-dom-veld-reasonsnonpublic">reasonsNonPublic</a></code> is toegevoegd.</p>
    </ul>
    <h3 class="heading settled" data-level="8.2" id="20220413-1"><span class="secno">8.2. </span><span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span><a class="self-link" href="#20220413-1"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> De velden waar naar verwezen wordt in <code class="idl"><a data-link-type="idl" href="#dom-schema-identifier" id="ref-for-dom-schema-identifier③">identifier</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-schema-display" id="ref-for-dom-schema-display③">display</a></code> moeten zichtbaar zijn voor iedereen
-die toegang heeft tot de tabel. Deze velden mogen dus geen <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth③">auth</a></code> bevatten.</p>
+die toegang heeft tot de tabel. Deze velden mogen dus geen <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth④">auth</a></code> bevatten.</p>
    </blockquote>
    <ul>
     <li data-md>
      <p>De velden waar naar verwezen wordt in de <code class="idl"><a data-link-type="idl" href="#dom-schema-identifier" id="ref-for-dom-schema-identifier④">identifier</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-schema-display" id="ref-for-dom-schema-display④">display</a></code> attributen
-mogen geen <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth④">auth</a></code> attribuut bevatten.</p>
+mogen geen <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth⑤">auth</a></code> attribuut bevatten.</p>
    </ul>
    <h3 class="heading settled" data-level="8.3" id="change20220323"><span class="secno">8.3. </span><span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span><a class="self-link" href="#change20220323"></a></h3>
    <blockquote>
@@ -3934,6 +4002,7 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
    <li><a href="#dom-veld-multipleof">multipleOf</a><span>, in §4.2</span>
    <li><a href="#dom-contact-name">name</a><span>, in §7</span>
    <li><a href="#noabrev">noAbrev</a><span>, in §5</span>
+   <li><a href="#typedefdef-nonpubreason">nonPubReason</a><span>, in §7</span>
    <li><a href="#norepeat">noRepeat</a><span>, in §5</span>
    <li><a href="#nouns">nouns</a><span>, in §5</span>
    <li><a href="#dom-dataset-objective">objective</a><span>, in §2.2.1</span>
@@ -3954,6 +4023,13 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
      <li><a href="#dom-veld-provenance">attribute for veld</a><span>, in §4.2</span>
     </ul>
    <li><a href="#dom-dataset-publisher">publisher</a><span>, in §2.1</span>
+   <li>
+    reasonsNonPublic
+    <ul>
+     <li><a href="#dom-dataset-reasonsnonpublic">attribute for dataset</a><span>, in §2.2</span>
+     <li><a href="#dom-tabel-reasonsnonpublic">attribute for tabel</a><span>, in §3.2</span>
+     <li><a href="#dom-veld-reasonsnonpublic">attribute for veld</a><span>, in §4.2</span>
+    </ul>
    <li>
     ref
     <ul>
@@ -4062,6 +4138,8 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
    <dd><a href="https://semver.org/">SemVer</a>. URL: <a href="https://semver.org/">https://semver.org/</a>
    <dt id="biblio-vocab-dcat-2">[VOCAB-DCAT-2]
    <dd>Riccardo Albertoni; et al. <a href="https://www.w3.org/TR/vocab-dcat-2/">Data Catalog Vocabulary (DCAT) - Version 2</a>. 4 February 2020. REC. URL: <a href="https://www.w3.org/TR/vocab-dcat-2/">https://www.w3.org/TR/vocab-dcat-2/</a>
+   <dt id="biblio-woo">[Woo]
+   <dd><a href="https://zoek.officielebekendmakingen.nl/stb-2021-499.html">Wet open overheid</a>. URL: <a href="https://zoek.officielebekendmakingen.nl/stb-2021-499.html">https://zoek.officielebekendmakingen.nl/stb-2021-499.html</a>
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
@@ -4090,14 +4168,16 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
    <b><a href="#dom-dataset-status">#dom-dataset-status</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-dataset-status">2.1. Verplichte attributen</a>
+    <li><a href="#ref-for-dom-dataset-status①">7. Attribuuttypen</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-dataset-auth">
    <b><a href="#dom-dataset-auth">#dom-dataset-auth</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-dataset-auth">3.2. Optionele attributen</a>
-    <li><a href="#ref-for-dom-dataset-auth①">6.2. Autorisatie</a> <a href="#ref-for-dom-dataset-auth②">(2)</a>
-    <li><a href="#ref-for-dom-dataset-auth③">8.1. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</a>
+    <li><a href="#ref-for-dom-dataset-auth">2.2. Optionele attributen</a>
+    <li><a href="#ref-for-dom-dataset-auth①">3.2. Optionele attributen</a>
+    <li><a href="#ref-for-dom-dataset-auth②">6.2. Autorisatie</a> <a href="#ref-for-dom-dataset-auth③">(2)</a>
+    <li><a href="#ref-for-dom-dataset-auth④">8.1. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-dataset-creator">
@@ -4116,6 +4196,12 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
    <b><a href="#dom-dataset-contactpoint">#dom-dataset-contactpoint</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-dataset-contactpoint">8.4. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="dom-dataset-reasonsnonpublic">
+   <b><a href="#dom-dataset-reasonsnonpublic">#dom-dataset-reasonsnonpublic</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-dom-dataset-reasonsnonpublic">8.1. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-dataset-crs">
@@ -4184,7 +4270,16 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
   <aside class="dfn-panel" data-for="dom-tabel-auth">
    <b><a href="#dom-tabel-auth">#dom-tabel-auth</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-tabel-auth">4.2. Toegestane attributen</a>
+    <li><a href="#ref-for-dom-tabel-auth">3.2. Optionele attributen</a>
+    <li><a href="#ref-for-dom-tabel-auth①">4.2. Toegestane attributen</a>
+    <li><a href="#ref-for-dom-tabel-auth②">6.2. Autorisatie</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="dom-tabel-reasonsnonpublic">
+   <b><a href="#dom-tabel-reasonsnonpublic">#dom-tabel-reasonsnonpublic</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-dom-tabel-reasonsnonpublic">6.2. Autorisatie</a>
+    <li><a href="#ref-for-dom-tabel-reasonsnonpublic①">8.1. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="schema">
@@ -4287,8 +4382,15 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
    <b><a href="#dom-veld-auth">#dom-veld-auth</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-veld-auth">3.3. Schema</a> <a href="#ref-for-dom-veld-auth①">(2)</a>
-    <li><a href="#ref-for-dom-veld-auth②">4.3.8. array</a>
-    <li><a href="#ref-for-dom-veld-auth③">8.2. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</a> <a href="#ref-for-dom-veld-auth④">(2)</a>
+    <li><a href="#ref-for-dom-veld-auth②">4.2. Toegestane attributen</a>
+    <li><a href="#ref-for-dom-veld-auth③">4.3.8. array</a>
+    <li><a href="#ref-for-dom-veld-auth④">8.2. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</a> <a href="#ref-for-dom-veld-auth⑤">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="dom-veld-reasonsnonpublic">
+   <b><a href="#dom-veld-reasonsnonpublic">#dom-veld-reasonsnonpublic</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-dom-veld-reasonsnonpublic">8.1. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-veld-provenance">
@@ -4438,6 +4540,14 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
    <ul>
     <li><a href="#ref-for-typedefdef-type">2.1. Verplichte attributen</a>
     <li><a href="#ref-for-typedefdef-type①">3.1. Verplichte attributen</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="typedefdef-nonpubreason">
+   <b><a href="#typedefdef-nonpubreason">#typedefdef-nonpubreason</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-typedefdef-nonpubreason">2.2. Optionele attributen</a>
+    <li><a href="#ref-for-typedefdef-nonpubreason①">3.2. Optionele attributen</a>
+    <li><a href="#ref-for-typedefdef-nonpubreason②">4.2. Toegestane attributen</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="typedefdef-version">

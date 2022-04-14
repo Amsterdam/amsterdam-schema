@@ -111,7 +111,7 @@ Een <dfn dfn export>dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON b
                     * "beschikbaar"
                     * "niet_beschikbaar"
             </details>
-            <tr><td><dfn>auth</dfn>         <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Voor openbare data: `"OPENBAAR"`. zie [[#autorisatie]]
+    <tr><td><dfn>auth</dfn>                 <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Voor openbare data: `"OPENBAAR"`. zie [[#autorisatie]]
     <tr><td><dfn>authorizationGrantor</dfn> <td> string     <td> E-mailadres van de afdeling verantwoordelijk voor autorisatie op deze dataset. Dit is meestal de bronhouder. Aan dit adres worden authorisatie verzoeken gericht.
     <tr><td><dfn>creator</dfn>              <td> string     <td> Team, afdeling of organisatie die de data produceert, meestal de bronhouder. Wanneer data van meerdere bronhouders wordt gecomineerd, wordt hier de opdrachtgever bedoelt.
     <tr><td><dfn>owner</dfn>                <td> string     <td> Juridisch eigenaar van de data. Bijvoorbeeld `"Gemeente Amsterdam, Directie Wonen"` of `"Centraal Bureau voor de Statistiek"`  Default: `"Gemeente Amsterdam"`
@@ -150,11 +150,13 @@ Naast bovenstaande verplichte attributen mag een [=dataset=] ook de volgende eig
 <table dfn-type="attribute" dfn-for=dataset export class="dfn-table">
     <tr><td><dfn>contactPoint</dfn>         <td> {{contact}}
         <td> Contactgegevens van de persoon of afdeling verantwoordelijk voor eerstelijns ondersteuning bij deze dataset. Hier kunnen mensen met vragen over de dataset terecht. (Deze gegevens worden publiek zichtbaar.) Wanneer dit veld niet is gegeven, is impliciet de default waarde van toepassing. Default: `{"name": "Datapunt", "email": "datapunt@amsterdam.nl"}`
-    <tr><td><dfn>title</dfn>        <td> string     <td> zie [[#omschrijving]] [DCAT § Property:resource_title]([DCATURL]#Property:resource_title)
-    <tr><td><dfn>description</dfn>  <td> string     <td> zie [[#omschrijving]] [DCAT § Property:resource_description]([DCATURL]#Property:resource_description)
-    <tr><td><dfn>provenance</dfn>   <td> string     <td> zie [[#provenance]]
-    <tr><td><dfn>version</dfn>      <td> {{version-string}}     <td> Het versie nummer van deze dataset.
-    <tr><td><dfn>homepage</dfn>     <td> {{uri-type|uri}}    <td> Homepage van de dataset
+    <tr><td><dfn>title</dfn>            <td> string     <td> zie [[#omschrijving]] [DCAT § Property:resource_title]([DCATURL]#Property:resource_title)
+    <tr><td><dfn>description</dfn>      <td> string     <td> zie [[#omschrijving]] [DCAT § Property:resource_description]([DCATURL]#Property:resource_description)
+    <tr><td><dfn>provenance</dfn>       <td> string     <td> zie [[#provenance]]
+    <tr><td><dfn>reasonsNonPublic</dfn>  <td> array({{nonPubReason}})
+        <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de [[Woo]]. (Vanaf 1 mei 2022 verplicht wanneer {{dataset/auth}} niet gelijk is aan `"OPENBAAR"`) zie [[#autorisatie]]
+    <tr><td><dfn>version</dfn>          <td> {{version-string}}     <td> Het versie nummer van deze dataset.
+    <tr><td><dfn>homepage</dfn>         <td> {{uri-type|uri}}    <td> Homepage van de dataset
     <tr><td><dfn>crs</dfn>
         <td> enum(string)
         <td> Coordinate reference System
@@ -307,6 +309,9 @@ Een  [=tabel=] mag daarnaast de volgende attributen bezitten:
     <tr><td><dfn>description</dfn>  <td> string <td> zie [[#omschrijving]]
     <tr><td><dfn>shortname</dfn>    <td> string <td> Verkorte unieke naam van de tabel. zie [[#naamgeving]]
     <tr><td><dfn>auth</dfn>         <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Default: gelijk aan waarde in dataset/{{dataset/auth}}, zie [[#autorisatie]].
+    <tr><td><dfn>reasonsNonPublic</dfn>  <td> array({{nonPubReason}})
+        <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de [[Woo]].
+            (Vanaf 1 mei 2022 verplicht wanneer de dataset openbaar is maar het {{tabel/auth}} atribuut van de tabel niet gelijk is aan "OPENBAAR") zie [[#autorisatie]]
     <tr><td><dfn>provenance</dfn>   <td> string <td> zie [[#provenance]]
     <tr><td><dfn>dateCreated</dfn>  <td> {{date-time}} <td> Datum van publicatie.
     <tr><td><dfn>dateModified</dfn> <td> {{date-time}} <td> Meest recente datum waarop de tabel is aangepast.
@@ -604,6 +609,9 @@ Een [=veld=] definitie mag naast het [[#veld-mandatory-fields|verplichte attribu
     <tr><td><dfn>auth</dfn>             <td> string | array
         <td> geautoriseerde [=scope|scope(s)=]. Default: gelijk aan waarde in tabel/{{tabel/auth}}, zie [[#autorisatie]].
             Niet toegestaan in velden waarnaar wordt verwezen in {{schema/identifier}} of {{schema/display}}.
+    <tr><td><dfn>reasonsNonPublic</dfn>  <td> array({{nonPubReason}})
+        <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de [[Woo]].
+            (Vanaf 1 mei 2022 verplicht wanneer de tabel openbaar is maar het {{veld/auth}} atribuut van het veld niet gelijk is aan "OPENBAAR") zie [[#autorisatie]]
     <tr><td><dfn>provenance</dfn>       <td> string <td> zie [[#provenance]]
     <tr><td><dfn>shortname</dfn>        <td> string <td> zie [[#naamgeving]]
     <tr><td><dfn>unit</dfn>             <td> string | object <td> De eenheid van de waarden in dit veld. zie [[#units]]
@@ -1374,7 +1382,15 @@ Het `description` veld is bedoeld voor bijvoorbeeld contextmenu's (mouseover) bi
 
 Note: Als een [=veld=] geen {{veld/title}}-attibuut heeft, wordt de naam van het veld gebruikt.
 
-
+<!--
+   ███    ██     ██ ████████  ███████  ████████  ████  ██████     ███    ████████ ████ ████████
+  ██ ██   ██     ██    ██    ██     ██ ██     ██  ██  ██    ██   ██ ██      ██     ██  ██
+ ██   ██  ██     ██    ██    ██     ██ ██     ██  ██  ██        ██   ██     ██     ██  ██
+██     ██ ██     ██    ██    ██     ██ ████████   ██   ██████  ██     ██    ██     ██  ██████
+█████████ ██     ██    ██    ██     ██ ██   ██    ██        ██ █████████    ██     ██  ██
+██     ██ ██     ██    ██    ██     ██ ██    ██   ██  ██    ██ ██     ██    ██     ██  ██
+██     ██  ███████     ██     ███████  ██     ██ ████  ██████  ██     ██    ██    ████ ████████
+-->
 Autorisatie {#autorisatie}
 ----------------------------------------------------
 
@@ -1408,6 +1424,11 @@ de waarde `"OPENBAAR"`.
 Als een [=tabel=] geen `"auth"` attribuut heeft is de scope van de [=tabel=] gelijk aan die van de dataset.
 
 Als een [=veld=] geen `"auth"` attribuut heeft is de scope van het [=veld=] gelijk aan die van de tabel.
+
+
+Op het eerste niveau waarop data niet openbaar wordt gemaakt moet met ingang van 1 mei 2022 een '"reasonsNonPublic"' attribuut bestaan.
+Dus als een dataset openbaar is, maar deze een tabel bevat waarop een {{tabel/auth}} attribuut met een andere waarde dan "OPENBAAR" bestaat.
+Moet in de betreffende tabel of tabellen een {{tabel/reasonsNonPublic}} attribuut bestaan.
 
 <div class=example>
 In dit voorbeeld vindt autorisatie plaats op 3 niveaus.
@@ -1539,11 +1560,37 @@ Attribuuttypen {#attr-types}
     <tr><td><dfn typedef export lt=type|schema-type>schema-type</dfn>
         <td> (enum-string)
         <td> Het binnen Amsterdam Schema bekende [[!JSON-SCHEMA inline]] type waaraan het object voldoet.
-            <details>
+            <details open>
                 <summary>Opties</summary>
                     * "dataset"
                     * "table"
             </details>
+    <tr><td><dfn typedef export lt=nonPubReason>reden-niet-publiek</dfn>
+        <td> (enum-string)
+        <td> Grond voor het niet openbaar maken van data op basis van de uitzonderingen in Hoofdstuk 5 van de [[Woo|Wet Open Overheid]] (Woo).
+
+            Met `"5.1 1a"`, wordt bedoeld Wet Open Overheid Artikel 5.1, eerste lid, onderdeel a.
+            De beschrijvingen volgend op de wetsverwijzing zijn niet volledig en dienen slechts ter illustratie.
+            Kijk voor de exacte definitie van een uitzondering in hoofdstuk 5 van de Woo.
+        <details open>
+            <summary>Opties</summary>
+                * "5.1 1a: Gevaar voor eenheid van de Kroon",
+                * "5.1 1b: Gevaar voor staatsveiligheid",
+                * "5.1 1c: Bevat persoonsgegevens",
+                * "5.1 2a: Zwaarwegend belang: internationale betrekkingen",
+                * "5.1 2b: Zwaarwegende economische of financiële belangen van publiekrechtelijke lichamen (bevat geen mileu-informatie)",
+                * "5.1 2b: Zwaarwegende economische of financiële belangen van publiekrechtelijke lichamen (bevat mileu-informatie met betrekking op handelingen met een vertrouwelijk karakter)",
+                * "5.1 2c: Zwaarwegend belang: opsporing en vervolging van strafbare feiten",
+                * "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen",
+                * "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer",
+                * "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens",
+                * "5.1 2g: Zwaarwegend belang: bescherming van het milieu waarop deze informatie betrekking heeft",
+                * "5.1 2h: Zwaarwegend belang: beveiliging van personen en bedrijven en het voorkomen van sabotage",
+                * "5.2 1: Bevat persoonlijke beleidsopvattingen (bevat geen milieu-informatie)",
+                * "5.2 3: Zwaarwegend belang: persoonlijke beleidsopvattingen (bevat milieu-informatie)",
+                * "nader te bepalen"
+        </details>
+        De laatste optie ("nader te bepalen") is niet toegestaan wanneer {{dataset/status}}=`"beschikbaar"`.
     <tr><td><dfn typedef export lt=version|version-string>version</dfn>
         <td> (string)
         <td> Version string van de vorm "<MAJOR>.<MINOR>.<PATCH>" of "<MAJOR>.<MINOR>" (patch nummer is optioneel)
@@ -1578,10 +1625,14 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13) {#lastchange}
 ------------------------------------------------
 > **Doelstelling**<br/>
-    Alle datasets zijn openbaar tenzij. Maar om onbedoelde openbaarmaking te voorkomen, moet dit altijd expliciet
-    ingevuld worden.
+    Alle datasets zijn openbaar tenzij obv de Wet Open Overheid.
+    Maar om onbedoelde openbaarmaking te voorkomen, moet dit altijd expliciet
+    ingevuld worden. Voor data die niet publiek is moet de uitzonderingsgrond worden vermeld.
 
 * Het {{dataset/auth}} attribuut is verplicht gemaakt.
+* Het dataset attribuut {{dataset/reasonsNonPublic}} is toegevoegd.
+* Het tabel attribuut {{tabel/reasonsNonPublic}} is toegevoegd.
+* Het veld attribuut  {{veld/reasonsNonPublic}} is toegevoegd.
 
 [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13) {#20220413-1}
 ------------------------------------------------
@@ -1666,6 +1717,10 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
         "ISO8601": {
             "href":"https://www.iso.org/iso-8601-date-and-time-format.html",
             "title":"ISO8601"
+        },
+        "Woo": {
+            "href":"https://zoek.officielebekendmakingen.nl/stb-2021-499.html",
+            "title":"Wet open overheid"
         }
     }
 </pre>
