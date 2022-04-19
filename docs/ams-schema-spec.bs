@@ -1555,6 +1555,30 @@ Attribuuttypen {#attr-types}
 </table>
 
 <!--
+██     ██  ███████   ██████  ██    ██       ████████     ███    ████████    ███
+███   ███ ██     ██ ██    ██ ██   ██        ██     ██   ██ ██      ██      ██ ██
+████ ████ ██     ██ ██       ██  ██         ██     ██  ██   ██     ██     ██   ██
+██ ███ ██ ██     ██ ██       █████          ██     ██ ██     ██    ██    ██     ██
+██     ██ ██     ██ ██       ██  ██         ██     ██ █████████    ██    █████████
+██     ██ ██     ██ ██    ██ ██   ██        ██     ██ ██     ██    ██    ██     ██
+██     ██  ███████   ██████  ██    ██       ████████  ██     ██    ██    ██     ██
+-->
+Mock Data {#mock-data}
+==================================================
+
+For every field that you add to the Amsterdam Schema, we implement a mock data
+generator based on Factory Boy (using Faker under the hood). This should give
+first order accurate mock data in that it is of the correct data type. However,
+you may want to craft more realistic mock data. To facilitate this, we allow you
+to set the specific [[FAKER-PROVIDERS inline]] that you want to use at the field level.
+
+<table class="dfn-table">
+    <tr><td>
+        <td> string
+        <td> Een unieke identifier in de vorm van één of meer letters, startend met een kleine letter en eventueel gevolgd door een cijferreeks.
+</table>
+
+<!--
  ██████  ██     ██    ███    ██    ██  ██████   ████████ ██        ███████   ██████
 ██    ██ ██     ██   ██ ██   ███   ██ ██    ██  ██       ██       ██     ██ ██    ██
 ██       ██     ██  ██   ██  ████  ██ ██        ██       ██       ██     ██ ██
@@ -1646,6 +1670,10 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
         "ISO8601": {
             "href":"https://www.iso.org/iso-8601-date-and-time-format.html",
             "title":"ISO8601"
+        },
+        "faker-providers": {
+            "href":"https://faker.readthedocs.io/en/master/providers.html",
+            "title":"Faker Providers"
         }
     }
 </pre>
