@@ -30,16 +30,28 @@
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
+          "burgerservicenummer": {
+            "type": "string",
+            "description": "Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene bepalingen burgerservicenummer. Te valideren met de 11-proef."
+          },
           "geslachtsaanduiding": {
             "type": "string",
             "description": "Mogelijke waarden: M (man), V (vrouw), O (onbekend)"
           },
+          "leeftijd": {
+            "type": "integer",
+            "description": "Leeftijd in jaren op het moment van bevraging"
+          },
           "naam": {
             "type": "object",
             "properties": {
-              "aanduidingNaamgebruik": {
+              "geslachtsnaam": {
                 "type": "string",
-                "description": "De schrijfwijze van de achternaam. Mogelijke waarden: E (eigen), N (eigen-partner), P (partner), V (partner-eigen)"
+                "description": "De (geslachts)naam waarvan de eventueel aanwezige voorvoegsels en adellijke titel/predikaat zijn afgesplitst."
+              },
+              "voorvoegsel": {
+                "type": "string",
+                "description": "Dat deel van de geslachtsnaam dat voorkomt in de Voorvoegseltabel en, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam. Bijvoorbeeld: 'van der'"
               },
               "voornamen": {
                 "type": "string",
@@ -48,14 +60,6 @@
               "voorletters": {
                 "type": "string",
                 "description": "De voorletters waarmee een persoon aangeschreven wil worden. De voorlettes zijn afgeleid van de voornamen."
-              },
-              "geslachtsnaam": {
-                "type": "string",
-                "description": "De (geslachts)naam waarvan de eventueel aanwezige voorvoegsels en adellijke titel/predikaat zijn afgesplitst."
-              },
-              "voorvoegsel": {
-                "type": "string",
-                "description": "Dat deel van de geslachtsnaam dat voorkomt in de Voorvoegseltabel en, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam. Bijvoorbeeld: 'van der'"
               },
               "adellijkeTitelPredikaat": {
                 "type": "object",
@@ -69,16 +73,12 @@
                     "description": "Leesbare naam van de adellijkeTitelPredikaat."
                   }
                 }
+              },
+              "aanduidingNaamgebruik": {
+                "type": "string",
+                "description": "De schrijfwijze van de achternaam. Mogelijke waarden: E (eigen), N (eigen-partner), P (partner), V (partner-eigen)"
               }
             }
-          },
-          "leeftijd": {
-            "type": "integer",
-            "description": "Leeftijd in jaren op het moment van bevraging"
-          },
-          "burgerservicenummer": {
-            "type": "string",
-            "description": "Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene bepalingen burgerservicenummer. Te valideren met de 11-proef."
           },
           "geboorte": {
             "type": "object",
@@ -110,17 +110,38 @@
           "verblijfplaats": {
             "type": "object",
             "properties": {
-              "functieAdres": {
-                "type": "string",
-                "description": "Aanduiding van het soort adres. Mogelijke waarden: W (woonadres), B (briefadres)."
+              "naamOpenbareRuimte": {
+                "type": "string"
+              },
+              "straat": {
+                "type": "string"
               },
               "huisnummer": {
+                "type": "string"
+              },
+              "huisletter": {
+                "type": "string"
+              },
+              "huisnummertoevoeging": {
                 "type": "string"
               },
               "postcode": {
                 "type": "string"
               },
-              "straatnaam": {
+              "woonplaats": {
+                "type": "string"
+              },
+              "adresseerbaarObjectIdentificatie": {
+                "type": "string"
+              },
+              "nummeraanduidingIdentificatie": {
+                "type": "string"
+              },
+              "functieAdres": {
+                "type": "string",
+                "description": "Aanduiding van het soort adres. Mogelijke waarden: W (woonadres), B (briefadres)."
+              },
+              "vanuitVertrokkenOnbekendWaarheen": {
                 "type": "string"
               },
               "datumAanvangAdreshouding": {
