@@ -56,15 +56,27 @@
       }
     },
     "publisher": {
+      "description": "Naam van het datateam.",
       "type": "string",
-      "const": "datapunt@amsterdam.nl"
+      "const": "datapunt@amsterdam.nl",
+      "minLength": 1
+    },
+    "creator": {
+      "description": "Naam van de bronhouder.",
+      "type": "string",
+      "minLength": 1,
+      "not": {
+        "const": "bronhouder onbekend"
+      }
     },
     "owner": {
       "type": "string",
-      "default": "Gemeente Amsterdam"
+      "default": "Gemeente Amsterdam",
+      "minLength": 1
     },
     "authorizationGrantor": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "keywords": {
       "type": "array",
