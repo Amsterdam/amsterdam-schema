@@ -24,6 +24,7 @@ from typing import Callable, ContextManager, Dict, Iterator, List, Tuple
 import click
 import in_place
 from azure.storage.blob import BlobServiceClient, ContentSettings
+from more_itertools import chunked
 from swiftclient.service import SwiftService, SwiftUploadObject
 
 logger = logging.getLogger("__name__")
@@ -175,9 +176,10 @@ def azure_blob_uploader(
     # First delete all blobs in the container
     container_client = blob_srv.get_container_client("schemas")
 
-    container_client.delete_blobs(
-        *(b.name for b in container_client.list_blobs())
-    )  # 256 items limit?
+    # There is a hard limitation of 256 items on the `delete_blobs` azure method,
+    # So we need to chunk the list of blobs.
+    for chunk in chunked((b.name for b in container_client.list_blobs()), 256):
+        container_client.delete_blobs(*chunk)  # 256 items limit?
 
     blob = blob_srv.get_blob_client(container, "datasets/index.json")
     blob.upload_blob(index_file_obj, content_settings=json_content_settings, overwrite=True)
