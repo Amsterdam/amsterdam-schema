@@ -49,7 +49,7 @@
             },
             "wegklasse": {
               "type": "string",
-              "description": "wegklasse afkomstig uit Openstreetmap, IMGEO en Amsterdamspecifieke wegklassen"
+              "description": "wegklasse afkomstig uit Openstreetmap, IMGEO en Amsterdam specifieke wegklassen"
             },
             "hoogteniveau" : {
               "type": "string",
@@ -112,7 +112,7 @@
               "description": "startpunt van de edge, is gerelateerd aan de node",
               "relation": "loopfietsnetwerk:nodesPoi"
             },
-            "EindNode": {
+            "endNode": {
               "type": "integer",
               "description": "eindpunt van de edge, is gerelateerd aan de node",
               "relation": "loopfietsnetwerk:nodesPoi"
@@ -175,9 +175,9 @@
         }
       },
       {
-        "id": "poiNummeraanduidingen",
-        "title": "poiNummeraanduidingen",
-        "description": "Alle nummeraanduidingen (adressen) gerelateerd aan de points of interest",
+        "id": "poiAdressen",
+        "title": "poiAdressen",
+        "description": "Alle hoofdadressen van adresseerbare objecten gerelateerd aan de points of interest",
         "type": "table",
         "version": "1.0.0",
         "schema": {
@@ -186,16 +186,16 @@
           "additionalProperties": false,
           "required": [
             "schema",
-            "nummeraanduidingIdentificatie"
+            "adresseerbaarobjectIdentificatie"
           ],
-          "display": "nummeraanduidingIdentificatie",
+          "display": "adresseerbaarobjectIdentificatie",
           "properties": {
             "schema": {
               "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
             },
-            "nummeraanduidingIdentificatie": {
+            "adreseerbaarobjectIdentificatie": {
               "type": "string",
-              "description": "unieke identificatie van de BAG nummeraanduiding"
+              "description": "unieke identificatie van de BAG verblijfsobject, ligplaats of standplaats"
             },
             "poiId": {
               "type": "string",
@@ -221,7 +221,7 @@
               "type": "string",
               "title": "openbareruimteNaam",
               "shortname": "naam",
-              "description": "Offici\u00eble naam openbare ruimte"
+              "description": "Offici\u00eble naam openbare ruimte conform BAG"
             },
             "huisnummer": {
               "type": "integer",
@@ -264,7 +264,7 @@
               "description": "datum creatie dataset"
             },
             "geometry": {
-              "$ref": "https://geojson.org/schema/Geometry.json"
+              "$ref": "https://geojson.org/schema/Point.json"
             }
           }
         }
