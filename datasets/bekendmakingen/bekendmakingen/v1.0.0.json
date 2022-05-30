@@ -1,0 +1,86 @@
+{
+  "id": "bekendmakingen",
+  "title": "Bekendmakingen en kennisgevingen",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "titel",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van de bekendmaking / kennisgeving."
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Geometrie van het type POINT van de bekeningmaking / kennisgeving."
+      },
+      "officielebekendmakingenId": {
+        "type": "integer",
+        "description": "Unieke aanduiding van de bekeningmaking / kennisgeving door officielebekendmakingen.nl",
+        "provenance": "oid_"
+      },
+      "categorie": {
+        "type": "string",
+        "description": "Categorie van de bekeningmaking / kennisgeving."
+      },
+      "onderwerp": {
+        "type": "string",
+        "description": "Het onderwerp waaronder de bekeningmaking / kennisgeving valt."
+      },
+      "titel": {
+        "type": "string",
+        "description": "Titel van de bekeningmaking / kennisgeving."
+      },
+      "beschrijving": {
+        "type": "string",
+        "description": "Beschrijving van de bekeningmaking / kennisgeving."
+      },
+      "url": {
+        "type": "string",
+        "format": "uri",
+        "description": "Webpagina van de bekeningmaking / kennisgeving op officielebekendmakingen.nl."
+      },
+      "postcodehuisnummer": {
+        "type": "string",
+        "description": "Indien aanwezig de postcode en het huisnummer waarop de bekeningmaking / kennisgeving betrekking heeft."
+      },
+      "plaats": {
+        "type": "string",
+        "description": "Indien aanwezig de locatie (plaats) waarop de bekeningmaking / kennisgeving betrekking heeft."
+      },
+      "straat": {
+        "type": "string",
+        "description": "Indien aanwezig de straat waarop de bekeningmaking / kennisgeving betrekking heeft."
+      },
+      "datumTijdstip": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Datum publicatie bekeningmaking / kennisgeving.",
+        "provenance": "datum"
+      },
+      "overheidsorganisatie": {
+        "type": "string",
+        "enum": [
+          "Amsterdam"
+        ],
+        "description": "Naam van de overheidsorganisatie waaronder de bekeningmaking / kennisgeving valt. In dit geval: Amsterdam.",
+        "provenance": "overheid"
+      },
+      "boundingBox": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "De geografische bounding box van toepassing op de bekeningmaking / kennisgeving.",
+        "provenance": "bbox"
+      }
+    }
+  }
+}
