@@ -1,0 +1,100 @@
+{
+  "id": "peilmerken",
+  "type": "table",
+  "version": "2.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": "identificatie",
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "Het peilmerknummer van het peilmerk."
+      },
+      "hoogteTovNap": {
+        "type": "number",
+        "description": "Hoogte van het peilmerk t.o.v. NAP"
+      },
+      "jaar": {
+        "type": "integer",
+        "description": "Het jaar van waterpassing, behorende bij de hoogte."
+      },
+      "merkCode": {
+        "type": "string",
+        "provenance": "$.merk.code",
+        "description": "Merk van het referentiepunt code"
+      },
+      "merkOmschrijving": {
+        "type": "string",
+        "provenance": "$.merk.omschrijving",
+        "description": "Merk van het referentiepunt omschrijving"
+      },
+      "omschrijving": {
+        "type": "string",
+        "description": "Beschrijving van het object waarin het peilmerk zich bevindt."
+      },
+      "windrichting": {
+        "type": "string",
+        "description": "Windrichting"
+      },
+      "xCoordinaatMuurvlak": {
+        "type": "number",
+        "description": "X-co\u00f6rdinaat muurvlak"
+      },
+      "yCoordinaatMuurvlak": {
+        "type": "number",
+        "description": "Y-co\u00f6rdinaat muurvlak"
+      },
+      "rwsNummer": {
+        "type": "string",
+        "description": "Nummer dat Rijkswaterstaat hanteert."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Geometrische ligging van de meetbout"
+      },
+      "statusCode": {
+        "type": "integer",
+        "provenance": "$.status.code",
+        "description": "Status van het referentiepunt (1=actueel, 2=niet te meten, 3=vervallen) code"
+      },
+      "statusOmschrijving": {
+        "type": "string",
+        "provenance": "$.status.omschrijving",
+        "description": "Status van het referentiepunt (1=actueel, 2=niet te meten, 3=vervallen) omschrijving"
+      },
+      "vervaldatum": {
+        "type": "string",
+        "format": "date",
+        "description": "Vervaldatum van het peilmerk."
+      },
+      "ligtInBouwblok": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "gebieden:bouwblokken",
+        "description": "Het bouwblok waarbinnen het peilmerk ligt"
+      },
+      "publiceerbaar": {
+        "type": "boolean",
+        "description": "Publiceerbaar ja of nee"
+      }
+    }
+  }
+}
