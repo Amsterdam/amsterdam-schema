@@ -139,12 +139,12 @@
         "provenance": "$.status.code",
         "description": "VERWIJDEREN"
       },
-      "Status": {
+       "Status": {
         "type": "string",
         "provenance": "$.status.omschrijving",
         "description": "De fase van de levenscyclus van een verblijfsobject, waarin het betreffende VERBLIJFSOBJECT zich bevindt. omschrijving"
       },
-      "ligtInPanden": {
+      "ligtInBAGPanden": {
         "type": "array",
         "items": {
           "type": "object",
@@ -263,17 +263,16 @@
       "eigendomsverhouding": {
         "type": "string",
         "provenance": "$.eigendomsverhouding.omschrijving",
-        "description": "Geeft de eigendomsverhouding aan (huur of eigendom). omschrijving"
+        "description": "Geeft de eigendomsverhouding aan (huur of eigendom)"
       },
       "feitelijkGebruikCode": {
         "type": "integer",
         "provenance": "$.feitelijkGebruik.code",
         "description": "VERWIJDEREN"
       },
-      "feitelijkGebruik": {
+      "deelSoortObjectCode": {
         "type": "string",
-        "provenance": "$.feitelijkGebruik.omschrijving",
-        "description": "Feitelijk gebruik van een verblijfsobject. omschrijving"
+         "description": "Deel soort Object Code van een WOZ-deelobject"
       },
       "toegang": {
         "type": "array",
@@ -298,8 +297,7 @@
       },
       "redenopvoer": {
         "type": "string",
-        "provenance": "$.redenopvoer.omschrijving",
-        "description": "Reden van de opvoer van het verblijfsobject. omschrijving"
+        "description": "Reden van de opvoer van het verblijfsobject"
       },
       "redenafvoerCode": {
         "type": "integer",
@@ -308,10 +306,9 @@
       },
       "redenafvoer": {
         "type": "string",
-        "provenance": "$.redenafvoer.omschrijving",
         "description": "Reden van de afvoer van het verblijfsobject. omschrijving"
       },
-      "ligtInBuurt": {
+      "ligtInGebiedenBuurt": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -332,10 +329,10 @@
         "relation": "gebieden:buurten",
         "description": "Buurt waarin het verblijfsobject ligt."
       },
-      "heeftDossier": {
+      "heeftBAGDossier": {
         "type": "string",
         "relation": "bag:dossiers",
-        "provenance": "$.heeftDossier.dossier",
+        "provenance": "$.heeftBAGDossier.dossier",
         "description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie."
       },
       "bagprocesCode": {
