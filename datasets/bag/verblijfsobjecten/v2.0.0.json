@@ -69,7 +69,7 @@
         "type": "boolean",
         "description": "Dit geeft aan dat een VERBLIJFSOBJECT in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument (J/N)."
       },
-      "heeftHoofdadres": {
+      "heeftBAGHoofdadres": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -90,7 +90,7 @@
         "relation": "bag:nummeraanduidingen",
         "description": "Het HOOFDadres dat het verblijfsobject heeft."
       },
-      "heeftNevenadres": {
+      "heeftBAGNevenadres": {
         "type": "array",
         "items": {
           "type": "object",
@@ -121,7 +121,7 @@
       "gebruiksdoel": {
         "type": "array",
         "items": {
-          "type": "object",
+          "type": "string",
           "exclusiveMaximum": 11,
           "minimum": 1,
         },
@@ -139,7 +139,7 @@
        "Status": {
         "type": "string",
         "provenance": "$.status.omschrijving",
-        "description": "De fase van de levenscyclus van een verblijfsobject, waarin het betreffende VERBLIJFSOBJECT zich bevindt. omschrijving"
+        "description": "De fase van de levenscyclus van een verblijfsobject, waarin het betreffende VERBLIJFSOBJECT zich bevindt."
       },
       "ligtInBAGPanden": {
         "type": "array",
@@ -175,7 +175,7 @@
         "format": "date-time",
         "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een VERBLIJFSOBJECT."
       },
-      "heeftOnderzoeken": {
+      "heeftBAGOnderzoeken": {
         "type": "array",
         "items": {
           "type": "object",
@@ -216,7 +216,7 @@
       "gebruiksdoelWoonfunctie": {
         "provenance": "$.gebruiksdoelWoonfunctie.omschrijving",
         "type": "string",
-        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. omschrijving"
+        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject."
       },
       "gebruiksdoelGezondheidszorgfunctieCode": {
         "type": "integer",
@@ -226,7 +226,7 @@
       "gebruiksdoelGezondheidszorgfunctie": {
         "type": "string",
         "provenance": "$.gebruiksdoelGezondheidszorgfunctie.omschrijving",
-        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. omschrijving"
+        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject."
       },
       "aantalEenhedenComplex": {
         "type": "integer",
@@ -260,7 +260,7 @@
       "eigendomsverhouding": {
         "type": "string",
         "provenance": "$.eigendomsverhouding.omschrijving",
-        "description": "Geeft de eigendomsverhouding aan (huur of eigendom)"
+        "description": "Geeft de eigendomsverhouding aan."
       },
       "feitelijkGebruikCode": {
         "type": "integer",
@@ -274,18 +274,9 @@
       "toegang": {
         "type": "array",
         "items": {
-          "type": "object",
-          "properties": {
-            "code": {
-              "type": "string",
-              "description": "VERWIJDEREN"
-            },
-            "omschrijving": {
-              "type": "string",
-              "description": "Plaats waar zich de toegang tot het verblijfsobject bevindt. omschrijving"
-            }
-          }
-        }
+          "type": "string"
+        },
+         "description": "Plaats waar zich de toegang tot het verblijfsobject bevindt."
       },
       "redenopvoerCode": {
         "type": "integer",
@@ -294,7 +285,7 @@
       },
       "redenopvoer": {
         "type": "string",
-        "description": "Reden van de opvoer van het verblijfsobject"
+        "description": "Reden van de opvoer van het verblijfsobject."
       },
       "redenafvoerCode": {
         "type": "integer",
@@ -303,7 +294,7 @@
       },
       "redenafvoer": {
         "type": "string",
-        "description": "Reden van de afvoer van het verblijfsobject. omschrijving"
+        "description": "Reden van de afvoer van het verblijfsobject."
       },
       "ligtInGebiedenBuurt": {
         "type": "object",
@@ -340,7 +331,7 @@
       "bagproces": {
         "type": "string",
         "provenance": "$.bagproces.omschrijving",
-        "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
+        "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis."
       }
     },
     "mainGeometry": "geometrie"
