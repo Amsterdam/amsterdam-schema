@@ -50,14 +50,14 @@
       "statusCode": {
         "type": "integer",
         "provenance": "$.status.code",
-        "description": "De fase van de levenscyclus van een standplaats, waarin de betreffende standplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. code"
+        "description": "VERWIJDEREN"
       },
       "statusOmschrijving": {
         "type": "string",
         "provenance": "$.status.omschrijving",
-        "description": "De fase van de levenscyclus van een standplaats, waarin de betreffende standplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. omschrijving"
+        "description": "De fase van de levenscyclus van een standplaats, waarin de betreffende standplaats zich bevindt, Plaats aangewezen, plaats ingetrokken."
       },
-      "heeftHoofdadres": {
+      "heeftBAGHoofdadres": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -78,7 +78,7 @@
         "relation": "bag:nummeraanduidingen",
         "description": "Het HOOFDadres dat de standplaats heeft."
       },
-      "heeftNevenadres": {
+      "heeftBAGNevenadres": {
         "type": "array",
         "items": {
           "type": "object",
@@ -103,18 +103,15 @@
         "description": "Het NEVENadres dat de standplaats (optioneel) heeft."
       },
       "geometrie": {
-        "$ref": "https://geojson.org/schema/Geometry.json",
+        "$ref": "https://geojson.org/schema/Polygon.json",
         "description": "Vorm en ligging van de standplaats in het Nationale Rijksdriehoekstelsel."
       },
       "gebruiksdoel": {
         "type": "array",
         "items": {
           "type": "object",
-          "properties": {
-            "omschrijving": {
-              "type": "string"
-            }
-          }
+         "exclusiveMaximum": 11,
+         "minimum": 1
         },
         "description": "Een categorisering van de gebruiksdoelen van de betreffende standplaats, zoals dit door de overheid als zodanig is toegestaan."
       },
@@ -128,7 +125,7 @@
         "format": "date-time",
         "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een STANDPLAATS."
       },
-      "heeftOnderzoeken": {
+      "heeftBAGOnderzoeken": {
         "type": "array",
         "items": {
           "type": "object",
@@ -161,7 +158,7 @@
         "type": "string",
         "description": "Het unieke nummer van het brondocument."
       },
-      "ligtInBuurt": {
+      "ligtInGebiedenBuurt": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -182,7 +179,7 @@
         "relation": "gebieden:buurten",
         "description": "De buurt waarin een standplaats ligt."
       },
-      "heeftDossier": {
+      "heeftBAGDossier": {
         "type": "string",
         "relation": "bag:dossiers",
         "provenance": "$.heeftDossier.dossier",
@@ -191,12 +188,12 @@
       "bagprocesCode": {
         "type": "integer",
         "provenance": "$.bagproces.code",
-        "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. code"
+        "description": "VERWIJDEREN"
       },
       "bagprocesOmschrijving": {
         "type": "string",
         "provenance": "$.bagproces.omschrijving",
-        "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
+        "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis."
       }
     },
     "mainGeometry": "geometrie"
