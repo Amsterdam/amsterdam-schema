@@ -138,7 +138,6 @@
       },
        "Status": {
         "type": "string",
-        "provenance": "$.status.omschrijving",
         "description": "De fase van de levenscyclus van een verblijfsobject, waarin het betreffende VERBLIJFSOBJECT zich bevindt."
       },
       "ligtInBAGPanden": {
@@ -225,7 +224,6 @@
       },
       "gebruiksdoelGezondheidszorgfunctie": {
         "type": "string",
-        "provenance": "$.gebruiksdoelGezondheidszorgfunctie.omschrijving",
         "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject."
       },
       "aantalEenhedenComplex": {
@@ -259,7 +257,6 @@
       },
       "eigendomsverhouding": {
         "type": "string",
-        "provenance": "$.eigendomsverhouding.omschrijving",
         "description": "Geeft de eigendomsverhouding aan."
       },
       "feitelijkGebruikCode": {
@@ -269,14 +266,14 @@
       },
       "deelSoortObjectCode": {
         "type": "string",
-         "description": "Deel soort Object Code van een WOZ-deelobject"
+        "description": "Deel soort Object Code van een WOZ-deelobject"
       },
       "toegang": {
         "type": "array",
         "items": {
           "type": "string"
         },
-         "description": "Plaats waar zich de toegang tot het verblijfsobject bevindt."
+        "description": "Plaats waar zich de toegang tot het verblijfsobject bevindt."
       },
       "redenopvoerCode": {
         "type": "integer",
@@ -289,7 +286,6 @@
       },
       "redenafvoerCode": {
         "type": "integer",
-        "provenance": "$.redenafvoer.code",
         "description": "VERWIJDEREN"
       },
       "redenafvoer": {
@@ -320,7 +316,7 @@
       "heeftBAGDossier": {
         "type": "string",
         "relation": "bag:dossiers",
-        "provenance": "$.heeftBAGDossier.dossier",
+        "provenance": "$.heeftBAGDossier.identificatie",
         "description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie."
       },
       "bagprocesCode": {
@@ -330,7 +326,6 @@
       },
       "bagproces": {
         "type": "string",
-        "provenance": "$.bagproces.omschrijving",
         "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis."
       },
       "datumActueelTot": {
@@ -341,4 +336,3 @@
     "mainGeometry": "geometrie"
   }
 }
-,
