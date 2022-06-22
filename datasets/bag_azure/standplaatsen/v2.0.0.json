@@ -56,7 +56,7 @@
         "type": "string",
         "description": "De fase van de levenscyclus van een standplaats, waarin de betreffende standplaats zich bevindt, Plaats aangewezen, plaats ingetrokken."
       },
-      "heeftBAGHoofdadres": {
+      "heeftBagHoofdadres": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -77,7 +77,7 @@
         "relation": "bag:nummeraanduidingen",
         "description": "Het HOOFDadres dat de standplaats heeft."
       },
-      "heeftBAGNevenadres": {
+      "heeftBagNevenadres": {
         "type": "array",
         "items": {
           "type": "object",
@@ -109,10 +109,13 @@
         "type": "array",
         "items": {
           "type": "object",
-         "exclusiveMaximum": 11,
-         "minimum": 1
+          "properties": {
+            "omschrijving": {
+              "type": "string"
+            }
+          }
         },
-        "description": "Een categorisering van de gebruiksdoelen van de betreffende standplaats, zoals dit door de overheid als zodanig is toegestaan."
+        "description": "Een categorisering van de gebruiksdoelen van de betreffende ligplaats, zoals dit door de overheid als zodanig is toegestaan."
       },
       "beginGeldigheid": {
         "type": "string",
@@ -124,7 +127,7 @@
         "format": "date-time",
         "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een STANDPLAATS."
       },
-      "heeftBAGOnderzoeken": {
+      "heeftBagOnderzoeken": {
         "type": "array",
         "items": {
           "type": "object",
@@ -178,7 +181,7 @@
         "relation": "gebieden:buurten",
         "description": "De buurt waarin een standplaats ligt."
       },
-      "heeftBAGDossier": {
+      "heeftBagDossier": {
         "type": "string",
         "relation": "bag:dossiers",
         "provenance": "$.heeftBAGDossier.identificatie",
