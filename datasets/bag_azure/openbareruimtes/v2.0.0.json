@@ -1,4 +1,3 @@
-
 {
   "id": "openbareruimtes",
   "type": "table",
@@ -75,7 +74,7 @@
         "type": "boolean",
         "description": "Dit geeft aan dat een OPENBARE RUIMTE in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument (J/N)"
       },
-      "heeftBAGOnderzoeken": {
+      "heeftBagOnderzoeken": {
         "type": "array",
         "items": {
           "type": "object",
@@ -125,7 +124,7 @@
         "type": "string",
         "description": "Straatnaam volgens de inkortingsregels van NEN 5825 (24 tekens)."
       },
-      "ligtInBAGWoonplaats": {
+      "ligtInBagWoonplaats": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -150,10 +149,10 @@
         "type": "string",
         "description": "Beschrijving van de openbare ruimte bijvoorbeeld: Vogel. Wereldwijd ......... grootste zeevogel ter wereld."
       },
-      "heeftBAGDossier": {
+      "heeftBagDossier": {
         "type": "string",
         "relation": "bag:dossiers",
-        "provenance": "$.heeftBAGDossier.identificatie",
+        "provenance": "$.heeftBagDossier.identificatie",
         "description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie."
       },
       "bagprocesCode": {
@@ -173,8 +172,7 @@
         "type": "string",
         "format": "date-time",
         "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status."
-      },
-    "mainGeometry": "geometrie"
+      }
   }
  }
 }
