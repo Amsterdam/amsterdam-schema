@@ -30,15 +30,18 @@
         "type": "integer",
         "description": "Het jaar van waterpassing, behorende bij de hoogte."
       },
-      "merkCode": {
-        "type": "string",
-        "provenance": "$.merk.code",
-        "description": "Merk van het referentiepunt code"
-      },
-      "merkOmschrijving": {
-        "type": "string",
-        "provenance": "$.merk.omschrijving",
-        "description": "Merk van het referentiepunt omschrijving"
+      "merk": {
+        "type": "object",
+        "properties": {
+          "merkcode": {
+            "type": "string"
+          },
+          "merkOmschrijving": {
+            "type": "string"
+          }
+        },
+        "relation": "gebieden:bouwblokken",
+        "description": "Merk van het referentiepunt"
       },
       "omschrijving": {
         "type": "string",
