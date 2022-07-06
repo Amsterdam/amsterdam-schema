@@ -20,7 +20,7 @@
         "type": "string",
         "description": "Unieke identificatie van de meting"
       },
-      "hoortBijMeetbout": {
+      "hoortBijMeetboutenMeetbout": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -38,26 +38,30 @@
       "typeMeting": {
         "type": "string",
         "description": "Type meting (N=nulmeting, H=herhalingsmeting, T=tussentijdse meting, S=schatting)"
-      },
-      "wijzeVanInwinnenCode": {
-        "type": "string",
-        "description": "Wijze waarop de meting is ingewonnen code",
-        "provenance": "$.wijzeVanInwinnen.code"
-      },
-      "wijzeVanInwinnenOmschrijving": {
-        "type": "string",
-        "description": "Wijze waarop de meting is ingewonnen omschrijving",
-        "provenance": "$.wijzeVanInwinnen.omschrijving"
+      },      
+       "wijzeVanInwinnen": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "Wijze waarop de meting is ingewonnen"
       },
       "hoogteTovNap": {
         "type": "number",
+        "multipleOf": 0.01,
         "description": "Gemeten hoogte van de meetbout tov NAP"
       },
       "zakking": {
         "type": "number",
+        "multipleOf": 0.01,
         "description": "Zakking van de meting t.o.v. vorige meting (mm)"
       },
-      "refereertAanReferentiepunten": {
+      "refereertAanMeetboutenReferentiepunten": {
         "type": "array",
         "items": {
           "type": "object",
@@ -76,10 +80,12 @@
       },
       "zakkingCumulatief": {
         "type": "number",
+        "multipleOf": 0.01,
         "description": "Cumulatieve zakking sinds de plaatsing van de meetbout"
       },
       "isGemetenDoor": {
         "type": "string",
+        "multipleOf": 0.01,
         "description": "ID Van de onderneming die de meting heeft uitgevoerd"
       },
       "hoeveelsteMeting": {
@@ -89,6 +95,11 @@
       "aantalDagen": {
         "type": "integer",
         "description": "Het aantal dagen sinds de vorige meting"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       },
       "publiceerbaar": {
         "type": "boolean",
