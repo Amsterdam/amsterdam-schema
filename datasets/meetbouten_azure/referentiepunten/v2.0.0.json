@@ -21,26 +21,9 @@
         "type": "string",
         "description": "Unieke identificatie van de meting"
       },
-      "nabijNummeraanduiding": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          },
-          "beginGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "eindGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "relation": "bag:nummeraanduidingen",
-        "description": "Een adres in de nabijheid van het referentiepunt"
+      "nabijAdres": {
+        "type": "string",
+        "description": "Beschrijving van de een nabij adres"
       },
       "locatie": {
         "type": "string",
@@ -48,6 +31,7 @@
       },
       "hoogteTovNap": {
         "type": "number",
+        "multipleOf": 0.01,
         "description": "Hoogte van het referentiepunt t.o.v. NAP"
       },
       "datum": {
@@ -55,44 +39,50 @@
         "format": "date",
         "description": "Datum van plaatsing van het referentiepunt."
       },
-      "statusCode": {
-        "type": "string",
-        "description": "Status van het referentiepunt (1=actueel, 2=niet te meten, 3=vervallen) code",
-        "provenance": "$.status.code"
-      },
-      "statusOmschrijving": {
-        "type": "string",
-        "description": "Status van het referentiepunt (1=actueel, 2=niet te meten, 3=vervallen) omschrijving",
-        "provenance": "$.status.omschrijving"
+      "status": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "Status van het referentiepunt (1=actueel, 2=niet te meten, 3=vervallen)"
       },
       "vervaldatum": {
         "type": "string",
         "format": "date",
         "description": "Vervaldatum van het referentiepunt."
       },
-      "merkCode": {
-        "type": "string",
-        "description": "Merk van het referentiepunt code",
-        "provenance": "$.merk.code"
-      },
-      "merkOmschrijving": {
-        "type": "string",
-        "description": "Merk van het referentiepunt omschrijving",
-        "provenance": "$.merk.omschrijving"
+      "merk": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "Merk van het referentiepunt"
       },
       "xCoordinaatMuurvlak": {
         "type": "number",
+        "multipleOf": 0.01,
         "description": "X-co\u00f6rdinaat muurvlak"
       },
       "yCoordinaatMuurvlak": {
         "type": "number",
+        "multipleOf": 0.01,
         "description": "Y-co\u00f6rdinaat muurvlak"
       },
       "windrichting": {
         "type": "string",
         "description": "Windrichting"
       },
-      "ligtInBouwblok": {
+      "ligtInGebiedenBouwblok": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -113,7 +103,7 @@
         "relation": "gebieden:bouwblokken",
         "description": "Het bouwblok waarbinnen het referentiepunt ligt"
       },
-      "ligtInBuurt": {
+      "ligtInGebiedenBuurt": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -134,7 +124,7 @@
         "relation": "gebieden:buurten",
         "description": "De buurt waarbinnen het referentiepunt ligt"
       },
-      "ligtInStadsdeel": {
+      "ligtInGebiedenStadsdeel": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -156,10 +146,10 @@
         "description": "Het stadsdeel waarbinnen het referentiepunt ligt"
       },
       "geometrie": {
-        "$ref": "https://geojson.org/schema/Geometry.json",
+        "$ref": "https://geojson.org/schema/Point.json",
         "description": "Geometrische ligging van de meetbout"
       },
-      "isNapPeilmerk": {
+      "isNapNapPeilmerk": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -168,6 +158,11 @@
         },
         "relation": "nap:peilmerken",
         "description": "Het NAP-peilmerk dat het referentiepunt kan zijn."
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       },
       "publiceerbaar": {
         "type": "boolean",
