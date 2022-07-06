@@ -20,7 +20,7 @@
         "type": "string",
         "description": "Unieke identificatie van de rollaag"
       },
-      "isGemetenVanBouwblok": {
+      "isGemetenVanGebiedenBouwblok": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -31,15 +31,20 @@
           },
           "beginGeldigheid": {
             "type": "string",
-            "format": "date"
+            "format": "date-time"
           },
           "eindGeldigheid": {
             "type": "string",
-            "format": "date"
+            "format": "date-time"
           }
         },
         "relation": "gebieden:bouwblokken",
         "description": "Het bouwblok waarvan de rollaag is gemeten"
+      },    
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       }
     }
   }
