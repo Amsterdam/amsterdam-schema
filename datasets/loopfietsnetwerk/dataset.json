@@ -55,7 +55,7 @@
               "description": "wegklasse afkomstig uit Openstreetmap, IMGEO en Amsterdam specifieke wegklassen"
             },
             "hoogteniveau" : {
-              "type": "string",
+              "type": "integer",
               "description": "relatieve hoogteligging, maaiveld=0, zwevende delen >0 , ondergrondse delen <0"
             },
             "straatnaam": {
@@ -125,10 +125,11 @@
               "format": "date",
               "description": "datum creatie dataset"
             },
-            "geometry": {
+            "geometrie": {
               "$ref": "https://geojson.org/schema/LineString.json"
             }
-          }
+          },
+          "mainGeometry": "geometrie"
         }
       },
       {
@@ -173,11 +174,12 @@
               "format": "date",
               "description": "datum creatie dataset"
             },
-            "geometry": {
+            "geometrie": {
               "$ref": "https://geojson.org/schema/Point.json",
               "provenance": "geometrie"
             }
-          }
+          },
+          "mainGeometry": "geometrie"
         }
       },
       {
@@ -272,10 +274,11 @@
               "format": "date",
               "description": "datum creatie dataset"
             },
-            "geometry": {
+            "geometrie": {
               "$ref": "https://geojson.org/schema/Point.json"
             }
-          }
+          },
+          "mainGeometry": "geometrie"
         }
       }
     ]
