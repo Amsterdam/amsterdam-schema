@@ -29,28 +29,23 @@
         "type": "string",
         "description": "Beschrijving van de locatie van de meetbout, bijvoorbeeld 'in gemeenschappelijke muur'"
       },
-      "status": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "integer"
-          },
-          "omschrijving": {
-            "type": "string"
-          }
-        },
+      "statusCode": {
+        "type": "integer",
         "description": "Status van de meetbout (1=actueel, 2=niet te meten, 3=vervallen)"
+      },
+      "statusOmschrijving": {
+        "type": "string"
       },
       "vervaldatum": {
         "type": "string",
         "format": "date",
         "description": "Datum waarop de meting heeft plaatsgevonden"
-      },   
+      },
       "datumActueelTot": {
         "type": "string",
         "format": "date-time",
         "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
-      },     
+      },
       "merk": {
         "type": "object",
         "properties": {
@@ -69,7 +64,7 @@
         "description": "X-co\u00f6rdinaat muurvlak"
       },
       "yCoordinaatMuurvlak": {
-        "type": "number",        
+        "type": "number",
         "multipleOf": 0.01,
         "description": "Y-co\u00f6rdinaat muurvlak"
       },
