@@ -1746,6 +1746,9 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
         color: var(--tocsidebar-bg);
         font-size: 18px;
         text-orientation: inherit;
+        /* once because Chrome has shitty writing-mode support */
+        writing-mode: vertical-lr;
+        /* once more for Firefox */
         writing-mode: sideways-lr;
         position: fixed;
         padding-left: 3px;
