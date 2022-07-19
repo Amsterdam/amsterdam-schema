@@ -33,17 +33,22 @@
       },
       "status": {
         "type": "string",
-        "description": "Status van de rioolknoop."
+        "description": "Status van de rioolknoop.",
+        "enum": [
+          "In Bedrijf",
+          "In bedrijf (te vervallen)",
+          "Vervallen"
+        ]
       },
       "jaarGelegd": {
-        "type": "number",
+        "type": "integer",
         "description": "Het jaar waarin de rioolknoop is gelegd."
       },
       "soort": {
         "type": "string",
         "description": "Soort rioolknoop"
       },
-      "type": {
+      "typeKnoop": {
         "type": "string",
         "description": "Type rioolknoop"
       },
@@ -57,7 +62,13 @@
       },
       "funderingstype": {
         "type": "string",
-        "description": "Type fundering"
+        "description": "Type fundering",
+        "enum": [
+          "Grondverb.",
+          "Onderheid",
+          "Sloofconst.",
+          "Standaard"
+        ]
       },
       "symboolhoek": {
         "type": "number",

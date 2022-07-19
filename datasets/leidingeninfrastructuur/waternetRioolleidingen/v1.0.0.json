@@ -33,17 +33,22 @@
       },
       "status": {
         "type": "string",
-        "description": "Status van de rioolleiding."
+        "description": "Status van de rioolleiding.",
+        "enum": [
+          "In Bedrijf",
+          "In bedrijf (te vervallen)",
+          "Vervallen"
+        ]
       },
       "jaarGelegd": {
-        "type": "number",
+        "type": "integer",
         "description": "Het jaar waarin de rioolleiding is gelegd."
       },
       "soort": {
         "type": "string",
         "description": "Soort rioolleiding"
       },
-      "type": {
+      "typeLeiding": {
         "type": "string",
         "description": "Type rioolleiding"
       },
@@ -81,7 +86,13 @@
       },
       "funderingstype": {
         "type": "string",
-        "description": "Type fundering"
+        "description": "Type fundering",
+        "enum": [
+          "Grondverb.",
+          "Onderheid",
+          "Sloofconst.",
+          "Standaard"
+        ]
       },
       "toelichting": {
         "type": "string",
