@@ -64,6 +64,16 @@
         "format": {
           "type": "string"
         },
+        "faker": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
         "provenance": {
           "$ref": "https://schemas.data.amsterdam.nl/meta/provenance@v1.3.0#properties/provenance"
         },
@@ -205,7 +215,7 @@
               "type": "string"
             },
             "$ref": {
-              "pattern": "^(https://schemas\\.data\\.amsterdam\\.nl/schema@v1)(\\.[0-9]){2}(#/definitions/schema)"
+              "pattern": "^(https://.*/schema@v1)(\\.[0-9]){2}(#/definitions/schema)"
             }
           }
         }
