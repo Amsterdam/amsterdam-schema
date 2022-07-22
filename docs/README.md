@@ -21,7 +21,7 @@ pip install -U pip setuptools wheel
 pip install bikeshed
 cd docs
 bikeshed spec ams-schema-spec.bs ams-schema-spec.html
-open ams-schema-spec.html
+sed -i -s 's/ *$//' ams-schema-spec.html  # Remove trailing whitespace
 ```
 
 After this initial installation
