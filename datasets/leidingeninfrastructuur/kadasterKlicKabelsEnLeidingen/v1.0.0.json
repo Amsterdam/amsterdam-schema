@@ -1,20 +1,28 @@
 {
-  "id": "liggingLijnTotaal",
+  "id": "kadasterKlicKabelsEnLeidingen",
   "type": "table",
   "version": "1.0.0",
-  "provenance": "leidingeninfrastructuur_ligging_lijn_totaal",
-  "title": "leidingeninfrastructuur lijn",
+  "title": " Kadaster KLIC kabels en leidingen",
   "description": "Overzicht lijnen infrastructuur op basis van klic meldingen",
   "auth": "FP/MDW",
+  "reasonsNonPublic": ["5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"],
+  "status": "beschikbaar",
+  "creator": "GOconnectIT B.V.",
+  "publisher": "Datateam Stedelijke Ontwikkeling en Beheer",
+  "authorizationGrantor": "datateamstedelijkeonwikkelingenbeheer@amsterdam.nl",
+  "theme": [
+    "ondergrondse infrastructuur"
+  ],
+  "owner": "Kadaster",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
+    "mainGeometry": "geometrie",
     "required": [
       "schema",
       "id"
     ],
-    "mainGeometry": "geometrie",
     "display": "id",
     "properties": {
       "id": {
@@ -32,11 +40,23 @@
         "type": "string",
         "description": "Objectklasse of type kabel/leiding"
       },
+      "delivery": {
+        "type": "string",
+        "description": "Leveringstype"
+      },
+      "product": {
+        "type": "string",
+        "description": "Producttype"
+      },      
+      "broncode": {
+        "type": "string",
+        "description": "Broncode van de beheerder."
+      },
       "beheerder": {
         "type": "string",
         "description": "Degene die als natuurlijk persoon handelende in de uitoefening van een beroep of bedrijf dan wel als rechtspersoon een net beheert."
       },
-      "diamMm": {
+      "diameter": {
         "type": "number",
         "description": "Diameter buis of leiding"
       },
@@ -56,21 +76,30 @@
         "type": "string",
         "description": "De status van het object"
       },
-      "buurtcode": {
-        "type": "string",
-        "description": "buurt code"
+       "buurtcode": {
+      "type": "string",
+      "description": "Buurtcode"
       },
-      "buurtnaam": {
-        "type": "string",
-        "description": "buurt naam"
+        "buurtnaam": {
+      "type": "string",
+      "description": "Buurtnaam"
       },
-      "wkt": {
+      "opvraagdatum": {
         "type": "string",
-        "description": "Naam van  projectgebied"
+        "format": "date-time",
+        "description": "De datum en het tijdstip waarop het Klic orientatieverzoek is uitgevoerd waarmee de gegevens zijn opgevraagd."
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/LineString.json",
         "description": "Geometrie in RD (epsg:28992)"
+      },
+      "rgbHexPmkl": {
+        "type": "string",
+        "description": "Hex kleurcode volgens PMKL standaard"
+      },
+      "rgbHexNlcs": {
+        "type": "string",
+        "description": "Hex kleurcode volgens NLCS standaard"
       }
     }
   }
