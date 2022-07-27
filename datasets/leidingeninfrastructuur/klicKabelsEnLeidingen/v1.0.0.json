@@ -1,9 +1,9 @@
 {
-  "id": "kadasterKlicPuntobjecten",
+  "id": "klicKabelsEnLeidingen",
   "type": "table",
   "version": "1.0.0",
-  "title": "Kadaster KLIC puntobjecten",
-  "description": "Overzicht punten infrastructuur op basis van klic meldingen",
+  "title": " Kadaster KLIC kabels en leidingen",
+  "description": "Overzicht lijnen infrastructuur op basis van klic meldingen",
   "auth": "FP/MDW",
   "reasonsNonPublic": ["5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"],
   "status": "beschikbaar",
@@ -20,8 +20,8 @@
     "additionalProperties": false,
     "mainGeometry": "geometrie",
     "required": [
-      "id",
-      "schema"
+      "schema",
+      "id"
     ],
     "display": "id",
     "properties": {
@@ -33,13 +33,21 @@
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
       },
       "thema": {
-      "type": "string",
-      "description": "Thema of discipline waar een leiding of leidingelement toe behoort."
+        "type": "string",
+        "description": "Thema of discipline waar een leiding of leidingelement toe behoort"
       },
       "class": {
         "type": "string",
-        "description": "Objectklasse of categorie van het leidingelement"
+        "description": "Objectklasse of type kabel/leiding"
       },
+      "delivery": {
+        "type": "string",
+        "description": "Leveringstype"
+      },
+      "product": {
+        "type": "string",
+        "description": "Producttype"
+      },      
       "broncode": {
         "type": "string",
         "description": "Broncode van de beheerder."
@@ -48,21 +56,33 @@
         "type": "string",
         "description": "Degene die als natuurlijk persoon handelende in de uitoefening van een beroep of bedrijf dan wel als rechtspersoon een net beheert."
       },
-      "type": {
+      "diameter": {
+        "type": "number",
+        "description": "Diameter buis of leiding"
+      },
+      "diepte": {
+        "type": "number",
+        "description": "Diepte t.o.v. maaiveld"
+      },
+      "materiaal": {
         "type": "string",
-        "description": "Type"
+        "description": "Materiaal van de kabel of leiding"
+      },
+      "voltage": {
+        "type": "string",
+        "description": "Het operatieve en nominale voltage van de elektriciteitskabel (indien van toepassing)"
       },
       "status": {
         "type": "string",
         "description": "De status van het object"
       },
-      "buurtcode": {
-        "type": "string",
-        "description": "Buurtcode"
+       "buurtcode": {
+      "type": "string",
+      "description": "Buurtcode"
       },
-      "buurtnaam": {
-        "type": "string",
-        "description": "Buurtnaam"
+        "buurtnaam": {
+      "type": "string",
+      "description": "Buurtnaam"
       },
       "opvraagdatum": {
         "type": "string",
@@ -70,10 +90,10 @@
         "description": "De datum en het tijdstip waarop het Klic orientatieverzoek is uitgevoerd waarmee de gegevens zijn opgevraagd."
       },
       "geometrie": {
-        "$ref": "https://geojson.org/schema/Point.json",
+        "$ref": "https://geojson.org/schema/LineString.json",
         "description": "Geometrie in RD (epsg:28992)"
       },
-        "rgbHexPmkl": {
+      "rgbHexPmkl": {
         "type": "string",
         "description": "Hex kleurcode volgens PMKL standaard"
       },
