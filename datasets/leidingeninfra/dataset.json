@@ -1,9 +1,9 @@
 {
   "type": "dataset",
-  "id": "leidingeninfrastructuur",
-  "title": "Kabels en leidingen ondergrond",
+  "id": "leidingeninfra",
+  "title": "Ondergrond",
   "status": "beschikbaar",
-  "description": "Overzicht leidingen infrastructuur op basis van klic meldingen",
+  "description": "Overzicht ondergrondse infrastructuur",
   "version": "1.0.0",
   "dateCreated": "2021-11-01T00:00:00+01:00",
   "dateModified": "2022-02-17T00:00:00+01:00",
@@ -11,41 +11,45 @@
   "language": "nl",
   "creator": "Datateam Stedelijke Ontwikkeling en Beheer",
   "publisher": "Datateam Stedelijke Ontwikkeling (ligging), Datateam Beheer en Openbare Ruimte (attributes)",
-  "accrualPeriodicity": "dagelijks",
+  "accrualPeriodicity": "wekelijks",
   "spatialDescription": "Gemeente Amsterdam",
   "theme": [
-    "leidingeninfrastructuur",
+    "ondergrondse infrastructuur",
     "Ruimte en Topografie"
   ],
-  "owner": "Gemeente Amsterdam, Ruimte & Economie",
+  "owner": "Gemeente Amsterdam",
   "auth": "OPENBAAR",
-  "authorizationGrantor": "datateam omgevingswet",
+  "authorizationGrantor": "datateamstedelijkeonwikkelingenbeheer@amsterdam.nl",
   "keywords": [
     "leidingen",
-    "infrastuctuur"
+    "infrastuctuur",
+    "klic",
+    "waternet",
+    "rioolnetwerk",
+    "liander"
   ],
   "hasBeginning": "2021-11-01T00:00:00+01:00",
   "crs": "EPSG:28992",
   "tables": [
     {
-      "id": "liggingLijnTotaal",
-      "$ref": "liggingLijnTotaal/v1.2.0",
+      "id": "kadasterKlicKabelsEnLeidingen",
+      "$ref": "kadasterKlicKabelsEnLeidingen/v1.0.0",
       "activeVersions": {
-        "1.2.0": "liggingLijnTotaal/v1.2.0"
+        "1.0.0": "kadasterKlicKabelsEnLeidingen/v1.0.0"
       }
     },
     {
-      "id": "liggingPuntTotaal",
-      "$ref": "liggingPuntTotaal/v1.2.0",
+      "id": "kadasterKlicPuntobjecten",
+      "$ref": "kadasterKlicPuntobjecten/v1.0.0",
       "activeVersions": {
-        "1.2.0": "liggingPuntTotaal/v1.2.0"
+        "1.0.0": "kadasterKlicPuntobjecten/v1.0.0"
       }
     },
     {
-      "id": "liggingVlakTotaal",
-      "$ref": "liggingVlakTotaal/v1.2.0",
+      "id": "kadasterKlicEisvoorzorgsmaatregelen",
+      "$ref": "kadasterKlicEisvoorzorgsmaatregelen/v1.0.0",
       "activeVersions": {
-        "1.2.0": "liggingVlakTotaal/v1.2.0"
+        "1.0.0": "kadasterKlicEisvoorzorgsmaatregelen/v1.0.0"
       }
     },
     {
