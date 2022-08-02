@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version bb6b91100, updated Mon Jul 12 16:52:37 2021 -0700" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="419179a4ecb40c3e7bb86c41ee4769a09d90a951" name="document-revision">
+  <meta content="4565d13c568c01b297f72c0c1f99192676032235" name="document-revision">
 <style>
     p[data-fill-with="logo"] {
         width: 180px;
@@ -1506,6 +1506,9 @@ Possible extra rowspan handling
         color: var(--tocsidebar-bg);
         font-size: 18px;
         text-orientation: inherit;
+        /* once because Chrome has shitty writing-mode support */
+        writing-mode: vertical-lr;
+        /* once more for Firefox */
         writing-mode: sideways-lr;
         position: fixed;
         padding-left: 3px;
@@ -2224,7 +2227,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Amsterdam Schema Specificatie</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-06-15">15 June 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2022-07-13">13 July 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
