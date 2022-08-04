@@ -5,7 +5,9 @@
   "title": "Waternet Rioolnetwerk Leidingen",
   "description": "Alle rioolleidingen welke door Waternet beschikbaar wordt gesteld.",
   "auth": "FP/MDW",
-  "reasonsNonPublic": ["5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"],
+  "reasonsNonPublic": [
+    "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+  ],
   "status": "beschikbaar",
   "creator": "Waternet",
   "publisher": "Datateam Stedelijke Ontwikkeling en Beheer",
@@ -30,7 +32,7 @@
         "description": "Unieke id van het object."
       },
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "status": {
         "type": "string",
@@ -79,7 +81,7 @@
       },
       "bobEindpunt": {
         "type": "number",
-        "description": "Hoogte Binnen Onderkant Buis van het eindpunt van de leiding in meters ten opzichte van NAP."      
+        "description": "Hoogte Binnen Onderkant Buis van het eindpunt van de leiding in meters ten opzichte van NAP."
       },
       "stelselType": {
         "type": "string",
@@ -113,11 +115,12 @@
       },
       "globalidEindknoop": {
         "type": "string",
-        "description": "Id van de eindknoop."    
+        "description": "Id van de eindknoop."
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/LineString.json",
-        "description": "Geometrie in RD (epsg:7415)"
+        "description": "Geometrie in RD (epsg:7415)",
+        "crs": "EPSG:7415"
       }
     }
   }
