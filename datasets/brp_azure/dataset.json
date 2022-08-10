@@ -1,1 +1,51 @@
-
+{
+  "type": "dataset",
+  "id": "brp",
+  "title": "Basisregistratie Personen (BRP)",
+  "status": "niet_beschikbaar",
+  "description": "Deze dataset maakt de basisregistratie personen toegankelijk, bij gebruik van login credentials. De velden zijn gebaseerd op het schema van Haal-Centraal.",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "auth": "BRP/R",
+  "owner": "Gemeente Amsterdam",
+  "creator": "Dienstverlening",
+  "publisher": "Datateam Basis- en Kernregistraties",
+  "authorizationGrantor": "OIS", 
+  "tables": [
+    {
+      "id": "persoon",
+      "$ref": "persoon/v0.0.1",
+      "activeVersions": {
+        "0.0.1: "persoon/v0.0.1"
+      }
+    },
+    {
+      "id": "ouder",
+      "$ref": "ouder/v0.0.1",
+      "activeVersions": {
+        "0.0.1: "ouder/v0.0.1"
+      }
+    },
+    {
+      "id": "huwelijk/partnerschap",
+      "$ref": "huwelijk/partnerschap/v0.0.1",
+      "activeVersions": {
+        "0.0.1: "huwelijk/partnerschap/v0.0.1"
+      }
+    },
+    {
+      "id": "verblijfplaats",
+      "$ref": "verblijfplaats/v0.0.1",
+      "activeVersions": {
+        "0.0.1: "verblijfplaats/v0.0.1"
+      }
+    },
+    {
+      "id": "inschrijving",
+      "$ref": "inschrijving/v0.0.1",
+      "activeVersions": {
+        "0.0.1: "inschrijving/v0.0.1"
+      }
+    } 
+  ]
+}
