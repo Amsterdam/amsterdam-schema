@@ -124,6 +124,28 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Polygon.json",
         "description": "Geometrische beschrijving van een object."
+      },
+      "ligtInBrkGemeente": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "brk:gemeentes",
+        "provenance": "$.ligtInGemeente.identificatie",
+        "description": "WORDT VERWIJDERD - De gemeente waar de wijk in ligt."
       }
     }
   }

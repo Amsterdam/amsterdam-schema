@@ -76,7 +76,23 @@
         "description": "De unieke aanduiding van het brondocument op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden."
       },
       "ligtInBrkGemeente": {
-        "type": "string",
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
         "relation": "brk:gemeentes",
         "provenance": "$.ligtInGemeente.identificatie",
         "description": "De gemeente waar het stadsdeel in ligt."
