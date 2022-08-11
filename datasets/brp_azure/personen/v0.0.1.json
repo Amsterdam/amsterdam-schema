@@ -1,0 +1,95 @@
+ {
+      "id": "personen",
+      "type": "table",
+      "version": "1.0.0",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "burgerservicenummer",
+        "required": [
+          "schema",
+          "burgerservicenummer"
+        ],
+        "display": "naam",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "burgerservicenummer": {
+            "type": "string",
+            "description": "Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene bepalingen burgerservicenummer. Te valideren met de 11-proef."
+          },
+          "geslachtsaanduiding": {
+            "type": "string",
+            "description": "Mogelijke waarden: M (man), V (vrouw), O (onbekend)"
+          },
+          "leeftijd": {
+            "type": "integer",
+            "description": "Leeftijd in jaren op het moment van bevraging"
+          },
+          "naam": {
+            "type": "object",
+            "properties": {
+              "geslachtsnaam": {
+                "type": "string",
+                "description": "De (geslachts)naam waarvan de eventueel aanwezige voorvoegsels en adellijke titel/predikaat zijn afgesplitst."
+              },
+              "voorvoegsel": {
+                "type": "string",
+                "description": "Dat deel van de geslachtsnaam dat voorkomt in de Voorvoegseltabel en, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam. Bijvoorbeeld: 'van der'"
+              },
+              "voornamen": {
+                "type": "string",
+                "description": "De voornamen van de persoon, gescheiden door spaties. Bijvoorbeeld: Pieter Jan"
+              },
+              "voorletters": {
+                "type": "string",
+                "description": "De voorletters waarmee een persoon aangeschreven wil worden. De voorlettes zijn afgeleid van de voornamen."
+              },
+              "adellijkeTitelPredikaat": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "description": "Code van de adellijkeTitelPredikaat."
+                  },
+                  "omschrijving": {
+                    "type": "string",
+                    "description": "Leesbare naam van de adellijkeTitelPredikaat."
+                  }
+                }
+              },
+              "aanduidingNaamgebruik": {
+                "type": "string",
+                "description": "De schrijfwijze van de achternaam. Mogelijke waarden: E (eigen), N (eigen-partner), P (partner), V (partner-eigen)"
+              }
+            }
+          },
+          "geboorte": {
+            "type": "object",
+            "properties": {
+              "datum": {
+                "type": "object",
+                "properties": {
+                  "datum": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "De volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+                  },
+                  "jaar": {
+                    "type": "integer",
+                    "description": "Het jaar van de datum, als deze bekend is."
+                  },
+                  "maand": {
+                    "type": "integer",
+                    "description": "De maand van de datum, als deze bekend is."
+                  },
+                  "dag": {
+                    "type": "integer",
+                    "description": "De dag van de datum, als deze bekend is."
+                  }
+                }
+              }
+            }
+          }
