@@ -164,8 +164,9 @@ Naast bovenstaande verplichte attributen mag een [=dataset=] ook de volgende eig
                 <summary>Opties</summary>
                     * "EPSG:28992"
                     * "EPSG:4326"
+                    * "EPSG:7415"
             </details>
-            Dit veld is **verplicht** voor datasets waarvan één of meerdere tabellen één of meer [[#geometry]] velden bevatten.
+            Dit veld is **verplicht** voor datasets waarvan één of meerdere tabellen één of meer [[#geometry]] velden bevatten en waarvan de crs niet al in de tabel of veld gedefinieerd is.
             Zie [[SDW-BP#CRS-background]] voor meer informatie.
 </table>
 
@@ -317,6 +318,17 @@ Een  [=tabel=] mag daarnaast de volgende attributen bezitten:
     <tr><td><dfn>dateModified</dfn> <td> {{date-time}} <td> Meest recente datum waarop de tabel is aangepast.
     <tr><td><dfn>license</dfn>      <td> string <td> Licentie
     <tr><td><dfn>temporal</dfn>     <td> [=temporal-object=] <td> Definieert tijdsafhankelijke geldigheid van objecten. zie [[#temporaliteit]]
+    <tr><td><dfn>crs</dfn>
+        <td> enum(string)
+        <td> Coordinate reference System
+            <details open>
+                <summary>Opties</summary>
+                    * "EPSG:28992"
+                    * "EPSG:4326"
+                    * "EPSG:7415"
+            </details>
+            Dit veld is **verplicht** voor tabellen waarin één of meer [[#geometry]] velden zitten en waarvoor niet op dataset-of veldniveau al een crs gedefinieerd is.
+            Zie [[SDW-BP#CRS-background]] voor meer informatie.
 </table>
 
 [BP]
@@ -617,6 +629,17 @@ Een [=veld=] definitie mag naast het [[#veld-mandatory-fields|verplichte attribu
     <tr><td><dfn>unit</dfn>             <td> string | object <td> De eenheid van de waarden in dit veld. zie [[#units]]
     <tr><td><dfn>relation</dfn>         <td> string <td> Beschrijft relaties tussen velden. zie [[#relatering]]
     <tr><td><dfn>uri</dfn>              <td> {{uri-reference}} <td> Een verwijzing de definitie van de waarden in dit veld.
+    <tr><td><dfn>crs</dfn>
+        <td> enum(string)
+        <td> Coordinate reference System
+            <details open>
+                <summary>Opties</summary>
+                    * "EPSG:28992"
+                    * "EPSG:4326"
+                    * "EPSG:7415"
+            </details>
+            Dit veld is **verplicht** voor [[#geometry]] velden waarvoor niet op dataset-of tabelniveau al een crs gedefinieerd is.
+            Zie [[SDW-BP#CRS-background]] voor meer informatie.
 </table>
 
 [BP]
