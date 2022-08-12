@@ -15,6 +15,10 @@
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "burgerservicenummer": {
+        "type": "string",
+        "description": "Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene bepalingen burgerservicenummer. Te valideren met de 11-proef."
       }, 
       "datumInschrijvingInGemeente": {
       "type": "object",
@@ -39,7 +43,7 @@
       },
         "gemeenteVanInschrijving": {
         "type": "object",
-        "description": "In welke gemeente de PK zich bevindt. De code kan voorloopnullen bevatten",
+        "description": "In welke gemeente de PK (persoonskaart) zich bevindt. De code kan voorloopnullen bevatten",
         "properties": {
           "code": {
             "type": "string",
