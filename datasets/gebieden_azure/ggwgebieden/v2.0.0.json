@@ -102,21 +102,24 @@
         "description": "Geometrische beschrijving van een object."
       },
       "bestaatUitGebiedenBuurten": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          },
-          "beginGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "eindGeldigheid": {
-            "type": "string",
-            "format": "date-time"
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
           }
         },
         "relation": "gebieden:buurten",
