@@ -9,17 +9,17 @@ Course of action is as follows:
 
 """
 
-import functools
 import json
 import logging
 import os
 import shutil
 from importlib import resources
+from importlib.abc import Traversable
 from io import BytesIO
 from os.path import splitext
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from typing import Callable, ContextManager, Dict, Iterator, List, Tuple
+from typing import Callable, Dict, Iterator, List, Tuple
 
 import click
 import in_place
@@ -65,21 +65,17 @@ def fetch_local_as_publishable(
     # Use importlib to extract resources from the package. This works for regularly installed
     # packages as well as editable installed packages.
     resource_names: Iterator[str] = filter(
-        lambda res: any(map(lambda pre: res.startswith(pre), publishable_prefixes)),
+        lambda res: any(res.startswith(prefix) for prefix in publishable_prefixes),
         resources.contents(root_pkg_name),
     )
-    resource_path_func: Callable[[str], ContextManager[Path]] = functools.partial(
-        resources.path, root_pkg_name
-    )
-    res_path_ctx_mgrs: Iterator[ContextManager[Path]] = map(resource_path_func, resource_names)
 
-    for rpcm in res_path_ctx_mgrs:
-        with rpcm as dir_path:
-            # if the package is a zip file the context manager unzips the resource (`dir_path`)
-            # into a temporary directory.
-            shutil.copytree(
-                dir_path.as_posix(), (dst_path / dir_path.name).as_posix(), dirs_exist_ok=True
-            )
+    # Create callable that can be applied to `resources_names` to get full paths
+    # based on the information that `resources.files` obtains from the package.
+    resource_path_func: Callable[[str], Traversable] = resources.files(root_pkg_name).joinpath
+    resource_paths: Iterator[Traversable] = map(resource_path_func, resource_names)
+
+    for dir_path in resource_paths:
+        shutil.copytree(str(dir_path), (dst_path / dir_path.name).as_posix(), dirs_exist_ok=True)
 
     publishable_paths: List[List[str]] = []
     for schema_path in dst_path.glob(glob):
