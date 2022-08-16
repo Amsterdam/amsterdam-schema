@@ -69,10 +69,8 @@ def fetch_local_as_publishable(
         resources.contents(root_pkg_name),
     )
 
-    # Create callable that can be applied to `resources_names` to get full paths
-    # based on the information that `resources.files` obtains from the package.
-    resource_path_func: Callable[[str], Traversable] = resources.files(root_pkg_name).joinpath
-    resource_paths: Iterator[Traversable] = map(resource_path_func, resource_names)
+    resource_root = resources.files(root_pkg_name)
+    resource_paths = (resource_root.joinpath(name) for name in resource_names)
 
     for dir_path in resource_paths:
         shutil.copytree(str(dir_path), (dst_path / dir_path.name).as_posix(), dirs_exist_ok=True)
