@@ -14,12 +14,11 @@ import logging
 import os
 import shutil
 from importlib import resources
-from importlib.abc import Traversable
 from io import BytesIO
 from os.path import splitext
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from typing import Callable, Dict, Iterator, List, Tuple
+from typing import Dict, Iterator, List, Tuple
 
 import click
 import in_place
