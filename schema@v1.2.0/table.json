@@ -2,26 +2,6 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.data.amsterdam.nl/table@v1.2.0",
   "type": "object",
-  "temporal": {
-    "type": "object",
-    "required": [
-      "identifier",
-      "dimensions"
-    ],
-    "identifier": "string",
-    "unit": "string",
-    "dimensions": {
-      "type": "object",
-      "geldigOp": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "minItems": 2,
-        "maxItems": 2
-      }
-    }
-  },
   "allOf": [
     {
       "$ref": "./schema@v1.2.0#/definitions/basicProperties"
@@ -37,6 +17,26 @@
     },
     "shortname": {
       "type": "string"
+    },
+    "temporal": {
+      "type": "object",
+      "required": [
+        "identifier",
+        "dimensions"
+      ],
+      "identifier": "string",
+      "unit": "string",
+      "dimensions": {
+        "type": "object",
+        "geldigOp": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
     },
     "schema": {
       "oneOf": [
