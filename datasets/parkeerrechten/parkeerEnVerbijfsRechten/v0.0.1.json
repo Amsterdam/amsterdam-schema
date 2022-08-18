@@ -6,11 +6,12 @@
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
+        "identifier": "verworvenRechtId",
         "required": [
           "schema",
           "verworvenRechtId"
         ],
-        "display": "id",
+        "display": "verworvenRechtId",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
@@ -70,7 +71,7 @@
 			"provenance": "coord_v_recht",
 			"description": "Coordinaten - De coördinaten die door de rechtverwerver intermediair (provider) opgegeven zijn voor de registratie van een parkeer- of verblijfsrecht."
           },
-          "beginTijdUTC": {
+          "beginTijdUtc": {
             "type": "string",
             "format": "date-time",
 			"provenance": "b_tyd_v_recht",
@@ -82,36 +83,36 @@
 			"provenance": "reg_tyd_v_recht",
 			"description": "Registratie begintijd - Datum + tijd waarop een parkeer- of verblijfsrecht in het NPR geregistreerd is. Deze datum + tijd is in UTC-notatie vastgelegd."
           },
-          "aangepasteBeginTijdUTC": {
+          "aangepasteBeginTijdUtc": {
             "type": "string",
             "format": "date-time",
 			"provenance": "b_tyd_r_aanp",
 			"description": "Aangepaste begintijd - Datum + tijd waarop een parkeer- of verblijfsrecht daadwerkelijk is gestart, en waarmee het systeem rekent. Deze kan afwijken van de begintijd. De aangepaste begintijd is bijvoorbeeld het moment dat een garage registreert wanneer de parkeerder door de slagboom rijdt. Deze datum + tijd is in UTC-notatie vastgelegd."
           },
-          "tijdvensterBeginTijdUTC": {
+          "tijdvensterBeginTijdUtc": {
             "type": "string",
 			"provenance": "b_tyd_venster",
 			"description": "Begintijd tijdvenster - Tijdstip waarop een bepaald tijdvenster binnen een dag start. Komt altijd voor in combinatie met een eindtijd tijdvenster."
           },
-          "eindTijdUTC": {
+          "eindTijdUtc": {
             "type": "string",
             "format": "date-time",
 			"provenance": "e_tyd_v_recht",
 			"description": "Eindtijd - Datum + tijd waarop een parkeer- of verblijfsrecht eindigt. Deze datum + tijd is in UTC-notatie vastgelegd."
           },
-          "registratieEindTijdUTC": {
+          "registratieEindTijdUtc": {
             "type": "string",
             "format": "date-time",
 			"provenance": "r_tyd_e_tyd_vr",
 			"description": "Registratie eindtijd - Datum + tijd waarop de eindtijd van een parkeer- of verblijfsrecht in het NPR geregistreerd is. Deze datum + tijd is in UTC-notatie vastgelegd."
           },
-          "aangepasteEindTijdUTC": {
+          "aangepasteEindTijdUtc": {
             "type": "string",
             "format": "date-time",
 			"provenance": "e_tyd_r_aanp",
 			"description": "Aangepaste eindtijd - Datum + tijd waarop een parkeer- of verblijfsrecht eindigt, zoals door het NPR berekend. Deze datum + tijd is in UTC-notatie vastgelegd."
           },
-          "tijdvensterEindTijdUTC": {
+          "tijdvensterEindTijdUtc": {
             "type": "string",
 			"provenance": "e_tyd_venster",
 			"description": "Eindtijd tijdvenster - Tijdstip waarop een bepaald tijdvenster binnen een dag eindigt. Komt altijd voor in combinatie met een eindtijd tijdvenster."
@@ -186,7 +187,7 @@
 			"provenance": "ver_batch_naam",
 			"description": "Verrekenbatch - Omschrijving van de verrekenbatch waarmee de opbrengsten van een parkeer- of verblijfsrecht zijn verrekend."
           },
-          "herberekningTijdUTC": {
+          "herberekningTijdUtc": {
             "type": "string",
             "format": "date-time",
 			"provenance": "tyd_herberek",
