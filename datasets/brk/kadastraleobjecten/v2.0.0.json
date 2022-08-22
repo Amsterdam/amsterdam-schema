@@ -152,6 +152,40 @@
           "type": "string",
           "description": "Status van het Kadastraal Object ('B' is bestaand)"
         },
+        "referentie": {
+          "type": "string",
+          "description": "Unieke referentie voor ieder objectbericht. Met behulp van deze referentie kan gevalideerd worden dat een mutatielevering aansluit op de voorgaande mutatielevering. De referentie in de 'was' is dan gelijk aan de referentie in de 'wordt' van de voorgaande mutatielevering."
+        },
+        "oudstDigitaalBekend": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Datum waarop het object voor het eerst vanuit een digitale Kadastrale registratie beschikbaar was is.Dit is een vaststaand gegeven en zal niet veranderen als gevolg van het digitaliseren van analoge registraties. Dit gegeven is te zien als het technisch tijdstip ontstaan van de eerste versie van een object."
+        },
+        "mutatieId": {
+          "type": "integer",
+          "description": "Verwijzing naar de Mutatie waaruit dit gegeven is ontstaan."
+        },
+        "meettariefVerschuldigd": {
+          "type": "string",
+          "description": "Meettarief verschuldigd is een indicatie voor het verschuldigd zijn van een meettarief bij overdracht van een perceel. Een meettarief is verschuldigd (indicator is true) als het een administratief gevormd perceel met voorlopige grenzen, of een perceel met voorlopige grenzen betreft dat nog nooit is overgedragen."
+        },
+        "toelichtingBewaarder": {
+          "type": "string",
+          "description": "Toelichtende tekst van de bewaarder bij het kadastraal object. Een Toelichting Bewaarder wordt opgevoerd wanneer een toelichting bij gegevens in de registratie noodzakelijk is."
+        },
+        "tijdstipOntstaanObject": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Datum waarop een onroerende zaak is ontstaan."
+        },
+        "hoofdsplitsingIdentificatie": {
+          "type": "string",
+          "description": "de AppartementsrechtSplitsing van het type Hoofdsplitsing van het complex. Hiermee kan eenvoudiger de relatie met grondpercelen worden gelegd, met name in het geval dat er veel ondersplitsingen zijn."
+        },
+        "afwijkingLijstRechthebbenden": {
+          "type": "string",
+          "description": "Aanduiding van het feit dat er afwijkingen bestaan tussen de kadastrale registratie en de lijst van rechthebbenden, bedoeld in artikel 183, eerste lid, van de Landinrichtingswet, artikel 71, tweede lid, van de Wet inrichting landelijk gebied, artikel 68 van de Reconstructiewet Midden-Delfland, dan wel in artikel 53 van de Herinrichtingswet Oost-Groningen en de Gronings-Drentse Veenkolonien. We registreren dit op basis van de Uitvoeringsregeling Kadasterwet art. 14, lid 2 onder b."
+        },
         "geometrie": {
           "$ref": "https://geojson.org/schema/Geometry.json",
           "description": "Vorm en ligging van de kadastrale sectie in het stelsel van de Rijksdriehoeksmeting (RD)"
