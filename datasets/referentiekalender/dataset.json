@@ -4,7 +4,7 @@
   "title": "Referentiekalender",
   "status": "beschikbaar",
   "description": "Een generieke hi\u00ebrarchisch dataset met datum (yyyy-mm-dd) als laagste granulariteitsniveau.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "crs": "EPSG:28992",
   "theme": [
     "kalender",
@@ -26,7 +26,7 @@
     {
       "id": "datum",
       "type": "table",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Per datum (yyyy-mm-dd) de gerelateerde hi\u00ebrarchische gegevens.",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -47,7 +47,7 @@
           },
           "datum": {
             "type": "string",
-            "format": "date",
+            "format": "date-time",
             "description": "Datum als laagste granulariteitsniveau en waar record betrekking op heeft."
           },
           "dagVanWeekNummer": {
