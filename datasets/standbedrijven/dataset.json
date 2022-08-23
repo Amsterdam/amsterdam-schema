@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "status": "beschikbaar",
   "auth": "FP/MDW",
+  "reasonsNonPublic": "5.1 2f: bedrijfs- en fabricagegegevens die door natuurlijke personen of rechtspersonen vertrouwelijk aan de overheid zijn meegedeeld",
   "title": "stand van de gegevens over bedrijven / vestigingen",
   "description": "stand op \u00e9\u00e9n bepaalde peildatum van gegevens in het domein van bedrijvigheid",
   "owner": "Gemeente Amsterdam",
@@ -15,12 +16,13 @@
     {
       "id": "vestigingen",
       "type": "table",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "description": "Alle vestigingen met hun kenmerken en gebiedsindeling",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "mainGeometry": "geometrie",
         "identifier": [
           "id"
         ],
@@ -426,6 +428,11 @@
             "shortname": "indZzp",
             "description": "Indicatie of betreffende vestiging een zelfstandige zonder personeel (zzp'er) betreft"
           },
+          "indicatiePlint": {
+            "type": "boolean",
+            "title": "indicatiePlint",
+            "description": "Indicatie of vestiging in de plint van het pand is gevestigd"
+          },
           "nummeraanduidingIdentificatie": {
             "type": "string",
             "title": "nummeraanduidingIdentificatie",
@@ -593,8 +600,7 @@
             "description": "Peildatum van de vorige stand"
           }
         }
-      },
-      "mainGeometry": "geometrie"
+      }
     }
   ]
 }
