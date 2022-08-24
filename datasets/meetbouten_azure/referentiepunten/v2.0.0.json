@@ -39,34 +39,21 @@
         "format": "date",
         "description": "Datum van plaatsing van het referentiepunt."
       },
-      "status": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "integer"
-          },
-          "omschrijving": {
-            "type": "string"
-          }
-        },
+      "statusCode": {
+        "type": "integer",
         "description": "Status van het referentiepunt (1=actueel, 2=niet te meten, 3=vervallen)"
+      },
+      "statusOmschrijving": {
+        "type": "string"
       },
       "vervaldatum": {
         "type": "string",
         "format": "date",
         "description": "Vervaldatum van het referentiepunt."
       },
-      "merk": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "integer"
-          },
-          "omschrijving": {
-            "type": "string"
-          }
-        },
-       "description": "Merk van het referentiepunt."
+      "merkCode": {
+        "type": "integer",
+        "description": "Merk van het referentiepunt"
       },
       "merkOmschrijving": {
         "type": "string"
