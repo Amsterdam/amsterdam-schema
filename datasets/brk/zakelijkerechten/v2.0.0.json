@@ -55,7 +55,12 @@
           "format": "date-time",
           "description": "Einddatum geldigheid."
         },
-        "belastZakelijkerechten": {
+        "datumActueelTot": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+        },
+        "belastZakelijkeRechten": {
           "type": "array",
           "items": {
             "type": "object",
@@ -79,7 +84,7 @@
           "relation": "brk:zakelijkerechten",
           "description": "Dit zakelijk recht belast de volgende (Aard)zakelijkrechten."
         },
-        "belastMetZakelijkerechten": {
+        "belastMetZakelijkeRechten": {
           "type": "array",
           "items": {
             "type": "object",
@@ -103,7 +108,7 @@
           "relation": "brk:zakelijkerechten",
           "description": "Dit zakelijk recht is belast met de volgende Aardzakelijkrechten"
         },
-        "ontstaanUitZakelijkerechten": {
+        "ontstaanUitZakelijkeRechten": {
           "type": "array",
           "items": {
             "type": "object",
@@ -138,7 +143,7 @@
           "relation": "brk:kadastralesubjecten",
           "description": "Als deze waarde is gevuld, dan is dit recht betrokken bij een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt (VVE)"
         },
-        "betrokkenBijZakelijkerechten": {
+        "betrokkenBijZakelijkeRechten": {
           "type": "array",
           "items": {
             "type": "object",
@@ -176,7 +181,7 @@
           "type": "integer",
           "description": "Is beperkt tot tenaamstelling, dat wil zeggen is beperkt tot een subject"
         },
-        "rustOpKadastraalobject": {
+        "rustOpKadastraalObject": {
           "type": "object",
           "properties": {
             "identificatie": {
@@ -197,27 +202,29 @@
           "relation": "brk:kadastraleobjecten",
           "description": "Het kadastraal object en volgnummer waarop het zakelijk recht rust"
         },
-        "appartementsrechtsplitsingidentificatie": {
+        "appartementsrechtsplitsingIdentificatie": {
           "type": "string",
           "description": "De identificatie van de appartementsrechtsplitsing"
         },
-        "vve_identificatie_ontstaan_uit": {
+        "vveIdentificatieOntstaanUit": {
           "type": "string",
           "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waaruit het zakelijk recht ontstaan is"
         },  
-        "vve_identificatie_betrokken_bij": {
+        "vveIdentificatieBetrokkenBij": {
           "type": "string",
           "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waarbij het zakelijk recht betrokken is"
         }, 
-        "appartementsrechtsplitsingtypeCode": {
-          "type": "string",
-          "provenance": "$.appartementsrechtsplitsingtype.code",
-          "description": "Het type appartementsrechtsplitsing. De mogelijke waarden zijn: hoofdsplitsing of ondersplitsing of splitsing afkoop erfpacht. code"
-        },
-        "appartementsrechtsplitsingtypeOmschrijving": {
-          "type": "string",
-          "provenance": "$.appartementsrechtsplitsingtype.omschrijving",
-          "description": "Het type appartementsrechtsplitsing. De mogelijke waarden zijn: hoofdsplitsing of ondersplitsing of splitsing afkoop erfpacht. omschrijving"
+        "appartementsrechtsplitsingType": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "omschrijving": {
+                "type": "string"
+              }
+            }, 
+            "description": "Het type appartementsrechtsplitsing. De mogelijke waarden zijn: hoofdsplitsing of ondersplitsing of splitsing afkoop erfpacht."
         },
         "einddatumAppartementsrechtsplitsing": {
           "type": "string",
@@ -227,27 +234,29 @@
           "type": "string",
           "description": "Indicatie van de actualiteit van de appartementsrechtsplitsing."
         },
-        "isbestemdtot_identificatie": {
+        "isBestemdTotIdentificatie": {
           "type": "string",
           "description": "De relatie naar het nieuwe objecttype Mandeligheid."
         },
-        "toelichting_bewaarder": {
+        "toelichtingBewaarder": {
           "type": "string",
           "description": "Toelichtende tekst van de bewaarder bij het zakelijk recht. Een Toelichting Bewaarder wordt opgevoerd wanneer een toelichting bij gegevens in de registratie noodzakelijk is."
         },
-        "inonderzoek": {
+        "inOnderzoek": {
           "type": "string",
           "description": "Als dit veld is gevuld geeft dit de omschrijving waarom dit gegeven in onderzoek staat (art. 7n en 7r Kadasterwet)."
         },
-        "aardZakelijkRechtCode": {
-          "type": "string",
-          "provenance": "$.aardZakelijkRecht.code",
-          "description": "De aard van het zakelijk recht code."
-        },
-        "aardZakelijkRechtOmschrijving": {
-          "type": "string",
-          "provenance": "$.aardZakelijkRecht.omschrijving",
-          "description": "De aard van het zakelijk recht omschrijving."
+        "aardZakelijkRecht": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "omschrijving": {
+                "type": "string"
+              }
+            }, 
+            "description": "De aard van het zakelijk recht."
         },
         "akrAardZakelijkRecht": {
           "type": "string",
