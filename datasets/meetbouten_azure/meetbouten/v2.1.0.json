@@ -51,12 +51,17 @@
         "format": "date-time",
         "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       },
-      "merkCode": {
-        "type": "string",
+      "merk": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
         "description": "Merk van het referentiepunt"
-      },
-      "merkOmschrijving": {
-        "type": "string"
       },
       "xCoordinaatMuurvlak": {
         "type": "number",
