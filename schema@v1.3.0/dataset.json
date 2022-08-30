@@ -8,6 +8,7 @@
     }
   ],
   "required": [
+    "tables",
     "status",
     "creator",
     "authorizationGrantor",
@@ -113,11 +114,9 @@
       "description": "Coordinate reference system",
       "$ref": "./schema@v1.3.0#/definitions/crs"
     },
-    "objectstore": {
-      "$ref": "./objectstore@v1.3.0"
-    },
     "tables": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "oneOf": [
           {
