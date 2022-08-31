@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.data.amsterdam.nl/publisher@v1.3.0",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "./schema@v1.3.0#/definitions/basicProperties"
+    }
+  ],
+  "required": [
+    "name",
+    "id",
+    "loggroup",
+    "costcenter"
+  ],
+  "properties": {
+    "schema": {
+      "const": "publisher"
+    },
+    "name": {
+      "description": "Naam van de publisher.",
+      "type": "string",
+      "minLength": 1
+    },
+    "id": {
+      "description": "ID van de publisher.",
+      "type": "string",
+      "minLength": 1,
+      "pattern": "[A-Za-z]"
+    },
+    "loggroup": {
+      "description": "audit log group van de publisher.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 12,
+      "pattern": "[a-z]"
+    },
+    "costcenter": {
+      "description": "Costcenter van de publisher.",
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

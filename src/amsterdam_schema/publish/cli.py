@@ -29,7 +29,7 @@ from swiftclient.service import SwiftService, SwiftUploadObject
 logger = logging.getLogger("__name__")
 
 
-SCHEMA_PREFIXES = ("datasets", "schema@")
+SCHEMA_PREFIXES = ("datasets", "schema@", "publishers")
 DEFAULT_BASE_URL = "https://schemas.data.amsterdam.nl"
 SCHEMAS_SA_NAME = os.getenv("SCHEMAS_SA_NAME", "devschemassa")
 
