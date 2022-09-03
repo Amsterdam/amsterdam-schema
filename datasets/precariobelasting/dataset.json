@@ -3,228 +3,47 @@
   "id": "precariobelasting",
   "title": "Precariobelasting",
   "status": "beschikbaar",
+  "theme": [
+	"Belasting",
+  "Ruimte en Topografie",
+  "Algemene Plaatselijke Verordening"
+  ],
   "description": "Precariobelasting voor terrassen, bedrijfsvaartuigen, passagiersvaartuigen en woonboten per belastinggebied, per jaar en per m2",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
-  "creator": "bronhouder onbekend",
-  "publisher": "Datateam Generiek",
+  "creator": "vergunningverlening",
   "auth": "OPENBAAR",
-  "authorizationGrantor": "n.v.t.",
+  "authorizationGrantor": "datateamgeneriek@amsterdam.nl",
+  "publisher": "Datateam Generiek",
+  "additionalProperties": false,
   "tables": [
     {
-      "id": "terrassen",
-      "title": "Precariobelasting terrassen per belastinggebied, per jaar, seizoen en per m2",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "gebied",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json"
-          },
-          "categorie": {
-            "type": "string",
-            "enum": [
-              "Terrassen"
-            ]
-          },
-          "jaar": {
-            "type": "number",
-            "title": "Jaar van publicatie"
-          },
-          "stadsdeel": {
-            "type": "string",
-            "description": "Stadsdeel waarop tarieven van toepassing zijn"
-          },
-          "gebied": {
-            "type": "string",
-            "description": "Precariobelastinggebied"
-          },
-          "tariefOverdektTerrasPerJaarPerM2": {
-            "type": "string",
-            "unit": "{EUR}/a/m2",
-            "title": "Tarief",
-            "description": "Tarief in Euro per jaar per vierkante meter oppervlakte terrass",
-            "provenance": "overdekt_terras_per_jaar"
-          },
-          "tariefOnoverdektTerrasPerZomerseizoenPerM2": {
-            "type": "string",
-            "unit": "{EUR}/a/m2",
-            "title": "Tarief",
-            "description": "Tarief in Euro per jaar per vierkante meter oppervlakte terrass",
-            "provenance": "onoverdekt_terras_per_zomerseizoen"
-          },
-          "tariefOnoverdektTerrasPerWinterseizoenPerM2": {
-            "type": "string",
-            "unit": "{EUR}/a/m2",
-            "title": "Tarief",
-            "description": "Tarief in Euro per jaar per vierkante meter oppervlakte terrass",
-            "provenance": "onoverdekt_terras_per_winterseizoen"
-          }
-        }
-      }
-    },
-    {
       "id": "bedrijfsvaartuigen",
-      "title": "Precariobelasting bedrijfsvaartuigen per belastinggebied, per jaar en per m2",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "gebied",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json"
-          },
-          "categorie": {
-            "type": "string",
-            "enum": [
-              "Bedrijfsvaartuig en stationerende vaartuigen (tarief exclusief omzetbelasting)"
-            ]
-          },
-          "jaar": {
-            "type": "number",
-            "title": "Jaar van publicatie"
-          },
-          "stadsdeel": {
-            "type": "string",
-            "description": "Stadsdeel waarop tarieven van toepassing zijn"
-          },
-          "gebied": {
-            "type": "string",
-            "description": "Precariobelastinggebied"
-          },
-          "tariefPerJaarPerM2": {
-            "type": "string",
-            "unit": "{EUR}/a/m2",
-            "title": "Tarief",
-            "description": "Tarief in Euro per jaar per vierkante meter oppervlakte voortuig"
-          }
-        }
+      "$ref": "bedrijfsvaartuigen/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "bedrijfsvaartuigen/v1.0.0"
       }
     },
     {
       "id": "passagiersvaartuigen",
-      "title": "Precariobelasting passagiersvaartuigen per belastinggebied, per jaar en per m2",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "gebied",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json"
-          },
-          "categorie": {
-            "type": "string",
-            "enum": [
-              "Passagiersvaartuigen (tarief exclusief omzetbelasting)"
-            ]
-          },
-          "jaar": {
-            "type": "number",
-            "title": "Jaar van publicatie"
-          },
-          "gebied": {
-            "type": "string",
-            "description": "Precariobelastinggebied"
-          },
-          "tariefPerJaarPerM2": {
-            "type": "string",
-            "unit": "{EUR}/a/m2",
-            "title": "Tarief",
-            "description": "Tarief in Euro per jaar per vierkante meter oppervlakte voortuig"
-          }
-        }
+      "$ref": "passagiersvaartuigen/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "passagiersvaartuigen/v1.0.0"
+      }
+    },
+    {
+      "id": "terrassen",
+      "$ref": "terrassen/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "terrassen/v1.0.0"
       }
     },
     {
       "id": "woonschepen",
-      "title": "Precariobelasting woonschepen per belastinggebied, per jaar en per m2",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "gebied",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json"
-          },
-          "categorie": {
-            "type": "string",
-            "enum": [
-              "Woonschepen, vlotten en aanhorigheden"
-            ]
-          },
-          "jaar": {
-            "type": "number",
-            "title": "Jaar van publicatie"
-          },
-          "stadsdeel": {
-            "type": "string",
-            "description": "Stadsdeel waarop tarieven van toepassing zijn"
-          },
-          "gebied": {
-            "type": "string",
-            "description": "Precariobelastinggebied"
-          },
-          "tariefPerJaarPerM2": {
-            "type": "string",
-            "unit": "{EUR}/a/m2",
-            "title": "Tarief",
-            "description": "Tarief in Euro per jaar per vierkante meter oppervlakte voortuig"
-          }
-        }
+      "$ref": "woonschepen/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "woonschepen/v1.0.0"
       }
     }
   ]
