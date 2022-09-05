@@ -1,0 +1,70 @@
+{
+  "id": "terrassen",
+  "title": "Precariobelasting terrassen per belastinggebied, per jaar, seizoen en per m2",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "gebied",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke technische identificatie van het data record."
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Polygoon definitie van het belastinggebied."
+      },
+      "categorie": {
+        "type": "string",
+        "description": "Functionele categorienaam van het percariobelastinggebied.",
+        "enum": [
+          "Terrassen"
+        ]
+      },
+      "jaar": {
+        "type": "number",
+        "description": "Jaar van publicatie",
+        "title": "Jaar van publicatie"
+      },
+      "stadsdeel": {
+        "type": "string",
+        "description": "Stadsdeel waarop tarieven van toepassing zijn"
+      },
+      "gebied": {
+        "type": "string",
+        "description": "Precariobelastinggebied"
+      },
+      "tariefOverdektTerrasPerJaarPerM2": {
+        "type": "string",
+        "unit": "{EUR}/a/m2",
+        "title": "Tarief",
+        "description": "Tarief in Euro per jaar per vierkante meter oppervlakte terrass",
+        "provenance": "overdekt_terras_per_jaar"
+      },
+      "tariefOnoverdektTerrasPerZomerseizoenPerM2": {
+        "type": "string",
+        "unit": "{EUR}/a/m2",
+        "title": "Tarief",
+        "description": "Tarief in Euro per jaar per vierkante meter oppervlakte terrass",
+        "provenance": "onoverdekt_terras_per_zomerseizoen"
+      },
+      "tariefOnoverdektTerrasPerWinterseizoenPerM2": {
+        "type": "string",
+        "unit": "{EUR}/a/m2",
+        "title": "Tarief",
+        "description": "Tarief in Euro per jaar per vierkante meter oppervlakte terrass",
+        "provenance": "onoverdekt_terras_per_winterseizoen"
+      }
+    }
+  }
+}
