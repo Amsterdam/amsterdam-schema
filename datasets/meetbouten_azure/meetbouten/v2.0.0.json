@@ -29,12 +29,17 @@
         "type": "string",
         "description": "Beschrijving van de locatie van de meetbout, bijvoorbeeld 'in gemeenschappelijke muur'"
       },
-      "statusCode": {
-        "type": "integer",
+      "status": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
         "description": "Status van de meetbout (1=actueel, 2=niet te meten, 3=vervallen)"
-      },
-      "statusOmschrijving": {
-        "type": "string"
       },
       "vervaldatum": {
         "type": "string",
@@ -46,12 +51,17 @@
         "format": "date-time",
         "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       },
-      "merkCode": {
-        "type": "string",
+      "merk": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
         "description": "Merk van het referentiepunt"
-      },
-      "merkOmschrijving": {
-        "type": "string"
       },
       "xCoordinaatMuurvlak": {
         "type": "number",
