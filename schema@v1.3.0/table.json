@@ -2,26 +2,6 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.data.amsterdam.nl/table@v1.3.0",
   "type": "object",
-  "temporal": {
-    "type": "object",
-    "required": [
-      "identifier",
-      "dimensions"
-    ],
-    "identifier": "string",
-    "unit": "string",
-    "dimensions": {
-      "type": "object",
-      "geldigOp": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "minItems": 2,
-        "maxItems": 2
-      }
-    }
-  },
   "allOf": [
     {
       "$ref": "./schema@v1.3.0#/definitions/basicProperties"
@@ -35,12 +15,41 @@
     "type": {
       "const": "table"
     },
+    "dataclass": {
+      "type": "string",
+      "default": "structured",
+      "enum": [
+        "structured",
+        "blob",
+        "event"
+      ]
+    },
     "shortname": {
       "type": "string"
     },
     "crs": {
       "description": "Coordinate reference system",
       "$ref": "./schema@v1.3.0#/definitions/crs"
+    },
+    "temporal": {
+      "type": "object",
+      "required": [
+        "identifier",
+        "dimensions"
+      ],
+      "identifier": "string",
+      "unit": "string",
+      "dimensions": {
+        "type": "object",
+        "geldigOp": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
     },
     "schema": {
       "oneOf": [

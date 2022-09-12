@@ -4,23 +4,27 @@
   "version": "0.0.1",
   "status": "beschikbaar",
   "auth": "FP/MDW",
+  "reasonsNonPublic": [
+    "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+  ],
   "title": "stand van de gegevens over bedrijven / vestigingen",
   "description": "stand op \u00e9\u00e9n bepaalde peildatum van gegevens in het domein van bedrijvigheid",
   "owner": "Gemeente Amsterdam",
   "authorizationGrantor": "Onderzoek en Statistiek",
-  "creator": "bronhouder onbekend",
+  "creator": "Onderzoek & Statistiek",
   "publisher": "Datateam Basisstatistiek",
   "crs": "EPSG:28992",
   "tables": [
     {
       "id": "vestigingen",
       "type": "table",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "description": "Alle vestigingen met hun kenmerken en gebiedsindeling",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "mainGeometry": "geometrie",
         "identifier": [
           "id"
         ],
@@ -394,6 +398,43 @@
             "title": "horecaOmschrijving",
             "description": "Omschrijving van de bedrijfssector van de horeca waarin de vestiging actief is"
           },
+          "winkelgebiedCode": {
+            "type": "integer",
+            "title": "winkelgebiedCode",
+            "description": "Naam van het winkelgebied vastgesteld door Economische Zaken en Onderzoek & Statistiek"
+          },
+          "winkelgebiedNaam": {
+            "type": "string",
+            "title": "winkelgebiedNaam",
+            "description": "Naam van het winkelgebied vastgesteld door Economische Zaken en Onderzoek & Statistiek"
+          },
+          "bedrijventerreinCode": {
+            "type": "integer",
+            "title": "bedrijventerreinCode",
+            "description": "Unieke sleutel van het bedrijventerrein vastgesteld door Economische Zaken en Onderzoek & Statistiek"
+          },
+          "bedrijventerreinNaam": {
+            "type": "string",
+            "title": "bedrijventerreinNaam",
+            "description": "Naam van het bedrijventerrein vastgesteld door Economische Zaken en Onderzoek & Statistiek"
+          },
+          "indicatieStarter": {
+            "type": "boolean",
+            "title": "indicatieStarter",
+            "shortname": "indStarter",
+            "description": "Indicatie of betreffende vestiging is gestart ná de peildatum van de vorige stand"
+          },
+          "indicatieZzp": {
+            "type": "boolean",
+            "title": "indicatieZzp",
+            "shortname": "indZzp",
+            "description": "Indicatie of betreffende vestiging een zelfstandige zonder personeel (zzp'er) betreft"
+          },
+          "indicatiePlint": {
+            "type": "boolean",
+            "title": "indicatiePlint",
+            "description": "Indicatie of vestiging in de plint van het pand is gevestigd"
+          },
           "nummeraanduidingIdentificatie": {
             "type": "string",
             "title": "nummeraanduidingIdentificatie",
@@ -561,8 +602,7 @@
             "description": "Peildatum van de vorige stand"
           }
         }
-      },
-      "mainGeometry": "geometrie"
+      }
     }
   ]
 }

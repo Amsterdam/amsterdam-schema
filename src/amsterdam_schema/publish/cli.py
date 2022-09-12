@@ -29,7 +29,7 @@ from swiftclient.service import SwiftService, SwiftUploadObject
 logger = logging.getLogger("__name__")
 
 
-SCHEMA_PREFIXES = ("datasets", "schema@")
+SCHEMA_PREFIXES = ("datasets", "schema@", "publishers")
 DEFAULT_BASE_URL = "https://schemas.data.amsterdam.nl"
 SCHEMAS_SA_NAME = os.getenv("SCHEMAS_SA_NAME", "devschemassa")
 
@@ -199,7 +199,14 @@ def swift_uploader(
     index_file_obj: BytesIO,
 ) -> None:
     """Upload files to the Swift objectstore."""
-    with SwiftService() as swift:
+    # tmp options to workaround objectstore unavailability (2022-08-17)
+    opts = {
+        "segment_threads": 1,
+        "object_dd_threads": 1,
+        "object_uu_threads": 1,
+        "container_threads": 1,
+    }
+    with SwiftService(opts) as swift:
 
         # Delete old objects in datasets
         deletes = swift.delete(container, options={"prefix": "datasets"})
