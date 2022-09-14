@@ -33,15 +33,17 @@
 			"format": "date-time",
 			"description": "Een einddatum op een zakelijk recht (via tenaamstelling) wordt nu in een apart attribuut geleverd.Voorheen werd dit geleverd in het attribuut einddatum. Tenaamstellingen van een eindig recht worden niet automatisch beëindigd. Wel krijgt zo’n tenaamstelling de aantekening dat het recht eindig is en op een bepaalde datum zal eindigen of geëindigd is."
 		  },
-		"aardCode": {
-		  "type": "string",
-		  "provenance": "$.aard.code",
-		  "description": "De aard van de aantekening. code"
+		"aard":{
+		"type": "object",
+		"properties": {
+			"code": {
+			  "type": "string"
+			},
+			"omschrijving": {
+				"type": "string"
+			}
 		},
-		"aardOmschrijving": {
-		  "type": "string",
-		  "provenance": "$.aard.omschrijving",
-		  "description": "De aard van de aantekening. omschrijving"
+		"description": "De aard van de aantekening."  
 		},
 		"omschrijving": {
 		  "type": "string",

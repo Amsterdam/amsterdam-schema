@@ -59,15 +59,17 @@
 		  "type": "string",
 		  "description": "Het door het Kadaster toegekende landelijk unieke nummer aan deze aantekening."
 		},
-		"aardCode": {
-		  "type": "string",
-		  "provenance": "$.aard.code",
-		  "description": "De aard van de aantekening code"
-		},
-		"aardOmschrijving": {
-		  "type": "string",
-		  "provenance": "$.aard.omschrijving",
-		  "description": "De aard van de aantekening omschrijving"
+		"aard":{
+			"type": "object",
+			"properties": {
+				"code": {
+				  "type": "string"
+				},
+				"omschrijving": {
+					"type": "string"
+				}
+			},
+			"description": "De aard van de aantekening."  
 		},
 		"omschrijving": {
 		  "type": "string",
