@@ -181,6 +181,30 @@
           "type": "integer",
           "description": "Is beperkt tot tenaamstelling, dat wil zeggen is beperkt tot een subject"
         },
+        "isBeperktTotBrkTenaamstellingen": {
+			"type": "array",
+			"items": {
+			  "type": "object",
+			  "properties": {
+				"identificatie": {
+				  "type": "string"
+				},
+				"volgnummer": {
+				  "type": "integer"
+				},
+				"beginGeldigheid": {
+				  "type": "string",
+				  "format": "date-time"
+				},
+				"eindGeldigheid": {
+				  "type": "string",
+				  "format": "date-time"
+				}
+			  }
+			},
+			"relation": "brk:tenaamstellingen",
+			"description": "Is beperkt tot tenaamstelling, dat wil zeggen is beperkt tot een subject. Het gaat hier om een Zakelijk Recht dat één of meer (maar niet alle) tenaamstellingen van een ander Zakelijk Recht belast."
+		  },
         "rustOpBrkKadastraalObject": {
           "type": "object",
           "properties": {
