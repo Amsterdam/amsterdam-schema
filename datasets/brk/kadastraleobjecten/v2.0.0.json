@@ -54,11 +54,11 @@
         "aangeduidDoorGemeente": {
           "type": "object",
           "properties": {
-            "identificatie": {
+            "code": {
               "type": "string"
             },
-            "volgnummer": {
-              "type": "integer"
+            "omschrijving": {
+              "type": "string"
             }
           },
           "relation": "brk:gemeentes",
@@ -67,9 +67,12 @@
         "aangeduidDoorKadastralegemeente": {
           "type": "object",
           "properties": {
-            "identificatie": {
-              "type": "string"
-            }
+            "code": {
+				"type": "string"
+			  },
+			  "omschrijving": {
+				"type": "string"
+			  }
           },
           "relation": "brk:kadastralegemeentes",
           "description": "De kadastrale gemeente, het eerste gedeelte van de aanduiding van een kadastraal object."
@@ -77,21 +80,19 @@
         "aangeduidDoorKadastralegemeentecode": {
           "type": "object",
           "properties": {
-            "identificatie": {
-              "type": "string"
-            }
+            "code": {
+				"type": "string"
+			  },
+			  "omschrijving": {
+				"type": "string"
+			  }
           },
           "relation": "brk:kadastralegemeentecodes",
           "description": "De kadastrale gemeentecode. Het eerste deel van de kadastrale aanduiding. Bijvoorbeeld: ASD01, STN02"
         },
         "aangeduidDoorKadastralesectie": {
-          "type": "object",
-          "properties": {
-            "identificatie": {
-              "type": "string"
-            }
-          },
-          "relation": "brk:kadastralesecties",
+          "type": "string",
+		  "relation": "brk:kadastralesecties",
           "description": "De kadastrale sectie, het tweede gedeelte van de aanduiding van een kadastraal object."
         },
         "perceelnummer": {
@@ -106,48 +107,46 @@
           "type": "integer",
           "description": "Volgnummer van het Appartementsrecht"
         },
-        "gemeente": {
-          "type": "string",
-          "description": "De burgerlijke gemeente. (duplicaat aangeduidDoorGemeente)"
-        },
-        "soortGrootteCode": {
-          "type": "string",
-          "provenance": "$.soortGrootte.code",
-          "description": "Aanduiding van soort grootte code"
-        },
-        "soortGrootteOmschrijving": {
-          "type": "string",
-          "provenance": "$.soortGrootte.omschrijving",
-          "description": "Aanduiding van soort grootte omschrijving"
-        },
-        "grootte": {
-          "type": "number",
-          "description": "De grootte van een kadastraal object is de oppervlakte van het kadastrale perceel. Dit kan bij een deelperceel een geschatte grootte zijn."
-        },
-        "soortCultuurOnbebouwdCode": {
-          "auth": "BRK/RO",
-          "type": "string",
-          "provenance": "$.soortCultuurOnbebouwd.code",
-          "description": "De soort cultuur onbebouwd is een aanduiding voor de aard van de meest significante cultuur van het onbebouwde deel van het kadastraal object, weergegeven als \u2018omschrijving kadastraal object\u2019 in Mijn.kadaster.nl Dit kenmerk is in beginsel afgeleid van de notari\u00eble akte, maar kan worden bijgesteld op grond van een verzoek van de eigenaar (of een schriftelijk gevolmachtigde namens de eigenaar)per brief, fax of e-mailbericht. Dit kan afwijken van: het feitelijk gebruik in de WOZ; gebruiksdoel in de BAG; SBI-code in het HR. code"
-        },
-        "soortCultuurOnbebouwdOmschrijving": {
-          "auth": "BRK/RO",
-          "type": "string",
-          "provenance": "$.soortCultuurOnbebouwd.omschrijving",
-          "description": "De soort cultuur onbebouwd is een aanduiding voor de aard van de meest significante cultuur van het onbebouwde deel van het kadastraal object, weergegeven als \u2018omschrijving kadastraal object\u2019 in Mijn.kadaster.nl Dit kenmerk is in beginsel afgeleid van de notari\u00eble akte, maar kan worden bijgesteld op grond van een verzoek van de eigenaar (of een schriftelijk gevolmachtigde namens de eigenaar)per brief, fax of e-mailbericht. Dit kan afwijken van: het feitelijk gebruik in de WOZ; gebruiksdoel in de BAG; SBI-code in het HR. omschrijving"
-        },
-        "soortCultuurBebouwdCode": {
-            "auth": "BRK/RO",
-            "type": "string",
-            "provenance": "$.soortCultuurBebouwd.code",
-            "description": "De soort cultuur bebouwd van een bebouwd kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl (Kadaster-on-line; KOL). Dit kenmerk is afgeleid van wat degene die een notariële akte laat inschrijven, heeft verklaard (artikel 87, eerste lid, onder a, van de Kadasterregeling 1994). Dit kan afwijken van:soort objectcode in de WOZ;gebruiksdoel in de BAG;SBI-code in het HR"
-        },
-        "soortCultuurBebouwdOmschrijving": {
-            "auth": "BRK/RO",
-            "type": "string",
-            "provenance": "$.soortCultuurBebouwd.omschrijving",
-            "description": "De soort cultuur bebouwd van een bebouwd kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl (Kadaster-on-line; KOL). Dit kenmerk is afgeleid van wat degene die een notariële akte laat inschrijven, heeft verklaard (artikel 87, eerste lid, onder a, van de Kadasterregeling 1994). Dit kan afwijken van:soort objectcode in de WOZ;gebruiksdoel in de BAG;SBI-code in het HR"
-        },
+        "soortGrootte": {		
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"omschrijving": {
+				"type": "string"
+				}
+			},
+			"description": "Aanduiding van soort grootte"
+		},
+		"grootte": {
+			"type": "number",
+			"description": "De grootte van een kadastraal object is de oppervlakte van het kadastrale perceel. Dit kan bij een deelperceel een geschatte grootte zijn."
+		},
+		"soortCultuurOnbebouwd": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"omschrijving": {
+				"type": "string"
+				}
+			},
+			"description": "De soort cultuur onbebouwd is een aanduiding voor de aard van de meest significante cultuur van het onbebouwde deel van het kadastraal object, weergegeven als \u2018omschrijving kadastraal object\u2019 in Mijn.kadaster.nl Dit kenmerk is in beginsel afgeleid van de notari\u00eble akte, maar kan worden bijgesteld op grond van een verzoek van de eigenaar (of een schriftelijk gevolmachtigde namens de eigenaar)per brief, fax of e-mailbericht. Dit kan afwijken van: het feitelijk gebruik in de WOZ; gebruiksdoel in de BAG; SBI-code in het HR. code"
+		},
+		"soortCultuurBebouwd": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"omschrijving": {
+				"type": "string"
+				}
+			},
+			"description": "De soort cultuur bebouwd van een bebouwd kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl (Kadaster-on-line; KOL). Dit kenmerk is afgeleid van wat degene die een notariële akte laat inschrijven, heeft verklaard (artikel 87, eerste lid, onder a, van de Kadasterregeling 1994). Dit kan afwijken van:soort objectcode in de WOZ;gebruiksdoel in de BAG;SBI-code in het HR"
+		},
         "status": {
           "type": "string",
           "description": "Status van het Kadastraal Object ('B' is bestaand)"
@@ -192,7 +191,7 @@
         },
         "plaatscoordinaten": {
           "$ref": "https://geojson.org/schema/Geometry.json",
-          "description": "De aanduiding van een kaartpunt voor de weergave van de identificatie van een perceel (centro\u00efde)"
+          "description": "De aanduiding van een kaartpunt voor de weergave van de identificatie van een perceel (centroiede)"
         },
         "perceelnummerRotatie": {
           "type": "number",
@@ -201,12 +200,12 @@
         "perceelnummerVerschuivingX": {
           "type": "string",
           "provenance": "$.perceelnummerVerschuiving.x",
-          "description": "Co\u00f6rdinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden x"
+          "description": "Coordinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden x"
         },
         "perceelnummerVerschuivingY": {
           "type": "string",
           "provenance": "$.perceelnummerVerschuiving.y",
-          "description": "Co\u00f6rdinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden y"
+          "description": "Coordinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden y"
         },
         "bijpijlingGeometrie": {
           "$ref": "https://geojson.org/schema/Geometry.json",
@@ -277,7 +276,7 @@
             }
           },
           "relation": "brk:kadastraleobjecten",
-          "description": "Dit veld is all\u00e9\u00e9n gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
+          "description": "Dit veld is alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
         },
         "heeftEenRelatieMetVerblijfsobject": {
           "shortname": "hftRelMtVot",
