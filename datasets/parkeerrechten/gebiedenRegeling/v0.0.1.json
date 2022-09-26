@@ -1,0 +1,57 @@
+    {
+      "id": "gebiedenRegeling",
+      "type": "table",
+      "version": "0.0.1",
+	  "provenance": "Extractie van RDW, van alle condities die gelden wanneer iemand een recht voor een bepaald gebied verwerft: 'https://opendata.rdw.nl/resource/yefi-qfiq.json'",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "identifier": "verkooppuntNummer",
+        "required": [
+          "schema",
+          "regelingId"
+        ],
+        "display": "regelingId",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "gebiedsbeheerderId": {
+            "type": "integer",
+			"provenance": "areamanagerid",
+			"description": "Identificatiecode van de gebiedsbeheerder of parkeerexploitant (typisch 363 voor Amsterdam en 457 voor Weesp)."
+          },
+          "regelingId": {
+            "type": "string",
+			"provenance": "regulationid",
+			"description": "Identificatiecode van het gebied waarbinnen een bepaalde regeling geldt."
+          },
+          "regelingOmschrijving": {
+            "type": "string",
+			"provenance": "regulationdesc",
+			"description": "Omschrijving van de regeling."
+          },
+          "beginDatumGebiedsbeheerderId": {
+            "type": "integer",
+			"provenance": "startdateregulation",
+			"description": "Datum vanaf wanneer een gebied- of verblijfsregeling van kracht is."
+          },
+          "eindDatumGebiedsbeheerderId": {
+            "type": "integer",
+			"provenance": "enddateregulation",
+			"description": "Datum tot wanneer een gebied- of verblijfsregeling van kracht is."
+          },
+          "maximumTarief": {
+            "type": "string",
+			"provenance": "maximumdaycharge",
+			"description": "Het maximale tarief, incl. BTW, dat voor een recht in een gebied dat valt onder de betreffende regeling verschuldigd is (in euro)."
+          },
+          "regelingType": {
+            "type": "string",
+			"provenance": "regulationtype",
+			"description": "Code die aangeeft wat voor soort gebied- of verblijfsregeling van toepassing is bij een bepaalde regeling. B: Basisregeling; A: Aanvullende regeling."
+          }
+        }
+      }
+    }
+
