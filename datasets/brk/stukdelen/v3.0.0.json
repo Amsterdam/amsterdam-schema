@@ -148,7 +148,15 @@
 		  "description": "Het tijdstip waarop een ter inschrijving aangeboden stuk is ontvangen met inachtneming van de openingstijden en -dagen van het Kadaster. Als tijdstip van inschrijving geldt het tijdstip van aanbieding van de voor de inschrijving vereiste stukken."
 		},
 		"reeks": {
-		  "type": "string",
+			"type": "object",
+			"properties": {
+				"code": {
+				"type": "string"
+				},
+				"omschrijving": {
+				"type": "string"
+				}
+			}, 
 		  "description": "Verwijzing naar de oorspronkelijke (mogelijk tussentijds vervallen) Kadastervestiging waar het stuk oorspronkelijk is ingeschreven."
 		},
 		"volgnummerStuk": {
