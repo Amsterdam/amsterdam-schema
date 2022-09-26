@@ -1,0 +1,57 @@
+    {
+      "id": "verkooppuntenOmschrijving",
+      "type": "table",
+      "version": "0.0.1",
+	  "provenance": "Extractie van geografische data van verkooppunten van RDW 'https://opendata.rdw.nl/Parkeren/Open-Data-Parkeren-GEO-VERKOOPPUNT/cgqw-pfbp.json'",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "identifier": "verkooppuntNummer",
+        "required": [
+          "schema",
+          "verkooppuntNummer"
+        ],
+        "display": "verkooppuntNummer",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "verkooppuntNummer": {
+            "type": "integer",
+			"provenance": "SellingPointNumber",
+			"description": "Unieke identificatie van een verkooppunt."
+          },
+          "verkooppuntId": {
+            "type": "integer",
+			"provenance": "SellingPointId",
+			"description": "Niet-unieke identificatie van een verkooppunt, zoals afgesproken tussen providers. De code is numeriek (ivm gegevensinvoer telefoon). De nummers zijn maximaal 6-cijferig (vb 9312, 13199), maar kunnen in de toekomst langer worden. Het behoeven niet altijd parkeerautomaat-identificaties te zijn: ook losse nummers op bebording komen voor. De nummers zijn niet uniek: eenzelfde verkooppuntId kan op meer automaten of borden zijn weergegeven, die dan een verkooppuntgroep vormen."
+          },
+          "gebiedsbeheerderId": {
+            "type": "integer",
+			"provenance": "areamanagerid",
+			"description": "Identificatiecode van de gebiedsbeheerder of parkeerexploitant (typisch 363 voor Amsterdam en 457 voor Weesp)."
+          },
+          "gebiedCode": {
+            "type": "string",
+			"provenance": "areaid",
+			"description": "Identificatiecode van een parkeergebied of - faciliteit."
+          },
+          "verkooppuntOmschrijving": {
+            "type": "string",
+			"provenance": "sellingpointdesc",
+			"description": "Omschrijving van een verkooppunt."
+          },
+          "beginDatumVerkooppunt": {
+            "type": "integer",
+			"provenance": "startdatesellingpoint",
+			"description": "Datum vanaf wanneer een bepaald verkooppunt actief is."
+          },
+          "eindDatumVerkooppunt": {
+            "type": "integer",
+			"provenance": "enddatesellingpoint",
+			"description": "Datum waarop een bepaald verkooppunt niet meer actief is. Gelijk aan 29991231 wanneer verkooppunt momenteel nog actief is."
+          }
+        }
+      }
+    }
+
