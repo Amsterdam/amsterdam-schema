@@ -200,26 +200,28 @@
           "relation": "brk:zakelijkerechten",
           "description": "Het Zakelijk recht waarover deze tenaamstelling gaat."
         },
-        "isGebaseerdOpBrkStukdeel": {
-          "type": "object",
-          "properties": {
-            "identificatie": {
-              "type": "string"
-            },
-            "volgnummer": {
-              "type": "integer"
-            },
-            "beginGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "eindGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "relation": "brk:stukdelen",
-          "description": "Het Stukdeel waar deze tenaamstelling op gebaseerd is."
+        "isGebaseerdOpBrkStukdelen": {
+			"type": "array",
+			"items": {
+				"type": "object",
+          		"properties": {
+            		"identificatie": {
+					"type": "string"
+					},
+            		"volgnummer": {
+              		"type": "integer"
+            		},
+            		"beginGeldigheid": {
+              		"type": "string",
+              		"format": "date-time"
+            		},
+            		"eindGeldigheid": {
+              		"type": "string",
+              		"format": "date-time"
+            		}
+          		},
+          		"relation": "brk:stukdelen",
+          		"description": "De Stukdelen waar deze tenaamstelling op gebaseerd is."
         },
         "toestandsdatum": {
           "type": "string",
