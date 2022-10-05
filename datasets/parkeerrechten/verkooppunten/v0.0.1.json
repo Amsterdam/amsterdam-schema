@@ -1,8 +1,8 @@
     {
-      "id": "verkooppuntenOmschrijving",
+      "id": "verkooppunten",
       "type": "table",
       "version": "0.0.1",
-	  "provenance": "Extractie van RDW, van geografische data van verkooppunten: 'https://opendata.rdw.nl/resource/fk68-nf2y.json'",
+	  "provenance": "Extractie van RDW, van geografische data van verkooppunten: 'https://opendata.rdw.nl/resource/fk68-nf2y.json' en 'https://opendata.rdw.nl/resource/cgqw-pfbp.json'",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -26,6 +26,31 @@
 			"provenance": "SellingPointId",
 			"description": "Niet-unieke identificatie van een verkooppunt, zoals afgesproken tussen providers. De code is numeriek (ivm gegevensinvoer telefoon). De nummers zijn maximaal 6-cijferig (vb 9312, 13199), maar kunnen in de toekomst langer worden. Het behoeven niet altijd parkeerautomaat-identificaties te zijn: ook losse nummers op bebording komen voor. De nummers zijn niet uniek: eenzelfde verkooppuntId kan op meer automaten of borden zijn weergegeven, die dan een verkooppuntgroep vormen."
           },
+          "verkooppuntOmschrijving": {
+            "type": "string",
+			"provenance": "sellingpointdesc",
+			"description": "Omschrijving van een verkooppunt."
+          },
+          "beginDatumVerkooppunt": {
+            "type": "integer",
+			"provenance": "startdatesellingpoint",
+			"description": "Datum vanaf wanneer een bepaald verkooppuntId actief is."
+          },
+          "eindDatumVerkooppunt": {
+            "type": "integer",
+			"provenance": "enddatesellingpoint",
+			"description": "Datum waarop een bepaald verkooppuntNummer niet meer actief is. Gelijk aan 29991231 wanneer verkooppuntNummer momenteel nog actief is."
+          },
+          "versieIngangDatum": {
+            "type": "integer",
+			"provenance": "",
+			"description": "Datum vanaf wanneer een bepaald verkooppuntNummer actief is. Gelijk aan eindDatumVerkooppunt van voorgaande versie van hetzelfde verkooppuntId."
+          },
+          "locatie": {
+            "$ref": "https://geojson.org/schema/Point.json",
+			"provenance": "location",
+			"description": "De coördinaten van een verkooppunt."
+          },
           "gebiedsbeheerderId": {
             "type": "integer",
 			"provenance": "areamanagerid",
@@ -35,21 +60,6 @@
             "type": "string",
 			"provenance": "areaid",
 			"description": "Identificatiecode van een parkeergebied of - faciliteit."
-          },
-          "verkooppuntOmschrijving": {
-            "type": "string",
-			"provenance": "sellingpointdesc",
-			"description": "Omschrijving van een verkooppunt."
-          },
-          "beginDatumVerkooppunt": {
-            "type": "integer",
-			"provenance": "startdatesellingpoint",
-			"description": "Datum vanaf wanneer een bepaald verkooppunt actief is."
-          },
-          "eindDatumVerkooppunt": {
-            "type": "integer",
-			"provenance": "enddatesellingpoint",
-			"description": "Datum waarop een bepaald verkooppunt niet meer actief is. Gelijk aan 29991231 wanneer verkooppunt momenteel nog actief is."
           }
         }
       }
