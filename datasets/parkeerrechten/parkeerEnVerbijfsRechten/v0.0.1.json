@@ -1,5 +1,5 @@
     {
-      "id": "parkeerEnVerbijfsRechten",
+      "id": "parkeerEnVerblijfsrechten",
       "type": "table",
       "version": "0.0.1",
       "mainGeometry": "locatie",
@@ -78,7 +78,7 @@
 			"provenance": "b_tyd_v_recht",
 			"description": "Begintijd - Datum + tijd waarop een parkeer- of verblijfsrecht begint. Deze datum + tijd is in UTC-notatie vastgelegd."
           },
-          "registratieTijd": {
+          "registratieTijdUtc": {
             "type": "string",
             "format": "date-time",
 			"provenance": "reg_tyd_v_recht",
@@ -207,7 +207,7 @@
 		  "tijdVerschilEindeRecht": {
             "type": "number",
 			"provenance": "_eindtijd_indicator",
-			"description": "Tijdverschil beëindigen recht - Tijdsverschil in minuten tussen de eindtijd en de registratie eindtijd van een parkeer- of verblijfsrecht. Bij een tijdverschil van meer dan 2 minuten is een recht te laat afgesloten  (Calculated)"
+			"description": "Tijdverschil beëindigen recht - Tijdsverschil in minuten tussen de eindtijd en de registratie eindtijd van een parkeer- of verblijfsrecht. Bij een tijdverschil van meer dan 2 minuten is een recht te laat afgesloten. (Calculated)"
           },
 		  "tijdVerschilStartRecht": {
             "type": "number",
