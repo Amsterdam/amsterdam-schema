@@ -1,0 +1,48 @@
+{
+  "id": "gebiedsGeodata",
+  "type": "table",
+  "version": "0.0.1",
+  "provenance": "Extractie van RDW, van geografische data van parkeergebieden en -faciliteiten: 'https://opendata.rdw.nl/resource/nsk3-v9n7.json'",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "mainGeometry": "geometrie",
+    "identifier": "gebiedId",
+    "required": [
+      "schema",
+      "gebiedId"
+    ],
+    "display": "gebiedId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "gebiedsbeheerderId": {
+        "type": "integer",
+        "provenance": "areamanagerid",
+        "description": "Identificatiecode van de gebiedsbeheerder of parkeerexploitant (typisch 363 voor Amsterdam en 457 voor Weesp)."
+      },
+      "gebiedId": {
+        "type": "string",
+        "provenance": "areaid",
+        "description": "Identificatiecode van een parkeergebied of - faciliteit."
+      },
+      "beginDatumGebied": {
+        "type": "string",
+        "provenance": "startdatearea",
+        "description": "Datum vanaf wanneer een parkeergebied of -faciliteit geldig is."
+      },
+      "eindDatumGebied": {
+        "type": "string",
+        "provenance": "enddatearea",
+        "description": "Datum waarop een parkeergebied of -faciliteit geldig is. Veld is leeg wanneer gebied momenteel nog actief is."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Polygon.json",
+        "provenance": "areageometryastext",
+        "description": "De geometrie van een gebied."
+      }
+    }
+  }
+}
+
