@@ -29,17 +29,15 @@
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
       },
-      "verkoopPunt": {
-        "verkooppuntNummer": {
-          "type": "string",
-          "provenance": "SellingPointNumber",
-          "description": "Unieke identificatie van een verkooppunt."
-        },
-        "verkooppuntId": {
-          "type": "integer",
-          "provenance": "SellingPointId",
-          "description": "Niet-unieke identificatie van een verkooppunt, zoals afgesproken tussen providers. De code is numeriek (ivm gegevensinvoer telefoon). De nummers zijn maximaal 6-cijferig (vb 9312, 13199), maar kunnen in de toekomst langer worden. Het behoeven niet altijd parkeerautomaat-identificaties te zijn: ook losse nummers op bebording komen voor. De nummers zijn niet uniek: eenzelfde verkooppuntId kan op meer automaten of borden zijn weergegeven, die dan een verkooppuntgroep vormen."
-        }
+      "verkooppuntNummer": {
+        "type": "string",
+        "provenance": "SellingPointNumber",
+        "description": "Unieke identificatie van een verkooppunt."
+      },
+      "verkooppuntId": {
+        "type": "integer",
+        "provenance": "SellingPointId",
+        "description": "Niet-unieke identificatie van een verkooppunt, zoals afgesproken tussen providers. De code is numeriek (ivm gegevensinvoer telefoon). De nummers zijn maximaal 6-cijferig (vb 9312, 13199), maar kunnen in de toekomst langer worden. Het behoeven niet altijd parkeerautomaat-identificaties te zijn: ook losse nummers op bebording komen voor. De nummers zijn niet uniek: eenzelfde verkooppuntId kan op meer automaten of borden zijn weergegeven, die dan een verkooppuntgroep vormen."
       },
       "verkooppuntOmschrijving": {
         "type": "string",
