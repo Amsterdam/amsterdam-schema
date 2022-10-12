@@ -2,13 +2,26 @@
   "id": "verkooppunten",
   "type": "table",
   "version": "0.0.1",
+  "temporal": {
+    "identifier": "verkooppuntNummer",
+    "dimensions": {
+      "geldigOp": [
+        "verkooppuntBeginDatum",
+        "verkooppuntEindDatum"
+      ]
+    }
+  },
   "provenance": "Extractie van RDW, van geografische data van verkooppunten: 'https://opendata.rdw.nl/resource/fk68-nf2y.json' en 'https://opendata.rdw.nl/resource/cgqw-pfbp.json'",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
-    "identifier": "verkooppuntNummer",
+    "identifier": [
+      "verkooppuntId",
+      "verkooppuntNummer"
+    ],
     "required": [
       "schema",
+      "verkooppuntId",
       "verkooppuntNummer"
     ],
     "display": "verkooppuntNummer",
@@ -16,28 +29,32 @@
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
       },
-      "verkooppuntNummer": {
-        "type": "string",
-        "provenance": "SellingPointNumber",
-        "description": "Unieke identificatie van een verkooppunt."
-      },
-      "verkooppuntId": {
-        "type": "integer",
-        "provenance": "SellingPointId",
-        "description": "Niet-unieke identificatie van een verkooppunt, zoals afgesproken tussen providers. De code is numeriek (ivm gegevensinvoer telefoon). De nummers zijn maximaal 6-cijferig (vb 9312, 13199), maar kunnen in de toekomst langer worden. Het behoeven niet altijd parkeerautomaat-identificaties te zijn: ook losse nummers op bebording komen voor. De nummers zijn niet uniek: eenzelfde verkooppuntId kan op meer automaten of borden zijn weergegeven, die dan een verkooppuntgroep vormen."
+      "verkoopPunt": {
+        "verkooppuntNummer": {
+          "type": "string",
+          "provenance": "SellingPointNumber",
+          "description": "Unieke identificatie van een verkooppunt."
+        },
+        "verkooppuntId": {
+          "type": "integer",
+          "provenance": "SellingPointId",
+          "description": "Niet-unieke identificatie van een verkooppunt, zoals afgesproken tussen providers. De code is numeriek (ivm gegevensinvoer telefoon). De nummers zijn maximaal 6-cijferig (vb 9312, 13199), maar kunnen in de toekomst langer worden. Het behoeven niet altijd parkeerautomaat-identificaties te zijn: ook losse nummers op bebording komen voor. De nummers zijn niet uniek: eenzelfde verkooppuntId kan op meer automaten of borden zijn weergegeven, die dan een verkooppuntgroep vormen."
+        }
       },
       "verkooppuntOmschrijving": {
         "type": "string",
         "provenance": "sellingpointdesc",
         "description": "Omschrijving van een verkooppunt."
       },
-      "beginDatumVerkooppunt": {
+      "verkooppuntBeginDatum": {
         "type": "string",
+        "format": "date",
         "provenance": "startdatesellingpoint",
         "description": "Datum vanaf wanneer een bepaald verkooppuntId actief is."
       },
-      "eindDatumVerkooppunt": {
+      "verkooppuntEindDatum": {
         "type": "string",
+        "format": "date",
         "provenance": "enddatesellingpoint",
         "description": "Datum waarop een bepaald verkooppuntNummer niet meer actief is. Gelijk aan 29991231 wanneer verkooppuntNummer momenteel nog actief is."
       },
@@ -58,8 +75,7 @@
       },
       "gebiedsbeheerderId": {
         "type": "integer",
-        "provenance": "areamanagerid",
-        "description": "Identificatiecode van de gebiedsbeheerder of parkeerexploitant (typisch 363 voor Amsterdam en 457 voor Weesp)."
+        "relation": "npr:gebiedsbeheerders"
       },
       "gebiedId": {
         "type": "string",

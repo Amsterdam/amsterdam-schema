@@ -10,9 +10,9 @@
     "required": [
       "schema",
       "regelingId",
-      "weekdagTijdvak",
-      "beginDatumtijdTijdvak",
-      "eindDatumtijdTijdvak"
+      "tijdvakWeekdag",
+      "tijdvakBeginDatumtijd",
+      "tijdvakEindDatumtijd"
     ],
     "display": "regelingId",
     "properties": {
@@ -21,27 +21,26 @@
       },
       "gebiedsbeheerderId": {
         "type": "integer",
-        "provenance": "areamanagerid",
-        "description": "Identificatiecode van de gebiedsbeheerder of parkeerexploitant (typisch 363 voor Amsterdam en 457 voor Weesp)."
+        "relation": "npr:gebiedsbeheerders"
       },
       "regelingId": {
         "type": "string",
         "provenance": "regulationid",
         "description": "Identificatiecode van het gebied waarbinnen een bepaalde regeling geldt."
       },
-      "beginDatumtijdTijdvak": {
+      "tijdvakBeginDatumtijd": {
         "type": "string",
         "format": "date-time",
         "provenance": "startdatetimeframe",
         "description": "Datumtijd vanaf wanneer een tijdvak geldig is."
       },
-      "eindDatumtijdTijdvak": {
+      "tijdvakEindDatumtijd": {
         "type": "string",
         "format": "date-time",
         "provenance": "enddatetimeframe",
         "description": "Datumtijd tot wanneer een tijdvak geldig is."
       },
-      "weekdagTijdvak": {
+      "tijdvakWeekdag": {
         "type": "string",
         "provenance": "daytimeframe",
         "description": "Naam van een bepaalde dag voor een gebiedsbeheerder. Dit zijn de weekdagen maandag tot en met zondag, en de namen van de speciale dagen."

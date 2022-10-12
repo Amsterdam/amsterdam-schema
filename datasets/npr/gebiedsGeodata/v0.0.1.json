@@ -2,14 +2,24 @@
   "id": "gebiedsGeodata",
   "type": "table",
   "version": "0.0.1",
-  "provenance": "Extractie van RDW, van geografische data van parkeergebieden en -faciliteiten: 'https://opendata.rdw.nl/resource/nsk3-v9n7.json'",
+  "temporal": {
+    "identifier": "volgnummer",
+    "dimensions": {
+      "geldigOp": [
+        "gebiedBeginDatum",
+        "gebiedEindDatum"
+      ]
+    }
+  },
+  "provenance": "Extractie van RDW, van geografische data van parkeergebieden en -faciliteiten: 'https://opendata.rdw.nl/resource/nsk3-v9n7.json', met samengesmolten geometrie",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "mainGeometry": "geometrie",
-    "identifier": "gebiedId",
+    "identifier": ["gebiedId", "volgnummer"],
     "required": [
       "schema",
+      "volgnummer",
       "gebiedId"
     ],
     "display": "gebiedId",
@@ -19,21 +29,24 @@
       },
       "gebiedsbeheerderId": {
         "type": "integer",
-        "provenance": "areamanagerid",
-        "description": "Identificatiecode van de gebiedsbeheerder of parkeerexploitant (typisch 363 voor Amsterdam en 457 voor Weesp)."
+        "relation": "npr:gebiedsbeheerders"
       },
       "gebiedId": {
         "type": "string",
         "provenance": "areaid",
         "description": "Identificatiecode van een parkeergebied of - faciliteit."
       },
-      "beginDatumGebied": {
+      "volgnummer":{
+        "type": "integer",
+        "provenance": "Afgeleid door ETL op basis van uniciteit gebiedId en gebiedBeginDatum"
+      },
+      "gebiedBeginDatum": {
         "type": "string",
         "format": "date",
         "provenance": "startdatearea",
         "description": "Datum vanaf wanneer een parkeergebied of -faciliteit geldig is."
       },
-      "eindDatumGebied": {
+      "gebiedEindDatum": {
         "type": "string",
         "format": "date",
         "provenance": "enddatearea",
