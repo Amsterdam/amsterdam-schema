@@ -1,61 +1,61 @@
- {
-      "id": "personen",
-      "type": "table",
-      "version": "1.0.0",
+{
+  "id": "personen",
+  "type": "table",
+  "version": "0.0.1",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "burgerservicenummer",
+    "required": [
+      "schema",
+      "burgerservicenummer"
+    ],
+    "display": "naam",
+    "properties": {
       "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "aNummer": {
+        "type": "string",
+        "description": "Administratienummer, bedoeld in artikel 50 van de Wet GBA"
+      },
+      "burgerservicenummer": {
+        "type": "string",
+        "description": "Burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene bepalingen burgerservicenummer. Te valideren met de 11-proef."
+      },
+      "naam": {
         "type": "object",
-        "additionalProperties": false,
-        "identifier": "burgerservicenummer",
-        "required": [
-          "schema",
-          "burgerservicenummer"
-        ],
-        "display": "naam",
         "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "A-nummer": {
+          "geslachtsnaam": {
             "type": "string",
-            "description": "Administratienummer, bedoeld in artikel 50 van de Wet GBA"
+            "description": "(Geslachts)naam waarvan de eventueel aanwezige voorvoegsels en adellijke titel/predikaat zijn afgesplitst."
           },
-          "burgerservicenummer": {
+          "voorvoegselGeslachtsnaam": {
             "type": "string",
-            "description": "Burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene bepalingen burgerservicenummer. Te valideren met de 11-proef."
+            "description": "Deel van de geslachtsnaam dat voorkomt in de Voorvoegseltabel en, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam. Bijvoorbeeld: 'van der'"
           },
-          "naam": {
+          "voornamen": {
+            "type": "string",
+            "description": "Voornamen van de persoon, gescheiden door spaties. Bijvoorbeeld: Pieter Jan"
+          },
+          "voorletters": {
+            "type": "string",
+            "description": "Voorletters waarmee een persoon aangeschreven wil worden. De voorlettes zijn afgeleid van de voornamen."
+          },
+          "adellijkeTitelPredikaat": {
             "type": "object",
             "properties": {
-              "geslachtsnaam": {
+              "code": {
                 "type": "string",
-                "description": "(Geslachts)naam waarvan de eventueel aanwezige voorvoegsels en adellijke titel/predikaat zijn afgesplitst."
+                "description": "Code van de adellijkeTitelPredikaat."
               },
-              "voorvoegselGeslachtsnaam": {
+              "omschrijving": {
                 "type": "string",
-                "description": "Deel van de geslachtsnaam dat voorkomt in de Voorvoegseltabel en, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam. Bijvoorbeeld: 'van der'"
-              },
-              "voornamen": {
-                "type": "string",
-                "description": "Voornamen van de persoon, gescheiden door spaties. Bijvoorbeeld: Pieter Jan"
-              },
-              "voorletters": {
-                "type": "string",
-                "description": "Voorletters waarmee een persoon aangeschreven wil worden. De voorlettes zijn afgeleid van de voornamen."
-              },
-              "adellijkeTitelPredikaat": {
-                "type": "object",
-                "properties": {
-                  "code": {
-                    "type": "string",
-                    "description": "Code van de adellijkeTitelPredikaat."
-                  },
-                  "omschrijving": {
-                    "type": "string",
-                    "description": "Leesbare naam van de adellijkeTitelPredikaat."
-                  }
-                }
-              },
+                "description": "Leesbare naam van de adellijkeTitelPredikaat."
+              }
+            }
+          },
           "geboorte": {
             "type": "object",
             "properties": {
@@ -79,75 +79,79 @@
                     "type": "integer",
                     "description": "Dag van de datum, als deze bekend is."
                   }
-                 }
-               },
-            "Geboorteplaats": {
-              "type": "string",
-              "description": "Gemeentetabel (Tabel 33)"
+                }
               },
-            "Geboorteland": {
-              "type": "string",
-              "description": "Landentabel (Tabel 34)"
-             }
-            },
-          "geslachtsaanduiding": {
-            "type": "string",
-            "description": "Mogelijke waarden: M (man), V (vrouw), O (onbekend)"
-          },
-          "Vorig A-nummer": {
-            "type": "string",
-            "description": "Administratienummer dat eerder aan de betrokken persoon is toegekend geweest (artikel 50 van de Wet GBA)"
-          },
-          "Volgende A-nummer": {
-            "type": "string",
-            "description": "Administratienummer dat nadien aan de betrokken persoon is toegekend gewest (artikel 50 van de Wet GBA)."
-          },
-              "Naamgebruik": {
+              "geboorteplaats": {
                 "type": "string",
-                "description": "Schrijfwijze van de achternaam. Mogelijke waarden: E (eigen), N (eigen-partner), P (partner), V (partner-eigen)"
+                "description": "Gemeentetabel (Tabel 33)"
               },
-             "Registergemeente akte": {
+              "geboorteland": {
                 "type": "string",
-                "description": "Code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de akte in de registers van de burgerlijke stand in Nederland is opgenomen. Afgeleid uit BRK: Gemeente"
-              },
-             "Aktenummer": {
-                "type": "string",
-                "description": "Aanduiding van de akte die is opgenomen in de registers van de burgerlijke stand in Nederland. De eerste drie posities van het aktenummer dienen conform tabel 39, tabel Akteaanduiding te zijn. De laatste vier posities bevatten een volgnummer van de akte."
-              },
-             "Gemeente document": {
-                "type": "string",
-                "description": "Code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonden. Afgeleid uit BRK: Gemeente"
-              },
-             "Datum document": {
-                "type": "Date",
-                "description": "Datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden."
-              },
-             "Aanduiding gegevens in onderzoek": {
-                "type": "string",
-                "description": "Aanduiding dat in een categorie één of meer gegevns met betrekking tot de onjuistheid of de strijdigheid met de openbare orde zijn of worden onderzocht "
-              },
-             "Datum ingang onderzoek": {
-                "type": "date",
-                "description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is gestart"
-              },
-             "Datum einde onderzoek": {
-                "type": "date",
-                "description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is beeindigd"
-              },
-             "Onjuist / Stijdig openbare orde": {
-                "type": "date",
-                "description": "Datum waarop een onderzoek inzake de onjuistheid of de strijdigheid met de openbare orde zijn of worden onderzocht"
-              },
-             "beginGeldigheid": {
-                "type": "date",
-                "description": "Datum ingang rechtsgeldigheid van de gegevens in deze categorie"
-              },
-             "eindGeldigheid": {
-                "type": "date",
-                "description": "Datum beeindiging rechtsgeldigheid van de gegevens in deze categorie"
-              },
-             "Datum van opneming": {
-                "type": "date"
+                "description": "Landentabel (Tabel 34)"
               }
+            },
+            "geslachtsaanduiding": {
+              "type": "string",
+              "description": "Mogelijke waarden: M (man), V (vrouw), O (onbekend)"
+            },
+            "vorigANummer": {
+              "type": "string",
+              "description": "Administratienummer dat eerder aan de betrokken persoon is toegekend geweest (artikel 50 van de Wet GBA)"
+            },
+            "volgendeANummer": {
+              "type": "string",
+              "description": "Administratienummer dat nadien aan de betrokken persoon is toegekend gewest (artikel 50 van de Wet GBA)."
+            },
+            "Naamgebruik": {
+              "type": "string",
+              "description": "Schrijfwijze van de achternaam. Mogelijke waarden: E (eigen), N (eigen-partner), P (partner), V (partner-eigen)"
+            },
+            "Registergemeente akte": {
+              "type": "string",
+              "description": "Code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de akte in de registers van de burgerlijke stand in Nederland is opgenomen. Afgeleid uit BRK: Gemeente"
+            },
+            "Aktenummer": {
+              "type": "string",
+              "description": "Aanduiding van de akte die is opgenomen in de registers van de burgerlijke stand in Nederland. De eerste drie posities van het aktenummer dienen conform tabel 39, tabel Akteaanduiding te zijn. De laatste vier posities bevatten een volgnummer van de akte."
+            },
+            "Gemeente document": {
+              "type": "string",
+              "description": "Code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonden. Afgeleid uit BRK: Gemeente"
+            },
+            "Datum document": {
+              "type": "Date",
+              "description": "Datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden."
+            },
+            "Aanduiding gegevens in onderzoek": {
+              "type": "string",
+              "description": "Aanduiding dat in een categorie één of meer gegevns met betrekking tot de onjuistheid of de strijdigheid met de openbare orde zijn of worden onderzocht "
+            },
+            "Datum ingang onderzoek": {
+              "type": "date",
+              "description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is gestart"
+            },
+            "Datum einde onderzoek": {
+              "type": "date",
+              "description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is beeindigd"
+            },
+            "Onjuist / Stijdig openbare orde": {
+              "type": "date",
+              "description": "Datum waarop een onderzoek inzake de onjuistheid of de strijdigheid met de openbare orde zijn of worden onderzocht"
+            },
+            "beginGeldigheid": {
+              "type": "date",
+              "description": "Datum ingang rechtsgeldigheid van de gegevens in deze categorie"
+            },
+            "eindGeldigheid": {
+              "type": "date",
+              "description": "Datum beeindiging rechtsgeldigheid van de gegevens in deze categorie"
+            },
+            "Datum van opneming": {
+              "type": "date"
             }
-           }
+          }
+        }
+      }
+    }
+  }
+}

@@ -19,39 +19,44 @@
       "burgerservicenummer": {
         "type": "string",
         "description": "Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene bepalingen burgerservicenummer. Te valideren met de 11-proef."
-      }, 
+      },
       "datumInschrijvingInGemeente": {
-      "type": "object",
-      "description": "Afhankelijk van de grond van inschrijving. Afgiftedatum (bij een aangifte door de burger van zijn vestiging), geboortedatum (bij een geboorteakte), datum van schriftelijke voornemen (van ambtshalve inschrijving).",
-      "properties": {
-        "datum": {
-        "type": "string",
-        "format": "date",
-        "description": "De volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
-      },
-        "jaar": {
-        "type": "integer",
-        "description": "Het jaar van de datum, als deze bekend is."
-      },
-        "maand": {
-        "type": "integer",
-        "description": "De maand van de datum, als deze bekend is."
-      },
-        "dag": {
-        "type": "integer",
-        "description": "De dag van de datum, als deze bekend is."
-      },
-        "gemeenteVanInschrijving": {
         "type": "object",
-        "description": "In welke gemeente de PK (persoonskaart) zich bevindt. De code kan voorloopnullen bevatten",
+        "description": "Afhankelijk van de grond van inschrijving. Afgiftedatum (bij een aangifte door de burger van zijn vestiging), geboortedatum (bij een geboorteakte), datum van schriftelijke voornemen (van ambtshalve inschrijving).",
         "properties": {
-          "code": {
+          "datum": {
             "type": "string",
-             "description": "Code van de gemeente."
-           },
-          "omschrijving": {
-            "type": "string",
-            "description": "Leesbare naam van de gemeente."
-           }
+            "format": "date",
+            "description": "De volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "Het jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "De maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "De dag van de datum, als deze bekend is."
+          },
+          "gemeenteVanInschrijving": {
+            "type": "object",
+            "description": "In welke gemeente de PK (persoonskaart) zich bevindt. De code kan voorloopnullen bevatten",
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Code van de gemeente."
+              },
+              "omschrijving": {
+                "type": "string",
+                "description": "Leesbare naam van de gemeente."
+              }
+            }
+          }
+        }
       }
-         
+    }
+  }
+}
