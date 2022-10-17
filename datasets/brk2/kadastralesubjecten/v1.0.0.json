@@ -22,15 +22,18 @@
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.2.0#/definitions/schema"
       },
       "identificatie": {
-        "type": "string",
+        "auth": "BRK/RS",
+		"type": "string",
         "description": "Het aan dit subject toegekende landelijk unieke nummer"
       },
       "typeSubject": {
-        "type": "string",
+        "auth": "BRK/RS",
+		"type": "string",
         "description": "Afgeleid gegeven. Is het subject een natuurlijk persoon of een niet-natuurlijk persoon"
       },
       "beschikkingsbevoegdheid": {
-        "type": "object",
+        "auth": "BRK/RSN",
+		"type": "object",
         "properties": {
           "code": {
             "type": "string",
@@ -41,7 +44,6 @@
             "provenance": "$.beschikkingsbevoegdheidOmschrijving"
           }
         },
-        "auth": "BRK/RSN",
         "description": "Aanduiding van de beschikkingsbevoegdheid van een persoon."
       },
       "indicatieAfschermingGegevens": {
@@ -71,7 +73,8 @@
         "description": "Geslachtsnaam van de geregistreerde persoon"
       },
       "geslacht": {
-        "type": "object",
+        "auth": "BRK/RSN",
+		"type": "object",
         "properties": {
           "code": {
             "type": "string"
@@ -80,11 +83,11 @@
             "type": "string"
           }
         },
-        "auth": "BRK/RSN",
         "description": "Geslacht van het geregistreerd persoon."
       },
       "naamGebruik": {
-        "type": "object",
+        "auth": "BRK/RSN",
+		"type": "object",
         "properties": {
           "code": {
             "type": "string"
@@ -93,11 +96,11 @@
             "type": "string"
           }
         },
-        "auth": "BRK/RSN",
         "description": "Aanduiding voor de wijze van aanschrijving van de ingeschrevene."
       },
       "titelOfPredicaat": {
-        "type": "object",
+        "auth": "BRK/RSN",
+		"type": "object",
         "properties": {
           "code": {
             "type": "string"
@@ -106,7 +109,6 @@
             "type": "string"
           }
         },
-        "auth": "BRK/RSN",
         "description": "De adellijke titel of het predicaat."
       },
       "indicatieDiacrietNietToonbaar": {
@@ -131,7 +133,8 @@
         "description": "De geboorteplaats is een plaatsaanduiding, die aangeeft waar de natuurlijke persoon geboren is."
       },
       "geboorteland": {
-        "type": "object",
+        "auth": "BRK/RSN",
+		"type": "object",
         "properties": {
           "code": {
             "type": "string"
@@ -140,7 +143,6 @@
             "type": "string"
           }
         },
-        "auth": "BRK/RSN",
         "description": "Geboorteland is een aanduiding van het land waar de natuurlijke persoon geboren is."
       },
       "datumOverlijden": {
@@ -174,18 +176,20 @@
         "description": "Geslachtsna(a)m(en) van de geregistreerde partner"
       },
       "heeftRsinVoorHrNietNatuurlijkepersoon": {
-        "auth": "BRK/RSN",
+        "auth": "BRK/RS",
         "type": "string",
         "$comment": "relation handelsregister:nietnatuurlijkepersonen *stringify*",
         "description": "Het Rechtspersonen Samenwerking Identificatie Nummer uit het Handelsregister."
       },
       "heeftKvknummerVoorHrMaatschappelijkeactiviteit": {
-        "type": "string",
+        "auth": "BRK/RS",
+		"type": "string",
         "$comment": "relation handelsregister:maatschappelijkeactiviteiten *stringify*",
         "description": "Het KvK-nummer uit het Handelsregister."
       },
       "rechtsvorm": {
-        "type": "object",
+        "auth": "BRK/RS",
+		"type": "object",
         "properties": {
           "code": {
             "type": "string"
@@ -194,19 +198,21 @@
             "type": "string"
           }
         },
-        "auth": "BRK/RSN",
         "description": "De juridische vorm van een niet-natuurlijk persoon."
       },
       "statutaireNaam": {
-        "type": "string",
+        "auth": "BRK/RS",
+		"type": "string",
         "description": "De naam van de rechtspersoon. Het betreft de naam die is opgenomen in de oprichtingsakte."
       },
       "statutaireZetel": {
-        "type": "string",
+		"auth": "BRK/RS",
+		"type": "string",
         "description": "De statutaire plaats van vestiging."
       },
       "woonadres": {
-        "type": "object",
+        "auth": "BRK/RSN",
+		"type": "object",
         "properties": {
           "type": {
             "type": "string",
@@ -280,11 +286,11 @@
             "description": "Buitenlands adres land. Omschrijving"
           }
         },
-        "auth": "BRK/RSN",
         "description": "Het woonadres van de (natuurlijke of niet natuurlijke) persoon."
       },
       "landWaarnaarVertrokken": {
-        "type": "object",
+        "auth": "BRK/RSN",
+		"type": "object",
         "properties": {
           "code": {
             "type": "string"
@@ -293,11 +299,11 @@
             "type": "string"
           }
         },
-        "auth": "BRK/RSN",
         "description": "Land dat de ingeschrevene opgeeft bij vertrek naar het buitenland."
       },
       "postadres": {
-        "type": "object",
+        "auth": "BRK/RSN",
+		"type": "object",
         "properties": {
           "type": {
             "type": "string",
@@ -383,17 +389,16 @@
             "description": "woonplaatsnaam"
           }
         },
-        "auth": "BRK/RSN",
         "description": "Het postadres van de (natuurlijke of niet natuurlijke) persoon."
       },
       "datumActueelTot": {
-        "auth": "BRK/RSN",
+        "auth": "BRK/RS",
         "type": "string",
         "format": "date-time",
         "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       },
       "toestandsdatum": {
-        "auth": "BRK/RSN",
+        "auth": "BRK/RS",
         "type": "string",
         "format": "date-time",
         "description": "De datum waarop de geleverde toestand van het onderliggende kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)."
