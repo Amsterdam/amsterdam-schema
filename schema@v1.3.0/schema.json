@@ -48,11 +48,7 @@
           "$ref": "#/definitions/type"
         },
         "reasonsNonPublic": {
-          "minItems": 1,
-          "type": "array",
-          "items": {
-            "$ref": "./schema@v1.3.0#/definitions/nonPubReason"
-          }
+          "$ref": "#/definitions/reasonsNonPublic"
         }
       }
     },
@@ -77,6 +73,13 @@
         "dataset",
         "table"
       ]
+    },
+    "reasonsNonPublic": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$ref": "./schema@v1.1.1#/definitions/nonPubReason"
+      }
     },
     "nonPubReason": {
       "type": "string",
