@@ -1,10 +1,9 @@
 {
   "id": "objectenopenbareruimte",
   "type": "dataset",
-  "auth": "FP/MDW",
   "authorizationGrantor": "Verkeer en Openbare Ruimte, Gemeente Amsterdam",
   "theme": [
-    "Openbare orde en veiligheid, Ruimte en topografie"
+      "Openbare orde en veiligheid, Ruimte en topografie"
   ],
   "homepage": "https://data.amsterdam.nl",
   "owner": "Verkeer en Openbare Ruimte, Gemeente Amsterdam",
@@ -13,263 +12,601 @@
   "title": "Beheerobjecten openbare ruimte",
   "language": "nl",
   "dateCreated": "2022-06-01T00:00:00+01:00",
-  "license": "Gesloten",
-  "reasonsNonPublic": [
-    "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
-  ],
-  "accrualPeriodicity": "dagelijks",
+  "license": "openbaar, tenzij anders aangegeven / behoudens uitzonderingen",
   "creator": "Datateam Beeldschoon/BOR",
   "publisher": "Datateam Beheer en Openbare Ruimte",
   "description": "Objecten in de openbare ruimte die beheerd worden door de Gemeente Amsterdam",
   "status": "beschikbaar",
   "keywords": [
-    "asset",
-    "verhardingen",
-    "groenobjecten",
-    "terreindeel"
+      "asset",
+      "verhardingen",
+      "groenobjecten",
+      "terreindeel"
   ],
   "crs": "EPSG:28992",
   "objective": "Het beschikbaar stellen van de gestructureerde statische objectgegevens van de te beheren objecten in de openbare ruimte volgens het Informatiemodel Beheer Openbare Ruimte (IMBOR).",
   "temporalUnit": "",
   "tables": [
-    {
-      "id": "verhardingen",
-      "type": "table",
-      "provenance": "asset_verhardingen",
-      "title": "Verhardingen",
-      "description": "Verharde lagen van een weglichaam, speel- en sportondergronden en onbegroeid terreindelen inclusief fundering.",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "mainGeometry": "geometrie",
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "id",
-        "properties": {
+      {
+          "id": "verhardingen",
+          "type": "table",
+          "auth": "FP/MDW",
+          "license": "Gesloten",
+          "reasonsNonPublic": [
+              "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+          ],
+          "provenance": "asset_verhardingen",
+          "title": "Verhardingen",
+          "description": "Verharde lagen van een weglichaam, speel- en sportondergronden en onbegroeid terreindelen inclusief fundering.",
+          "version": "1.0.0",
           "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "description": "Uniek identificerend kenmerk van het object.",
-            "type": "integer"
-          },
-          "guid": {
-            "description": "Uniek nummer van het IMBOR-object (GUID)",
-            "type": "string"
-          },
-          "imgeoIdentificatie": {
-            "description": "Overerving van de geometrie van beheerobject uit bovenliggend informatiemodel of automatisch genereren.",
-            "type": "string"
-          },
-          "aantalDeklagen": {
-            "description": "Aantal deklagen bij asfaltverharding.",
-            "type": "number"
-          },
-          "aantalOnderlagen": {
-            "description": "Aantal onderlagen bij asfaltverharding.",
-            "type": "number"
-          },
-          "aantalTussenlagen": {
-            "description": "Aantal tussenlagen bij asfaltverharding.",
-            "type": "number"
-          },
-          "afmeting": {
-            "description": "Aanduiding voor de afmeting van een object in lengte, breedte en hoogte.",
-            "type": "string",
-            "unit": "m"
-          },
-          "bagOpenbareruimteNaam": {
-            "description": "Aanduiding van de openbare ruimte, zoals gedefinieerd in IMGeo of in de BAG, waarbinnen het beheerobject ligt.",
-            "type": "string"
-          },
-          "bagWoonplaatsNaam": {
-            "description": "Aanduiding van de woonplaats waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met woonplaats- of stadsdeelgrenzen.",
-            "type": "string"
-          },
-          "beginGarantieperiode": {
-            "description": "Jaar waarin de garantieperiode van het opgeleverde beheerobject begint.",
-            "type": "string",
-            "format": "date"
-          },
-          "bergendVermogen": {
-            "description": "De hoeveelheid afvalwater die in de voorziening kan worden geborgen.",
-            "type": "string"
-          },
-          "bgtStatus": {
-            "description": "Binnen de BGT verplichte statusaanduiding gekoppeld aan de levenscyclus van het het BGT-object.",
-            "type": "string"
-          },
-          "breedte": {
-            "description": "Breedte van het beheerobject.",
-            "type": "number"
-          },
-          "brkGemeenteNaam": {
-            "description": "Naam van de gemeente waarbinnen het beheerobject ligt.",
-            "type": "string",
-            "shortname": "brkGmeNaam"
-          },
-          "constructie": {
-            "description": "Aanduiding van de zwaarte van de constructie van het beheerobject.",
-            "type": "string"
-          },
-          "datumVerwijderd": {
-            "description": "Datum waarop het object is verwijderd (materi\u00eble historie).",
-            "type": "string",
-            "format": "date"
-          },
-          "datumWijziging": {
-            "description": "Datum waarop het object voor het laatst is gewijzigd.",
-            "type": "string",
-            "format": "date-time"
-          },
-          "deelSportcomplexObjectnaam": {
-            "description": "",
-            "type": "string"
-          },
-          "eindeGarantieperiode": {
-            "description": "Jaar (datum) waarin de garantieperiode van het opgeleverde beheerobject eindigt.",
-            "type": "string",
-            "format": "date"
-          },
-          "fabrikant": {
-            "description": "Fabrikant van het beheerobject.",
-            "type": "string"
-          },
-          "formaat": {
-            "description": "Aanduiding voor het formaat van elementenverharding.",
-            "type": "string"
-          },
-          "gbdBuurtNaam": {
-            "description": "Aanduiding van de buurt waarbinnen het beheerobject ligt. (conform CBS-indeling)",
-            "type": "string"
-          },
-          "gbdStadsdeelNaam": {
-            "description": "Aanduiding van het stadsdeel waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met woonplaats- of stadsdeelgrenzen.",
-            "type": "string"
-          },
-          "gbdWijkNaam": {
-            "description": "Aanduiding van de wijk waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met wijkgrenzen.",
-            "type": "string"
-          },
-          "gebruiksfunctie": {
-            "description": "Aanduiding van \u00e9\u00e9n of meer gebruiksfuncties van het beheerobject.",
-            "type": "string"
-          },
-          "geluidsreducerend": {
-            "description": "Registratie of een object een geluidsreducerend effect heeft.",
-            "type": "boolean"
-          },
-          "geometrie": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992)"
-          },
-          "imborVersie": {
-            "description": "Versie-aanduiding van het Informatiemodel Beheer Openbare Ruimte (IMBOR)",
-            "type": "string"
-          },
-          "jaarLaatsteConservering": {
-            "description": "Jaar waarin schade(s) aan het beheerobject is geconserveerd.",
-            "type": "number"
-          },
-          "jaarUitgevoerdOnderhoud": {
-            "description": "Jaar waarin het onderhoud van het beheerobject is uitgevoerd.",
-            "type": "number"
-          },
-          "jaarVanAanleg": {
-            "description": "Jaar waarin het beheerobject is aangelegd of aangeplant (kan ook voor de plaatsingsdatum gebruikt worden).",
-            "type": "number"
-          },
-          "kleur": {
-            "description": "Kleur van het beheerobject.",
-            "type": "string"
-          },
-          "lengte": {
-            "description": "Lengte van het beheerobject.",
-            "type": "number",
-            "unit": "m"
-          },
-          "lengteGis": {
-            "description": "Gis-lengte in meters van het beheerobject, wordt gebruikt bij lijnobjecten. Bij Vlakobjecten is de GIS-lengte de Omtrek van het object.",
-            "type": "number",
-            "unit": "m"
-          },
-          "materiaal": {
-            "description": "Lijst met materialen waaruit het beheerobject opgebouwd is.",
-            "type": "string"
-          },
-          "objecttype": {
-            "description": "Kleinste functionele eenheid (beheerobject of hulpobject).",
-            "type": "string"
-          },
-          "omtrek": {
-            "description": "Omtrek van het beheerobject.",
-            "type": "number",
-            "unit": "m"
-          },
-          "onderhoudsplichtige": {
-            "description": "Organisatie die verantwoordelijk is voor het onderhoud van het beheerobject.",
-            "type": "string"
-          },
-          "opleverdatum": {
-            "description": "Datum waarop het beheerobject daadwerkelijk opgeleverd is. Begin van de garantieperiode.",
-            "type": "string",
-            "format": "date"
-          },
-          "oppervlakteGis": {
-            "description": "Oppervlakte van het beheerobject, overname van BGT/IMGeo.",
-            "type": "number",
-            "unit": "m2"
-          },
-          "sportveld": {
-            "description": "GUID van het sportveld waartoe het object behoort.",
-            "type": "string"
-          },
-          "theoretischEindjaar": {
-            "description": "Jaar dat het beheerobject aan het theoretische einde van haar levensduur is.",
-            "type": "number"
-          },
-          "typeObject": {
-            "description": "Typering van het beheerobject.",
-            "type": "string"
-          },
-          "typeBeheerder": {
-            "description": "Een publiekrechtelijke instantie of (rechts) persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT).",
-            "type": "string"
-          },
-          "typeBeheerderPlus": {
-            "description": "Nadere aanduiding van de beheerder van het beheerobject.",
-            "type": "string"
-          },
-          "typeFundering": {
-            "description": "Keuze uit lijst met funderingen van het beheerobject. Van toepassing bij wegobjecten en grassportvelden.",
-            "type": "string"
-          },
-          "typePlus": {
-            "description": "Nadere typering van het type beheerobject.",
-            "type": "string"
-          },
-          "typePlus2": {
-            "description": "Extra typering van het beheerobject, nadere typering van type gedetailleerd.",
-            "type": "string"
-          },
-          "typeRijstrook": {
-            "description": "Begrensd gedeelte van de rijbaan dat voldoende breed is voor een rij van het voor dat gedeelte bestemde verkeer.",
-            "type": "string"
-          },
-          "waterdoorlatendheid": {
-            "description": "Waterdoorlatendheid betreft de aanwezigheid van infiltratiebestrating. Bij infiltratiebestrating loopt water niet meer via kolken in het riool, maar door (waterdoorlatend) of langs (waterpasserend) de bestrating de grond in.",
-            "type": "string"
-          },
-          "wegtypeBestaand": {
-            "description": "Indeling in wegtypen conform de CROW Systematiek Wegbeheer.",
-            "type": "string"
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "additionalProperties": false,
+              "mainGeometry": "geometrie",
+              "required": [
+                  "schema",
+                  "id"
+              ],
+              "display": "id",
+              "properties": {
+                  "schema": {
+                      "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+                  },
+                  "id": {
+                      "description": "Uniek identificerend kenmerk van het object.",
+                      "type": "integer"
+                  },
+                  "guid": {
+                      "description": "Uniek nummer van het IMBOR-object (GUID)",
+                      "type": "string",
+                      "format": "uuid"
+                  },
+                  "imgeoIdentificatie": {
+                      "description": "Overerving van de geometrie van beheerobject uit bovenliggend informatiemodel of automatisch genereren.",
+                      "type": "string",
+                      "format": "uuid"
+                  },
+                  "aantalDeklagen": {
+                      "description": "Aantal deklagen bij asfaltverharding.",
+                      "type": "number"
+                  },
+                  "aantalOnderlagen": {
+                      "description": "Aantal onderlagen bij asfaltverharding.",
+                      "type": "number"
+                  },
+                  "aantalTussenlagen": {
+                      "description": "Aantal tussenlagen bij asfaltverharding.",
+                      "type": "number"
+                  },
+                  "afmeting": {
+                      "description": "Aanduiding voor de afmeting van een object in lengte, breedte en hoogte.",
+                      "type": "string",
+                      "unit": "m"
+                  },
+                  "bagOpenbareruimteNaam": {
+                      "description": "Aanduiding van de openbare ruimte, zoals gedefinieerd in IMGeo of in de BAG, waarbinnen het beheerobject ligt.",
+                      "type": "string"
+                  },
+                  "bagWoonplaatsNaam": {
+                      "description": "Aanduiding van de woonplaats waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met woonplaats- of stadsdeelgrenzen.",
+                      "type": "string"
+                  },
+                  "beginGarantieperiode": {
+                      "description": "Jaar waarin de garantieperiode van het opgeleverde beheerobject begint.",
+                      "type": "string",
+                      "format": "date"
+                  },
+                  "bergendVermogen": {
+                      "description": "De hoeveelheid afvalwater die in de voorziening kan worden geborgen.",
+                      "type": "string"
+                  },
+                  "bgtStatus": {
+                      "description": "Binnen de BGT verplichte statusaanduiding gekoppeld aan de levenscyclus van het het BGT-object.",
+                      "type": "string"
+                  },
+                  "breedte": {
+                      "description": "Breedte van het beheerobject.",
+                      "type": "number"
+                  },
+                  "brkGemeenteNaam": {
+                      "description": "Naam van de gemeente waarbinnen het beheerobject ligt.",
+                      "type": "string",
+                      "shortname": "brkGmeNaam"
+                  },
+                  "constructie": {
+                      "description": "Aanduiding van de zwaarte van de constructie van het beheerobject.",
+                      "type": "string"
+                  },
+                  "verwijderdatum": {
+                      "description": "Datum waarop het object is verwijderd (materi\u00eble historie).",
+                      "type": "string",
+                      "format": "date"
+                  },
+                  "mutatiedatum": {
+                      "description": "Datum waarop het object voor het laatst is gewijzigd.",
+                      "type": "string",
+                      "format": "date-time"
+                  },
+                  "deelSportcomplexObjectnaam": {
+                      "description": "",
+                      "type": "string"
+                  },
+                  "eindeGarantieperiode": {
+                      "description": "Jaar (datum) waarin de garantieperiode van het opgeleverde beheerobject eindigt.",
+                      "type": "string",
+                      "format": "date"
+                  },
+                  "fabrikant": {
+                      "description": "Fabrikant van het beheerobject.",
+                      "type": "string"
+                  },
+                  "formaat": {
+                      "description": "Aanduiding voor het formaat van elementenverharding.",
+                      "type": "string"
+                  },
+                  "gbdBuurtNaam": {
+                      "description": "Aanduiding van de buurt waarbinnen het beheerobject ligt. (conform CBS-indeling)",
+                      "type": "string"
+                  },
+                  "gbdStadsdeelNaam": {
+                      "description": "Aanduiding van het stadsdeel waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met woonplaats- of stadsdeelgrenzen.",
+                      "type": "string"
+                  },
+                  "gbdWijkNaam": {
+                      "description": "Aanduiding van de wijk waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met wijkgrenzen.",
+                      "type": "string"
+                  },
+                  "gebruiksfunctie": {
+                      "description": "Aanduiding van \u00e9\u00e9n of meer gebruiksfuncties van het beheerobject.",
+                      "type": "string"
+                  },
+                  "geluidsreducerend": {
+                      "description": "Registratie of een object een geluidsreducerend effect heeft.",
+                      "type": "boolean"
+                  },
+                  "geometrie": {
+                      "$ref": "https://geojson.org/schema/Geometry.json",
+                      "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992)"
+                  },
+                  "imborVersie": {
+                      "description": "Versie-aanduiding van het Informatiemodel Beheer Openbare Ruimte (IMBOR)",
+                      "type": "string"
+                  },
+                  "jaarLaatsteConservering": {
+                      "description": "Jaar waarin schade(s) aan het beheerobject is geconserveerd.",
+                      "type": "number"
+                  },
+                  "jaarUitgevoerdOnderhoud": {
+                      "description": "Jaar waarin het onderhoud van het beheerobject is uitgevoerd.",
+                      "type": "number"
+                  },
+                  "jaarVanAanleg": {
+                      "description": "Jaar waarin het beheerobject is aangelegd of aangeplant (kan ook voor de plaatsingsdatum gebruikt worden).",
+                      "type": "number"
+                  },
+                  "kleur": {
+                      "description": "Kleur van het beheerobject.",
+                      "type": "string"
+                  },
+                  "lengte": {
+                      "description": "Lengte van het beheerobject.",
+                      "type": "number",
+                      "unit": "m"
+                  },
+                  "lengteGis": {
+                      "description": "Gis-lengte in meters van het beheerobject, wordt gebruikt bij lijnobjecten. Bij Vlakobjecten is de GIS-lengte de Omtrek van het object.",
+                      "type": "number",
+                      "unit": "m"
+                  },
+                  "materiaal": {
+                      "description": "Lijst met materialen waaruit het beheerobject opgebouwd is.",
+                      "type": "string"
+                  },
+                  "objecttype": {
+                      "description": "Kleinste functionele eenheid (beheerobject of hulpobject).",
+                      "type": "string"
+                  },
+                  "omtrek": {
+                      "description": "Omtrek van het beheerobject.",
+                      "type": "number",
+                      "unit": "m"
+                  },
+                  "onderhoudsplichtige": {
+                      "description": "Organisatie die verantwoordelijk is voor het onderhoud van het beheerobject.",
+                      "type": "string"
+                  },
+                  "opleverdatum": {
+                      "description": "Datum waarop het beheerobject daadwerkelijk opgeleverd is. Begin van de garantieperiode.",
+                      "type": "string",
+                      "format": "date"
+                  },
+                  "oppervlakteGis": {
+                      "description": "Oppervlakte van het beheerobject, overname van BGT/IMGeo.",
+                      "type": "number",
+                      "unit": "m2"
+                  },
+                  "sportveld": {
+                      "description": "GUID van het sportveld waartoe het object behoort.",
+                      "type": "string"
+                  },
+                  "theoretischEindjaar": {
+                      "description": "Jaar dat het beheerobject aan het theoretische einde van haar levensduur is.",
+                      "type": "number"
+                  },
+                  "typeObject": {
+                      "description": "Typering van het beheerobject.",
+                      "type": "string"
+                  },
+                  "typeBeheerder": {
+                      "description": "Een publiekrechtelijke instantie of (rechts) persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT).",
+                      "type": "string"
+                  },
+                  "typeBeheerderPlus": {
+                      "description": "Nadere aanduiding van de beheerder van het beheerobject.",
+                      "type": "string"
+                  },
+                  "typeFundering": {
+                      "description": "Keuze uit lijst met funderingen van het beheerobject. Van toepassing bij wegobjecten en grassportvelden.",
+                      "type": "string"
+                  },
+                  "typePlus": {
+                      "description": "Nadere typering van het type beheerobject.",
+                      "type": "string"
+                  },
+                  "typePlus2": {
+                      "description": "Extra typering van het beheerobject, nadere typering van type gedetailleerd.",
+                      "type": "string"
+                  },
+                  "typeRijstrook": {
+                      "description": "Begrensd gedeelte van de rijbaan dat voldoende breed is voor een rij van het voor dat gedeelte bestemde verkeer.",
+                      "type": "string"
+                  },
+                  "waterdoorlatendheid": {
+                      "description": "Waterdoorlatendheid betreft de aanwezigheid van infiltratiebestrating. Bij infiltratiebestrating loopt water niet meer via kolken in het riool, maar door (waterdoorlatend) of langs (waterpasserend) de bestrating de grond in.",
+                      "type": "string"
+                  },
+                  "wegtypeBestaand": {
+                      "description": "Indeling in wegtypen conform de CROW Systematiek Wegbeheer.",
+                      "type": "string"
+                  }
+              }
           }
-        }
+      },
+      {
+          "id": "groenobjecten",
+          "type": "table",
+          "provenance": "asset_groenobjecten",
+          "title": "Groenobjecten",
+          "description": "Kleinste functioneel onafhankelijk stukje van een terrein dat er binnen het objecttype Terrein van NEN 3610 wordt onderscheiden, met aaneengesloten vegetatie.",
+          "version": "1.0.0",
+          "reasonsNonPublic": [
+              "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+          ],
+          "schema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "additionalProperties": false,
+              "mainGeometry": "geometrie",
+              "required": [
+                  "schema",
+                  "id"
+              ],
+              "display": "id",
+              "properties": {
+                  "schema": {
+                      "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+                  },
+                  "id": {
+                      "description": "Uniek identificerend kenmerk van het object.",
+                      "type": "integer"
+                  },
+                  "guid": {
+                      "auth": "FP/MDW",
+                      "description": "Uniek nummer van het IMBOR-object (GUID).",
+                      "type": "string",
+                      "format": "uuid"
+                  },
+                  "imgeoIdentificatie": {
+                      "auth": "FP/MDW",
+                      "description": "Overerving van de geometrie van beheerobject uit bovenliggend informatiemodel of automatisch genereren.",
+                      "type": "string",
+                      "format": "uuid"
+                  },
+                  "identificatie": {
+                      "description": "Uniek identificatienummer voor het object dat onveranderlijk is zolang het object bestaat.",
+                      "type": "string"
+                  },
+                  "conversieId": {
+                      "description": "Uniek kenmerk van een beheerobject uit een oude beheerindeling.",
+                      "type": "string"
+                  },
+                  "idUitOudeBeheerindeling": {
+                      "description": "Uniek kenmerk van een beheerobject uit een oude beheerindeling.",
+                      "type": "string"
+                  },
+                  "imborVersie": {
+                      "description": "Versie-aanduiding van het Informatiemodel Beheer Openbare Ruimte (IMBOR).",
+                      "type": "string"
+                  },
+                  "aantalZijden": {
+                      "auth": "FP/MDW",
+                      "description": "Aantal zijden van de haag die geknipt moeten worden.",
+                      "type": "number"
+                  },
+                  "afvoeren": {
+                      "auth": "FP/MDW",
+                      "description": "Aanduiding of het groenafval afgevoerd moet worden.",
+                      "type": "boolean"
+                  },
+                  "bagOpenbareruimteNaam": {
+                      "description": "Aanduiding van de openbare ruimte, zoals gedefinieerd in IMGeo of in de BAG, waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met grenzen openbare ruimtes of uit de Basisregistraties voor Adressen en Gebouwen (zonder begrenzing).",
+                  "type": "string"
+                  },
+                  "bagWoonplaatsNaam": {
+                      "description": "Aanduiding van de woonplaats waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met woonplaats- of stadsdeelgrenzen.",
+                      "type": "string"
+                  },
+                  "beginGarantieperiode": {
+                      "auth": "FP/MDW",
+                      "description": "Jaar waarin de garantieperiode van het opgeleverde beheerobject begint.",
+                      "type": "string",
+                      "format": "date"
+                  },
+                  "beheerafspraak": {
+                      "auth": "FP/MDW",
+                      "description": "Beschrijving volgt",
+                      "type": "string"
+                  },
+                  "beheergebied": {
+                      "description": "Aanduiding van het beheergebied waarbinnen het beheerobject ligt. Indeling in beheergebieden is organisatiespecifiek.",
+                      "type": "string"
+                  },
+                  "bereikbaarheid": {
+                      "auth": "FP/MDW",
+                      "description": "Aanduiding voor de bereikbaarheid van het object die beheerd moet worden.",
+                      "type": "string"
+                  },
+                  "bewerkingspercentage": {
+                      "auth": "FP/MDW",
+                      "description": "Aanduiding van het percentage van het beheerobject dat bewerkt dient te worden.",
+                      "type": "number",
+                      "multipleOf": "0.1",
+                      "minimum": 0,
+                      "maximum": 100
+                  },
+                  "bollen": {
+                      "description": "Aanwezigheid bollen binnen het GrasEnKruidachtigen-object.",
+                      "type": "boolean"
+                  },
+                  "breedte": {
+                      "auth": "FP/MDW",
+                      "description": "Breedte van het beheerobject.",
+                      "type": "number",
+                      "unit": "m"
+                  },
+                  "breedteklasseHaag": {
+                      "auth": "FP/MDW",
+                      "description": "Aanduiding van de breedte van de haag in klassen conform RAW (geldt niet voor de blokhaag).",
+                      "type": "string"
+                  },
+                  "brkGemeenteNaam": {
+                      "description": "Naam van de gemeente waarbinnen het beheerobject ligt.",
+                      "type": "string",
+                      "shortname": "brkGmeNaam"
+                  },
+                  "conditiescore": {
+                      "auth": "FP/MDW",
+                      "description": "Maat voor het vastleggen van de conditie van een object op basis van 6 scores.",
+                      "type": "string"
+                  },
+                  "controlefrequentie": {
+                      "auth": "FP/MDW",
+                      "description": "Aanduiding van de frequentie van de controle van het beheerobject.",
+                      "type": "string"
+                  },
+                  "deelsportcomplex": {
+                      "auth": "FP/MDW",
+                      "description": "Deelsportcomplex waartoe het object behoort.",
+                      "type": "string"
+                  },
+                  "ecologischBeheer": {
+                      "auth": "FP/MDW",
+                      "description": "Aanduiding of ecologisch beheer van toepassing is.",
+                      "type": "boolean"
+                  },
+                  "eindeGarantieperiode": {
+                      "auth": "FP/MDW",
+                      "description": "Jaar (datum) waarin de garantieperiode van het opgeleverde beheerobject eindigt.",
+                      "type": "string",
+                      "format": "date"
+                  },
+                  "gbdBuurtNaam": {
+                      "description": "Aanduiding van de buurt waarbinnen het beheerobject ligt. (conform CBS-indeling)",
+                      "type": "string"
+                  },
+                  "gbdStadsdeelNaam": {
+                      "description": "Aanduiding van het stadsdeel waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met woonplaats- of stadsdeelgrenzen.",
+                      "type": "string"
+                  },
+                  "gbdWijkNaam": {
+                      "description": "Aanduiding van de wijk waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met wijkgrenzen.",
+                      "type": "string"
+                  },
+                  "gebruiksfunctie": {
+                      "description": "Aanduiding van één of meer gebruiksfuncties van het beheerobject.",
+                      "type": "string"
+                  },
+                  "geometrie": {
+                      "$ref": "https://geojson.org/schema/Geometry.json",
+                      "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992)."
+                  },
+                  "haagvoetLengte": {
+                      "auth": "FP/MDW",
+                      "description": "Lengte van de te bewerken voet van de haag in strekkende meters. In RAW gebruikt voor werkzaamheden aan haagvoeten (onkruidvrij maken) van alle typen hagen, uitgezonderd blokhagen. HaagvoetLengte kan gelijk zijn aan de totale lengte van de haag, maar dit hoeft niet, als de te bewerken lengte van de haagvoet kleiner is dan de totale lengte van de haag.",
+                      "type": "number",
+                      "unit": "m"
+                  },
+                  "haagvoetOppervlakte": {
+                      "auth": "FP/MDW",
+                      "description": "Oppervlakte van de voet van de haag in vierkante meters. In RAW gebruikt voor werkzaamheden aan haagvoeten (onkruidvrij maken) van blokhagen. HaagvoetOppervlakte kan gelijk zijn aan de ‘Oppervlakte’ van het beheerobject, maar dit hoeft niet, als het te bewerken oppervlak van de haagvoet kleiner is dan het totale oppervlak van de blokhaag.",
+                      "type": "number",
+                      "unit": "m2"
+                  },
+                  "hoogte": {
+                      "auth": "FP/MDW",
+                      "description": "Hoogte van het beheerobject in meters.",
+                      "type": "number",
+                      "unit": "m"
+                  },
+                  "hoogteklasseHaag": {
+                      "auth": "FP/MDW",
+                      "description": "Aanduiding van de hoogte van de haag in klassen conform RAW.",
+                      "type": "string"
+                  },
+                  "jaarVanAanleg": {
+                      "auth": "FP/MDW",
+                      "description": "Jaar waarin het beheerobject is aangelegd of aangeplant (kan ook voor de plaatsingsdatum gebruikt worden).",
+                      "type": "number"
+                  },
+                  "knipfrequentie": {
+                      "auth": "FP/MDW",
+                      "description": "Aanduiding voor het aantal keren dat een haag of een klimplant of een terreindeel geknipt moet worden.",
+                      "type": "string"
+                  },
+                  "knipoppervlakte": {
+                      "auth": "FP/MDW",
+                      "description": "Oppervlak van de haag of klimplant dat geknipt moet worden. Handmatig invullen (klimplant) of berekend in m2. Het gaat om de knipmaat na het knippen, oftewel het beoogde model van de haag.",
+                      "type": "number",
+                      "unit": "m2"
+                  },
+                  "lengte": {
+                      "auth": "FP/MDW",
+                      "description": "Lengte van het beheerobject.",
+                      "type": "number",
+                      "unit": "m"
+                  },
+                  "maaifrequentie": {
+                      "auth": "FP/MDW",
+                      "description": "Aantal keren dat een groenobject of een terreindeel gemaaid wordt per jaar.",
+                      "type": "string"
+                  },
+                  "mutatiedatum": {
+                      "auth": "FP/MDW",
+                      "description": "Datum waarop de digitale gegevens van het beheerobject voor het laatst gewijzigd zijn.",
+                      "type": "string",
+                      "format": "date"
+                  },
+                  "objectBegintijd": {
+                      "auth": "FP/MDW",
+                      "description": "Creatiedatum (tijdstip) van het digitale beheerobject binnen het beheersysteem of in de bovenliggende georegistratie.",
+                      "type": "string",
+                      "format": "date"
+                  },
+                  "objectEindtijd": {
+                      "auth": "FP/MDW",
+                      "description": "Vervaldatum (tijdstip) van het digitale beheerobject binnen het beheersysteem of in de bovenliggende georegistratie.",
+                      "type": "datetime",
+                      "format": "date"
+                  },
+                  "objecttype": {
+                      "description": "Kleinste functionele eenheid (beheerobject of hulpobject).",
+                      "type": "string"
+                  },
+                  "omtrek": {
+                      "auth": "FP/MDW",
+                      "description": "Omtrek van het beheerobject.",
+                      "type": "number",
+                      "unit": "m"
+                  },
+                  "ondergroei": {
+                      "description": "Aanduiding voor de aanwezigheid van ondergroei bij Bos en Bosplantsoen.",
+                      "type": "string"
+                  },
+                  "onderhoudsplichtige": {
+                      "auth": "FP/MDW",
+                      "description": "Organisatie die verantwoordelijk is voor het onderhoud van het beheerobject.",
+                      "type": "string"
+                  },
+                  "opTalud": {
+                      "auth": "FP/MDW",
+                      "description": "Aanduiding of het beheerobject wel of niet op een hellend vlak ligt. De taludsteilte wordt apart geregistreerd. Overname uit BGT-object.",
+                      "type": "boolean"
+                  },
+                  "opleverdatum": {
+                      "auth": "FP/MDW",
+                      "description": "Datum waarop het beheerobject daadwerkelijk opgeleverd is. Begin van de garantieperiode.",
+                      "type": "string",
+                      "format": "date"
+                  },
+                  "oppervlakte": {
+                      "description": "Oppervlakte van het  beheerobject, overname van BGT/IMGeo.",
+                      "type": "number",
+                      "unit": "m2"
+                  },
+                  "risicotoeslag": {
+                      "auth": "FP/MDW",
+                      "description": "Beschrijving volgt",
+                      "type": "string"
+                  },
+                  "snoeifrequentie": {
+                      "auth": "FP/MDW",
+                      "description": "Aanduiding voor het aantal keren dat een vegetatieobject gesnoeid moet worden.",
+                      "type": "string"
+                  },
+                  "theoretischEindjaar": {
+                      "auth": "FP/MDW",
+                      "description": "Jaar dat het beheerobject aan het theoretische einde van haar levensduur is.",
+                      "type": "number"
+                  },
+                  "typeBeheerder": {
+                      "auth": "FP/MDW",
+                      "description": "Een publiekrechtelijke instantie of (rechts)persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT).",
+                      "type": "string"
+                  },
+                  "typeBeheerderPlus": {
+                      "auth": "FP/MDW",
+                      "description": "Nadere aanduiding van de beheerder van het beheerobject.",
+                      "type": "string"
+                  },
+                  "typeBewerking": {
+                      "auth": "FP/MDW",
+                      "description": "Wijze waarop een beheerobject verwerkt wordt (handmatig of machinaal).",
+                      "type": "string"
+                  },
+                  "typeEigenaar": {
+                      "description": "(Rechts)persoon die het meest  omvattend recht op een zaak heeft . De typen eigenaren zijn conform de indeling in bronhouders (BGT).",
+                      "type": "string"
+                  },
+                  "typeEigenaarPlus": {
+                      "auth": "FP/MDW",
+                      "description": "Nadere aanduiding van de eigenaar van het beheerobject.",
+                      "type": "string"
+                  },
+                  "typeObject": {
+                      "description": "Typering van het beheerobject.",
+                      "type": "string"
+                  },
+                  "typeObjectPlus": {
+                      "description": "Nadere typering van het type beheerobject.",
+                      "type": "string"
+                  },
+                  "typeObjectPlus2": {
+                      "description": "Extra typering van het beheerobject, nadere typering van type gedetailleerd.",
+                      "type": "string"
+                  },
+                  "vaknummer": {
+                      "auth": "FP/MDW",
+                      "description": "Vaknummer van een (bestaande) indeling in beheervakken.",
+                      "type": "string"
+                  },
+                  "verwijderdatum": {
+                      "auth": "FP/MDW",
+                      "description": "Datum waarop het object is verwijderd (materiële historie).",
+                      "type": "date"
+                  }
+              }
+          }
       }
-    }
   ]
 }
