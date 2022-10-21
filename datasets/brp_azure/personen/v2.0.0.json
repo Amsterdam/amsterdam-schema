@@ -54,267 +54,279 @@
                 "type": "string",
                 "description": "Leesbare naam van de adellijkeTitelPredikaat."
               }
-            }
-          },
-          "geboorte": {
-            "type": "object",
-            "properties": {
-              "datum": {
-                "type": "object",
-                "properties": {
-                  "datum": {
-                    "type": "string",
-                    "format": "date",
-                    "description": "Volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
-                  },
-                  "jaar": {
-                    "type": "integer",
-                    "description": "Jaar van de datum, als deze bekend is."
-                  },
-                  "maand": {
-                    "type": "integer",
-                    "description": "Maand van de datum, als deze bekend is."
-                  },
-                  "dag": {
-                    "type": "integer",
-                    "description": "Dag van de datum, als deze bekend is."
-                  }
-                }
-              },
-              "geboorteplaats": {
-                "type": "string",
-                "description": "Gemeentetabel (Tabel 33)"
-              },
-              "geboorteland": {
-                "type": "string",
-                "description": "Landentabel (Tabel 34)"
-              },
-              "geslachtsaanduiding": {
-                "type": "string",
-                "description": "Mogelijke waarden: M (man), V (vrouw), O (onbekend)"
-              },
-              "vorigANummer": {
-                "type": "string",
-                "description": "Administratienummer dat eerder aan de betrokken persoon is toegekend geweest (artikel 50 van de Wet GBA)"
-              },
-              "volgendeANummer": {
-                "type": "string",
-                "description": "Administratienummer dat nadien aan de betrokken persoon is toegekend gewest (artikel 50 van de Wet GBA)."
-              },
-              "naamgebruik": {
-                "type": "string",
-                "description": "Schrijfwijze van de achternaam. Mogelijke waarden: E (eigen), N (eigen-partner), P (partner), V (partner-eigen)"
-              },
-              "registergemeenteAkte": {
-                "type": "string",
-                "description": "Code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de akte in de registers van de burgerlijke stand in Nederland is opgenomen. Afgeleid uit BRK: Gemeente"
-              },
-              "akteNummer": {
-                "type": "string",
-                "description": "Aanduiding van de akte die is opgenomen in de registers van de burgerlijke stand in Nederland. De eerste drie posities van het aktenummer dienen conform tabel 39, tabel Akteaanduiding te zijn. De laatste vier posities bevatten een volgnummer van de akte."
-              },
-              "gemeenteDocument": {
-                "type": "string",
-                "description": "Code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonden. Afgeleid uit BRK: Gemeente"
-              },
-              "datumDocument": {
-                "type": "string",
-                "format": "date",
-                "description": "Datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden."
-              },
-              "aanduidingGegevensInOnderzoek": {
-                "type": "string",
-                "description": "Aanduiding dat in een categorie één of meer gegevns met betrekking tot de onjuistheid of de strijdigheid met de openbare orde zijn of worden onderzocht "
-              },
-              "datumIngangOnderzoek": {
-                "type": "string",
-                "format": "date",
-                "description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is gestart"
-              },
-              "datumEindeOnderzoek": {
-                "type": "string",
-                "format": "date",
-                "description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is beeindigd"
-              },
-              "onjuistStrijdigOpenbareOrde": {
-                "type": "string",
-                "format": "date",
-                "description": "Datum waarop een onderzoek inzake de onjuistheid of de strijdigheid met de openbare orde zijn of worden onderzocht"
-              },
-              "beginGeldigheid": {
-                "type": "string",
-                "format": "date-time",
-                "description": "Datum ingang rechtsgeldigheid van de gegevens in deze categorie"
-              },
-              "eindGeldigheid": {
-                "type": "string",
-                "format": "date-time",
-                "description": "Datum beeindiging rechtsgeldigheid van de gegevens in deze categorie"
-              },
-              "datumVanOpneming": {
-                "type": "string",
-                "format": "date"
-              },
-			  "heeftBrpOuder1": {
-				"type": "string",
-				"relation": "brp:ouders",
-				"provenance": "$.heeftBrpOuder1.identificatie",
-				"description": "De ouder1 van persoon."
-			  },
-			  "heeftBrpOuder2": {
-				"type": "string",
-				"relation": "brp:ouders",
-				"provenance": "$.heeftBrpOuder2.identificatie",
-				"description": "De ouder2 van persoon."
-			  },
-			  "heeftBrpNationaliteit": {
-			  "type": "array",
-				"items": {
-				  "type": "object",
-				  "properties": {
-					"identificatie": {
-					  "type": "string"
-					},
-					"volgnummer": {
-					  "type": "integer"
-					},
-					"beginGeldigheid": {
-					  "type": "string",
-					  "format": "date-time"
-					},
-					"eindGeldigheid": {
-					  "type": "string",
-					  "format": "date-time"
-					}
-				  }
-				},
-				"relation": "brp:nationaliteiten",
-				"description": "De nationaliteiten van persoon."
-			  },
-			  "heeftBrpHuwelijkPartnerschap": {
-			  "type": "array",
-				"items": {
-				  "type": "object",
-				  "properties": {
-					"identificatie": {
-					  "type": "string"
-					},
-					"volgnummer": {
-					  "type": "integer"
-					},
-					"beginGeldigheid": {
-					  "type": "string",
-					  "format": "date-time"
-					},
-					"eindGeldigheid": {
-					  "type": "string",
-					  "format": "date-time"
-					}
-				  }
-				},
-				"relation": "brp:huwelijkenpartnerschappen",
-				"description": "De huwelijkspartners /geregistreerde partnerschappen van persoon."
-			  },
-			  "heeftBrpOverlijden": {
-				"type": "string",
-				"relation": "brp:overlijdens",
-				"provenance": "$.heeftBrpOverlijden.identificatie",
-				"description": "Het overlijden van persoon"
-			  },
-			  "heeftBrpInschrijving": {
-				"type": "string",
-				"relation": "brp:inschrijvingen",
-				"provenance": "$.heeftBrpInschrijving.identificatie",
-				"description": "De inschrijving in gemeente van persoon"
-			  },
-			  "woontInBagVerblijfsobject": {
-				"type": "string",
-				"relation": "bag:verblijfsobjecten",
-				"provenance": "$.woontInBagVerblijfsobject.identificatie",
-				"description": "De verblijfplaats (verblijfsobject) van persoon."
-			  },
-			  "woontInBagLigplaats": {
-				"type": "string",
-				"relation": "bag:ligplaatsen",
-				"provenance": "$.woontInBagLigplaats.identificatie",
-				"description": "De verblijfplaats (ligplaats) van persoon."
-			  },
-			  "woontInBagStandplaats": {
-				"type": "string",
-				"relation": "bag:standplaatsen",
-				"provenance": "$.woontInBagStandplaats.identificatie",
-				"description": "De verblijfplaats (standplaats) van persoon."
-			  },
-			  "woontInLocatie": {
-				"type": "string",
-				"relation": "locaties",
-				"provenance": "$.woontInLocatie.identificatie",
-				"description": "De locatie van persoon."
-			  },
-			  "heeftBrpKind": {
-				"type": "array",
-				"items": {
-				  "type": "object",
-				  "properties": {
-					"identificatie": {
-					  "type": "string"
-					},
-					"volgnummer": {
-					  "type": "integer"
-					},
-					"beginGeldigheid": {
-					  "type": "string",
-					  "format": "date-time"
-					},
-					"eindGeldigheid": {
-					  "type": "string",
-					  "format": "date-time"
-					}
-				  }
-				},
-				"relation": "brp:kinderen",
-				"description": "De kinderen van persoon."
-			  },
-			  "heeftBrpVerblijfstitel": {
-				"type": "string",
-				"relation": "brp:verblijfstitels",
-				"provenance": "$.heeftBrpInschrijving.identificatie",
-				"description": "De verblijfstitel van persoon"
-			  },
-			  "heeftBrpGezagsverhouding": {
-				"type": "string",
-				"relation": "brp:gezagsverhoudingen",
-				"provenance": "$.heeftBrpGezagsverhouding.identificatie",
-				"description": "De gezagsverhouding van persoon"
-			  },
-			  "heeftBrpReisdocument": {
-				"type": "array",
-				"items": {
-				  "type": "object",
-				  "properties": {
-					"identificatie": {
-					  "type": "string"
-					},
-					"volgnummer": {
-					  "type": "integer"
-					},
-					"beginGeldigheid": {
-					  "type": "string",
-					  "format": "date-time"
-					},
-					"eindGeldigheid": {
-					  "type": "string",
-					  "format": "date-time"
-					}
-				  }
-				},
-				"relation": "brp:reisdocumenten",
-				"description": "De reisdocumenten van persoon."
-			  }
-            }
+			}
           }
-        }
-      }
-    }
+		}
+      },
+	  "geboorte": {
+		"type": "object",
+		"properties": {
+		  "datum": {
+			"type": "object",
+			"properties": {
+			  "datum": {
+				"type": "string",
+				"format": "date",
+				"description": "Volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+			  },
+			  "jaar": {
+				"type": "integer",
+				"description": "Jaar van de datum, als deze bekend is."
+			  },
+			  "maand": {
+				"type": "integer",
+				"description": "Maand van de datum, als deze bekend is."
+			  },
+			  "dag": {
+				"type": "integer",
+				"description": "Dag van de datum, als deze bekend is."
+			  }
+			}
+		  },
+		  "plaats": {
+			"type": "string",
+			"description": "Gemeentetabel (Tabel 33)"
+		  },
+		  "land": {
+			"type": "string",
+			"description": "Landentabel (Tabel 34)"
+		  }
+		}
+	  },
+	  "geslachtsaanduiding": {
+		"type": "string",
+		"description": "Mogelijke waarden: M (man), V (vrouw), O (onbekend)"
+	  },
+	  "vorigANummer": {
+		"type": "string",
+		"description": "Administratienummer dat eerder aan de betrokken persoon is toegekend geweest (artikel 50 van de Wet GBA)"
+	  },
+	  "volgendeANummer": {
+		"type": "string",
+		"description": "Administratienummer dat nadien aan de betrokken persoon is toegekend gewest (artikel 50 van de Wet GBA)."
+	  },
+	  "naamgebruik": {
+		"type": "string",
+		"description": "Schrijfwijze van de achternaam. Mogelijke waarden: E (eigen), N (eigen-partner), P (partner), V (partner-eigen)"
+	  },
+	  "registergemeenteAkte": {
+		"type": "string",
+		"description": "Code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de akte in de registers van de burgerlijke stand in Nederland is opgenomen. Afgeleid uit BRK: Gemeente"
+	  },
+	  "akteNummer": {
+		"type": "string",
+		"description": "Aanduiding van de akte die is opgenomen in de registers van de burgerlijke stand in Nederland. De eerste drie posities van het aktenummer dienen conform tabel 39, tabel Akteaanduiding te zijn. De laatste vier posities bevatten een volgnummer van de akte."
+	  },
+	  "gemeenteDocument": {
+		"type": "string",
+		"description": "Code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonden. Afgeleid uit BRK: Gemeente"
+	  },
+	  "datumDocument": {
+		"type": "string",
+		"format": "date",
+		"description": "Datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden."
+	  },
+	  "aanduidingGegevensInOnderzoek": {
+		"type": "string",
+		"description": "Aanduiding dat in een categorie één of meer gegevns met betrekking tot de onjuistheid of de strijdigheid met de openbare orde zijn of worden onderzocht "
+	  },
+	  "datumIngangOnderzoek": {
+		"type": "string",
+		"format": "date",
+		"description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is gestart"
+	  },
+	  "datumEindeOnderzoek": {
+		"type": "string",
+		"format": "date",
+		"description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is beeindigd"
+	  },
+	  "onjuistStrijdigOpenbareOrde": {
+		"type": "string",
+		"format": "date",
+		"description": "Datum waarop een onderzoek inzake de onjuistheid of de strijdigheid met de openbare orde zijn of worden onderzocht"
+	  },
+	  "beginGeldigheid": {
+		"type": "string",
+		"format": "date-time",
+		"description": "Datum ingang rechtsgeldigheid van de gegevens in deze categorie"
+	  },
+	  "eindGeldigheid": {
+		"type": "string",
+		"format": "date-time",
+		"description": "Datum beeindiging rechtsgeldigheid van de gegevens in deze categorie"
+	  },
+	  "datumVanOpneming": {
+		"type": "string",
+		"format": "date"
+	  },
+	  "heeftBrpOuder1": {
+		"type": "object",
+		"properties": {
+		  "identificatie": {
+			"type": "string"
+		  }
+		},
+		"relation": "brp:ouders",
+		"description": "De ouder1 van persoon."
+	  },
+	  "heeftBrpOuder2": {
+		"type": "object",
+		"properties": {
+		  "identificatie": {
+			"type": "string"
+		  }
+		},
+		"relation": "brp:ouders",
+		"description": "De ouder2 van persoon."
+	  },
+	  "heeftBrpNationaliteit": {
+	  "type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"identificatie": {
+			  "type": "string"
+			},
+			"volgnummer": {
+			  "type": "integer"
+			},
+			"beginGeldigheid": {
+			  "type": "string",
+			  "format": "date-time"
+			},
+			"eindGeldigheid": {
+			  "type": "string",
+			  "format": "date-time"
+			}
+		  }
+		},
+		"relation": "brp:nationaliteiten",
+		"description": "De nationaliteiten van persoon."
+	  },
+	  "heeftBrpHuwelijkPartnerschap": {
+	  "type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"identificatie": {
+			  "type": "string"
+			},
+			"volgnummer": {
+			  "type": "integer"
+			},
+			"beginGeldigheid": {
+			  "type": "string",
+			  "format": "date-time"
+			},
+			"eindGeldigheid": {
+			  "type": "string",
+			  "format": "date-time"
+			}
+		  }
+		},
+		"relation": "brp:huwelijkenpartnerschappen",
+		"description": "De huwelijkspartners /geregistreerde partnerschappen van persoon."
+	  },
+	  "heeftBrpOverlijden": {
+		"type": "object",
+		"properties": {
+		  "identificatie": {
+			"type": "string"
+		  }
+		},
+		"relation": "brp:overlijdens",
+		"description": "Het overlijden van een persoon."
+	  },
+	  "heeftBrpInschrijving": {
+		"type": "object",
+		"properties": {
+		  "identificatie": {
+			"type": "string"
+		  }
+		},
+		"relation": "brp:inschrijvingen",
+		"description": "Het inschrijving in de gemeente van persoon."
+	  },
+	  "heeftBrpVerblijfplaats": {
+		"type": "object",
+		"properties": {
+		  "identificatie": {
+			"type": "string"
+		  }
+		},
+		"relation": "brp:verblijfplaatsen",
+		"description": "De verblijfplaats van persoon."
+	  },
+	  "heeftBrpKind": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"identificatie": {
+			  "type": "string"
+			},
+			"volgnummer": {
+			  "type": "integer"
+			},
+			"beginGeldigheid": {
+			  "type": "string",
+			  "format": "date-time"
+			},
+			"eindGeldigheid": {
+			  "type": "string",
+			  "format": "date-time"
+			}
+		  }
+		},
+		"relation": "brp:kinderen",
+		"description": "De kinderen van persoon."
+	  },
+	  "heeftBrpVerblijfstitel": {
+		"type": "object",
+		"properties": {
+		  "identificatie": {
+			"type": "string"
+		  }
+		},
+		"relation": "brp:verblijfstitels",
+		"description": "De verblijfstitel van een persoon."
+	  },
+	  "heeftBrpGezagsverhouding": {
+		"type": "object",
+		"properties": {
+		  "identificatie": {
+			"type": "string"
+		  }
+		},
+		"relation": "brp:gezagsverhoudingen",
+		"description": "De gezagsverhouding van een persoon."
+	  },
+	  "heeftBrpReisdocument": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"identificatie": {
+			  "type": "string"
+			},
+			"volgnummer": {
+			  "type": "integer"
+			},
+			"beginGeldigheid": {
+			  "type": "string",
+			  "format": "date-time"
+			},
+			"eindGeldigheid": {
+			  "type": "string",
+			  "format": "date-time"
+			}
+		  }
+		},
+		"relation": "brp:reisdocumenten",
+		"description": "De reisdocumenten van persoon."
+	  }
+	}
   }
 }
+
+
