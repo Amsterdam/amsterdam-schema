@@ -16,6 +16,7 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
+    "mainGeometry": "geometrie",
     "identifier": [
       "identificatie",
       "volgnummer"
@@ -51,6 +52,50 @@
       "kadastraleAanduiding": {
         "type": "string",
         "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
+      },
+      "aangeduidDoorGemeente": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "relation": "brk2:gemeentes",
+        "description": "De burgerlijke gemeente"
+      },
+      "aangeduidDoorKadastralegemeente": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "relation": "brk2:kadastralegemeentes",
+        "description": "De kadastrale gemeente, het eerste gedeelte van de aanduiding van een kadastraal object."
+      },
+      "aangeduidDoorKadastralegemeentecode": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "relation": "brk2:kadastralegemeentecodes",
+        "description": "De kadastrale gemeentecode. Het eerste deel van de kadastrale aanduiding. Bijvoorbeeld: ASD01, STN02"
+      },
+      "aangeduidDoorKadastralesectie": {
+        "type": "string",
+        "relation": "brk2:kadastralesecties",
+        "description": "De kadastrale sectie, het tweede gedeelte van de aanduiding van een kadastraal object."
       },
       "perceelnummer": {
         "type": "integer",
@@ -301,7 +346,6 @@
         "relation": "brk2:kadastraleobjecten",
         "description": "Onderliggende percelen. Alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
       }
-    },
-    "mainGeometry": "geometrie"
+    }
   }
 }
