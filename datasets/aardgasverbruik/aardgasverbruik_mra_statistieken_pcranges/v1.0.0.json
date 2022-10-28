@@ -1,0 +1,58 @@
+{
+  "id": "aardgasverbruik_mra_statistieken_pcranges",
+  "title": "Per postcoderange het gemiddelde aardgasverbruik (SJV) per aansluiting en de verandering in aardgasverbruik (SJV) ten opzichte van het gemiddelde standaard jaarverbruik tussen 2018 en 2021. In deze dataset zit alleen de laatste maand van de laatste datalevering. Te koppelen met aardgasverbruik_mra_liander op id.",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "identifier": "id",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "id": {
+        "title": "id",
+        "type": "string",
+        "description": "Unieke identificatie",
+        "relation": "aardgasverbruik:aardgasverbruik_mra_liander"
+      },
+      "gemiddeldAardgasverbruikPerAansluiting": {
+        "title": "gemiddeldAardgasverbruikPerAansluiting",
+        "type": "number",
+        "description": "Gemiddeld standaard jaarverbruik per aansluiting"
+      },
+      "sjvGemiddeldeHis": {
+        "title": "sjvGemiddeldeHis",
+        "type": "number",
+        "description": "Gemiddeld standaard jaarverbruik over historische jaren"
+      },
+      "sjvHisJaar": {
+        "title": "sjvHisJaar",
+        "type": "string",
+        "description": "De jaren waar het gemiddelde standaard jaarverbruik in kolom sjv_gemiddelde_his betrekking op heeft"
+      },
+      "veranderingFractie": {
+        "title": "veranderingFractie",
+        "type": "number",
+        "description": "Verandering in standaard jaarverbruik ten opzichte van gemiddelde standaard jaarverbruik van historische jaren"
+      },
+      "postcodeArray": {
+        "title": "postcodeArray",
+        "type": "array",
+        "description": "Array met alle postcodes in postcoderange"
+      },
+      "postcoderangeGeometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "postcoderangeGeometrie",
+        "description": "Geometrie van postcode ranges"
+      }
+    }
+  }
+}
