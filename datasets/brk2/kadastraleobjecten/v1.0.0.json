@@ -200,7 +200,7 @@
         "description": "Vorm en ligging van de kadastrale sectie in het stelsel van de Rijksdriehoeksmeting (RD)"
       },
       "plaatscoordinaten": {
-        "$ref": "https://geojson.org/schema/Geometry.json",
+        "$ref": "https://geojson.org/schema/Point.json",
         "description": "De aanduiding van een kaartpunt voor de weergave van de identificatie van een perceel (centroiede)"
       },
       "perceelnummerRotatie": {
@@ -218,12 +218,13 @@
         "description": "Coordinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden y"
       },
       "bijpijlingGeometrie": {
-        "$ref": "https://geojson.org/schema/Geometry.json",
+        "$ref": "https://geojson.org/schema/LineString.json",
         "description": "Vorm en ligging van de bijpijling (de puur grafische lijn tussen het perceel en het perceelnummer)  in het stelsel van de Rijksdriehoeksmeting (RD)"
       },
       "koopsom": {
         "auth": "BRK/RO",
-        "type": "integer",
+        "type": "number",
+        "multipleOf": 0.01,
         "description": "Het in een ter inschrijving aangeboden stuk vermelde bedrag, waarvoor 1 of meer onroerende zaken zijn verkregen.",
         "reasonsNonPublic": [
           "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
@@ -272,6 +273,10 @@
         "type": "string",
         "format": "date-time",
         "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "indicatieVoorlopigeGeometrie": {
+        "type": "boolean",
+        "description": "Indicatie of de geometrie (kadastrale grens) voorlopig is of niet."
       },
       "isOntstaanUitGPerceel": {
         "type": "array",
