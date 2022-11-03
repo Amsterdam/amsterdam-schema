@@ -2,6 +2,7 @@ Toelichtende documentatie bij CMSA-data
 ===
 
 Versie van oktober 2022.
+
 Algemeen
 ---
 De data uit de Crowd Monitoring Systeem Amsterdam (CMSA)-sensoren leveren informatie uit de 
