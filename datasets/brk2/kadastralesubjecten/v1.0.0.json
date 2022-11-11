@@ -47,7 +47,7 @@
       },
       "indicatieAfschermingGegevens": {
         "auth": "BRK/RSN",
-        "type": "boolean",
+        "type": "string",
         "description": "Als extra toevoeging indien een persoon is afgeschermd. De vulling van andere attributen blijft hetzelfde zoals bij afscherming gebruikelijk is (met o.a. de identificatie gevuld met 15 x het cijfer 8)."
       },
       "heeftBsnVoorBrpPersoon": {
@@ -112,7 +112,7 @@
       },
       "indicatieDiakrietNietToonbaar": {
         "auth": "BRK/RSN",
-        "type": "boolean",
+        "type": "string",
         "description": "Als een diakriet niet juist geregistreerd is in de BRP, wordt deze ook onjuist geleverd in BRK. In BRK wordt dan deze waarde geleverd (met waarde J)."
       },
       "geboortedatum": {
@@ -157,13 +157,13 @@
       },
       "indicatieOverleden": {
         "auth": "BRK/RSN",
-        "type": "boolean",
+        "type": "string",
         "description": "Indicatie of de persoon al dan niet overleden is. De datum van overlijden is soms niet bekend, maar wel dat iemand overleden is. Dat is uit dit attribuut af te leiden."
       },
       "voornamenPartner": {
         "auth": "BRK/RSN",
         "type": "string",
-        "description": "Voorna(a)m(en) van de gerigstreerde partner"
+        "description": "Voorna(a)m(en) van de geregistreerde partner"
       },
       "voorvoegselsPartner": {
         "auth": "BRK/RSN",
@@ -215,7 +215,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string",
+            "type": "integer",
             "description": "Woonlocatietype: 0: geen, 1: binnenland, 2: buitenland "
           },
           "adresseerbaarObject": {
@@ -306,7 +306,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string",
+            "type": "integer",
             "description": "Postlocatietype: 0: geen, 1: binnenland, 2: buitenland "
           },
           "adresseerbaarObject": {
@@ -320,7 +320,7 @@
             "description": "openbare ruimte"
           },
           "huisnummer": {
-            "type": "string",
+            "type": "integer",
             "provenance": "$.postadresHuisnummer",
             "description": "huisnummer"
           },
@@ -374,7 +374,7 @@
             "description": "buitenlands land. Omschrijving"
           },
           "postbusNummer": {
-            "type": "string",
+            "type": "integer",
             "provenance": "$.postadresPostbusNummer",
             "description": "Postbusnummer"
           },
