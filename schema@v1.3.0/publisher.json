@@ -10,8 +10,8 @@
   "required": [
     "name",
     "id",
-    "loggroup",
-    "costcenter"
+    "shortname",
+    "tags"
   ],
   "properties": {
     "schema": {
@@ -28,17 +28,29 @@
       "minLength": 1,
       "pattern": "[A-Za-z]"
     },
-    "loggroup": {
-      "description": "audit log group van de publisher.",
+    "shortname": {
+      "description": "Verkorte naam van de publisher. (voor resources)",
       "type": "string",
       "minLength": 1,
       "maxLength": 12,
       "pattern": "[a-z]"
     },
-    "costcenter": {
-      "description": "Costcenter van de publisher.",
-      "type": "string",
-      "minLength": 1
+    "tags": {
+      "description": "Labels met metagegevens die aan resources van deze publisher moeten worden gehangen",
+      "type": "object",
+      "required": ["costcenter"],
+      "properties": {
+        "costcenter": {
+          "description": "Costcenter tag van de publisher.",
+          "type": "string",
+          "minLength": 1
+        },
+        "team": {
+          "description": "Team tag van de publisher.",
+          "type": "string",
+          "minLength": 1
+        }
+      }
     }
   }
 }
