@@ -53,6 +53,50 @@
         "type": "string",
         "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
       },
+      "aangeduidDoorGemeente": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "$comment": "relation brk2:gemeentes",
+        "description": "De burgerlijke gemeente"
+      },
+      "aangeduidDoorKadastralegemeente": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "$comment": "relation brk2:kadastralegemeentes",
+        "description": "De kadastrale gemeente, het eerste gedeelte van de aanduiding van een kadastraal object."
+      },
+      "aangeduidDoorKadastralegemeentecode": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "$comment": "relation brk2:kadastralegemeentecodes",
+        "description": "De kadastrale gemeentecode. Het eerste deel van de kadastrale aanduiding. Bijvoorbeeld: ASD01, STN02"
+      },
+      "aangeduidDoorKadastralesectie": {
+        "type": "string",
+        "$comment": "relation brk2:kadastralesecties",
+        "description": "De kadastrale sectie, het tweede gedeelte van de aanduiding van een kadastraal object."
+      },
       "perceelnummer": {
         "type": "integer",
         "description": "Een numerieke aanduiding van het kadastrale perceel per sectie, deel van de kadastrale aanduiding van de onroerende zaak."
@@ -213,13 +257,11 @@
       },
       "beginGeldigheid": {
         "type": "string",
-        "format": "date-time",
-        "description": ""
+        "format": "date-time"
       },
       "eindGeldigheid": {
         "type": "string",
-        "format": "date-time",
-        "description": ""
+        "format": "date-time"
       },
       "inOnderzoek": {
         "type": "string",
@@ -229,6 +271,10 @@
         "type": "string",
         "format": "date-time",
         "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "indicatieVoorlopigeKadastraleGrens": {
+        "type": "string",
+        "description": "Indicatie of de geometrie (kadastrale grens) voorlopig is of niet."
       },
       "isOntstaanUitGPerceel": {
         "type": "array",
