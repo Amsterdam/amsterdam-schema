@@ -2,20 +2,24 @@
   "id": "borInspecties",
   "type": "dataset",
   "auth": "FP/MDW",
+  "reasonsNonPublic": [
+    "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+  ],
   "authorizationGrantor": "Directie Stadsbeheer",
   "theme": [
     "duurzaamheid en milieu",
     "Ruimte en Topografie",
     "Beheer openbare ruimte"
   ],
+  "version": "2.0.0",
   "homepage": "https://data.amsterdam.nl",
   "owner": "Gemeente Amsterdam, Stadsbeheer",
   "dateModified": "2021-04-27T00:00:00+01:00",
   "spatialDescription": "Gemeente Amsterdam",
-  "version": "1.0.0",
   "title": "BOR Inspecties",
   "language": "nl",
-  "license": "Creative Commons, Naamsvermelding",
+  "creator": "Datateam Beeldschoon/BOR",
+  "publisher": "Datateam Beheer en Openbare Ruimte",
   "hasBeginning": "2017-01-29T00:00:00+01:00",
   "accrualPeriodicity": "maandelijks",
   "description": "Binnen de Gemeente Amsterdam wordt op verschillende niveaus inspecties uitgevoerd door verschillende directies en partijen. Bijvoorbeeld inspecties voor het dagelijkse onderhoud of technische inspecties voor vervangingsplannen.  Soms met een gelijke- methodiek en andere momenten een andere methodiek (CROW, NEN, etc.). Onder de dataset \u201cinspecties\u201d vind je diverse inspectie tabellen",
@@ -30,8 +34,6 @@
   "crs": "EPSG:28992",
   "objective": "Bevat monitoring en inspectie data over de kwaliteit van de openbare ruimte van willekeurige meetlocaties binnen de gemeente Amsterdam (o.a. Weesp). ",
   "temporalUnit": "seconden",
-  "creator": "bronhouder onbekend",
-  "publisher": "Datateam Beheer en Openbare Ruimte",
   "tables": [
     {
       "id": "monitorbeeldkwaliteit",
@@ -81,15 +83,18 @@
           },
           "inspectieRoundPeriodeStart": {
             "type": "string",
-            "description": "Unix timestamp met geplande startdatum en tijd"
+            "format": "date-time",
+            "description": "Geplande startdatum en tijd"
           },
           "inspectionRoundPeriodeEnd": {
             "type": "string",
-            "description": "Unix timestamp met geplande einddatum en tijd"
+            "format": "date-time",
+            "description": "Geplande einddatum en tijd"
           },
           "inspectionRoundModifiededAt": {
             "type": "string",
-            "description": "Unix timestamp met laatste modificatiedatum en tijd"
+            "format": "date-time",
+            "description": "Laatste modificatiedatum en tijd"
           },
           "inspectionIds": {
             "type": "string",
@@ -97,7 +102,8 @@
           },
           "inspectionCreatedAt": {
             "type": "string",
-            "description": "Unix timestamp met aanmaakdatum"
+            "format": "date-time",
+            "description": "Aanmaakdatum"
           },
           "resultsAboveMinvalue": {
             "type": "boolean",
@@ -106,11 +112,13 @@
           },
           "inspectionFinishedAt": {
             "type": "string",
-            "description": "Unix timestamp met sluitingsdatum en tijd"
+            "format": "date-time",
+            "description": "Sluitingsdatum en tijd"
           },
           "inspectionResultFiledAt": {
             "type": "string",
-            "description": "Unix timestamp met laatste modificatiedatum"
+            "format": "date-time",
+            "description": "Laatste modificatiedatum"
           },
           "closingUserName": {
             "type": "string",
@@ -134,7 +142,8 @@
           },
           "scoreCreatedAt": {
             "type": "string",
-            "description": "Unix timestamp met aanmaakdatum en tijd."
+            "format": "date-time",
+            "description": "Aanmaakdatum en tijd van de score."
           },
           "creatingUserId": {
             "type": "string",
@@ -209,83 +218,67 @@
           },
           "buurtcodeDominant": {
             "type": "string",
-            "relation": "gebieden:buurten",
-            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
-            "description": "Unieke code (hier\u00adin zie je de Stadsdeel- en Wijk\u00adco\u00adde te\u00adrug) (dominant) "
+            "description": "Unieke code (hierin zie je de Stadsdeel- en Wijkcode terug) (dominant) "
           },
           "buurtnaamDominant": {
             "type": "string",
-            "description": "De naam van het ob\u00adject (dominant: De buurt waar het grootste gedeelte van de oppervlakte van het meetgebied ligt.)"
+            "description": "De naam van het object (dominant: De buurt waar het grootste gedeelte van de oppervlakte van het meetgebied ligt.)"
           },
           "buurtnaam": {
             "type": "string",
-            "description": "De naam van het ob\u00adject"
+            "description": "De naam van het object"
           },
           "buurtcode": {
             "type": "string",
-            "relation": "gebieden:buurten",
-            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
-            "description": "Unie\u00adke code (hier\u00adin zie je de Stads\u00addeel- en Wijk\u00adco\u00adde te\u00adrug)"
+            "description": "Unieke code (hierin zie je de Stadsdeel- en Wijkcode terug)"
           },
           "wijknaamDominant": {
             "type": "string",
-            "relation": "gebieden:wijken",
-            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/wijk",
-            "description": "De naam van het ob\u00adject (dominant: De wijk waar het grootste gedeelte van de oppervlakte van het meetgebied ligt.)"
+            "description": "De naam van het object (dominant: De wijk waar het grootste gedeelte van de oppervlakte van het meetgebied ligt.)"
           },
           "wijkcodeDominant": {
             "type": "string",
-            "description": "Vol\u00adle\u00addi\u00adge, sa\u00admen\u00adge\u00adstel\u00adde, code, be\u00adstaan\u00adde uit stads\u00addeel\u00adco\u00adde en wijk\u00adco\u00adde(dominant)"
+            "description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode en wijkcode (dominant)"
           },
           "wijknaam": {
             "type": "string",
-            "description": "De naam van het ob\u00adject"
+            "description": "De naam van het object"
           },
           "wijkcode": {
             "type": "string",
-            "relation": "gebieden:wijken",
-            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/wijk",
-            "description": "Vol\u00adle\u00addi\u00adge, sa\u00admen\u00adge\u00adstel\u00adde, code, be\u00adstaan\u00adde uit stads\u00addeel\u00adco\u00adde en wijk\u00adco\u00adde"
+            "description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode en wijkcode"
           },
           "stadsdeelnaamDominant": {
             "type": "string",
-            "description": "De naam van het ob\u00adject (dominant: Het  stadsdeel waar het grootste gedeelte van de oppervlakte van het meetgebied ligt.)"
+            "description": "De naam van het object (dominant: Het  stadsdeel waar het grootste gedeelte van de oppervlakte van het meetgebied ligt.)"
           },
           "stadsdeelcodeDominant": {
             "type": "string",
-            "relation": "gebieden:stadsdelen",
-            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
-            "description": "Of\u00adfi\u00adci\u00eble code van het ob\u00adject (dominant)"
+            "description": "Officiële code van het object (dominant)"
           },
           "stadsdeelnaam": {
             "type": "string",
-            "description": "De naam van het ob\u00adject."
+            "description": "De naam van het object"
           },
           "stadsdeelcode": {
             "type": "string",
-            "relation": "gebieden:stadsdelen",
-            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
-            "description": "Of\u00adfi\u00adci\u00eble code van het ob\u00adject."
+            "description": "Officiële code van het object"
           },
           "ggwnaamDominant": {
             "type": "string",
-            "description": "De naam van het ob\u00adject (dominant: Gebiedsgericht werken waar het grootste gedeelte van de oppervlakte van het meetgebied ligt.)"
+            "description": "De naam van het object (dominant: Gebiedsgericht werken waar het grootste gedeelte van de oppervlakte van het meetgebied ligt.)"
           },
           "ggwcodeDominant": {
             "type": "string",
-            "relation": "gebieden:ggwgebieden",
-            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
-            "description": "Of\u00adfi\u00adci\u00eble code van het ob\u00adject (dominant)."
+            "description": "De code van het object (dominant)."
           },
           "ggwnaam": {
             "type": "string",
-            "description": "De naam van het ob\u00adject."
+            "description": "De naam van het object"
           },
           "ggwcode": {
             "type": "string",
-            "relation": "gebieden:ggwgebieden",
-            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
-            "description": "Of\u00adfi\u00adci\u00eble code van het ob\u00adject."
+            "description": "De code van het object"
           }
         }
       }
