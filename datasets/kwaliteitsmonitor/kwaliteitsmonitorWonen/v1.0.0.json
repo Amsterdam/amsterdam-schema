@@ -2,12 +2,16 @@
   "id": "kwaliteitsmonitorWonen",
   "type": "table",
   "title": "Kwaliteitsmonitor Wonen",
-  "description": "Per verblijfsobject de kenmerken van de woningvoorraad van de gemeente Amsterdam.",
   "version": "1.0.0",
+  "description": "Per verblijfsobject de kenmerken van de woningvoorraad van de gemeente Amsterdam.",
+  "auth": "FP/WONEN",
+  "reasonsNonPublic": [
+    "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+  ],
   "status": "beschikbaar",
-  "authorizationGrantor": "Datateam Omgevingswet",
   "creator": "bronhouder onbekend",
   "publisher": "Datateam Stedelijke Ontwikkeling en Beheer",
+  "authorizationGrantor": "datateamstedelijkeonwikkelingenbeheer@amsterdam.nl",
   "theme": [
     "Wonen"
   ],
@@ -16,150 +20,140 @@
     "Kwaliteitsmonitor",
     "Wonen"
   ],
-  "crs": "EPSG:28992",
-  "auth": "FP/WONEN",
-  "tables": [
-    {
-      "id": "wonen",
-      "title": "Per verblijfsobject de kenmerken van de woningvoorraad van de gemeente Amsterdam.",
-      "type": "table",
-      "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "pndGeometrieMiddelpunt",
+    "display": "id",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "Unieke id van het verblijfsobject"
+      },
       "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "schema"
-        ],
-        "display": "id",
-        "mainGeometry": "pndGeometrieMiddelpunt",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "string",
-            "description": "Unieke aanduiding objecttype"
-          },
-          "vboIdentificatie": {
-            "type": "string",
-            "description": "Unieke identificatie van het verblijfsobject"
-          },
-          "vboGeometrie": {
-            "description": "Geometrie van het type POINT van het verblijfsobject",
-            "$ref": "https://geojson.org/schema/Point.json"
-          },
-          "vboOppervlakte": {
-            "type": "integer",
-            "description": "De oppervlakte van het verblijfsobject"
-          },
-          "vboGebruiksdoel": {
-            "type": "string",
-            "description": "Het gebruiksdoel van het verblijfsobject"
-          },
-          "pndIdentificatie": {
-            "type": "integer",
-            "description": "Unieke identificatie van het pand"
-          },
-          "pndGeometrie": {
-            "description": "Geometrie van het type MULTIPOLYGON van het pand",
-            "$ref": "https://geojson.org/schema/MultiPolygon.json"
-          },
-          "pndGeometrieMiddelpunt": {
-            "description": "Geometrie van het middelpunt van het pand van het type POINT",
-            "$ref": "https://geojson.org/schema/Point.json"
-          },
-          "pndOorspronkelijkbouwjaar": {
-            "type": "integer",
-            "description": "Oorspronkelijke bouwjaar van het pand"
-          },
-          "pndLigging": {
-            "type": "string",
-            "description": "Ligging van het pand"
-          },
-          "mntMonumentstatus": {
-            "type": "string",
-            "description": "Monumentstatus van het pand"
-          },
-          "bsdLigtInBeschermdGebied": {
-            "type": "string",
-            "description": "Ja/Nee indicator welke aangeeft of het verblijfsobject in een beschermd stads- of dorpgezicht valt"
-          },
-          "bsdBeschermdStadsdorpsgezicht": {
-            "type": "string",
-            "description": "Tot welk gebied van het beschermd stadsdorpsgezicht het verblijfsobject behoort"
-          },
-          "adres": {
-            "type": "string",
-            "description": "Adres van het verblijfsobject"
-          },
-          "huisnummer": {
-            "type": "integer",
-            "description": "Huisnummer van het verblijfsobject"
-          },
-          "huisletter": {
-            "type": "string",
-            "description": "Huisletter van het verblijfsobject"
-          },
-          "huisnummertoevoeging": {
-            "type": "string",
-            "description": "Huisnummertoevoeging van het verblijfsobject"
-          },
-          "postcode": {
-            "type": "string",
-            "description": "Postcode van het verblijfsobject"
-          },
-          "woonplaats": {
-            "type": "string",
-            "description": "Woonplaats van het verblijfsobject"
-          },
-          "bouwblokCode": {
-            "type": "string",
-            "description": "Code van het bouwblok van het verblijfsobject"
-          },
-          "buurtNaam": {
-            "type": "string",
-            "description": "Naam van de buurt van het verblijfsobject"
-          },
-          "buurtCode": {
-            "type": "string",
-            "description": "Code van de buurt van het verblijfsobject"
-          },
-          "wijkNaam": {
-            "type": "string",
-            "description": "Naam van de wijk van het verblijfsobject"
-          },
-          "wijkCode": {
-            "type": "string",
-            "description": "Code van de wijk van het verblijfsobject"
-          },
-          "stadsdeelNaam": {
-            "type": "string",
-            "description": "Naam van het stadsdeel van het verblijfsobject"
-          },
-          "stadsdeelCode": {
-            "type": "string",
-            "description": "Code van het stadsdeel van het verblijfsobject"
-          },
-          "gebiedsgerichtWerkenNaam": {
-            "type": "string",
-            "description": "Naam van het gebiedsgericht werken"
-          },
-          "gebiedsgerichtWerkenCode": {
-            "type": "string",
-            "description": "Code van het gebiedsgericht werken"
-          },
-          "vveIsEigendomVve": {
-            "type": "string",
-            "description": "Ja/Nee indicator welke aangeeft of het verblijfsobject eigendom is van de VVE?"
-          },
-          "vveStatutaireNaam": {
-            "type": "string",
-            "description": "Statutaire naam van de VVE"
-          }
-        }
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "vboIdentificatie": {
+        "type": "string",
+        "description": "Unieke identificatie van het verblijfsobject"
+      },
+      "vboGeometrie": {
+        "description": "Geometrie van het type POINT van het verblijfsobject",
+        "$ref": "https://geojson.org/schema/Point.json"
+      },
+      "vboOppervlakte": {
+        "type": "integer",
+        "description": "De oppervlakte van het verblijfsobject"
+      },
+      "vboGebruiksdoel": {
+        "type": "string",
+        "description": "Het gebruiksdoel van het verblijfsobject"
+      },
+      "pndIdentificatie": {
+        "type": "integer",
+        "description": "Unieke identificatie van het pand"
+      },
+      "pndGeometrie": {
+        "description": "Geometrie van het type MULTIPOLYGON van het pand",
+        "$ref": "https://geojson.org/schema/MultiPolygon.json"
+      },
+      "pndGeometrieMiddelpunt": {
+        "description": "Geometrie van het middelpunt van het pand van het type POINT",
+        "$ref": "https://geojson.org/schema/Point.json"
+      },
+      "pndOorspronkelijkbouwjaar": {
+        "type": "integer",
+        "description": "Oorspronkelijke bouwjaar van het pand"
+      },
+      "pndLigging": {
+        "type": "string",
+        "description": "Ligging van het pand"
+      },
+      "mntMonumentstatus": {
+        "type": "string",
+        "description": "Monumentstatus van het pand"
+      },
+      "bsdLigtInBeschermdGebied": {
+        "type": "string",
+        "description": "Ja/Nee indicator welke aangeeft of het verblijfsobject in een beschermd stads- of dorpgezicht valt"
+      },
+      "bsdBeschermdStadsdorpsgezicht": {
+        "type": "string",
+        "description": "Tot welk gebied van het beschermd stadsdorpsgezicht het verblijfsobject behoort"
+      },
+      "adres": {
+        "type": "string",
+        "description": "Adres van het verblijfsobject"
+      },
+      "huisnummer": {
+        "type": "integer",
+        "description": "Huisnummer van het verblijfsobject"
+      },
+      "huisletter": {
+        "type": "string",
+        "description": "Huisletter van het verblijfsobject"
+      },
+      "huisnummertoevoeging": {
+        "type": "string",
+        "description": "Huisnummertoevoeging van het verblijfsobject"
+      },
+      "postcode": {
+        "type": "string",
+        "description": "Postcode van het verblijfsobject"
+      },
+      "woonplaats": {
+        "type": "string",
+        "description": "Woonplaats van het verblijfsobject"
+      },
+      "bouwblokCode": {
+        "type": "string",
+        "description": "Code van het bouwblok van het verblijfsobject"
+      },
+      "buurtNaam": {
+        "type": "string",
+        "description": "Naam van de buurt van het verblijfsobject"
+      },
+      "buurtCode": {
+        "type": "string",
+        "description": "Code van de buurt van het verblijfsobject"
+      },
+      "wijkNaam": {
+        "type": "string",
+        "description": "Naam van de wijk van het verblijfsobject"
+      },
+      "wijkCode": {
+        "type": "string",
+        "description": "Code van de wijk van het verblijfsobject"
+      },
+      "stadsdeelNaam": {
+        "type": "string",
+        "description": "Naam van het stadsdeel van het verblijfsobject"
+      },
+      "stadsdeelCode": {
+        "type": "string",
+        "description": "Code van het stadsdeel van het verblijfsobject"
+      },
+      "gebiedsgerichtWerkenNaam": {
+        "type": "string",
+        "description": "Naam van het gebiedsgericht werken"
+      },
+      "gebiedsgerichtWerkenCode": {
+        "type": "string",
+        "description": "Code van het gebiedsgericht werken"
+      },
+      "vveIsEigendomVve": {
+        "type": "string",
+        "description": "Ja/Nee indicator welke aangeeft of het verblijfsobject eigendom is van de VVE?"
+      },
+      "vveStatutaireNaam": {
+        "type": "string",
+        "description": "Statutaire naam van de VVE"
       }
     }
-  ]
+  }
 }

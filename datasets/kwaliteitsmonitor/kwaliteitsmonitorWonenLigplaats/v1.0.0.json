@@ -2,12 +2,16 @@
   "id": "kwaliteitsmonitorWonenLigplaats",
   "type": "table",
   "title": "Kwaliteitsmonitor Wonen Ligplaats",
-  "description": "Per ligplaats de kenmerken van de woningvoorraad van de gemeente Amsterdam.",
   "version": "1.0.0",
+  "description": "Per ligplaats de kenmerken van de woningvoorraad van de gemeente Amsterdam.",
+  "auth": "FP/WONEN",
+  "reasonsNonPublic": [
+    "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+  ],
   "status": "beschikbaar",
-  "authorizationGrantor": "Datateam Stedelijke Ontwikkeling & Beheer",
-  "creator": "bronhouder onbekend",
-  "publisher": "Datateam Stedelijke Ontwikkeling & Beheer",
+  "creator": "Datateam Stedelijke Ontwikkeling en Beheer",
+  "publisher": "Datateam Stedelijke Ontwikkeling en Beheer",
+  "authorizationGrantor": "datateamstedelijkeonwikkelingenbeheer@amsterdam.nl",
   "theme": [
     "Wonen"
   ],
@@ -15,166 +19,156 @@
   "keywords": [
     "Kwaliteitsmonitor",
     "Wonen",
-    "Ligplaats"
+	"Ligplaats"
   ],
-  "crs": "EPSG:28992",
-  "auth": "FP/WONEN",
-  "tables": [
-    {
-      "id": "wonen_ligplaats",
-      "title": "Per ligplaats de kenmerken van de woningvoorraad van de gemeente Amsterdam.",
-      "type": "table",
-      "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "ligGeomMiddel",
+    "display": "id",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "Unieke id van de ligplaats"
+      },
       "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "schema"
-        ],
-        "display": "id",
-        "mainGeometry": "ligGeomMiddel",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "string",
-            "description": "Unieke aanduiding van de ligplaats"
-          },
-          "adres": {
-            "type": "string",
-            "description": "Adres van de ligplaats"
-          },
-          "huisnummer": {
-            "type": "integer",
-            "description": "Huisnummer van de ligplaats"
-          },
-          "huisletter": {
-            "type": "string",
-            "description": "Huisletter van de ligplaats"
-          },
-          "huisnummertoevoeging": {
-            "type": "string",
-            "description": "Huisnummertoevoeging van de ligplaats"
-          },
-          "postcode": {
-            "type": "string",
-            "description": "Postcode van de ligplaats"
-          },
-          "woonplaats": {
-            "type": "string",
-            "description": "Woonplaats van de ligplaats"
-          },
-          "bagNagId": {
-            "type": "string",
-            "description": "Unieke nummeraanduiding van de ligplaats"
-          },
-          "bagNagVolgnummer": {
-            "type": "integer",
-            "description": "Volgnummer van de nummeraanduiding behorende bij de ligplaats"
-          },
-          "ligIdentificatie": {
-            "type": "string",
-            "description": "Unieke aanduiding van de ligplaats"
-          },
-          "bagTypeadresseerbaarobject": {
-            "type": "string",
-            "description": "-"
-          },
-          "bagStatus": {
-            "type": "string",
-            "description": "De fase van de levenscyclus van een ligplaats waarin de betreffende ligplaats zich bevindt"
-          },
-          "bagStatusCode": {
-            "type": "string",
-            "description": "-"
-          },
-          "bsdLigtInBeschermdGebied": {
-            "type": "string",
-            "description": "Ja/Nee indicator welke aangeeft of de ligplaats in een beschermd stads- of dorpgezicht valt"
-          },
-          "bsdBeschermdStadsdorpsgezicht": {
-            "type": "string",
-            "description": "Tot welk gebied van het beschermd stadsdorpsgezicht de ligplaats behoort"
-          },
-          "gbdBbkIdentificatie": {
-            "type": "string",
-            "description": "-"
-          },
-          "gbdBbkCode": {
-            "type": "string",
-            "description": "-"
-          },
-          "gbdBrtIdentificatie": {
-            "type": "string",
-            "description": "Identificatie van de buurt"
-          },
-          "gbdBrtCode": {
-            "type": "string",
-            "description": "Code van de buurt"
-          },
-          "gbdBrtNaam": {
-            "type": "string",
-            "description": "Naam van de buurt"
-          },
-          "gbdWijkIdentificatie": {
-            "type": "string",
-            "description": "Identificatie van het gebiedsgericht werken"
-          },
-          "gbdWijkCode": {
-            "type": "string",
-            "description": "Code van de wijk"
-          },
-          "gbdWijkNaam": {
-            "type": "string",
-            "description": "Naam van de wijk"
-          },
-          "gbdSdlIdentificatie": {
-            "type": "string",
-            "description": "Identificatie van het stadsdeel"
-          },
-          "gbdSdlNaam": {
-            "type": "string",
-            "description": "Naam van het stadsdeel"
-          },
-          "gbdGgwNaam": {
-            "type": "string",
-            "description": "Naam van het gebiedsgericht werken"
-          },
-          "gbdGgwCode": {
-            "type": "string",
-            "description": "Code van het gebiedsgericht werken"
-          },
-          "ligGeomVlak": {
-            "description": "Geometrie van het type MULTIPOLYGON van de ligplaats",
-            "$ref": "https://geojson.org/schema/MultiPolygon.json"
-          },
-          "ligGeomVlakWgs84": {
-            "description": "Geometrie van het type MULTIPOLYGON van de ligplaats",
-            "$ref": "https://geojson.org/schema/MultiPolygon.json"  
-          },
-          "ligGeomMiddel": {
-            "description": "Geometrie van het middelpunt van de ligplaats van het type POINT",
-            "$ref": "https://geojson.org/schema/Point.json"
-          },
-          "ligGeomMiddelWgs84": {
-            "description": "Geometrie van het middelpunt van de ligplaats van het type POINT",
-            "$ref": "https://geojson.org/schema/Point.json"
-          },
-          "peildatumBag": {
-            "type": "integer",
-            "format": "date",
-            "description": "Peildatum BAG"
-          },
-          "peildatumGbd": {
-            "type": "string",
-            "format": "date",
-            "description": "Peildatum gebied"
-          }
-        }
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "adres": {
+        "type": "string",
+        "description": "Adres van de ligplaats"
+      },
+      "huisnummer": {
+        "type": "integer",
+        "description": "Huisnummer van de ligplaats"
+      },
+      "huisletter": {
+        "type": "string",
+        "description": "Huisletter van de ligplaats"
+      },
+      "huisnummertoevoeging": {
+        "type": "string",
+        "description": "Huisnummertoevoeging van de ligplaats"
+      },
+      "postcode": {
+        "type": "string",
+        "description": "Postcode van de ligplaats"
+      },
+      "woonplaats": {
+        "type": "string",
+        "description": "Woonplaats van de ligplaats"
+      },
+      "bagNagId": {
+        "type": "string",
+        "description": "Unieke nummeraanduiding van de ligplaats"
+      },
+      "bagNagVolgnummer": {
+        "type": "integer",
+        "description": "Volgnummer van de nummeraanduiding behorende bij de ligplaats"
+      },
+      "ligIdentificatie": {
+        "type": "string",
+        "description": "Unieke aanduiding van de ligplaats"
+      },
+      "bagTypeadresseerbaarobject": {
+        "type": "string",
+        "description": "-"
+      },
+      "bagStatus": {
+        "type": "string",
+        "description": "De fase van de levenscyclus van een ligplaats waarin de betreffende ligplaats zich bevindt"
+      },
+      "bagStatusCode": {
+        "type": "string",
+        "description": "-"
+      },
+      "bsdLigtInBeschermdGebied": {
+        "type": "string",
+        "description": "Ja/Nee indicator welke aangeeft of de ligplaats in een beschermd stads- of dorpgezicht valt"
+      },
+      "bsdBeschermdStadsdorpsgezicht": {
+        "type": "string",
+        "description": "Tot welk gebied van het beschermd stadsdorpsgezicht de ligplaats behoort"
+      },
+      "gbdBbkIdentificatie": {
+        "type": "string",
+        "description": "-"
+      },
+      "gbdBbkCode": {
+        "type": "string",
+        "description": "-"
+      },
+      "gbdBrtIdentificatie": {
+        "type": "string",
+        "description": "Identificatie van de buurt"
+      },
+      "gbdBrtCode": {
+        "type": "string",
+        "description": "Code van de buurt"
+      },
+      "gbdBrtNaam": {
+        "type": "string",
+        "description": "Naam van de buurt"
+      },
+      "gbdWijkIdentificatie": {
+        "type": "string",
+        "description": "Identificatie van het gebiedsgericht werken"
+      },
+      "gbdWijkCode": {
+        "type": "string",
+        "description": "Code van de wijk"
+      },
+      "gbdWijkNaam": {
+        "type": "string",
+        "description": "Naam van de wijk"
+      },
+      "gbdSdlIdentificatie": {
+        "type": "string",
+        "description": "Identificatie van het stadsdeel"
+      },
+      "gbdSdlNaam": {
+        "type": "string",
+        "description": "Naam van het stadsdeel"
+      },
+      "gbdGgwNaam": {
+        "type": "string",
+        "description": "Naam van het gebiedsgericht werken"
+      },
+      "gbdGgwCode": {
+        "type": "string",
+        "description": "Code van het gebiedsgericht werken"
+      },
+      "ligGeomVlak": {
+        "description": "Geometrie van het type MULTIPOLYGON van de ligplaats",
+        "$ref": "https://geojson.org/schema/MultiPolygon.json"
+      },
+      "ligGeomVlakWgs84": {
+        "description": "Geometrie van het type MULTIPOLYGON van de ligplaats",
+        "$ref": "https://geojson.org/schema/MultiPolygon.json"  
+      },
+      "ligGeomMiddel": {
+        "description": "Geometrie van het middelpunt van de ligplaats van het type POINT",
+        "$ref": "https://geojson.org/schema/Point.json"
+      },
+      "ligGeomMiddelWgs84": {
+        "description": "Geometrie van het middelpunt van de ligplaats van het type POINT",
+        "$ref": "https://geojson.org/schema/Point.json"
+      },
+      "peildatumBag": {
+        "type": "integer",
+        "format": "date",
+        "description": "Peildatum BAG"
+      },
+      "peildatumGbd": {
+        "type": "string",
+        "format": "date",
+        "description": "Peildatum gebied"
       }
     }
-  ]
+  }
 }
