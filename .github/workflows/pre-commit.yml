@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - datasets/*/dataset.json
+      - datasets/*/*/dataset.json
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
@@ -22,8 +23,10 @@ jobs:
         with:
           python-version: '3.9.x'
       - id: changed-datasets
-        # We are only interested in changed and new (not deleted) datasets
-        run: echo "::set-output name=CHANGED_DATASETS::$(git diff --name-only --diff-filter=d origin/master.. -- | grep dataset.json)"
+        # We are only interested in changed and new (not deleted) datasets.
+        # Checking the dataset.json is enough IF table files are properly versioned.
+        # Strip off the actual "/dataset.json" suffix to please the SchemaLoader.
+        run: echo "::set-output name=CHANGED_DATASETS::$(git diff --name-only --diff-filter=d origin/master.. -- | grep 'dataset.json$' | xargs dirname)"
         shell: bash
       - run: |
           echo "Datasets to be validated:"
