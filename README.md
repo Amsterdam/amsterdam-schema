@@ -71,16 +71,6 @@ For example:
 - Amsterdam Schema is used to validate the table row JSON Schema,
   with a _meta-schema_ (a JSON Schema to verify a JSON Schema).
 
-## Editor
-
-You can experiment with a prototype version of
-[Amsterdam Schema Editor](https://amsterdam.github.io/schema-editor/)
-to create or edit Amsterdam Schema instances using a web interface.
-Due to the rapid pace of development
-this tool lags behind the specification
-and should be considered as an inspiration
-of how easy it could become for everyone to define their own.
-
 ## Versioning
 
 You can find all historical versions of the Amsterdam Schema definition in this repository.
@@ -93,7 +83,6 @@ This will allow for a gradual evolution of capabilities.
 
 For more information, see (some of these pages are in Dutch):
 
-- [Amsterdam Schema Editor](https://amsterdam.github.io/schema-editor/)
 - [Amsterdam Schema Wiki](https://github.com/Amsterdam/amsterdam-schema/wiki)
 - [Amsterdam Schema Validator 👩🏼‍🏫](https://observablehq.com/@bertspaan/amsterdam-schema-validator)
 - [Werkbestand Team Dataservices](https://observablehq.com/@bertspaan/werkbestand-team-dataservices)
