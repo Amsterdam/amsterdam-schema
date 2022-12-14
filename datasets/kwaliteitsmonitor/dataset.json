@@ -6,7 +6,7 @@
   "description": "Per verblijfsobject, ligplaats of standplaats de kenmerken van de woningvoorraad van de gemeente Amsterdam.",
   "version": "1.1.0",
   "dateCreated": "2022-11-23T00:00:00+01:00",
-  "dateModified": "2022-11-23T00:00:00+01:00",
+  "dateModified": "2022-12-14T00:00:00+01:00",
   "license": "Creative Commons, Naamsvermelding",
   "language": "nl",
   "creator": "Datateam Stedelijke Ontwikkeling en Beheer",
@@ -18,7 +18,10 @@
   ],
   "owner": "Gemeente Amsterdam",
   "crs": "EPSG:28992",
-  "auth": "OPENBAAR",
+  "auth": "FP/WONEN",
+  "reasonsNonPublic": [
+    "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+  ],
   "authorizationGrantor": "datateamstedelijkeonwikkelingenbeheer@amsterdam.nl",
   "keywords": [
     "Kwaliteitsmonitor",
@@ -31,30 +34,30 @@
   "tables": [
     {
       "id": "wonen",
-      "$ref": "kwaliteitsmonitorWonen/v1.0.0",
+      "$ref": "wonen/v1.0.0",
       "activeVersions": {
-        "1.0.0": "kwaliteitsmonitorWonen/v1.0.0"
+        "1.0.0": "wonen/v1.0.0"
       }
     },
     {
       "id": "wonenLigplaats",
-      "$ref": "kwaliteitsmonitorWonenLigplaats/v1.0.0",
+      "$ref": "wonenLigplaats/v1.0.0",
       "activeVersions": {
-        "1.0.0": "kwaliteitsmonitorWonenLigplaats/v1.0.0"
+        "1.0.0": "wonenLigplaats/v1.0.0"
       }
     },
     {
       "id": "wonenStandplaats",
-      "$ref": "kwaliteitsmonitorWonenStandplaats/v1.0.0",
+      "$ref": "wonenStandplaats/v1.0.0",
       "activeVersions": {
-        "1.0.0": "kwaliteitsmonitorWonenStandplaats/v1.0.0"
+        "1.0.0": "wonenStandplaats/v1.0.0"
       }
     },
     {
       "id": "wonenVerblijfsobject",
-      "$ref": "kwaliteitsmonitorWonenVerblijfsobject/v1.0.0",
+      "$ref": "wonenVerblijfsobject/v1.0.0",
       "activeVersions": {
-        "1.0.0": "kwaliteitsmonitorWonenVerblijfsobject/v1.0.0"
+        "1.0.0": "wonenVerblijfsobject/v1.0.0"
       }
     }
   ]
