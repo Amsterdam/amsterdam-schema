@@ -1,5 +1,14 @@
 version: '3.7'
 services:
+  devserver:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+
   publisher:
     build: src
     container_name: publisher

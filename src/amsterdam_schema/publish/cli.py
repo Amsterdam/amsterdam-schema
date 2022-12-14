@@ -29,7 +29,7 @@ from swiftclient.service import SwiftService, SwiftUploadObject
 logger = logging.getLogger("__name__")
 
 
-SCHEMA_PREFIXES = ("datasets", "schema@", "publishers")
+PUBLISHABLE_PREFIXES = ("datasets", "schema@", "publishers")
 DEFAULT_BASE_URL = "https://schemas.data.amsterdam.nl"
 SCHEMAS_SA_NAME = os.getenv("SCHEMAS_SA_NAME", "devschemassa")
 
@@ -37,7 +37,7 @@ SCHEMAS_SA_NAME = os.getenv("SCHEMAS_SA_NAME", "devschemassa")
 def fetch_local_as_publishable(
     root_pkg_name: str,
     temp_dir_path: Path,
-    publishable_prefixes: Tuple[str, ...] = SCHEMA_PREFIXES,
+    publishable_prefixes: Tuple[str, ...] = PUBLISHABLE_PREFIXES,
     glob: str = "**/*.json",
 ) -> List[List[str]]:
     """Fetch publishable artifacts from package as path components.
