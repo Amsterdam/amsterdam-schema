@@ -1,13 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://schemas.data.amsterdam.nl/schema@v1.3.0#",
+  "$id": "https://schemas.data.amsterdam.nl/schema@v2.0.0#",
   "title": "Amsterdam Schema",
   "$vocabulary": {
     "https://json-schema.org/draft/2019-09/vocab/core": true,
-    "https://schemas.data.amsterdam.nl/meta/auth@v1.3.0": false,
-    "https://schemas.data.amsterdam.nl/meta/units@v1.3.0": false,
-    "https://schemas.data.amsterdam.nl/meta/relation@v1.3.0": false,
-    "https://schemas.data.amsterdam.nl/meta/provenance@v1.3.0": false
+    "https://schemas.data.amsterdam.nl/meta/auth@v2.0.0": false,
+    "https://schemas.data.amsterdam.nl/meta/units@v2.0.0": false,
+    "https://schemas.data.amsterdam.nl/meta/relation@v2.0.0": false,
+    "https://schemas.data.amsterdam.nl/meta/provenance@v2.0.0": false
   },
   "$recursiveAnchor": true,
   "definitions": {
@@ -39,7 +39,7 @@
           "type": "string"
         },
         "provenance": {
-          "$ref": "https://schemas.data.amsterdam.nl/meta/provenance@v1.3.0#properties/provenance"
+          "$ref": "https://schemas.data.amsterdam.nl/meta/provenance@v2.0.0#properties/provenance"
         },
         "title": {
           "$ref": "#/definitions/title"
@@ -158,16 +158,16 @@
     {
       "oneOf": [
         {
-          "$ref": "./dataset@v1.3.0"
+          "$ref": "./dataset@v2.0.0"
         },
         {
-          "$ref": "./table@v1.3.0"
+          "$ref": "./table@v2.0.0"
         },
         {
-          "$ref": "./row-meta-schema@v1.3.0"
+          "$ref": "./row-meta-schema@v2.0.0"
         },
         {
-          "$ref": "./publisher@v1.3.0.json"
+          "$ref": "./publisher@v2.0.0.json"
         }
       ]
     },
@@ -180,7 +180,7 @@
         }
       },
       "then": {
-        "$ref": "./dataset@v1.3.0"
+        "$ref": "./dataset@v2.0.0"
       }
     },
     {
@@ -192,7 +192,7 @@
         }
       },
       "then": {
-        "$ref": "./table@v1.3.0"
+        "$ref": "./table@v2.0.0"
       }
     },
     {
@@ -204,7 +204,7 @@
         }
       },
       "then": {
-        "$ref": "./publisher@v1.3.0.json"
+        "$ref": "./publisher@v2.0.0.json"
       }
     },
     {
@@ -217,7 +217,7 @@
         }
       },
       "then": {
-        "$ref": "./row-meta-schema@v1.3.0"
+        "$ref": "./row-meta-schema@v2.0.0"
       }
     }
   ]
