@@ -4,8 +4,7 @@ on:
   pull_request:
   push:
     paths:
-      - datasets/*/dataset.json
-      - datasets/*/*/dataset.json
+      - datasets/
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
@@ -23,17 +22,15 @@ jobs:
         with:
           python-version: '3.9.x'
       - id: changed-datasets
-        # We are only interested in changed and new (not deleted) datasets.
-        # Checking the dataset.json is enough IF table files are properly versioned.
-        # Strip off the actual "/dataset.json" suffix to please the SchemaLoader.
-        run: echo "::set-output name=CHANGED_DATASETS::$(git diff --name-only --diff-filter=d origin/master.. -- | grep 'dataset.json$' | xargs dirname)"
+        # We are only interested in changed and new (not deleted) datasets files.
+        run: echo "::set-output name=DATASET_FILES::$(git diff --name-only --diff-filter=d origin/master.. -- | grep -v '^datasets/')"
         shell: bash
       - run: |
-          echo "Datasets to be validated:"
-          for ds in ${{ steps.changed-datasets.outputs.CHANGED_DATASETS }}
+          echo "Dataset files to be validated:"
+          for ds in ${{ steps.changed-datasets.outputs.DATASET_FILES }}
           do
             echo $ds
           done
       - uses: pre-commit/action@v2.0.3
         with:
-          extra_args: validate-schema --files ${{ steps.changed-datasets.outputs.CHANGED_DATASETS }}
+          extra_args: validate-schema --files ${{ steps.changed-datasets.outputs.DATASET_FILES }}
