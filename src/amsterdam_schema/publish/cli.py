@@ -13,6 +13,7 @@ import json
 import logging
 import os
 import shutil
+import sys
 from importlib import resources
 from io import BytesIO
 from os.path import splitext
@@ -304,6 +305,20 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type:
             raise ValueError(
                 f"Unknown storage_type {storage_type}, possible values `swift` or `azure`"
             )
+
+
+@click.command()  # type: ignore[misc]
+def generate_indexjson() -> None:
+    """Generate an index.json.
+
+    With paths relative to the datasets directory.
+    """
+    with TemporaryDirectory() as name:
+        tmpstore = Path(name)
+        buf = get_index_file_obj(
+            fetch_local_as_publishable("amsterdam_schema", tmpstore), tmpstore
+        )
+        sys.stdout.write(buf.read().decode())
 
 
 if __name__ == "__main__":
