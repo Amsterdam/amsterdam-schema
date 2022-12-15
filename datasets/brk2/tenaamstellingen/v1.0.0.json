@@ -47,6 +47,12 @@
         "description": "Neuron ID",
         "provenance": "id"
       },
+      "vanBrkKadastraalsubject": {
+        "type": "string",
+        "$comment": "relation brk2:subjecten",
+        "provenance": "$.vanKadastraalsubject.identificatie",
+        "description": "Het Subject waarvoor deze tenaamstelling geldt."
+      },
       "beginGeldigheid": {
         "type": "string",
         "format": "date-time",
@@ -98,6 +104,16 @@
         },
         "description": "De burgerlijke staat is een aanduiding voor de leefvorm van een persoon, zoals deze volgens het brondocument ten tijde van de verkrijging van het recht bestond. Leefvorm van een persoon heeft betrekking op huwelijk c.q. geregistreerd partnerschap."
       },
+      "betrokkenPartnerBrkSubject": {
+        "type": "string",
+        "$comment": "relation brk2:subjecten",
+        "description": "Het subject dat als partner betrokken is bij de verkrijging."
+      },
+      "betrokkenSamenwerkingsverbandBrkSubject": {
+        "type": "string",
+        "$comment": "relation brk2:subjecten",
+        "description": "Het subject dat als samenwerkingsverband betrokken is bij de verkrijging."
+      },
       "verkregenNamensSamenwerkingsverband": {
         "type": "object",
         "properties": {
@@ -109,6 +125,11 @@
           }
         },
         "description": "De aard van het samenwerkingsverband (zoals Maatschap, VOF of CV) namens welke een natuurlijk persoon deze tenaamstelling heeft verkregen."
+      },
+      "betrokkenGorzenEnAanwassenBrkSubject": {
+        "type": "string",
+        "$comment": "relation brk2:subjecten",
+        "description": "verwijst naar de fictieve persoon van een betrokken Gors of Aanwas."
       },
       "inOnderzoek": {
         "type": "string",
@@ -134,30 +155,6 @@
         },
         "relation": "brk2:zakelijkerechten",
         "description": "Het Zakelijk recht waarover deze tenaamstelling gaat."
-      },
-      "isGebaseerdOpBrkStukdelen": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "identificatie": {
-              "type": "string"
-            },
-            "volgnummer": {
-              "type": "integer"
-            },
-            "beginGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "eindGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "relation": "brk2:stukdelen",
-          "description": "De Stukdelen waar deze tenaamstelling op gebaseerd is."
-        }
       },
       "toestandsdatum": {
         "type": "string",
