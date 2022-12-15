@@ -176,6 +176,9 @@ The default value for `CONTAINER_PREFIX` is `schemas-`.
 
 In order to develop a new metaschema version locally and run structural and semantic validation against it:
 
+*Install the package from the repository root dir*  
+0) ```pip install -e .[dev]```
+
 *Create a new schema that we will develop*  
 1) ```cp -R schema@<latest-version> schema@<your-version>```
 
