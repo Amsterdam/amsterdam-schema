@@ -13,6 +13,7 @@ import json
 import logging
 import os
 import shutil
+import sys
 from importlib import resources
 from io import BytesIO
 from os.path import splitext
@@ -28,8 +29,8 @@ from swiftclient.service import SwiftService, SwiftUploadObject
 
 logger = logging.getLogger("__name__")
 
-
-SCHEMA_PREFIXES = ("datasets", "schema@", "publishers")
+PUBLISHERS_DIR = "publishers"
+PUBLISHABLE_PREFIXES = ("datasets", "schema@", PUBLISHERS_DIR)
 DEFAULT_BASE_URL = "https://schemas.data.amsterdam.nl"
 SCHEMAS_SA_NAME = os.getenv("SCHEMAS_SA_NAME", "devschemassa")
 
@@ -37,7 +38,7 @@ SCHEMAS_SA_NAME = os.getenv("SCHEMAS_SA_NAME", "devschemassa")
 def fetch_local_as_publishable(
     root_pkg_name: str,
     temp_dir_path: Path,
-    publishable_prefixes: Tuple[str, ...] = SCHEMA_PREFIXES,
+    publishable_prefixes: Tuple[str, ...] = PUBLISHABLE_PREFIXES,
     glob: str = "**/*.json",
 ) -> List[List[str]]:
     """Fetch publishable artifacts from package as path components.
@@ -80,6 +81,20 @@ def fetch_local_as_publishable(
         publishable_paths.append(list(sub_path.parts))
 
     return publishable_paths
+
+
+def fetch_publisher_files(root_pkg: str) -> list[str]:
+    """Get all publisher files from the filesystem.
+
+    These are always stored under root/publishers
+    """
+    # filter publishers.json for backwards compat, this can be removed
+    # when the file has been removed from the repo
+    return [
+        x
+        for x in resources.contents(".".join([root_pkg, PUBLISHERS_DIR]))
+        if x not in ("publishers.json", "index.json")
+    ]
 
 
 def get_index_file_obj(publishable_paths: List[List[str]], files_root: Path) -> BytesIO:
@@ -304,6 +319,35 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type:
             raise ValueError(
                 f"Unknown storage_type {storage_type}, possible values `swift` or `azure`"
             )
+
+
+@click.command()  # type: ignore[misc]
+def generate_indexjson() -> None:
+    """Generate an index.json.
+
+    With paths relative to the datasets directory.
+    """
+    with TemporaryDirectory() as name:
+        tmpstore = Path(name)
+        buf = get_index_file_obj(
+            fetch_local_as_publishable("amsterdam_schema", tmpstore), tmpstore
+        )
+        sys.stdout.write(buf.read().decode())
+
+
+@click.command()  # type: ignore[misc]
+def generate_publisher_index() -> None:
+    """Generate a publisher index.json.
+
+    With paths relative to the datasets directory. Note that
+    we assume the pathname is equal to the ID. This is validated
+    by schematools.
+    """
+    sys.stdout.write(json.dumps([Path(p).stem for p in fetch_publisher_files("amsterdam_schema")]))
+
+
+if __name__ == "__main__":
+    main()
 
 
 if __name__ == "__main__":
