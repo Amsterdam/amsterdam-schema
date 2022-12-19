@@ -15,7 +15,7 @@ import os
 import shutil
 import sys
 from importlib import resources
-from io import BytesIO
+from io import BytesIO, StringIO
 from os.path import splitext
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -169,6 +169,7 @@ def azure_blob_uploader(
     doc_pub_paths: List[List[str]],
     container: str,
     index_file_obj: BytesIO,
+    publisher_index_file_obj: StringIO,
 ) -> None:
     """Upload files to the Azure blob storage."""
     json_content_settings = ContentSettings(content_type="application/json")
@@ -212,6 +213,7 @@ def swift_uploader(
     doc_pub_paths: List[List[str]],
     container: str,
     index_file_obj: BytesIO,
+    publisher_index_file_obj: StringIO,
 ) -> None:
     """Upload files to the Swift objectstore."""
     # tmp options to workaround objectstore unavailability (2022-08-17)
@@ -299,6 +301,7 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type:
         if schema_base_url is not None:
             replace_schema_base_url(files_root, schema_base_url)
         index_file_obj = get_index_file_obj(schema_pub_paths, files_root)
+        publisher_index_file_obj = StringIO(get_publisher_index())
 
         # Then fetch the documentation
         doc_pub_paths = fetch_local_as_publishable(
@@ -310,11 +313,23 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type:
         if storage_type == "azure":
             logger.info("Using azure blob uploader")
             azure_blob_uploader(
-                files_root, schema_pub_paths, doc_pub_paths, container, index_file_obj
+                files_root,
+                schema_pub_paths,
+                doc_pub_paths,
+                container,
+                index_file_obj,
+                publisher_index_file_obj,
             )
         elif storage_type == "swift":
             logger.info("Using swift uploader")
-            swift_uploader(files_root, schema_pub_paths, doc_pub_paths, container, index_file_obj)
+            swift_uploader(
+                files_root,
+                schema_pub_paths,
+                doc_pub_paths,
+                container,
+                index_file_obj,
+                publisher_index_file_obj,
+            )
         else:
             raise ValueError(
                 f"Unknown storage_type {storage_type}, possible values `swift` or `azure`"
@@ -335,6 +350,10 @@ def generate_indexjson() -> None:
         sys.stdout.write(buf.read().decode())
 
 
+def get_publisher_index() -> str:
+    return json.dumps([Path(p).stem for p in fetch_publisher_files("amsterdam_schema")])
+
+
 @click.command()  # type: ignore[misc]
 def generate_publisher_index() -> None:
     """Generate a publisher index.json.
@@ -343,7 +362,7 @@ def generate_publisher_index() -> None:
     we assume the pathname is equal to the ID. This is validated
     by schematools.
     """
-    sys.stdout.write(json.dumps([Path(p).stem for p in fetch_publisher_files("amsterdam_schema")]))
+    sys.stdout.write(get_publisher_index())
 
 
 if __name__ == "__main__":
