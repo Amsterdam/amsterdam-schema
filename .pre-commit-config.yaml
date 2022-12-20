@@ -3,7 +3,7 @@
 # Running "make format" fixes most issues for you
 repos:
   - repo: https://github.com/ambv/black
-    rev: 22.3.0
+    rev: 22.12.0
     hooks:
       - id: black
         language_version: python3.9
@@ -13,7 +13,7 @@ repos:
       - id: bandit
         args: [--quiet]
   - repo: https://github.com/PyCQA/flake8
-    rev: 3.9.2
+    rev: 6.0.0
     hooks:
       - id: flake8
         additional_dependencies:
@@ -31,7 +31,7 @@ repos:
           - flake8-debugger
           - flake8-raise
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.4.0
     hooks:
       - id: check-json
       - id: check-merge-conflict
@@ -45,12 +45,12 @@ repos:
       - id: pretty-format-json
         args: [--autofix, --indent=2, --no-sort-keys]
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.942
+    rev: v0.991
     hooks:
       - id: mypy
         language_version: python3.9
   - repo: https://github.com/pycqa/isort
-    rev: 5.10.1
+    rev: v5.11.3
     hooks:
       - id: isort
         args: ['--filter-files']
@@ -58,6 +58,10 @@ repos:
     rev: v5.2.0
     hooks:
       - id: validate-schema
-        args: ['http://localhost:8000/schema@v2.0.0#']  # the latest compatible preview version
+        args: ['https://schemas.data.amsterdam.nl/schema@v1.3.0', "--extra_meta_schema_url", "http://schemas.data.amsterdam.nl/schema@v2.0.0"]
         files: '/dataset\.json$'
+        verbose: true # so we can see against which metaschema it is valid
         exclude: "^schema@.+" # exclude meta schemas
+      #- id: validate-publishers
+      #  args: ['https://schemas.data.amsterdam.nl/schema@v1.3.0', 'https://schemas.data.amsterdam.nl/schema@v2.0.0', '--schema-url', './publishers']
+      #  verbose: true # so we can see against which metaschema it is valid
