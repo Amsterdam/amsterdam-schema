@@ -42,6 +42,12 @@ It regenerates the HTML upon every document save:
 bikeshed watch ams-schema-spec.bs ams-schema-spec.html
 ```
 
+to watch as mentioned above while serving the docs on localhost:
+
+```bash
+bikeshed serve ams-schema-spec.bs ams-schema-spec.html --port 1234
+```
+
 Bikeshed is very picky about its input.
 In case of errors it will not (re)generate the document.
 To force Bikeshed to generate a document in the presence of errors,
