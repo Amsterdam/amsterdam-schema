@@ -40,16 +40,13 @@
                 "description": "Identificerend kenmerk van de containerlocatie."
             },
             "datumCreatie": {
-                "type": "datetime",
+                "type": "string",
+                "format": "date-time",
                 "description": "De datum waarop het ticket aangemaakt is."
             },
-            "plaatje": {
-                "type": "array",
-                "provenance": "plaatje_url",
-                "description": "De url van de bijgevoegde foto."
-            },
             "datumFactuur": {
-                "type": "datetime",
+                "type": "string",
+                "format": "date-time",
                 "description": "De datum waarop het ticket gefactureerd is."
             },
             "factuurNummer": {
@@ -57,7 +54,8 @@
                 "description": "Het nummer van de factuur."
             },
             "datumWijziging": {
-                "type": "datetime",
+                "type": "string",
+                "format": "date-time",
                 "description": "De datum waarop het ticket is gewijzigd."
             },
             "referentienummerLeverancier": {
@@ -79,7 +77,10 @@
             },
             "probleemmoduleNaam": {
                 "type": "array",
-                "description": "De naam van de probleemmodule."
+                "description": "De naam van de probleemmodule.",
+                "items": {
+                    "type": "string"
+                }
             },
             "onderhoudsbedrijf": {
                 "type": "string",
@@ -107,44 +108,54 @@
                 "description": "Het rangordenummer van het type ticket."
             },
             "datumWorkflowStart": {
-                "type": "datetime",
+                "type": "string",
+                "format": "date-time",
                 "description": "De datum waarop de workflow start."
             },
             "datumGeaccepteerd": {
-                "type": "datetime",
+                "type": "string",
+                "format": "date-time",
                 "description": "De datum waarop het ticket geaccepteerd is door het onderhoudsbedrijf."
             },
             "datumOfferte": {
-                "type": "datetime",
+                "type": "string",
+                "format": "date-time",
                 "description": "De datum waarop de offerte is aangemaakt ."
             },
             "datumGepland": {
-                "type": "datetime",
+                "type": "string",
+                "format": "date-time",
                 "description": "De datum waarop de uitvoering van de werkzaamheden is ingepland."
             },
             "datumGereed": {
-                "type": "datetime",
+                "type": "string",
+                "format": "date-time",
                 "description": "De datum waarop de werkzaamheden uitgevoerd zijn."
             },
             "datumAfgerond": {
-                "type": "datetime",
+                "type": "string",
+                "format": "date-time",
                 "description": "De datum waarop de werkzaamheden als gereed aangegeven zijn door het onderhoudsbedrijf."            
              },
             "datumTechnischeGoedkeuring": {
-                "type": "datetime",
+                "type": "string",
+                "format": "date-time",
                 "description": "De datum waarop de technische aspecten van de werkzaamheden goed- of afgekeurd zijn." 
             },
             "datumFinanciëleGoedkeuring": {
-                "type": "datetime",
+                "type": "string",
+                "format": "date-time",
                 "description": "De datum waarop de financiële aspecten van de werkzaamheden goed- of afgekeurd zijn." 
             },
             "datumGefactureerd": {
-                "type": "datetime",
+                "type": "string",
+                "format": "date-time",
                 "provenance": "datum_gefactureerd_in_systeem",
                 "description": "De datum waarop de factuur in het systeem de status 'gefactureerd' krijgt."
             },
             "datumAfgewezen": {
-                "type": "datetime",
+                "type": "string",
+                "format": "date-time",
                 "description": "De datum waarop het ticket de status 'afgewezen' krijgt."
             },
             "redenAfgewezen": {
@@ -153,11 +164,11 @@
                 "description": "De reden waarom het ticket de status 'afgewezen' heeft gekregen."
               },
             "prijs": { 
-                "type": "string",
+                "type": "number",
                 "description": "De totale prijs van de gebruikte onderdelen en de uitgevoerde werkzaamheden."
             },
             "prijsOfferte": { 
-                "type": "string",
+                "type": "number",
                 "description": "De totale prijs op de offerte voor de te gebruiken onderdelen en de uit te voeren werkzaamheden."
             },
             "doorlooptijd": {
@@ -165,12 +176,40 @@
                 "description": "De tijdsspanne in werkdagen tussen de 'datumCreatie'en de 'datumAfgerond' of de tijdsspanne in werkdagen tussen de 'datumCreatie' en de laatste statuswijziging in het geval het ticket nog niet afgerond is."
             },
             "ticketItemsDefinitief": {
-                "type": "string",
-                "description": "De onderdelen en de werkzaamheden zoals deze op de factuur vermeld worden."
-            },
+                "type": "array",
+                "description": "De onderdelen en de werkzaamheden zoals deze op de factuur vermeld worden.",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "ticket_repair_works": {
+                            "type": "integer",
+                            "description": "De werkzaamheden zoals deze op de factuur vermeld worden"
+                        },
+                        "ticket_repair_parts": {
+                            "type": "integer",
+                            "description": "De onderdelen zoals deze op de factuur vermeld worden"
+                        }
+                    }
+
+                }
+            }, 
             "ticketItemsOfferte": {
-                "type": "string",
-                "description": "De onderdelen en de werkzaamheden zoals deze op de offerte vermeld worden."
+                "type": "array",
+                "description": "De onderdelen en de werkzaamheden zoals deze op de offerte vermeld worden.",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "ticket_repair_works": {
+                            "type": "integer",
+                            "description": "De werkzaamheden zoals deze op de offerte vermeld worden"
+                        },
+                        "ticket_repair_parts": {
+                            "type": "integer",
+                            "description": "De onderdelen zoals deze op de offerte vermeld worden"
+                        }
+                    }
+
+                }
             }, 
             "gbdBuurt": {
                 "type": "string",
@@ -184,7 +223,7 @@
                 "description": "De naam van het object." 
             },
             "gbdBuurtVolgnummer": {
-                "type": "string",
+                "type": "integer",
                 "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
                 "description": "Uniek volgnummer van de toestand van het object."
             },
@@ -205,7 +244,7 @@
                 "description": "De naam van het object." 
             },
             "gbdWijkVolgnummer": {
-                "type": "string",
+                "type": "integer",
                 "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/wijk",
                 "description": "Uniek volgnummer van de toestand van het object." 
             },
@@ -221,7 +260,7 @@
                 "description": "De naam van het object." 
             },
             "gbdStadsdeelVolgnummer": {
-                "type": "string",
+                "type": "integer",
                 "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel",
                 "description": "Uniek volgnummer van de toestand van het object." 
             },
