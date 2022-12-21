@@ -115,7 +115,7 @@ Een <dfn dfn export>dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON b
     <tr><td><dfn>authorizationGrantor</dfn> <td> string     <td> E-mailadres van de afdeling verantwoordelijk voor autorisatie op deze dataset. Dit is meestal de bronhouder. Aan dit adres worden authorisatie verzoeken gericht.
     <tr><td><dfn>creator</dfn>              <td> string     <td> Team, afdeling of organisatie die de data produceert, meestal de bronhouder. Wanneer data van meerdere bronhouders wordt gecomineerd, wordt hier de opdrachtgever bedoelt.
     <tr><td><dfn>owner</dfn>                <td> string     <td> Juridisch eigenaar van de data. Bijvoorbeeld `"Gemeente Amsterdam, Directie Wonen"` of `"Centraal Bureau voor de Statistiek"`  Default: `"Gemeente Amsterdam"`
-    <tr><td><dfn>publisher</dfn>            <td> string     <td> Het team verantwoordelijk voor het technisch ontsluiten van de data. Meestal het datateam. Conform \[DCAT § resource_publisher]([DCATURL]#Property:resource_publisher)
+    <tr><td><dfn>publisher</dfn>            <td> string | [[#publisher-refs|publisher-ref]] <td> Het team verantwoordelijk voor het technisch ontsluiten van de data. Meestal het datateam. Conform \[DCAT § resource_publisher]([DCATURL]#Property:resource_publisher)
     <tr><td><dfn>tables</dfn>   <td> array
         <td> Tabellen in deze dataset. Moet minimaal 1 element bevatten.
             <details>
@@ -255,6 +255,20 @@ Advisement: Van deze bestandsnaam en padstructuur moet niet worden afgeweken beh
             line-highlight: 12-25
         </pre>
 </div>
+
+Publisherreferenties {#publisher-refs}
+----------------------------------------------------------
+Publisherreferenties zijn verwijzingen naar JSON-bestanden waarin een [=publisher=] gedefinieerd wordt.
+Publisher referenties zijn gebaseerd op [[JSON-SCHEMA#ref]].
+
+Een <dfn export>publisher referentie</dfn> is een JSON object met 1 attribuut:
+<table dfn-type="attribute" dfn-for=publisher-ref export class="dfn-table">
+    <tr><td><dfn lt="ref">$ref</dfn> <td> {{uri-reference}}
+        <td> URI-Reference naar JSON bestand met de [=publisher=] definitie zonder de bestandsextensie.
+            De reference is altijd van de vorm `publishers/<BESTANDSNAAM>`. Bijvoorbeeld: `publishers/SOEB`
+        </td>
+</table>
+
 
 
 <!--
@@ -1351,6 +1365,43 @@ Het shortname attribuut mag wel afkortingen bevatten ([=noAbrev|regel 2=] geldt 
 </div>
 
 
+
+<!--
+
+██████╗░██╗░░░██╗██████╗░██╗░░░░░██╗░██████╗██╗░░██╗███████╗██████╗░░██████╗
+██╔══██╗██║░░░██║██╔══██╗██║░░░░░██║██╔════╝██║░░██║██╔════╝██╔══██╗██╔════╝
+██████╔╝██║░░░██║██████╦╝██║░░░░░██║╚█████╗░███████║█████╗░░██████╔╝╚█████╗░
+██╔═══╝░██║░░░██║██╔══██╗██║░░░░░██║░╚═══██╗██╔══██║██╔══╝░░██╔══██╗░╚═══██╗
+██║░░░░░╚██████╔╝██████╦╝███████╗██║██████╔╝██║░░██║███████╗██║░░██║██████╔╝
+╚═╝░░░░░░╚═════╝░╚═════╝░╚══════╝╚═╝╚═════╝░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝╚═════╝░
+-->
+Publisher {#publishers}
+======================================================
+
+Een [=publisher=] definitie bevat een publisher object. Deze word onder andere gebruikt voor billing en tagging
+van resources die via het amsterdam schema worden aangevraagd.
+
+Verplichte attributen {#publisher-mandatory-fields}
+---------------------------------------------------------
+Een <dfn dfn export>publisher</dfn> binnen Amsterdam Schema is een JSON object met in ieder geval de volgende attributen.
+<table dfn-type="attribute" dfn-for=publisher export class="dfn-table">
+    <tr><td><dfn>id</dfn>       <td> {{id-type|identifier}} <td> Identifier van de publisher. Moet globaal uniek zijn en gelijk aan de file waarin het publisher object is opgeslagen.
+    <tr><td><dfn>type</dfn>     <td> constante <td> Type van dit bestand, in dit geval `"publisher"`.
+    <tr><td><dfn>name</dfn>     <td> string <td> Naam van de publisher.
+    <tr><td><dfn>shortname</dfn>     <td> {{resource-identifier}} <td> Verkorte naam van de publisher (voor resources).
+    <tr><td><dfn>tags</dfn>   <td> object
+        <td> Labels met metagegevens die aan resources van deze publisher moeten worden gehangen.
+            <details>
+                <summary>Valide elementen</summary>
+                    <table class="dfn-table">
+                        <tr><td><dfn>costcenter</dfn> <td> **REQUIRED**       <td> string <td> Costcenter tag van de publisher
+                        <tr><td><dfn>team</dfn> <td>      <td> string <td> Team tag van de publisher
+                    </table>
+            </details>
+</table>
+
+
+
 <!--
    ███    ████████ ████████ ████████  ████ ████████  ██     ██ ████████ ████████  ██████
   ██ ██      ██       ██    ██     ██  ██  ██     ██ ██     ██    ██    ██       ██    ██
@@ -1571,6 +1622,9 @@ Attribuuttypen {#attr-types}
     <tr><td><dfn typedef export lt=id|id-type>identifier</dfn>
         <td> string
         <td> Een unieke identifier in de vorm van één of meer letters, startend met een kleine letter en eventueel gevolgd door een cijferreeks.
+    <tr><td><dfn typedef export lt=resource-identifier|resource-identifier-type>resource-identifier</dfn>
+        <td> string
+        <td> Een unieke identifier in de vorm van één tot en met twaalf kleine letters.
     <tr><td><dfn typedef export>date-time</dfn>
         <td> (string)
         <td> Een als datetime geformatteerde string. Conform [[json-schema-validation#rfc.section.7.3.1]].
@@ -1587,6 +1641,7 @@ Attribuuttypen {#attr-types}
                 <summary>Opties</summary>
                     * "dataset"
                     * "table"
+                    * "publisher"
             </details>
     <tr><td><dfn typedef export lt=nonPubReason>reden-niet-publiek</dfn>
         <td> (enum-string)
