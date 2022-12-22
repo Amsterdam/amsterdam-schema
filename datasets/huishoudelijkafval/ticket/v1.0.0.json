@@ -76,12 +76,9 @@
                 "description": "De toegestane responstijd voor deze prioriteit. "
             },
             "probleemmoduleNaam": {
-                "type": "array",
+                "type": "string",
                 "description": "De naam van de probleemmodule.",
-                "items": {
-                    "type": "string"
-                }
-            },
+                },
             "onderhoudsbedrijf": {
                 "type": "string",
                 "provenance": "naam_onderhoudsbedrijf",
@@ -176,40 +173,14 @@
                 "description": "De tijdsspanne in werkdagen tussen de 'datumCreatie'en de 'datumAfgerond' of de tijdsspanne in werkdagen tussen de 'datumCreatie' en de laatste statuswijziging in het geval het ticket nog niet afgerond is."
             },
             "ticketItemsDefinitief": {
-                "type": "array",
+                "type": "string",
                 "description": "De onderdelen en de werkzaamheden zoals deze op de factuur vermeld worden.",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "ticket_repair_works": {
-                            "type": "integer",
-                            "description": "De werkzaamheden zoals deze op de factuur vermeld worden"
-                        },
-                        "ticket_repair_parts": {
-                            "type": "integer",
-                            "description": "De onderdelen zoals deze op de factuur vermeld worden"
-                        }
-                    }
-
-                }
+                "shortname": "itemsDefinitief",
             }, 
             "ticketItemsOfferte": {
-                "type": "array",
+                "type": "string",
                 "description": "De onderdelen en de werkzaamheden zoals deze op de offerte vermeld worden.",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "ticket_repair_works": {
-                            "type": "integer",
-                            "description": "De werkzaamheden zoals deze op de offerte vermeld worden"
-                        },
-                        "ticket_repair_parts": {
-                            "type": "integer",
-                            "description": "De onderdelen zoals deze op de offerte vermeld worden"
-                        }
-                    }
-
-                }
+                "shortname": "itemsOfferte"
             }, 
             "gbdBuurt": {
                 "type": "string",
