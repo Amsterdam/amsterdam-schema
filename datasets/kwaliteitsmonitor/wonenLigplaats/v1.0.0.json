@@ -16,10 +16,14 @@
     "properties": {
       "id": {
         "type": "integer",
-        "description": "Unieke id van de ligplaats"
+        "description": "Id"
       },
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "bkLigplaats": {
+        "type": "string",
+        "description": "Unieke key van de ligplaats"  
       },
       "adres": {
         "type": "string",
@@ -77,14 +81,6 @@
         "type": "string",
         "description": "Tot welk gebied van het beschermd stadsdorpsgezicht de ligplaats behoort"
       },
-      "gbdBbkIdentificatie": {
-        "type": "string",
-        "description": "Identificatie van het bouwblok"
-      },
-      "gbdBbkCode": {
-        "type": "string",
-        "description": "Code van het bouwblok"
-      },
       "gbdBrtIdentificatie": {
         "type": "string",
         "description": "Identificatie van de buurt"
@@ -126,13 +122,13 @@
         "description": "Code van het gebiedsgericht werken"
       },
       "ligGeomVlak": {
-        "description": "Geometrie van het type MULTIPOLYGON van de ligplaats",
-        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Geometrie van het type POLYGON van de ligplaats",
+        "$ref": "https://geojson.org/schema/Polygon.json",
         "crs": "EPSG:28992"
       },
       "ligGeomVlakWgs84": {
-        "description": "Geometrie van het type MULTIPOLYGON van de ligplaats",
-        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Geometrie van het type POLYGON van de ligplaats",
+        "$ref": "https://geojson.org/schema/Polygon.json",
         "crs": "EPSG:4326"
       },
       "ligGeomMiddel": {
