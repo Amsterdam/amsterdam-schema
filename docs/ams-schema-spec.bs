@@ -1,7 +1,7 @@
 <pre class='metadata'>
 Title: Amsterdam Schema Specificatie
 Shortname: ams-schema-spec
-Revision: 2.1.4
+Revision: 2.1.5
 Status: LS
 URL: https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html
 Repository: Amsterdam/amsterdam-schema
@@ -343,6 +343,16 @@ Een  [=tabel=] mag daarnaast de volgende attributen bezitten:
             </details>
             Dit veld is **verplicht** voor tabellen waarin één of meer [[#geometry]] velden zitten en waarvoor niet op dataset-of veldniveau al een crs gedefinieerd is.
             Zie [[SDW-BP#CRS-background]] voor meer informatie.
+    <tr><td><dfn>dataclass</dfn>
+        <td> enum(string)
+        <td> Soort data in de tabel
+            <details open>
+                <summary>Opties</summary>
+                    * "structured"
+                    * "blob"
+                    * "event"
+            </details>
+            Default: `"structured"`
 </table>
 
 [BP]
@@ -1699,7 +1709,14 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 <!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
 <!-- Update the version number in the metadata at the top and refer to it here. -->
 
-[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21) {#lastchange}
+[2.1.5] dataclass atribuut toegevoegd (2022-12-21) {#lastchange}
+------------------------------------------------
+> **Doelstelling**<br/>
+    Beschrijving en relatering van ongestructureerde data mogelijk maken.
+
+* Het {{tabel/dataclass}} attribuut is toegevoegd.
+
+[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21) {#20221221}
 ------------------------------------------------
 > **Doelstelling**<br/>
     Publishers zijn zelfstandige objecten geworden.
