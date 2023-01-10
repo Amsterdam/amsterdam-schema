@@ -4,6 +4,7 @@ Generating Documentation
 The Amsterdam Schema Specification is written using
 [Bikeshed](https://github.com/tabatkins/bikeshed).
 
+## Installing bikeshed
 We will be installing Bikeshed into a separate virtual environment
 to prevent version clashes between its dependencies
 and that of the `amsterdam-schema` project itself.
@@ -24,6 +25,7 @@ bikeshed spec ams-schema-spec.bs ams-schema-spec.html
 open ams-schema-spec.html
 ```
 
+## Generating HTML specification
 After this initial installation
 all you need to do to regenerate the specification
 is to:
@@ -72,3 +74,19 @@ Once a new version of the documentation has been committed it will be published 
 
 * https://acc.schemas.data.amsterdam.nl/docs/ams-schema-spec.html
 * https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html (after approval in Jenkins)
+
+## Update Changelog
+Remember to update the changelog at the bottom of the spec after any normative
+changes to the specification.
+Also update the 'Revision' metadata field at the top.
+
+## Create giant titles
+To Create one of the giant ascii art titles:
+Put this in the ams-schema-spec.bs file: `<!-- Big Text: foofoo -->`
+then:
+```
+  bikeshed source --big-text ams-schema-spec.bs ams-schema-spec.bs
+```
+These titles are nice inside this long file because you can read them
+from the minimap in your editor.
+See also [Bikeshed docs](https://tabatkins.github.io/bikeshed/#big-text) on this feature
