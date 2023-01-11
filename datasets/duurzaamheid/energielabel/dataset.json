@@ -4,13 +4,14 @@
   "auth": "FP/MDW",
   "title": "Energielabel",
   "description": "De energielabel per verblijfsobject van de gemeente Amsterdam.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "beschikbaar",
-  "creator": "bronhouder onbekend",
-  "publisher": "Datateam Omgevingswet",
-  "authorizationGrantor": "Datateam Omgevingswet",
+  "creator": "Rijksdienst voor Ondernemend Nederland",
+  "publisher": "Datateam Stedelijke Ontwikkeling & Beheer",
+  "authorizationGrantor": "datateamstedelijkeonwikkelingenbeheer@amsterdam.nl",
   "theme": [
-    "energielabel"
+    "energielabel",
+    "duurzaamheid"
   ],
   "owner": "Gemeente Amsterdam",
   "keywords": [
@@ -22,7 +23,7 @@
       "id": "energielabel",
       "title": "De energielabel per verblijfsobject van de gemeente Amsterdam.",
       "type": "table",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -57,7 +58,7 @@
             "type": "string",
             "description": "Berekeningstype van de energielabel"
           },
-          "energieprestatieindex": {
+          "energieindex": {
             "type": "string",
             "description": "De energieprestatieindex van het verblijfsobject"
           },
@@ -97,6 +98,10 @@
           "huisnummer": {
             "type": "integer",
             "description": "Huisnummer van het verblijfsobject"
+          },
+          "huisletter": {
+            "type": "integer",
+            "description": "Huisletter van het verblijfsobject"  
           },
           "huisnummertoevoeging": {
             "type": "string",
@@ -146,7 +151,7 @@
             "type": "string",
             "description": "Standaard bedrijfsindeling code"
           },
-          "gebruiksoppervlakte": {
+          "gebruiksoppervlakteThermischeZone": {
             "type": "string",
             "description": "Oppervlakte dat gemeten is op vloerniveau van het verblijfsobject"
           },
@@ -168,7 +173,7 @@
           },
           "primaireFossieleEnergieEmgForfaitair": {
             "type": "string",
-            "description": "Primaire fossiele energie emg forfaitair"
+            "description": "Primaire fossiele energie EMG forfaitair"
           },
           "aandeelHernieuwbareEnergie": {
             "type": "string",
@@ -180,7 +185,7 @@
           },
           "aandeelHernieuwbareEnergieEmgForfaitair": {
             "type": "string",
-            "description": "Aandeel hernieuwbare energie Emg forfaitair"
+            "description": "Aandeel hernieuwbare energie EMG forfaitair"
           },
           "temperatuuroverschrijding": {
             "type": "string",
@@ -193,6 +198,10 @@
           "warmtebehoefte": {
             "type": "string",
             "description": "Warmte Behoefte"
+          },
+          "energieindexMetEmgForfaitair": {
+            "type": "string",
+            "description": "Energieindex met EMG forfaitair"  
           }
         }
       }
