@@ -1,7 +1,7 @@
 <pre class='metadata'>
 Title: Amsterdam Schema Specificatie
 Shortname: ams-schema-spec
-Revision: 2.1.5
+Revision: 2.2.0
 Status: LS
 URL: https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html
 Repository: Amsterdam/amsterdam-schema
@@ -1663,7 +1663,9 @@ Attribuuttypen {#attr-types}
             <summary>Opties</summary>
                 * "5.1 1a: Gevaar voor eenheid van de Kroon",
                 * "5.1 1b: Gevaar voor staatsveiligheid",
-                * "5.1 1c: Bevat persoonsgegevens",
+                * "5.1 1c: Vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens",
+                * "5.1 1d: Bevat persoonsgegevens",
+                * "5.1 1e: Bevat nationaal identificatienummer",
                 * "5.1 2a: Zwaarwegend belang: internationale betrekkingen",
                 * "5.1 2b: Zwaarwegende economische of financiële belangen van publiekrechtelijke lichamen (bevat geen mileu-informatie)",
                 * "5.1 2b: Zwaarwegende economische of financiële belangen van publiekrechtelijke lichamen (bevat mileu-informatie met betrekking op handelingen met een vertrouwelijk karakter)",
@@ -1673,8 +1675,9 @@ Attribuuttypen {#attr-types}
                 * "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens",
                 * "5.1 2g: Zwaarwegend belang: bescherming van het milieu waarop deze informatie betrekking heeft",
                 * "5.1 2h: Zwaarwegend belang: beveiliging van personen en bedrijven en het voorkomen van sabotage",
+                * "5.1 2i: Zwaarwegend belang: het goed functioneren van de Staat, andere publiekrechtelijke lichamen of bestuursorganen",
                 * "5.2 1: Bevat persoonlijke beleidsopvattingen (bevat geen milieu-informatie)",
-                * "5.2 3: Zwaarwegend belang: persoonlijke beleidsopvattingen (bevat milieu-informatie)",
+                * "5.2 4: Zwaarwegend belang: persoonlijke beleidsopvattingen (bevat milieu-informatie)",
                 * "nader te bepalen"
         </details>
         De laatste optie ("nader te bepalen") is niet toegestaan wanneer {{dataset/status}}=`"beschikbaar"`.
@@ -1709,12 +1712,20 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 <!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
 <!-- Update the version number in the metadata at the top and refer to it here. -->
 
-[2.1.5] dataclass atribuut toegevoegd (2022-12-21) {#lastchange}
+[2.2.0] dataclass atribuut toegevoegd (2023-01-12) {#lastchange}
+------------------------------------------------
+> **Doelstelling**<br/>
+    UItzonderingsgronden WOO in lijn gebracht met versie van WOO die nu van kracht is.
+
+* Het {{tabel/dataclass}} attribuut is toegevoegd.
+
+[2.1.5] dataclass atribuut toegevoegd (2023-01-10) {#20230110}
 ------------------------------------------------
 > **Doelstelling**<br/>
     Beschrijving en relatering van ongestructureerde data mogelijk maken.
 
-* Het {{tabel/dataclass}} attribuut is toegevoegd.
+* De opties in attribuut {{dataset/reasonsNonPublic}} aangepast.
+* Verwijzing [[Woo|Wet Open Overheid]] geupdate.
 
 [2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21) {#20221221}
 ------------------------------------------------
@@ -1821,7 +1832,7 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
             "title":"ISO8601"
         },
         "Woo": {
-            "href":"https://zoek.officielebekendmakingen.nl/stb-2021-499.html",
+            "href":"https://wetten.overheid.nl/BWBR0045754/2022-08-01",
             "title":"Wet open overheid"
         }
     }
