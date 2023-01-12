@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version bb6b91100, updated Mon Jul 12 16:52:37 2021 -0700" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="db700d0c2d84510254f63e6eca04357519ab27b7" name="document-revision">
+  <meta content="b5bb5f4dfcea120119662417ff94ff390b06590d" name="document-revision">
 <style>
     p[data-fill-with="logo"] {
         width: 180px;
@@ -2227,7 +2227,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Amsterdam Schema Specificatie</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2023-01-09">9 January 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2023-01-12">12 January 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2304,12 +2304,13 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li>
      <a href="#changelog"><span class="secno">9</span> <span class="content">Changelog</span></a>
      <ol class="toc">
-      <li><a href="#lastchange"><span class="secno">9.1</span> <span class="content">[2.1.5] dataclass atribuut toegevoegd (2022-12-21)</span></a>
-      <li><a href="#20221221"><span class="secno">9.2</span> <span class="content">[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</span></a>
-      <li><a href="#20220413-2"><span class="secno">9.3</span> <span class="content">[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</span></a>
-      <li><a href="#20220413-1"><span class="secno">9.4</span> <span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span></a>
-      <li><a href="#change20220323"><span class="secno">9.5</span> <span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span></a>
-      <li><a href="#change20220317"><span class="secno">9.6</span> <span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span></a>
+      <li><a href="#lastchange"><span class="secno">9.1</span> <span class="content">[2.2.0] dataclass atribuut toegevoegd (2023-01-12)</span></a>
+      <li><a href="#20230110"><span class="secno">9.2</span> <span class="content">[2.1.5] dataclass atribuut toegevoegd (2023-01-10)</span></a>
+      <li><a href="#20221221"><span class="secno">9.3</span> <span class="content">[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</span></a>
+      <li><a href="#20220413-2"><span class="secno">9.4</span> <span class="content">[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</span></a>
+      <li><a href="#20220413-1"><span class="secno">9.5</span> <span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span></a>
+      <li><a href="#change20220323"><span class="secno">9.6</span> <span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span></a>
+      <li><a href="#change20220317"><span class="secno">9.7</span> <span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -2326,7 +2327,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </ol>
   </nav>
   <main>
-   <p><strong class="advisement"> De meest recente aanpassing aan deze specificatie is:<br> <a href="#lastchange">§ 9.1 [2.1.5] dataclass atribuut toegevoegd (2022-12-21)</a></strong></p>
+   <p><strong class="advisement"> De meest recente aanpassing aan deze specificatie is:<br> <a href="#lastchange">§ 9.1 [2.2.0] dataclass atribuut toegevoegd (2023-01-12)</a></strong></p>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introductie</span><a class="self-link" href="#intro"></a></h2>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Alle data van gemeente Amsterdam binnen één machine verwerkbaar universeel format beschrijven,
@@ -3927,7 +3928,11 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
          <li data-md>
           <p>"5.1 1b: Gevaar voor staatsveiligheid",</p>
          <li data-md>
-          <p>"5.1 1c: Bevat persoonsgegevens",</p>
+          <p>"5.1 1c: Vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens",</p>
+         <li data-md>
+          <p>"5.1 1d: Bevat persoonsgegevens",</p>
+         <li data-md>
+          <p>"5.1 1e: Bevat nationaal identificatienummer",</p>
          <li data-md>
           <p>"5.1 2a: Zwaarwegend belang: internationale betrekkingen",</p>
          <li data-md>
@@ -3947,9 +3952,11 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
          <li data-md>
           <p>"5.1 2h: Zwaarwegend belang: beveiliging van personen en bedrijven en het voorkomen van sabotage",</p>
          <li data-md>
+          <p>"5.1 2i: Zwaarwegend belang: het goed functioneren van de Staat, andere publiekrechtelijke lichamen of bestuursorganen",</p>
+         <li data-md>
           <p>"5.2 1: Bevat persoonlijke beleidsopvattingen (bevat geen milieu-informatie)",</p>
          <li data-md>
-          <p>"5.2 3: Zwaarwegend belang: persoonlijke beleidsopvattingen (bevat milieu-informatie)",</p>
+          <p>"5.2 4: Zwaarwegend belang: persoonlijke beleidsopvattingen (bevat milieu-informatie)",</p>
          <li data-md>
           <p>"nader te bepalen"</p>
         </ul>
@@ -3989,15 +3996,25 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
     Dit is een chronologisch overzicht van aanpassingen aan de amsterdam-schema specificatie.
 Uitsluitend normatieve aanpassingen aan de specificatie worden vermeld. Aanpassingen aan voorbeelden,
 waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
-   <h3 class="heading settled" data-level="9.1" id="lastchange"><span class="secno">9.1. </span><span class="content">[2.1.5] dataclass atribuut toegevoegd (2022-12-21)</span><a class="self-link" href="#lastchange"></a></h3>
+   <h3 class="heading settled" data-level="9.1" id="lastchange"><span class="secno">9.1. </span><span class="content">[2.2.0] dataclass atribuut toegevoegd (2023-01-12)</span><a class="self-link" href="#lastchange"></a></h3>
    <blockquote>
-    <p><strong>Doelstelling</strong><br> Beschrijving en relatering van ongestructureerde data mogelijk maken.</p>
+    <p><strong>Doelstelling</strong><br> UItzonderingsgronden WOO in lijn gebracht met versie van WOO die nu van kracht is.</p>
    </blockquote>
    <ul>
     <li data-md>
      <p>Het <code class="idl"><a data-link-type="idl" href="#dom-tabel-dataclass" id="ref-for-dom-tabel-dataclass">dataclass</a></code> attribuut is toegevoegd.</p>
    </ul>
-   <h3 class="heading settled" data-level="9.2" id="20221221"><span class="secno">9.2. </span><span class="content">[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</span><a class="self-link" href="#20221221"></a></h3>
+   <h3 class="heading settled" data-level="9.2" id="20230110"><span class="secno">9.2. </span><span class="content">[2.1.5] dataclass atribuut toegevoegd (2023-01-10)</span><a class="self-link" href="#20230110"></a></h3>
+   <blockquote>
+    <p><strong>Doelstelling</strong><br> Beschrijving en relatering van ongestructureerde data mogelijk maken.</p>
+   </blockquote>
+   <ul>
+    <li data-md>
+     <p>De opties in attribuut <code class="idl"><a data-link-type="idl" href="#dom-dataset-reasonsnonpublic" id="ref-for-dom-dataset-reasonsnonpublic">reasonsNonPublic</a></code> aangepast.</p>
+    <li data-md>
+     <p>Verwijzing <a data-link-type="biblio" href="#biblio-woo">Wet Open Overheid</a> geupdate.</p>
+   </ul>
+   <h3 class="heading settled" data-level="9.3" id="20221221"><span class="secno">9.3. </span><span class="content">[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</span><a class="self-link" href="#20221221"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Publishers zijn zelfstandige objecten geworden.</p>
    </blockquote>
@@ -4007,7 +4024,7 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
     <li data-md>
      <p>Het <a data-link-type="dfn" href="#publisher" id="ref-for-publisher③">publisher</a> object is toegevoegd.</p>
    </ul>
-   <h3 class="heading settled" data-level="9.3" id="20220413-2"><span class="secno">9.3. </span><span class="content">[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</span><a class="self-link" href="#20220413-2"></a></h3>
+   <h3 class="heading settled" data-level="9.4" id="20220413-2"><span class="secno">9.4. </span><span class="content">[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</span><a class="self-link" href="#20220413-2"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Alle datasets zijn openbaar tenzij obv de Wet Open Overheid.
 Maar om onbedoelde openbaarmaking te voorkomen, moet dit altijd expliciet
@@ -4017,13 +4034,13 @@ ingevuld worden. Voor data die niet publiek is moet de uitzonderingsgrond worden
     <li data-md>
      <p>Het <code class="idl"><a data-link-type="idl" href="#dom-dataset-auth" id="ref-for-dom-dataset-auth④">auth</a></code> attribuut is verplicht gemaakt.</p>
     <li data-md>
-     <p>Het dataset attribuut <code class="idl"><a data-link-type="idl" href="#dom-dataset-reasonsnonpublic" id="ref-for-dom-dataset-reasonsnonpublic">reasonsNonPublic</a></code> is toegevoegd.</p>
+     <p>Het dataset attribuut <code class="idl"><a data-link-type="idl" href="#dom-dataset-reasonsnonpublic" id="ref-for-dom-dataset-reasonsnonpublic①">reasonsNonPublic</a></code> is toegevoegd.</p>
     <li data-md>
      <p>Het tabel attribuut <code class="idl"><a data-link-type="idl" href="#dom-tabel-reasonsnonpublic" id="ref-for-dom-tabel-reasonsnonpublic①">reasonsNonPublic</a></code> is toegevoegd.</p>
     <li data-md>
      <p>Het veld attribuut <code class="idl"><a data-link-type="idl" href="#dom-veld-reasonsnonpublic" id="ref-for-dom-veld-reasonsnonpublic">reasonsNonPublic</a></code> is toegevoegd.</p>
    </ul>
-   <h3 class="heading settled" data-level="9.4" id="20220413-1"><span class="secno">9.4. </span><span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span><a class="self-link" href="#20220413-1"></a></h3>
+   <h3 class="heading settled" data-level="9.5" id="20220413-1"><span class="secno">9.5. </span><span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span><a class="self-link" href="#20220413-1"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> De velden waar naar verwezen wordt in <code class="idl"><a data-link-type="idl" href="#dom-schema-identifier" id="ref-for-dom-schema-identifier③">identifier</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-schema-display" id="ref-for-dom-schema-display③">display</a></code> moeten zichtbaar zijn voor iedereen
 die toegang heeft tot de tabel. Deze velden mogen dus geen <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth④">auth</a></code> bevatten.</p>
@@ -4033,7 +4050,7 @@ die toegang heeft tot de tabel. Deze velden mogen dus geen <code class="idl"><a 
      <p>De velden waar naar verwezen wordt in de <code class="idl"><a data-link-type="idl" href="#dom-schema-identifier" id="ref-for-dom-schema-identifier④">identifier</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-schema-display" id="ref-for-dom-schema-display④">display</a></code> attributen
 mogen geen <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth⑤">auth</a></code> attribuut bevatten.</p>
    </ul>
-   <h3 class="heading settled" data-level="9.5" id="change20220323"><span class="secno">9.5. </span><span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span><a class="self-link" href="#change20220323"></a></h3>
+   <h3 class="heading settled" data-level="9.6" id="change20220323"><span class="secno">9.6. </span><span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span><a class="self-link" href="#change20220323"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Het coordinaat referentie systeem van een dataset met geo data moet bekend zijn voor correct functioneren van
 doelsystemen.</p>
@@ -4042,7 +4059,7 @@ doelsystemen.</p>
     <li data-md>
      <p>Het <code class="idl"><a data-link-type="idl" href="#dom-dataset-crs" id="ref-for-dom-dataset-crs①">crs</a></code> veld is verplicht geworden wanneer één of meerdere tabellen een <a href="#geometry">§ 4.3.6 geometrie</a> veld bevatten.</p>
    </ul>
-   <h3 class="heading settled" data-level="9.6" id="change20220317"><span class="secno">9.6. </span><span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span><a class="self-link" href="#change20220317"></a></h3>
+   <h3 class="heading settled" data-level="9.7" id="change20220317"><span class="secno">9.7. </span><span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span><a class="self-link" href="#change20220317"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Meerdere aanpassingen aan dataset velden voor contactgegevens.
 Met als doel om alle teams en organisaties die een rol hebben bij het ontsluiten van een dataset
@@ -4313,7 +4330,7 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
    <dt id="biblio-vocab-dcat-2">[VOCAB-DCAT-2]
    <dd>Riccardo Albertoni; et al. <a href="https://www.w3.org/TR/vocab-dcat-2/">Data Catalog Vocabulary (DCAT) - Version 2</a>. 4 February 2020. REC. URL: <a href="https://www.w3.org/TR/vocab-dcat-2/">https://www.w3.org/TR/vocab-dcat-2/</a>
    <dt id="biblio-woo">[Woo]
-   <dd><a href="https://zoek.officielebekendmakingen.nl/stb-2021-499.html">Wet open overheid</a>. URL: <a href="https://zoek.officielebekendmakingen.nl/stb-2021-499.html">https://zoek.officielebekendmakingen.nl/stb-2021-499.html</a>
+   <dd><a href="https://wetten.overheid.nl/BWBR0045754/2022-08-01">Wet open overheid</a>. URL: <a href="https://wetten.overheid.nl/BWBR0045754/2022-08-01">https://wetten.overheid.nl/BWBR0045754/2022-08-01</a>
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
@@ -4351,39 +4368,40 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
     <li><a href="#ref-for-dom-dataset-auth">2.2. Optionele attributen</a>
     <li><a href="#ref-for-dom-dataset-auth①">3.2. Optionele attributen</a>
     <li><a href="#ref-for-dom-dataset-auth②">7.2. Autorisatie</a> <a href="#ref-for-dom-dataset-auth③">(2)</a>
-    <li><a href="#ref-for-dom-dataset-auth④">9.3. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</a>
+    <li><a href="#ref-for-dom-dataset-auth④">9.4. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-dataset-creator">
    <b><a href="#dom-dataset-creator">#dom-dataset-creator</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-dataset-creator">9.6. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
+    <li><a href="#ref-for-dom-dataset-creator">9.7. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-dataset-publisher">
    <b><a href="#dom-dataset-publisher">#dom-dataset-publisher</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-dataset-publisher">9.2. [2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</a>
-    <li><a href="#ref-for-dom-dataset-publisher①">9.6. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
+    <li><a href="#ref-for-dom-dataset-publisher">9.3. [2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</a>
+    <li><a href="#ref-for-dom-dataset-publisher①">9.7. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-dataset-contactpoint">
    <b><a href="#dom-dataset-contactpoint">#dom-dataset-contactpoint</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-dataset-contactpoint">9.6. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
+    <li><a href="#ref-for-dom-dataset-contactpoint">9.7. [2.1.0] Dataset contact gegevens (2022-03-17)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-dataset-reasonsnonpublic">
    <b><a href="#dom-dataset-reasonsnonpublic">#dom-dataset-reasonsnonpublic</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-dataset-reasonsnonpublic">9.3. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</a>
+    <li><a href="#ref-for-dom-dataset-reasonsnonpublic">9.2. [2.1.5] dataclass atribuut toegevoegd (2023-01-10)</a>
+    <li><a href="#ref-for-dom-dataset-reasonsnonpublic①">9.4. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-dataset-crs">
    <b><a href="#dom-dataset-crs">#dom-dataset-crs</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-dataset-crs">4.3.6. geometrie</a>
-    <li><a href="#ref-for-dom-dataset-crs①">9.5. [2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</a>
+    <li><a href="#ref-for-dom-dataset-crs①">9.6. [2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="tabel-referentie">
@@ -4454,13 +4472,13 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
    <b><a href="#dom-tabel-reasonsnonpublic">#dom-tabel-reasonsnonpublic</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-tabel-reasonsnonpublic">7.2. Autorisatie</a>
-    <li><a href="#ref-for-dom-tabel-reasonsnonpublic①">9.3. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</a>
+    <li><a href="#ref-for-dom-tabel-reasonsnonpublic①">9.4. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-tabel-dataclass">
    <b><a href="#dom-tabel-dataclass">#dom-tabel-dataclass</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-tabel-dataclass">9.1. [2.1.5] dataclass atribuut toegevoegd (2022-12-21)</a>
+    <li><a href="#ref-for-dom-tabel-dataclass">9.1. [2.2.0] dataclass atribuut toegevoegd (2023-01-12)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="schema">
@@ -4483,7 +4501,7 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
     <li><a href="#ref-for-dom-schema-display">3.3. Schema</a>
     <li><a href="#ref-for-dom-schema-display①">3.5. Versionering</a>
     <li><a href="#ref-for-dom-schema-display②">4.2. Toegestane attributen</a>
-    <li><a href="#ref-for-dom-schema-display③">9.4. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</a> <a href="#ref-for-dom-schema-display④">(2)</a>
+    <li><a href="#ref-for-dom-schema-display③">9.5. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</a> <a href="#ref-for-dom-schema-display④">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-schema-maingeometry">
@@ -4498,7 +4516,7 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
     <li><a href="#ref-for-dom-schema-identifier">3.3. Schema</a>
     <li><a href="#ref-for-dom-schema-identifier①">3.4. Temporaliteit</a>
     <li><a href="#ref-for-dom-schema-identifier②">4.2. Toegestane attributen</a>
-    <li><a href="#ref-for-dom-schema-identifier③">9.4. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</a> <a href="#ref-for-dom-schema-identifier④">(2)</a>
+    <li><a href="#ref-for-dom-schema-identifier③">9.5. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</a> <a href="#ref-for-dom-schema-identifier④">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="temporal-object">
@@ -4565,13 +4583,13 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
     <li><a href="#ref-for-dom-veld-auth">3.3. Schema</a> <a href="#ref-for-dom-veld-auth①">(2)</a>
     <li><a href="#ref-for-dom-veld-auth②">4.2. Toegestane attributen</a>
     <li><a href="#ref-for-dom-veld-auth③">4.3.8. array</a>
-    <li><a href="#ref-for-dom-veld-auth④">9.4. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</a> <a href="#ref-for-dom-veld-auth⑤">(2)</a>
+    <li><a href="#ref-for-dom-veld-auth④">9.5. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</a> <a href="#ref-for-dom-veld-auth⑤">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-veld-reasonsnonpublic">
    <b><a href="#dom-veld-reasonsnonpublic">#dom-veld-reasonsnonpublic</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-veld-reasonsnonpublic">9.3. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</a>
+    <li><a href="#ref-for-dom-veld-reasonsnonpublic">9.4. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-veld-provenance">
@@ -4683,7 +4701,7 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
    <ul>
     <li><a href="#ref-for-publisher">2.4. Publisherreferenties</a> <a href="#ref-for-publisher①">(2)</a>
     <li><a href="#ref-for-publisher②">6. Publisher</a>
-    <li><a href="#ref-for-publisher③">9.2. [2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</a>
+    <li><a href="#ref-for-publisher③">9.3. [2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="scope">
