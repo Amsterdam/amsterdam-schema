@@ -59,6 +59,7 @@ repos:
     hooks:
       - id: validate-schema
         args: ['https://schemas.data.amsterdam.nl/schema@v1.3.0', "--extra_meta_schema_url", "https://schemas.data.amsterdam.nl/schema@v2.0.0"]
+        files: '^datasets/.*\.json'
         verbose: true # so we can see against which metaschema it is valid
         exclude: "^schema@.+" # exclude meta schemas
       - id: validate-publishers
