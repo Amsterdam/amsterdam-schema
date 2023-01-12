@@ -27,8 +27,7 @@ jobs:
         shell: bash
       - run: |
           echo "Dataset files to be validated:"
-          for ds in ${{ steps.changed-datasets.outputs.DATASET_FILES }}
-          do
+          for ds in ${{ steps.changed-datasets.outputs.DATASET_FILES }}; do
             echo $ds
           done
       - uses: pre-commit/action@v2.0.3
