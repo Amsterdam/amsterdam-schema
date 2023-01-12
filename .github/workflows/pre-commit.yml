@@ -12,12 +12,9 @@ jobs:
       SCHEMA_URL: datasets/
     steps:
       - uses: actions/checkout@v2
-        with:
-          # By default `fetch-depth` is `1`, causing the commit history to be
-          # retrieved only 1 commit deep. In order to diff against
-          # `master` we need a bit more history. Easiest is to fetch it all by
-          # setting it to `0`
-          fetch-depth: 0
+      - name: "Fetch master branch"  # So we can diff against it.
+        run: |
+          git fetch origin master --depth=1
       - uses: actions/setup-python@v2
         with:
           python-version: '3.9.x'
@@ -27,7 +24,8 @@ jobs:
         shell: bash
       - run: |
           echo "Dataset files to be validated:"
-          for ds in ${{ steps.changed-datasets.outputs.DATASET_FILES }}; do
+          for ds in ${{ steps.changed-datasets.outputs.DATASET_FILES }}
+          do
             echo $ds
           done
       - uses: pre-commit/action@v2.0.3
