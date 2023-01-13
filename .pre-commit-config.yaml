@@ -43,7 +43,7 @@ repos:
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
       - id: pretty-format-json
-        args: [--autofix, --indent=2, --no-sort-keys]
+        args: [--autofix, --indent=2, --no-sort-keys, --no-ensure-ascii]
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v0.991
     hooks:
@@ -55,7 +55,7 @@ repos:
       - id: isort
         args: ['--filter-files']
   - repo: https://github.com/Amsterdam/schema-tools
-    rev: "v5.4.0"
+    rev: "v5.5.0"
     hooks:
       - id: validate-schema
         args: ['https://schemas.data.amsterdam.nl/schema@v1.3.0', "--extra_meta_schema_url", "https://schemas.data.amsterdam.nl/schema@v2.0.0"]
