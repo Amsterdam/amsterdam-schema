@@ -49,6 +49,10 @@
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding van het record."
+          },
           "geometrie": {
             "$ref": "https://geojson.org/schema/Point.json",
             "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992). bevat punt-geometrie."
@@ -73,7 +77,7 @@
             "format": "date"
           },
           "datumBestrijding": {
-            "description": "hier beschrijving toevoegen",
+            "description": "Datum waarop bestrijding heeft plaatsgevonden door uitvoer organisatie",
             "type": "string",
             "format": "date"
           },
