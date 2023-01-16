@@ -14,13 +14,13 @@ jobs:
       - uses: actions/checkout@v2
       - name: "Fetch master branch"  # So we can diff against it.
         run: |
-          git fetch origin master --depth=1
+          git fetch origin master --depth=100  # Should be enough to determine merge base.
       - uses: actions/setup-python@v2
         with:
           python-version: '3.9.x'
       - id: changed-datasets
         # We are only interested in changed and new (not deleted) datasets files.
-        run: echo "::set-output name=DATASET_FILES::$(git diff --name-only --diff-filter=d origin/master.. -- datasets)"
+        run: echo "::set-output name=DATASET_FILES::$(git diff --name-only --diff-filter=d --merge-base origin/master -- datasets)"
         shell: bash
       - run: |
           echo "Dataset files to be validated:"
