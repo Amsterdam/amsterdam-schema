@@ -23,7 +23,7 @@
     ],
     "required": [
       "schema",
-      "id",
+      "neuronId",
       "identificatie",
       "volgnummer"
     ],
@@ -40,8 +40,8 @@
         "type": "integer",
         "description": "Uniek volgnummer van de toestand van het object."
       },
-      "id": {
-        "type": "string",
+      "neuronId": {
+        "type": "integer",
         "description": "Neuron ID"
       },
       "registratiedatum": {
@@ -207,15 +207,19 @@
         "type": "number",
         "description": "Rotatie van het perceelnummer ten behoeve van afbeelding op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen"
       },
-      "perceelnummerVerschuivingX": {
-        "type": "string",
-        "provenance": "$.perceelnummerVerschuiving.x",
-        "description": "Coordinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden x"
-      },
-      "perceelnummerVerschuivingY": {
-        "type": "string",
-        "provenance": "$.perceelnummerVerschuiving.y",
-        "description": "Coordinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden y"
+      "perceelnummerVerschuiving": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "string",
+            "provenance": "$.perceelnummerVerschuiving.x"
+          },
+          "y": {
+            "type": "string",
+            "provenance": "$.perceelnummerVerschuiving.y"
+          }
+        },
+        "description": "Coordinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden (x, y)"
       },
       "bijpijlingGeometrie": {
         "$ref": "https://geojson.org/schema/LineString.json",
@@ -273,7 +277,7 @@
         "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       },
       "indicatieVoorlopigeKadastraleGrens": {
-        "type": "boolean",
+        "type": "string",
         "description": "Indicatie of de geometrie (kadastrale grens) voorlopig is of niet."
       },
       "isOntstaanUitGPerceel": {
