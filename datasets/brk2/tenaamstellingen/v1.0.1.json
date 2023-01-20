@@ -4,7 +4,7 @@
   "version": "1.0.1",
   "auth": "BRK/RS",
   "reasonsNonPublic": [
-    "5.1 1c: Bevat persoonsgegevens",
+    "5.1 1d: Bevat persoonsgegevens",
     "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
   ],
   "temporal": {
@@ -21,13 +21,11 @@
     "type": "object",
     "additionalProperties": false,
     "identifier": [
-      "identificatie",
-      "volgnummer"
+      "neuronId"
     ],
     "required": [
       "schema",
-      "volgnummer",
-      "identificatie"
+      "neuronId"
     ],
     "display": "identificatie",
     "properties": {
@@ -43,7 +41,7 @@
         "description": "Uniek volgnummer van de toestand van het object."
       },
       "neuronId": {
-        "type": "number",
+        "type": "integer",
         "description": "Neuron ID",
         "provenance": "id"
       },
