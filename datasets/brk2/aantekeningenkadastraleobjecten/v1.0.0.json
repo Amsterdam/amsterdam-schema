@@ -118,7 +118,12 @@
         "description": "Identificatie van het kadastrale object (onroerende zaak)"
       },
       "isGebaseerdOpBrkStukdeel": {
-        "type": "string",
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
         "relation": "brk2:stukdelen",
         "description": "Identificatie van het betrokken stukdeel"
       },
