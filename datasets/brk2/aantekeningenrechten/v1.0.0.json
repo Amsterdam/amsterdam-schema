@@ -53,7 +53,7 @@
         "description": "Omschrijving bij de aantekening"
       },
       "betreftGedeelteVanPerceel": {
-        "type": "boolean",
+        "type": "string",
         "description": "Er bestaan nu nog speciale aardAantekening-varianten met de toevoeging op een gedeelte van een perceel. Voorbeeld: 81. In het vervolg zal deze aard worden vervangen door de oorspronkelijke variant, in dit geval 80 ”Voorwaarden WKPB besluiten”, waarbij de indicator betreftGedeelteVanPerceel op true gezet wordt."
       },
       "betrokkenBrkTenaamstelling": {
@@ -61,8 +61,8 @@
         "items": {
           "type": "object",
           "properties": {
-            "identificatie": {
-              "type": "string"
+            "neuronId": {
+              "type": "integer"
             },
             "volgnummer": {
               "type": "integer"
@@ -94,7 +94,12 @@
         "description": "Identificatie van het betrokken subject"
       },
       "isGebaseerdOpBrkStukdeel": {
-        "type": "string",
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
         "relation": "brk2:stukdelen",
         "description": "Identificatie van het betrokken stukdeel"
       },
