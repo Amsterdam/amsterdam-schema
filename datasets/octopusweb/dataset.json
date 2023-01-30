@@ -1,0 +1,47 @@
+{
+  "type": "dataset",
+  "id": "octopusweb",
+  "title": "Reporting for Octopusweb",
+  "description": "Dataset voor dblob storage voor Octopusweb",
+  "license": "public",
+  "status": "beschikbaar",
+  "version": "1.0.0",
+  "theme": [
+  ],
+
+  "publisher": "Datateam Generiek",
+  "creator": "Gemeente Amsterdam, directie juridische Zaken",
+  "owner": "Gemeente Amsterdam, directie juridische Zaken",
+  "auth": "EM4W-GNRK-OCTWEB",
+  "authorizationGrantor": "Datateam Generiek",
+  "keywords": [
+    "Octopus-Web, juridisch"
+  ],
+   "tables": [
+    {
+      "id": "OCTWEBDIR",
+      "title": "Tables for Octopusweb reporting",
+      "type": "table",
+      "dataclass": "blob",
+      "version": "1.0.0",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "identifier"
+          }
+        }
+      }
+    }
+  ]
+} 
