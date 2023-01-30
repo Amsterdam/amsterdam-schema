@@ -7,8 +7,11 @@
   "version": "0.0.1",
   "crs": "EPSG:28992",
   "auth": "BRP/R",
+  "reasonsNonPublic": [
+    "5.1 1d: Bevat persoonsgegevens"
+  ],
   "owner": "Gemeente Amsterdam",
-  "creator": "bronhouder onbekend",
+  "creator": "Stadsdelen",
   "publisher": "Datateam Basis- en Kernregistraties",
   "authorizationGrantor": "OIS",
   "tables": [
@@ -44,6 +47,7 @@
           },
           "naam": {
             "type": "object",
+            "format": "json",
             "properties": {
               "geslachtsnaam": {
                 "type": "string",
@@ -82,6 +86,7 @@
           },
           "geboorte": {
             "type": "object",
+            "format": "json",
             "properties": {
               "datum": {
                 "type": "object",
@@ -109,6 +114,7 @@
           },
           "verblijfplaats": {
             "type": "object",
+            "format": "json",
             "properties": {
               "naamOpenbareRuimte": {
                 "type": "string"
