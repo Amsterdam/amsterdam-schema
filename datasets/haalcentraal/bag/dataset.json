@@ -8,7 +8,9 @@
   "crs": "EPSG:28992",
   "owner": "Kadaster (LV-BAG)",
   "creator": "Haal Centraal",
-  "publisher": "Datateam Basis- en Kernregistraties",
+  "publisher": {
+    "$ref": "/publishers/BENK"
+  },
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
   "tables": [
@@ -16,7 +18,7 @@
       "id": "adressen",
       "type": "table",
       "version": "0.0.1",
-      "description": "Het adres is de benaming van een locatie bestaande uit straatnaam, huisnummer, (mogelijk met huisletter, huisnummertoevoeging, postcode) en woonplaatsnaam. Dit is de vereenvoudigde samenstelling van de offici\u00eble naamgeving gebaseerd op woonplaats, openbare ruimte en nummeraanduiding.",
+      "description": "Het adres is de benaming van een locatie bestaande uit straatnaam, huisnummer, (mogelijk met huisletter, huisnummertoevoeging, postcode) en woonplaatsnaam. Dit is de vereenvoudigde samenstelling van de officiële naamgeving gebaseerd op woonplaats, openbare ruimte en nummeraanduiding.",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -69,7 +71,7 @@
           },
           "korteNaam": {
             "type": "string",
-            "description": "De offici\u00eble openbareruimtenaam of een verkorte versie. Beide hebben maximaal 24 tekens."
+            "description": "De officiële openbareruimtenaam of een verkorte versie. Beide hebben maximaal 24 tekens."
           },
           "openbareRuimteIdentificatie": {
             "type": "string"
