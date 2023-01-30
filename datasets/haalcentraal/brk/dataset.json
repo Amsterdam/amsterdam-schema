@@ -56,6 +56,9 @@
           "koopsom": {
             "type": "object",
             "auth": "BRK/RO",
+            "reasonsNonPublic": [
+              "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+            ],
             "properties": {
               "koopsom": {
                 "type": "integer"
@@ -68,6 +71,9 @@
           "toelichtingBewaarder": {
             "type": "string",
             "auth": "BRK/RO",
+            "reasonsNonPublic": [
+              "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+            ],
             "description": "Hier kan een toelichting staan van de bewaarder."
           },
           "type": {
@@ -75,6 +81,9 @@
           },
           "aardCultuurBebouwd": {
             "auth": "BRK/RO",
+            "reasonsNonPublic": [
+              "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+            ],
             "type": "object",
             "properties": {
               "code": {
@@ -90,6 +99,7 @@
           },
           "kadastraleGrootte": {
             "type": "object",
+            "format": "json",
             "properties": {
               "soortGrootte": {
                 "type": "object",
@@ -166,6 +176,9 @@
           },
           "zakelijkGerechtigdeIdentificaties": {
             "auth": "BRK/RO",
+            "reasonsNonPublic": [
+              "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+            ],
             "type": "array",
             "items": {
               "type": "string"
@@ -173,6 +186,9 @@
           },
           "privaatrechtelijkeBeperkingIdentificaties": {
             "auth": "BRK/RO",
+            "reasonsNonPublic": [
+              "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+            ],
             "type": "array",
             "items": {
               "type": "string"
@@ -181,6 +197,9 @@
           "hypotheekIdentificaties": {
             "type": "array",
             "auth": "BRK/RO",
+            "reasonsNonPublic": [
+              "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+            ],
             "items": {
               "type": "string"
             }
@@ -196,6 +215,10 @@
       "auth": [
         "BRK/RS",
         "BRK/RSN"
+      ],
+      "reasonsNonPublic": [
+        "5.1 1d: Bevat persoonsgegevens",
+        "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
       ],
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -226,6 +249,7 @@
           },
           "woonadres": {
             "type": "object",
+            "format": "json",
             "properties": {
               "adresregel1": {
                 "type": "string"
@@ -252,6 +276,10 @@
           "kadastraalOnroerendeZaakIdentificaties": {
             "type": "array",
             "auth": "BRK/RSN",
+            "reasonsNonPublic": [
+              "5.1 1d: Bevat persoonsgegevens",
+              "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+            ],
             "items": {
               "type": "string"
             }
@@ -311,6 +339,7 @@
           },
           "geboorte": {
             "type": "object",
+            "format": "json",
             "properties": {
               "datum": {
                 "type": "object",
