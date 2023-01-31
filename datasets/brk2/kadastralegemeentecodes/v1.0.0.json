@@ -22,7 +22,12 @@
         "description": "De unieke aanduiding van een Kadastrale gemeentecode."
       },
       "isOnderdeelVanBrkKadastraleGemeente": {
-        "type": "string",
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
         "relation": "brk2:kadastralegemeentes",
         "provenance": "$.isOnderdeelVanKadastralegemeente.identificatie",
         "description": "De kadastrale gemeente waar de kadastrale gemeentecode onderdeel van is (bv. Sloten)."
