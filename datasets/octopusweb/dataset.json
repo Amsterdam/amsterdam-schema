@@ -6,20 +6,23 @@
   "license": "public",
   "status": "beschikbaar",
   "version": "1.0.0",
-  "theme": [
-  ],
-
-  "publisher": "Datateam Generiek",
+  "theme": [],
+  "publisher": {
+    "$ref": "publishers/DGEN"
+  },
   "creator": "Gemeente Amsterdam, directie juridische Zaken",
   "owner": "Gemeente Amsterdam, directie juridische Zaken",
-  "auth": "EM4W-GNRK-OCTWEB",
+  "auth": "GNRK-OCTWEB",
+  "reasonsNonPublic": [
+    "5.1 1d: Bevat persoonsgegevens"
+  ],
   "authorizationGrantor": "Datateam Generiek",
   "keywords": [
     "Octopus-Web, juridisch"
   ],
-   "tables": [
+  "tables": [
     {
-      "id": "OCTWEBDIR",
+      "id": "octwebdir",
       "title": "Tables for Octopusweb reporting",
       "type": "table",
       "dataclass": "blob",
@@ -28,6 +31,7 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "display": "id",
         "required": [
           "schema",
           "id"
@@ -44,6 +48,4 @@
       }
     }
   ]
-} 
-
-
+}
