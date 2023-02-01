@@ -30,7 +30,7 @@
     "display": "identificatie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.2.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
@@ -53,7 +53,7 @@
         "type": "string",
         "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
       },
-      "aangeduidDoorGemeente": {
+      "aangeduidDoorBrkGemeente": {
         "type": "object",
         "properties": {
           "code": {
@@ -63,38 +63,32 @@
             "type": "string"
           }
         },
-        "$comment": "relation brk2:gemeentes",
+        "$comment": "relation brk2:gemeentes *stringify*",
         "description": "De burgerlijke gemeente"
       },
-      "aangeduidDoorKadastralegemeente": {
+      "aangeduidDoorBrkKadastralegemeente": {
         "type": "object",
         "properties": {
-          "code": {
-            "type": "string"
-          },
-          "omschrijving": {
+          "identificatie": {
             "type": "string"
           }
         },
-        "$comment": "relation brk2:kadastralegemeentes",
+        "relation": "brk2:kadastralegemeentes",
         "description": "De kadastrale gemeente, het eerste gedeelte van de aanduiding van een kadastraal object."
       },
-      "aangeduidDoorKadastralegemeentecode": {
+      "aangeduidDoorBrkKadastralegemeentecode": {
         "type": "object",
         "properties": {
-          "code": {
-            "type": "string"
-          },
-          "omschrijving": {
+          "identificatie": {
             "type": "string"
           }
         },
-        "$comment": "relation brk2:kadastralegemeentecodes",
+        "relation": "brk2:kadastralegemeentecodes",
         "description": "De kadastrale gemeentecode. Het eerste deel van de kadastrale aanduiding. Bijvoorbeeld: ASD01, STN02"
       },
-      "aangeduidDoorKadastralesectie": {
+      "aangeduidDoorBrkKadastralesectie": {
         "type": "string",
-        "$comment": "relation brk2:kadastralesecties",
+        "$comment": "relation brk2:kadastralesecties *stringify*",
         "description": "De kadastrale sectie, het tweede gedeelte van de aanduiding van een kadastraal object."
       },
       "perceelnummer": {
@@ -256,7 +250,7 @@
       },
       "toestandsdatum": {
         "type": "string",
-        "format": "date-time",
+        "format": "date",
         "description": "De datum waarop de geleverde toestand van het kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)"
       },
       "beginGeldigheid": {
@@ -280,7 +274,7 @@
         "type": "string",
         "description": "Indicatie of de geometrie (kadastrale grens) voorlopig is of niet."
       },
-      "isOntstaanUitGPerceel": {
+      "isOntstaanUitBrkGPerceel": {
         "type": "array",
         "items": {
           "type": "object",
@@ -304,7 +298,7 @@
         "relation": "brk2:kadastraleobjecten",
         "description": "Dit veld is alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
       },
-      "heeftEenRelatieMetVerblijfsobject": {
+      "heeftEenRelatieMetBagVerblijfsobject": {
         "shortname": "hftRelMtVot",
         "type": "array",
         "items": {
@@ -329,7 +323,7 @@
         "relation": "bag:verblijfsobjecten",
         "description": "Relatie naar verblijfsobject"
       },
-      "isOntstaanUitKadastraalobject": {
+      "isOntstaanUitBrkKadastraalobject": {
         "type": "array",
         "items": {
           "type": "object",
