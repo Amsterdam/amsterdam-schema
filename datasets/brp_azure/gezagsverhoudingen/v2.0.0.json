@@ -1,0 +1,91 @@
+{
+  "id": "gezagsverhoudingen",
+  "type": "table",
+  "version": "2.0.0",
+  "auth": "BRP/R",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "identificatie",
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "identificatie, dit is of het Burgerservicenummer, Anummer of een zelfgemaakte identificatie door GOB"
+      },
+      "indicatieGezagMinderjarige": {
+        "type": "string",
+        "description": "aanduiding die aangeeft wie belast is met het gezag over de minderjarige ingeschrevene"
+      },
+      "indicatieCurateleRegister": {
+        "type": "string",
+        "description": "aanduiding dat de ingeschrevene onder curatele is gesteld"
+      },
+      "gemeenteGezagsverhoudingDocument": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de GemeenteGezagsverhoudingDocument."
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "omschrijving van de natiGemeenteGezagsverhoudingDocumentonaliteit."
+          }
+        },
+        "description": "code, opgenomen in Tabel 33, Gemeentetabel, die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonden"
+      },
+      "datumOntleningGezagsverhouding": {
+        "type": "string",
+        "format": "date",
+        "description": "datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden"
+      },
+      "beschrijvingDocumentGezagsverhouding": {
+        "type": "string",
+        "description": "bschrijving van het document waaraan de gegevens zijn ontleend of waaruit de gegevens zijn afgeleid"
+      },
+      "onderzoek": {
+        "type": "object",
+        "properties": {
+          "aanduidingGegevensInOnderzoek": {
+            "type": "boolean",
+            "description": "aanduiding dat in een categorie één of meer gegevens met betrekking tot de onjuistheid of de strijdigheid met de openbare orde zijn of worden onderzocht"
+          },
+          "datumIngangOnderzoek": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is gestart"
+          },
+          "datumEindeOnderzoek": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is beeindigd"
+          },
+          "onjuistStrijdigOpenbareOrde": {
+            "type": "string",
+            "format": "date",
+            "description": "datum waarop een onderzoek inzake de onjuistheid of de strijdigheid met de openbare orde is gestart"
+          }
+        }
+      },
+      "ingangsdatumGeldigheid": {
+        "type": "string",
+        "format": "date-time",
+        "description": "datum waarop het geheel van gegevens geldig is geworden"
+      },
+      "datumOpneming": {
+        "type": "string",
+        "format": "date",
+        "description": "datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+      }
+    }
+  }
+}
