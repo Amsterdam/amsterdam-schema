@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version 859efb4bd, updated Fri Jan 27 16:04:01 2023 -0800" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="2f67f383f827153bfa7807fcfab69e0dedcce9cf" name="document-revision">
+  <meta content="4114b26ec9b4fc26c16587964531bb6aef1fc56b" name="document-revision">
 <style>
     p[data-fill-with="logo"] {
         width: 180px;
@@ -3001,7 +3001,7 @@ of een <code class="idl"><a data-link-type="idl" href="#dom-veld-maximum" id="re
    <p class="note" role="note"><span class="marker">Note:</span> Deze semantic versioning standaard is geinspireerd door <a data-biblio-display="inline" data-link-type="biblio" href="https://snowplowanalytics.com/blog/2014/05/13/introducing-schemaver-for-semantic-versioning-of-schemas/"><cite>SchemaVer</cite></a> wat weer is gebaseerd op <a data-biblio-display="inline" data-link-type="biblio" href="https://semver.org/"><cite>SemVer</cite></a>.</p>
    <h2 class="heading settled" data-level="4" id="fields"><span class="secno">4. </span><span class="content">Veld</span><a class="self-link" href="#fields"></a></h2>
     Een veld beschrijft een eigenschap die een rij in de tabel mag of moet (zie <code class="idl"><a data-link-type="idl" href="#dom-schema-required" id="ref-for-dom-schema-required">required</a></code>) bezitten.
-Een <a data-link-type="dfn" href="#veld" id="ref-for-veld⑨">veld</a> is een concrete JSON Schema type definiering waaraan ook meta-informatie kan worden meegegeven.
+Een <a data-link-type="dfn" href="#veld" id="ref-for-veld⑨">veld</a> is een concrete JSON Schema-typedefinitie waaraan ook meta-informatie kan worden meegegeven.
    <p>Zie <a href="#data-types">§ 4.3 Data types</a> voor een overzicht van modelleerbare typen en hoe deze binnen Amsterdam Schema uitgedrukt kunnen worden.</p>
    <p class="note" role="note"><span class="marker">Note:</span> <a data-link-type="dfn" href="#veld" id="ref-for-veld①⓪">veld</a> gebruikt een subset van <a data-link-type="biblio" href="#biblio-json-schema-validation" title="JSON Schema">[json-schema-validation]</a>. Een aantal JSON Schema features waaronder union types wordt niet ondersteund.</p>
    <p><strong class="advisement"> Let op: Zie <a href="#naamgeving">§ 5 Naamgeving</a> voor de eisen waaraan de namen van velden moeten voldoen.</strong></p>
@@ -3498,8 +3498,9 @@ welke (SQL) data typen gebruikt zouden moeten worden om de JSON Schema typen te 
    </div>
    <h4 class="heading settled" data-level="4.3.7" id="data-types-object"><span class="secno">4.3.7. </span><span class="content">object</span><a class="self-link" href="#data-types-object"></a></h4>
     Een <a data-link-type="dfn" href="#veld" id="ref-for-veld①⑥">veld</a> van type <code class="highlight">object</code> kan gestructureerde data (objecten of structs) bevatten.
-    Een <code class="highlight">object</code> veld zou een <code class="idl"><a data-link-type="idl" href="#dom-veld-properties" id="ref-for-dom-veld-properties">properties</a></code> attribuut moeten bezitten waarin de structuur van de datawaarden
-     in het veld wordt vastgelegd.
+    Een objectveld met het <code class="highlight">format</code> <code class="highlight">json</code> mag willekeurige JSON-data bevatten.
+    Alle overige objectenvelden moeten een attribuut <code class="idl"><a data-link-type="idl" href="#dom-veld-properties" id="ref-for-dom-veld-properties">properties</a></code> bezitten
+    waarin de structuur van de waarden in het veld wordt vastgelegd.
     Het <code class="idl"><a data-link-type="idl" href="#dom-veld-properties" id="ref-for-dom-veld-properties①">properties</a></code> attribuut is een object met daarin de <a data-link-type="dfn" href="#veld" id="ref-for-veld①⑦">veld</a> definities van de eigenschappen van de datawaarden.
    <p class="note" role="note"><span class="marker">Note:</span> Het <code class="idl"><a data-link-type="idl" href="#dom-veld-properties" id="ref-for-dom-veld-properties②">properties</a></code> attribuut moet geen <code class="highlight">object</code> of <code class="highlight">array</code> <a data-link-type="dfn" href="#veld" id="ref-for-veld①⑧">velden</a> bevatten.
         Geneste data is in een gestructureerd object veld niet toegestaan.</p>
