@@ -32,13 +32,12 @@ is to:
 
 * activate the environment: `source dvenv/bin/activate`
 * change to the `docs` directory: `cd docs`
-* and run the bikeshed command: `bikeshed spec ams-schema-spec.bs ams-schema-spec.html`
+* run `make`.
 
-The `bikeshed` command can be repeated as often as necessary.
-A better solution,
-while working on the specification,
-would be to use Bikeshed's `watch` subcommand.
-It regenerates the HTML upon every document save:
+The `make` command can be repeated as often as necessary.
+While working on the specification,
+it can be useful to run Bikeshed's `watch` subcommand.
+That regenerates the HTML upon every document save:
 
 ```bash
 bikeshed watch ams-schema-spec.bs ams-schema-spec.html
