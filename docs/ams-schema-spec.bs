@@ -594,7 +594,7 @@ Note: Deze semantic versioning standaard is geinspireerd door [[SCHEMVER inline]
 Veld {#fields}
 ======================================================
 Een veld beschrijft een eigenschap die een rij in de tabel mag of moet (zie {{required}}) bezitten.
-Een [=veld=] is een concrete JSON Schema type definiering waaraan ook meta-informatie kan worden meegegeven.
+Een [=veld=] is een concrete JSON Schema-typedefinitie waaraan ook meta-informatie kan worden meegegeven.
 
 Zie [[#data-types]] voor een overzicht van modelleerbare typen en hoe deze binnen Amsterdam Schema uitgedrukt kunnen worden.
 
@@ -1054,8 +1054,9 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
 
 ### object ### {#data-types-object}
     Een [=veld=] van type `object` kan gestructureerde data (objecten of structs) bevatten.
-    Een `object` veld zou een {{veld/properties}} attribuut moeten bezitten waarin de structuur van de datawaarden
-     in het veld wordt vastgelegd.
+    Een objectveld met het `format` `json` mag willekeurige JSON-data bevatten.
+    Alle overige objectenvelden moeten een attribuut {{veld/properties}} bezitten
+    waarin de structuur van de waarden in het veld wordt vastgelegd.
     Het {{veld/properties}} attribuut is een object met daarin de [=veld=] definities van de eigenschappen van de datawaarden.
 
     Note: Het {{veld/properties}} attribuut moet geen `object` of `array` [=veld|velden=] bevatten.
