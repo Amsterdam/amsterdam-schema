@@ -4,13 +4,15 @@
   "title": "Ondergrond",
   "status": "beschikbaar",
   "description": "Activiteiten die zijn gedaan in / op de ondergrond",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
-  "creator": "bronhouder onbekend",
-  "publisher": "Datateam Stedelijke Ontwikkeling en Beheer",
+  "creator": "Ingenieursbureau",
+  "publisher": {
+    "$ref": "publishers/SOEB"
+  },
   "auth": "OPENBAAR",
-  "authorizationGrantor": "n.v.t.",
+  "authorizationGrantor": "datateamstedelijkeonwikkelingenbeheer@amsterdam.nl",
   "tables": [
     {
       "id": "historischeonderzoeken",
@@ -55,6 +57,9 @@
           "auteurRapport": {
             "type": "string",
             "auth": "FP/MDW",
+            "reasonsNonPublic": [
+              "5.1 1d: Bevat persoonsgegevens"
+            ],
             "description": "Auteur(s) van rapport.",
             "provenance": "auteur(s)"
           },
@@ -92,7 +97,7 @@
             "description": "Verwijzing naar meer informatie. UID van bron (SAA) of een UID bij NAZCA."
           },
           "geometrie": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
+            "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Vlakgeometrie van locatie onderzoek."
           }
         }
