@@ -1,8 +1,11 @@
 {
-  "id": "gezagsverhoudingen",
+  "id": "nationaliteiten",
   "type": "table",
   "version": "2.0.0",
   "auth": "BRP/R",
+  "reasonsNonPublic": [
+    "5.1 1d: Bevat persoonsgegevens"
+  ],
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -15,21 +18,59 @@
     "display": "identificatie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
         "description": "identificatie, dit is of het Burgerservicenummer, Anummer of een zelfgemaakte identificatie door GOB"
       },
-      "indicatieGezagMinderjarige": {
-        "type": "string",
-        "description": "aanduiding die aangeeft wie belast is met het gezag over de minderjarige ingeschrevene"
+      "nationaliteit": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de nationaliteit."
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "omschrijving van de nationaliteit."
+          }
+        },
+        "description": "Een code, opgenomen in Tabel 32, Nationaliteitentabel op naam, die aangeeft welke nationaliteit de ingeschrevene bezit."
       },
-      "indicatieCurateleRegister": {
-        "type": "string",
-        "description": "aanduiding dat de ingeschrevene onder curatele is gesteld"
+      "redenVerkrijgingNedNat": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de reden verkrijging"
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "omschrijving van de reden verkrijging"
+          }
+        },
+        "description": "gegevens over de verkrijging van de Nederlandse Nationaliteit, code, opgenomen in Tabel 37"
       },
-      "gemeenteGezagsverhoudingDocument": {
+      "redenVerliesNedNat": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de reden verlies"
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "omschrijving van de reden verlies"
+          }
+        },
+        "description": "gegevens over het verlies van de Nederlandse Nationaliteit, code, opgenomen in Tabel 37"
+      },
+      "aanduidingBijzonderNederlandschap": {
+        "type": "string",
+        "description": "Gegevens over bijzonder Nederlanderschap"
+      },
+      "gemeenteDocument": {
         "type": "object",
         "properties": {
           "code": {
@@ -43,14 +84,14 @@
         },
         "description": "code, opgenomen in Tabel 33, Gemeentetabel, die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonden"
       },
-      "datumOntleningGezagsverhouding": {
+      "datumDocument": {
         "type": "string",
         "format": "date",
         "description": "datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden"
       },
-      "beschrijvingDocumentGezagsverhouding": {
+      "beschrijvingDocument": {
         "type": "string",
-        "description": "bschrijving van het document waaraan de gegevens zijn ontleend of waaruit de gegevens zijn afgeleid"
+        "description": "beschrijving van het document waaraan de gegevens zijn ontleend of waaruit de gegevens zijn afgeleid"
       },
       "onderzoek": {
         "type": "object",
@@ -78,17 +119,17 @@
       "ingangsdatumGeldigheid": {
         "type": "string",
         "format": "date",
-        "description": "datum waarop het geheel van gegevens geldig is geworden"
+        "description": "De datum waarop het geheel van gegevens geldig is geworden"
       },
       "datumOpneming": {
         "type": "string",
         "format": "date",
-        "description": "datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+        "description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
       },
       "datumActueelTot": {
         "type": "string",
         "format": "date-time",
-        "description": "einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       }
     }
   }
