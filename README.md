@@ -192,26 +192,3 @@ In order to develop a new metaschema version locally and run structural and sema
 
 And of course; after the metaschema is finished, the references in the new metaschema and the dataset used for development
 need to be be reset to the online URL.
-
-## Schema updates
-
-New and/or updated schemas require a version bump of
-the Python package and repository.
-Strictly speaking things will,
-at least currently,
-still work without a version bump,
-but we will lose track of what version of the Python package
-published a specific set of schemas.
-
-Find the current version number:
-
-```console
-% grep version setup.cfg
-```
-
-Say it has version `0.0.9`.
-Now bump it to `0.0.10`:
-
-```console
-% tbump 0.0.10
-```
