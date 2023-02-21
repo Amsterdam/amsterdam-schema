@@ -119,10 +119,7 @@ def get_index_file_obj(publishable_paths: List[List[str]], files_root: Path) -> 
 
         # Check for duplicate ids
         if key in index:
-            raise Exception(
-                f"Datasets with duplicate id:'{key}' \
-                in {folder} and {index[key]}."
-            )
+            raise Exception(f"Datasets with duplicate id:{key!r} in {folder} and {index[key]}.")
 
         index[key] = folder
     return BytesIO(json.dumps(index).encode())
@@ -363,10 +360,6 @@ def generate_publisher_index() -> None:
     by schematools.
     """
     sys.stdout.write(get_publisher_index())
-
-
-if __name__ == "__main__":
-    main()
 
 
 if __name__ == "__main__":
