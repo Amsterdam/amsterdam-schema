@@ -1,8 +1,11 @@
 {
-  "id": "gezagsverhoudingen",
+  "id": "verblijfstitels",
   "type": "table",
   "version": "2.0.0",
   "auth": "BRP/R",
+  "reasonsNonPublic": [
+    "5.1 1d: Bevat persoonsgegevens"
+  ],
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -21,36 +24,29 @@
         "type": "string",
         "description": "identificatie, dit is of het Burgerservicenummer, Anummer of een zelfgemaakte identificatie door GOB"
       },
-      "indicatieGezagMinderjarige": {
-        "type": "string",
-        "description": "aanduiding die aangeeft wie belast is met het gezag over de minderjarige ingeschrevene"
-      },
-      "indicatieCurateleRegister": {
-        "type": "string",
-        "description": "aanduiding dat de ingeschrevene onder curatele is gesteld"
-      },
-      "gemeenteGezagsverhoudingDocument": {
+      "aanduidingVerblijfstitel": {
         "type": "object",
         "properties": {
           "code": {
             "type": "string",
-            "description": "code van document."
+            "description": "code van de aanduidingVerblijfstitel."
           },
           "omschrijving": {
             "type": "string",
-            "description": "omschrijving van document"
+            "description": "omschrijving van de aanduidingVerblijfstitel."
           }
         },
-        "description": "code, opgenomen in Tabel 33, Gemeentetabel, die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonden"
+        "description": "code, opgenomen in Tabel 56, Verblijfstitel"
       },
-      "datumOntleningGezagsverhouding": {
+      "datumEindeVerblijfstitel": {
         "type": "string",
         "format": "date",
-        "description": "datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden"
+        "description": "datum waarop de verblijfstitel zijn geldigheid zal verliezen. Dit element wordt uitsluitend opgenomen indien er sprake is van een verblijfstitel voor bepaalde tijd. Bij een verblijfstitel voor het leven komt het element niet voor."
       },
-      "beschrijvingDocumentGezagsverhouding": {
+      "ingangsdatumVerblijfstitel": {
         "type": "string",
-        "description": "bschrijving van het document waaraan de gegevens zijn ontleend of waaruit de gegevens zijn afgeleid"
+        "format": "date",
+        "description": "datum waarop de verblijfstitel zijn geldigheid krijgt"
       },
       "onderzoek": {
         "type": "object",
@@ -62,12 +58,12 @@
           "datumIngangOnderzoek": {
             "type": "string",
             "format": "date",
-            "description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is gestart"
+            "description": "datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is gestart"
           },
           "datumEindeOnderzoek": {
             "type": "string",
             "format": "date",
-            "description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is beeindigd"
+            "description": "datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is beeindigd"
           },
           "onjuistStrijdigOpenbareOrde": {
             "type": "string",
