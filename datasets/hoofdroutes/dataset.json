@@ -8,7 +8,9 @@
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "creator": "bronhouder onbekend",
-  "publisher": "Datateam Mobiliteit",
+  "publisher": {
+    "$ref": "publishers/MOBI"
+  },
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
   "tables": [
@@ -26,7 +28,7 @@
         "display": "title",
         "properties": {
           "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
           },
           "geometry": {
             "$ref": "https://geojson.org/schema/MultiLineString.json"
@@ -57,7 +59,7 @@
         "display": "title",
         "properties": {
           "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
           },
           "geometry": {
             "$ref": "https://geojson.org/schema/Point.json"
@@ -92,7 +94,7 @@
         "display": "name",
         "properties": {
           "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
           },
           "id": {
             "type": "string"
