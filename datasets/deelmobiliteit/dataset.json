@@ -2,7 +2,7 @@
   "type": "dataset",
   "id": "deelmobiliteit",
   "title": "Deelmobiliteit",
-  "description": "Locaties en contextuele informatie over deelvoertuigen zoals auto\u2019s, fietsen en scooters.",
+  "description": "Locaties en contextuele informatie over deelvoertuigen zoals auto’s, fietsen en scooters.",
   "license": "public",
   "status": "beschikbaar",
   "version": "0.0.1",
@@ -14,7 +14,9 @@
   "auth": "OPENBAAR",
   "authorizationGrantor": "OIS",
   "creator": "bronhouder onbekend",
-  "publisher": "Datateam Mobiliteit",
+  "publisher": {
+    "$ref": "publishers/MOBI"
+  },
   "keywords": [
     "deelmobiliteit"
   ],
@@ -38,7 +40,7 @@
         "mainGeometry": "geometrie",
         "properties": {
           "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
           },
           "id": {
             "type": "integer",
@@ -130,7 +132,7 @@
         "mainGeometry": "geometrie",
         "properties": {
           "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
           },
           "id": {
             "type": "integer",
