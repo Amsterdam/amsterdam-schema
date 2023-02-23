@@ -3,11 +3,13 @@
   "id": "beheerkaartBasis",
   "title": "beheerkaart basis",
   "status": "beschikbaar",
-  "description": "Voor het beheer van de publieke ruimte, heeft Amsterdam behoefte aan een eenduidige afbakening van de te beheren objecten. De formeel vastgestelde openbare ruimte volstaat hiervoor niet, omdat het uitgaat van de toekenning van offici\u00eble straatnamen (besluit) door de gemeenteraad. Daardoor zijn niet alle te beheren objecten onderdeel van de administratieve openbare ruimte. Om die reden heeft OIS de 'te beheren publieke ruimte\u2019 afgeleid uit de basisregistraties grootschalige topografie (BGT) en Kadaster (BRK).",
+  "description": "Voor het beheer van de publieke ruimte, heeft Amsterdam behoefte aan een eenduidige afbakening van de te beheren objecten. De formeel vastgestelde openbare ruimte volstaat hiervoor niet, omdat het uitgaat van de toekenning van officiële straatnamen (besluit) door de gemeenteraad. Daardoor zijn niet alle te beheren objecten onderdeel van de administratieve openbare ruimte. Om die reden heeft OIS de 'te beheren publieke ruimte’ afgeleid uit de basisregistraties grootschalige topografie (BGT) en Kadaster (BRK).",
   "version": "0.0.1",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
-  "publisher": "Datateam Stedelijke Ontwikkeling en Beheer",
+  "publisher": {
+    "$ref": "publishers/SOEB"
+  },
   "creator": "bronhouder onbekend",
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
@@ -29,7 +31,7 @@
         "display": "id",
         "properties": {
           "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
           },
           "id": {
             "provenance": "bk_bkt_beheerkaart_basis",
@@ -132,7 +134,7 @@
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Vlak-co\u00f6rdinaten van het BGT-object."
+            "description": "Vlak-coördinaten van het BGT-object."
           },
           "aggOppIntersectie": {
             "description": "Totaal oppervlak van het deel van dit BGT-object dat overlapt met BRK-kadastraalobjecten waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
@@ -203,7 +205,7 @@
         "display": "id",
         "properties": {
           "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
           },
           "id": {
             "provenance": "bk_bkt_eigendomsrecht",
@@ -361,7 +363,7 @@
         "display": "id",
         "properties": {
           "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
           },
           "id": {
             "provenance": "bk_bkt_bgt",
@@ -464,7 +466,7 @@
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Vlak-co\u00f6rdinaten van het BGT-object."
+            "description": "Vlak-coördinaten van het BGT-object."
           }
         },
         "mainGeometry": "geometrie"
