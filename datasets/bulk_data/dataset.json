@@ -1,0 +1,49 @@
+{
+  "type": "dataset",
+  "id": "bulkData",
+  "title": "Bulk Data",
+  "description": "Bestanden met gegevens uit andere datasets voor bulk afname.",
+  "license": "public",
+  "status": "beschikbaar",
+  "version": "1.0.0",
+  "theme": [],
+  "publisher": {
+    "$ref": "publishers/DADI"
+  },
+  "creator": "Gemeente Amsterdam",
+  "owner": "Gemeente Amsterdam",
+  "auth": "OPENBAAR",
+  "authorizationGrantor": "Team Datadiensten",
+  "keywords": [
+    "Bulk data, geopackages"
+  ],
+  "tables": [
+    {
+      "id": "geoPackages",
+      "title": "GeoPackages",
+      "description": "Openbare datasets in OGC GeoPackage formaat",
+      "type": "table",
+      "dataclass": "blob",
+      "version": "1.0.0",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "display": "id",
+        "required": [
+          "schema",
+          "id"
+        ],
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "identifier"
+          }
+        }
+      }
+    }
+  ]
+}
