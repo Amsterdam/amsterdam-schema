@@ -8,7 +8,9 @@
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "creator": "bronhouder onbekend",
-  "publisher": "Datateam Generiek",
+  "publisher": {
+    "$ref": "publishers/DGEN"
+  },
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
   "tables": [
@@ -25,6 +27,7 @@
           "id"
         ],
         "display": "zaaknummer",
+        "mainGeometry": "locatie",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"

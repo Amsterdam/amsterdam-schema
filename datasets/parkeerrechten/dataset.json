@@ -4,9 +4,9 @@
   "title": "RDW parkeerrechten",
   "status": "niet_beschikbaar",
   "theme": [
-	"Parkeren",
-	"Parkeerrechten",
-	"Parkeer register"
+    "Parkeren",
+    "Parkeerrechten",
+    "Parkeer register"
   ],
   "description": "Nationaal Parkeer Register Regelingen",
   "version": "0.0.1",
@@ -15,8 +15,12 @@
   "creator": "rdw",
   "auth": "PARK/MDW",
   "authorizationGrantor": "parkeerdata@amsterdam.nl",
-  "reasonsNonPublic": ["nader te bepalen"],
-  "publisher": "Datateam Mobiliteit",
+  "reasonsNonPublic": [
+    "nader te bepalen"
+  ],
+  "publisher": {
+    "$ref": "publishers/MOBI"
+  },
   "provenance": "Data van diverse bronnen bij rdw.nl",
   "additionalProperties": false,
   "tables": [
@@ -24,9 +28,8 @@
       "id": "parkeerEnVerbijfsRechten",
       "$ref": "parkeerEnVerbijfsRechten/v0.0.1",
       "activeVersions": {
-         "0.0.1": "parkeerEnVerbijfsRechten/v0.0.1"
-      }	  
+        "0.0.1": "parkeerEnVerbijfsRechten/v0.0.1"
+      }
     }
   ]
 }
-
