@@ -27,16 +27,16 @@
       "datumIngangBlokkeringPL": {
         "type": "string",
         "format": "date",
-        "description": "datum waarop de gemeente de PL naar een andere gemeente stuurt"
+        "description": "datum waarop de gemeente de PersoonsLijst naar een andere gemeente stuurt"
       },
       "datumOpschortingBijhouding": {
         "type": "string",
         "format": "date",
-        "description": "datum waarop de bijhouding van de PL is gestaakt"
+        "description": "datum waarop de bijhouding van de PersoonsLijst is gestaakt"
       },
       "omschrijvingRedenOpschortingBijhouding": {
         "type": "string",
-        "description": "aanduiding van de reden waarom de bijhouding van de PL is opgeschort"
+        "description": "aanduiding van de reden waarom de bijhouding van de PersoonsLijst is opgeschort"
       },
       "datumEersteInschrijvingGba": {
         "type": "string",
@@ -48,6 +48,7 @@
         "properties": {
           "code": {
             "type": "string",
+            "$comment": "relation brk2:kadastralegemeentecodes *stringify*",
             "description": "code van de gemeenteWaarPersoonskaartIs."
           },
           "omschrijving": {
