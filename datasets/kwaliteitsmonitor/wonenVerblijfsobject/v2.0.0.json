@@ -1,7 +1,7 @@
 {
   "id": "wonenVerblijfsobject",
   "type": "table",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Per verblijfsobject de kenmerken van de woningvoorraad van de gemeente Amsterdam.",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -23,7 +23,7 @@
       },
       "bkVerblijfsobject": {
         "type": "string",
-        "description": "Unieke key van het verblijfobject"  
+        "description": "Unieke key van het verblijfobject"
       },
       "adres": {
         "type": "string",
@@ -202,30 +202,15 @@
         "$ref": "https://geojson.org/schema/Point.json",
         "crs": "EPSG:28992"
       },
-      "votGeomPuntWgs84": {
-        "description": "Geometrie van het verblijfobject van het type POINT",
-        "$ref": "https://geojson.org/schema/Point.json",
-        "crs": "EPSG:4326"
-      },
       "pandGeomVlak": {
         "description": "Geometrie van het type POLYGON van het pand",
         "$ref": "https://geojson.org/schema/Polygon.json",
         "crs": "EPSG:28992"
       },
-      "pandGeomVlakWgs84": {
-        "description": "Geometrie van het type POLYGON van het pand",
-        "$ref": "https://geojson.org/schema/Polygon.json",
-        "crs": "EPSG:4326"
-      },
       "pandGeomMiddel": {
         "description": "Geometrie van het middelpunt van het pand van het type POINT",
         "$ref": "https://geojson.org/schema/Point.json",
         "crs": "EPSG:28992"
-      },
-      "pandGeomMiddelWgs84": {
-        "description": "Geometrie van het middelpunt van het pand van het type POINT",
-        "$ref": "https://geojson.org/schema/Point.json",
-        "crs": "EPSG:4326"
       },
       "peildatumEig": {
         "type": "string",
