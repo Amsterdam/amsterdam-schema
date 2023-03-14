@@ -115,40 +115,28 @@
             "type": "string",
             "description": "Hiermee wordt aangegeven of het een relatie betreft vanuit een hoofdadres. Anders is er sprake van een nevenadres (Hoofdadres, Nevenadres)."
           },
-          "adresseertVerblijfsobject": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              },
-              "volgnummer": {
-                "type": "integer"
-              }
-            },
+          "adresseertVerblijfsobjectIdentificatie": {
+            "type": "string",
             "description": "Het verblijfsobject (landelijke identificatie) dat door de nummeraanduiding wordt aangeduid."
           },
-          "adresseertLigplaats": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              },
-              "volgnummer": {
-                "type": "integer"
-              }
-            },
+          "adresseertVerblijfsobjectVolgnummer": {
+            "type": "integer",
+            "description": "Het verblijfsobject (landelijke identificatie) dat door de nummeraanduiding wordt aangeduid."
+          },
+          "adresseertLigplaatsIdentificatie": {
+            "type": "string",
             "description": "De ligplaats (landelijke identificatie) die door de nummeraanduiding wordt aangeduid."
           },
-          "adresseertStandplaats": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              },
-              "volgnummer": {
-                "type": "integer"
-              }
-            },
+          "adresseertLigplaatsVolgnummer": {
+            "type": "integer",
+            "description": "De ligplaats (landelijke identificatie) die door de nummeraanduiding wordt aangeduid."
+          },
+          "adresseertStandplaatsIdentificatie": {
+            "type": "string",
+            "description": "De standplaats (landelijke identificatie) die door de nummeraanduiding wordt aangeduid."
+          },
+          "adresseertStandplaatsVolgnummer": {
+            "type": "integer",
             "description": "De standplaats (landelijke identificatie) die door de nummeraanduiding wordt aangeduid."
           },
           "heeftDossier": {
@@ -356,59 +344,17 @@
             "type": "boolean",
             "description": "Dit geeft aan dat een VERBLIJFSOBJECT in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument (J/N)."
           },
-          "verblijfsobjectHeeftHoofdadres": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              },
-              "volgnummer": {
-                "type": "integer"
-              }
-            },
+          "verblijfsobjectHeeftHoofdadresIdentificatie": {
+            "type": "string",
             "description": "Het HOOFDadres dat het verblijfsobject heeft."
           },
-          "verblijfsobjectHeeftNevenadres": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "identificatie": {
-                  "type": "string"
-                },
-                "volgnummer": {
-                  "type": "integer"
-                },
-                "beginGeldigheid": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "eindGeldigheid": {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              }
-            },
-            "description": "Het NEVENadres dat het verblijfsobject (optioneel) heeft."
+          "verblijfsobjectHeeftHoofdadresVolgnummer": {
+            "type": "integer",
+            "description": "Het HOOFDadres dat het verblijfsobject heeft."
           },
           "verblijfsobjectGeometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "De locatie van het verblijfsobject in het Nationale Rijksdriehoekstelsel."
-          },
-          "verblijfsobjectGebruiksdoel": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "omschrijving": {
-                  "type": "string"
-                }
-              }
-            },
-            "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan."
           },
           "verblijfsobjectOppervlakte": {
             "type": "integer",
@@ -431,29 +377,6 @@
             "type": "string",
             "format": "date-time",
             "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een VERBLIJFSOBJECT."
-          },
-          "verblijfsobjectHeeftOnderzoeken": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "identificatie": {
-                  "type": "string"
-                },
-                "volgnummer": {
-                  "type": "integer"
-                },
-                "beginGeldigheid": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "eindGeldigheid": {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              }
-            },
-            "description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object."
           },
           "verblijfsobjectDocumentdatum": {
             "type": "string",
@@ -520,26 +443,6 @@
             "type": "string",
             "description": "Feitelijk gebruik van een verblijfsobject. omschrijving"
           },
-          "verblijfsobjectToegang": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "string",
-                  "description": "Plaats waar zich de toegang tot het verblijfsobject bevindt. code"
-                },
-                "omschrijving": {
-                  "type": "string",
-                  "description": "Plaats waar zich de toegang tot het verblijfsobject bevindt. omschrijving"
-                }
-              }
-            }
-          },
-          "verblijfsobjectRedenopvoerCode": {
-            "type": "integer",
-            "description": "Reden van de opvoer van het verblijfsobject. code"
-          },
           "verblijfsobjectRedenopvoerOmschrijving": {
             "type": "string",
             "description": "Reden van de opvoer van het verblijfsobject. omschrijving"
@@ -589,56 +492,17 @@
             "type": "string",
             "description": "De fase van de levenscyclus van een ligplaats, waarin de betreffende ligplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. omschrijving"
           },
-          "ligplaatsHeeftHoofdadres": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              },
-              "volgnummer": {
-                "type": "integer"
-              }
-            },
+          "ligplaatsHeeftHoofdadresIdentificatie": {
+            "type": "string",
             "description": "Het HOOFDadres dat de ligplaats heeft."
           },
-          "ligplaatsHeeftNevenadres": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "identificatie": {
-                  "type": "string"
-                },
-                "volgnummer": {
-                  "type": "integer"
-                },
-                "beginGeldigheid": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "eindGeldigheid": {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              }
-            },
-            "description": "Het NEVENadres dat de ligplaats (optioneel) heeft."
+          "ligplaatsHeeftHoofdadresVolgnummer": {
+            "type": "integer",
+            "description": "Het HOOFDadres dat de ligplaats heeft."
           },
           "ligplaatsGeometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Vorm en ligging van de ligplaats in het Nationale Rijksdriehoekstelsel."
-          },
-          "ligplaatsGebruiksdoel": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "omschrijving": {
-                  "type": "string"
-                }
-              }
-            },
-            "description": "Een categorisering van de gebruiksdoelen van de betreffende ligplaats, zoals dit door de overheid als zodanig is toegestaan."
           },
           "ligplaatsBeginGeldigheid": {
             "type": "string",
@@ -649,29 +513,6 @@
             "type": "string",
             "format": "date-time",
             "description": "De einddatum van een periode waarin een of meer gegevens die worden bijgehouden over een ligplaats een wijziging hebben ondergaan."
-          },
-          "ligplaatsHeeftOnderzoeken": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "identificatie": {
-                  "type": "string"
-                },
-                "volgnummer": {
-                  "type": "integer"
-                },
-                "beginGeldigheid": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "eindGeldigheid": {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              }
-            },
-            "description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object."
           },
           "ligplaatsDocumentdatum": {
             "type": "string",
@@ -719,56 +560,17 @@
             "type": "string",
             "description": "De fase van de levenscyclus van een standplaats, waarin de betreffende standplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. omschrijving"
           },
-          "standplaatsHeeftHoofdadres": {
-            "type": "object",
-            "properties": {
-              "identificatie": {
-                "type": "string"
-              },
-              "volgnummer": {
-                "type": "integer"
-              }
-            },
+          "standplaatsHeeftHoofdadresIdentificatie": {
+            "type": "string",
             "description": "Het HOOFDadres dat de standplaats heeft."
           },
-          "standplaatsHeeftNevenadres": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "identificatie": {
-                  "type": "string"
-                },
-                "volgnummer": {
-                  "type": "integer"
-                },
-                "beginGeldigheid": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "eindGeldigheid": {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              }
-            },
-            "description": "Het NEVENadres dat de standplaats (optioneel) heeft."
+          "standplaatsHeeftHoofdadresVolgnummer": {
+            "type": "integer",
+            "description": "Het HOOFDadres dat de standplaats heeft."
           },
           "standplaatsGeometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Vorm en ligging van de standplaats in het Nationale Rijksdriehoekstelsel."
-          },
-          "standplaatsGebruiksdoel": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "omschrijving": {
-                  "type": "string"
-                }
-              }
-            },
-            "description": "Een categorisering van de gebruiksdoelen van de betreffende standplaats, zoals dit door de overheid als zodanig is toegestaan."
           },
           "standplaatsBeginGeldigheid": {
             "type": "string",
@@ -779,29 +581,6 @@
             "type": "string",
             "format": "date-time",
             "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een STANDPLAATS."
-          },
-          "standplaatsHeeftOnderzoeken": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "identificatie": {
-                  "type": "string"
-                },
-                "volgnummer": {
-                  "type": "integer"
-                },
-                "beginGeldigheid": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "eindGeldigheid": {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              }
-            },
-            "description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object."
           },
           "standplaatsDocumentdatum": {
             "type": "string",
@@ -1050,29 +829,6 @@
             "type": "string",
             "format": "date-time",
             "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een PAND."
-          },
-          "pandHeeftOnderzoeken": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "identificatie": {
-                  "type": "string"
-                },
-                "volgnummer": {
-                  "type": "integer"
-                },
-                "beginGeldigheid": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "eindGeldigheid": {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              }
-            },
-            "description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object."
           },
           "pandDocumentdatum": {
             "type": "string",
