@@ -1,8 +1,11 @@
 {
-  "id": "gezagsverhoudingen",
+  "id": "overlijden",
   "type": "table",
   "version": "2.0.0",
   "auth": "BRP/R",
+  "reasonsNonPublic": [
+    "5.1 1d: Bevat persoonsgegevens"
+  ],
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -21,15 +24,54 @@
         "type": "string",
         "description": "identificatie, dit is of het Burgerservicenummer, Anummer of een zelfgemaakte identificatie door GOB"
       },
-      "indicatieGezagMinderjarige": {
-        "type": "string",
-        "description": "aanduiding die aangeeft wie belast is met het gezag over de minderjarige ingeschrevene"
+      "overlijden": {
+        "type": "object",
+        "properties": {
+          "datumOverlijden": {
+            "type": "string",
+            "format": "date",
+            "description": "datum van overlijden"
+          },
+          "plaatsOverlijden": {
+            "type": "string",
+            "description": "code, opgenomen in Tabel 33, Gemeentetabel"
+          },
+          "landOverlijden": {
+            "type": "string",
+            "description": "code, opgenomen in Tabel 34, Landentabel"
+          }
+        }
       },
-      "indicatieCurateleRegister": {
-        "type": "string",
-        "description": "aanduiding dat de ingeschrevene onder curatele is gesteld"
+      "registergemeenteAkte": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "$comment": "relation brk2:kadastralegemeentecodes *stringify*",
+            "description": "code van de registergemeenteAkte"
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "beschrijving van de registergemeenteAkte"
+          }
+        },
+        "description": "code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de akte in de registers van de burgerlijke stand in Nederland is opgenomen. Afgeleid uit BRK: Gemeente"
       },
-      "gemeenteGezagsverhoudingDocument": {
+      "aktenummer": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de aktenummer"
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "beschrijving van de aktenummer"
+          }
+        },
+        "description": "aanduiding van de akte die is opgenomen in de registers van de burgerlijke stand in Nederland. De eerste drie posities van het aktenummer dienen conform tabel 39, Tabel Akteaanduiding te zijn. De laatste vier posities bevatten een volgnum­er van de akte"
+      },
+      "gemeenteDocument": {
         "type": "object",
         "properties": {
           "code": {
@@ -43,14 +85,14 @@
         },
         "description": "code, opgenomen in Tabel 33, Gemeentetabel, die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonden"
       },
-      "datumOntleningGezagsverhouding": {
+      "datumDocument": {
         "type": "string",
         "format": "date",
         "description": "datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden"
       },
-      "beschrijvingDocumentGezagsverhouding": {
+      "beschrijvingDocument": {
         "type": "string",
-        "description": "bschrijving van het document waaraan de gegevens zijn ontleend of waaruit de gegevens zijn afgeleid"
+        "description": "beschrijving van het document waaraan de gegevens zijn ontleend of waaruit de gegevens zijn afgeleid"
       },
       "onderzoek": {
         "type": "object",
@@ -78,12 +120,12 @@
       "ingangsdatumGeldigheid": {
         "type": "string",
         "format": "date",
-        "description": "datum waarop het geheel van gegevens geldig is geworden"
+        "description": "De datum waarop het geheel van gegevens geldig is geworden"
       },
       "datumOpneming": {
         "type": "string",
         "format": "date",
-        "description": "datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+        "description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
       },
       "datumActueelTot": {
         "type": "string",
