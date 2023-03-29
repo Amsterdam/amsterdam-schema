@@ -15,7 +15,7 @@
     "display": "identificatie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
@@ -30,17 +30,15 @@
         "type": "integer",
         "description": "Het jaar van waterpassing, behorende bij de hoogte."
       },
-      "merk": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string"
-          },
-          "omschrijving": {
-            "type": "string"
-          }
-        },
-        "description": "Merk van het referentiepunt (code en omschrijving)"
+      "merkCode": {
+        "type": "string",
+        "provenance": "$.merk.code",
+        "description": "Merk van het referentiepunt code"
+      },
+      "merkOmschrijving": {
+        "type": "string",
+        "provenance": "$.merk.omschrijving",
+        "description": "Merk van het referentiepunt omschrijving"
       },
       "omschrijving": {
         "type": "string",
@@ -51,14 +49,12 @@
         "description": "Windrichting"
       },
       "xCoordinaatMuurvlak": {
-        "type": "number",
-        "multipleOf": 0.01,
-        "description": "X-co\u00f6rdinaat muurvlak"
+        "type": "integer",
+        "description": "X-coördinaat muurvlak"
       },
       "yCoordinaatMuurvlak": {
-        "type": "number",
-        "multipleOf": 0.01,
-        "description": "Y-co\u00f6rdinaat muurvlak"
+        "type": "integer",
+        "description": "Y-coördinaat muurvlak"
       },
       "rwsNummer": {
         "type": "string",
@@ -68,17 +64,15 @@
         "$ref": "https://geojson.org/schema/Point.json",
         "description": "Geometrische ligging van de meetbout"
       },
-      "status": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "integer"
-          },
-          "omschrijving": {
-            "type": "string"
-          }
-        },
-        "description": "Status van het referentiepunt (1=actueel, 2=niet te meten, 3=vervallen) merk en omschrijving"
+      "statusCode": {
+        "type": "integer",
+        "provenance": "$.status.code",
+        "description": "Status van het referentiepunt (1=actueel, 2=niet te meten, 3=vervallen) code"
+      },
+      "statusOmschrijving": {
+        "type": "string",
+        "provenance": "$.status.omschrijving",
+        "description": "Status van het referentiepunt (1=actueel, 2=niet te meten, 3=vervallen) omschrijving"
       },
       "vervaldatum": {
         "type": "string",
