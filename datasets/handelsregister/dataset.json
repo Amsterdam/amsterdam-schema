@@ -3,40 +3,46 @@
   "id": "handelsregister",
   "title": "handelsregister",
   "status": "beschikbaar",
-  "auth": "HR/R",
   "version": "0.0.1",
-  "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
-  "creator": "bronhouder onbekend",
+  "creator": "Kamer van Koophandel",
   "publisher": "Datateam Basis- en Kernregistraties",
-  "authorizationGrantor": "OIS",
+  "auth": "HR/R",
+  "reasonsNonPublic": [
+    "5.1 2b: Zwaarwegende economische of financiële belangen van publiekrechtelijke lichamen (bevat geen mileu-informatie)"
+  ],
+  "authorizationGrantor": "gebruik.basisinformatie@amsterdam.nl",
+  "homepage": "https://www.amsterdam.nl/stelselpedia/hr-index",
+  "contactPoint": {
+    "email": "OIS.GOB@amsterdam.nl"
+  },
   "tables": [
     {
-      "id": "maatschappelijkeactiviteiten",
-      "$ref": "maatschappelijkeactiviteiten/v1.0.0",
+      "id": "activiteiten",
+      "$ref": "activiteiten/v2.0.0",
       "activeVersions": {
-        "1.0.0": "maatschappelijkeactiviteiten/v1.0.0"
+        "2.0.0": "activiteiten/v2.0.0"
       }
     },
     {
       "id": "locaties",
-      "$ref": "locaties/v1.0.1",
+      "$ref": "locaties/v2.0.0",
       "activeVersions": {
-        "1.0.1": "locaties/v1.0.1"
+        "2.0.0": "locaties/v2.0.0"
+      }
+    },
+    {
+      "id": "maatschappelijkeactiviteiten",
+      "$ref": "maatschappelijkeactiviteiten/v2.0.0",
+      "activeVersions": {
+        "2.0.0": "maatschappelijkeactiviteiten/v2.0.0"
       }
     },
     {
       "id": "vestigingen",
-      "$ref": "vestigingen/v2.0.0",
+      "$ref": "vestigingen/v2.1.0",
       "activeVersions": {
-        "2.0.0": "vestigingen/v2.0.0"
-      }
-    },
-    {
-      "id": "sbiactiviteiten",
-      "$ref": "sbiactiviteiten/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "sbiactiviteiten/v1.0.0"
+        "2.1.0": "vestigingen/v2.1.0"
       }
     }
   ]

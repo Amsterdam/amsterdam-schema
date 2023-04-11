@@ -1,0 +1,78 @@
+{
+  "id": "activiteiten",
+  "type": "table",
+  "version": "2.0.0",
+  "shortname": "act",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "identificatie",
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "activiteiten die een MAC/OND uitvoert"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "activiteitenOmschrijving": {
+        "type": "string",
+        "description": "omschrijving van de activiteiten die de VES of Rechtspersoon uitoefent"
+      },
+      "sbiCode": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de SBI-code"
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "omschrijving van de SBI-code"
+          }
+        },
+        "description": "codering van activiteiten binnen HR volgens de standaard bedrijfsindeling (SBI) 2008"
+      },
+      "omschrijving": {
+        "type": "string",
+        "description": "omschrijving van de activiteit"
+      },
+      "isHoofdactiviteit": {
+        "type": "boolean",
+        "description": "indicatie die aangeeft welke van de activiteiten de hoofdactiviteit is (wordt afgeschaft)"
+      },
+      "volgorde": {
+        "type": "integer",
+        "description": "de volgorde van de (hoofd) SBIactiviteit."
+      },
+      "datumAanvangSbiactiviteit": {
+        "type": "string",
+        "format": "date",
+        "provenance": "$.datumAanvangSbiactiviteit.formatted",
+        "description": "de datum waarop de SBIactiviteit is gestart of geregistreerd."
+      },
+      "datumEindeSbiactiviteit": {
+        "type": "string",
+        "format": "date",
+        "provenance": "$.datumEindeSbiactiviteit.formatted",
+        "description": "de datum waarop de SBIactiviteit is beëindigd."
+      },
+      "tijdstipRegistratie": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum/tijd waarop de SBIactiviteit is geregistreerd."
+      }
+    }
+  }
+}

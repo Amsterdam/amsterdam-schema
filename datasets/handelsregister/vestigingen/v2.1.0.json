@@ -1,0 +1,206 @@
+{
+  "id": "vestigingen",
+  "type": "table",
+  "version": "2.1.0",
+  "shortname": "ves",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "identificatie"
+    ],
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "Betreft het identificerende gegeven voor de vestiging."
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "datumAanvang": {
+        "type": "string",
+        "format": "date",
+        "provenance": "$.datumAanvang.formatted",
+        "description": "De datum waarbij de vestiging is ontstaan."
+      },
+      "datumEinde": {
+        "type": "string",
+        "format": "date",
+        "provenance": "$.datumEinde.formatted",
+        "description": "De datum waarbij de vestiging is beëindigd."
+      },
+      "datumVoortzetting": {
+        "type": "string",
+        "format": "date",
+        "provenance": "$.datumVoortzetting.formatted",
+        "description": "Datum voortzetting van de vestiging."
+      },
+      "isCommercieleVestiging": {
+        "type": "boolean",
+        "description": "Geeft aan of dit een commerciële of niet-commerciële vestiging betreft. Als false, dan een niet-commerciële vestiging."
+      },
+      "eersteHandelsnaam": {
+        "shortname": "eersteHN",
+        "type": "object",
+        "items": {
+          "type": "string",
+          "properties": {
+            "identificatie": {
+              "type": "integer"
+            }
+          }
+        },
+        "$comment": "relation handelsregister:handelsnamen",
+        "description": "VES heeft eerste handelsnaam"
+      },
+      "heeftAlsPostadres": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "handelsregister:locaties",
+        "description": "Het geregistreerde postadres behorende bij de vestiging."
+      },
+      "heeftAlsBezoekadres": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "handelsregister:locaties",
+        "description": "Het geregistreerde bezoekadres behorende bij de vestiging."
+      },
+      "heeftCommunicatie": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            }
+          }
+        },
+        "$comment": "relation handelsregister:communicatie",
+        "description": "communicatie gegevens van de VES"
+      },
+      "activiteitOmschrijving": {
+        "type": "string"
+      },
+      "isOvergegaanInVestiging": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "vestigingsnummer": {
+              "type": "string"
+            },
+            "datumAfgesloten": {
+              "type": "string",
+              "format": "date",
+              "description": "De datum van de afgesloten VES"
+            },
+            "datumSamenvoeging": {
+              "type": "string",
+              "format": "date",
+              "description": "De datum van de samenvoeging VES"
+            }
+          }
+        },
+        "relation": "handelsregister:vestigingen",
+        "description": "Dit legt de relatie van de afgesloten vestiging met de samengevoegde vestiging."
+      },
+      "naam": {
+        "type": "string",
+        "description": "De naam van de niet-commerciële vestiging."
+      },
+      "verkorteNaam": {
+        "type": "string",
+        "description": "De administratieve naam van de niet-commerciële vestiging in het handelsregister indien de naam langer is dan 45 karakters."
+      },
+      "ookGenoemd": {
+        "type": "string",
+        "description": "Een andere naam waaronder de vereniging stichtingen en vereniging van eigenaars ook bekend is."
+      },
+      "totaalWerkzamePersonen": {
+        "type": "integer",
+        "description": "Het totaal aantal werkzame personen bij de onderneming "
+      },
+      "voltijdWerkzamePersonen": {
+        "type": "integer",
+        "description": "Het aantal voltijd (meer dan 15 uur per week) werkzame personen bij de onderneming "
+      },
+      "deeltijdWerkzamePersonen": {
+        "type": "integer",
+        "description": "Het aantal deeltijd (kleiner of gelijk aan 15 uur per week) werkzame personen bij de onderneming"
+      },
+      "importeert": {
+        "type": "boolean",
+        "description": "Indicatie of de commerciële activiteit Import betreft"
+      },
+      "exporteert": {
+        "type": "boolean",
+        "description": "Indicatie of de commerciële activiteit Export betreft"
+      },
+      "activiteitenOmschrijving": {
+        "type": "string",
+        "description": "De omschrijving van de activiteiten die de vestiging uitoefent. De beschrijving bevat de nadere aanduiding van de commerciële activiteiten of de nadere aanduiding van de niet-commerciële activiteiten."
+      },
+      "heeftSbiActiviteiten": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            }
+          }
+        },
+        "relation": "handelsregister:activiteiten",
+        "description": "SBI Activiteiten die bij dezen niet-commerciële of commerciële vestiging horen."
+      },
+      "heeftHandelsnaam": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "$comment": "relation handelsregister:handelsnamen",
+        "description": "Handelsnaam van de niet-commerciële of commerciële VES"
+      },
+      "isEenUitoefeningVan": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:maatschappelijkeactiviteiten",
+        "description": "Maatschappelijke activiteit die bij deze vestiging hoort."
+      }
+    }
+  }
+}
