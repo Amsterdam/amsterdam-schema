@@ -1,0 +1,166 @@
+{
+  "id": "buitenlandsevennootschap",
+  "type": "table",
+  "version": "1.0.0",
+  "shortname": "bvg",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "identificatie",
+      "volgnummer"
+    ],
+    "required": [
+      "schema",
+      "identificatie",
+      "volgnummer"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "identificatie dit kan een KvK-nummer, BSN-nummer, RSIN-nummer zijn"
+      },
+      "volgnummer": {
+        "type": "integer",
+        "description": "volgnummer van de identificatie"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "geplaatstKapitaal": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:kapitaal",
+        "description": "het geplaatste aandelenkapitaal is het (recht op) kapitaal dat door de onderneming is uitgegeven en dat door aandeelhouders aan de onderneming is verschaft"
+      },
+      "landVanOprichting": {
+        "type": "string",
+        "description": "land waarin de {BuitenlandseRechtspersoonOfVennootschap} is opgericht"
+      },
+      "landVanVestiging": {
+        "type": "string"
+      },
+      "buitenlandseRegistratieGegevens": {
+        "type": "object",
+        "properties": {
+          "datumAanvang": {
+            "type": "string",
+            "format": "date",
+            "description": "datum aanvang buitenlandse registratiegegevens"
+          },
+          "datumEinde": {
+            "type": "string",
+            "format": "date",
+            "description": "datum einde buitenlandse registratiegegevens"
+          },
+          "inschrijfnummer": {
+            "type": "string",
+            "description": "nummer waaronder de BuitenlandseRechtspersoonOfVennootschap is ingeschreven in het buitenlandse register"
+          },
+          "land": {
+            "type": "string",
+            "description": "land waar de BuitenlandseRechtspersoonOfVennootschap is ingeschreven"
+          },
+          "naam": {
+            "type": "string",
+            "description": "naam BuitenlandsRegister"
+          },
+          "plaats": {
+            "type": "string",
+            "description": "naam van het register in het buitenland wordt ingevoerd en de plaats daarbij is vrij invulbare tekst."
+          }
+        }
+      },
+      "buitenlandseRegistratie": {
+        "type": "string",
+        "description": "afgeleid gegeven; zie Stelselpedia"
+      },
+      "buitenlandseVennootschapGegevens": {
+        "type": "object",
+        "format": "json",
+        "properties": {
+          "datumAanvang": {
+            "type": "string",
+            "format": "date-time",
+            "description": "datum en tijdstip aanvang RegistratiesBuitenlandsdeVennootschapGegevens"
+          },
+          "datumEinde": {
+            "type": "string",
+            "format": "date-time",
+            "description": "datum en tijdstip einde RegistratiesBuitenlandsdeVennootschapGegevens"
+          },
+          "heeftHoofdvestigingBuitenNederland": {
+            "type": "boolean",
+            "description": "indicatie of de hoofdvestiging van de onderneming in het buitenland"
+          },
+          "rechtsvorm": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "integer"
+              },
+              "omschrijving": {
+                "type": "string"
+              }
+            },
+            "description": "binnen, buiten EER (europees economische ruimte) of overige"
+          },
+          "zetel": {
+            "type": "string",
+            "description": "zetel is de plaats waar een rechtspersoon volgens de statuten gevestigd is"
+          },
+          "datumAkteOprichting": {
+            "type": "string",
+            "format": "date",
+            "description": "datum waarop de akte van oprichting is gemaakt"
+          },
+          "datumEersteInschrijvingBuitenland": {
+            "type": "string",
+            "format": "date",
+            "description": "datum eerste inschrijving in het buitenland"
+          },
+          "datumFormeelBuitenlandsSinds": {
+            "type": "string",
+            "format": "date",
+            "description": "datum waarop de vennootschap als formeel buitenlandse vennootschap is aangemerkt"
+          },
+          "rechtsvormCategorie": {
+            "type": "string",
+            "description": "nederlandse rechtsvormcategorie van de BuitenlandseVennootschap"
+          }
+        }
+      },
+      "postadres": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:locaties",
+        "description": "postadres"
+      },
+      "bezoekadres": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:locaties",
+        "description": "bezoekadres"
+      }
+    }
+  }
+}
