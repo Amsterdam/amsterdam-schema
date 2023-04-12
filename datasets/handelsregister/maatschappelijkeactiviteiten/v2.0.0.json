@@ -131,7 +131,7 @@
         "type": "object",
         "properties": {
           "identificatie": {
-            "type": "integer"
+            "type": "string"
           }
         },
         "relation": "handelsregister:vestigingen",
@@ -158,7 +158,7 @@
           "type": "object",
           "properties": {
             "identificatie": {
-              "type": "integer"
+              "type": "string"
             }
           }
         },
@@ -172,7 +172,7 @@
           "type": "object",
           "properties": {
             "identificatie": {
-              "type": "integer"
+              "type": "string"
             }
           }
         },
@@ -236,7 +236,7 @@
           "type": "object",
           "properties": {
             "identificatie": {
-              "type": "integer"
+              "type": "string"
             }
           }
         },
@@ -270,15 +270,12 @@
       "ondernemingHeeftHandelsnaam": {
         "shortname": "ondHeeftHN",
         "type": "object",
-        "items": {
-          "type": "string",
-          "properties": {
-            "identificatie": {
-              "type": "integer"
-            }
+        "properties": {
+          "identificatie": {
+            "type": "string"
           }
         },
-        "$comment": "relation handelsregister:handelsnamen",
+        "relation": "handelsregister:handelsnamen",
         "description": "OND heeft handelsnaam"
       }
     }

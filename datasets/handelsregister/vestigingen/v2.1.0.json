@@ -53,15 +53,12 @@
       "eersteHandelsnaam": {
         "shortname": "eersteHN",
         "type": "object",
-        "items": {
-          "type": "string",
-          "properties": {
-            "identificatie": {
-              "type": "integer"
-            }
+        "properties": {
+          "identificatie": {
+            "type": "string"
           }
         },
-        "$comment": "relation handelsregister:handelsnamen",
+        "relation": "handelsregister:handelsnamen",
         "description": "VES heeft eerste handelsnaam"
       },
       "heeftAlsPostadres": {
@@ -188,7 +185,7 @@
             "type": "string"
           }
         },
-        "$comment": "relation handelsregister:handelsnamen",
+        "relation": "handelsregister:handelsnamen",
         "description": "Handelsnaam van de niet-commerciële of commerciële VES"
       },
       "isEenUitoefeningVan": {

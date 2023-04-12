@@ -1,0 +1,57 @@
+{
+  "id": "handelsnamen",
+  "type": "table",
+  "version": "1.0.0",
+  "shortname": "hn",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "identificatie",
+      "volgnummer"
+    ],
+    "required": [
+      "schema",
+      "identificatie",
+      "volgnummer"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "identificatie dit kan een KvK-nummer, BSN-nummer, RSIN-nummer zijn"
+      },
+      "volgnummer": {
+        "type": "integer",
+        "description": "volgnummer van de identificatie"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "datumAanvang": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum aanvang van de Handelsnaam"
+      },
+      "datumEinde": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum einde van de Handelsnaam"
+      },
+      "handelsnaam": {
+        "type": "string",
+        "description": "Handelsnaam van de vestiging waaronder gehandeld wordt"
+      },
+      "volgorde": {
+        "type": "string",
+        "description": "Volgorde waarop de handelsnamen worden getoond bij de onderneming of Commerciele Vestiging"
+      }
+    }
+  }
+}
