@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version d9bd89757, updated Thu Mar 23 10:06:53 2023 -0700" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="e23c1eb92d35a5b72426ff427ad3cd4c65c38df9" name="document-revision">
+  <meta content="79851bc8e920edf409ae4ee01f44751ded1c5203" name="document-revision">
 <style>
     p[data-fill-with="logo"] {
         width: 180px;
@@ -2513,10 +2513,6 @@ Zie <a href="#table-refs">§ 2.3 Tabelreferenties</a> voor details.</p>
       <td> array(<code class="idl"><a data-link-type="idl" href="#typedefdef-nonpubreason" id="ref-for-typedefdef-nonpubreason">nonPubReason</a></code>) 
       <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de <a data-link-type="biblio" href="#biblio-woo" title="Wet open overheid">[Woo]</a>. (Vanaf 1 mei 2022 verplicht wanneer <code class="idl"><a data-link-type="idl" href="#dom-dataset-auth" id="ref-for-dom-dataset-auth">auth</a></code> niet gelijk is aan <code class="highlight"><c- u>"OPENBAAR"</c-></code>) zie <a href="#autorisatie">§ 7.2 Autorisatie</a> 
      <tr>
-      <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-derivedfrom"><code class="highlight">derivedFrom</code><a class="self-link" href="#dom-dataset-derivedfrom"></a></dfn> 
-      <td> array
-      <td> De datasets waar deze view op gebaseerd is. e.g. <code class="highlight"><c- o>&lt;</c->dataset<c- o>>:&lt;</c->tabel<c- o>></c-></code>. Dit attribuut is enkel noodzakelijk wanneer de dataset een view is. 
-     <tr>
       <td><dfn class="idl-code" data-dfn-for="dataset" data-dfn-type="attribute" data-export id="dom-dataset-version"><code class="highlight">version</code><a class="self-link" href="#dom-dataset-version"></a></dfn> 
       <td> <code class="idl"><a data-link-type="idl" href="#typedefdef-version" id="ref-for-typedefdef-version">version-string</a></code> 
       <td> Het versie nummer van deze dataset. 
@@ -2731,6 +2727,10 @@ Daarnaast kan aan een tabel meta informatie en autorisatie instellingen worden m
       <td><dfn class="idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-shortname"><code class="highlight">shortname</code><a class="self-link" href="#dom-tabel-shortname"></a></dfn> 
       <td> string 
       <td> Verkorte unieke naam van de tabel. zie <a href="#naamgeving">§ 5 Naamgeving</a> 
+     <tr>
+      <td><dfn class="idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-derivedfrom"><code class="highlight">derivedFrom</code><a class="self-link" href="#dom-tabel-derivedfrom"></a></dfn> 
+      <td> array
+      <td> De datasets waar deze view op gebaseerd is. e.g. <code class="highlight"><c- o>&lt;</c->dataset<c- o>>:&lt;</c->tabel<c- o>></c-></code>. Dit attribuut is enkel noodzakelijk wanneer de dataset een view is. 
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-auth"><code class="highlight">auth</code></dfn> 
       <td> string | array 
@@ -4150,7 +4150,7 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
      <li><a href="#dom-tabel-datemodified">attribute for tabel</a><span>, in § 3.2</span>
     </ul>
    <li><a href="#typedefdef-date-time">date-time</a><span>, in § 8</span>
-   <li><a href="#dom-dataset-derivedfrom">derivedFrom</a><span>, in § 2.2</span>
+   <li><a href="#dom-tabel-derivedfrom">derivedFrom</a><span>, in § 3.2</span>
    <li>
     description
     <ul>
