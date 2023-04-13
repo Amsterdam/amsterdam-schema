@@ -3,18 +3,17 @@
   "type": "table",
   "version": "1.0.0",
   "shortname": "nmp",
+  "description": "NaamPersoon (NMP) is een verzameling van de PRS waarvan alleen een naam bekend is. Deze PRS kan niet eenduidig geïdentificeerd worden als een NPS of NNP",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
     "identifier": [
-      "identificatie",
-      "volgnummer"
+      "identificatie"
     ],
     "required": [
       "schema",
-      "identificatie",
-      "volgnummer"
+      "identificatie"
     ],
     "display": "identificatie",
     "properties": {
@@ -24,10 +23,6 @@
       "identificatie": {
         "type": "string",
         "description": "identificatie dit kan een KvK-nummer, BSN-nummer, RSIN-nummer zijn"
-      },
-      "volgnummer": {
-        "type": "integer",
-        "description": "volgnummer van de identificatie"
       },
       "datumActueelTot": {
         "type": "string",
@@ -56,10 +51,20 @@
         "properties": {
           "identificatie": {
             "type": "string"
-          }
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
         },
-        "relation": "handelsregister:locaties",
-        "description": "NaamPersoon (NMP) is een verzameling van de PRS waarvan alleen een naam bekend is. Deze PRS kan niet eenduidig geïdentificeerd worden als een NPS of NNP"
+        "relation": "handelsregister:locaties"
       }
     }
   }
