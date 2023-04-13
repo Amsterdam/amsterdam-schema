@@ -8,13 +8,11 @@
     "type": "object",
     "additionalProperties": false,
     "identifier": [
-      "identificatie",
-      "volgnummer"
+      "identificatie"
     ],
     "required": [
       "schema",
-      "identificatie",
-      "volgnummer"
+      "identificatie"
     ],
     "display": "identificatie",
     "properties": {
@@ -24,10 +22,6 @@
       "identificatie": {
         "type": "string",
         "description": "Betreft het identificerende gegeven voor de Maatschappelijke Activiteit, het KvK-nummer"
-      },
-      "volgnummer": {
-        "type": "integer",
-        "description": "Uniek volgnummer van de toestand van het object."
       },
       "registratiedatum": {
         "type": "string",
@@ -71,6 +65,14 @@
           },
           "volgnummer": {
             "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "relation": "handelsregister:locaties",
@@ -84,6 +86,14 @@
           },
           "volgnummer": {
             "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "relation": "handelsregister:locaties",
@@ -104,9 +114,6 @@
           "properties": {
             "identificatie": {
               "type": "string"
-            },
-            "volgnummer": {
-              "type": "integer"
             }
           }
         },
@@ -119,7 +126,7 @@
         "items": {
           "type": "object",
           "properties": {
-            "sbiActiviteitNummer": {
+            "identificatie": {
               "type": "string"
             }
           }
@@ -212,7 +219,7 @@
         "items": {
           "type": "object",
           "properties": {
-            "sbiActiviteitNummer": {
+            "identificatie": {
               "type": "string"
             }
           }
