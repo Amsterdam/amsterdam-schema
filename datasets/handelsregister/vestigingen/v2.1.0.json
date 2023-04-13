@@ -69,6 +69,14 @@
           },
           "volgnummer": {
             "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "relation": "handelsregister:locaties",
@@ -82,6 +90,14 @@
           },
           "volgnummer": {
             "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "relation": "handelsregister:locaties",
@@ -94,9 +110,6 @@
           "properties": {
             "identificatie": {
               "type": "string"
-            },
-            "volgnummer": {
-              "type": "integer"
             }
           }
         },
@@ -106,23 +119,13 @@
       "activiteitOmschrijving": {
         "type": "string"
       },
-      "isOvergegaanInVestiging": {
+      "isSamengevoegdMetVestiging": {
         "type": "array",
         "items": {
           "type": "object",
           "properties": {
-            "vestigingsnummer": {
+            "identificatie": {
               "type": "string"
-            },
-            "datumAfgesloten": {
-              "type": "string",
-              "format": "date",
-              "description": "De datum van de afgesloten VES"
-            },
-            "datumSamenvoeging": {
-              "type": "string",
-              "format": "date",
-              "description": "De datum van de samenvoeging VES"
             }
           }
         },
