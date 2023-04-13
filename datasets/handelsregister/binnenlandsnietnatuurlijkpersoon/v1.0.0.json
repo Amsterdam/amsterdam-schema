@@ -227,6 +227,26 @@
           "bijzondereStructuur": {
             "type": "boolean",
             "description": "Bijzondere structuur die aangenomen kan worden door een BV, NV, SE, OWM of Coop"
+          },
+          "datumEersteInschrijvingHandelsregister": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop de RP als eerste is ingeschreven in het HR"
+          },
+          "voornemenTotOntbinding": {
+            "type": "object",
+            "properties": {
+              "datumAanvang": {
+                "type": "string",
+                "format": "date",
+                "description": "Datum aanvang van het Voornemen tot Ontbinding (VTO)"
+              },
+              "datumEinde": {
+                "type": "string",
+                "format": "date",
+                "description": "Datum einde van het VTO"
+              }
+            }
           }
         },
         "description": "Rechtspersoon (RP) is een door de wet mogelijk gemaakt rechtssubject, welke drager van rechten en plichten is"
@@ -260,26 +280,6 @@
         },
         "relation": "handelsregister:kapitaal"
       },
-      "datumEersteInschrijvingHandelsregister": {
-        "type": "string",
-        "format": "date",
-        "description": "Datum waarop de RP als eerste is ingeschreven in het HR"
-      },
-      "voornemenTotOntbinding": {
-        "type": "object",
-        "properties": {
-          "datumAanvang": {
-            "type": "string",
-            "format": "date",
-            "description": "Datum aanvang van het Voornemen tot Ontbinding (VTO)"
-          },
-          "datumEinde": {
-            "type": "string",
-            "format": "date",
-            "description": "Datum einde van het VTO"
-          }
-        }
-      },
       "activiteitenRechtspersoon": {
         "type": "object",
         "properties": {
@@ -308,14 +308,14 @@
           "volgnummer": {
             "type": "integer"
           },
-            "beginGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "eindGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            }
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
         },
         "relation": "handelsregister:locaties"
       },
@@ -328,14 +328,14 @@
           "volgnummer": {
             "type": "integer"
           },
-            "beginGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "eindGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            }
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
         },
         "relation": "handelsregister:locaties"
       }
