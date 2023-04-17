@@ -35,7 +35,7 @@
       "auth": "OPENBAAR",
       "license": "openbaar, tenzij anders aangegeven / behoudens uitzonderingen",
       "title": "Eikenprocessierups",
-      "description": "Meldingen van de eikenprocessierups en informatie over de bestrijding hiervan",
+      "description": "De data toont op welke plekken in de stad en wanneer nesten van de eikenprocessierups zijn aangetroffen. Burgers kunnen meldingen maken van de eikenprocessierups met de Signalen app. Inspecteurs doen dit via het interne systeem van de gemeente. De data wordt dagelijks geupdate en is gekoppeld aan het registratiesysteem (gisib) waarin doorlopend mutaties plaatsvinden. Als een nest is verwijderd, dan wordt dat ook aangegeven. Naarmate het overlastseizoen vordert, zullen steeds meer aangetroffen en verwijderde nesten zichtbaar zijn. Aan het begin van het seizoen zijn nog niet alle eikenbomen gecontroleerd.De urgentie wordt bepaald aan de hand van de grootte van het nest, het aantal nesten per boom en het aantal aangetaste bomen:",
       "version": "1.0.0",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -352,6 +352,10 @@
             "reasonsNonPublic": [
               "5.2 4: Zwaarwegend belang: persoonlijke beleidsopvattingen (bevat milieu-informatie)"
             ]
+          },
+          "ranking": {
+            "description": "deze hulpkolom geeft waarde 1 als een melding de meest actuele status van een boom bevat. Van toepassing bij de kaartlaag waarop alleen de (meest) actuele status per boom wordt getoont. Elk hoger getal toont een oudere status per boom", 
+            "type": "number"
           }
         }
       }
