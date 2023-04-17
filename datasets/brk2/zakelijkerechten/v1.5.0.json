@@ -1,7 +1,7 @@
 {
   "id": "zakelijkerechten",
   "type": "table",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "auth": "BRK/RS",
   "reasonsNonPublic": [
     "5.1 1d: Bevat persoonsgegevens",
@@ -26,14 +26,13 @@
     ],
     "required": [
       "schema",
-      "id",
       "identificatie",
       "volgnummer"
     ],
-    "display": "id",
+    "display": "identificatie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.2.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "volgnummer": {
         "type": "integer",
@@ -41,7 +40,7 @@
       },
       "identificatie": {
         "type": "string",
-        "description": "De Kadaster identificatie is een door het Kadaster toegekende landelijk uniek nummer aan dit zakelijk recht binnen de kadastrale registratie."
+        "description": "De Kadaster identificatie is een door het Kadaster toegekende landelijk unieke aanduiding aan dit zakelijk recht binnen de kadastrale registratie."
       },
       "beginGeldigheid": {
         "type": "string",
@@ -132,13 +131,7 @@
       },
       "ontstaanUitAppartementsrechtsplitsingVve": {
         "shortname": "ontstaanUitApptrechtsplitsingVve",
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          }
-        },
-        "relation": "brk2:kadastralesubjecten",
+        "type": "string",
         "description": "Als deze waarde is gevuld, dan is dit recht betrokken bij een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt (VVE)"
       },
       "betrokkenBijBrkZakelijkeRechten": {
@@ -166,13 +159,7 @@
         "description": "Als deze waarde is gevuld, dan is dit recht ontstaan uit een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt (VVE)"
       },
       "betrokkenBijAppartementsrechtsplitsingVve": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          }
-        },
-        "relation": "brk2:kadastralesubjecten",
+        "type": "string",
         "description": "VVE Subject betrokken bij Appartementsrechtsplitsing"
       },
       "isBeperktTotBrkTenaamstellingen": {
@@ -221,11 +208,23 @@
         "description": "Het kadastraal object en volgnummer waarop het zakelijk recht rust"
       },
       "vveIdentificatieOntstaanUit": {
-        "type": "string",
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "brk2:kadastralesubjecten",
         "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waaruit het zakelijk recht ontstaan is"
       },
       "vveIdentificatieBetrokkenBij": {
-        "type": "string",
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "brk2:kadastralesubjecten",
         "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waarbij het zakelijk recht betrokken is"
       },
       "appartementsrechtsplitsingType": {
@@ -270,7 +269,7 @@
       },
       "toestandsdatum": {
         "type": "string",
-        "format": "date-time",
+        "format": "date",
         "description": "De datum waarop de geleverde toestand van het onderliggende kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)."
       }
     }

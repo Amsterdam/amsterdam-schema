@@ -1,7 +1,7 @@
 {
   "id": "kadastraleobjecten",
   "type": "table",
-  "version": "1.0.0",
+  "version": "2.2.0",
   "auth": "OPENBAAR",
   "temporal": {
     "identifier": "volgnummer",
@@ -30,7 +30,7 @@
     "display": "identificatie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.2.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
@@ -41,61 +41,62 @@
         "description": "Uniek volgnummer van de toestand van het object."
       },
       "neuronId": {
-        "type": "string",
-        "description": "Neuron ID",
-        "provenance": "id"
-      },
-      "registratiedatum": {
-        "type": "string",
-        "format": "date-time",
-        "description": "De datum waarop de toestand is geregistreerd."
+        "type": "integer",
+        "description": "Neuron ID"
       },
       "kadastraleAanduiding": {
         "type": "string",
         "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
       },
-      "aangeduidDoorGemeente": {
+      "aangeduidDoorBrkGemeente": {
         "type": "object",
         "properties": {
-          "code": {
+          "identificatie": {
             "type": "string"
           },
-          "omschrijving": {
-            "type": "string"
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
           }
         },
-        "$comment": "relation brk2:gemeentes",
+        "relation": "brk2:gemeentes",
         "description": "De burgerlijke gemeente"
       },
-      "aangeduidDoorKadastralegemeente": {
+      "aangeduidDoorBrkKadastralegemeente": {
         "type": "object",
         "properties": {
-          "code": {
-            "type": "string"
-          },
-          "omschrijving": {
+          "identificatie": {
             "type": "string"
           }
         },
-        "$comment": "relation brk2:kadastralegemeentes",
+        "relation": "brk2:kadastralegemeentes",
         "description": "De kadastrale gemeente, het eerste gedeelte van de aanduiding van een kadastraal object."
       },
-      "aangeduidDoorKadastralegemeentecode": {
+      "aangeduidDoorBrkKadastralegemeentecode": {
         "type": "object",
         "properties": {
-          "code": {
-            "type": "string"
-          },
-          "omschrijving": {
+          "identificatie": {
             "type": "string"
           }
         },
-        "$comment": "relation brk2:kadastralegemeentecodes",
+        "relation": "brk2:kadastralegemeentecodes",
         "description": "De kadastrale gemeentecode. Het eerste deel van de kadastrale aanduiding. Bijvoorbeeld: ASD01, STN02"
       },
-      "aangeduidDoorKadastralesectie": {
-        "type": "string",
-        "$comment": "relation brk2:kadastralesecties",
+      "aangeduidDoorBrkKadastralesectie": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "brk2:kadastralesecties",
         "description": "De kadastrale sectie, het tweede gedeelte van de aanduiding van een kadastraal object."
       },
       "perceelnummer": {
@@ -158,10 +159,6 @@
           "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
         ]
       },
-      "status": {
-        "type": "string",
-        "description": "Status van het Kadastraal Object ('B' is bestaand)"
-      },
       "referentie": {
         "type": "string",
         "description": "Unieke referentie voor ieder objectbericht. Met behulp van deze referentie kan gevalideerd worden dat een mutatielevering aansluit op de voorgaande mutatielevering. De referentie in de 'was' is dan gelijk aan de referentie in de 'wordt' van de voorgaande mutatielevering."
@@ -206,17 +203,22 @@
       },
       "perceelnummerRotatie": {
         "type": "number",
+        "multipleOf": 0.001,
         "description": "Rotatie van het perceelnummer ten behoeve van afbeelding op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen"
       },
-      "perceelnummerVerschuivingX": {
-        "type": "string",
-        "provenance": "$.perceelnummerVerschuiving.x",
-        "description": "Coordinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden x"
-      },
-      "perceelnummerVerschuivingY": {
-        "type": "string",
-        "provenance": "$.perceelnummerVerschuiving.y",
-        "description": "Coordinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden y"
+      "perceelnummerVerschuiving": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "string",
+            "provenance": "$.perceelnummerVerschuiving.x"
+          },
+          "y": {
+            "type": "string",
+            "provenance": "$.perceelnummerVerschuiving.y"
+          }
+        },
+        "description": "Coordinaten voor het verschuiven van het perceelnummer op de kaart naar een locatie waar meer ruimte is om het nummer af te beelden (x, y)"
       },
       "bijpijlingGeometrie": {
         "$ref": "https://geojson.org/schema/LineString.json",
@@ -253,7 +255,7 @@
       },
       "toestandsdatum": {
         "type": "string",
-        "format": "date-time",
+        "format": "date",
         "description": "De datum waarop de geleverde toestand van het kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)"
       },
       "beginGeldigheid": {
@@ -277,7 +279,7 @@
         "type": "string",
         "description": "Indicatie of de geometrie (kadastrale grens) voorlopig is of niet."
       },
-      "isOntstaanUitGPerceel": {
+      "isOntstaanUitBrkGPerceel": {
         "type": "array",
         "items": {
           "type": "object",
@@ -301,7 +303,7 @@
         "relation": "brk2:kadastraleobjecten",
         "description": "Dit veld is alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
       },
-      "heeftEenRelatieMetVerblijfsobject": {
+      "heeftEenRelatieMetBagVerblijfsobject": {
         "shortname": "hftRelMtVot",
         "type": "array",
         "items": {
@@ -326,7 +328,7 @@
         "relation": "bag:verblijfsobjecten",
         "description": "Relatie naar verblijfsobject"
       },
-      "isOntstaanUitKadastraalobject": {
+      "isOntstaanUitBrkKadastraalobject": {
         "type": "array",
         "items": {
           "type": "object",

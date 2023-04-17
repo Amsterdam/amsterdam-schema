@@ -1,7 +1,7 @@
 {
   "id": "kadastralesubjecten",
   "type": "table",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "auth": "BRK/RS",
   "reasonsNonPublic": [
     "5.1 1d: Bevat persoonsgegevens",
@@ -19,11 +19,11 @@
     "display": "identificatie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.2.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
-        "description": "Het aan dit subject toegekende landelijk unieke nummer"
+        "description": "De aan dit subject toegekende landelijk unieke aanduiding"
       },
       "typeSubject": {
         "auth": "BRK/RS",
@@ -268,19 +268,16 @@
             "provenance": "$.woonadresBuitenlandWoonplaats"
           },
           "buitenlandRegio": {
-            "auth": "BRK/RSN",
             "type": "string",
             "provenance": "$.woonadresBuitenlandRegio",
             "description": "Buitenlands adres regio"
           },
           "buitenlandLandCode": {
-            "auth": "BRK/RSN",
             "type": "string",
             "provenance": "$.woonadresBuitenlandLandCode",
             "description": "Buitenlands adres land. Code"
           },
           "buitenlandLandOmschrijving": {
-            "auth": "BRK/RSN",
             "type": "string",
             "provenance": "$.woonadresBuitenlandLandOmschrijving",
             "description": "Buitenlands adres land. Omschrijving"
@@ -400,7 +397,7 @@
       "toestandsdatum": {
         "auth": "BRK/RS",
         "type": "string",
-        "format": "date-time",
+        "format": "date",
         "description": "De datum waarop de geleverde toestand van het onderliggende kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)."
       }
     }
