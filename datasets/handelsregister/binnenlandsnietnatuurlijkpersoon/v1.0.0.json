@@ -1,0 +1,344 @@
+{
+  "id": "binnenlandsnietnatuurlijkpersoon",
+  "type": "table",
+  "version": "1.0.0",
+  "shortname": "bnp",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "identificatie"
+    ],
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "identificatie dit kan een KvK-nummer, BSN-nummer, RSIN-nummer zijn"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "eenmanszaakMetMeerdereEigenaren": {
+        "type": "string",
+        "description": "Eenmanszaak met onverdeelde boedel"
+      },
+      "rechtspersoonInOprichting": {
+        "type": "object",
+        "format": "json",
+        "properties": {
+          "doelRechtsvorm": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "integer"
+              },
+              "omschrijving": {
+                "type": "string"
+              }
+            },
+            "description": "De rechtsvorm die de Rechtspersoon na oprichting zal krijgen"
+          }
+        },
+        "description": "Een Rechtspersoon die in oprichting is"
+      },
+      "samenwerkingsverband": {
+        "type": "object",
+        "format": "json",
+        "properties": {
+          "rechtsvorm": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "integer"
+              },
+              "omschrijving": {
+                "type": "string"
+              }
+            },
+            "description": "Rechtsvorm van het Samenwerkingsverband"
+          },
+          "aantalCommanditaireVennoten": {
+            "type": "string",
+            "description": "Aantal commanditaire (of stille) vennoten van de CV"
+          },
+          "commanditairKapitaal": {
+            "type": "object",
+            "properties": {
+              "bedrag": {
+                "type": "string",
+                "description": "Waarde van het commanditair kapitaal"
+              },
+              "soort": {
+                "type": "string",
+                "description": "Soort commanditair kapitaal (geld of goederen)"
+              }
+            }
+          },
+          "duur": {
+            "type": "object",
+            "properties": {
+              "eindeDuur": {
+                "type": "string",
+                "format": "date",
+                "description": "Datum waarop is afgesproken dat het Samenwerkingsverband eindigt"
+              },
+              "onbepaald": {
+                "type": "string",
+                "format": "date",
+                "description": "Indicatie of de duur niet beperkt is"
+              }
+            }
+          }
+        },
+        "description": "Samenwerkingsverband is een groep van NP, rechtspersonen, samenwerkingsverbanden (of combinatie hiervan) aan wie een Onderneming toebehoort zoals bedoeld in artikel 10 lid 3 van de Handelsregisterwet 2007"
+      },
+      "rechtspersoon": {
+        "type": "object",
+        "format": "json",
+        "properties": {
+          "activiteitenGestaaktPer": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop de activiteiten van de onderneming zijn gestaakt (afgeleid gegeven)"
+          },
+          "buitenlandsRegister": {
+            "type": "string",
+            "description": "Naam van het buitenlands register"
+          },
+          "rechtsvormRechtspersoon": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "omschrijving": {
+                "type": "string"
+              }
+            },
+            "description": "Rechtsvorm van de RP"
+          },
+          "plaatsBuitenlandsRegister": {
+            "type": "string",
+            "description": "De plaatsnaam van het register in het buitenland"
+          },
+          "statutaireZetel": {
+            "type": "string",
+            "description": "De zetel is de plaats waar een RP volgens de statuten gevestigd is"
+          },
+          "datumAkteOprichting": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop de akte van oprichting is verleden"
+          },
+          "inschrijfnummerBuitenland": {
+            "type": "string",
+            "description": "Nummer waaronder de RP is ingeschreven in het buitenlandse register"
+          },
+          "datumOprichting": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop de RP is opgericht"
+          },
+          "bedragKostenOprichting": {
+            "type": "string",
+            "description": "Oprichtingskosten van de RP dit geldt alleen bij een NV SE en SCE"
+          },
+          "land": {
+            "type": "string",
+            "description": "Land waar de zetel van de RP naar is verplaatst"
+          },
+          "datumAkteStatutenWijziging": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop de akte, waarin de statutenwijziging is opgenomen, is verleden."
+          },
+          "datumLaatsteStatutenWijziging": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop de statutenwijziging is ingegaan"
+          },
+          "publiekrechtelijkeRechtstvorm": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "omschrijving": {
+                "type": "string"
+              }
+            },
+            "description": "Nadere aanduiding van de publiekrechtelijke RP"
+          },
+          "overigePrivaatrechtelijkeRechtstvorm": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "omschrijving": {
+                "type": "string"
+              }
+            },
+            "description": "Rechtsvorm van de overige privaatrechtelijke RP"
+          },
+          "bevoegdheidVereniging": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "omschrijving": {
+                "type": "string"
+              }
+            },
+            "description": "Rechtsbevoegdheid van de vereniging"
+          },
+          "ingangStatuten": {
+            "type": "string",
+            "format": "date",
+            "description": "Ingangsdatum van de gewijzigde statuten"
+          },
+          "beleggingsMijMetVeranderlijkKapitaal": {
+            "type": "string",
+            "description": "Indicatie bij een Naamloze Vennootschap die aangeeft of het een beleggingsmaatschappij met veranderlijk kapitaal betreft"
+          },
+          "stelselinrichting": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "omschrijving": {
+                "type": "string"
+              }
+            },
+            "description": "Het monistische of dualistische stelsel van een BV, NV, SE, SCE of ECV"
+          },
+          "bijzondereStructuur": {
+            "type": "boolean",
+            "description": "Bijzondere structuur die aangenomen kan worden door een BV, NV, SE, OWM of Coop"
+          },
+          "datumEersteInschrijvingHandelsregister": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop de RP als eerste is ingeschreven in het HR"
+          },
+          "voornemenTotOntbinding": {
+            "type": "object",
+            "properties": {
+              "datumAanvang": {
+                "type": "string",
+                "format": "date",
+                "description": "Datum aanvang van het Voornemen tot Ontbinding (VTO)"
+              },
+              "datumEinde": {
+                "type": "string",
+                "format": "date",
+                "description": "Datum einde van het VTO"
+              }
+            }
+          }
+        },
+        "description": "Rechtspersoon (RP) is een door de wet mogelijk gemaakt rechtssubject, welke drager van rechten en plichten is"
+      },
+      "maatschappelijkKapitaal": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:kapitaal",
+        "description": "Maatschappelijk kapitaal (KAP) is het in de statuen vermelde max bedrag van de NV, SE of SCE waartegen aandelen mogen worden uitgegeven"
+      },
+      "geplaatstKapitaal": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:kapitaal",
+        "description": "Geplaatste aandelenkapitaal (KAP)van de BV, NV, SE of SCE, is het recht op kapitaal dat door de OND is uitgegeven en dat door aandeelhouders aan de OND is verschaft"
+      },
+      "gestortKapitaal": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:kapitaal"
+      },
+      "activiteitenRechtspersoon": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:activiteiten",
+        "description": "Activiteiten (ACT) die bij een RP horen."
+      },
+      "communicatiegegevenRechtspersoon": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:communicatie"
+      },
+      "postadresRechtspersoon": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "handelsregister:locaties"
+      },
+      "bezoekadresRechtspersoon": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "handelsregister:locaties"
+      }
+    }
+  }
+}
