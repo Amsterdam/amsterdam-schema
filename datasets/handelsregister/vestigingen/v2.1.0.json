@@ -1,29 +1,32 @@
 {
   "id": "vestigingen",
   "type": "table",
-  "version": "2.0.0",
+  "version": "2.1.0",
+  "shortname": "ves",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
-    "identifier": "vestigingsnummer",
+    "identifier": [
+      "identificatie"
+    ],
     "required": [
       "schema",
-      "vestigingsnummer"
+      "identificatie"
     ],
-    "display": "vestigingsnummer",
+    "display": "identificatie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
-      "vestigingsnummer": {
+      "identificatie": {
         "type": "string",
         "description": "Betreft het identificerende gegeven voor de vestiging."
       },
-      "tijdstipRegistratie": {
+      "datumActueelTot": {
         "type": "string",
         "format": "date-time",
-        "description": "De datum waarop de vestiging bij de KvK in het handelsregister is geregistreerd."
+        "description": "einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       },
       "datumAanvang": {
         "type": "string",
@@ -45,11 +48,18 @@
       },
       "isCommercieleVestiging": {
         "type": "boolean",
-        "description": "Geeft aan of dit een commerciële vestiging betreft. Als false, dan een niet-commerciële vestiging."
+        "description": "Geeft aan of dit een commerciële of niet-commerciële vestiging betreft. Als false, dan een niet-commerciële vestiging."
       },
       "eersteHandelsnaam": {
-        "type": "string",
-        "description": "De eerste-handelsnaam betreft een samengesteld veld over de vestiging. Als het een niet-commerciële vestiging betreft is dit de naam, als het een commerciële vestiging betreft is dit de eerste handelsnaam."
+        "shortname": "eersteHN",
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:handelsnamen",
+        "description": "VES heeft eerste handelsnaam"
       },
       "heeftAlsPostadres": {
         "type": "object",
@@ -59,6 +69,14 @@
           },
           "volgnummer": {
             "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "relation": "handelsregister:locaties",
@@ -72,52 +90,57 @@
           },
           "volgnummer": {
             "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "relation": "handelsregister:locaties",
         "description": "Het geregistreerde bezoekadres behorende bij de vestiging."
       },
-      "communicatienummer": {
+      "heeftCommunicatie": {
         "type": "array",
         "items": {
           "type": "object",
           "properties": {
-            "toegangscode": {
-              "type": "integer"
-            },
-            "nummer": {
-              "type": "string"
-            },
-            "soort": {
+            "identificatie": {
               "type": "string"
             }
           }
         },
-        "description": "Communicatienummer is het telefoon- of faxnummer. Zowel het netnummer als het abonneenummer worden teruggegeven in het nummer. De internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft staat in het veld toegangscode."
+        "relation": "handelsregister:communicatie",
+        "description": "communicatie gegevens van de VES"
       },
-      "domeinnaam": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "naam": {
-              "type": "string"
-            }
-          }
-        },
-        "description": "De domeinnaam is de naam waaronder de betrokkene zaken doet of informatie verschaft op het internet, het internetadres (URL)"
+      "activiteitOmschrijving": {
+        "type": "string"
       },
-      "emailadres": {
+      "isSamengevoegdMetVestiging": {
         "type": "array",
         "items": {
           "type": "object",
           "properties": {
-            "naam": {
+            "identificatie": {
               "type": "string"
             }
           }
         },
-        "description": "Het e-mail adres dat de betrokkene open heeft gesteld voor communicatie."
+        "relation": "handelsregister:vestigingen",
+        "description": "Dit legt de relatie van de afgesloten vestiging met de samengevoegde vestiging."
+      },
+      "datumAfgesloten": {
+        "type": "string",
+        "format": "date",
+        "description": "De datum van de afgesloten VES"
+      },
+      "datumSamenvoeging": {
+        "type": "string",
+        "format": "date",
+        "description": "De datum van de samenvoeging VES"
       },
       "naam": {
         "type": "string",
@@ -130,32 +153,6 @@
       "ookGenoemd": {
         "type": "string",
         "description": "Een andere naam waaronder de vereniging stichtingen en vereniging van eigenaars ook bekend is."
-      },
-      "handeltOnderHandelsnamen": {
-        "shortname": "handeltOnderHn",
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "omschrijving": {
-              "type": "string"
-            },
-            "tijdstipRegistratie": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "datumAanvangHandelsnaam": {
-              "type": "string"
-            },
-            "datumEindeHandelsnaam": {
-              "type": "string"
-            },
-            "volgorde": {
-              "type": "integer"
-            }
-          }
-        },
-        "description": "Een handelsnaam is een naam waaronder de commerciële vestiging handelt. Een vestiging mag meerdere handelsnamen hebben. omschrijving"
       },
       "totaalWerkzamePersonen": {
         "type": "integer",
@@ -171,11 +168,11 @@
       },
       "importeert": {
         "type": "boolean",
-        "description": "Indicatie of de commerciële activiteit Import betreft."
+        "description": "Indicatie of de commerciële activiteit Import betreft"
       },
       "exporteert": {
         "type": "boolean",
-        "description": "Indicatie of de commerciële activiteit Export betreft."
+        "description": "Indicatie of de commerciële activiteit Export betreft"
       },
       "activiteitenOmschrijving": {
         "type": "string",
@@ -186,31 +183,28 @@
         "items": {
           "type": "object",
           "properties": {
-            "sbiActiviteitNummer": {
+            "identificatie": {
               "type": "string"
             }
           }
         },
-        "relation": "handelsregister:sbiactiviteiten",
-        "description": "SBI Activiteiten die bij deze commerciële of niet commerciële vestiging horen."
+        "relation": "handelsregister:activiteiten",
+        "description": "SBI Activiteiten die bij dezen niet-commerciële of commerciële vestiging horen."
       },
-      "isOvergegaanInVestiging": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "vestigingsnummer": {
-              "type": "string"
-            }
+      "heeftHandelsnaam": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
           }
         },
-        "relation": "handelsregister:vestigingen",
-        "description": "Dit legt de relatie van de afgesloten vestiging met de samengevoegde vestiging."
+        "relation": "handelsregister:handelsnamen",
+        "description": "Handelsnaam van de niet-commerciële of commerciële VES"
       },
       "isEenUitoefeningVan": {
         "type": "object",
         "properties": {
-          "kvknummer": {
+          "identificatie": {
             "type": "string"
           }
         },

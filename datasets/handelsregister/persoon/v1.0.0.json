@@ -1,0 +1,244 @@
+{
+  "id": "persoon",
+  "type": "table",
+  "version": "1.0.0",
+  "shortname": "prs",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "identificatie"
+    ],
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "identificatie dit kan een KvK-nummer, BSN-nummer, RSIN-nummer zijn"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "persoonRechtsvorm": {
+        "type": "string",
+        "description": "rechtsvorm van de persoon (PRS)"
+      },
+      "uitgebreideRechtsvorm": {
+        "type": "string",
+        "description": "Rechtsvorm van inschrijving aangevuld met informatie over structuur, rechtbevoegdehid etc."
+      },
+      "volledigeNaam": {
+        "type": "string",
+        "description": "volledige naam van de Persoon (PRS)"
+      },
+      "isVerenigdMet": {
+        "type": "string"
+      },
+      "isVerenigdNaar": {
+        "type": "string"
+      },
+      "postadres": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "handelsregister:locaties",
+        "description": "postadres"
+      },
+      "woonadres": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "handelsregister:locaties",
+        "description": "woonadres"
+      },
+      "beperkingsInRechtshandeling": {
+        "type": "boolean",
+        "description": "(BIR)"
+      },
+      "datumAanvang": {
+        "type": "string",
+        "format": "date",
+        "description": "aanvangsdatum van de bijzondere rechtstoestand"
+      },
+      "datumEinde": {
+        "type": "string",
+        "format": "date",
+        "description": "einde datum van de bijzondere rechtstoestand"
+      },
+      "soort": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "beperking in rechtshandeling provisioneel bewind, onder curatele gesteld, onder bewind gesteld"
+      },
+      "rechtelijkeUitspraak": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:rechterlijkeuitspraak"
+      },
+      "bijzondereRechtstoestand": {
+        "type": "boolean",
+        "description": "(BRT)"
+      },
+      "redenEinde": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "geeft de reden van de einde van de insolventie"
+      },
+      "schuldsanering": {
+        "type": "string",
+        "description": "(SSN)"
+      },
+      "surceanceVanBetaling": {
+        "type": "boolean",
+        "description": "(SUR)"
+      },
+      "status": {
+        "type": "string",
+        "description": "status waarin de surseance verkeert, dit kan voorlopig of definitief zijn"
+      },
+      "duur": {
+        "type": "integer",
+        "description": "duur van de periode (in maanden) waarvoor surseance van betaling geldt"
+      },
+      "faillisement": {
+        "type": "boolean",
+        "description": "(FAL)"
+      },
+      "maatschappelijkeActiviteit": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:maatschappelijkeactiviteiten",
+        "description": "Persoon (PRS) is eigenaar van Maatschappelijke Activiteit (MAC)"
+      },
+      "heeftFunctieVervulling": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:functievervulling",
+        "description": "Een Persoon (PRS) heeft een Functievervulling (FVV)"
+      },
+      "functieVervullingDoor": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:functievervulling",
+        "description": "Een Functievervulling door een Persoon (PRS)"
+      },
+      "isFunctieVervulling": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:functievervulling",
+        "description": "Een Persoon (PRS) is een Functievervulling (FVV)"
+      },
+      "functieVervullingVoor": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:functievervulling",
+        "description": "Een Functievervulling voor een Persoon (PRS)"
+      },
+      "naamPersoon": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:naampersoon",
+        "description": "Een Naam Pers (NMP) bevat de naam van de NPS of NNP die niet inschrijfplichtig is, maar wel een functie vervult in het HR"
+      },
+      "natuurlijkPersoon": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:natuurlijkpersoon",
+        "description": "Een Natuurlijk Persoon (NPS) is een mens"
+      },
+      "nietNatuurlijkPersoon": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "handelsregister:nietnatuurlijkpersoon",
+        "description": "Een NNP is een PRS met rechten en plichten die geen Natuurlijk Persoon (NPS) is"
+      }
+    }
+  }
+}

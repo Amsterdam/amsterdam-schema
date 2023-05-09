@@ -1,0 +1,64 @@
+{
+  "id": "rechterlijkeuitspraak",
+  "type": "table",
+  "version": "1.0.0",
+  "shortname": "uit",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "identificatie"
+    ],
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "identificatie dit kan een KvK-nummer, BSN-nummer, RSIN-nummer zijn"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "rechterlijkeUitspraak": {
+        "type": "object",
+        "properties": {
+          "uitspraakAanvang": {
+            "type": "string",
+            "description": "Aanvang door"
+          },
+          "uitspraakEinde": {
+            "type": "string",
+            "description": "Einde door"
+          }
+        }
+      },
+      "datumUitspraak": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop de uitspraak door de rechter is gedaan"
+      },
+      "gerecht": {
+        "type": "object",
+        "properties": {
+          "naam": {
+            "type": "string",
+            "description": "Naam van het gerecht"
+          },
+          "plaats": {
+            "type": "string",
+            "description": "Plaats waar het gerecht is gevestigd"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "communicatie",
+  "type": "table",
+  "version": "1.0.0",
+  "shortname": "com",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "identificatie"
+    ],
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "identificatie dit kan een KvK-nummer, BSN-nummer, RSIN-nummer zijn"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "communicatienummer": {
+        "type": "object",
+        "properties": {
+          "toegangscode": {
+            "type": "string",
+            "description": "internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft"
+          },
+          "nummer": {
+            "type": "integer",
+            "description": "telefoon- of faxnummer zonder opmaak"
+          },
+          "soort": {
+            "type": "string",
+            "description": "geeft aan of het communicatienummer een telefoon- of een faxnummer betreft"
+          }
+        }
+      },
+      "emailAdres": {
+        "type": "string",
+        "description": "e-mailadres waarop de ondernemer gemaild kan worden"
+      },
+      "domeinnaam": {
+        "type": "string",
+        "description": "internetadres (URL)"
+      }
+    }
+  }
+}
