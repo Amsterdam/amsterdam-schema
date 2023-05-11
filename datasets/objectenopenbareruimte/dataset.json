@@ -9,7 +9,7 @@
   "homepage": "https://data.amsterdam.nl",
   "owner": "Verkeer en Openbare Ruimte, Gemeente Amsterdam",
   "spatialDescription": "Gemeente Amsterdam",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "title": "Beheerobjecten openbare ruimte",
   "language": "nl",
   "dateCreated": "2022-06-01T00:00:00+01:00",
@@ -41,7 +41,7 @@
       "provenance": "asset_verhardingen",
       "title": "Verhardingen",
       "description": "Verharde lagen van een weglichaam, speel- en sportondergronden en onbegroeid terreindelen inclusief fundering.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -68,18 +68,6 @@
             "description": "Overerving van de geometrie van beheerobject uit bovenliggend informatiemodel of automatisch genereren.",
             "type": "string"
           },
-          "aantalDeklagen": {
-            "description": "Aantal deklagen bij asfaltverharding.",
-            "type": "number"
-          },
-          "aantalOnderlagen": {
-            "description": "Aantal onderlagen bij asfaltverharding.",
-            "type": "number"
-          },
-          "aantalTussenlagen": {
-            "description": "Aantal tussenlagen bij asfaltverharding.",
-            "type": "number"
-          },
           "afmeting": {
             "description": "Aanduiding voor de afmeting van een object in lengte, breedte en hoogte.",
             "type": "string",
@@ -98,12 +86,8 @@
             "type": "string",
             "format": "date"
           },
-          "bergendVermogen": {
-            "description": "De hoeveelheid afvalwater die in de voorziening kan worden geborgen.",
-            "type": "string"
-          },
-          "bgtStatus": {
-            "description": "Binnen de BGT verplichte statusaanduiding gekoppeld aan de levenscyclus van het het BGT-object.",
+          "beheergebied": {
+            "description": "Aanduiding van het beheergebied waarbinnen het beheerobject ligt. Indeling in beheergebieden is organisatiespecifiek.",
             "type": "string"
           },
           "breedte": {
@@ -115,23 +99,14 @@
             "type": "string",
             "shortname": "brkGmeNaam"
           },
-          "constructie": {
+          "dikteConstructie": {
             "description": "Aanduiding van de zwaarte van de constructie van het beheerobject.",
             "type": "string"
-          },
-          "verwijderdatum": {
-            "description": "Datum waarop het object is verwijderd (materiële historie).",
-            "type": "string",
-            "format": "date"
           },
           "mutatiedatum": {
             "description": "Datum waarop het object voor het laatst is gewijzigd.",
             "type": "string",
             "format": "date-time"
-          },
-          "deelSportcomplexObjectnaam": {
-            "description": "",
-            "type": "string"
           },
           "eindeGarantieperiode": {
             "description": "Jaar (datum) waarin de garantieperiode van het opgeleverde beheerobject eindigt.",
@@ -174,7 +149,7 @@
             "description": "Versie-aanduiding van het Informatiemodel Beheer Openbare Ruimte (IMBOR)",
             "type": "string"
           },
-          "jaarLaatsteConservering": {
+          "jaarConserveren": {
             "description": "Jaar waarin schade(s) aan het beheerobject is geconserveerd.",
             "type": "number"
           },
@@ -192,11 +167,6 @@
           },
           "lengte": {
             "description": "Lengte van het beheerobject.",
-            "type": "number",
-            "unit": "m"
-          },
-          "lengteGis": {
-            "description": "Gis-lengte in meters van het beheerobject, wordt gebruikt bij lijnobjecten. Bij Vlakobjecten is de GIS-lengte de Omtrek van het object.",
             "type": "number",
             "unit": "m"
           },
@@ -222,18 +192,10 @@
             "type": "string",
             "format": "date"
           },
-          "oppervlakteGis": {
+          "oppervlakte": {
             "description": "Oppervlakte van het beheerobject, overname van BGT/IMGeo.",
             "type": "number",
             "unit": "m2"
-          },
-          "sportveld": {
-            "description": "GUID van het sportveld waartoe het object behoort.",
-            "type": "string"
-          },
-          "theoretischEindjaar": {
-            "description": "Jaar dat het beheerobject aan het theoretische einde van haar levensduur is.",
-            "type": "number"
           },
           "typeObject": {
             "description": "Typering van het beheerobject.",
@@ -245,10 +207,6 @@
           },
           "typeBeheerderPlus": {
             "description": "Nadere aanduiding van de beheerder van het beheerobject.",
-            "type": "string"
-          },
-          "typeFundering": {
-            "description": "Keuze uit lijst met funderingen van het beheerobject. Van toepassing bij wegobjecten en grassportvelden.",
             "type": "string"
           },
           "typePlus": {
@@ -280,7 +238,8 @@
       "provenance": "asset_groenobjecten",
       "title": "Groenobjecten",
       "description": "Kleinste functioneel onafhankelijk stukje van een terrein dat er binnen het objecttype Terrein van NEN 3610 wordt onderscheiden, met aaneengesloten vegetatie.",
-      "version": "1.0.0",
+      "version": "1.1.0",
+      "auth": "FP/MDW",
       "reasonsNonPublic": [
         "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
       ],
@@ -302,13 +261,11 @@
             "description": "Uniek identificerend kenmerk van het object.",
             "type": "integer"
           },
-          "guid": {
-            "auth": "FP/MDW",
+          "guid": { 
             "description": "Uniek nummer van het IMBOR-object (GUID).",
             "type": "string"
           },
-          "imgeoIdentificatie": {
-            "auth": "FP/MDW",
+          "imgeoIdentificatie": { 
             "description": "Overerving van de geometrie van beheerobject uit bovenliggend informatiemodel of automatisch genereren.",
             "type": "string"
           },
@@ -328,13 +285,11 @@
             "description": "Versie-aanduiding van het Informatiemodel Beheer Openbare Ruimte (IMBOR).",
             "type": "string"
           },
-          "aantalZijden": {
-            "auth": "FP/MDW",
+          "aantalZijden": { 
             "description": "Aantal zijden van de haag die geknipt moeten worden.",
             "type": "number"
           },
-          "afvoeren": {
-            "auth": "FP/MDW",
+          "afvoeren": { 
             "description": "Aanduiding of het groenafval afgevoerd moet worden.",
             "type": "boolean"
           },
@@ -347,13 +302,11 @@
             "type": "string"
           },
           "beginGarantieperiode": {
-            "auth": "FP/MDW",
             "description": "Jaar waarin de garantieperiode van het opgeleverde beheerobject begint.",
             "type": "string",
             "format": "date"
           },
           "beheerafspraak": {
-            "auth": "FP/MDW",
             "description": "Beschrijving volgt",
             "type": "string"
           },
@@ -361,13 +314,11 @@
             "description": "Aanduiding van het beheergebied waarbinnen het beheerobject ligt. Indeling in beheergebieden is organisatiespecifiek.",
             "type": "string"
           },
-          "bereikbaarheid": {
-            "auth": "FP/MDW",
+          "bereikbaarheid": { 
             "description": "Aanduiding voor de bereikbaarheid van het object die beheerd moet worden.",
             "type": "string"
           },
           "bewerkingspercentage": {
-            "auth": "FP/MDW",
             "description": "Aanduiding van het percentage van het beheerobject dat bewerkt dient te worden.",
             "type": "number",
             "multipleOf": 0.1,
@@ -379,43 +330,36 @@
             "type": "boolean"
           },
           "breedte": {
-            "auth": "FP/MDW",
             "description": "Breedte van het beheerobject.",
             "type": "number",
             "unit": "m"
           },
           "breedteklasseHaag": {
-            "auth": "FP/MDW",
             "description": "Aanduiding van de breedte van de haag in klassen conform RAW (geldt niet voor de blokhaag).",
             "type": "string"
           },
-          "brkGemeenteNaam": {
+          "brkGmeNaam": {
             "description": "Naam van de gemeente waarbinnen het beheerobject ligt.",
             "type": "string",
             "shortname": "brkGmeNaam"
           },
           "conditiescore": {
-            "auth": "FP/MDW",
             "description": "Maat voor het vastleggen van de conditie van een object op basis van 6 scores.",
             "type": "string"
           },
           "controlefrequentie": {
-            "auth": "FP/MDW",
             "description": "Aanduiding van de frequentie van de controle van het beheerobject.",
             "type": "string"
           },
           "deelsportcomplex": {
-            "auth": "FP/MDW",
             "description": "Deelsportcomplex waartoe het object behoort.",
             "type": "string"
           },
           "ecologischBeheer": {
-            "auth": "FP/MDW",
             "description": "Aanduiding of ecologisch beheer van toepassing is.",
             "type": "boolean"
           },
           "eindeGarantieperiode": {
-            "auth": "FP/MDW",
             "description": "Jaar (datum) waarin de garantieperiode van het opgeleverde beheerobject eindigt.",
             "type": "string",
             "format": "date"
@@ -441,69 +385,57 @@
             "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992)."
           },
           "haagvoetLengte": {
-            "auth": "FP/MDW",
             "description": "Lengte van de te bewerken voet van de haag in strekkende meters. In RAW gebruikt voor werkzaamheden aan haagvoeten (onkruidvrij maken) van alle typen hagen, uitgezonderd blokhagen. HaagvoetLengte kan gelijk zijn aan de totale lengte van de haag, maar dit hoeft niet, als de te bewerken lengte van de haagvoet kleiner is dan de totale lengte van de haag.",
             "type": "number",
             "unit": "m"
           },
           "haagvoetOppervlakte": {
-            "auth": "FP/MDW",
             "description": "Oppervlakte van de voet van de haag in vierkante meters. In RAW gebruikt voor werkzaamheden aan haagvoeten (onkruidvrij maken) van blokhagen. HaagvoetOppervlakte kan gelijk zijn aan de ‘Oppervlakte’ van het beheerobject, maar dit hoeft niet, als het te bewerken oppervlak van de haagvoet kleiner is dan het totale oppervlak van de blokhaag.",
             "type": "number",
             "unit": "m2"
           },
           "hoogte": {
-            "auth": "FP/MDW",
             "description": "Hoogte van het beheerobject in meters.",
             "type": "number",
             "unit": "m"
           },
           "hoogteklasseHaag": {
-            "auth": "FP/MDW",
             "description": "Aanduiding van de hoogte van de haag in klassen conform RAW.",
             "type": "string"
           },
           "jaarVanAanleg": {
-            "auth": "FP/MDW",
             "description": "Jaar waarin het beheerobject is aangelegd of aangeplant (kan ook voor de plaatsingsdatum gebruikt worden).",
             "type": "number"
           },
           "knipfrequentie": {
-            "auth": "FP/MDW",
             "description": "Aanduiding voor het aantal keren dat een haag of een klimplant of een terreindeel geknipt moet worden.",
             "type": "string"
           },
           "knipoppervlakte": {
-            "auth": "FP/MDW",
             "description": "Oppervlak van de haag of klimplant dat geknipt moet worden. Handmatig invullen (klimplant) of berekend in m2. Het gaat om de knipmaat na het knippen, oftewel het beoogde model van de haag.",
             "type": "number",
             "unit": "m2"
           },
-          "lengte": {
-            "auth": "FP/MDW",
+          "lengte": { 
             "description": "Lengte van het beheerobject.",
             "type": "number",
             "unit": "m"
           },
-          "maaifrequentie": {
-            "auth": "FP/MDW",
+          "maaifrequentie": { 
             "description": "Aantal keren dat een groenobject of een terreindeel gemaaid wordt per jaar.",
             "type": "string"
           },
-          "mutatiedatum": {
-            "auth": "FP/MDW",
+          "mutatiedatum": { 
             "description": "Datum waarop de digitale gegevens van het beheerobject voor het laatst gewijzigd zijn.",
             "type": "string",
             "format": "date"
           },
-          "objectBegintijd": {
-            "auth": "FP/MDW",
+          "objectBegintijd": { 
             "description": "Creatiedatum (tijdstip) van het digitale beheerobject binnen het beheersysteem of in de bovenliggende georegistratie.",
             "type": "string",
             "format": "date-time"
           },
-          "objectEindtijd": {
-            "auth": "FP/MDW",
+          "objectEindtijd": { 
             "description": "Vervaldatum (tijdstip) van het digitale beheerobject binnen het beheersysteem of in de bovenliggende georegistratie.",
             "type": "string",
             "format": "date-time"
@@ -512,8 +444,7 @@
             "description": "Kleinste functionele eenheid (beheerobject of hulpobject).",
             "type": "string"
           },
-          "omtrek": {
-            "auth": "FP/MDW",
+          "omtrek": { 
             "description": "Omtrek van het beheerobject.",
             "type": "number",
             "unit": "m"
@@ -522,18 +453,15 @@
             "description": "Aanduiding voor de aanwezigheid van ondergroei bij Bos en Bosplantsoen.",
             "type": "string"
           },
-          "onderhoudsplichtige": {
-            "auth": "FP/MDW",
+          "onderhoudsplichtige": { 
             "description": "Organisatie die verantwoordelijk is voor het onderhoud van het beheerobject.",
             "type": "string"
           },
-          "opTalud": {
-            "auth": "FP/MDW",
+          "opTalud": { 
             "description": "Aanduiding of het beheerobject wel of niet op een hellend vlak ligt. De taludsteilte wordt apart geregistreerd. Overname uit BGT-object.",
             "type": "boolean"
           },
-          "opleverdatum": {
-            "auth": "FP/MDW",
+          "opleverdatum": { 
             "description": "Datum waarop het beheerobject daadwerkelijk opgeleverd is. Begin van de garantieperiode.",
             "type": "string",
             "format": "date"
@@ -543,33 +471,27 @@
             "type": "number",
             "unit": "m2"
           },
-          "risicotoeslag": {
-            "auth": "FP/MDW",
+          "risicotoeslag": { 
             "description": "Beschrijving volgt",
             "type": "string"
           },
-          "snoeifrequentie": {
-            "auth": "FP/MDW",
+          "snoeifrequentie": { 
             "description": "Aanduiding voor het aantal keren dat een vegetatieobject gesnoeid moet worden.",
             "type": "string"
           },
-          "theoretischEindjaar": {
-            "auth": "FP/MDW",
+          "theoretischEindjaar": { 
             "description": "Jaar dat het beheerobject aan het theoretische einde van haar levensduur is.",
             "type": "number"
           },
-          "typeBeheerder": {
-            "auth": "FP/MDW",
+          "typeBeheerder": { 
             "description": "Een publiekrechtelijke instantie of (rechts)persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT).",
             "type": "string"
           },
-          "typeBeheerderPlus": {
-            "auth": "FP/MDW",
+          "typeBeheerderPlus": { 
             "description": "Nadere aanduiding van de beheerder van het beheerobject.",
             "type": "string"
           },
-          "typeBewerking": {
-            "auth": "FP/MDW",
+          "typeBewerking": { 
             "description": "Wijze waarop een beheerobject verwerkt wordt (handmatig of machinaal).",
             "type": "string"
           },
@@ -577,8 +499,7 @@
             "description": "(Rechts)persoon die het meest  omvattend recht op een zaak heeft . De typen eigenaren zijn conform de indeling in bronhouders (BGT).",
             "type": "string"
           },
-          "typeEigenaarPlus": {
-            "auth": "FP/MDW",
+          "typeEigenaarPlus": { 
             "description": "Nadere aanduiding van de eigenaar van het beheerobject.",
             "type": "string"
           },
@@ -594,13 +515,11 @@
             "description": "Extra typering van het beheerobject, nadere typering van type gedetailleerd.",
             "type": "string"
           },
-          "vaknummer": {
-            "auth": "FP/MDW",
+          "vaknummer": { 
             "description": "Vaknummer van een (bestaande) indeling in beheervakken.",
             "type": "string"
           },
-          "verwijderdatum": {
-            "auth": "FP/MDW",
+          "verwijderdatum": { 
             "description": "Datum waarop het object is verwijderd (materiële historie).",
             "type": "string",
             "format": "date"
@@ -614,7 +533,8 @@
       "provenance": "asset_terreindeel",
       "title": "Terreindeel",
       "description": "Kleinste functioneel onafhankelijk stukje van een terrein, dat er binnen het objecttype Terrein van NEN 3610 wordt onderscheiden, met of zonder aaneengesloten vegetatie.",
-      "version": "1.0.0",
+      "version": "1.1.0",
+      "auth": "FP/MDW",
       "reasonsNonPublic": [
         "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
       ],
@@ -636,13 +556,11 @@
             "description": "Uniek identificerend kenmerk van het object.",
             "type": "integer"
           },
-          "guid": {
-            "auth": "FP/MDW",
+          "guid": { 
             "description": "Uniek nummer van het IMBOR-object (GUID).",
             "type": "string"
           },
-          "imgeoIdentificatie": {
-            "auth": "FP/MDW",
+          "imgeoIdentificatie": { 
             "description": "Overerving van de geometrie van beheerobject uit bovenliggend informatiemodel of automatisch genereren.",
             "type": "string"
           },
@@ -650,8 +568,7 @@
             "description": "Versie-aanduiding van het Informatiemodel Beheer Openbare Ruimte (IMBOR).",
             "type": "string"
           },
-          "afvoeren": {
-            "auth": "FP/MDW",
+          "afvoeren": { 
             "description": "Aanduiding of het groenafval afgevoerd moet worden.",
             "type": "boolean"
           },
@@ -659,8 +576,7 @@
             "description": "Aanduiding van de woonplaats waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met woonplaats- of stadsdeelgrenzen.",
             "type": "string"
           },
-          "beheerafspraak": {
-            "auth": "FP/MDW",
+          "beheerafspraak": { 
             "description": "Beschrijving volgt",
             "type": "string"
           },
@@ -668,47 +584,40 @@
             "description": "Aanduiding van het beheergebied waarbinnen het beheerobject ligt. Indeling in beheergebieden is organisatiespecifiek.",
             "type": "string"
           },
-          "bereikbaarheid": {
-            "auth": "FP/MDW",
+          "bereikbaarheid": { 
             "description": "Aanduiding voor de bereikbaarheid van het object die beheerd moet worden.",
             "type": "string"
           },
-          "bewerkingspercentage": {
-            "auth": "FP/MDW",
+          "bewerkingspercentage": { 
             "description": "Aanduiding van het percentage van het beheerobject dat bewerkt dient te worden.",
             "type": "number",
             "multipleOf": 0.1,
             "minimum": 0,
             "maximum": 100
           },
-          "breedte": {
-            "auth": "FP/MDW",
+          "breedte": { 
             "description": "Breedte van het beheerobject.",
             "type": "number",
             "unit": "m"
           },
-          "brkGemeenteNaam": {
+          "brkGmeNaam": {
             "description": "Naam van de gemeente waarbinnen het beheerobject ligt.",
             "type": "string",
             "shortname": "brkGmeNaam"
           },
-          "conditiescore": {
-            "auth": "FP/MDW",
+          "conditiescore": { 
             "description": "Maat voor het vastleggen van de conditie van een object op basis van 6 scores.",
             "type": "string"
           },
-          "controlefrequentie": {
-            "auth": "FP/MDW",
+          "controlefrequentie": { 
             "description": "Aanduiding van de frequentie van de controle van het beheerobject.",
             "type": "string"
           },
-          "deelsportcomplex": {
-            "auth": "FP/MDW",
+          "deelsportcomplex": { 
             "description": "Deelsportcomplex waartoe het object behoort.",
             "type": "string"
           },
-          "ecologischBeheer": {
-            "auth": "FP/MDW",
+          "ecologischBeheer": { 
             "description": "Aanduiding of ecologisch beheer van toepassing is.",
             "type": "boolean"
           },
@@ -732,29 +641,24 @@
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992)."
           },
-          "jaarVanAanleg": {
-            "auth": "FP/MDW",
+          "jaarVanAanleg": { 
             "description": "Jaar waarin het beheerobject is aangelegd of aangeplant (kan ook voor de plaatsingsdatum gebruikt worden).",
             "type": "number"
           },
-          "knipfrequentie": {
-            "auth": "FP/MDW",
+          "knipfrequentie": { 
             "description": "Aanduiding voor het aantal keren dat een haag of een klimplant of een terreindeel geknipt moet worden.",
             "type": "string"
           },
-          "lengteGis": {
-            "auth": "FP/MDW",
+          "lengteGis": { 
             "description": "Lengte van het beheerobject.",
             "type": "number",
             "unit": "m"
           },
-          "maaifrequentie": {
-            "auth": "FP/MDW",
+          "maaifrequentie": { 
             "description": "Aantal keren dat een groenobject of een terreindeel gemaaid wordt per jaar.",
             "type": "string"
           },
-          "mutatiedatum": {
-            "auth": "FP/MDW",
+          "mutatiedatum": { 
             "description": "Datum waarop de digitale gegevens van het beheerobject voor het laatst gewijzigd zijn.",
             "type": "string",
             "format": "date"
@@ -763,30 +667,25 @@
             "description": "Kleinste functionele eenheid (beheerobject of hulpobject).",
             "type": "string"
           },
-          "objectBegintijd": {
-            "auth": "FP/MDW",
+          "objectBegintijd": { 
             "description": "Creatiedatum (tijdstip) van het digitale beheerobject binnen het beheersysteem of in de bovenliggende georegistratie.",
             "type": "string",
             "format": "date-time"
           },
-          "objectEindtijd": {
-            "auth": "FP/MDW",
+          "objectEindtijd": { 
             "description": "Vervaldatum (tijdstip) van het digitale beheerobject binnen het beheersysteem of in de bovenliggende georegistratie.",
             "type": "string",
             "format": "date-time"
           },
-          "onderhoudsplichtige": {
-            "auth": "FP/MDW",
+          "onderhoudsplichtige": { 
             "description": "Organisatie die verantwoordelijk is voor het onderhoud van het beheerobject.",
             "type": "string"
           },
-          "opTalud": {
-            "auth": "FP/MDW",
+          "opTalud": { 
             "description": "Aanduiding of het beheerobject wel of niet op een hellend vlak ligt. De taludsteilte wordt apart geregistreerd. Overname uit BGT-object.",
             "type": "boolean"
           },
-          "opleverdatum": {
-            "auth": "FP/MDW",
+          "opleverdatum": { 
             "description": "Datum waarop het beheerobject daadwerkelijk opgeleverd is. Begin van de garantieperiode.",
             "type": "string",
             "format": "date"
@@ -796,36 +695,30 @@
             "type": "number",
             "unit": "m2"
           },
-          "percentageLoofbos": {
-            "auth": "FP/MDW",
+          "percentageLoofbos": { 
             "description": "Percentage loofbos (t.o.v. naaldbos) binnen een gemengd bos.",
             "type": "number",
             "multipleOf": 0.1,
             "minimum": 0,
             "maximum": 100
           },
-          "risicotoeslag": {
-            "auth": "FP/MDW",
+          "risicotoeslag": { 
             "description": "beschrijving volgt",
             "type": "string"
           },
-          "theoretischEindjaar": {
-            "auth": "FP/MDW",
+          "theoretischEindjaar": { 
             "description": "Jaar dat het beheerobject aan het theoretische einde van haar levensduur is.",
             "type": "integer"
           },
-          "typeBeheerder": {
-            "auth": "FP/MDW",
+          "typeBeheerder": { 
             "description": "Een publiekrechtelijke instantie of (rechts)persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT).",
             "type": "string"
           },
-          "typeBeheerderPlus": {
-            "auth": "FP/MDW",
+          "typeBeheerderPlus": { 
             "description": "Nadere aanduiding van de beheerder van het beheerobject.",
             "type": "string"
           },
-          "typeBewerking": {
-            "auth": "FP/MDW",
+          "typeBewerking": { 
             "description": "Wijze waarop een beheerobject verwerkt wordt (handmatig of machinaal).",
             "type": "string"
           },
@@ -833,8 +726,7 @@
             "description": "(Rechts)persoon die het meest  omvattend recht op een zaak heeft. De typen eigenaren zijn conform de indeling in bronhouders (BGT).",
             "type": "string"
           },
-          "typeEigenaarPlus": {
-            "auth": "FP/MDW",
+          "typeEigenaarPlus": { 
             "description": "Nadere aanduiding van de eigenaar van het beheerobject.",
             "type": "string"
           },
@@ -850,13 +742,11 @@
             "description": "Extra typering van het beheerobject, nadere typering van type gedetailleerd.",
             "type": "string"
           },
-          "vaknummer": {
-            "auth": "FP/MDW",
+          "vaknummer": { 
             "description": "Vaknummer van een (bestaande) indeling in beheervakken.",
             "type": "string"
           },
-          "verwijderdatum": {
-            "auth": "FP/MDW",
+          "verwijderdatum": { 
             "description": "Datum waarop het object is verwijderd (materiële historie).",
             "type": "string",
             "format": "date"
