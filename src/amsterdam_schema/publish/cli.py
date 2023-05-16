@@ -76,6 +76,7 @@ def fetch_local_as_publishable(
         shutil.copytree(str(dir_path), (dst_path / dir_path.name).as_posix(), dirs_exist_ok=True)
 
     publishable_paths: List[List[str]] = []
+
     for schema_path in dst_path.glob(glob):
         sub_path = schema_path.relative_to(dst_path.parent)
         publishable_paths.append(list(sub_path.parts))
@@ -164,6 +165,7 @@ def azure_blob_uploader(
     files_root: Path,
     schema_pub_paths: List[List[str]],
     doc_pub_paths: List[List[str]],
+    sql_pub_paths: List[List[str]],
     container: str,
     index_file_obj: BytesIO,
     publisher_index_file_obj: StringIO,
@@ -171,6 +173,8 @@ def azure_blob_uploader(
     """Upload files to the Azure blob storage."""
     json_content_settings = ContentSettings(content_type="application/json")
     html_content_settings = ContentSettings(content_type="text/html")
+    sql_content_settings = ContentSettings(content_type="text/plain")
+
     credential = os.getenv("SCHEMAS_SA_KEY")
     if credential is None:
         raise Exception("SCHEMAS_SA_KEY not set")
@@ -203,11 +207,20 @@ def azure_blob_uploader(
         with open(file_path, "rb") as bf:
             blob.upload_blob(bf, content_settings=html_content_settings, overwrite=True)
 
+    for sql_path_parts in sql_pub_paths:
+        file_path = str(files_root / "/".join(sql_path_parts))
+        object_name = "/".join(sql_path_parts[1:])
+
+        blob = blob_srv.get_blob_client(container, object_name)
+        with open(file_path, "rb") as bf:
+            blob.upload_blob(bf, content_settings=sql_content_settings, overwrite=True)
+
 
 def swift_uploader(
     files_root: Path,
     schema_pub_paths: List[List[str]],
     doc_pub_paths: List[List[str]],
+    sql_pub_paths: List[List[str]],
     container: str,
     index_file_obj: BytesIO,
     publisher_index_file_obj: StringIO,
@@ -250,6 +263,17 @@ def swift_uploader(
                     options={"header": ["content-type:text/html"]},
                 )
             )
+
+        for sql_path_parts in sql_pub_paths:
+            object_name = "/".join(sql_path_parts[1:])
+            upload_objects.append(
+                SwiftUploadObject(  # type: ignore
+                    str(files_root / "/".join(sql_path_parts)),
+                    object_name=object_name,
+                    options={"header": ["content-type:text/plain"]},
+                )
+            )
+
         uploads = swift.upload(container, upload_objects)
         errors = False
         for r in uploads:
@@ -305,6 +329,10 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type:
             ROOT_PKG_NAME, files_root, ("docs",), "**/*.html"
         )
 
+        sql_pub_paths = fetch_local_as_publishable(
+            root_pkg_name=ROOT_PKG_NAME, temp_dir_path=files_root, glob="**/*.sql"
+        )
+
         container = f"{container_prefix}{dp_env}"
 
         if storage_type == "azure":
@@ -313,6 +341,7 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type:
                 files_root,
                 schema_pub_paths,
                 doc_pub_paths,
+                sql_pub_paths,
                 container,
                 index_file_obj,
                 publisher_index_file_obj,
@@ -323,6 +352,7 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type:
                 files_root,
                 schema_pub_paths,
                 doc_pub_paths,
+                sql_pub_paths,
                 container,
                 index_file_obj,
                 publisher_index_file_obj,
