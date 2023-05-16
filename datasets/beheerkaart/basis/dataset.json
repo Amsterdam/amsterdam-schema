@@ -3,8 +3,8 @@
   "id": "beheerkaartBasis",
   "title": "beheerkaart basis",
   "status": "beschikbaar",
-  "description": "De 'Beheerkaart Publieke Ruimte' is een combinatie van kadastrale en topografische informatie, namelijk van de kadastrale percelen waarop een eigendomsrecht rust van de gemeente Amsterdam (inclusief Weesp), zoals vastgelegd in de Basisregistratie Kadaster (BRK), gekoppeld met de topografische objecten in de opdeling van de publieke ruimte, zoals die is vastgelegd in Basisregistratie Grootschalige Topografie (BGT). Hiervoor wordt een criterium van minimaal 20% overlap gehanteerd tussen het kadastrale perceel waarop een eigendomsrecht rust (zoals dat is vastgelegd in de BRK) met de publieke ruimte (zoals die is vastgelegd in de BGT). Zo’n eigendomsrecht van de gemeente Amsterdam (inclusief Weesp), mits onbelast (zie onderstaande optie 1), geeft de gemeente (in principe) de verantwoordelijkheid voor het beheer. Echter als dit eigendomsrecht van de gemeente is belast door een erop rustend eigendomsrecht van een andere partij (zie onderstaande optie 2) heeft deze andere partij de beheerverantwoordelijkheid. Tot slot, voor kadastrale en gekoppelde topografische objecten waarop de gemeente in het geheel geen eigendomsrecht heeft, heeft de gemeente ook geen beheerverantwoordelijkheid. Die verantwoordelijkheid ligt dan vaak bij andere overheden zoals provincie, waterschap of andere gemeente, of Pro-rail. Deze objecten vallen niet onder een van beide onderstaande opties 1 of 2, en worden in de Beheerkaart in het geheel niet getoond. Let op: een eigendomsrecht in dit verband kan zijn: (recht van) eigendom, erfpacht, erfpacht-en-opstal, of opstal. Op de kaart kunt u voor elk onderdeel in eigendom bij de gemeente Amsterdam (inclusief Weesp) zien, of de gemeente op grond van eigendomsrechten wel of geen verantwoordelijkheid heeft voor het beheer. (1(voetnoot) Er bestaan mogelijk afspraken waarin het beheer is overgedragen aan een andere partij, zoals bijvoorbeeld een volkstuinvereniging, begraafplaats of sportvereniging.). 1) Selecteer in tabel beheerkaart_basis_kaart de rijen met attribuut agg_indicatie_belast_recht = FALSE (d.w.z. onbelast). Dit toont de publieke ruimte in eigendom bij de gemeente Amsterdam (inclusief Weesp), waarbij op het eigendomsrecht van de gemeente geen andere, belastende eigendomsrechten (opstal en/of erfpacht) van andere partijen rusten, en waarvoor de gemeente dus (volledig) verantwoordelijk is voor het beheer. Daar waar de gemeente niet volledig verantwoordelijk is, wordt het betreffende object niet getoond. 2) Selecteer in tabel beheerkaart_basis_kaart de rijen met attribuut agg_indicatie_belast_recht = TRUE (d.w.z. belast). Dit toont de publieke ruimte in eigendom bij de gemeente Amsterdam (inclusief Weesp) waarvoor de gemeente niet of niet volledig verantwoordelijk is voor het beheer, ten gevolge van de belastende eigendomsrechten (opstal en/of erfpacht) van andere partijen (andere overheden, organisaties of particulieren) op het eigendomsrecht van de gemeente.",
-  "version": "0.0.1",
+  "description": "De Beheerkaart Publieke Ruimte is een combinatie van kadastrale en topografische informatie, namelijk van de kadastrale percelen waarop een eigendomsrecht rust van de gemeente Amsterdam (inclusief Weesp), zoals vastgelegd in de Basisregistratie Kadaster (BRK), gekoppeld met de topografische objecten in de opdeling van de publieke ruimte, zoals vastgelegd in de Basisregistratie Grootschalige Topografie (BGT). Hiervoor wordt een criterium van minimaal 20% overlap gehanteerd tussen het kadastraal perceel waarop een eigendomsrecht rust met het topografisch object in de publieke ruimte. Zo’n eigendomsrecht van de gemeente Amsterdam, mits onbelast (zie onderstaande optie 1), geeft de gemeente in principe de verantwoordelijkheid voor het beheer. Echter als dit eigendomsrecht van de gemeente is belast door een erop rustend eigendomsrecht van een andere partij (zie onderstaande optie 2) heeft deze andere partij de beheerverantwoordelijkheid. Tot slot, voor kadastrale en gekoppelde topografische objecten waarop de gemeente in het geheel geen eigendomsrecht heeft, heeft de gemeente ook geen beheerverantwoordelijkheid. Die verantwoordelijkheid ligt dan vaak bij andere overheden zoals provincie, waterschap of andere gemeente, of Pro-rail. Deze objecten vallen niet onder een van beide onderstaande opties 1 of 2, en worden in de Beheerkaart in het geheel niet getoond.  Let op: een eigendomsrecht in dit verband kan zijn: recht van eigendom, erfpacht, erfpacht-en-opstal of opstal. Op de kaart kunt u voor elk onderdeel in eigendom bij de gemeente Amsterdam zien of de gemeente op grond van eigendomsrechten wel of geen verantwoordelijkheid heeft voor het beheer. Op de kaart kunt u voor elk onderdeel in eigendom bij de gemeente Amsterdam zien of de gemeente op grond van eigendomsrechten wel of geen verantwoordelijkheid heeft voor het beheer. (1(voetnoot) Er bestaan mogelijk afspraken waarin het beheer is overgedragen aan een andere partij, zoals bijvoorbeeld een volkstuinvereniging, begraafplaats of sportvereniging.). 1) Selecteer in tabel beheerkaart_basis_kaart de rijen met attribuut agg_indicatie_belast_recht = FALSE (d.w.z. onbelast). Dit toont de publieke ruimte in eigendom bij de gemeente Amsterdam, waarbij op het eigendomsrecht van de gemeente geen andere, belastende eigendomsrechten (opstal en/of erfpacht) van andere partijen rusten en waarvoor de gemeente dus (volledig) verantwoordelijk is voor het beheer. Daar waar de gemeente niet volledig verantwoordelijk is, wordt het betreffende object niet getoond. 2) Selecteer in tabel beheerkaart_basis_kaart de rijen met attribuut agg_indicatie_belast_recht = TRUE (d.w.z. belast). Dit toont de publieke ruimte in eigendom bij de gemeente Amsterdam waarvoor de gemeente niet of niet volledig verantwoordelijk is voor het beheer, ten gevolge van de belastende eigendomsrechten (opstal en/of erfpacht) van andere partijen (andere overheden, organisaties of particulieren) op het eigendomsrecht van de gemeente.",
+  "version": "1.0.0",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam, Directie Data",
   "publisher": {
@@ -12,14 +12,14 @@
   },
   "creator": "Datateam Stedelijke Ontwikkeling en Beheer",
   "auth": "OPENBAAR",
-  "authorizationGrantor": "n.v.t.",
+  "authorizationGrantor": "datateamstedelijkeonwikkelingenbeheer@amsterdam.nl",
   "tables": [
     {
       "id": "kaart",
       "type": "table",
       "provenance": "bkt_beheerkaart_basis",
       "description": "Hoofdtabel beheerkaart_basis_kaart bevat de gecombineerde gegevens van alle BGT-objecten van geselecteerde BGT-objectklassen gerelateerd aan BRK-grondpercelen waarop op de peildatum een eigendomsrecht (eigendom, erfpacht en/of opstal) van de gemeente Amsterdam (inclusief Weesp) rust, dat niet zelf weer is belast door een ander zakelijk recht, ofwel dat wel is belast door een ander zakelijk recht, maar in dat laatste geval alleen door het recht van erfpacht en/of opstal.",
-      "version": "0.0.1",
+      "version": "1.0.0",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -137,51 +137,51 @@
             "description": "Vlak-coördinaten van het BGT-object."
           },
           "aggOppIntersectie": {
-            "description": "Totaal oppervlak van het deel van dit BGT-object dat overlapt met BRK-kadastraalobjecten waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "description": "Totaal oppervlak van het deel van dit BGT-object dat overlapt met BRK-kadastraalobjecten waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
             "type": "number"
           },
           "aggFractie": {
-            "description": "Totale fractie van het deel van dit BGT-object dat overlapt met BRK-kadastraalobjecten waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "description": "Totale fractie van het deel van dit BGT-object dat overlapt met BRK-kadastraalobjecten waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
             "type": "number"
           },
           "aggAantalPercelen": {
-            "description": "Totaal aantal met dit BGT-object overlappende BRK-kadastraalobjecten waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "description": "Totaal aantal met dit BGT-object overlappende BRK-kadastraalobjecten waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
             "type": "integer"
           },
           "aggGerelateerdePercelen": {
-            "description": "Alle identificaties van de met dit BGT-object overlappende BRK-kadastraalobjecten waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "description": "Alle identificaties van de met dit BGT-object overlappende BRK-kadastraalobjecten waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
             "type": "string"
           },
           "aggGrootstePerceel": {
-            "description": "Identificatie van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "description": "Identificatie van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
             "type": "string"
           },
           "aggAardZakelijkRechtCode": {
-            "description": "Aard zakelijk recht (code) van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "description": "Aard zakelijk recht (code) van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
             "type": "string"
           },
           "aggAardZakelijkRechtOmschr": {
-            "description": "Aard zakelijk recht (omschrijving) van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "description": "Aard zakelijk recht (omschrijving) van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
             "type": "string"
           },
           "aggIndicatieBelastRecht": {
-            "description": "Is het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht (eigendom, erfpacht, erfpacht-en-opstal of opstal) heeft, belast door een ander eigendomsrecht (erfpacht, erfpacht-en-opstal of opstal)?",
+            "description": "Is het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht (eigendom, erfpacht, erfpacht-en-opstal of opstal) heeft, belast door een ander eigendomsrecht (erfpacht, erfpacht-en-opstal of opstal)?",
             "type": "boolean"
           },
           "aggBelastDoorZrtCode": {
-            "description": "Belastend aard zakelijk recht (code) op het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "description": "Belastend aard zakelijk recht (code) op het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
             "type": "string"
           },
           "aggBelastDoorZrtOmschr": {
-            "description": "Belastend aard zakelijk recht (omschrijving) op het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "description": "Belastend aard zakelijk recht (omschrijving) op het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
             "type": "string"
           },
           "aggIndBetrokkenBijSplitsing": {
-            "description": "Is het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft, betrokken bij splitsing (true/false)?",
+            "description": "Is het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft, betrokken bij splitsing (true/false)?",
             "type": "boolean"
           },
           "kaartUrl": {
-            "description": "Kaart-URL van de vlakgeometrie van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam (inclusief Weesp) een (niet of beperkt belast) eigendomsrecht heeft.",
+            "description": "Kaart-URL van de vlakgeometrie van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
             "type": "string"
           }
         },
@@ -193,7 +193,7 @@
       "type": "table",
       "provenance": "bkt_eigendomsrecht",
       "description": "Hulptabel beheerkaart_basis_eigendomsrecht bevat alle BRK-grondpercelen waarop op de peildatum een eigendomsrecht (eigendom, erfpacht en/of opstal) van de gemeente Amsterdam (inclusief Weesp) rust, dat niet zelf weer is belast door een ander zakelijk recht, ofwel dat wel is belast door een ander zakelijk recht, maar in dat laatste geval alleen door het recht van erfpacht en/of opstal.",
-      "version": "0.0.1",
+      "version": "1.0.0",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -323,7 +323,7 @@
             "type": "integer"
           },
           "indicatieBelastRecht": {
-            "description": "Is het eigendomsrecht (eigendom, erfpacht, erfpacht-en-opstal of opstal) van dit BRK-grondperceel van de gemeente Amsterdam (inclusief Weesp) belast door een ander eigendomsrecht (erfpacht, erfpacht-en-opstal of opstal)?",
+            "description": "Is het eigendomsrecht (eigendom, erfpacht, erfpacht-en-opstal of opstal) van dit BRK-grondperceel van de gemeente Amsterdam belast door een ander eigendomsrecht (erfpacht, erfpacht-en-opstal of opstal)?",
             "type": "boolean"
           },
           "belastDoorZrtCode": {
@@ -351,7 +351,7 @@
       "type": "table",
       "provenance": "bkt_bgt",
       "description": "Hulptabel beheerkaart_basis_bgt bevat de gegevens van alle BGT-objecten van geselecteerde objectklassen en wordt gebruikt om samen met hulptabel beheerkaart_basis_eigendomsrecht de hoofdtabel beheerkaart_basis_kaart te vullen.",
-      "version": "0.0.1",
+      "version": "1.0.0",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
