@@ -3,7 +3,7 @@
   "type": "table",
   "version": "1.0.0",
   "title": "Tabel met postcode naar actuele gebiedsindeling van Amsterdam",
-  "description": "Postcodes kunnen in meerdere gebieden liggen. Deze tabel is ontdubbeld. Een postcode die in meerdere buurten ligt, is toegewezen aan één buurt. Als een postcode in meerdere buurten ligt is er ontdubbeld op volgorde van: meeste hoofdadressen, meeste adressen (inclusief nevenadressen), alfabetisch op buurt code. Meer data over de gebieden is op te halen via deze api: https://api.data.amsterdam.nl/v1/docs/datasets/gebieden.html",
+  "description": "Postcodes kunnen in meerdere gebieden liggen. Deze tabel is ontdubbeld. Een postcode die in meerdere buurten ligt, is toegewezen aan één buurt. Als een postcode in meerdere buurten ligt is er ontdubbeld op volgorde van: meeste hoofdadressen, meeste adressen (inclusief nevenadressen), alfabetisch op buurt code.",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -27,6 +27,10 @@
         "type": "string",
         "title": "Postcode"
       },
+      "ligtInBuurt": {
+        "type": "string",
+        "relation": "gebieden:buurten"
+      },
       "gebiedBuurtCode": {
         "type": "string",
         "title": "gebiedBuurtCode",
@@ -36,6 +40,10 @@
         "type": "string",
         "title": "gebiedBuurtNaam",
         "description": "Naam van de buurt"
+      },
+      "ligtInWijk": {
+        "type": "string",
+        "relation": "gebieden:wijken"
       },
       "gebiedWijkCode": {
         "type": "string",
@@ -47,6 +55,10 @@
         "title": "gebiedWijkNaam",
         "description": "Naam van de wijk"
       },
+      "ligtInGgwgebied": {
+        "type": "string",
+        "relation": "gebieden:ggwgebieden"
+      },
       "gebiedGgwCode": {
         "type": "string",
         "title": "gebiedGgwCode",
@@ -56,6 +68,10 @@
         "type": "string",
         "title": "gebiedGgwNaam",
         "description": "Naam van het gebiedsgericht werken gebied"
+      },
+      "ligtInStadsdeel": {
+        "type": "string",
+        "relation": "gebieden:stadsdelen"
       },
       "gebiedStadsdeelCode": {
         "type": "string",
