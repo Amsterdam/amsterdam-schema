@@ -1,4 +1,4 @@
-create or replace view public.verkenner_adresinformatie WITH (security_barrier) as
+create or replace view public.verkenner_adresinformatie_view WITH (security_barrier) as
 select
 bag_nummeraanduidingen.id as "id",
 bag_nummeraanduidingen.identificatie as "identificatie",
