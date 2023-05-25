@@ -1,0 +1,142 @@
+{
+  "type": "dataset",
+  "id": "storageaccountmetadata",
+  "title": "Metadata for storageaccounts",
+  "description": "Schema to decribe the contents of self-service storageaccounts.",
+  "license": "public",
+  "status": "beschikbaar",
+  "version": "1.0.0",
+  "theme": [],
+  "publisher": {
+    "$ref": "publishers/DADI"
+  },
+  "creator": "Gemeente Amsterdam",
+  "owner": "Gemeente Amsterdam",
+  "auth": "OPENBAAR",
+  "authorizationGrantor": "Team Datadiensten",
+  "keywords": [
+    "metadata storageaccounts"
+  ],
+  "tables": [
+    {
+      "id": "storageaccount",
+      "title": "Storage account",
+      "type": "table",
+      "version": "1.0.0",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "id": "container",
+      "title": "Container",
+      "type": "table",
+      "version": "1.0.0",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "storageaccount": {
+            "type": "string",
+            "relation": "storageaccountmetadata:storageaccount"
+          }
+        }
+      }
+    },
+    {
+      "id": "blob",
+      "title": "Blob",
+      "type": "table",
+      "description": "The properties are the mandatory DCAT properties.",
+      "version": "1.0.0",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identifier": {
+            "type": "string",
+            "title": "dcat identifier"
+          },
+          "title": {
+            "type": "string",
+            "title": "dcat title"
+          },
+          "description": {
+            "type": "string",
+            "title": "dcat description"
+          },
+          "metadataLanguage": {
+            "type": "string",
+            "title": "dcat metadataLanguage"
+          },
+          "language": {
+            "type": "string",
+            "title": "dcat language"
+          },
+          "theme": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "title": "dcat thema"
+          },
+          "authority": {
+            "type": "string",
+            "title": "dcat authority"
+          },
+          "publisher": {
+            "type": "string",
+            "title": "dcat publisher"
+          },
+          "contactPoint": {
+            "type": "string",
+            "title": "dcat contactPoint"
+          },
+          "container": {
+            "type": "string",
+            "relation": "storageaccountmetadata:container"
+          }
+        }
+      }
+    }
+  ]
+}
