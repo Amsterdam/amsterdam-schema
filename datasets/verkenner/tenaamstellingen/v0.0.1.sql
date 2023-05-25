@@ -1,4 +1,4 @@
-create or replace view public.verkenner_tenaamstellingen as
+create or replace view public.verkenner_tenaamstellingen WITH (security_barrier) as
 select
 brk_tenaamstellingen.id as "id",
 brk_tenaamstellingen.neuron_id as "neuron_id",
