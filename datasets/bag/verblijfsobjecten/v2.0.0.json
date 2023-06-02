@@ -139,6 +139,7 @@
       },
       "status": {
         "type": "string",
+        "provenance": "$.status.omschrijving",
         "description": "De fase van de levenscyclus van een verblijfsobject, waarin het betreffende VERBLIJFSOBJECT zich bevindt."
       },
       "ligtInBagPanden": {
@@ -225,6 +226,7 @@
       },
       "gebruiksdoelGezondheidszorgfunctie": {
         "type": "string",
+        "provenance": "$.gebruiksdoelGezondheidszorgfunctie.omschrijving",
         "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject."
       },
       "aantalEenhedenComplex": {
@@ -258,6 +260,7 @@
       },
       "eigendomsverhouding": {
         "type": "string",
+        "provenance": "$.eigendomsverhouding.omschrijving",
         "description": "Geeft de eigendomsverhouding aan."
       },
       "feitelijkGebruikCode": {
@@ -283,14 +286,17 @@
       },
       "redenopvoer": {
         "type": "string",
+        "provenance": "$.redenopvoer.omschrijving",
         "description": "Reden van de opvoer van het verblijfsobject."
       },
       "redenafvoerCode": {
         "type": "integer",
+        "provenance": "$.redenafvoer.code",
         "description": "VERWIJDEREN"
       },
       "redenafvoer": {
         "type": "string",
+        "provenance": "$.redenafvoer.omschrijving",
         "description": "Reden van de afvoer van het verblijfsobject."
       },
       "ligtInGebiedenBuurt": {
@@ -321,6 +327,7 @@
             "type": "string"
           }
         },
+        "provenance": "$.heeftBagDossier.identificatie",
         "relation": "bag:dossiers",
         "description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie."
       },
@@ -331,6 +338,7 @@
       },
       "bagproces": {
         "type": "string",
+        "provenance": "$.bagproces.omschrijving",
         "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis."
       },
       "datumActueelTot": {
