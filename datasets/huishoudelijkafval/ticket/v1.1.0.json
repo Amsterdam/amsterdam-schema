@@ -1,6 +1,6 @@
 {
   "id": "ticket",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "table",
   "provenance": "afval_api_ticket",
   "schema": {
@@ -15,7 +15,7 @@
     "display": "id",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
       },
       "id": {
         "type": "integer",
@@ -73,9 +73,21 @@
         "type": "integer",
         "description": "De toegestane responstijd voor deze prioriteit. "
       },
+      "probleem": {
+        "type": "string",
+        "description": "De naam van het probleem."
+      },
       "probleemmoduleNaam": {
         "type": "string",
         "description": "De naam van de probleemmodule."
+      },
+      "oorzaak": {
+        "type": "string",
+        "description": "De naam van de oorzaak."
+      },
+      "oplossingk": {
+        "type": "string",
+        "description": "De naam van de oplossing."
       },
       "onderhoudsbedrijf": {
         "type": "string",
