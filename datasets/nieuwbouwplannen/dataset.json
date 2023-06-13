@@ -1,0 +1,189 @@
+{
+    "id": "nieuwbouwplannen",
+    "type": "dataset",
+    "title": "Nieuwbouwplannen",
+    "description": "Nieuwbouwplannen van de gemeente Amsterdam",
+    "dateCreated": "2023-06-08T00:00:00+01:00",
+    "dateModified": "2023-06-08T00:00:00+01:00",
+    "license": "Creative Commons, Naamsvermelding",
+    "homepage": "https://data.amsterdam.nl",
+    "language": "nl",
+    "status": "beschikbaar",
+    "version": "1.0.0",
+    "objective": "De gegevensdienst betreft de verstrekking van gegevens over de locaties waar mogelijk nieuwe woningen gebouwd zullen gaan worden en het programma en tijdsplanning van desbetreffende woningbouwplannen.",
+    "temporalUnit": "uren",
+    "creator": "Datateam stedelijke ontwikkeling en beheer",
+    "publisher": {
+      "$ref": "publishers/SOEB"
+    },
+    "accrualPeriodicity": "Per kwartaal",
+    "spatialDescription": "Gemeente Amsterdam",
+    "theme": [
+      "Wonen",
+      "Ruimte en Topografie"
+    ],
+    "owner": "Gemeente Amsterdam, Directie Grond & Ontwikkeling",
+    "auth": "OPENBAAR",
+    "authorizationGrantor": "datateamstedelijkeonwikkelingenbeheer@amsterdam.nl",
+    "keywords": [
+      "Nieuwbouw",
+      "Woningen",
+      "Stedelijke ontwikkeling"
+    ],
+    "hasBeginning": "2020-04-08T00:00:00+01:00",
+    "crs": "EPSG:28992",
+    "tables": [
+      {
+        "id": "nieuwbouwplannen",
+        "type": "table",
+        "version": "1.0.0",
+        "title": "Nieuwbouwplannen",
+        "schema": {
+          "required": [
+            "id",
+            "schema"
+          ],
+          "display": "naam",
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "Peildatum": {
+              "type": "string",
+              "description": "Peildatum van het bestand",
+              "format": "date"
+            },
+            "id": {
+              "type": "number",
+              "description": "ID van het project in het Basisbestand"
+            },
+            "projectnaamAfkorting": {
+              "type": "string",
+              "description": "Projectnaam",
+              "format": "date"
+            },
+            "buurtcode": {
+              "type": "string",
+              "description": "Code van de buurt"
+            },
+            "buurtNaam": {
+                "type": "String",
+              "description": "Naam van de buurt"
+            },
+            "wijkCode": {
+                "type": "string",
+                "description": "Code van de wijk"
+              },
+              "wijkNaam": {
+                "type": "string",
+                "description": "Naam van de wijk"
+              },
+              "gebiedCode": {
+                "type": "string",
+                "description": "Code van het gebied"
+              },
+              "gebiedNaam": {
+                "type": "string",
+                "description": "Naam van het gebied"
+              },
+              "stadsdeelCode": {
+                "type": "string",
+                "description": "Code van het stadsdeel"
+              },
+              "stadsdeelNaam": {
+                "type": "string",
+                "description": "Naam van het stadsdeel"
+              },
+              "socialeHuurZelfstPerm": {
+                "type": "number",
+                "description": "Aantal zelfstandige permanente sociale huurwoningen"
+              },
+              "middeldureHuur": {
+                "type": "number",
+                "description": "Aantal middeldure huurwoningen"
+              },
+              "socialeKoop": {
+                "type": "number",
+                "description": "Aantal sociale koopwoningen"
+              },
+              "vrijeSectorHuur": {
+                "type": "number",
+                "description": "Aantal vrije sector huurwoningen"
+              },
+              "vrijeSectorKoop": {
+                "type": "number",
+                "description": "Aantal vrije sector koopwoningen"
+              },
+              "vrijeSectorNb": {
+                "type": "number",
+                "description": "Aantal vrije sector woningen waarvan later nog wordt bepaald of dit koop of huur wordt"
+              },
+              "onbekend": {
+                "type": "number",
+                "description": "Aantal woningen waarvan de segmentering onbekend is"
+              },
+              "jongeren": {
+                "type": "number",
+                "description": "Aantal jongerenwoningen"
+              },
+              "studenten": {
+                "type": "number",
+                "description": "Aantal studentenwoningen"
+              },
+              "shOnzelfstTijdelijk": {
+                "type": "number",
+                "description": "Aantal onzelfstandig en/of tijdelijke sociale huurwoningen"
+              },
+              "onzelfstandig": {
+                "type": "number",
+                "description": "Aantal onzelfstandige woningen"
+              },
+              "tijdelijk": {
+                "type": "number",
+                "description": "Aantal tijdelijke woningen"
+              },
+              "totaal": {
+                "type": "number",
+                "description": "Totaal aantal woningen incl. onzelfstandige en/of tijdelijke woningen"
+              },
+              "totaalZelfstPerm": {
+                "type": "number",
+                "description": "Totaal aantal zelfstandige en permanente woningen"
+              },
+              "zelfbouw": {
+                "type": "String",
+                "description": "Zelfbouwproject"
+              },
+              "socialeHuurCorporatie": {
+                "type": "String",
+                "description": "Woningcorporatie betrokken bij de ontwikkeling van de sociale huurwoningen"
+              },
+              "plaberumPublicatie": {
+                "type": "String",
+                "description": "Plaberumfase"
+              },
+              "startBouwGepland": {
+                "type": "string",
+                "description": "Datum waarop start bouw van het project gepland staat",
+                "format": "date"
+              },
+              "startBouwGerealiseerd": {
+                "type": "string",
+                "description": "Datum waarop start van het project is gerealiseerd",
+                "format": "date"
+              },
+              "wktGeom": {
+                "description": "Geometrie van het type MULTIPOLYGON van het nieuwbouwproject",
+                "$ref": "https://geojson.org/schema/MultiPolygon.json"
+              },
+
+
+            "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            }
+          }
+        }
+      }
+    ]
+  }
+  
