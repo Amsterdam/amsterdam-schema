@@ -8,18 +8,17 @@
   "version": "1.0.0",
   "creator": "Datateam stedelijke ontwikkeling en beheer",
   "owner": "Gemeente Amsterdam, Directie Grond & Ontwikkeling",
-  "auth": "OPENBAAR",
-  "authorizationGrantor": "datateamstedelijkeonwikkelingenbeheer@amsterdam.nl",
   "publisher": {
     "$ref": "publishers/SOEB"
   },
+  "auth": "OPENBAAR",
+  "authorizationGrantor": "datateamstedelijkeonwikkelingenbeheer@amsterdam.nl",
   "tables": [
     {
       "id": "projecten",
+      "title": "Nieuwbouwplannen",
       "type": "table",
       "version": "1.0.0",
-      "title": "Nieuwbouwplannen",
-      "description": "Nieuwbouwplannen van de gemeente Amsterdam",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -152,7 +151,7 @@
             "description": "Datum waarop start van het project is gerealiseerd",
             "format": "date"
           },
-          "wktGeom": {
+          "geometrie": {
             "description": "Geometrie van het type MULTIPOLYGON van het nieuwbouwproject",
             "$ref": "https://geojson.org/schema/MultiPolygon.json"
           }
