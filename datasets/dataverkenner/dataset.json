@@ -1,0 +1,45 @@
+{
+  "type": "dataset",
+  "id": "dataverkenner",
+  "status": "niet_beschikbaar",
+  "crs": "EPSG:28992",
+  "owner": "Gemeente Amsterdam",
+  "publisher": {
+    "$ref": "publishers/Datateam Basis- en Kernregistraties"
+  },
+  "creator": "Basisinformatie",
+  "auth": "OPENBAAR",
+  "version": "0.0.1",
+  "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
+  "description": "De Basisregistratie | Toegewijde weergaven BAG en BRK bevat informatie nodig voor implementatie op het Data Verkenner platform.",
+  "tables": [
+    {
+      "id": "adresinformatie",
+      "$ref": "bag/adresinformatie/v0.0.1",
+      "activeVersions": {
+        "0.0.1": "bag/adresinformatie/v0.0.1"
+      }
+    },
+    {
+        "id": "panden",
+        "$ref": "bag/panden/v0.0.1",
+        "activeVersions": {
+          "0.0.1": "bag/panden/v0.0.1"
+        }
+    },
+    {
+      "id": "zoek",
+      "$ref": "bag/zoek/v0.0.1",
+      "activeVersions": {
+        "0.0.1": "bag/zoek/v0.0.1"
+      }
+  },
+    {
+      "id": "brk",
+      "$ref": "brk/v0.0.1",
+      "activeVersions": {
+        "0.0.1": "brk/v0.0.1"
+      }
+    }
+  ]
+}

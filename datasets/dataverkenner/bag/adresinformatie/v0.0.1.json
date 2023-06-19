@@ -1,0 +1,272 @@
+{
+  "type": "table",
+  "id": "adresinformatie",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "auth": "OPENBAAR",
+  "derivedFrom": [
+    "bag:nummeraanduidingen",
+    "bag:openbareruimtes",
+    "bag:woonplaatsen",
+    "bag:verblijfsobjecten",
+    "bag:ligplaatsen",
+    "bag:standplaatsen",
+    "bag:panden",
+    "gebieden:buurten",
+    "gebieden:wijken",
+    "gebieden:stadsdelen",
+    "gebieden:ggwgebieden",
+    "gebieden:bouwblokken",
+    "bag:verblijfsobjecten_gebruiksdoel",
+    "bag:onderzoeken"
+  ],
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "verblijfsobjectGeometrie",
+    "identifier": [
+      "identificatie",
+      "volgnummer"
+    ],
+    "required": [
+      "schema",
+      "identificatie",
+      "volgnummer"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "Landelijke identificerende sleutel."
+      },
+      "volgnummer": {
+        "type": "integer",
+        "description": "Uniek volgnummer van de toestand van het object."
+      },
+      "huisnummer": {
+        "type": "integer",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering."
+      },
+      "huisletter": {
+        "type": "string",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken."
+      },
+      "huisnummertoevoeging": {
+        "type": "string",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter."
+      },
+      "postcode": {
+        "type": "string",
+        "description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)."
+      },
+      "typeAdresseerbaarObjectOmschrijving": {
+        "type": "string",
+        "description": "Het type adresseerbaar object waaraan een nummeraanduiding is toegekend. omschrijving"
+      },
+      "typeAdres": {
+        "type": "string",
+        "description": "Hiermee wordt aangegeven of het een relatie betreft vanuit een hoofdadres. Anders is er sprake van een nevenadres (Hoofdadres, Nevenadres)."
+      },
+      "adresseertVerblijfsobjectIdentificatie": {
+        "type": "string",
+        "description": "Het verblijfsobject (landelijke identificatie) dat door de nummeraanduiding wordt aangeduid."
+      },
+      "openbareruimteIdentificatie": {
+        "type": "string",
+        "description": "Landelijke identificerende sleutel."
+      },
+      "openbareruimteTypeOmschrijving": {
+        "type": "string",
+        "description": "De aard van de zodanig benoemde openbare ruimte (01 Weg, 02 Water, 03 Spoorbaan, 04 Terrein, 05 Kunstwerk, 06 Landschappelijk gebied, 07 Administratief gebied) omschrijving"
+      },
+      "openbareruimteNaam": {
+        "type": "string",
+        "description": "Officiële naam openbare ruimte (80 tekens)."
+      },
+      "woonplaatsNaam": {
+        "type": "string",
+        "description": "Officiële naam woonplaats."
+      },
+      "verblijfsobjectIdentificatie": {
+        "type": "string",
+        "description": "Landelijke identificerende sleutel."
+      },
+      "verblijfsobjectGeconstateerd": {
+        "type": "boolean",
+        "description": "Dit geeft aan dat een VERBLIJFSOBJECT in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument (J/N)."
+      },
+      "verblijfsobjectGeometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "De locatie van het verblijfsobject in het Nationale Rijksdriehoekstelsel."
+      },
+      "verblijfsobjectOppervlakte": {
+        "type": "integer",
+        "description": "De gebruiksoppervlakte van het verblijfsobject conform hetgeen in NEN 2580 is vastgelegd omtrent gebruiksoppervlakte."
+      },
+      "verblijfsobjectStatusOmschrijving": {
+        "type": "string",
+        "description": "De fase van de levenscyclus van een verblijfsobject, waarin het betreffende VERBLIJFSOBJECT zich bevindt. omschrijving"
+      },
+      "verblijfsobjectGebruiksdoelWoonfunctieOmschrijving": {
+        "type": "string",
+        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. omschrijving"
+      },
+      "verblijfsobjectGebruiksdoelGezondheidszorgfunctie": {
+        "type": "string",
+        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. omschrijving"
+      },
+      "verblijfsobjectAantalEenhedenComplex": {
+        "type": "integer",
+        "description": "Aantal eenheden complex per verblijfsobject (alléén bij een speciale  woonfunctie of gezondheidszorgfunctie; zie gebruiksdoel-plus)."
+      },
+      "verblijfsobjectVerdiepingToegang": {
+        "type": "integer",
+        "description": "Aanduiding op welke verdieping zich de toegang tot het verblijfsobject bevindt."
+      },
+      "verblijfsobjectAantalBouwlagen": {
+        "type": "integer",
+        "description": "Aantal bouwlagen van een verblijfsobject."
+      },
+      "verblijfsobjectHoogsteBouwlaag": {
+        "type": "integer",
+        "description": "Hoogste bouwlaag van een verblijfsobject."
+      },
+      "verblijfsobjectLaagsteBouwlaag": {
+        "type": "integer",
+        "description": "Laagste bouwlaag van een verblijfsobject."
+      },
+      "verblijfsobjectAantalKamers": {
+        "type": "integer",
+        "description": "Geeft het aantal kamers aan binnen het verblijfsobject."
+      },
+      "verblijfsobjectEigendomsverhoudingOmschrijving": {
+        "type": "string",
+        "description": "Geeft de eigendomsverhouding aan (huur of eigendom). omschrijving"
+      },
+      "verblijfsobjectFeitelijkGebruikOmschrijving": {
+        "type": "string",
+        "description": "Feitelijk gebruik van een verblijfsobject. omschrijving"
+      },
+      "verblijfsobjectRedenopvoerOmschrijving": {
+        "type": "string",
+        "description": "Reden van de opvoer van het verblijfsobject. omschrijving"
+      },
+      "verblijfsobjectRedenafvoerOmschrijving": {
+        "type": "string",
+        "description": "Reden van de afvoer van het verblijfsobject. omschrijving"
+      },
+      "OnderzoekenObjectIdentificatie": {
+        "type": "string",
+        "description": "Identificerende nummer van het object dat in onderzoek is geplaatst."
+      },
+      "OnderzoekenInOnderzoek": {
+        "type": "string",
+        "description": "Indicatie of het kenmerk wel of niet in onderzoek staat."
+      },
+      "ligplaatsIdentificatie": {
+        "type": "string",
+        "description": "Landelijke identificerende sleutel."
+      },
+      "ligplaatsGeconstateerd": {
+        "type": "boolean",
+        "description": "Dit geeft aan dat een LIGPLAATS in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument."
+      },
+      "ligplaatsStatusOmschrijving": {
+        "type": "string",
+        "description": "De fase van de levenscyclus van een ligplaats, waarin de betreffende ligplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. omschrijving"
+      },
+      "ligplaatsGeometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Vorm en ligging van de ligplaats in het Nationale Rijksdriehoekstelsel."
+      },
+      "standplaatsIdentificatie": {
+        "type": "string",
+        "description": "Landelijke identificerende sleutel."
+      },
+      "standplaatsGeconstateerd": {
+        "type": "boolean",
+        "description": "Dit geeft aan dat een STANDPLAATS in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument."
+      },
+      "standplaatsStatusOmschrijving": {
+        "type": "string",
+        "description": "De fase van de levenscyclus van een standplaats, waarin de betreffende standplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. omschrijving"
+      },
+      "standplaatsGeometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Vorm en ligging van de standplaats in het Nationale Rijksdriehoekstelsel."
+      },
+      "gebiedenBuurtIdentificatie": {
+        "type": "string",
+        "description": "Unieke identificatie van het object."
+      },
+      "gebiedenBuurtNaam": {
+        "type": "string",
+        "description": "De naam van het object."
+      },
+      "gebiedenBuurtCode": {
+        "type": "string",
+        "description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode en wijkcode."
+      },
+      "gebiedenWijkIdentificatie": {
+        "type": "string",
+        "description": "Unieke identificatie van het object."
+      },
+      "gebiedenWijkNaam": {
+        "type": "string",
+        "description": "De naam van het object."
+      },
+      "gebiedenWijkCode": {
+        "type": "string",
+        "description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode en wijkcode."
+      },
+      "gebiedenStadsdeelIdentificatie": {
+        "type": "string",
+        "description": "Unieke identificatie van het object."
+      },
+      "gebiedenStadsdeelNaam": {
+        "type": "string",
+        "description": "De naam van het object."
+      },
+      "gebiedenStadsdeelCode": {
+        "type": "string",
+        "description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode en wijkcode."
+      },
+      "gebiedenGgwgebiedIdentificatie": {
+        "type": "string",
+        "description": "Unieke identificatie van het object."
+      },
+      "gebiedenGgwgebiedNaam": {
+        "type": "string",
+        "description": "De naam van het object."
+      },
+      "gebiedenGgwgebiedCode": {
+        "type": "string",
+        "description": "De code van het object."
+      },
+      "pandIdentificatie": {
+        "type": "string",
+        "description": "Landelijke identificerende sleutel."
+      },
+      "gebiedenBouwblokIdentificatie": {
+        "type": "string",
+        "description": "Unieke identificatie van het object."
+      },
+      "gebiedenBouwblokCode": {
+        "type": "string",
+        "description": "Officiële code van het object."
+      },
+      "gebruiksdoelParentId": {
+        "type": "string",
+        "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan."
+      },
+      "gebruiksdoelOmschrijving": {
+        "type": "string",
+        "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan."
+      }
+    }
+  }
+}
