@@ -134,7 +134,7 @@
             }
           }
         },
-      "$comment": "relation handelsregister:persoon"
+        "$comment": "relation handelsregister:persoon"
       },
       "onderneming": {
         "type": "string",
@@ -238,21 +238,107 @@
           "description": "Handelsnaam van de niet-commerciële of commerciële VES"
         }
       },
-      "afgeschermd": {
-        "type": "boolean",
-        "description": "Geeft aan of het adres afgeschermd is of niet."
+      "communicatie": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "toegangscode": {
+              "type": "string",
+              "description": "internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft"
+            },
+            "nummer": {
+              "type": "integer",
+              "description": "telefoon- of faxnummer zonder opmaak"
+            },
+            "soort": {
+              "type": "string",
+              "description": "geeft aan of het communicatienummer een telefoon- of een faxnummer betreft"
+            }
+          }
+        }
       },
-      "toevoegingAdres": {
-        "type": "string",
-        "description": "Vrije tekst om een Adres nader aan te kunnen duiden. Het gaat hier bijvoorbeeld om bedrijfsverzamelgebouwen waarbij meerdere vestigingen op hetzelfde adres zitten en waarbij onderscheid gemaakt kan worden door een extra omschrijving van de locatie. Ook een locatieOmschrijving en aanduidingBijHuisnummer uit de BRP wordt hiermee doorgegeven."
+      "emailAdressen": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "emailAdres": {
+              "type": "string",
+              "description": "e-mailadres waarop de ondernemer gemaild kan worden"
+            }
+          }
+        }
       },
-      "volledigAdres": {
-        "type": "string",
-        "description": "Samengesteld adres dat wordt afgeleid van de overige adresgegevens."
+      "domeinnamen": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "domeinnaam": {
+              "type": "string",
+              "description": "internetadres (web site)"
+            }
+          }
+        }
       },
-      "typeLocatie": {
-        "type": "string",
-        "description": "Indicatie of dit een bezoeklocatie of een postlocatie betreft"
+      "bezoekLocatie": {
+        "type": "object",
+        "properties": {
+          "afgeschermd": {
+            "type": "string",
+            "description": "Geeft aan of het adres afgeschermd is of niet."
+          },
+          "toevoegingAdres": {
+            "type": "string",
+            "description": "Vrije tekst om een Locatie nader te kunnen duiden. Bijvoorbeeld om bedrijfsverzamelgebouwen met meerdere vestigingen"
+          },
+          "volledigAdres": {
+            "type": "string",
+            "description": "Samengesteld adres dat wordt afgeleid van de overige adresgegevens."
+          },
+          "straatnaam": {
+            "type": "string",
+            "description": "De straat van het binnenlandse adres"
+          },
+          "huisnummer": {
+            "type": "integer",
+            "description": "Het huisnummer van het adres"
+          },
+          "huisletter": {
+            "type": "string",
+            "description": "De huisletter van het binnenlandse adres die die door de gemeente is toegekend aan het huisnummer"
+          },
+          "huisnummerToevoeging": {
+            "type": "string",
+            "description": "Een toevoeging van het huisnummer van het binnenlandse adres"
+          },
+          "postcode": {
+            "type": "string",
+            "description": "De postcode van het binnenlandse adres, waarbij minimaal de vier cijfers bekend zijn"
+          },
+          "plaats": {
+            "type": "string",
+            "description": "De plaatsaanduiding van het binnenlandse adres"
+          },
+          "straatHuisnummerBuitenland": {
+            "type": "string",
+            "description": "Het straat/huisnummer is een combinatie van de straat en het huisnummer van het buitenlandse adres"
+          },
+          "postcodePlaatsBuitenland": {
+            "type": "string",
+            "description": "De postcode/woonplaats is de combinatie van een eventuele postcode en woonplaats van het buitenlandse adres"
+          },
+          "regioBuitenland": {
+            "type": "string",
+            "description": "Regio is een deel van het land (streek, provincie, etc.) van het buitenlandse adres"
+          },
+          "landBuitenland": {
+            "type": "string",
+            "description": "De naam van het land waar het adres zich bevindt"
+          }
+        },
+        "description": "De locatiegegevens van de bezoekLocatie"
       },
       "heeftNummeraanduiding": {
         "type": "object",
@@ -306,49 +392,67 @@
         "$comment": "relation bag:standplaatsen",
         "description": "Met welke standplaats heeft de locatie een relatie."
       },
-      "straatnaam": {
-        "type": "string",
-        "description": "De straat van het binnenlandse adres."
-      },
-      "huisnummer": {
-        "type": "integer",
-        "description": "Het huisnummer van het adres."
-      },
-      "huisletter": {
-        "type": "string",
-        "description": "De huisletter van het binnenlandse adres die die door de gemeente is toegekend aan het huisnummer."
-      },
-      "huisnummerToevoeging": {
-        "type": "string",
-        "description": "Een toevoeging van het huisnummer van het binnenlandse adres."
-      },
-      "postbusnummer": {
-        "type": "string",
-        "description": "Het nummer van de postbus behorende bij het binnenlandse adres."
-      },
-      "postcode": {
-        "type": "string",
-        "description": "De postcode van het binnenlandse adres, waarbij minimaal de vier cijfers bekend zijn."
-      },
-      "plaats": {
-        "type": "string",
-        "description": "De plaatsaanduiding van het binnenlandse adres. Dit komt overeen met het gemeentedeel in de basisregistratie personen."
-      },
-      "straatHuisnummerBuitenland": {
-        "type": "string",
-        "description": "Het straat/huisnummer is een combinatie van de straat en het huisnummer van het buitenlandse adres."
-      },
-      "postcodePlaatsBuitenland": {
-        "type": "string",
-        "description": "De postcode/woonplaats is de combinatie van een eventuele postcode en woonplaats van het buitenlandse adres."
-      },
-      "regioBuitenland": {
-        "type": "string",
-        "description": "Regio is een deel van het land (streek, provincie, etc.) van het buitenlandse adres."
-      },
-      "landBuitenland": {
-        "type": "string",
-        "description": "De naam van het land waar het adres zich bevindt."
+      "postLocatie": {
+        "type": "object",
+        "properties": {
+          "afgeschermd": {
+            "type": "string",
+            "description": "Geeft aan of het adres afgeschermd is of niet."
+          },
+          "toevoegingAdres": {
+            "type": "string",
+            "description": "Vrije tekst om een Locatie nader te kunnen duiden. Bijvoorbeeld om bedrijfsverzamelgebouwen met meerdere vestigingen"
+          },
+          "volledigAdres": {
+            "type": "string",
+            "description": "Samengesteld adres dat wordt afgeleid van de overige adresgegevens."
+          },
+          "straatnaam": {
+            "type": "string",
+            "description": "De straat van het binnenlandse adres"
+          },
+          "huisnummer": {
+            "type": "integer",
+            "description": "Het huisnummer van het adres"
+          },
+          "huisletter": {
+            "type": "string",
+            "description": "De huisletter van het binnenlandse adres die die door de gemeente is toegekend aan het huisnummer"
+          },
+          "huisnummerToevoeging": {
+            "type": "string",
+            "description": "Een toevoeging van het huisnummer van het binnenlandse adres"
+          },
+          "postbusnummer": {
+            "type": "string",
+            "description": "Het nummer van de postbus behorende bij het binnenlandse adres"
+          },
+          "postcode": {
+            "type": "string",
+            "description": "De postcode van het binnenlandse adres, waarbij minimaal de vier cijfers bekend zijn"
+          },
+          "plaats": {
+            "type": "string",
+            "description": "De plaatsaanduiding van het binnenlandse adres"
+          },
+          "straatHuisnummerBuitenland": {
+            "type": "string",
+            "description": "Het straat/huisnummer is een combinatie van de straat en het huisnummer van het buitenlandse adres"
+          },
+          "postcodePlaatsBuitenland": {
+            "type": "string",
+            "description": "De postcode/woonplaats is de combinatie van een eventuele postcode en woonplaats van het buitenlandse adres"
+          },
+          "regioBuitenland": {
+            "type": "string",
+            "description": "Regio is een deel van het land (streek, provincie, etc.) van het buitenlandse adres"
+          },
+          "landBuitenland": {
+            "type": "string",
+            "description": "De naam van het land waar het adres zich bevindt"
+          }
+        },
+        "description": "De locatiegegevens van de postLocatie"
       }
     }
   }
