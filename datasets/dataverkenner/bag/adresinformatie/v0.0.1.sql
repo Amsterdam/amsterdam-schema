@@ -69,7 +69,6 @@ gebieden_bouwblokken.volgnummer as "gebieden_bouwblok_volgnummer",
 gebieden_bouwblokken.code as "gebieden_bouwblok_code",
 bag_panden.identificatie as "pand_identificatie",
 bag_panden.volgnummer as "pand_volgnummer",
-bag_verblijfsobjecten_gebruiksdoel.parent_id as "gebruiksdoel_parent_id",
 bag_verblijfsobjecten_gebruiksdoel.omschrijving as "gebruiksdoel_omschrijving"
 from bag_nummeraanduidingen
 left join bag_openbareruimtes on bag_nummeraanduidingen.ligt_aan_openbareruimte_id = bag_openbareruimtes.id
