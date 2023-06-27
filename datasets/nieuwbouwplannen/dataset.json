@@ -33,16 +33,11 @@
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
-          "peildatum": {
-            "type": "string",
-            "description": "Peildatum van het bestand",
-            "format": "date"
-          },
           "id": {
             "type": "integer",
             "description": "Unieke aanduiding van nieuwbouwproject"
           },
-          "id_primavera": {
+          "idPrimavera": {
             "type": "integer",
             "description": "ID van het project in Primavera"
           },
@@ -86,7 +81,7 @@
             "type": "string",
             "description": "Nummer grondexploitatie"
           },
-          "gebiedsindeling_primavera": {
+          "gebiedsindelingPrimavera": {
             "type": "string",
             "description": "Gebiedsindeling uit Primavera"
           },
@@ -168,12 +163,17 @@
             "description": "Datum waarop start van het project is gerealiseerd",
             "format": "date"
           },
-          "oplevering_gepland": {
+          "opleveringGepland": {
             "type": "string",
             "description": "Datum waarop oplevering van het project gepland staat",
             "format": "date"
           },
-          "wkt_geom": {
+          "peildatum": {
+            "type": "string",
+            "description": "Peildatum van het bestand",
+            "format": "date"  
+          },
+          "geometrie": {
             "description": "Geometrie van het type MULTIPOLYGON van het nieuwbouwproject",
             "$ref": "https://geojson.org/schema/MultiPolygon.json"
           }
