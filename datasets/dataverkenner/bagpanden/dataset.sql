@@ -1,5 +1,5 @@
-create or replace view public.dataverkenner_panden WITH (security_barrier) as
-select 
+create or replace view public.dataverkenner_bagpanden WITH (security_barrier) as
+select
 bag_panden.identificatie as "pand_identificatie",
 bag_panden.volgnummer as "pand_volgnummer",
 bag_panden.registratiedatum as "pand_registratiedatum",
@@ -49,5 +49,5 @@ left join bag_verblijfsobjecten on bag_verblijfsobjecten_ligt_in_panden.verblijf
 left join gebieden_buurten on bag_verblijfsobjecten.ligt_in_buurt_id=gebieden_buurten.id
 left join gebieden_wijken on gebieden_buurten.ligt_in_wijk_id = gebieden_wijken.id
 left join gebieden_stadsdelen on gebieden_wijken.ligt_in_stadsdeel_id = gebieden_stadsdelen.id
-left join gebieden_ggwgebieden on gebieden_buurten.ligt_in_ggwgebied_id = gebieden_ggwgebieden.id 
+left join gebieden_ggwgebieden on gebieden_buurten.ligt_in_ggwgebied_id = gebieden_ggwgebieden.id
 left join gebieden_bouwblokken on bag_panden.ligt_in_bouwblok_id=gebieden_bouwblokken.id;

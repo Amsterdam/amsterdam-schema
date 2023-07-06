@@ -1,5 +1,4 @@
--- Create view for default address infromations
-create or replace view public.dataverkenner_adresinformatie WITH (security_barrier) as
+create or replace view public.dataverkenner_bagadresinformatie WITH (security_barrier) as
 select
 bag_nummeraanduidingen.identificatie as "identificatie",
 bag_nummeraanduidingen.volgnummer as "volgnummer",
@@ -72,20 +71,20 @@ bag_panden.volgnummer as "pand_volgnummer",
 bag_verblijfsobjecten_gebruiksdoel.omschrijving as "gebruiksdoel_omschrijving"
 from bag_nummeraanduidingen
 left join bag_openbareruimtes on bag_nummeraanduidingen.ligt_aan_openbareruimte_id = bag_openbareruimtes.id
-left join bag_woonplaatsen on bag_nummeraanduidingen.ligt_in_woonplaats_id = bag_woonplaatsen.id 
+left join bag_woonplaatsen on bag_nummeraanduidingen.ligt_in_woonplaats_id = bag_woonplaatsen.id
 left join bag_verblijfsobjecten on bag_nummeraanduidingen.adresseert_verblijfsobject_id=bag_verblijfsobjecten.id
-left join bag_ligplaatsen on bag_nummeraanduidingen.adresseert_ligplaats_id = bag_ligplaatsen.id 
-left join bag_standplaatsen on bag_nummeraanduidingen.adresseert_standplaats_id = bag_standplaatsen.id 
+left join bag_ligplaatsen on bag_nummeraanduidingen.adresseert_ligplaats_id = bag_ligplaatsen.id
+left join bag_standplaatsen on bag_nummeraanduidingen.adresseert_standplaats_id = bag_standplaatsen.id
 left join bag_onderzoeken on bag_verblijfsobjecten.identificatie = bag_onderzoeken.object_identificatie
 OR bag_standplaatsen.identificatie = bag_onderzoeken.object_identificatie
 OR bag_ligplaatsen.identificatie = bag_onderzoeken.object_identificatie
-left join gebieden_buurten on bag_verblijfsobjecten.ligt_in_buurt_id=gebieden_buurten.id 
-OR bag_standplaatsen.ligt_in_buurt_id = gebieden_buurten.id 
+left join gebieden_buurten on bag_verblijfsobjecten.ligt_in_buurt_id=gebieden_buurten.id
+OR bag_standplaatsen.ligt_in_buurt_id = gebieden_buurten.id
 OR bag_ligplaatsen.ligt_in_buurt_id = gebieden_buurten.id
 left join gebieden_wijken on gebieden_buurten.ligt_in_wijk_id = gebieden_wijken.id
 left join gebieden_stadsdelen on gebieden_wijken.ligt_in_stadsdeel_id = gebieden_stadsdelen.id
-left join gebieden_ggwgebieden on gebieden_buurten.ligt_in_ggwgebied_id = gebieden_ggwgebieden.id 
-left join bag_verblijfsobjecten_ligt_in_panden on bag_verblijfsobjecten.id = bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_id 
+left join gebieden_ggwgebieden on gebieden_buurten.ligt_in_ggwgebied_id = gebieden_ggwgebieden.id
+left join bag_verblijfsobjecten_ligt_in_panden on bag_verblijfsobjecten.id = bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_id
 left join bag_panden on bag_panden.id = bag_verblijfsobjecten_ligt_in_panden.ligt_in_panden_id
 left join gebieden_bouwblokken on bag_panden.ligt_in_bouwblok_id=gebieden_bouwblokken.id
 left join bag_verblijfsobjecten_gebruiksdoel on bag_nummeraanduidingen.adresseert_verblijfsobject_id=bag_verblijfsobjecten_gebruiksdoel.parent_id;
