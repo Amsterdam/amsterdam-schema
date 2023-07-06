@@ -14,27 +14,37 @@
     "display": "id",
     "mainGeometry": "geometrie",
     "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+      },
       "id": {
         "type": "string",
-        "provenance": "afval_api_waarneming_id",
-        "description": "Unieke identificatie van het object."
+        "description": "Unieke aanduiding van het record."
       },
-      "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-      },
-      "datumTijdWaarneming": {
+      "datumWaarneming": {
         "type": "string",
         "format": "date-time",
-        "description": "De datum en het tijdstip waarop de melding is gedaan."
+        "description": "De datum waarop de waarneming is geregistreerd."
+      },
+      "tijdWaarneming": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De tijdstip waarop de waarneming is geregistreerd."
       },
       "cluster": {
         "type": "string",
         "relation": "huishoudelijkafval:cluster",
         "description": "Uniek identificerend kenmerk van cluster"
       },
+      "gbdBuurtCode": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+        "description": "Unieke code (hierin zie je de Stadsdeel- en Wijkcode terug)"
+      },
       "gbdBuurt": {
         "type": "string",
         "relation": "gebieden:buurten",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
         "description": "Unieke identificatie van het object (naam van het kenmerk wijzigt van ID naar Identificatie in 2019)"
       },
       "bagOpenbareruimte": {
@@ -42,21 +52,24 @@
         "relation": "bag:openbareruimtes",
         "description": "Unieke identificatie van het object"
       },
+      "bagVerblijfsobject": {
+        "type": "string",
+        "relation": "bag:verblijfsobjecten",
+        "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject."
+      },
       "bagNummeraanduiding": {
         "type": "string",
         "relation": "bag:nummeraanduidingen",
         "description": "Identificatie nummeraanduiding"
       },
-      "bagVerblijfsobject": {
+      "bagWoonplaatsen": {
         "type": "string",
-        "provenance": "bag_hoofdadres_verblijfsobject_id",
-        "relation": "bag:verblijfsobjecten",
-        "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject."
+        "relation": "bag:woonplaatsen",
+        "description": "Identificatie woonplaats"
       },
       "geometrie": {
-        "provenance": "waarneming_geometrie",
         "$ref": "https://geojson.org/schema/Point.json",
-        "description": "Geometrie van het type POINT van de melding RD(epsg:28992)"
+        "description": "Geometrie van het type POINT van de waarneming RD(epsg:28992)"
       },
       "bruingoed": {
         "type": "boolean",
@@ -68,7 +81,6 @@
       },
       "crowScore": {
         "type": "string",
-        "provenance": "waarneming_crow_score",
         "description": "De score van CROW inspectie. A+: 0 stuks afval, A: <= 1 stuk, B: <= 3 stuks, C: <= 5 stuks, D: > 5 stuks"
       },
       "glas": {
@@ -146,6 +158,46 @@
       "waarnemerRol": {
         "type": "string",
         "description": "De rol van de melder"
+      },
+      "gbdStadsdeelNaam": {
+        "type": "string",
+        "description": "Naam van het stadsdeel waar de waarneming is geregistreerd (afgeleid o.b.v. geometrie)."
+      },
+      "postcode": {
+        "type": "string",
+        "description": "De postcode van de locatie waar de waarneming is geregistreerd (afgeleid o.b.v. geometrie)."
+      },
+      "straatnaam": {
+        "type": "string",
+        "description": "De straat van de locatie waar de waar de waarneming is geregistreerd (afgeleid o.b.v. geometrie)."
+      },
+      "locatieWaarnemer": {
+        "type": "string",
+        "description": "Het stadsdeel vanwaar van de waarnemer in het systeem is ingelogd"
+      },
+      "typeWaarneming": {
+        "type": "string",
+        "description": "Geeft aan of de waarneming een CROW waarneming is."
+      },
+      "grofvuildagen": {
+        "type": "string",
+        "description": "De waarde is in true en false. Het geeft per dag aan of het true of false is. De eerste waarde is maandag. "
+      },
+      "adresType": {
+        "type": "string",
+        "description": "Type is het type waarneming (extra of routelocatie)"
+      },
+      "dumpplek": {
+        "type": "boolean",
+        "description": "Het geeft aan of de locatie een dumplek is."
+      },
+      "meldingDoorCollegaDoorgezet": {
+        "type": "string",
+        "description": "Het geeft aan of de waarneming door een collega is doorgezet."
+      },
+      "naamMeldingDoorgezet": {
+        "type": "string",
+        "description": "Soort doorgezette waarneming."
       }
     }
   }
