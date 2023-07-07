@@ -22,12 +22,12 @@
         "description": "Identificerend kenmerk van het ticket."
       },
       "container": {
-        "type": "integer",
+        "type": "string",
         "relation": "huishoudelijkafval:container",
         "description": "Identificerend kenmerk van de container."
       },
       "containerlocatie": {
-        "type": "integer",
+        "type": "string",
         "relation": "huishoudelijkafval:containerlocatie",
         "description": "Identificerend kenmerk van de containerlocatie."
       },
@@ -66,22 +66,42 @@
         "type": "integer",
         "description": "De toegestane responstijd voor deze prioriteit. "
       },
-      "probleem": {
-        "type": "string",
-        "description": "De naam van het probleem."
+      "probleemModuleNaam": {
+       "type": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "De naam van de probleemmodule."
+          }
+        }
       },
-      "probleemmoduleNaam": {
-        "type": "string",
-        "description": "De naam van de probleemmodule."
+      "probleem": {
+       "type": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "De naam van het probleem." 
+          }
+        }
       },
       "oorzaak": {
-        "type": "string",
-        "description": "De naam van de oorzaak."
+       "type": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "De naam van de oorzaak." 
+          }
+        }
       },
       "oplossing": {
-        "type": "string",
-        "description": "De naam van de oplossing."
-      },
+       "type": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "De naam van de oplossing.",
+          }
+        }
+      }, 
       "onderhoudsbedrijf": {
         "type": "string",
         "description": "De naam van het onderhoudsbedrijf."
