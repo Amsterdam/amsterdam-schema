@@ -1,5 +1,6 @@
-create or replace view public.dataverkenner_bagadresinformatie WITH (security_barrier) as
+create or replace view public.dataverkenner_bagadresinformatie_bagadresinformatie WITH (security_barrier) as
 select
+bag_nummeraanduidingen.id as "id",
 bag_nummeraanduidingen.identificatie as "identificatie",
 bag_nummeraanduidingen.volgnummer as "volgnummer",
 bag_nummeraanduidingen.huisnummer as "huisnummer",
@@ -16,6 +17,7 @@ bag_openbareruimtes.naam as "openbareruimte_naam",
 bag_woonplaatsen.identificatie as "woonplaats_identificatie",
 bag_woonplaatsen.volgnummer as "woonplaats_volgnummer",
 bag_woonplaatsen.naam as "woonplaats_naam",
+bag_verblijfsobjecten.id as "verblijfsobject_id",
 bag_verblijfsobjecten.identificatie as "verblijfsobject_identificatie",
 bag_verblijfsobjecten.volgnummer as "verblijfsobject_volgnummer",
 bag_verblijfsobjecten.geconstateerd as "verblijfsobject_geconstateerd",
