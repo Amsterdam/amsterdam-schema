@@ -11,6 +11,9 @@ bag_nummeraanduidingen.type_adres as "type_adres",
 bag_openbareruimtes.naam as "openbareruimte_naam",
 bag_openbareruimtes.type_code as "openbareruimte_type_code",
 bag_woonplaatsen.naam as "woonplaats_naam",
+bag_verblijfsobjecten.id as "verblijfsobject_id",
+bag_verblijfsobjecten.identificatie as "verblijfsobject_identificatie",
+bag_verblijfsobjecten.volgnummer as "verblijfsobject_volgnummer",
 bag_verblijfsobjecten.geometrie as "verblijfsobject_geometrie"
 from bag_nummeraanduidingen
 left join bag_openbareruimtes on bag_nummeraanduidingen.ligt_aan_openbareruimte_id = bag_openbareruimtes.id
