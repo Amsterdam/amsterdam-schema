@@ -22,7 +22,9 @@
       "derivedFrom": [
         "bag:nummeraanduidingen",
         "bag:woonplaatsen",
-        "bag:openbareruimtes"
+        "bag:openbareruimtes",
+        "bag:verblijfsobjecten"
+
       ],
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -81,6 +83,10 @@
           "woonplaatsNaam": {
             "type": "string",
             "description": "Officiële naam woonplaats."
+          },
+          "verblijfsobjectGeometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "De locatie van het verblijfsobject in het Nationale Rijksdriehoekstelsel."
           }
         }
       }
