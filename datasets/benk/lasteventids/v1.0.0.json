@@ -1,0 +1,29 @@
+{
+  "id": "lasteventids",
+  "version": "1.0.0",
+  "type": "table",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "table",
+    "required": [
+      "table",
+      "schema"
+    ],
+    "display": "table",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "table": {
+        "type": "string",
+        "description": "Table to which this last event ID applies."
+      },
+      "last_event_id": {
+        "type": "integer",
+        "description": "Last event ID that was processed."
+      }
+    }
+  }
+}
