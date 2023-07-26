@@ -66,33 +66,12 @@
         "type": "integer",
         "description": "De toegestane responstijd voor deze prioriteit. "
       },
-      "probleemModuleNaam": {
+      "probleemmoduleNaam": {
         "type": "array",
         "items": {
           "type": "string",
-        "description": "de naam van het probleemmodulenaam"
-         }
-      },
-      "probleem": {
-        "type": "array",
-        "items": {
-          "type": "string",
-        "description": "de naam van het probleem"
+          "description": "de naam van het probleemmodulenaam"
         }
-      },
-      "oorzaak": {
-        "type": "array",
-        "items": {
-          "type": "string",
-        "description": "de naam van de oorzaken"
-         }
-      },
-      "oplossing": {
-        "type": "array",
-        "items": {
-          "type": "string",
-        "description": "de naam van de oplossingen"
-         }
       },
       "onderhoudsbedrijf": {
         "type": "string",
@@ -102,11 +81,11 @@
         "type": "string",
         "description": "De naam van de eigenaar van de container."
       },
-      "ticketstatus": {
+      "status": {
         "type": "string",
         "description": "De status van het ticket."
       },
-      "tickettype": {
+      "naamTickettype": {
         "type": "string",
         "description": "De naam van het type ticket."
       },
@@ -152,7 +131,7 @@
       "datumFinancieleGoedkeuring": {
         "type": "string",
         "format": "date-time",
-        "description": "De datum waarop de financi\u00eble aspecten van de werkzaamheden goed- of afgekeurd zijn."
+        "description": "De datum waarop de financiële aspecten van de werkzaamheden goed- of afgekeurd zijn."
       },
       "datumGefactureerd": {
         "type": "string",
@@ -256,8 +235,11 @@
         "type": "string",
         "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/ggw/",
         "description": "Uniek volgnummer van de toestand van het object."
+      },
+      "ticketNummer": {
+        "type": "integer",
+        "description": "Nummer van de ticket. Een ticket kan over meer dan één container of containerlocatie gaan."
       }
     }
   }
 }
-
