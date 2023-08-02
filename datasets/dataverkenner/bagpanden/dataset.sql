@@ -1,6 +1,5 @@
 create or replace view public.dataverkenner_bagpanden_bagpanden WITH (security_barrier) as
 select
-bag_panden.id as "id",
 bag_panden.id as "pand_id",
 bag_panden.identificatie as "pand_identificatie",
 bag_panden.volgnummer as "pand_volgnummer",
@@ -59,3 +58,4 @@ left join gebieden_wijken on gebieden_buurten.ligt_in_wijk_id = gebieden_wijken.
 left join gebieden_stadsdelen on gebieden_wijken.ligt_in_stadsdeel_id = gebieden_stadsdelen.id
 left join gebieden_ggwgebieden on gebieden_buurten.ligt_in_ggwgebied_id = gebieden_ggwgebieden.id
 left join gebieden_bouwblokken on bag_panden.ligt_in_bouwblok_id=gebieden_bouwblokken.id;
+where bag_panden.volgnummer = (select max(bagpanden.volgnummer))

@@ -1,0 +1,12 @@
+create or replace view public.dataverkenner_bevatverblijfsobjecten_bevatverblijfsobjecten WITH (security_barrier) as
+select 
+bag_verblijfsobjecten_ligt_in_panden.id as "id",
+bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_id as "verblijfsobjecten_id",
+bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_identificatie as "verblijfsobjecten_identificatie",
+bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_volgnummer as "verblijfsobjecten_volgnummer",
+bag_verblijfsobjecten_ligt_in_panden.ligt_in_panden_id as "ligt_in_panden_id",
+bag_verblijfsobjecten_ligt_in_panden.ligt_in_panden_identificatie as "ligt_in_panden_identificatie",
+bag_verblijfsobjecten_ligt_in_panden.ligt_in_panden_volgnummer as "ligt_in_panden_volgnummer",
+bag_verblijfsobjecten_ligt_in_panden.begin_geldigheid as "begin_geldigheid",
+bag_verblijfsobjecten_ligt_in_panden.eind_geldigheid as "eind_geldigheid"
+from bag_verblijfsobjecten_ligt_in_panden
