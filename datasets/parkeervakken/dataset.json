@@ -58,6 +58,11 @@
             "type": "number",
             "description": "Schatting van het aantal geparkeerde voertuigen dat in deze geometrie zou passen"
           },
+          "versiedatum": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum vanaf wanneer de dataset geldig is"
+          },
           "geometry": {
             "$ref": "https://geojson.org/schema/Polygon.json"
           },
@@ -120,6 +125,10 @@
                 "opmerking": {
                   "type": "string",
                   "description": "Toelichting bij venstertijd of TVM"
+                },
+                "typeUitzondering": {
+                  "type": "string",
+                  "description": "Type van de uitzondering die van toepassing is op het parkeervak: TVM of Venstertijden"
                 }
               }
             }
