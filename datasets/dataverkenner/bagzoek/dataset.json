@@ -24,6 +24,15 @@
         "bag:woonplaatsen",
         "bag:openbareruimtes"
       ],
+      "temporal": {
+        "identifier": "volgnummer",
+        "dimensions": {
+          "geldigOp": [
+            "beginGeldigheid",
+            "eindGeldigheid"
+          ]
+        }
+      },
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -38,13 +47,13 @@
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
           },
-          "id": {
-            "type": "string",
-            "description": "URI van het object."
-          },
           "identificatie": {
             "type": "string",
             "description": "Landelijke identificerende sleutel."
+          },
+          "volgnummer": {
+            "type": "integer",
+            "description": "Volgnummer van de nummeraanduiding in de administratie van de bronhouder."
           },
           "huisnummer": {
             "type": "integer",
@@ -61,6 +70,16 @@
           "postcode": {
             "type": "string",
             "description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)."
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de nummeraanduiding geldig is geworden."
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de nummeraanduiding niet meer geldig is."
           },
           "typeAdres": {
             "type": "string",

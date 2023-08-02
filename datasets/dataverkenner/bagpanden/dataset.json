@@ -20,21 +20,14 @@
       "crs": "EPSG:28992",
       "auth": "OPENBAAR",
       "derivedFrom": [
-        "bag:panden",
-        "bag:verblijfsobjecten",
-        "bag:panden",
-        "gebieden:buurten",
-        "gebieden:wijken",
-        "gebieden:stadsdelen",
-        "gebieden:ggwgebieden",
-        "gebieden:bouwblokken"
+        "bag:panden"
       ],
       "temporal": {
         "identifier": "pandVolgnummer",
         "dimensions": {
           "geldigOp": [
-            "pandBeginGeldigheid",
-            "pandEindGeldigheid"
+          "pandBeginGeldigheid",
+          "pandEindGeldigheid"
           ]
         }
       },
@@ -59,7 +52,7 @@
           },
           "pandId": {
             "type": "string",
-            "description": "Interne unieke identificatie van een PAND."
+            "description": "Interne unieke identificatie van een pand."
           },
           "pandIdentificatie": {
             "type": "string",
@@ -69,15 +62,6 @@
             "type": "integer",
             "description": "Uniek volgnummer van de toestand van het object."
           },
-          "pandRegistratiedatum": {
-            "type": "string",
-            "format": "date-time",
-            "description": "De datum waarop de toestand is geregistreerd."
-          },
-          "pandGeconstateerd": {
-            "type": "boolean",
-            "description": "Dit geeft aan dat een PAND in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument (J/N)."
-          },
           "pandGeometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Vorm en ligging van het pand in het Nationale Rijksdriehoekstelsel."
@@ -86,40 +70,9 @@
             "type": "integer",
             "description": "De aanduiding van het jaar waarin een pand oorspronkelijk als bouwkundig gereed is of wordt opgeleverd."
           },
-          "pandStatusCode": {
-            "type": "integer",
-            "description": "De fase van de levenscyclus van een pand, waarin het betreffende pand zich bevindt. code"
-          },
-          "pandStatusOmschrijving": {
-            "type": "string",
-            "description": "De fase van de levenscyclus van een pand, waarin het betreffende pand zich bevindt. omschrijving"
-          },
-          "pandBeginGeldigheid": {
-            "type": "string",
-            "format": "date-time",
-            "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een PAND."
-          },
-          "pandEindGeldigheid": {
-            "type": "string",
-            "format": "date-time",
-            "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een PAND."
-          },
-          "pandDocumentdatum": {
-            "type": "string",
-            "format": "date",
-            "description": "De datum waarop het brondocument is vastgesteld."
-          },
-          "pandDocumentnummer": {
-            "type": "string",
-            "description": "Het unieke nummer van het brondocument."
-          },
           "pandNaam": {
             "type": "string",
             "description": "Naamgeving van een pand (bv. naam van metrostation of bijzonder gebouw)."
-          },
-          "pandLiggingCode": {
-            "type": "integer",
-            "description": "Situering pand met verblijfsobject (vrijstaand, tussenwoning, etc.). code"
           },
           "pandLiggingOmschrijving": {
             "type": "string",
@@ -141,113 +94,15 @@
             "type": "integer",
             "description": "Laagste bouwlaag van een pand."
           },
-          "pandHeeftDossier": {
+          "pandBeginGeldigheid": {
             "type": "string",
-            "description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie."
+            "format": "date-time",
+            "description": "Begindatum van de geldigheid van de gegevens van het pand."
           },
-          "pandBagprocesCode": {
-            "type": "integer",
-            "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. code"
-          },
-          "pandBagprocesOmschrijving": {
+          "pandEindGeldigheid": {
             "type": "string",
-            "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
-          },
-          "verblijfsobjectId": {
-            "type": "string",
-            "description": "Interne unieke identificatie van een VERBLIJFSOBJECT."
-          },
-          "verblijfsobjectIdentificatie": {
-            "type": "string",
-            "description": "Landelijke identificerende sleutel."
-          },
-          "verblijfsobjectVolgnummer": {
-            "type": "integer",
-            "description": "Uniek volgnummer van de toestand van het object."
-          },
-          "gebiedenBuurtenId": {
-            "type": "string",
-            "description": "Interne unieke identificatie van een GEBIEDEN_BUURT."
-          },
-          "gebiedenBuurtenIdentificatie": {
-            "type": "string",
-            "description": "Unieke identificatie van het object."
-          },
-          "gebiedenBuurtenVolgnummer": {
-            "type": "integer",
-            "description": "Uniek volgnummer van de toestand van het object."
-          },
-          "gebiedenBuurtenNaam": {
-            "type": "string",
-            "description": "De naam van het object."
-          },
-          "gebiedenBuurtenCode": {
-            "type": "string",
-            "description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode en wijkcode."
-          },
-          "gebiedenWijkenIdentificatie": {
-            "type": "string",
-            "description": "Unieke identificatie van het object."
-          },
-          "gebiedenWijkenVolgnummer": {
-            "type": "integer",
-            "description": "Uniek volgnummer van de toestand van het object."
-          },
-          "gebiedenWijkenNaam": {
-            "type": "string",
-            "description": "De naam van het object."
-          },
-          "gebiedenWijkenCode": {
-            "type": "string",
-            "description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode en wijkcode."
-          },
-          "gebiedenStadsdelenIdentificatie": {
-            "type": "string",
-            "description": "Unieke identificatie van het object."
-          },
-          "gebiedenStadsdelenVolgnummer": {
-            "type": "integer",
-            "description": "Uniek volgnummer van de toestand van het object."
-          },
-          "gebiedenStadsdelenNaam": {
-            "type": "string",
-            "description": "De naam van het object."
-          },
-          "gebiedenStadsdelenCode": {
-            "type": "string",
-            "description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode en wijkcode."
-          },
-          "gebiedenGgwgebiedenId": {
-            "type": "string",
-            "description": "Unieke identificatie van het object."
-          },
-          "gebiedenGgwgebiedenIdentificatie": {
-            "type": "string",
-            "description": "Unieke identificatie van het object."
-          },
-          "gebiedenGgwgebiedenVolgnummer": {
-            "type": "integer",
-            "description": "Uniek volgnummer van de toestand van het object."
-          },
-          "gebiedenGgwgebiedenNaam": {
-            "type": "string",
-            "description": "De naam van het object."
-          },
-          "gebiedenGgwgebiedenCode": {
-            "type": "string",
-            "description": "De code van het object."
-          },
-          "gebiedenBouwblokenIdentificatie": {
-            "type": "string",
-            "description": "Unieke identificatie van het object."
-          },
-          "gebiedenBouwblokenVolgnummer": {
-            "type": "integer",
-            "description": "Uniek volgnummer van de toestand van het object."
-          },
-          "gebiedenBouwblokenCode": {
-            "type": "string",
-            "description": "Officiële code van het object."
+            "format": "date-time",
+            "description": "Einddatum van de geldigheid van de gegevens van het pand."
           }
         }
       }
