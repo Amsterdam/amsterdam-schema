@@ -9,4 +9,4 @@ bag_verblijfsobjecten_ligt_in_panden.ligt_in_panden_identificatie as "ligt_in_pa
 bag_verblijfsobjecten_ligt_in_panden.ligt_in_panden_volgnummer as "ligt_in_panden_volgnummer",
 bag_verblijfsobjecten_ligt_in_panden.begin_geldigheid as "begin_geldigheid",
 bag_verblijfsobjecten_ligt_in_panden.eind_geldigheid as "eind_geldigheid"
-from bag_verblijfsobjecten_ligt_in_panden
+from bag_verblijfsobjecten_ligt_in_panden;
