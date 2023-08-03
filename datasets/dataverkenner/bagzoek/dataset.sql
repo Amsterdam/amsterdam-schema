@@ -13,7 +13,12 @@ bag_nummeraanduidingen.begin_geldigheid as "begin_geldigheid",
 bag_nummeraanduidingen.eind_geldigheid as "eind_geldigheid",
 bag_openbareruimtes.naam as "openbareruimte_naam",
 bag_openbareruimtes.type_code as "openbareruimte_type_code",
-bag_woonplaatsen.naam as "woonplaats_naam"
+bag_woonplaatsen.naam as "woonplaats_naam",
+bag_verblijfsobjecten.id as "verblijfsobject_id",
+bag_verblijfsobjecten.identificatie as "verblijfsobject_identificatie",
+bag_verblijfsobjecten.volgnummer as "verblijfsobject_volgnummer",
+bag_verblijfsobjecten.geometrie as "verblijfsobject_geometrie"
 from bag_nummeraanduidingen
 left join bag_openbareruimtes on bag_nummeraanduidingen.ligt_aan_openbareruimte_id = bag_openbareruimtes.id
+left join bag_verblijfsobjecten on bag_nummeraanduidingen.adresseert_verblijfsobject_id=bag_verblijfsobjecten.id
 left join bag_woonplaatsen on bag_nummeraanduidingen.ligt_in_woonplaats_id = bag_woonplaatsen.id

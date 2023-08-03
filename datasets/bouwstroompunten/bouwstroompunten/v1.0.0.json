@@ -3,6 +3,7 @@
   "title": "Bouwstroompunten",
   "type": "table",
   "version": "1.0.0",
+  "auth": "OPENBAAR",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -14,7 +15,7 @@
     "display": "bouwstroompuntId",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
       },
       "id": {
         "type": "string",
@@ -79,10 +80,6 @@
       },
       "vergunningsplichtig": {
         "type": "boolean",
-        "enum": [
-          true,
-          false
-        ],
         "provenance": "licence_needed",
         "description": "Indicatie vergunningplichting voor gebruik."
       },
