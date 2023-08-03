@@ -9,20 +9,20 @@
     "additionalProperties": false,
     "mainGeometry": "bezoekGeopunt",
     "identifier": [
-      "identificatie"
+      "vestigingsnummer"
     ],
     "required": [
       "schema",
-      "identificatie"
+      "vestigingsnummer"
     ],
-    "display": "identificatie",
+    "display": "vestigingsnummer",
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
-      "identificatie": {
+      "vestigingsnummer": {
         "type": "string",
-        "description": "Betreft het identificerende gegeven voor de vestiging, het vestigingsnummer"
+        "description": "Identificatie voor de vestiging"
       },
       "datumActueelTot": {
         "type": "string",
@@ -105,7 +105,7 @@
         "items": {
           "type": "object",
           "properties": {
-            "identificatie": {
+            "vestigingsnummer": {
               "type": "string"
             }
           }
@@ -218,7 +218,7 @@
       "isEenUitoefeningVan": {
         "type": "object",
         "properties": {
-          "identificatie": {
+          "kvknummer": {
             "type": "string"
           }
         },
