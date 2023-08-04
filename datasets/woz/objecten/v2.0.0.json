@@ -1,7 +1,7 @@
 {
-  "id": "wozobjecten",
+  "id": "objecten",
   "type": "table",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
@@ -27,7 +27,7 @@
     "display": "id",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "volgnummer": {
         "type": "integer",
@@ -66,12 +66,12 @@
       "beginGeldigheid": {
         "type": "string",
         "format": "date",
-        "description": "De begindatum van een periode waarin \u00e9\u00e9n of meer gegevens die worden bijgehouden over een WOZ-object, een wijziging hebben ondergaan"
+        "description": "De begindatum van een periode waarin één of meer gegevens die worden bijgehouden over een WOZ-object, een wijziging hebben ondergaan"
       },
       "eindGeldigheid": {
         "type": "string",
         "format": "date",
-        "description": "De einddatum van een periode waarin \u00e9\u00e9n of meer gegevens die worden bijgehouden over een WOZ-object, een wijziging hebben ondergaan"
+        "description": "De einddatum van een periode waarin één of meer gegevens die worden bijgehouden over een WOZ-object, een wijziging hebben ondergaan"
       },
       "bevatKadastraalobject": {
         "type": "array",
@@ -94,7 +94,7 @@
             }
           }
         },
-        "relation": "brk:kadastraleobjecten",
+        "relation": "brk2:kadastraleobjecten",
         "description": "Relatie naar kadastraal object"
       },
       "bestaatUitWozdeelobjecten": {
@@ -118,7 +118,7 @@
             }
           }
         },
-        "relation": "woz:wozdeelobjecten",
+        "relation": "woz:deelobjecten",
         "description": "Relatie naar de deelobjecten"
       }
     }

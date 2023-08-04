@@ -1,29 +1,33 @@
 {
   "type": "dataset",
   "id": "woz",
-  "path": "woz",
   "title": "woz",
   "status": "beschikbaar",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "crs": "EPSG:28992",
-  "owner": "Gemeente Amsterdam",
-  "creator": "bronhouder onbekend",
+  "owner": "Gemeente Amsterdam, afdeling Basisinformatie",
+  "creator": "Belastingen",
   "publisher": "Datateam Basis- en Kernregistraties",
   "auth": "OPENBAAR",
-  "authorizationGrantor": "n.v.t.",
+  "authorizationGrantor": "gebruik.basisinformatie@amsterdam.nl",
+  "description": "De Basisregistratie waarde onroerende zaken (WOZ) bevat de waardering van alle onroerende zaken in Nederland ten behoeve van onder meer belastingheffing.",
+  "homepage": "https://www.amsterdam.nl/stelselpedia/woz-index/",
+  "contactPoint": {
+    "email": "OIS.GOB@amsterdam.nl"
+  },
   "tables": [
     {
-      "id": "wozobjecten",
-      "$ref": "wozobjecten/v1.0.0",
+      "id": "objecten",
+      "$ref": "objecten/v2.0.0",
       "activeVersions": {
-        "1.0.0": "wozobjecten/v1.0.0"
+        "2.0.0": "objecten/v2.0.0"
       }
     },
     {
-      "id": "wozdeelobjecten",
-      "$ref": "wozdeelobjecten/v1.0.0",
+      "id": "deelobjecten",
+      "$ref": "deelobjecten/v2.0.0",
       "activeVersions": {
-        "1.0.0": "wozdeelobjecten/v1.0.0"
+        "2.0.0": "deelobjecten/v2.0.0"
       }
     }
   ]
