@@ -6,4 +6,6 @@ VOLUME /app
 RUN addgroup --system proxy
 RUN adduser --no-create-home --system proxy proxy
 
+RUN mkdir -p /opt/homebrew/var/log /opt/homebrew/var/run/nginx
+
 ENTRYPOINT ["/bin/sh", "-c", "nginx -g 'daemon off;';"]
