@@ -27,7 +27,7 @@
     "display": "id",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "volgnummer": {
         "type": "integer",
@@ -51,15 +51,19 @@
         "type": "string",
         "description": "Van welk WOZ-object is dit WOZ-deelobject een onderdeel"
       },
-      "soortobjectCode": {
-        "type": "integer",
-        "provenance": "$.soortobject.code",
-        "description": "Nadere aanduiding van het feitelijk gebruik  (SOC) van een WOZ-object zoals dat ten grondslag heeft gelegen aan de waardebepaling en voor zover relevant voor de afnemers, uitgedrukt in een code code"
-      },
-      "soortobjectOmschrijving": {
-        "type": "string",
-        "provenance": "$.soortobject.omschrijving",
-        "description": "Nadere aanduiding van het feitelijk gebruik  (SOC) van een WOZ-object zoals dat ten grondslag heeft gelegen aan de waardebepaling en voor zover relevant voor de afnemers, uitgedrukt in een code omschrijving"
+      "soortObject": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "provenance": "$.soortobject.code"
+          },
+          "omschrijving": {
+            "type": "string",
+            "provenance": "$.soortobject.omschrijving"
+          }
+        },
+        "description": "Aanduiding van het soort object ten behoeve van een correcte bepaling van de waarde."
       },
       "beginGeldigheid": {
         "type": "string",

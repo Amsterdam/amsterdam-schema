@@ -43,25 +43,33 @@
         "$comment": "should become: wozobjectnummer, not possible atm.",
         "description": "De unieke identificatie van een WOZ-object"
       },
-      "gebruikCode": {
-        "type": "integer",
-        "provenance": "$.gebruik.code",
-        "description": "Nadere aanduiding van het feitelijk gebruik van een WOZ-object zoals dat ten grondslag heeft gelegen aan de waardebepaling en voor zover relevant voor de afnemers, uitgedrukt in een code code"
+      "gebruik": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "provenance": "$.gebruik.code"
+          },
+          "omschrijving": {
+            "type": "string",
+            "provenance": "$.gebruik.omschrijving"
+          }
+        },
+        "description": "Nadere aanduiding van het feitelijk gebruik van een WOZ-object zoals dat ten grondslag heeft gelegen aan de waardebepaling en voor zover relevant voor de afnemers, uitgedrukt in een code."
       },
-      "gebruikOmschrijving": {
-        "type": "string",
-        "provenance": "$.gebruik.omschrijving",
-        "description": "Nadere aanduiding van het feitelijk gebruik van een WOZ-object zoals dat ten grondslag heeft gelegen aan de waardebepaling en voor zover relevant voor de afnemers, uitgedrukt in een code omschrijving"
-      },
-      "soortobjectCode": {
-        "type": "string",
-        "provenance": "$.soortobject.code",
-        "description": "Aanduiding van het soort object ten behoeve van een correcte bepaling van de waarde. code"
-      },
-      "soortobjectOmschrijving": {
-        "type": "string",
-        "provenance": "$.soortobject.omschrijving",
-        "description": "Aanduiding van het soort object ten behoeve van een correcte bepaling van de waarde. omschrijving"
+      "soortObject": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "provenance": "$.soortobject.code"
+          },
+          "omschrijving": {
+            "type": "string",
+            "provenance": "$.soortobject.omschrijving"
+          }
+        },
+        "description": "Aanduiding van het soort object ten behoeve van een correcte bepaling van de waarde."
       },
       "beginGeldigheid": {
         "type": "string",
