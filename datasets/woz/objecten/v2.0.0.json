@@ -1,7 +1,7 @@
 {
-  "id": "wozobjecten",
+  "id": "objecten",
   "type": "table",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
@@ -27,7 +27,7 @@
     "display": "id",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "volgnummer": {
         "type": "integer",
@@ -43,37 +43,45 @@
         "$comment": "should become: wozobjectnummer, not possible atm.",
         "description": "De unieke identificatie van een WOZ-object"
       },
-      "gebruikCode": {
-        "type": "integer",
-        "provenance": "$.gebruik.code",
-        "description": "Nadere aanduiding van het feitelijk gebruik van een WOZ-object zoals dat ten grondslag heeft gelegen aan de waardebepaling en voor zover relevant voor de afnemers, uitgedrukt in een code code"
+      "gebruik": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "provenance": "$.gebruik.code"
+          },
+          "omschrijving": {
+            "type": "string",
+            "provenance": "$.gebruik.omschrijving"
+          }
+        },
+        "description": "Nadere aanduiding van het feitelijk gebruik van een WOZ-object zoals dat ten grondslag heeft gelegen aan de waardebepaling en voor zover relevant voor de afnemers, uitgedrukt in een code."
       },
-      "gebruikOmschrijving": {
-        "type": "string",
-        "provenance": "$.gebruik.omschrijving",
-        "description": "Nadere aanduiding van het feitelijk gebruik van een WOZ-object zoals dat ten grondslag heeft gelegen aan de waardebepaling en voor zover relevant voor de afnemers, uitgedrukt in een code omschrijving"
-      },
-      "soortobjectCode": {
-        "type": "string",
-        "provenance": "$.soortobject.code",
-        "description": "Aanduiding van het soort object ten behoeve van een correcte bepaling van de waarde. code"
-      },
-      "soortobjectOmschrijving": {
-        "type": "string",
-        "provenance": "$.soortobject.omschrijving",
-        "description": "Aanduiding van het soort object ten behoeve van een correcte bepaling van de waarde. omschrijving"
+      "soortObject": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "provenance": "$.soortobject.code"
+          },
+          "omschrijving": {
+            "type": "string",
+            "provenance": "$.soortobject.omschrijving"
+          }
+        },
+        "description": "Aanduiding van het soort object ten behoeve van een correcte bepaling van de waarde."
       },
       "beginGeldigheid": {
         "type": "string",
         "format": "date",
-        "description": "De begindatum van een periode waarin \u00e9\u00e9n of meer gegevens die worden bijgehouden over een WOZ-object, een wijziging hebben ondergaan"
+        "description": "De begindatum van een periode waarin één of meer gegevens die worden bijgehouden over een WOZ-object, een wijziging hebben ondergaan"
       },
       "eindGeldigheid": {
         "type": "string",
         "format": "date",
-        "description": "De einddatum van een periode waarin \u00e9\u00e9n of meer gegevens die worden bijgehouden over een WOZ-object, een wijziging hebben ondergaan"
+        "description": "De einddatum van een periode waarin één of meer gegevens die worden bijgehouden over een WOZ-object, een wijziging hebben ondergaan"
       },
-      "bevatKadastraalobject": {
+      "bevatBrkKadastraalobject": {
         "type": "array",
         "items": {
           "type": "object",
@@ -94,10 +102,10 @@
             }
           }
         },
-        "relation": "brk:kadastraleobjecten",
+        "relation": "brk2:kadastraleobjecten",
         "description": "Relatie naar kadastraal object"
       },
-      "bestaatUitWozdeelobjecten": {
+      "bestaatUitWozDeelobjecten": {
         "type": "array",
         "items": {
           "type": "object",
@@ -118,7 +126,7 @@
             }
           }
         },
-        "relation": "woz:wozdeelobjecten",
+        "relation": "woz:deelobjecten",
         "description": "Relatie naar de deelobjecten"
       }
     }
