@@ -114,25 +114,21 @@
         "format": "date",
         "description": "Datum van beëindiging van de (NNP)"
       },
-      "heeftFunctieVervulling": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          }
+      "heeftFunctieVervullingen": {
+        "type": "array",
+        "items": {
+          "type": "string"
         },
         "relation": "hr:functievervulling",
-        "description": "Een NietNatuurlijk Persoon (NNP) heeft een Functievervulling (FVV)"
+        "description": "Een NietNatuurlijk Persoon (NNP) heeft een of meer Functievervullingen (FVV)"
       },
-      "isFunctieVervulling": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          }
+      "isFunctieVervullingen": {
+        "type": "array",
+        "items": {
+          "type": "string"
         },
         "relation": "hr:functievervulling",
-        "description": "Een NietNatuurlijk Persoon (NNP) is een Functievervulling (FVV)"
+        "description": "Een NietNatuurlijk Persoon (NNP) is een of meer Functievervullingen (FVV)"
       }
     }
   }
