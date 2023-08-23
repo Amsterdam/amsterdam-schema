@@ -1,9 +1,9 @@
 {
   "type": "dataset",
   "id": "standbedrijven",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "status": "beschikbaar",
-  "auth": "FP/MDW",
+  "auth": "BSK/BEDRIJVEN",
   "reasonsNonPublic": [
     "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
   ],
@@ -46,11 +46,6 @@
             "title": "id",
             "description": "Uniek identificatie voor dit object op basis van peildatum en vestigingsnummer"
           },
-          "mutatieId": {
-            "type": "string",
-            "title": "mutatieId",
-            "description": "Uniek identificatie van de laatste mutatie voor deze vestiging voor de peildatum"
-          },
           "peildatum": {
             "type": "string",
             "format": "date",
@@ -62,11 +57,6 @@
             "title": "kvknummer",
             "description": "Het dossiernummer waaronder de vestiging, vereniging of stichting is ingeschreven in het Handelsregister"
           },
-          "subdossiernummer": {
-            "type": "string",
-            "title": "subdossiernummer",
-            "description": "Het subdossiernummer is het volgnummer waaronder de vestiging, vereniging of stichting binnen het dossier is opgenomen"
-          },
           "vestigingsnummer": {
             "type": "string",
             "title": "vestigingsnummer",
@@ -77,150 +67,51 @@
             "title": "rsin",
             "description": "Het Rechtspersonen Samenwerkingsverbanden Informatie Nummer door het Kamer van Koophandel uitgegeven aan rechtspersonen"
           },
-          "datumInschrijving": {
-            "type": "string",
-            "format": "date",
-            "title": "datuminschrijving",
-            "description": "De datum waarop de vestiging, vereniging of stichting onder het betreffende dossiernummer is ingeschreven in het Handelsregister"
-          },
-          "datumOprichting": {
-            "type": "string",
-            "format": "date",
-            "title": "datumoprichting",
-            "description": "Formele datum van oprichting van de vestiging, vereniging of stichting"
-          },
-          "datumOpheffing": {
-            "type": "string",
-            "format": "date",
-            "title": "datumopheffing",
-            "description": "Formele datum waarop de vestiging is opgeheven"
-          },
           "handelsnaam": {
             "type": "string",
             "title": "handelsnaam",
             "description": "De eerste naam waaronder de organisatie aan het economisch en/of maatschappelijk verkeer deelneemt"
           },
-          "vestigingsadresStraatnaam": {
+          "straatnaam": {
             "type": "string",
-            "title": "vestigingsadresStraatnaam",
-            "shortname": "vaStraatnaam",
+            "title": "straatnaam",
             "description": "Officiële naam openbare ruimte van het vestigingsadres"
           },
-          "vestigingsadresHuisnummer": {
+          "huisnummer": {
             "type": "integer",
-            "title": "vestigingsadresHuisnummer",
+            "title": "huisnummer",
             "shortname": "vaHuisnummer",
             "description": "Huisnummer van het vestigingsadres"
           },
-          "vestigingsadresHuisletter": {
+          "huisletter": {
             "type": "string",
-            "title": "vestigingsadresHuisletter",
-            "shortname": "vaHuisletter",
+            "title": "huisletter",
             "description": "Huisletter van het vestigingsadres"
           },
-          "vestigingsadresHuisnummertoevoeging": {
+          "huisnummertoevoeging": {
             "type": "string",
-            "title": "vestigingsadresHuisnummertoevoeging",
-            "shortname": "vaHuisnummertoevoeging",
+            "title": "huisnummertoevoeging",
             "description": "Huisnummertoevoeging van het vestigingsadres"
           },
-          "vestigingsadresPostcode": {
+          "postcode": {
             "type": "string",
-            "title": "vestigingsadresPostcode",
-            "shortname": "vaPostcode",
+            "title": "postcode",
             "description": "Postcode van het vestigingsadres"
           },
-          "vestigingsadresWoonplaatsNaam": {
+          "woonplaats": {
             "type": "string",
-            "title": "vestigingsadresWoonplaatsNaam",
-            "shortname": "vaWoonplaatsnaam",
+            "title": "woonplaats",
             "description": "Officiële naam van de woonplaats van het vestigingsadres"
           },
-          "vestigingsadresGemeenteCode": {
+          "gemeentecode": {
             "type": "string",
-            "title": "vestigingsadresGemeenteCode",
-            "shortname": "vaGemeenteCode",
+            "title": "gemeentecode",
             "description": "Code van de gemeente van het vestigingsadres"
           },
-          "vestigingsadresGemeenteNaam": {
+          "gemeentenaam": {
             "type": "string",
-            "title": "vestigingsadresGemeenteNaam",
-            "shortname": "vaGemeentenaam",
+            "title": "gemeentenaam",
             "description": "Naam van de gemeente van het vestigingsadres"
-          },
-          "vestigingsstatusindicatorCode": {
-            "type": "string",
-            "title": "vestigingsstatusindicatorCode",
-            "shortname": "vsiCode",
-            "description": "Code van de indicator die de soort mutatie op vestigingsniveau aangeeft"
-          },
-          "vestigingsstatusindicatorOmschrijving": {
-            "type": "string",
-            "title": "vestigingsstatusindicatorOmschrijving",
-            "shortname": "vsiOmschrijving",
-            "description": "Omschrijving van de code die de soort mutatie op vestigingsniveau aangeeft"
-          },
-          "correspondentieadresStraatnaam": {
-            "type": "string",
-            "title": "correspondentieadresStraatnaam",
-            "shortname": "caStraatnaam",
-            "description": "Officiële naam openbare ruimte van het correspondentieadres"
-          },
-          "correspondentieadresHuisnummer": {
-            "type": "integer",
-            "title": "correspondentieadresHuisnummer",
-            "shortname": "caHuisnummer",
-            "description": "Huisnummer van het correspondentieadres"
-          },
-          "correspondentieadresHuisnummertoevoeging": {
-            "type": "string",
-            "title": "correspondentieadresHuisnummertoevoeging",
-            "shortname": "caHuisnummertoevoeging",
-            "description": "Huisletter en/of huisnummertoevoeging van het correspondentieadres"
-          },
-          "correspondentieadresPostcode": {
-            "type": "string",
-            "title": "correspondentieadresPostcode",
-            "shortname": "caPostcode",
-            "description": "Postcode van het correspondentieadres"
-          },
-          "correspondentieadresWoonplaatsNaam": {
-            "type": "string",
-            "title": "correspondentieadresWoonplaatsNaam",
-            "shortname": "caWoonplaatsnaam",
-            "description": "Officiële naam van de woonplaats van het correspondentieadres"
-          },
-          "correspondentieadresGemeenteCode": {
-            "type": "string",
-            "title": "correspondentieadresGemeenteCode",
-            "shortname": "caGemeenteCode",
-            "description": "Code van de gemeente van het correspondentieadres"
-          },
-          "correspondentieadresGemeenteNaam": {
-            "type": "string",
-            "title": "correspondentieadresGemeenteNaam",
-            "shortname": "caGemeenteNaam",
-            "description": "Naam van de gemeente van het correspondentieadres"
-          },
-          "redenInschrijvingCode": {
-            "type": "string",
-            "title": "redenInschrijvingCode",
-            "description": "Code die de reden van inschrijving onder het betreffende dossiernummer van de onderneming aangeeft"
-          },
-          "redenInschrijvingOmschrijving": {
-            "type": "string",
-            "title": "redenInschrijvingOmschrijving",
-            "description": "Omschrijving van de code die de reden van inschrijving onder het betreffende dossiernummer aangeeft"
-          },
-          "rechtsvormCode": {
-            "type": "string",
-            "title": "rechtsvormCode",
-            "description": "Code die de rechtsvorm van de vestiging aangeeft"
-          },
-          "rechtsvormOmschrijving": {
-            "type": "string",
-            "title": "rechtsvormOmschrijving",
-            "description": "Omschrijving van de code die de rechtsvorm aangeeft"
           },
           "standaardbedrijfsindelingCode": {
             "type": "string",
@@ -245,108 +136,6 @@
             "title": "standaardbedrijfsindelingSectieOmschrijving",
             "shortname": "sbiSectieOmschrijving",
             "description": "Omschrijving van de sectie van de standaardbedrijfsgroepindeling waartoe de vestiging behoort"
-          },
-          "aantalWerkzamepersonen": {
-            "type": "integer",
-            "title": "aantalWerkzamepersonen",
-            "description": "Het totaal aantal personen dat bij de vestiging werkzaam is"
-          },
-          "aantalWerkzamepersonenFulltime": {
-            "type": "integer",
-            "title": "aantalWerkzamepersonenFulltime",
-            "shortname": "aantalWpFulltime",
-            "description": "Het totaal aantal personen dat fulltime bij de vestiging werkzaam is"
-          },
-          "aantalWerkzamepersonenParttime": {
-            "type": "integer",
-            "title": "aantalWerkzamepersonenParttime",
-            "shortname": "aantalWpParttime",
-            "description": "Het totaal aantal personen dat parttime bij de vestiging werkzaam is"
-          },
-          "klasseWerkzamepersonenCode": {
-            "type": "string",
-            "title": "klasseWerkzamepersonenCode",
-            "shortname": "klasseWpCode",
-            "description": "Code die de economische grootte klasse aangeeft van het totaal aantal werkzame personen bij de vestiging"
-          },
-          "klasseWerkzamepersonenOmschrijving": {
-            "type": "string",
-            "title": "klasseWerkzamepersonenOmschrijving",
-            "shortname": "klasseWpOmschrijving",
-            "description": "Omschrijving van de code die de economische grootte klasse aangeeft van het totaal aantal werkzame personen bij de vestiging"
-          },
-          "klasseWerkzamepersonenFulltimeCode": {
-            "type": "string",
-            "title": "klasseWerkzamepersonenFulltime",
-            "shortname": "klasseWpFulltimeCode",
-            "description": "Code die de economische grootte klasse aangeeft van het aantal fulltime werkzame personen bij de vestiging"
-          },
-          "klasseWerkzamepersonenFulltimeOmschrijving": {
-            "type": "string",
-            "title": "klasseWerkzamepersonenFulltimeOmschrijving",
-            "shortname": "klasseWpFulltimeOmschrijving",
-            "description": "Omschrijving van de code die de economische grootte klasse aangeeft van het aantal fulltime werkzame personen bij de vestiging"
-          },
-          "peildatumWerkzamepersonenVestiging": {
-            "type": "string",
-            "format": "date",
-            "title": "peildatumWerkzamepersonenVestiging",
-            "shortname": "peildatumWpVestiging",
-            "description": "De datum waarop het aantal werkzame personen van de vestiging is vastgesteld"
-          },
-          "indicatieImport": {
-            "type": "boolean",
-            "title": "indicatieImport",
-            "shortname": "indImport",
-            "description": "Indicatie of de vestiging importeert"
-          },
-          "indicatieExport": {
-            "type": "boolean",
-            "title": "indicatieExport",
-            "shortname": "indExport",
-            "description": "Indicatie of de vestiging exporteert"
-          },
-          "telefoonnummer": {
-            "type": "string",
-            "title": "telefoonnummer",
-            "description": "Het telefoonnummer van de vestiging"
-          },
-          "telefoonnummerMobiel": {
-            "type": "string",
-            "title": "telefoonnummerMobiel",
-            "description": "Het mobiele telefoonnummer van de vestiging"
-          },
-          "email": {
-            "type": "string",
-            "title": "email",
-            "description": "Het email-adres van de vestiging"
-          },
-          "website": {
-            "type": "string",
-            "title": "website",
-            "description": "De door de vestiging, vereniging of stichting geregistreerde domeinnaam"
-          },
-          "indicatieNonmailing": {
-            "type": "boolean",
-            "title": "indicatieNonmailing",
-            "shortname": "indNonmailing",
-            "description": "Indicatie of vestigingen toestaan dat hun gegevens aan derden worden geleverd t.b.v. direct marketing activiteiten. Indien ja, dan is er geen toestemming."
-          },
-          "hoofdNevenVestigingCode": {
-            "type": "string",
-            "title": "hoofdNevenVestigingCode",
-            "description": "Code die aangeeft of de vestiging gekenmerkt is als hoofd- of nevenvestiging"
-          },
-          "hoofdNevenVestigingOmschrijving": {
-            "type": "string",
-            "title": "hoofdNevenVestigingOmschrijving",
-            "description": "Omschrijving van de code of de vestiging gekenmerkt is als hoofd- of nevenvestiging"
-          },
-          "indicatieEconomischActief": {
-            "type": "boolean",
-            "title": "indicatieEconomischActief",
-            "shortname": "indEconomischActief",
-            "description": "Indicatie of de vestiging deelneemt aan het economisch verkeer"
           },
           "creatieveSectorCode": {
             "type": "string",
@@ -400,15 +189,101 @@
             "title": "horecaOmschrijving",
             "description": "Omschrijving van de bedrijfssector van de horeca waarin de vestiging actief is"
           },
+          "aantalWerkzamepersonen": {
+            "type": "integer",
+            "title": "aantalWerkzamepersonen",
+            "description": "Het totaal aantal personen dat bij de vestiging werkzaam is"
+          },
+          "aantalWerkzamepersonenFulltime": {
+            "type": "integer",
+            "title": "aantalWerkzamepersonenFulltime",
+            "shortname": "aantalWpFulltime",
+            "description": "Het totaal aantal personen dat fulltime bij de vestiging werkzaam is"
+          },
+          "aantalWerkzamepersonenParttime": {
+            "type": "integer",
+            "title": "aantalWerkzamepersonenParttime",
+            "shortname": "aantalWpParttime",
+            "description": "Het totaal aantal personen dat parttime bij de vestiging werkzaam is"
+          },
+          "klasseWerkzamepersonenCode": {
+            "type": "string",
+            "title": "klasseWerkzamepersonenCode",
+            "shortname": "klasseWpCode",
+            "description": "Code die de economische grootte klasse aangeeft van het totaal aantal werkzame personen bij de vestiging"
+          },
+          "klasseWerkzamepersonenOmschrijving": {
+            "type": "string",
+            "title": "klasseWerkzamepersonenOmschrijving",
+            "shortname": "klasseWpOmschrijving",
+            "description": "Omschrijving van de code die de economische grootte klasse aangeeft van het totaal aantal werkzame personen bij de vestiging"
+          },
+          "datumStartVestiging": {
+            "type": "string",
+            "format": "date",
+            "title": "datumStartVestiging",
+            "description": "De datum waarop de vestiging, vereniging of stichting onder het betreffende dossiernummer is ingeschreven in het Handelsregister"
+          },
+          "datumEindeVestiging": {
+            "type": "string",
+            "format": "date",
+            "title": "datumEindeVestiging",
+            "description": "De datum waarop de vestiging, vereniging of stichting onder het betreffende dossiernummer is uitgeschreven uit het Handelsregister"
+          },
+          "datumVerwerkingEnquete": {
+            "type": "string",
+            "format": "date",
+            "title": "datumStartVestiging",
+            "description": "Datum verwerking enquête"
+          },
+          "rechtsvormCode": {
+            "type": "string",
+            "title": "rechtsvormCode",
+            "description": "Code die de rechtsvorm van de vestiging aangeeft"
+          },
+          "rechtsvormOmschrijving": {
+            "type": "string",
+            "title": "rechtsvormOmschrijving",
+            "description": "Omschrijving van de code die de rechtsvorm aangeeft"
+          },
+          "indicatieZzp": {
+            "type": "boolean",
+            "title": "indicatieZzp",
+            "shortname": "indZzp",
+            "description": "Indicatie of betreffende vestiging een zelfstandige zonder personeel (zzp'er) betreft"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Point.json",
+            "title": "geometrie",
+            "description": "Vorm en ligging van de vestiging in het Nationale Rijksdriehoekstelsel."
+          },
+          "verblijfsobjectOppervlakte": {
+            "type": "integer",
+            "title": "verblijfsobjectOppervlakte",
+            "shortname": "votOppervlakte",
+            "description": "De gebruiksoppervlakte van het verblijfsobject waar de vestiging in is gevestigd conform hetgeen in NEN 2580 is vastgelegd omtrent gebruiksoppervlakte"
+          },
+          "gebiedsdatumWinkel": {
+            "type": "string",
+            "format": "date",
+            "title": "gebiedsdatumWinkel",
+            "description": "Peildatum van de winkelgebieden vastgesteld door Economische Zaken en Onderzoek & Statistiek"
+          },
           "winkelgebiedCode": {
             "type": "integer",
             "title": "winkelgebiedCode",
-            "description": "Naam van het winkelgebied vastgesteld door Economische Zaken en Onderzoek & Statistiek"
+            "description": "Unieke sleutel van het winkelgebied vastgesteld door Economische Zaken en Onderzoek & Statistiek"
           },
           "winkelgebiedNaam": {
             "type": "string",
             "title": "winkelgebiedNaam",
             "description": "Naam van het winkelgebied vastgesteld door Economische Zaken en Onderzoek & Statistiek"
+          },
+          "gebiedsdatumBedrijventerrein": {
+            "type": "string",
+            "format": "date",
+            "title": "gebiedsdatumBedrijventerrein",
+            "description": "Peildatum van het bedrijventerrein vastgesteld door Economische Zaken en Onderzoek & Statistiek"
           },
           "bedrijventerreinCode": {
             "type": "integer",
@@ -419,23 +294,6 @@
             "type": "string",
             "title": "bedrijventerreinNaam",
             "description": "Naam van het bedrijventerrein vastgesteld door Economische Zaken en Onderzoek & Statistiek"
-          },
-          "indicatieStarter": {
-            "type": "boolean",
-            "title": "indicatieStarter",
-            "shortname": "indStarter",
-            "description": "Indicatie of betreffende vestiging is gestart ná de peildatum van de vorige stand"
-          },
-          "indicatieZzp": {
-            "type": "boolean",
-            "title": "indicatieZzp",
-            "shortname": "indZzp",
-            "description": "Indicatie of betreffende vestiging een zelfstandige zonder personeel (zzp'er) betreft"
-          },
-          "indicatiePlint": {
-            "type": "boolean",
-            "title": "indicatiePlint",
-            "description": "Indicatie of vestiging in de plint van het pand is gevestigd"
           },
           "nummeraanduidingIdentificatie": {
             "type": "string",
@@ -461,26 +319,11 @@
             "shortname": "aotVolgnummer",
             "description": "Uniek volgnummer van de toestand van het adresseerbaar object"
           },
-          "verblijfsobjectOppervlakte": {
-            "type": "integer",
-            "title": "verblijfsobjectOppervlakte",
-            "shortname": "votOppervlakte",
-            "description": "De gebruiksoppervlakte van het verblijfsobject waar de vestiging in is gevestigd conform hetgeen in NEN 2580 is vastgelegd omtrent gebruiksoppervlakte"
-          },
-          "geometrie": {
-            "$ref": "https://geojson.org/schema/Point.json",
-            "title": "geometrie",
-            "description": "Vorm en ligging van de vestiging in het Nationale Rijksdriehoekstelsel."
-          },
-          "bagconformCode": {
-            "type": "integer",
-            "title": "bagconformCode",
-            "description": "Code die aangeeft of het adres van de vestiging BAG-conform is"
-          },
-          "bagconformOmschrijving": {
+          "gebiedsdatumBuurt": {
             "type": "string",
-            "title": "bagconformOmschrijving",
-            "description": "Omschrijving of het adres van de vestiging BAG-conform is"
+            "format": "date",
+            "title": "gebiedsdatumBuurt",
+            "description": "Peildatum van de gebruikte gebiedsindeling uit de Kernregistratie Gebieden"
           },
           "buurtIdentificatie": {
             "type": "string",
@@ -499,12 +342,6 @@
             "title": "buurtCode",
             "shortname": "brtCode",
             "description": "Officiële code van de buurt"
-          },
-          "cbsBuurtCode": {
-            "type": "string",
-            "title": "cbsBuurtCode",
-            "shortname": "cbsBrtCode",
-            "description": "Code van de buurt, zoals gegeven door het CBS"
           },
           "buurtNaam": {
             "type": "string",
@@ -581,27 +418,63 @@
             "shortname": "sdlNaam",
             "description": "De naam van het stadsdeel"
           },
-          "indicatieHandmatigeOpvoer": {
-            "type": "boolean",
-            "title": "indicatieHandmatigeOpvoer",
-            "shortname": "indHandmatigOpvoer",
-            "description": "Indicatie die aangeeft of een vestiging handmatig is toegevoegd aan het vestigingenregister in het programma VR-Beheer"
-          },
-          "typeMutatieCode": {
-            "type": "string",
-            "title": "typeMutatieCode",
-            "description": "Omschrijving die aangeeft hoe de vestiging is gemuteerd ten opzichte van de vorige stand"
-          },
-          "typeMutatieOmschrijving": {
-            "type": "string",
-            "title": "typeMutatieOmschrijving",
-            "description": "Omschrijving die aangeeft hoe de vestiging is gemuteerd ten opzichte van de vorige stand"
-          },
-          "peildatumVorigeStand": {
+          "gebiedsdatumAltgebied": {
             "type": "string",
             "format": "date",
-            "title": "peildatumVorigeStand",
-            "description": "Peildatum van de vorige stand"
+            "title": "gebiedsdatumAltgebied",
+            "description": "Peildatum van de gebruikte gebiedsindeling van de alternatieve gebiedsindeling"
+          },
+          "gbdAltgebiedCode": {
+            "type": "string",
+            "title": "gbdAltgebiedCode",
+            "description": "Officiële code van het alternatieve gebied"
+          },
+          "gbdAltgebiedNaam": {
+            "type": "string",
+            "title": "gbdAltgebiedNaam",
+            "description": "De naam van het alternatieve gebied"
+          },
+          "gebiedsdatumCbs": {
+            "type": "string",
+            "format": "date",
+            "title": "gebiedsdatumCbs",
+            "description": "Peildatum van de gebruikte CBS wijk- en buurtindeling"
+          },
+          "cbsBuurtCode": {
+            "type": "string",
+            "title": "cbsBuurtCode",
+            "description": "Officiële CBS-code van de buurt"
+          },
+          "cbsBuurtNaam": {
+            "type": "string",
+            "title": "cbsBuurtNaam",
+            "description": "De naam van de CBS-buurt"
+          },
+          "cbsWijkCode": {
+            "type": "string",
+            "title": "cbsWijkCode",
+            "description": "Officiële CBS-code van de wijk"
+          },
+          "cbsWijkNaam": {
+            "type": "string",
+            "title": "cbsWijkNaam",
+            "description": "De naam van de CBS-wijk"
+          },
+          "gebiedsdatumMradeelregio": {
+            "type": "string",
+            "format": "date",
+            "title": "gebiedsdatumMradeelregio",
+            "description": "Peildatum van de MRA-deelregio indeling"
+          },
+          "mradeelregioCode": {
+            "type": "string",
+            "title": "mradeelregioCode",
+            "description": "Code van de MRA-deelregio"
+          },
+          "mradeelregioNaam": {
+            "type": "integer",
+            "title": "mradeelregioNaam",
+            "description": "Naam van de MRA-deelregio"
           }
         }
       }
