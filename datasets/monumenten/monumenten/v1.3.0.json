@@ -11,7 +11,7 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
-    "mainGeometry": "monumentGeometrie",
+    "mainGeometry": "geometrie",
     "identifier": [
       "identificatie"
     ],
@@ -65,20 +65,6 @@
         "type": "string",
         "format": "date-time",
         "description": "datum waarop de beschermde status van het monument in werking treedt"
-      },
-      "opGrondvanBrkAantekening": {
-        "auth": "BRK/RS",
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          }
-        },
-        "relation": "brk2:aantekeningenkadastraleobjecten",
-        "description": "het besluit waarmee dit monument is aangewezen als beschermd monument"
       },
       "inOnderzoek": {
         "type": "string",
