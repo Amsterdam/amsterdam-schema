@@ -23,6 +23,14 @@
         "provenance": "meldingsnummer",
         "description": "Unieke aanduiding melding."
       },
+      "meldingsnummer": {
+        "auth": "FP/MDW",
+        "type": "string",
+        "description": "Referentie van de melding.",
+        "reasonsNonPublic": [
+            "5.2 1: Bevat persoonlijke beleidsopvattingen (bevat geen milieu-informatie)"
+          ]
+      },
       "hoofdcategorie": {
         "type": "string",
         "description": "Hoofdcategorie waaronder melding is gecategoriseerd."
@@ -30,6 +38,10 @@
       "subcategorie": {
         "type": "string",
         "description": "Subcategorie waaronder melding is gecategoriseerd."
+      },
+      "thema": {
+        "type": "string",
+        "description": "Overkoepelend thema waaronder melding is gecategoriseerd."
       },
       "directie": {
         "auth": "FP/MDW",
@@ -118,6 +130,10 @@
         "reasonsNonPublic": [
             "5.2 1: Bevat persoonlijke beleidsopvattingen (bevat geen milieu-informatie)"
           ]
+      },
+      "externeStatus": {
+        "type": "string",
+        "description": "Vereenvoudigde status waarin de melding zich bevindt: open of afgesloten."
       },
       "kpiAfhandeltijd": {
         "auth": "FP/MDW",
@@ -274,22 +290,6 @@
         "type": "string",
         "format": "date-time",
         "description": "Datum en tijd laatste update van registratie uit bron."
-      },
-      "meldingsnummer": {
-        "auth": "FP/MDW",
-        "type": "string",
-        "description": "Referentie van de melding.",
-        "reasonsNonPublic": [
-            "5.2 1: Bevat persoonlijke beleidsopvattingen (bevat geen milieu-informatie)"
-          ]
-      },
-      "externeStatus": {
-        "type": "string",
-        "description": "Vereenvoudigde status waarin de melding zich bevindt: open of afgesloten."
-      },
-      "thema": {
-        "type": "string",
-        "description": "Overkoepelend thema waaronder melding is gecategoriseerd."
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/Point.json",
