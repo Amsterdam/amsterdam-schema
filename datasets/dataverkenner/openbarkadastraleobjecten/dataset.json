@@ -1,0 +1,108 @@
+{
+  "type": "dataset",
+  "id": "dataverkennerOpenbarkadastraleobjecten",
+  "status": "beschikbaar",
+  "owner": "Gemeente Amsterdam",
+  "publisher": {
+    "$ref": "publishers/BENK"
+  },
+  "creator": "Basisinformatie",
+  "auth": "OPENBAAR",
+  "version": "0.0.1",
+  "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
+  "description": "De Basisregistratie | Toegewijde weergaven BAG en BRK bevat informatie nodig voor implementatie op het Data Verkenner platform.",
+  "tables": [
+    {
+      "type": "table",
+      "id": "openbarkadastraleobjecten",
+      "version": "0.0.1",
+      "derivedFrom": [
+        "brk2:kadastraleobjecten",
+        "brk2:kadastraleobjecten_hft_rel_mt_vot"
+      ],
+      "temporal": {
+        "identifier": "volgnummer",
+        "dimensions": {
+          "geldigOp": [
+            "beginGeldigheid",
+            "eindGeldigheid"
+          ]
+        }
+      },
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+          "identificatie",
+          "volgnummer"
+        ],
+        "required": [
+          "schema",
+          "neuronId",
+          "identificatie",
+          "volgnummer"
+        ],
+        "display": "identificatie",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+          },
+          "neuronId": {
+            "type": "string",
+            "description": "Neuron ID"
+          },
+          "volgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van het object."
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "De unieke aanduiding van een Kadastraal object."
+          },
+          "kadastraleAanduiding": {
+            "type": "string",
+            "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
+          },
+          "aangeduidDoorBrkKadastralegemeentecodeId": {
+            "type": "string",
+            "description": "De kadastrale gemeentecode. Het eerste deel van de kadastrale aanduiding. Bijvoorbeeld: ASD01, STN02"
+          },
+          "aangeduidDoorBrkKadastralesectieId": {
+            "type": "string",
+            "description": "De kadastrale sectie, het tweede gedeelte van de aanduiding van een kadastraal object."
+          },
+          "aangeduidDoorBrkKadastralegemeenteId": {
+            "type": "string",
+            "description": "De kadastrale gemeente, het eerste gedeelte van de aanduiding van een kadastraal object."
+          },
+          "indexletter": {
+            "type": "string",
+            "description": "Letter Kadastraal object, dit geeft een indicatie voor het type object. G Grond perceel. A Appartementsrecht"
+          },
+          "indexnummer": {
+            "type": "integer",
+            "description": "Volgnummer van het Appartementsrecht"
+          },
+          "grootte": {
+            "type": "number",
+            "multipleOf": 0.01,
+            "description": "De grootte van een kadastraal object is de oppervlakte van het kadastrale perceel. Dit kan bij een deelperceel een geschatte grootte zijn."
+          },
+          "heeftEenRelatieMetBagVerblijfsobjectIdentificatie": {
+            "type": "string",
+            "description": "Relatie naar verblijfsobject"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  ]
+}
