@@ -1,0 +1,102 @@
+{
+  "type": "dataset",
+  "id": "dataverkennerBetrokkenbij",
+  "status": "beschikbaar",
+  "owner": "Gemeente Amsterdam",
+  "publisher": {
+    "$ref": "publishers/BENK"
+  },
+  "creator": "Basisinformatie",
+  "auth": "OPENBAAR",
+  "version": "0.0.1",
+  "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
+  "description": "De Basisregistratie | Toegewijde weergaven BAG en BRK bevat informatie nodig voor implementatie op het Data Verkenner platform.",
+  "tables": [
+    {
+      "type": "table",
+      "id": "betrokkenbij",
+      "version": "0.0.1",
+      "derivedFrom": [
+        "brk2:kadastraleobjecten",
+        "brk2:kadastraleobjecten_is_ontstaan_uit_brk_g_perceel"
+      ],
+      "temporal": {
+        "identifier": "volgnummer",
+        "dimensions": {
+          "geldigOp": [
+            "beginGeldigheid",
+            "eindGeldigheid"
+          ]
+        }
+      },
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+          "identificatie",
+          "volgnummer"
+        ],
+        "required": [
+          "schema",
+          "neuronId",
+          "identificatie",
+          "volgnummer"
+        ],
+    
+        "display": "identificatie",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+          },
+          "neuronId": {
+            "type": "string",
+            "description": "Neuron ID"
+          },
+          "volgnummer": {
+            "type": "integer",
+            "description": "Uniek volgnummer van de toestand van het object."
+          },
+          "identificatie": {
+            "type": "string",
+            "description": "De unieke aanduiding van een Kadastraal object."
+          },
+          "kadastraleAanduiding": {
+            "type": "string",
+            "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Begindatum geldigheid."
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Einddatum geldigheid."
+          },
+          "betrokenBijIdentificatie": {
+            "type": "string",
+            "description": "Dit veld is alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
+          },
+          "betrokenBijVolgnummer": {
+            "type": "integer",
+            "description": "Dit veld is alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
+          },
+          "isOntstaanUitBrkGPerceelIdentificatie": {
+            "type": "string",
+            "description": "Dit veld is alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
+          },
+          "betrokenBijBeginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "betrokenBijEindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  ]
+}
