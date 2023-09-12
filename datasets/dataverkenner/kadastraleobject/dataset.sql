@@ -15,4 +15,4 @@ brk_2_kadastraleobjecten.aangeduid_door_brk_kadastralegemeente_id as "aangeduid_
 brk_2_kadastraleobjecten.grootte as "grootte",
 brk_2_kadastraleobjecten_hft_rel_mt_vot.hft_rel_mt_vot_identificatie as "heeft_een_relatie_met_bag_verblijfsobject_identificatie"
 from brk_2_kadastraleobjecten
-left join brk_2_kadastraleobjecten_hft_rel_mt_vot on brk_2_kadastraleobjecten.id = kadastraleobjecten_id
+left join brk_2_kadastraleobjecten_hft_rel_mt_vot on brk_2_kadastraleobjecten.id = kadastraleobjecten_id;

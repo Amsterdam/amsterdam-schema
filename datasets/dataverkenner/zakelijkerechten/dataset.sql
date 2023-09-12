@@ -8,4 +8,4 @@ brk_2_zakelijkerechten.aard_zakelijk_recht_omschrijving as "aard_zakelijk_recht_
 brk_2_zakelijkerechten.betrokken_bij_appartementsrechtsplitsing_vve as "betrokken_bij_appartementsrechtsplitsing_vve",
 brk_2_zakelijkerechten.begin_geldigheid as "begin_geldigheid",
 brk_2_zakelijkerechten.eind_geldigheid as "eind_geldigheid"
-from brk_2_zakelijkerechten
+from brk_2_zakelijkerechten;
