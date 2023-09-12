@@ -21,10 +21,10 @@ case when (peildatum::varchar like '%01-01' or peildatum::varchar like '%07-01')
            AND start_bouw_gerealiseerd is NULL
            AND plaberum_publicatie <> 'Fase 0: Strategische Ruimte' then sociale_huur_corporatie::varchar
            ELSE 'n.b.'::varchar END as sociale_huur_corporatie,
-plaberum_publicatie         ,
-start_bouw_gepland          ,
-start_bouw_gerealiseerd     ,
-oplevering_gepland          ,
+plaberum_publicatie                                                         ,
+to_char(start_bouw_gepland, 'DD/MM/YYYY') as start_bouw_gepland             ,
+to_char(start_bouw_gerealiseerd, 'DD/MM/YYYY') as start_bouw_gerealiseerd   ,
+to_char(oplevering_gepland, 'DD/MM/YYYY') as oplevering_gepland             ,
 sociale_huur_zelfst_perm    ,
 middeldure_huur             ,
 sociale_koop                ,
@@ -54,10 +54,6 @@ case when (peildatum::varchar like '%01-01' or peildatum::varchar like '%07-01')
            ELSE 'n.b.'::varchar END as tijdelijk,
 totaal                                                                      ,
 totaal_zelfst_perm                                                          ,
-plaberum_publicatie                                                         ,
-to_char(start_bouw_gepland, 'DD/MM/YYYY') as start_bouw_gepland             ,
-to_char(start_bouw_gerealiseerd, 'DD/MM/YYYY') as start_bouw_gerealiseerd   ,
-to_char(oplevering_gepland, 'DD/MM/YYYY') as oplevering_gepland             ,
 to_char(peildatum, 'DD/MM/YYYY') as peildatum		                        ,
 geometrie
 FROM public.nieuwbouwplannen_projecten
