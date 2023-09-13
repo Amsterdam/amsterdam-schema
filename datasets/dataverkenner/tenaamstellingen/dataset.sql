@@ -16,4 +16,4 @@ brk_2_kadastralesubjecten.geslacht_code as "kadastralesubjecten_geslacht_code",
 brk_2_kadastralesubjecten.statutaire_naam as "kadastralesubjecten_statutaire_naam",
 brk_2_kadastralesubjecten.type_subject as "kadastralesubjecten_type_subject"
 from brk_2_tenaamstellingen
-left join brk_2_kadastralesubjecten on brk_2_tenaamstellingen.van_brk_kadastraalsubject_id = brk_2_kadastralesubjecten.identificatie
+left join brk_2_kadastralesubjecten on brk_2_tenaamstellingen.van_brk_kadastraalsubject_id = brk_2_kadastralesubjecten.identificatie;
