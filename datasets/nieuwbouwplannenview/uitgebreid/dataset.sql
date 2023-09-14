@@ -1,0 +1,41 @@
+CREATE OR REPLACE VIEW public.nieuwbouwplannenview_uitgebreid AS
+SELECT
+id                          ,
+id_primavera				,
+projectnaam_afkorting       ,
+buurt_code                  ,
+buurt_naam                  ,
+wijk_code                   ,
+wijk_naam                   ,
+gebied_code                 ,
+gebied_naam                 ,
+stadsdeel_code              ,
+stadsdeel_naam              ,
+grex						,
+gebiedsindeling_primavera	,
+CASE WHEN start_bouw_gerealiseerd IS NULL 
+          THEN 'n.b.'::varchar
+          ELSE zelfbouw::varchar END AS zelfbouw                            ,
+sociale_huur_corporatie     ,
+plaberum_publicatie         ,
+to_char(start_bouw_gepland, 'DD/MM/YYYY') AS start_bouw_gepland             ,
+to_char(start_bouw_gerealiseerd, 'DD/MM/YYYY') AS start_bouw_gerealiseerd   ,
+to_char(oplevering_gepland, 'DD/MM/YYYY') AS oplevering_gepland             ,
+sociale_huur_zelfst_perm    ,
+middeldure_huur             ,
+sociale_koop                ,
+vrije_sector_huur           ,
+vrije_sector_koop           ,
+vrije_sector_nb             ,
+onbekend                    ,
+jongeren                    ,
+studenten                   ,
+sh_onzelfst_en_of_tijdelijk ,
+onzelfstandig               ,
+tijdelijk                   ,
+totaal                      ,
+totaal_zelfst_perm          ,
+to_char(peildatum, 'DD/MM/YYYY') AS peildatum                                ,
+geometrie
+FROM public.nieuwbouwplannen_projecten
+;
