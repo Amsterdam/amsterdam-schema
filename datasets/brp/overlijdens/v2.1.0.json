@@ -1,7 +1,7 @@
 {
-  "id": "overlijden",
+  "id": "overlijdens",
   "type": "table",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "auth": "BRP/R",
   "reasonsNonPublic": [
     "5.1 1d: Bevat persoonsgegevens"
@@ -10,19 +10,23 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
-    "identifier": "identificatie",
+    "identifier": "burgerservicenummer",
     "required": [
       "schema",
-      "identificatie"
+      "burgerservicenummer"
     ],
-    "display": "identificatie",
+    "display": "burgerservicenummer",
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
-      "identificatie": {
+      "burgerservicenummer": {
         "type": "string",
-        "description": "identificatie, dit is of het Burgerservicenummer, Anummer of een zelfgemaakte identificatie door GOB"
+        "description": "identificatie, het Burgerservicenummer van de persoon op de persoonslijst (PL)"
+      },
+      "anummer": {
+        "type": "string",
+        "description": "Anummer van de persoon op de persoonslijst (PL)"
       },
       "overlijden": {
         "type": "object",
@@ -34,6 +38,7 @@
           },
           "plaatsOverlijden": {
             "type": "string",
+            "relation": "brk2:kadastralegemeentecodes",
             "description": "code, opgenomen in Tabel 33, Gemeentetabel"
           },
           "landOverlijden": {
@@ -43,18 +48,8 @@
         }
       },
       "registergemeenteAkte": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "$comment": "relation brk2:kadastralegemeentecodes *stringify*",
-            "description": "code van de registergemeenteAkte"
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "beschrijving van de registergemeenteAkte"
-          }
-        },
+        "type": "string",
+        "relation": "brk2:kadastralegemeentecodes",
         "description": "code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de akte in de registers van de burgerlijke stand in Nederland is opgenomen. Afgeleid uit BRK: Gemeente"
       },
       "aktenummer": {
@@ -72,17 +67,8 @@
         "description": "aanduiding van de akte die is opgenomen in de registers van de burgerlijke stand in Nederland. De eerste drie posities van het aktenummer dienen conform tabel 39, Tabel Akteaanduiding te zijn. De laatste vier posities bevatten een volgnum­er van de akte"
       },
       "gemeenteDocument": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code van document."
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "omschrijving van document"
-          }
-        },
+        "type": "string",
+        "relation": "brk2:kadastralegemeentecodes",
         "description": "code, opgenomen in Tabel 33, Gemeentetabel, die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonden"
       },
       "datumDocument": {
