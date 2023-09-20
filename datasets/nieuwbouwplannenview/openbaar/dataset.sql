@@ -1,7 +1,6 @@
 CREATE OR REPLACE VIEW public.nieuwbouwplannenview_openbaar AS
 SELECT
 id                          ,
-'n.b.' as id_primavera		,
 projectnaam_afkorting       ,
 buurt_code                  ,
 buurt_naam                  ,
@@ -11,8 +10,6 @@ gebied_code                 ,
 gebied_naam                 ,
 stadsdeel_code              ,
 stadsdeel_naam              ,
-'n.b' as grex						,
-'n.b' as gebiedsindeling_primavera	,
 CASE WHEN extract(DAY from peildatum) = 1 AND (extract(MONTH from peildatum) = 7 OR extract(MONTH from peildatum) = 1)
            AND start_bouw_gerealiseerd IS NULL
            AND plaberum_publicatie <> 'Fase 0: Strategische Ruimte' THEN 'n.b.'::varchar
@@ -24,7 +21,6 @@ CASE WHEN extract(DAY from peildatum) = 1 AND (extract(MONTH from peildatum) = 7
 plaberum_publicatie                                                         ,
 to_char(start_bouw_gepland, 'DD/MM/YYYY') as start_bouw_gepland             ,
 to_char(start_bouw_gerealiseerd, 'DD/MM/YYYY') as start_bouw_gerealiseerd   ,
-'n.b' as oplevering_gepland ,
 sociale_huur_zelfst_perm    ,
 middeldure_huur             ,
 sociale_koop                ,
