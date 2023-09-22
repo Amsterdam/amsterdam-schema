@@ -33,36 +33,16 @@
         "description": "(geslachts)naam waarvan de eventueel aanwezige voorvoegsels en adellijke titel/predikaat zijn afgesplitst van persoon"
       },
       "voorvoegselGeslachtsnaam": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code van de persoonVoorvoegselGeslachtsnaam"
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "omschrijving van de persoonVoorvoegselGeslachtsnaam"
-          }
-        },
-        "description": "deel van de geslachtsnaam dat voorkomt in de Voorvoegseltabel, tabel 36,van het persoon"
+        "type": "string",
+        "description": "omschrijving van de persoonVoorvoegselGeslachtsnaam"
       },
       "voornamen": {
         "type": "string",
         "description": "voornamen van het persoon, gescheiden door spaties. Bijvoorbeeld: Pieter Jan"
       },
       "adellijkeTitelPredikaat": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code van de adellijkeTitelPredikaat van het persoon"
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "leesbare naam van de adellijkeTitelPredikaat van het persoon"
-          }
-        },
-        "description": "deel van de geslachtsnaam dat voorkomt in de Voorvoegseltabel, tabel 36,van het persoon"
+        "type": "string",
+        "description": "leesbare naam van de adellijkeTitelPredikaat van het persoon"
       },
       "geboortePlaats": {
         "type": "string",
@@ -111,7 +91,13 @@
         "description": "Schrijfwijze van de achternaam. Mogelijke waarden: E (eigen naam), N (eigen naam -partner), P (partner), V (partner-eigen naam)"
       },
       "registergemeenteAkte": {
-        "type": "string",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de registergemeenteAkte"
+          }
+        },
         "relation": "brk2:kadastralegemeentecodes",
         "description": "code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de akte in de registers van de burgerlijke stand in Nederland is opgenomen. Afgeleid uit BRK: Gemeente"
       },
@@ -130,7 +116,13 @@
         "description": "aanduiding van de akte die is opgenomen in de registers van de burgerlijke stand in Nederland. De eerste drie posities van het aktenummer dienen conform tabel 39, Tabel Akteaanduiding te zijn. De laatste vier posities bevatten een volgnum­er van de akte"
       },
       "gemeenteDocument": {
-        "type": "string",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de gemeenteDocument"
+          }
+        },
         "relation": "brk2:kadastralegemeentecodes",
         "description": "code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonden. Afgeleid uit BRK: Gemeente"
       },
