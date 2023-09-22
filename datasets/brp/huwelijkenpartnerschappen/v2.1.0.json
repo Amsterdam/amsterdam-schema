@@ -41,36 +41,16 @@
         "description": "(geslachts)naam waarvan de eventueel aanwezige voorvoegsels en adellijke titel/predikaat zijn afgesplitst van persoon"
       },
       "partnerVoorvoegselGeslachtsnaam": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code van de partner voorvoegselGeslachtsnaam"
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "omschrijving van de partner voorvoegselGeslachtsnaam"
-          }
-        },
-        "description": "deel van de geslachtsnaam dat voorkomt in de Voorvoegseltabel, tabel 36,van de partner"
+        "type": "string",
+        "description": "code van de partner voorvoegselGeslachtsnaam"
       },
       "partnerVoornamen": {
         "type": "string",
         "description": "voornamen van het partner, gescheiden door spaties. Bijvoorbeeld: Pieter Jan"
       },
       "partnerAdellijkeTitelPredikaat": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code van de adellijkeTitelPredikaat van partner"
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "leesbare naam van de adellijkeTitelPredikaat van partner"
-          }
-        },
-        "description": "de adellijkeTitelPredikaat van partner"
+        "type": "string",
+        "description": "leesbare naam van de adellijkeTitelPredikaat van partner"
       },
       "partnerGeboortePlaats": {
         "type": "string",
@@ -117,12 +97,9 @@
           "code": {
             "type": "string",
             "description": "code van de PartnerPlaatsSluitingHuwelijkPartnerschap"
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "omschrijving van de PartnerPlaatsSluitingHuwelijkPartnerschap"
           }
         },
+        "relation": "brk2:kadastralegemeentecodes",
         "description": "code, opgenomen in talbel 33, of een buitenlandse plaats"
       },
       "partnerLandSluitingHuwelijkPartnerschap": {
@@ -145,7 +122,13 @@
         "description": "De datum waarop het huwelijk/partnerschap is ontbonden"
       },
       "partnerPlaatsOntbindingHuwelijkPartnerschap": {
-        "type": "string",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de PartnerPlaatsOntbindingHuwelijkPartnerschap"
+          }
+        },
         "relation": "brk2:kadastralegemeentecodes",
         "description": "code, opgenomen in Tabel 33, of een buitenlandse plaats van ontbinding"
       },
@@ -182,7 +165,13 @@
         "description": "Aanduiding huwelijk of geregistreerd partnerschap"
       },
       "registergemeenteAkte": {
-        "type": "string",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de reden registergemeenteAkte"
+          }
+        },
         "relation": "brk2:kadastralegemeentecodes",
         "description": "code, opgenomen in Tabel 33, Gemeentetabel"
       },
@@ -191,7 +180,13 @@
         "description": "Een aanduiding van de akte die is opgenomen in de registers van de burgelijke stand in Nederland"
       },
       "gemeenteDocument": {
-        "type": "string",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de gemeenteDocument"
+          }
+        },
         "relation": "brk2:kadastralegemeentecodes",
         "description": "code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonden. Afgeleid uit BRK: Gemeente"
       },
