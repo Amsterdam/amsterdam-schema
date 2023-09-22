@@ -41,36 +41,16 @@
         "description": "(geslachts)naam waarvan de eventueel aanwezige voorvoegsels en adellijke titel/predikaat zijn afgesplitst van ouder"
       },
       "ouderVoorvoegselGeslachtsnaam": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code van de OuderVoorvoegselGeslachtsnaam"
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "omschrijving van de OuderVoorvoegselGeslachtsnaam"
-          }
-        },
-        "description": "deel van de geslachtsnaam dat voorkomt in de Voorvoegseltabel, tabel 36,van ouder"
+        "type": "string",
+        "description": "omschrijving van de OuderVoorvoegselGeslachtsnaam"
       },
       "ouderVoornamen": {
         "type": "string",
         "description": "voornamen van de ouder, gescheiden door spaties. Bijvoorbeeld: Pieter Jan"
       },
       "ouderAdellijkeTitelPredikaat": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "code van de adellijkeTitelPredikaat van ouder"
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "leesbare naam van de adellijkeTitelPredikaat van ouder"
-          }
-        },
-        "description": "deel van de geslachtsnaam dat voorkomt in de Voorvoegseltabel, tabel 36,van ouder"
+        "type": "string",
+        "description": "leesbare naam van de adellijkeTitelPredikaat van ouder"
       },
       "ouderGeboortePlaats": {
         "type": "string",
@@ -111,7 +91,13 @@
         "format": "date"
       },
       "registergemeenteAkte": {
-        "type": "string",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de registergemeenteAkte"
+          }
+        },
         "relation": "brk2:kadastralegemeentecodes",
         "description": "code, opgenomen in Tabel 33, Gemeentetabel"
       },
@@ -130,7 +116,13 @@
         "description": "code, opgenomen in Tabel 39, akteaanduiding"
       },
       "gemeenteDocument": {
-        "type": "string",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de gemeenteDocument"
+          }
+        },
         "relation": "brk2:kadastralegemeentecodes",
         "description": "code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonden. Afgeleid uit BRK: Gemeente"
       },
