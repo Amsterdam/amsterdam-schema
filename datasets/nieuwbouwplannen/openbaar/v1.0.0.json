@@ -1,29 +1,15 @@
-{
-    "type": "table",
-    "id": "nieuwbouwplannenKwartaalUitgebreid",
-    "title": "Nieuwbouwplannen kwartaal uitgebreid",
-    "description": "Nieuwbouwplannen van de Gemeente Amsterdam kwartaal afslag geautoriseerde set uitgebreid",
-    "crs": "EPSG:28992",
-    "status": "beschikbaar",
-    "version": "1.0.0",
-    "creator": "Datateam stedelijke ontwikkeling en beheer",
-    "owner": "Gemeente Amsterdam, Directie Grond & Ontwikkeling",
-    "publisher": {
-      "$ref": "publishers/SOEB"
-    },
-    "auth": "BB/WB/GO/UITG",
-    "authorizationGrantor": "datateamstedelijkeonwikkelingenbeheer@amsterdam.nl",
-    "tables": [
       {
-        "id": "projecten",
+        "id": "openbaar",
         "title": "Nieuwbouwplannen openbaar",
         "type": "table",
         "version": "1.0.0",
+        "auth": "OPENBAAR",
         "schema": {
           "$schema": "http://json-schema.org/draft-07/schema#",
           "type": "object",
           "additionalProperties": false,
           "required": [
+            "schema",
             "id"
           ],
           "mainGeometry": "geometrie",
@@ -35,10 +21,6 @@
             "id": {
               "type": "integer",
               "description": "Unieke aanduiding van nieuwbouwproject"
-            },
-            "idPrimavera": {
-              "type": "string",
-              "description": "ID van het project in Primavera"
             },
             "projectnaamAfkorting": {
               "type": "string",
@@ -76,14 +58,6 @@
               "type": "string",
               "description": "Naam van het stadsdeel"
             },
-            "grex": {
-              "type": "string",
-              "description": "Nummer grondexploitatie"
-            },
-            "gebiedsindelingPrimavera": {
-              "type": "string",
-              "description": "Gebiedsindeling uit Primavera"
-            },
             "zelfbouw": {
               "type": "string",
               "description": "Zelfbouwproject"
@@ -104,11 +78,6 @@
             "startBouwGerealiseerd": {
               "type": "string",
               "description": "Datum waarop start van het project is gerealiseerd",
-              "format": "date"
-            },
-            "opleveringGepland": {
-              "type": "string",
-              "description": "Datum waarop oplevering van het project gepland staat",
               "format": "date"
             },
             "socialeHuurZelfstPerm": {
@@ -179,6 +148,4 @@
           }
         }
       }
-    ]
-  }
    
