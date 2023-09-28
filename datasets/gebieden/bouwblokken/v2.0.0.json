@@ -1,7 +1,7 @@
 {
   "id": "bouwblokken",
   "type": "table",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
@@ -28,7 +28,7 @@
     "display": "id",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
@@ -49,15 +49,20 @@
       },
       "beginGeldigheid": {
         "type": "string",
-        "format": "date",
+        "format": "date-time",
         "description": "De datum waarop het object is gecre\u00eberd."
       },
       "eindGeldigheid": {
         "type": "string",
-        "format": "date",
+        "format": "date-time",
         "description": "De datum waarop het object is komen te vervallen."
       },
-      "ligtInBuurt": {
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "ligtInGebiedenBuurt": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -65,6 +70,14 @@
           },
           "volgnummer": {
             "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "relation": "gebieden:buurten",
@@ -73,6 +86,28 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Polygon.json",
         "description": "Geometrische beschrijving van een object."
+      },
+      "ligtInBrkGemeente": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "brk:gemeentes",
+        "provenance": "$.ligtInGemeente.identificatie",
+        "description": "WORDT VERWIJDERD - De gemeente waar het bouwblok in ligt."
       }
     }
   }
