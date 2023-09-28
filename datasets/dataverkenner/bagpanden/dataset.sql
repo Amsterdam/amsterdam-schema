@@ -1,6 +1,6 @@
 create or replace view public.dataverkenner_bagpanden_bagpanden WITH (security_barrier) as
 select
-bag_panden.id as "pand_id",
+bag_panden.id as "id",
 bag_panden.identificatie as "pand_identificatie",
 bag_panden.volgnummer as "pand_volgnummer",
 bag_panden.geometrie as "pand_geometrie",
