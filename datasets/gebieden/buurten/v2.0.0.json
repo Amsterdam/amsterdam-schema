@@ -1,7 +1,7 @@
 {
   "id": "buurten",
   "type": "table",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
@@ -28,7 +28,11 @@
     "display": "id",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "Unieke identificatie van het object."
       },
       "volgnummer": {
         "type": "integer",
@@ -37,11 +41,7 @@
       "registratiedatum": {
         "type": "string",
         "format": "date-time",
-        "description": "De datum waarop de toestand is geregistreerd."
-      },
-      "identificatie": {
-        "type": "string",
-        "description": "Unieke identificatie van het object."
+        "description": "De datum waarop de toestand is geregistreerd." 
       },
       "naam": {
         "type": "string",
@@ -53,12 +53,12 @@
       },
       "beginGeldigheid": {
         "type": "string",
-        "format": "date",
+        "format": "date-time",
         "description": "De datum waarop het object is gecre\u00eberd."
       },
       "eindGeldigheid": {
         "type": "string",
-        "format": "date",
+        "format": "date-time",
         "description": "De datum waarop het object is komen te vervallen."
       },
       "documentdatum": {
@@ -74,7 +74,7 @@
         "type": "string",
         "description": "De CBS-code van het object."
       },
-      "ligtInWijk": {
+      "ligtInGebiedenWijk": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -85,19 +85,87 @@
           },
           "beginGeldigheid": {
             "type": "string",
-            "format": "date"
+            "format": "date-time"
           },
           "eindGeldigheid": {
             "type": "string",
-            "format": "date"
+            "format": "date-time"
           }
         },
         "relation": "gebieden:wijken",
         "description": "De wijk waar de buurt in ligt."
       },
+      "ligtInGebiedenGgpgebied": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "gebieden:ggpgebieden",
+        "description": "Het GGP gebied waar de buurt in ligt."
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "ligtInGebiedenGgwgebied": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "gebieden:ggwgebieden",
+        "description": "Het GGW gebied waar de buurt in ligt."
+      },
       "geometrie": {
         "$ref": "https://geojson.org/schema/Polygon.json",
         "description": "Geometrische beschrijving van een object."
+      },
+      "ligtInBrkGemeente": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "brk:gemeentes",
+        "provenance": "$.ligtInGemeente.identificatie",
+        "description": "WORDT VERWIJDERD - De gemeente waar de buurt in ligt."
       }
     }
   }
