@@ -33,11 +33,10 @@
     {
       "id": "verhardingen",
       "type": "table",
-      "auth": 
-        [
+      "auth": [
         "FP/IASSET",
         "FP/MDW"
-        ],
+      ],
       "license": "Gesloten",
       "reasonsNonPublic": [
         "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
@@ -71,7 +70,7 @@
           "imgeoIdentificatie": {
             "description": "Overerving van de geometrie van beheerobject uit bovenliggend informatiemodel of automatisch genereren.",
             "type": "string"
-             },
+          },
           "identificatie": {
             "description": "uniek id van overerving van de geometrie van beheerobject uit bovenliggend informatiemodel of automatisch genereren.",
             "type": "string"
@@ -150,7 +149,7 @@
             "type": "boolean"
           },
           "geometrie": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
+            "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992)"
           },
           "imborVersie": {
@@ -247,11 +246,10 @@
       "title": "Groenobjecten",
       "description": "Kleinste functioneel onafhankelijk stukje van een terrein dat er binnen het objecttype Terrein van NEN 3610 wordt onderscheiden, met aaneengesloten vegetatie.",
       "version": "1.1.0",
-      "auth":        
-        [
+      "auth": [
         "FP/IASSET",
         "FP/MDW"
-        ],
+      ],
       "reasonsNonPublic": [
         "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
       ],
@@ -273,11 +271,11 @@
             "description": "Uniek identificerend kenmerk van het object.",
             "type": "integer"
           },
-          "guid": { 
+          "guid": {
             "description": "Uniek nummer van het IMBOR-object (GUID).",
             "type": "string"
           },
-          "imgeoIdentificatie": { 
+          "imgeoIdentificatie": {
             "description": "Overerving van de geometrie van beheerobject uit bovenliggend informatiemodel of automatisch genereren.",
             "type": "string"
           },
@@ -297,11 +295,11 @@
             "description": "Versie-aanduiding van het Informatiemodel Beheer Openbare Ruimte (IMBOR).",
             "type": "string"
           },
-          "aantalZijden": { 
+          "aantalZijden": {
             "description": "Aantal zijden van de haag die geknipt moeten worden.",
             "type": "number"
           },
-          "afvoeren": { 
+          "afvoeren": {
             "description": "Aanduiding of het groenafval afgevoerd moet worden.",
             "type": "boolean"
           },
@@ -326,7 +324,7 @@
             "description": "Aanduiding van het beheergebied waarbinnen het beheerobject ligt. Indeling in beheergebieden is organisatiespecifiek.",
             "type": "string"
           },
-          "bereikbaarheid": { 
+          "bereikbaarheid": {
             "description": "Aanduiding voor de bereikbaarheid van het object die beheerd moet worden.",
             "type": "string"
           },
@@ -393,7 +391,7 @@
             "type": "string"
           },
           "geometrie": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
+            "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992)."
           },
           "haagvoetLengte": {
@@ -428,26 +426,26 @@
             "type": "number",
             "unit": "m2"
           },
-          "lengte": { 
+          "lengte": {
             "description": "Lengte van het beheerobject.",
             "type": "number",
             "unit": "m"
           },
-          "maaifrequentie": { 
+          "maaifrequentie": {
             "description": "Aantal keren dat een groenobject of een terreindeel gemaaid wordt per jaar.",
             "type": "string"
           },
-          "mutatiedatum": { 
+          "mutatiedatum": {
             "description": "Datum waarop de digitale gegevens van het beheerobject voor het laatst gewijzigd zijn.",
             "type": "string",
             "format": "date"
           },
-          "objectBegintijd": { 
+          "objectBegintijd": {
             "description": "Creatiedatum (tijdstip) van het digitale beheerobject binnen het beheersysteem of in de bovenliggende georegistratie.",
             "type": "string",
             "format": "date-time"
           },
-          "objectEindtijd": { 
+          "objectEindtijd": {
             "description": "Vervaldatum (tijdstip) van het digitale beheerobject binnen het beheersysteem of in de bovenliggende georegistratie.",
             "type": "string",
             "format": "date-time"
@@ -456,7 +454,7 @@
             "description": "Kleinste functionele eenheid (beheerobject of hulpobject).",
             "type": "string"
           },
-          "omtrek": { 
+          "omtrek": {
             "description": "Omtrek van het beheerobject.",
             "type": "number",
             "unit": "m"
@@ -465,15 +463,15 @@
             "description": "Aanduiding voor de aanwezigheid van ondergroei bij Bos en Bosplantsoen.",
             "type": "string"
           },
-          "onderhoudsplichtige": { 
+          "onderhoudsplichtige": {
             "description": "Organisatie die verantwoordelijk is voor het onderhoud van het beheerobject.",
             "type": "string"
           },
-          "opTalud": { 
+          "opTalud": {
             "description": "Aanduiding of het beheerobject wel of niet op een hellend vlak ligt. De taludsteilte wordt apart geregistreerd. Overname uit BGT-object.",
             "type": "boolean"
           },
-          "opleverdatum": { 
+          "opleverdatum": {
             "description": "Datum waarop het beheerobject daadwerkelijk opgeleverd is. Begin van de garantieperiode.",
             "type": "string",
             "format": "date"
@@ -483,27 +481,27 @@
             "type": "number",
             "unit": "m2"
           },
-          "risicotoeslag": { 
+          "risicotoeslag": {
             "description": "Beschrijving volgt",
             "type": "string"
           },
-          "snoeifrequentie": { 
+          "snoeifrequentie": {
             "description": "Aanduiding voor het aantal keren dat een vegetatieobject gesnoeid moet worden.",
             "type": "string"
           },
-          "theoretischEindjaar": { 
+          "theoretischEindjaar": {
             "description": "Jaar dat het beheerobject aan het theoretische einde van haar levensduur is.",
             "type": "number"
           },
-          "typeBeheerder": { 
+          "typeBeheerder": {
             "description": "Een publiekrechtelijke instantie of (rechts)persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT).",
             "type": "string"
           },
-          "typeBeheerderPlus": { 
+          "typeBeheerderPlus": {
             "description": "Nadere aanduiding van de beheerder van het beheerobject.",
             "type": "string"
           },
-          "typeBewerking": { 
+          "typeBewerking": {
             "description": "Wijze waarop een beheerobject verwerkt wordt (handmatig of machinaal).",
             "type": "string"
           },
@@ -511,7 +509,7 @@
             "description": "(Rechts)persoon die het meest  omvattend recht op een zaak heeft . De typen eigenaren zijn conform de indeling in bronhouders (BGT).",
             "type": "string"
           },
-          "typeEigenaarPlus": { 
+          "typeEigenaarPlus": {
             "description": "Nadere aanduiding van de eigenaar van het beheerobject.",
             "type": "string"
           },
@@ -527,11 +525,11 @@
             "description": "Extra typering van het beheerobject, nadere typering van type gedetailleerd.",
             "type": "string"
           },
-          "vaknummer": { 
+          "vaknummer": {
             "description": "Vaknummer van een (bestaande) indeling in beheervakken.",
             "type": "string"
           },
-          "verwijderdatum": { 
+          "verwijderdatum": {
             "description": "Datum waarop het object is verwijderd (materiële historie).",
             "type": "string",
             "format": "date"
@@ -546,11 +544,10 @@
       "title": "Terreindeel",
       "description": "Kleinste functioneel onafhankelijk stukje van een terrein, dat er binnen het objecttype Terrein van NEN 3610 wordt onderscheiden, met of zonder aaneengesloten vegetatie.",
       "version": "1.1.0",
-      "auth":        
-        [
+      "auth": [
         "FP/IASSET",
         "FP/MDW"
-        ],
+      ],
       "reasonsNonPublic": [
         "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
       ],
@@ -572,11 +569,11 @@
             "description": "Uniek identificerend kenmerk van het object.",
             "type": "integer"
           },
-          "guid": { 
+          "guid": {
             "description": "Uniek nummer van het IMBOR-object (GUID).",
             "type": "string"
           },
-          "imgeoIdentificatie": { 
+          "imgeoIdentificatie": {
             "description": "Overerving van de geometrie van beheerobject uit bovenliggend informatiemodel of automatisch genereren.",
             "type": "string"
           },
@@ -584,7 +581,7 @@
             "description": "Versie-aanduiding van het Informatiemodel Beheer Openbare Ruimte (IMBOR).",
             "type": "string"
           },
-          "afvoeren": { 
+          "afvoeren": {
             "description": "Aanduiding of het groenafval afgevoerd moet worden.",
             "type": "boolean"
           },
@@ -592,7 +589,7 @@
             "description": "Aanduiding van de woonplaats waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met woonplaats- of stadsdeelgrenzen.",
             "type": "string"
           },
-          "beheerafspraak": { 
+          "beheerafspraak": {
             "description": "Beschrijving volgt",
             "type": "string"
           },
@@ -600,18 +597,18 @@
             "description": "Aanduiding van het beheergebied waarbinnen het beheerobject ligt. Indeling in beheergebieden is organisatiespecifiek.",
             "type": "string"
           },
-          "bereikbaarheid": { 
+          "bereikbaarheid": {
             "description": "Aanduiding voor de bereikbaarheid van het object die beheerd moet worden.",
             "type": "string"
           },
-          "bewerkingspercentage": { 
+          "bewerkingspercentage": {
             "description": "Aanduiding van het percentage van het beheerobject dat bewerkt dient te worden.",
             "type": "number",
             "multipleOf": 0.1,
             "minimum": 0,
             "maximum": 100
           },
-          "breedte": { 
+          "breedte": {
             "description": "Breedte van het beheerobject.",
             "type": "number",
             "unit": "m"
@@ -621,19 +618,19 @@
             "type": "string",
             "shortname": "brkGmeNaam"
           },
-          "conditiescore": { 
+          "conditiescore": {
             "description": "Maat voor het vastleggen van de conditie van een object op basis van 6 scores.",
             "type": "string"
           },
-          "controlefrequentie": { 
+          "controlefrequentie": {
             "description": "Aanduiding van de frequentie van de controle van het beheerobject.",
             "type": "string"
           },
-          "deelsportcomplex": { 
+          "deelsportcomplex": {
             "description": "Deelsportcomplex waartoe het object behoort.",
             "type": "string"
           },
-          "ecologischBeheer": { 
+          "ecologischBeheer": {
             "description": "Aanduiding of ecologisch beheer van toepassing is.",
             "type": "boolean"
           },
@@ -654,27 +651,27 @@
             "type": "string"
           },
           "geometrie": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
+            "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992)."
           },
-          "jaarVanAanleg": { 
+          "jaarVanAanleg": {
             "description": "Jaar waarin het beheerobject is aangelegd of aangeplant (kan ook voor de plaatsingsdatum gebruikt worden).",
             "type": "number"
           },
-          "knipfrequentie": { 
+          "knipfrequentie": {
             "description": "Aanduiding voor het aantal keren dat een haag of een klimplant of een terreindeel geknipt moet worden.",
             "type": "string"
           },
-          "lengteGis": { 
+          "lengteGis": {
             "description": "Lengte van het beheerobject.",
             "type": "number",
             "unit": "m"
           },
-          "maaifrequentie": { 
+          "maaifrequentie": {
             "description": "Aantal keren dat een groenobject of een terreindeel gemaaid wordt per jaar.",
             "type": "string"
           },
-          "mutatiedatum": { 
+          "mutatiedatum": {
             "description": "Datum waarop de digitale gegevens van het beheerobject voor het laatst gewijzigd zijn.",
             "type": "string",
             "format": "date"
@@ -683,25 +680,25 @@
             "description": "Kleinste functionele eenheid (beheerobject of hulpobject).",
             "type": "string"
           },
-          "objectBeginTijd": { 
+          "objectBeginTijd": {
             "description": "Creatiedatum (tijdstip) van het digitale beheerobject binnen het beheersysteem of in de bovenliggende georegistratie.",
             "type": "string",
             "format": "date-time"
           },
-          "objectEindTijd": { 
+          "objectEindTijd": {
             "description": "Vervaldatum (tijdstip) van het digitale beheerobject binnen het beheersysteem of in de bovenliggende georegistratie.",
             "type": "string",
             "format": "date-time"
           },
-          "onderhoudsplichtige": { 
+          "onderhoudsplichtige": {
             "description": "Organisatie die verantwoordelijk is voor het onderhoud van het beheerobject.",
             "type": "string"
           },
-          "opTalud": { 
+          "opTalud": {
             "description": "Aanduiding of het beheerobject wel of niet op een hellend vlak ligt. De taludsteilte wordt apart geregistreerd. Overname uit BGT-object.",
             "type": "boolean"
           },
-          "opleverdatum": { 
+          "opleverdatum": {
             "description": "Datum waarop het beheerobject daadwerkelijk opgeleverd is. Begin van de garantieperiode.",
             "type": "string",
             "format": "date"
@@ -711,30 +708,30 @@
             "type": "number",
             "unit": "m2"
           },
-          "percentageLoofbos": { 
+          "percentageLoofbos": {
             "description": "Percentage loofbos (t.o.v. naaldbos) binnen een gemengd bos.",
             "type": "number",
             "multipleOf": 0.1,
             "minimum": 0,
             "maximum": 100
           },
-          "risicotoeslag": { 
+          "risicotoeslag": {
             "description": "beschrijving volgt",
             "type": "string"
           },
-          "theoretischEindjaar": { 
+          "theoretischEindjaar": {
             "description": "Jaar dat het beheerobject aan het theoretische einde van haar levensduur is.",
             "type": "integer"
           },
-          "typeBeheerder": { 
+          "typeBeheerder": {
             "description": "Een publiekrechtelijke instantie of (rechts)persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT).",
             "type": "string"
           },
-          "typeBeheerderPlus": { 
+          "typeBeheerderPlus": {
             "description": "Nadere aanduiding van de beheerder van het beheerobject.",
             "type": "string"
           },
-          "typeBewerking": { 
+          "typeBewerking": {
             "description": "Wijze waarop een beheerobject verwerkt wordt (handmatig of machinaal).",
             "type": "string"
           },
@@ -742,7 +739,7 @@
             "description": "(Rechts)persoon die het meest  omvattend recht op een zaak heeft. De typen eigenaren zijn conform de indeling in bronhouders (BGT).",
             "type": "string"
           },
-          "typeEigenaarPlus": { 
+          "typeEigenaarPlus": {
             "description": "Nadere aanduiding van de eigenaar van het beheerobject.",
             "type": "string"
           },
@@ -758,11 +755,11 @@
             "description": "Extra typering van het beheerobject, nadere typering van type gedetailleerd.",
             "type": "string"
           },
-          "vaknummer": { 
+          "vaknummer": {
             "description": "Vaknummer van een (bestaande) indeling in beheervakken.",
             "type": "string"
           },
-          "verwijderdatum": { 
+          "verwijderdatum": {
             "description": "Datum waarop het object is verwijderd (materiële historie).",
             "type": "string",
             "format": "date"
