@@ -90,6 +90,15 @@
             "type": "string",
             "description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)."
           },
+          "documentdatum": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop het brondocument is vastgesteld."
+          },
+          "documentnummer": {
+            "type": "string",
+            "description": "Het unieke nummer van het brondocument."
+          },
           "beginGeldigheid": {
             "type": "string",
             "format": "date-time",
@@ -212,6 +221,25 @@
             "type": "string",
             "description": "Reden van de afvoer van het verblijfsobject. omschrijving"
           },
+          "verblijfsobjectDocumentdatum": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop het brondocument is vastgesteld."
+          },
+          "verblijfsobjectDocumentnummer": {
+            "type": "string",
+            "description": "Het unieke nummer van het brondocument."
+          },
+          "verblijfsobjectBeginGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de gegevens in dit object actueel zijn geworden."
+          },
+          "verblijfsobjectEindGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De datum waarop de gegevens in dit object niet meer actueel zijn."
+          },
           "onderzoekenVolgnummer": {
             "type": "integer",
             "description": "Uniek volgnummer van de toestand van het object."
@@ -244,6 +272,25 @@
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Vorm en ligging van de ligplaats in het Nationale Rijksdriehoekstelsel."
           },
+          "ligplaatsBeginGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De begindatum van een periode waarin een of meer gegevens die worden bijgehouden over een ligplaats een wijziging hebben ondergaan."
+          },
+          "ligplaatsEindGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De einddatum van een periode waarin een of meer gegevens die worden bijgehouden over een ligplaats een wijziging hebben ondergaan."
+          },
+          "ligplaatsDocumentdatum": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop het brondocument is vastgesteld."
+          },
+          "ligplaatsDocumentnummer": {
+            "type": "string",
+            "description": "Het unieke nummer van het brondocument."
+          },
           "standplaatsIdentificatie": {
             "type": "string",
             "description": "Landelijke identificerende sleutel."
@@ -263,6 +310,25 @@
           "standplaatsGeometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
             "description": "Vorm en ligging van de standplaats in het Nationale Rijksdriehoekstelsel."
+          },
+          "standplaatsBeginGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een STANDPLAATS."
+          },
+          "standplaatsEindGeldigheid": {
+            "type": "string",
+            "format": "date-time",
+            "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een STANDPLAATS."
+          },
+          "standplaatsDocumentdatum": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop het brondocument is vastgesteld."
+          },
+          "standplaatsDocumentnummer": {
+            "type": "string",
+            "description": "Het unieke nummer van het brondocument."
           },
           "gebiedenBuurtIdentificatie": {
             "type": "string",

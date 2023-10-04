@@ -13,6 +13,8 @@ bag_panden.type_woonobject as "pand_type_woonobject",
 bag_panden.aantal_bouwlagen as "pand_aantal_bouwlagen",
 bag_panden.hoogste_bouwlaag as "pand_hoogste_bouwlaag",
 bag_panden.laagste_bouwlaag as "pand_laagste_bouwlaag",
+bag_panden.documentdatum as "pand_documentdatum",
+bag_panden.documentnummer as "pand_documentnummer",
 bag_panden.begin_geldigheid as "pand_begin_geldigheid",
 bag_panden.eind_geldigheid as "pand_eind_geldigheid"
 from bag_panden;
