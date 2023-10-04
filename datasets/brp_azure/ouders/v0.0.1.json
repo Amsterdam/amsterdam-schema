@@ -1,0 +1,25 @@
+{
+  "id": "ouders",
+  "type": "table",
+  "version": "0.0.1",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "burgerservicenummer",
+    "required": [
+      "schema",
+      "burgerservicenummer"
+    ],
+    "display": "burgerservicenummer",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "burgerservicenummer": {
+        "type": "string",
+        "description": "Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene bepalingen burgerservicenummer. Te valideren met de 11-proef."
+      }
+    }
+  }
+}
