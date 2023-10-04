@@ -1,9 +1,10 @@
       {
-        "id": "openbaar",
-        "title": "Nieuwbouwplannen openbaar",
+        "id": "woningbouwplannenKwartaalUitgebreid",
+        "title": "Woningbouwplannen kwartaal afslag uitgebreid",
         "type": "table",
         "version": "1.0.0",
-        "auth": "OPENBAAR",
+        "auth": "BB/WB/GO/UITG",
+        "reasonsNonPublic": ["5.1 2b: Zwaarwegende economische of financiële belangen van publiekrechtelijke lichamen (bevat geen mileu-informatie)"],
         "schema": {
           "$schema": "http://json-schema.org/draft-07/schema#",
           "type": "object",
@@ -21,6 +22,10 @@
             "id": {
               "type": "integer",
               "description": "Unieke aanduiding van nieuwbouwproject"
+            },
+            "idPrimavera": {
+              "type": "string",
+              "description": "ID van het project in Primavera"
             },
             "projectnaamAfkorting": {
               "type": "string",
@@ -58,6 +63,14 @@
               "type": "string",
               "description": "Naam van het stadsdeel"
             },
+            "grex": {
+              "type": "string",
+              "description": "Nummer grondexploitatie"
+            },
+            "gebiedsindelingPrimavera": {
+              "type": "string",
+              "description": "Gebiedsindeling uit Primavera"
+            },
             "zelfbouw": {
               "type": "string",
               "description": "Zelfbouwproject"
@@ -78,6 +91,11 @@
             "startBouwGerealiseerd": {
               "type": "string",
               "description": "Datum waarop start van het project is gerealiseerd",
+              "format": "date"
+            },
+            "opleveringGepland": {
+              "type": "string",
+              "description": "Datum waarop oplevering van het project gepland staat",
               "format": "date"
             },
             "socialeHuurZelfstPerm": {
