@@ -123,46 +123,126 @@
         "description": "code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonden. Afgeleid uit BRK: Gemeente"
       },
       "datumDocument": {
-        "type": "string",
-        "format": "date",
-        "description": "datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden."
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden."
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        }
       },
       "beschrijvingDocument": {
         "type": "string",
         "description": "beschrijving van het Document"
       },
-      "onderzoek": {
+      "aanduidingGegevensInOnderzoek": {
+        "type": "string",
+        "description": "aanduiding dat in een categorie één of meer gegevens met betrekking tot de onjuistheid of de strijdigheid met de openbare orde zijn of worden onderzocht"
+      },
+      "datumIngangOnderzoek": {
         "type": "object",
         "properties": {
-          "aanduidingGegevensInOnderzoek": {
-            "type": "string",
-            "description": "aanduiding dat in een categorie één of meer gegevens met betrekking tot de onjuistheid of de strijdigheid met de openbare orde zijn of worden onderzocht"
-          },
-          "datumIngangOnderzoek": {
+          "datum": {
             "type": "string",
             "format": "date",
             "description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is gestart"
           },
-          "datumEindeOnderzoek": {
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        }
+      },
+      "datumEindeOnderzoek": {
+        "type": "object",
+        "properties": {
+          "datum": {
             "type": "string",
             "format": "date",
             "description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is beeindigd"
           },
-          "onjuistStrijdigOpenbareOrde": {
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        }
+      },
+      "onjuistStrijdigOpenbareOrde": {
+        "type": "string",
+        "description": "gegevens over het onjuist of strijdig zijn met de openbare orde van de gegevens in de categorie"
+      },
+      "ingangsdatumGeldigheid": {
+        "type": "object",
+        "properties": {
+          "datum": {
             "type": "string",
-            "description": "gegevens over het onjuist of strijdig zijn met de openbare orde van de gegevens in de categorie"
+            "format": "date",
+            "description": "De datum waarop het geheel van gegevens geldig is geworden"
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
           }
         }
       },
       "datumOpneming": {
-        "type": "string",
-        "format": "date",
-        "description": "datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
-      },
-      "ingangsdatumGeldigheid": {
-        "type": "string",
-        "format": "date",
-        "description": "datum waarop het geheel van gegevens geldig is geworden"
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        }
       },
       "registratieBetrekking": {
         "type": "string",
