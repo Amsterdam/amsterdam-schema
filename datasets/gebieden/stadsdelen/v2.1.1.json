@@ -1,7 +1,8 @@
 {
-  "id": "wijken",
+  "id": "stadsdelen",
   "type": "table",
-  "version": "2.1.0",
+  "version": "2.1.1",
+  "description": "Door de Amsterdamse gemeenteraad vastgestelde begrenzing van een stadsdeel, ressorterend onder een stadsgebied- of stadsdeelbestuur.",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
@@ -25,7 +26,7 @@
       "identificatie",
       "volgnummer"
     ],
-    "display": "id",
+    "display": "identificatie",
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
@@ -54,76 +55,26 @@
       "beginGeldigheid": {
         "type": "string",
         "format": "date-time",
-        "description": "De datum waarop het object is ontstaan."
+        "description": "De datum waarop het object is gecreëerd."
       },
       "eindGeldigheid": {
         "type": "string",
         "format": "date-time",
         "description": "De datum waarop het object is komen te vervallen."
       },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status."
+      },
       "documentdatum": {
         "type": "string",
         "format": "date",
         "description": "De datum waarop het document is vastgesteld, op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden."
       },
-      "datumActueelTot": {
-        "type": "string",
-        "format": "date-time",
-        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
-      },
       "documentnummer": {
         "type": "string",
         "description": "De unieke aanduiding van het brondocument op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden."
-      },
-      "cbsCode": {
-        "type": "string",
-        "description": "De CBS-code van het object."
-      },
-      "ligtInGebiedenStadsdeel": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          },
-          "beginGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "eindGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "relation": "gebieden:stadsdelen",
-        "description": "Het stadsdeel waar de wijk in ligt."
-      },
-      "ligtInGebiedenGgwgebied": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          },
-          "beginGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "eindGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "relation": "gebieden:ggwgebieden",
-        "description": "Het GGW gebied waar de buurt in ligt."
-      },
-      "geometrie": {
-        "$ref": "https://geojson.org/schema/Polygon.json",
-        "description": "Geometrische beschrijving van een object."
       },
       "ligtInBrkGemeente": {
         "type": "object",
@@ -145,7 +96,11 @@
         },
         "relation": "brk2:gemeentes",
         "provenance": "$.ligtInGemeente.identificatie",
-        "description": "WORDT VERWIJDERD - De gemeente waar de wijk in ligt."
+        "description": "De gemeente waar het stadsdeel in ligt."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Polygon.json",
+        "description": "Geometrische beschrijving van een object."
       }
     }
   }

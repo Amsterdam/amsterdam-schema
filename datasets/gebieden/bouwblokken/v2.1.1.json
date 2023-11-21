@@ -1,8 +1,8 @@
 {
-  "id": "ggwgebieden",
+  "id": "bouwblokken",
   "type": "table",
-  "title": "Gebiedsgerichtwerken-gebied",
-  "version": "2.1.0",
+  "version": "2.1.1",
+  "description": "Een bouwblok is het kleinst mogelijk afgrensbare gebied, in zijn geheel tot een buurt behorend, dat geheel of grotendeels door bestaande of aan te leggen wegen en/of waterlopen is of zal zijn ingesloten en waarop tenminste één gebouw met verblijfsobject staat op maaiveld niveau. Dus ondergrondse garages en metrostations krijgen géén bouwblok.",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
@@ -26,7 +26,7 @@
       "identificatie",
       "volgnummer"
     ],
-    "display": "id",
+    "display": "identificatie",
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
@@ -44,39 +44,26 @@
         "format": "date-time",
         "description": "De datum waarop de toestand is geregistreerd."
       },
-      "naam": {
-        "type": "string",
-        "description": "De naam van het object."
-      },
       "code": {
         "type": "string",
-        "description": "De code van het object."
+        "description": "Officiële code van het object."
       },
       "beginGeldigheid": {
         "type": "string",
         "format": "date-time",
-        "description": "De datum waarop het object is gecre\u00eberd."
+        "description": "De datum waarop het object is gecreëerd."
       },
       "eindGeldigheid": {
         "type": "string",
         "format": "date-time",
         "description": "De datum waarop het object is komen te vervallen."
       },
-      "documentdatum": {
-        "type": "string",
-        "format": "date",
-        "description": "De datum waarop het document is vastgesteld, op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden."
-      },
-      "documentnummer": {
-        "type": "string",
-        "description": "Unieke aanduiding van het brondocument op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden."
-      },
       "datumActueelTot": {
         "type": "string",
         "format": "date-time",
         "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       },
-      "ligtInGebiedenStadsdeel": {
+      "ligtInGebiedenBuurt": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -94,37 +81,12 @@
             "format": "date-time"
           }
         },
-        "relation": "gebieden:stadsdelen",
-        "description": "Het stadsdeel waar het ggwgebied in ligt."
+        "relation": "gebieden:buurten",
+        "description": "De buurt waar het bouwblok in ligt."
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/Polygon.json",
         "description": "Geometrische beschrijving van een object."
-      },
-      "bestaatUitGebiedenBuurten": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "identificatie": {
-              "type": "string"
-            },
-            "volgnummer": {
-              "type": "integer"
-            },
-            "beginGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "eindGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
-        },
-        "relation": "gebieden:buurten",
-        "provenance": "$.bestaatUitBuurten.identificatie",
-        "description": "WORDT VERWIJDERD - De gebieden waaruit dit ggwgebied bestaat"
       },
       "ligtInBrkGemeente": {
         "type": "object",
@@ -146,7 +108,7 @@
         },
         "relation": "brk2:gemeentes",
         "provenance": "$.ligtInGemeente.identificatie",
-        "description": "WORDT VERWIJDERD - De gemeente waar het ggwgebied in ligt."
+        "description": "WORDT VERWIJDERD - De gemeente waar het bouwblok in ligt."
       }
     }
   }

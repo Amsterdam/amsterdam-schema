@@ -1,7 +1,9 @@
 {
-  "id": "buurten",
+  "id": "ggwgebieden",
   "type": "table",
-  "version": "2.1.0",
+  "title": "Gebiedsgerichtwerken-gebied",
+  "version": "2.1.1",
+  "description": "Gebiedsgericht werken is een manier om breed samenwerken in de stad te verbeteren tussen  gemeente, bewoners, ondernemers, (lokale) partners en maatschappelijke organisaties.",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
@@ -25,7 +27,7 @@
       "identificatie",
       "volgnummer"
     ],
-    "display": "id",
+    "display": "identificatie",
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
@@ -41,7 +43,7 @@
       "registratiedatum": {
         "type": "string",
         "format": "date-time",
-        "description": "De datum waarop de toestand is geregistreerd." 
+        "description": "De datum waarop de toestand is geregistreerd."
       },
       "naam": {
         "type": "string",
@@ -49,12 +51,12 @@
       },
       "code": {
         "type": "string",
-        "description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode en wijkcode."
+        "description": "De code van het object."
       },
       "beginGeldigheid": {
         "type": "string",
         "format": "date-time",
-        "description": "De datum waarop het object is gecre\u00eberd."
+        "description": "De datum waarop het object is gecreëerd."
       },
       "eindGeldigheid": {
         "type": "string",
@@ -68,59 +70,14 @@
       },
       "documentnummer": {
         "type": "string",
-        "description": "De unieke aanduiding van het brondocument op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden."
-      },
-      "cbsCode": {
-        "type": "string",
-        "description": "De CBS-code van het object."
-      },
-      "ligtInGebiedenWijk": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          },
-          "beginGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "eindGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "relation": "gebieden:wijken",
-        "description": "De wijk waar de buurt in ligt."
-      },
-      "ligtInGebiedenGgpgebied": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          },
-          "beginGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "eindGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "relation": "gebieden:ggpgebieden",
-        "description": "Het GGP gebied waar de buurt in ligt."
+        "description": "Unieke aanduiding van het brondocument op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden."
       },
       "datumActueelTot": {
         "type": "string",
-        "format": "date-time"
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       },
-      "ligtInGebiedenGgwgebied": {
+      "ligtInGebiedenStadsdeel": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -138,12 +95,37 @@
             "format": "date-time"
           }
         },
-        "relation": "gebieden:ggwgebieden",
-        "description": "Het GGW gebied waar de buurt in ligt."
+        "relation": "gebieden:stadsdelen",
+        "description": "Het stadsdeel waar het ggwgebied in ligt."
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/Polygon.json",
         "description": "Geometrische beschrijving van een object."
+      },
+      "bestaatUitGebiedenBuurten": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "relation": "gebieden:buurten",
+        "provenance": "$.bestaatUitBuurten.identificatie",
+        "description": "WORDT VERWIJDERD - De gebieden waaruit dit ggwgebied bestaat"
       },
       "ligtInBrkGemeente": {
         "type": "object",
@@ -165,7 +147,7 @@
         },
         "relation": "brk2:gemeentes",
         "provenance": "$.ligtInGemeente.identificatie",
-        "description": "WORDT VERWIJDERD - De gemeente waar de buurt in ligt."
+        "description": "WORDT VERWIJDERD - De gemeente waar het ggwgebied in ligt."
       }
     }
   }
