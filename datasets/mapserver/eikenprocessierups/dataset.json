@@ -1,0 +1,53 @@
+{
+  "type": "dataset",
+  "id": "mapserverEikenprocessierups",
+  "title": "View voor kaartlaag eikenprocessierups",
+  "status": "beschikbaar",
+  "version": "1.0.0",
+  "crs": "EPSG:28992",
+  "owner": "Gemeente Amsterdam",
+  "publisher": {
+    "$ref": "publishers/BOR"
+  },
+  "creator": "Geoteam",
+  "auth": "OPENBAAR",
+  "authorizationGrantor": "n.v.t.",
+  "tables": [
+    {
+      "type": "table",
+      "id": "kaart",
+      "version": "1.0.0",
+      "derivedFrom": [
+        "ziekte_plagen_exoten_groen:eikenprocessierups"
+      ],
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "mainGeometry": "geom",
+        "identifier": [
+          "id"
+        ],
+        "required": [
+          "schema",
+          "id"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+          },
+          "id": {
+            "type": "string"
+          },
+          "geom": {
+            "$ref": "https://geojson.org/schema/Point.json"
+          },
+          "urgentieStatus": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}
