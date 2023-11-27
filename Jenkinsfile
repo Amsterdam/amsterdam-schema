@@ -51,15 +51,6 @@ node {
                     ]
        }
    }
-
-    stage("Import schemas into DSO-API ACC DB") {
-        tryStep "import", {
-            build job: 'ams_schema_importer',
-                parameters: [
-                    [$class: 'StringParameterValue', name: 'environment', value: 'acceptance']
-                ]
-        }
-    }
 }
 
 stage('Waiting for approval') {
@@ -85,15 +76,6 @@ node {
                             [$class: 'StringParameterValue', name: 'INVENTORY', value: 'production'],
                             [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'publish-dataservices-static-schemas.yml'],
                     ]
-        }
-    }
+        }    }
 
-    stage("Import schemas into DSO-API PROD DB") {
-        tryStep "import", {
-            build job: 'ams_schema_importer',
-                parameters: [
-                    [$class: 'StringParameterValue', name: 'environment', value: 'production']
-                ]
-        }
-    }
 }
