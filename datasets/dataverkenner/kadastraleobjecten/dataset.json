@@ -2,15 +2,13 @@
   "type": "dataset",
   "id": "dataverkennerKadastraleobjecten",
   "status": "beschikbaar",
+  "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "publisher": {
     "$ref": "publishers/BENK"
   },
   "creator": "Basisinformatie",
-  "auth": "BRK/RO",
-  "reasonsNonPublic": [
-    "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-  ],
+  "auth": "OPENBAAR",
   "version": "0.0.1",
   "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
   "description": "De Basisregistratie | Toegewijde weergaven BAG en BRK bevat informatie nodig voor implementatie op het Data Verkenner platform.",
@@ -19,6 +17,7 @@
       "type": "table",
       "id": "kadastraleobjecten",
       "version": "0.0.1",
+      "crs": "EPSG:28992",
       "derivedFrom": [
         "brk2:kadastraleobjecten",
         "brk2:kadastraleobjecten_hft_rel_mt_vot"
@@ -36,6 +35,7 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "additionalProperties": false,
+        "mainGeometry": "geometrie",
         "identifier": [
           "identificatie",
           "volgnummer"
@@ -79,6 +79,10 @@
             "type": "string",
             "description": "De kadastrale gemeente, het eerste gedeelte van de aanduiding van een kadastraal object."
           },
+          "gemeente": {
+            "type": "string",
+            "description": "De offici\u00eble vastgestelde gemeentenaam."
+          },
           "indexletter": {
             "type": "string",
             "description": "Letter Kadastraal object, dit geeft een indicatie voor het type object. G Grond perceel. A Appartementsrecht"
@@ -92,30 +96,49 @@
             "multipleOf": 0.01,
             "description": "De grootte van een kadastraal object is de oppervlakte van het kadastrale perceel. Dit kan bij een deelperceel een geschatte grootte zijn."
           },
-          "koopsom": {
-            "type": "number",
-            "multipleOf": 0.01,
-            "description": "Het in een ter inschrijving aangeboden stuk vermelde bedrag, waarvoor 1 of meer onroerende zaken zijn verkregen."
+          "perceelnummer": {
+            "type": "integer",
+            "description": "Een numerieke aanduiding van het kadastrale perceel per sectie, deel van de kadastrale aanduiding van de onroerende zaak."
           },
-          "koopjaar": {
-            "type": "string",
-            "description": "Transactiejaar van de aankoop"
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Vorm en ligging van de kadastrale sectie in het stelsel van de Rijksdriehoeksmeting (RD)"
           },
-          "soortCultuurOnbebouwdCode": {
+          "ontUitId": {
             "type": "string",
-            "description": "De soort cultuur onbebouwd is een aanduiding voor de aard van de meest significante cultuur van het onbebouwde deel van het kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl Dit kenmerk is in beginsel afgeleid van de notariële akte, maar kan worden bijgesteld op grond van een verzoek van de eigenaar (of een schriftelijk gevolmachtigde namens de eigenaar)per brief, fax of e-mailbericht. Dit kan afwijken van: het feitelijk gebruik in de WOZ; gebruiksdoel in de BAG; SBI-code in het HR. code"
+            "description": "Onderliggende percelen. Alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
           },
-          "soortCultuurOnbebouwdOmschrijving": {
+          "ontUitKadastraleobjectenId": {
             "type": "string",
-            "description": "De soort cultuur onbebouwd is een aanduiding voor de aard van de meest significante cultuur van het onbebouwde deel van het kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl Dit kenmerk is in beginsel afgeleid van de notariële akte, maar kan worden bijgesteld op grond van een verzoek van de eigenaar (of een schriftelijk gevolmachtigde namens de eigenaar)per brief, fax of e-mailbericht. Dit kan afwijken van: het feitelijk gebruik in de WOZ; gebruiksdoel in de BAG; SBI-code in het HR. code"
+            "description": "Onderliggende percelen. Alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
           },
-          "soortCultuurBebouwdCode": {
+          "ontUitKadastraleobjectenIdentificatie": {
             "type": "string",
-            "description": "De soort cultuur bebouwd van een bebouwd kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl (Kadaster-on-line; KOL). Dit kenmerk is afgeleid van wat degene die een notariële akte laat inschrijven, heeft verklaard (artikel 87, eerste lid, onder a, van de Kadasterregeling 1994). Dit kan afwijken van:soort objectcode in de WOZ;gebruiksdoel in de BAG;SBI-code in het HR"
+            "description": "Onderliggende percelen. Alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
           },
-          "soortCultuurBebouwdOmschrijving": {
+          "ontUitKadastraleobjectenVolgnummer": {
+            "type": "integer",
+            "description": "Onderliggende percelen. Alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
+          },
+          "ontUitBrkKadastraalobjectId": {
             "type": "string",
-            "description": "De soort cultuur bebouwd van een bebouwd kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl (Kadaster-on-line; KOL). Dit kenmerk is afgeleid van wat degene die een notariële akte laat inschrijven, heeft verklaard (artikel 87, eerste lid, onder a, van de Kadasterregeling 1994). Dit kan afwijken van:soort objectcode in de WOZ;gebruiksdoel in de BAG;SBI-code in het HR"
+            "description": "Onderliggende percelen. Alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
+          },
+          "ontUitBrkKadastraalobjectIdentificatie": {
+            "type": "string",
+            "description": "Onderliggende percelen. Alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
+          },
+          "ontUitBrkKadastraalobjectVolgnummer": {
+            "type": "integer",
+            "description": "Onderliggende percelen. Alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
+          },
+          "ontUitBeginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ontUitEindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
           },
           "heeftEenRelatieMetBagVerblijfsobjectIdentificatie": {
             "type": "string",
