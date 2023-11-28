@@ -1,0 +1,70 @@
+{
+    "id": "japanseduizendknoopMeldingen",
+    "type": "table",
+    "version": "1.0.0",
+    "title": "Japanse duizendknoop meldingen",
+    "description": "beschrijving toevoegen",
+    "authorizationGrantor": "Directie V&OR, stedelijk beheer, team groen, water & wegen",
+    "status": "niet_beschikbaar",
+    "auth": "OPENBAAR",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "mainGeometry": "geometrie",
+        "required": [
+            "schema",
+            "id"
+        ],
+        "display": "id",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+            },
+            "id": {
+                "type": "string",
+                "description": "Beschrijving van het attribuut id."
+            },
+            "gbdBuurt": {
+                "type": "string",
+                "relation": "gebieden:buurten",
+                "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+                "description": "Unieke identificatie van een buurt"
+            },
+            "lastupdate": {
+                "type": "string",
+                "description": "Beschrijving van het attribuut lastupdate.",
+                "format": "date-time"
+            },
+            "ecologischeHoofdstructuur": {
+                "type": "string",
+                "description": "Beschrijving van het attribuut ecologischeHoofdstructuur."
+            },
+            "statusMelding": {
+                "type": "string",
+                "description": "Beschrijving van het attribuut statusMelding."
+            },
+            "sigNummerMelding": {
+                "type": "string",
+                "description": "Beschrijving van het attribuut sigNummerMelding."
+            },
+            "conversieId": {
+                "type": "string",
+                "description": "Beschrijving van het attribuut conversieId."
+            },
+            "lastupdateStatus": {
+                "type": "string",
+                "description": "Beschrijving van het attribuut lastupdateStatus.",
+                "format": "date-time"
+            },
+            "geometrie": {
+                "$ref": "https://geojson.org/schema/Point.json",
+                "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992). bevat punt-geometrie."
+            },
+            "statusKaartlaag": {
+                "type": "string",
+                "description": "Beschrijving van het attribuut statusKaartlaag."
+            }
+        }
+    }
+}
