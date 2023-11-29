@@ -9,7 +9,7 @@
   "homepage": "https://data.amsterdam.nl",
   "language": "nl",
   "status": "beschikbaar",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "objective": "Het doel van de beschermde status is om de karakteristieke, ruimtelijke kwaliteit van een plek ook in de toekomst te handhaven. Door het beschikbaar stellen van deze gegevens kan gecontroleerd worden of een specifieke locatie binnen een beschermd gebied valt. Dit is bijvoorbeeld van belang bij de toetsing van een vergunningsplicht voor werkzaamheden die het gezicht kunnen aantasten.",
   "temporalUnit": "uren",
   "owner": "Gemeente Amsterdam",
@@ -19,7 +19,7 @@
   "publisher": {
     "$ref": "publishers/SOEB"
   },
-  "accrualPeriodicity": "wekelijks",
+  "accrualPeriodicity": "jaarlijks",
   "spatialDescription": "Gemeente Amsterdam",
   "theme": [
     "Wonen",
@@ -38,7 +38,7 @@
     {
       "id": "beschermdestadsdorpsgezichten",
       "type": "table",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "title": "Beschermde stads- en dorpsgezichten",
       "schema": {
         "required": [
@@ -76,9 +76,21 @@
             "description": "Datum waarop de beschermde status van het stads- of dorpsgezicht is ingetrokken",
             "format": "date"
           },
+          "toelichting": {
+            "type": "string",
+            "description": "Toelichting op de beschermde status van het stads- of dorpsgezicht"
+          },
+          "besluitAanwijzing": {
+            "type": "string",
+            "description": "Informatie over aanwijzings besluit van het beschermde stads- of dorpsgezicht"
+          },
+          "extraInformatie": {
+            "type": "string",
+            "description": "Extra informatie van het beschermde stads- of dorpsgezicht"
+          },    
           "geometry": {
-            "description": "Geometrie van het type MULTIPOLYGON van het beschermde gebied",
-            "$ref": "https://geojson.org/schema/MultiPolygon.json"
+            "description": "Geometrie van het type POLYGON van het beschermde stads- of dorpsgezicht",
+            "$ref": "https://geojson.org/schema/Polygon.json"
           },
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
