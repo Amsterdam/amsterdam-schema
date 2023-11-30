@@ -2,7 +2,6 @@
   "id": "clusterfractie",
   "version": "2.0.0",
   "type": "table",
-  "provenance": "afval_api_cluster_fractie",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -16,7 +15,6 @@
     "properties": {
       "id": {
         "type": "string",
-        "provenance": "cluster_fractie_id",
         "description": "Uniek identificerend kenmerk van clusterfractie"
       },
       "schema": {
@@ -28,18 +26,15 @@
       },
       "aantalContainers": {
         "type": "integer",
-        "provenance": "cluster_fractie_aantal_containers",
         "description": "Aantal containers per clusterfractie"
       },
       "volumeM3": {
         "type": "number",
-        "provenance": "cluster_fractie_volume_m3",
         "unit": "m3",
         "description": "De som van het volume (m3) van containers per clusterfractie"
       },
       "code": {
         "type": "string",
-        "provenance": "cluster_fractie_code",
         "enum": [
           "1",
           "2",
@@ -56,30 +51,25 @@
       },
       "omschrijving": {
         "type": "string",
-        "provenance": "cluster_fractie_omschrijving",
         "description": "Afvalfractie zoals door Welvaarts is aangeleverd"
       },
       "datumOpvoer": {
         "type": "string",
-        "provenance": "cluster_fractie_datum_opvoer",
         "format": "date-time",
         "description": "De datum waarop de cluster in het systeem is opgevoerd."
       },
       "datumEinde": {
         "type": "string",
-        "provenance": "cluster_fractie_datum_einde",
         "format": "date",
         "description": "De datum waarop de cluster in het systeem is eindigd."
       },
       "wijzigingsdatumDp": {
         "type": "string",
-        "provenance": "cluster_fractie_wijzigingsdatum_dp",
         "format": "date-time",
         "description": "De datum waarop de cluster in het systeem is gewijzigd."
       },
       "verwijderdDp": {
         "type": "boolean",
-        "provenance": "cluster_fractie_verwijderd_dp",
         "description": "indicatie of het object verwijderd is bij de bronhouder"
       }
     }
