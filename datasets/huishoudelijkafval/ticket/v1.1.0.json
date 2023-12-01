@@ -182,12 +182,18 @@
       },
       "itemsDefinitief": {
         "type": "array",
-        "description": "De onderdelen en de werkzaamheden zoals deze op de factuur vermeld worden."
-      },
+        "items": {
+          "type": "string",
+       "description": "De onderdelen en de werkzaamheden zoals deze op de factuur vermeld worden."
+         }
+      },   
       "itemsOfferte": {
-        "type": "array",
-        "description": "De onderdelen en de werkzaamheden zoals deze op de offerte vermeld worden."
-      },
+       "type": "array",
+       "items": {
+         "type": "string",
+       "description": "De onderdelen en de werkzaamheden zoals deze op de factuur vermeld worden."
+          }
+       },
       "gbdBuurt": {
         "type": "string",
         "relation": "gebieden:buurten",
