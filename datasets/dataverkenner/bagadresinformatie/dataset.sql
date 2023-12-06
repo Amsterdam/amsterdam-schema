@@ -1,7 +1,5 @@
 create or replace view public.dataverkenner_bagadresinformatie_bagadresinformatie WITH (security_barrier) as
-SELECT *
-FROM (
-    SELECT
+select
 bag_nummeraanduidingen.id as "id",
 bag_nummeraanduidingen.identificatie as "identificatie",
 bag_nummeraanduidingen.volgnummer as "volgnummer",
@@ -89,12 +87,9 @@ gebieden_bouwblokken.code as "gebieden_bouwblok_code",
 bag_panden.identificatie as "pand_identificatie",
 bag_panden.volgnummer as "pand_volgnummer",
 bag_verblijfsobjecten_gebruiksdoel.omschrijving as "gebruiksdoel_omschrijving",
-bag_verblijfsobjecten_toegang.omschrijving as "toegang_omschrijving",
-
-        ROW_NUMBER() OVER(PARTITION BY bag_nummeraanduidingen.identificatie ORDER BY bag_nummeraanduidingen.volgnummer DESC) AS rn
-    FROM
-        bag_nummeraanduidingen
-	left join bag_openbareruimtes on bag_nummeraanduidingen.ligt_aan_openbareruimte_id = bag_openbareruimtes.id
+bag_verblijfsobjecten_toegang.omschrijving as "toegang_omschrijving"
+from bag_nummeraanduidingen
+left join bag_openbareruimtes on bag_nummeraanduidingen.ligt_aan_openbareruimte_id = bag_openbareruimtes.id
 left join bag_woonplaatsen on bag_nummeraanduidingen.ligt_in_woonplaats_id = bag_woonplaatsen.id
 left join bag_verblijfsobjecten on bag_nummeraanduidingen.adresseert_verblijfsobject_id=bag_verblijfsobjecten.id
 left join bag_ligplaatsen on bag_nummeraanduidingen.adresseert_ligplaats_id = bag_ligplaatsen.id
@@ -112,6 +107,4 @@ left join bag_verblijfsobjecten_ligt_in_panden on bag_verblijfsobjecten.id = bag
 left join bag_panden on bag_panden.id = bag_verblijfsobjecten_ligt_in_panden.ligt_in_panden_id
 left join gebieden_bouwblokken on bag_panden.ligt_in_bouwblok_id=gebieden_bouwblokken.id
 left join bag_verblijfsobjecten_gebruiksdoel on bag_nummeraanduidingen.adresseert_verblijfsobject_id=bag_verblijfsobjecten_gebruiksdoel.parent_id
-left join bag_verblijfsobjecten_toegang on bag_nummeraanduidingen.adresseert_verblijfsobject_id=bag_verblijfsobjecten_toegang.parent_id
-) AS sub
-WHERE rn = 1;
+left join bag_verblijfsobjecten_toegang on bag_nummeraanduidingen.adresseert_verblijfsobject_id=bag_verblijfsobjecten_toegang.parent_id;
