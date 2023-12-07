@@ -1,24 +1,37 @@
 {
   "type": "dataset",
   "id": "bag",
-  "title": "bag",
+  "title": "BAG",
+  "description": "De Basisregistratie adressen en gebouwen (BAG) bevat gegevens over panden, verblijfsobjecten, standplaatsen en ligplaatsen en de bijbehorende adressen (openbare ruimte, nummeraanduiding en woonplaats).",
   "status": "beschikbaar",
   "version": "1.0.0",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam, afdeling Basisinformatie",
-  "publisher": "Datateam Basis- en Kernregistraties",
-  "creator": "Basisinformatie, Stadsdelen, Belastingen en Omgevingsdienst NZKG",
+  "publisher": {
+    "$ref": "/publishers/BENK"
+  },
+  "creator": "Basisinformatie, Stadsdelen, Omgevingsdienst NZKG en Belastingen",
   "auth": "OPENBAAR",
   "authorizationGrantor": "gebruik.basisinformatie@amsterdam.nl",
   "homepage": "https://www.amsterdam.nl/stelselpedia/bag-index",
+  "keywords": [
+    "woonplaats",
+    "openbare ruimtes",
+    "nummeraanduidingen",
+    "adresseerbare objecten",
+    "verblijfsobjecten",
+    "ligplaatsen",
+    "standplaatsen",
+    "panden"
+  ],
   "tables": [
     {
       "id": "woonplaatsen",
-      "$ref": "woonplaatsen/v1.2.0",
+      "$ref": "woonplaatsen/v1.3.0",
       "activeVersions": {
-        "1.2.0": "woonplaatsen/v1.2.0",
-        "2.0.0": "woonplaatsen/v2.0.0",
-        "3.0.0": "woonplaatsen/v3.0.0"
+        "1.3.0": "woonplaatsen/v1.3.0",
+        "2.1.0": "woonplaatsen/v2.1.0",
+        "3.1.0": "woonplaatsen/v3.1.0"
       }
     },
     {
