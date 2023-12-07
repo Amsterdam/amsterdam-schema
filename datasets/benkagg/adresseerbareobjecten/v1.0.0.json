@@ -210,17 +210,12 @@
         "format": "date-time",
         "description": "De datum waarop de gegevens in dit object niet meer actueel zijn."
       },
-      "onderzoekenVolgnummer": {
-        "type": "integer",
-        "description": "Uniek volgnummer van de toestand van het object."
-      },
-      "onderzoekenObjectIdentificatie": {
-        "type": "string",
-        "description": "Identificerende nummer van het object dat in onderzoek is geplaatst."
-      },
-      "onderzoekenInOnderzoek": {
-        "type": "string",
-        "description": "Indicatie of het kenmerk wel of niet in onderzoek staat."
+      "kenmerkenInOnderzoek": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Kenmerken van het adresseerbaar object die in onderzoek zijn"
       },
       "ligplaatsIdentificatie": {
         "type": "string",
@@ -372,25 +367,52 @@
         "type": "integer",
         "description": "Uniek volgnummer van de toestand van het object."
       },
-      "gebiedenBouwblokIdentificatie": {
-        "type": "string",
-        "description": "Unieke identificatie van het object."
+      "panden": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            }
+          }
+        },
+        "description": "Het (/de) pand(-en) waar het verblijfsobject zich in bevind."
       },
-      "gebiedenBouwblokVolgnummer": {
-        "type": "integer",
-        "description": "Uniek volgnummer van de toestand van het object."
+      "gebiedenBouwblok": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            },
+            "code": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Het (/de) bouwblok(-ken) waar het verblijfsobject zich in bevind."
       },
-      "gebiedenBouwblokCode": {
-        "type": "string",
-        "description": "Officiële code van het object."
-      },
-      "gebruiksdoelOmschrijving": {
-        "type": "string",
+      "gebruiksdoelOmschrijvingen": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
         "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan."
       },
-      "toegangOmschrijving": {
-        "type": "string",
-        "description": "Plaats waar zich de toegang tot het verblijfsobject bevindt. omschrijving"
+      "toegang": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Plaats waar zich de toegang tot het verblijfsobject bevindt."
       }
     }
   }
