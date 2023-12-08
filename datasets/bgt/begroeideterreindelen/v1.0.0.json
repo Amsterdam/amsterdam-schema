@@ -47,7 +47,7 @@
       },
       "opTalud": {
         "type": "string",
-        "description": "Indicatie of object op talud ligt"
+        "description": "Indicatie of object op talud ligt ('J'/'N')."
       },
       "kruinlijn": {
         "$ref": "https://geojson.org/schema/LineString.json",
@@ -59,10 +59,12 @@
       },
       "objectBegintijd": {
         "type": "string",
+        "format": "date",
         "description": "Datum waar op het object bij de bronhouder is ontstaan"
       },
       "objectEindtijd": {
         "type": "string",
+        "format": "date",
         "description": "Datum waarop het object bij de bronhouder niet meer geldig is"
       },
       "identificatie": {
@@ -75,14 +77,17 @@
       },
       "tijdstipRegistratie": {
         "type": "string",
+        "format": "date-time",
         "description": "Tijdstip waarop deze instantie van het object is opgenomen door de bronhouder"
       },
       "eindRegistratie": {
         "type": "string",
+        "format": "date-time",
         "description": "Eind van de periode waarop deze instantie van het object geldig is bij de bronhouder. Wanneer deze waarde niet is ingevuld is de instantie nog geldig"
       },
       "lvPublicatie": {
         "type": "string",
+        "format": "date-time",
         "description": "Tijdstip waarop deze instantie van het object is opgenomen in de landelijke Voorziening"
       },
       "bronhouder": {
@@ -91,7 +96,7 @@
       },
       "inOnderzoek": {
         "type": "string",
-        "description": "Een aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object"
+        "description": "Een aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object ('J'/'N')"
       },
       "relatieveHoogteligging": {
         "type": "integer",
