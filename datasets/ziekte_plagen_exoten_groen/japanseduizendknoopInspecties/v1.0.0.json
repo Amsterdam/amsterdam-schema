@@ -3,7 +3,7 @@
     "type": "table",
     "version": "1.0.0",
     "title": "Japanse duizendknoop inspecties",
-    "description": "beschrijving toevoegen",
+    "description": "De validatie in het veld of een melding daadwerkelijk Japanse duizendknoop betreft. Na validatie volgt ter plaatse registratie van de omvang en kenmerken van de groeiplaats in het databeheersysteem",
     "authorizationGrantor": "Directie V&OR, stedelijk beheer, team groen, water & wegen",
     "status": "niet_beschikbaar",
     "auth": "OPENBAAR",
@@ -23,7 +23,12 @@
             },
             "id": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut id."
+                "description": "Unieke aanduiding van het record."
+            },
+            "japanseduizendknoopMeldingen_id": {
+                "type": "string",
+                "description": "de FK voor relatie met japanseduizendknoop meldingen",
+                "relation": "ziekte_plagen_exoten_groen:japanseduizendknoopMeldingen"
             },
             "gbdBuurt": {
                 "type": "string",
@@ -33,49 +38,58 @@
             },
             "statusKaartlaag": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut statusKaartlaag."
+                "enum": [
+                    "Gemeld",
+                    "Duizendknoop aanwezig, niet bereikbaar",
+                    "Duizendknoop aanwezig",
+                    "In bestrijding",
+                    "Monitoring",
+                    "Duizendknoop verwijderd",
+                    "Status niet op kaartlaag tonen"
+                ],
+                "description": "versimpelde statussen, afgeleid van lastupdatestatus, voor de openbare kaartlaag op data.amsterdam.nl"
             },
             "lastupdateStatus": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut lastupdateStatus.",
+                "description": "De laaste status van de melding.",
                 "format": "date-time"
             },
             "lastupdate": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut lastupdate.",
+                "description": "datum/tijdstip laatste aanpassing op dit object",
                 "format": "date-time"
             },
             "aantalGroeiplaatsenVijftigm": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut aantalGroeiplaatsen50m."
+                "description": "Het aantal groeiplaatsen Aziatische duizenknoop dat zich binnen een straal van 50 meter binnen deze groeiplaats bevindt"
             },
             "aantalM2GroeiplaatsenTweehonderdm": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut aantalM2Groeiplaatsen200m."
+                "description": "Een overzicht van  groeiplaatsen Aziatische duizenknoop dat zich binnen een straal van 200  meter binnen deze groeiplaats bevindt"
             },
             "cyclusSegment": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut cyclusSegment."
+                "description": "Dit is de fase waarin zich de monitoring van de japanse duizekendknoop zich bevindt"
             },
             "bufferOppervlakte": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut bufferOppervlakte."
+                "description": "Oppervlakte van de zone van 4 meter rondom een groeiplaats , waarin zich potentieel wortels van de Aziatische duizendknoop kunnen bevinden"
             },
             "jdkOppervlakte": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut jdkOppervlakte."
+                "description": "Dit het oppervlakte van de laatste gemeten omvang van de groeiplaats van de Aziatische duizendknoop"
             },
             "vrijgegeven": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut vrijgegeven."
+                "description": "Deze groeiplaats is succesvol verwijderd en er vind geen hergroei plaats"
             },
             "melding": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut melding."
+                "description": "Dit is waar zich de Aziatische duizenknoop zich volgens de melder bevindt, deze dient geinspecteerd te worden"
             },
             "meldingStatus": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut meldingStatus."
+                "description": "Dit een weergave van de fase of staat waarin de melding zich nu bevindt, of deze nog geinspecteerd moet worden en/of al bestreden wordt"
             },
             "stengelsM2": {
                 "type": "integer",
@@ -83,159 +97,159 @@
             },
             "maxStengelsDoorsnede": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut maxStengelsDoorsnede."
+                "description": "Hierin wordt de maximale stengeldikte van de plant weergegeven, wat iets zegt of de ouderdom van de plant"
             },
             "soortnaam": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut soortnaam."
+                "description": "Hier wordt aangegeven welke soort Aziatische duizendknoop is waargenomen tijdens de inspectie, zijnde Japanse, Sachalinse, Boheemse, bastaardduizenknoop of Afghaanse"
             },
-            "percBerm": {
+            "percBebouGevelOfMuur": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percBerm."
+                "description": "Percentage Aziatische duizendknoop dat bij gebouwen in gevel of muur groeit"
             },
-            "percPercBermBrug": {
+            "percBebouGeveltuinLosseBakken": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percPercBermBrug."
+                "description": "Percentage Aziatische duizendknoop dat bij gebouwen in geveltuinen (losse bakken) groeit"
             },
-            "percBosplantsoen": {
+            "percBebouGeveltuinVast": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percBosplantsoen."
+                "description": "Percentage Aziatische duizendknoop dat bij gebouwen in geveltuinen (vaste bakken) groeit"
             },
-            "percBraakliggend": {
+            "percBebouKruipruimte": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percBraakliggend."
+                "description": "Percentage Aziatische duizendknoop wat groeit in de kruipruimte van het gebouw"
             },
-            "percBrughoofd": {
+            "percBebouSchuurSteen": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percBrughoofd."
+                "description": "Percentage Aziatische duizendknoop dat in de stenen van de schuur van een gebouw groeit"
             },
-            "percDeelsBebouwd": {
+            "percBouwBraakliggend": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percDeelsBebouwd."
+                "description": "Percentage Aziatische duizendknoop wat groeit op het braakliggende deel van een bouwlocatie"
             },
-            "percDekzerk": {
+            "percBouwDeelsBebouwd": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percDekzerk."
+                "description": "Percentage Aziatische duizendknoop wat vanuit de bouwlocatie in terrein van deels gebouwd groeit"
             },
-            "percFietsbaan": {
+            "percBouwWerkInUitvoering": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percFietsbaan."
+                "description": "Percentage Aziatische duizendknoop wat groeit in het deel van de bouwlocatie waar er gewerkt wordt"
             },
-            "percFunderingBrug": {
+            "percBrugBrughoofd": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percFunderingBrug."
+                "description": "Percentage Aziatische duizendknoop wat groeit in een brughoofd"
             },
-            "percGevelOfMuur": {
+            "percBrugFunderingBrug": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percGevelOfMuur."
+                "description": "Percentage Aziatische duizendknoop dat in fundering van een brug groeit"
             },
-            "percGeveltuinLosseBakken": {
+            "percBrugTaludOnverhardBrug": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percGeveltuinLosseBakken."
+                "description": "Percentage Aziatische duizendknoop in het onverharde helling van de brug groeit"
             },
-            "percGeveltuinVast": {
+            "percGroenBerm": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percGeveltuinVast."
+                "description": "Percentage Aziatische duizendknoop wat groeit in de berm"
             },
-            "percHeesters": {
+            "percGroenBermBrug": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percHeesters."
+                "description": "Percentage Aziatische duizendknoop wat groeit in de berm langs brug"
             },
-            "percKruipruimte": {
+            "percGroenBosplantsoen": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percKruipruimte."
+                "description": "Percentage Aziatische duizendknoop wat groeit in een bosplantsoen"
             },
-            "percMetroOfTrambaan": {
+            "percGroenHeesters": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percMetroOfTrambaan."
+                "description": "Percentage Aziatische duizendknoop wat groeit in de heesters"
             },
-            "percNatuurlijkeOever": {
+            "percGroenNatuurlijkeOever": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percNatuurlijkeOever."
+                "description": "Percentage Aziatische duizendknoop wat groeit aan een natuurlijke oever"
             },
-            "percOverigGroen": {
+            "percGroenOverigGroen": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percOverigGroen."
+                "description": "Percentage Aziatische duizendknoop wat groeit in overig groen"
             },
-            "percOverigKade": {
+            "percGroenTaludOnverhardDivers": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percOverigKade."
+                "description": "Percentage Aziatische duizendknoop wat groeit in talud onverhard divers"
             },
-            "percOverig": {
+            "percGroenTuinBereikbaar": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percOverig."
+                "description": "Percentage Aziatische duizendknoop wat groeit in de tuin bereikbaar van openbare weg"
             },
-            "percOverigVerharding": {
+            "percGroenTuinOnbereikbaar": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percOverigVerharding."
+                "description": "Percentage Aziatische duizendknoop wat groeit in de tuin onbereikbaar van openbare weg"
             },
-            "percParkeerplaats": {
+            "percGroenVastePlanten": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percParkeerplaats."
+                "description": "Percentage Aziatische duizendknoop wat groeit tussen de vaste planten"
             },
-            "percRijbaanAsfalt": {
+            "percKadeDekzerk": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percRijbaanAsfalt."
+                "description": "Percentage Aziatische duizendknoop wat vanuit de kade in een dekzerk groeit"
             },
-            "percRijbaanElementenverharding": {
+            "percKadeOverigKade": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percRijbaanElementenverharding."
+                "description": "Percentage Aziatische duizendknoop wat in de kade groeit (overig)"
             },
-            "percSchuurSteen": {
+            "percKadeTaludVerhardBvBasalt": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percSchuurSteen."
+                "description": "Percentage Aziatische duizendknoop wat in verharde talud (basalt) van een kader groeit"
             },
-            "percSpeeltuin": {
+            "percOverigMetroOfTrambaan": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percSpeeltuin."
+                "description": "Percentage Aziatische duizendknoop wat groei vanuit door een tram of metrobaan heen"
             },
-            "percTaludOnverhardDivers": {
+            "percOverigOverig": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percTaludOnverhardDivers."
+                "description": "Percentage Aziatische duizendknoop wat in overige deel van de openbare ruimte groeit (niet eerder benoemd)"
             },
-            "percTaludOnverhardBrug": {
+            "percOverigTreinspoor": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percTaludOnverhardBrug."
+                "description": "Percentage Aziatische duizendknoop wat in en om het treinspoor groeit"
             },
-            "percTaludVerhard": {
+            "percOverigVolkstuin": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percTaludVerhard."
+                "description": "Percentage Aziatische duizendknoop wat in de volkstuinen groeit"
             },
-            "percTaludVerhardBvBasalt": {
+            "percVerhFietsbaan": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percTaludVerhardBvBasalt."
+                "description": "Percentage Aziatische duizendknoop dat vanuit verharding in de fietsbaan groeit"
             },
-            "percTreinspoor": {
+            "percVerhOverigVerharding": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percTreinspoor."
+                "description": "Percentage Aziatische duizendknoop dat in de overige verharding groeit (niet eerder benoemd)"
             },
-            "percTrottoir": {
+            "percVerhParkeerplaats": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percTrottoir."
+                "description": "Percentage Aziatische duizendknoop dat vanuit in een parkeerplaats groeit"
             },
-            "percTuinBereikbaar": {
+            "percVerhRijbaanAsfalt": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percTuinBereikbaar."
+                "description": "Percentage Aziatische duizendknoop dat in asfalt van een rijbaan groeit"
             },
-            "percTuinOnbereikbaar": {
+            "percVerhRijbaanElementenverharding": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percTuinOnbereikbaar."
+                "description": "Percentage Aziatische duizendknoop dat in asfalt van een rijbaan-element groeit"
             },
-            "percVastePlanten": {
+            "percVerhSpeeltuin": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percVastePlanten."
+                "description": "Percentage Aziatische duizendknoop dat door het verharde deel van een speeltuin groeit"
             },
-            "percVerhardWandelpad": {
+            "percVerhTaludVerhard": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percVerhardWandelpad."
+                "description": "Percentage Aziatische duizendknoop in een verharde helling groei"
             },
-            "percVolkstuin": {
+            "percVerhTrottoir": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percVolkstuin."
+                "description": "Percentage Aziatische duizendknoop dat door het trottoir groeit"
             },
-            "percWerkInUitvoering": {
+            "percVerhVerhardWandelpad": {
                 "type": "integer",
-                "description": "Beschrijving van het attribuut percWerkInUitvoering."
+                "description": "Percentage Aziatische duizendknoop dat een verhard wandelpad groeit"
             },
             "geometrie": {
                 "$ref": "https://geojson.org/schema/Polygon.json",

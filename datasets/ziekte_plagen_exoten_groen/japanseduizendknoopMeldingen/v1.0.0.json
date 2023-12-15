@@ -3,7 +3,7 @@
     "type": "table",
     "version": "1.0.0",
     "title": "Japanse duizendknoop meldingen",
-    "description": "beschrijving toevoegen",
+    "description": "Dit is de punt-locatie waar de melder (bewoner of anders) de Aziatische duizenknoop heeft waargenomen",
     "authorizationGrantor": "Directie V&OR, stedelijk beheer, team groen, water & wegen",
     "status": "niet_beschikbaar",
     "auth": "OPENBAAR",
@@ -23,7 +23,7 @@
             },
             "id": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut id."
+                "description": "Unieke aanduiding van het record."
             },
             "gbdBuurt": {
                 "type": "string",
@@ -33,28 +33,28 @@
             },
             "lastupdate": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut lastupdate.",
+                "description": "datum/tijdstip laatste aanpassing op dit object",
                 "format": "date-time"
             },
             "ecologischeHoofdstructuur": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut ecologischeHoofdstructuur."
+                "description": "Hier bevindt de Aziatische duizendknoop zich in de ecologische hoofdstructuur"
             },
             "statusMelding": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut statusMelding."
+                "description": "De status van een melding"
             },
             "sigNummerMelding": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut sigNummerMelding."
+                "description": "meldingsnr van een melding binnengekomen via meldingen.amsterdam.nl"
             },
             "conversieId": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut conversieId."
+                "description": "conversieId overgenomen uit Geovisia."
             },
             "lastupdateStatus": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut lastupdateStatus.",
+                "description": "De laaste status van de melding.",
                 "format": "date-time"
             },
             "geometrie": {
@@ -63,7 +63,16 @@
             },
             "statusKaartlaag": {
                 "type": "string",
-                "description": "Beschrijving van het attribuut statusKaartlaag."
+                "enum": [
+                    "Gemeld",
+                    "Duizendknoop aanwezig, niet bereikbaar",
+                    "Duizendknoop aanwezig",
+                    "In bestrijding",
+                    "Monitoring",
+                    "Duizendknoop verwijderd",
+                    "Status niet op kaartlaag tonen"
+                  ],
+                "description": "versimpelde statussen, afgeleid van lastupdatestatus, voor de openbare kaartlaag op data.amsterdam.nl"
             }
         }
     }
