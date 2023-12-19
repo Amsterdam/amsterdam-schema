@@ -17,4 +17,14 @@ bag_panden.documentdatum as "pand_documentdatum",
 bag_panden.documentnummer as "pand_documentnummer",
 bag_panden.begin_geldigheid as "pand_begin_geldigheid",
 bag_panden.eind_geldigheid as "pand_eind_geldigheid"
-from bag_panden;
+from bag_panden
+where bag_panden.eind_geldigheid is null
+and   bag_panden.status_omschrijving in 
+('Bouwaanvraag ontvangen',
+'Bouwvergunning verleend',
+'Bouw gestart',
+'Pand in gebruik (niet ingemeten)',
+'Pand in gebruik', 
+'Sloopvergunning verleend',
+'Pand buiten gebruik',
+'Verbouwing pand' )
