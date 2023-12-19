@@ -36,5 +36,5 @@ and bag_verblijfsobjecten.status_omschrijving in
 'Verblijfsobject buiten gebruik',
 'Verbouwing Verblijfsobject')
 and bag_woonplaatsen.eind_geldigheid is null
-and bag_woonplaatsen.status_omschrijving = 'Woonplaats aangewezen'
+and bag_woonplaatsen.status_omschrijving = 'Woonplaats aangewezen';
 -- Waarom alleen verblijfsobjecten en worden de lig- en standplaatsen niet meegenomen?
