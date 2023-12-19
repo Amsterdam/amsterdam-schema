@@ -23,4 +23,18 @@ bag_verblijfsobjecten.geometrie as "verblijfsobject_geometrie"
 from bag_nummeraanduidingen
 left join bag_openbareruimtes on bag_nummeraanduidingen.ligt_aan_openbareruimte_id = bag_openbareruimtes.id
 left join bag_verblijfsobjecten on bag_nummeraanduidingen.adresseert_verblijfsobject_id=bag_verblijfsobjecten.id
-left join bag_woonplaatsen on bag_nummeraanduidingen.ligt_in_woonplaats_id = bag_woonplaatsen.id;
+left join bag_woonplaatsen on bag_nummeraanduidingen.ligt_in_woonplaats_id = bag_woonplaatsen.id
+where bag_nummeraanduidingen.eind_geldigheid is null
+and bag_nummeraanduidingen.status_omschrijving = 'Naamgeving uitgegeven'
+and bag_openbareruimtes.eind_geldigheid is null
+and bag_openbareruimtes.status_omschrijving = 'Naamgeving uitgegeven'
+and bag_verblijfsobjecten.eind_geldigheid is null
+and bag_verblijfsobjecten.status_omschrijving in 
+('Verblijfsobject gevormd',
+'Verblijfsobject in gebruik (niet ingemeten)',
+'Verblijfsobject in gebruik',
+'Verblijfsobject buiten gebruik',
+'Verbouwing Verblijfsobject')
+and bag_woonplaatsen.eind_geldigheid is null
+and bag_woonplaatsen.status_omschrijving = 'Woonplaats aangewezen'
+-- Waarom alleen verblijfsobjecten en worden de lig- en standplaatsen niet meegenomen?
