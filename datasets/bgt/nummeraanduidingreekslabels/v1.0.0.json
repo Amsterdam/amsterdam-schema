@@ -1,7 +1,7 @@
 {
-  "id": "openbareruimtelabels",
-  "title":"openbare ruimte labels",
-  "description": "Naam en plaatsingspunten van een in de BAG geregistreerde OPENBARE RUIMTE. - Groep: _ - Code: 110",
+  "id": "nummeraanduidingreekslabels",
+  "title":"nummeraanduidingreekslabels",
+  "description": " Naam en plaatsingspunten van bij een pand horende nummeraanduidingreeksen- Groep: bouwwerk - Code: -",
   "type": "table",
   "version": "1.0.0",
   "crs": "EPSG:28992",
@@ -19,7 +19,7 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
-    "mainGeometry": "labelGeometrie2D",
+    "mainGeometry": "geometrie2d",
     "identifier": [
       "identificatie",
       "volgnummer"
@@ -33,17 +33,10 @@
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
       },
-      "bgtType": {
-        "type": "string",
-        "description": "De aard van de als zodanig benoemde OPENBARE RUIMTE."
-      },
-      "naam": {
-        "type": "string",
-        "description": "Een door het bevoegde gemeentelijke orgaan aan een OPENBARE RUIMTE toegekende benaming."
-      },
-      "hoortBijBagOpenbareruimte": {
-          "type": "object",
-          "properties": {
+
+      "hoortBijBgtPand": {
+        "type": "object",
+        "properties": {
             "identificatie": {
               "type": "string"
             },
@@ -58,11 +51,82 @@
               "type": "string",
               "format": "date-time"
             }
-          },
-        "relation": "bag:openbareruimtes",
-        "description": "De unieke identificatie van het object zoals is toegekend in de BAG-administratie."
+        },
+        "relation": "bgt:panden",
+        "description": "De unieke identificatie van het object waar dit label bij hoort, zoals is toegekend in de BGT-registratie"
+      }, 
+      "hoortBijBagPand": {
+        "type": "object",
+        "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
+        },
+        "relation": "bag:panden",
+        "description": "De unieke identificatie van het object waar dit label bij hoort, zoals is toegekend in de BAG-registratie"
+      }, 
+      "nummeraanduidingreeks": {
+        "type": "string",
+        "description": "De reeks nummeraanduidingen afgeleid uit de nummeraanduidingen behorend bij het pand ten behoeve van visualisatie."
       },
-      "labelHoek": {
+      "nummeraanduidingreeksAfgekort": {
+        "type": "string",
+        "description": "Bevat de reeks nummeraanduidingen behorend bij het pand. Daarnaast is hier ten behoeve van visualisatie de tekst ingekort."
+      },
+      "laagsteHuisnummerBagVerblijfsobject": {
+        "type": "object",
+        "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
+        },
+        "relation": "bag:verblijfsobjecten",
+        "description": "Identificatie in de BAG registratie van het verblijfsobject met het laagste huisnummer behorende tot de reeks."
+      },
+      "hoogsteHuisnummerBagVerblijfsobject": {
+        "type": "object",
+        "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
+        },
+        "relation": "bag:verblijfsobjecten",
+        "description": "Identificatie in de BAG registratie van het verblijfsobject met het hoogste huisnummer behorende tot de reeks."
+      },
+      "labelhoek": {
         "type": "number",
         "description": "De rotatie van het label bij visualisatie, met de klok mee ten opzichte van de normale tekstrichting."
       },
