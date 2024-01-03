@@ -28,4 +28,8 @@ a.eind_geldigheid as "ont_uit_eind_geldigheid",
 b.hft_rel_mt_vot_identificatie as "heeft_een_relatie_met_bag_verblijfsobject_identificatie"
 from brk_2_kadastraleobjecten z
 left join brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject a on z.id = a.kadastraleobjecten_id
-left join brk_2_kadastraleobjecten_hft_rel_mt_vot b on z.id = b.kadastraleobjecten_id;
+left join brk_2_kadastraleobjecten_hft_rel_mt_vot b on z.id = b.kadastraleobjecten_id
+where brk_2_kadastraleobjecten.datum_actueel_tot is null
+and brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.eind_geldigheid is null
+and brk_2_kadastraleobjecten_hft_rel_mt_vot.eind_geldigheid is null
+;

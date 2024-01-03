@@ -12,13 +12,4 @@ SELECT
     z.eind_geldigheid AS "eind_geldigheid"
 FROM 
     brk_2_zakelijkerechten z
-INNER JOIN (
-    SELECT
-        rust_op_brk_kadastraal_object_identificatie,
-        MAX(volgnummer) AS max_volgnummer
-    FROM 
-        brk_2_zakelijkerechten
-    GROUP BY 
-        rust_op_brk_kadastraal_object_identificatie
-) AS subq ON z.rust_op_brk_kadastraal_object_identificatie = subq.rust_op_brk_kadastraal_object_identificatie
-AND z.volgnummer = subq.max_volgnummer;
+    WHERE (z.datum_actueel_tot IS NULL OR z.datum_actueel_tot > now());
