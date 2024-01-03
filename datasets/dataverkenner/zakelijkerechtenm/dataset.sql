@@ -1,4 +1,4 @@
-create or replace view public.dataverkenner_zakelijkerechten_zakelijkerechten WITH (security_barrier) as
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_zakelijkerechten_zakelijkerechten WITH (security_barrier) as
 SELECT
     brk_2_zakelijkerechten.id AS "id",
     brk_2_zakelijkerechten.identificatie AS "identificatie",
@@ -13,3 +13,4 @@ SELECT
 FROM 
     brk_2_zakelijkerechten
     WHERE (brk_2_zakelijkerechten.datum_actueel_tot IS NULL OR brk_2_zakelijkerechten.datum_actueel_tot > now())
+with no data;
