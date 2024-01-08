@@ -19,7 +19,7 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
-    "mainGeometry": "geometrie2D",
+    "mainGeometry": "geometrie",
     "identifier": [
       "identificatie",
       "volgnummer"
@@ -37,69 +37,7 @@
         "type": "string",
         "description": "De unieke identificatie van het object zoals is toegekend in de BAG-registratie."
       },
-      "bevatBagNummeraanduiding": {
-        "type": "string",
-        "description": "Het pand bevat geen, één of meer nummeraanduidingen."
-      },
-      "nummeraanduidingreeks": {
-        "type": "string",
-        "description": "De reeks nummeraanduidingen afgeleid uit de nummeraanduidingen behorend bij het pand ten behoeve van visualisatie."
-      },
-      "nummeraanduidingreeksAfgekort": {
-        "type": "string",
-        "description": "Bevat de reeks nummeraanduidingen behorend bij het pand. Daarnaast is hier ten behoeve van visualisatie de tekst ingekort."
-      },
-      "laagsteHuisnummerBagVerblijfsobject": {
-        "type": "object",
-        "properties": {
-            "identificatie": {
-              "type": "string"
-            },
-            "volgnummer": {
-              "type": "integer"
-            },
-            "beginGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "eindGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            }
-        },
-        "relation": "bag:verblijfsobjecten",
-        "description": "Identificatie in de BAG registratie van het verblijfsobject met het laagste huisnummer behorende tot de reeks."
-      },
-      "hoogsteHuisnummerBagVerblijfsobject": {
-        "type": "object",
-        "properties": {
-            "identificatie": {
-              "type": "string"
-            },
-            "volgnummer": {
-              "type": "integer"
-            },
-            "beginGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "eindGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            }
-        },
-        "relation": "bag:verblijfsobjecten",
-        "description": "Identificatie in de BAG registratie van het verblijfsobject met het hoogste huisnummer behorende tot de reeks."
-      },
-      "labelhoek": {
-        "type": "number",
-        "description": "De rotatie van het label bij visualisatie, met de klok mee ten opzichte van de normale tekstrichting."
-      },
-      "labelGeometrie2D": {
-        "$ref": "https://geojson.org/schema/Point.json",
-        "description": "puntgeometrie"
-      },
-      "geometrie2D": {
+      "geometrie": {
         "$ref": "https://geojson.org/schema/MultiPolygon.json",
         "description": "multivlakgeometrie"
       },
