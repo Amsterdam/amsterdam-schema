@@ -1,4 +1,4 @@
-CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_aantekeningen_aantekeningen WITH (security_barrier) as
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_aantekeningen_aantekeningen as
 select 
 brk_2_aantekeningenkadastraleobjecten.id as "id",
 brk_2_aantekeningenkadastraleobjecten.identificatie as "identificatie",

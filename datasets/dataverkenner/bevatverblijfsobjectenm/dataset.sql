@@ -1,4 +1,4 @@
-CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_bevatverblijfsobjecten_bevatverblijfsobjecten WITH (security_barrier) as
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_bevatverblijfsobjecten_bevatverblijfsobjecten as
 select
 bag_verblijfsobjecten_ligt_in_panden.id as "id",
 bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_id as "verblijfsobjecten_id",

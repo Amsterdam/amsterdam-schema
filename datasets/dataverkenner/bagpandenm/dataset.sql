@@ -1,4 +1,4 @@
-CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_bagpanden_bagpanden WITH (security_barrier) as
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_bagpanden_bagpanden as
 select
 bag_panden.id as "id",
 bag_panden.identificatie as "pand_identificatie",

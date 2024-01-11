@@ -1,4 +1,4 @@
-CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_kadastraleobject_kadastraleobject WITH (security_barrier) as
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_kadastraleobject_kadastraleobject as
 select 
 brk_2_kadastraleobjecten.id as "id",
 brk_2_kadastraleobjecten.identificatie as "identificatie",
