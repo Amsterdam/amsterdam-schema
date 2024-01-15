@@ -1,4 +1,4 @@
-CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_tenaamstellingen_tenaamstellingen as
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_tenaamstellingenm_tenaamstellingen as
 select
 brk_2_tenaamstellingen.id as "id",
 brk_2_tenaamstellingen.identificatie as "identificatie",

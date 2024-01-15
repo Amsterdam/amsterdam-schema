@@ -1,4 +1,4 @@
-CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_zakelijkerechten_zakelijkerechten WITH (security_barrier) as
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_zakelijkerechtenm_zakelijkerechten WITH (security_barrier) as
 SELECT
     brk_2_zakelijkerechten.id AS "id",
     brk_2_zakelijkerechten.identificatie AS "identificatie",
