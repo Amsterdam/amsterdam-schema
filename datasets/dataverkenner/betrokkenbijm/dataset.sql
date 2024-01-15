@@ -1,4 +1,4 @@
-CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_betrokkenbij_betrokkenbij as
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_betrokkenbijm_betrokkenbij as
 select brk_2_kadastraleobjecten.id as "id",
 brk_2_kadastraleobjecten.identificatie as "identificatie",
 brk_2_kadastraleobjecten.neuron_id as "neuron_id",
