@@ -1,4 +1,4 @@
-create or replace view public.dataverkenner_pandligtin_pandligtin WITH (security_barrier) as
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_pandligtin_pandligtin as
 select 
 bag_panden.id as "id",
 bag_panden.identificatie as "identificatie",
@@ -48,4 +48,5 @@ and  bag_panden.status_omschrijving in ('Bouwaanvraag ontvangen',
 'Pand in gebruik', 
 'Sloopvergunning verleend',
 'Pand buiten gebruik',
-'Verbouwing pand');
+'Verbouwing pand')
+with no data;

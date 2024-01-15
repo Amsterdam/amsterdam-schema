@@ -1,4 +1,4 @@
-create or replace view public.dataverkenner_betrokkenbij_betrokkenbij WITH (security_barrier) as
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_betrokkenbij_betrokkenbij as
 select brk_2_kadastraleobjecten.id as "id",
 brk_2_kadastraleobjecten.identificatie as "identificatie",
 brk_2_kadastraleobjecten.neuron_id as "neuron_id",
@@ -16,4 +16,6 @@ brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.eind_geldigheid as
 from brk_2_kadastraleobjecten
 LEFT JOIN brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject ON  brk_2_kadastraleobjecten.id=brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.kadastraleobjecten_id 
 WHERE brk_2_kadastraleobjecten.datum_actueel_tot IS NULL
-AND brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.eind_geldigheid IS null;
+AND brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.eind_geldigheid IS null
+with no data
+;

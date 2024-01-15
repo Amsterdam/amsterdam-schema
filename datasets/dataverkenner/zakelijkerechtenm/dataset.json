@@ -1,6 +1,6 @@
 {
   "type": "dataset",
-  "id": "dataverkennerAantekeningen",
+  "id": "dataverkennerZakelijkerechten",
   "status": "beschikbaar",
   "owner": "Gemeente Amsterdam",
   "publisher": {
@@ -18,10 +18,10 @@
   "tables": [
     {
       "type": "table",
-      "id": "aantekeningen",
+      "id": "zakelijkerechten",
       "version": "0.0.1",
       "derivedFrom": [
-        "brk2:aantekeningenkadastraleobjecten"
+        "brk2:zakelijkerechten"
       ],
       "temporal": {
         "identifier": "volgnummer",
@@ -45,40 +45,49 @@
           "identificatie",
           "volgnummer"
         ],
+    
         "display": "identificatie",
         "properties": {
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
           },
-          "identificatie": {
-            "type": "string",
-            "description": "De door het Kadaster toegekende landelijk unieke aanduiding aan deze aantekening."
-          },
           "volgnummer": {
             "type": "integer",
             "description": "Uniek volgnummer van de toestand van het object."
           },
-          "aardOmschrijving": {
+          "identificatie": {
             "type": "string",
-            "description": "De aard van de aantekening."
+            "description": "De Kadaster identificatie is een door het Kadaster toegekende landelijk unieke aanduiding aan dit zakelijk recht binnen de kadastrale registratie."
           },
-          "omschrijving": {
+          "rustOpBrkKadastraalObjectIdentificatie": {
             "type": "string",
-            "description": "Nadere beschrijving van de aantekening."
+            "description": "Het kadastraal object en volgnummer waarop het zakelijk recht rust."
           },
-          "hftBtrkOpKotIdentificatie": {
+          "aardZakelijkRechtOmschrijving": {
             "type": "string",
-            "description": "Identificatie van het kadastrale object (onroerende zaak)."
+            "description": "De aard van het zakelijk recht."
+          },
+          "betrokkenBijAppartementsrechtsplitsingVve": {
+            "type": "string",
+            "description": "VVE Subject betrokken bij Appartementsrechtsplitsing"
+          },
+          "vveIdentificatieOntstaanUitId": {
+            "type": "string",
+            "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waaruit het zakelijk recht ontstaan is"
+          },
+          "vveIdentificatieBetrokkenBijId": {
+            "type": "string",
+            "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waarbij het zakelijk recht betrokken is"
           },
           "beginGeldigheid": {
             "type": "string",
             "format": "date-time",
-            "description": "Begindatum geldigheid object."
+            "description": "Begindatum geldigheid."
           },
           "eindGeldigheid": {
             "type": "string",
             "format": "date-time",
-            "description": "Einddatum geldigheid object."
+            "description": "Einddatum geldigheid."
           }
         }
       }
