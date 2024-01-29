@@ -42,8 +42,20 @@
         "description": "Specificatie van het soort kunstwerk, indien dit een IMGeo uitbreiding van de populatie betreft."
       },
       "geometrie": {
-        "$ref": "https://geojson.org/schema/Polygon.json",
-        "description": "vlakgeometrie"
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "multivlak-, vlak-, lijn- of multipuntgeometrie"
+      },
+      "geometrieVlak": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "multivlakgeometrie"
+      },
+      "geometrieLijn": {
+        "$ref": "https://geojson.org/schema/LineString.json",
+        "description": "lijngeometrie"
+      },
+      "geometriePunt": {
+        "$ref": "https://geojson.org/schema/MultiPoint.json",
+        "description": "multipuntgeometrie"
       },
       "objectBegintijd": {
         "type": "string",
