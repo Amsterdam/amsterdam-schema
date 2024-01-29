@@ -31,5 +31,4 @@ left join brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject on brk_2
 left join brk_2_kadastraleobjecten_hft_rel_mt_vot on brk_2_kadastraleobjecten.id = brk_2_kadastraleobjecten_hft_rel_mt_vot.kadastraleobjecten_id
 where brk_2_kadastraleobjecten.datum_actueel_tot is null
 and brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.eind_geldigheid is null
-and brk_2_kadastraleobjecten_hft_rel_mt_vot.eind_geldigheid is null
-;
+and brk_2_kadastraleobjecten_hft_rel_mt_vot.eind_geldigheid is null;

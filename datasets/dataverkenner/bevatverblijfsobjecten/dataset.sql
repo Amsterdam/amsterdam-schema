@@ -15,18 +15,5 @@ on bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_id = vot.id
 left join bag_panden pnd 
 on bag_verblijfsobjecten_ligt_in_panden.ligt_in_panden_id = pnd.id 
 where bag_verblijfsobjecten_ligt_in_panden.eind_geldigheid is null 
-and vot.status_omschrijving in 
-('Verblijfsobject gevormd',
-'Verblijfsobject in gebruik (niet ingemeten)',
-'Verblijfsobject in gebruik',
-'Verblijfsobject buiten gebruik',
-'Verbouwing Verblijfsobject')
-and pnd.status_omschrijving in 
-('Bouwaanvraag ontvangen', 
-'Bouwvergunning verleend', 
-'Bouw gestart', 
-'Pand in gebruik (niet ingemeten)',
-'Pand in gebruik', 
-'Sloopvergunning verleend',
-'Pand buiten gebruik',
-'Verbouwing pand');
+and vot.status_omschrijving in ('Verblijfsobject gevormd','Verblijfsobject in gebruik (niet ingemeten)','Verblijfsobject in gebruik','Verblijfsobject buiten gebruik','Verbouwing Verblijfsobject')
+and pnd.status_omschrijving in ('Bouwaanvraag ontvangen','Bouwvergunning verleend','Bouw gestart','Pand in gebruik (niet ingemeten)','Pand in gebruik','Sloopvergunning verleend','Pand buiten gebruik','Verbouwing pand');
