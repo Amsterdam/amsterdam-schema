@@ -251,6 +251,12 @@
             "shortname": "indZzp",
             "description": "Indicatie of betreffende vestiging een zelfstandige zonder personeel (zzp'er) betreft"
           },
+          "indicatieWinkel": {
+            "type": "boolean",
+            "title": "indicatieWinkel",
+            "shortname": "indWinkel",
+            "description": "Indicatie of betreffende vestiging een winkel is"
+          },
           "geometrie": {
             "$ref": "https://geojson.org/schema/Point.json",
             "title": "geometrie",
@@ -269,7 +275,7 @@
             "description": "Peildatum van de winkelgebieden vastgesteld door Economische Zaken en Onderzoek & Statistiek"
           },
           "winkelgebiedCode": {
-            "type": "integer",
+            "type": "string",
             "title": "winkelgebiedCode",
             "description": "Unieke sleutel van het winkelgebied vastgesteld door Economische Zaken en Onderzoek & Statistiek"
           },
@@ -285,9 +291,14 @@
             "description": "Peildatum van het bedrijventerrein vastgesteld door Economische Zaken en Onderzoek & Statistiek"
           },
           "bedrijventerreinCode": {
-            "type": "integer",
+            "type": "string",
             "title": "bedrijventerreinCode",
             "description": "Unieke sleutel van het bedrijventerrein vastgesteld door Economische Zaken en Onderzoek & Statistiek"
+          },
+          "bedrijventerreinThema": {
+            "type": "string",
+            "title": "bedrijventerreinCode",
+            "description": "Thema van het bedrijventerrein vastgesteld door Economische Zaken en Onderzoek & Statistiek"
           },
           "bedrijventerreinNaam": {
             "type": "string",
