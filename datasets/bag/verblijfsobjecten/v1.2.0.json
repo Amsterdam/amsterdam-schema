@@ -1,7 +1,7 @@
 {
   "id": "verblijfsobjecten",
   "type": "table",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
@@ -21,26 +21,26 @@
     ],
     "required": [
       "schema",
-      "id",
       "identificatie",
       "volgnummer"
     ],
-    "display": "id",
+    "display": "identificatie",
+    "mainGeometry": "geometrie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
         "description": "Landelijke identificerende sleutel."
       },
-      "id": {
-        "type": "string",
-        "description": "Unieke identificatie voor dit object, inclusief volgnummer"
-      },
       "volgnummer": {
         "type": "integer",
         "description": "Uniek volgnummer van de toestand van het object."
+      },
+      "plusvolgnummer": {
+        "type": "integer",
+        "description": "extra volgnummer BAG-plus gegevens"
       },
       "registratiedatum": {
         "type": "string",
@@ -77,6 +77,14 @@
           },
           "volgnummer": {
             "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "relation": "bag:nummeraanduidingen",
@@ -92,6 +100,14 @@
             },
             "volgnummer": {
               "type": "integer"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
             }
           }
         },
@@ -141,6 +157,14 @@
             },
             "volgnummer": {
               "type": "integer"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
             }
           }
         },
@@ -167,6 +191,14 @@
             },
             "volgnummer": {
               "type": "integer"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
             }
           }
         },
@@ -204,7 +236,7 @@
       },
       "aantalEenhedenComplex": {
         "type": "integer",
-        "description": "Aantal eenheden complex per verblijfsobject (all\u00e9\u00e9n bij een speciale  woonfunctie of gezondheidszorgfunctie; zie gebruiksdoel-plus)."
+        "description": "Aantal eenheden complex per verblijfsobject (alléén bij een speciale  woonfunctie of gezondheidszorgfunctie; zie gebruiksdoel-plus)."
       },
       "verdiepingToegang": {
         "type": "integer",
@@ -290,6 +322,14 @@
           },
           "volgnummer": {
             "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date"
           }
         },
         "relation": "gebieden:buurten",
@@ -311,7 +351,6 @@
         "provenance": "$.bagproces.omschrijving",
         "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
       }
-    },
-    "mainGeometry": "geometrie"
+    }
   }
 }

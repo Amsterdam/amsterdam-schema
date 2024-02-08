@@ -1,7 +1,7 @@
 {
-  "id": "standplaatsen",
+  "id": "ligplaatsen",
   "type": "table",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
@@ -21,14 +21,14 @@
     ],
     "required": [
       "schema",
-      "id",
       "identificatie",
       "volgnummer"
     ],
-    "display": "id",
+    "mainGeometry": "geometrie",
+    "display": "identificatie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
@@ -38,6 +38,10 @@
         "type": "integer",
         "description": "Uniek volgnummer van de toestand van het object."
       },
+      "plusvolgnummer": {
+        "type": "integer",
+        "description": "extra volgnummer BAG-plus gegevens"
+      },
       "registratiedatum": {
         "type": "string",
         "format": "date-time",
@@ -45,17 +49,17 @@
       },
       "geconstateerd": {
         "type": "boolean",
-        "description": "Dit geeft aan dat een STANDPLAATS in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument."
+        "description": "Dit geeft aan dat een LIGPLAATS in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument."
       },
       "statusCode": {
         "type": "integer",
         "provenance": "$.status.code",
-        "description": "De fase van de levenscyclus van een standplaats, waarin de betreffende standplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. code"
+        "description": "De fase van de levenscyclus van een ligplaats, waarin de betreffende ligplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. code"
       },
       "statusOmschrijving": {
         "type": "string",
         "provenance": "$.status.omschrijving",
-        "description": "De fase van de levenscyclus van een standplaats, waarin de betreffende standplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. omschrijving"
+        "description": "De fase van de levenscyclus van een ligplaats, waarin de betreffende ligplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. omschrijving"
       },
       "heeftHoofdadres": {
         "type": "object",
@@ -65,10 +69,18 @@
           },
           "volgnummer": {
             "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "relation": "bag:nummeraanduidingen",
-        "description": "Het HOOFDadres dat de standplaats heeft."
+        "description": "Het HOOFDadres dat de ligplaats heeft."
       },
       "heeftNevenadres": {
         "type": "array",
@@ -80,15 +92,23 @@
             },
             "volgnummer": {
               "type": "integer"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
             }
           }
         },
         "relation": "bag:nummeraanduidingen",
-        "description": "Het NEVENadres dat de standplaats (optioneel) heeft."
+        "description": "Het NEVENadres dat de ligplaats (optioneel) heeft."
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
-        "description": "Vorm en ligging van de standplaats in het Nationale Rijksdriehoekstelsel."
+        "description": "Vorm en ligging van de ligplaats in het Nationale Rijksdriehoekstelsel."
       },
       "gebruiksdoel": {
         "type": "array",
@@ -100,17 +120,17 @@
             }
           }
         },
-        "description": "Een categorisering van de gebruiksdoelen van de betreffende standplaats, zoals dit door de overheid als zodanig is toegestaan."
+        "description": "Een categorisering van de gebruiksdoelen van de betreffende ligplaats, zoals dit door de overheid als zodanig is toegestaan."
       },
       "beginGeldigheid": {
         "type": "string",
         "format": "date-time",
-        "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een STANDPLAATS."
+        "description": "De begindatum van een periode waarin een of meer gegevens die worden bijgehouden over een ligplaats een wijziging hebben ondergaan."
       },
       "eindGeldigheid": {
         "type": "string",
         "format": "date-time",
-        "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een STANDPLAATS."
+        "description": "De einddatum van een periode waarin een of meer gegevens die worden bijgehouden over een ligplaats een wijziging hebben ondergaan."
       },
       "heeftOnderzoeken": {
         "type": "array",
@@ -122,6 +142,14 @@
             },
             "volgnummer": {
               "type": "integer"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
             }
           }
         },
@@ -145,10 +173,18 @@
           },
           "volgnummer": {
             "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date"
           }
         },
         "relation": "gebieden:buurten",
-        "description": "De buurt waarin een standplaats ligt."
+        "description": "De buurt waarin een ligplaats ligt."
       },
       "heeftDossier": {
         "type": "string",
@@ -166,7 +202,6 @@
         "provenance": "$.bagproces.omschrijving",
         "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
       }
-    },
-    "mainGeometry": "geometrie"
+    }
   }
 }

@@ -1,7 +1,7 @@
 {
   "id": "panden",
   "type": "table",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
@@ -21,14 +21,22 @@
     ],
     "required": [
       "schema",
-      "id",
       "identificatie",
       "volgnummer"
     ],
-    "display": "id",
+    "mainGeometry": "geometrie",
+    "display": "identificatie",
+    "additionalRelations": {
+      "bevatVerblijfsobjecten": {
+        "table": "verblijfsobjecten",
+        "field": "ligtInPanden",
+        "format": "embedded",
+        "description": "Alle verblijfsobjecten die in een pand liggen (extra attribuut)."
+      }
+    },
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
@@ -37,6 +45,10 @@
       "volgnummer": {
         "type": "integer",
         "description": "Uniek volgnummer van de toestand van het object."
+      },
+      "plusvolgnummer": {
+        "type": "integer",
+        "description": "extra volgnummer BAG-plus gegevens"
       },
       "registratiedatum": {
         "type": "string",
@@ -85,6 +97,14 @@
             },
             "volgnummer": {
               "type": "integer"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
             }
           }
         },
@@ -131,6 +151,19 @@
         "relation": "gebieden:bouwblokken",
         "description": "Het bouwblok waarin het pand ligt."
       },
+      "ligtInBuurt": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "gebieden:buurten",
+        "description": "De buurt waarin het pand ligt."
+      },
       "aantalBouwlagen": {
         "type": "integer",
         "description": "Aantal bouwlagen van een pand."
@@ -159,7 +192,6 @@
         "provenance": "$.bagproces.omschrijving",
         "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
       }
-    },
-    "mainGeometry": "geometrie"
+    }
   }
 }
