@@ -1,4 +1,4 @@
-create or replace view public.dataverkenner_betrokkenbij_betrokkenbij WITH (security_barrier) as
+create or replace view public.dataverkenner_isontstaanuit_isontstaanuit WITH (security_barrier) as
 select kot.id as "id",
 kot.identificatie as "identificatie",
 kot.neuron_id as "neuron_id",
