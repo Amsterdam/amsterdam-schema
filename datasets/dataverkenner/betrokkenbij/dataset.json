@@ -8,9 +8,10 @@
   },
   "creator": "Basisinformatie",
   "auth": "BRK/RO",
+  "reasonsNonPublic": ["5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"],
   "version": "0.0.1",
   "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
-  "description": "De Basisregistratie | Toegewijde weergaven BAG en BRK bevat informatie nodig voor implementatie op het Data Verkenner platform.",
+  "description": "bevat BRK-informatie nodig voor implementatie op het Data Verkenner platform.",
   "tables": [
     {
       "type": "table",
@@ -18,17 +19,8 @@
       "version": "0.0.1",
       "derivedFrom": [
         "brk2:kadastraleobjecten",
-        "brk2:kadastraleobjecten_is_ontstaan_uit_brk_g_perceel"
+        "brk2:kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject"
       ],
-      "temporal": {
-        "identifier": "volgnummer",
-        "dimensions": {
-          "geldigOp": [
-            "beginGeldigheid",
-            "eindGeldigheid"
-          ]
-        }
-      },
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -49,59 +41,33 @@
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
           },
-          "neuronId": {
+          "identificatie": {
             "type": "string",
-            "description": "Neuron ID"
+            "description": "De unieke aanduiding van een Kadastraal object."
           },
           "volgnummer": {
             "type": "integer",
             "description": "Uniek volgnummer van de toestand van het object."
           },
-          "identificatie": {
-            "type": "string",
-            "description": "De unieke aanduiding van een Kadastraal object."
-          },
           "kadastraleAanduiding": {
             "type": "string",
             "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
           },
-          "beginGeldigheid": {
+          "neuronId": {
             "type": "string",
-            "format": "date-time",
-            "description": "Begindatum geldigheid."
+            "description": "Neuron ID"
           },
-          "eindGeldigheid": {
+          "betrokkenBijKadastraleobjectenId": {
             "type": "string",
-            "format": "date-time",
-            "description": "Einddatum geldigheid."
+            "description": "Bovenliggende (gesplitste) A-percelen."
           },
-          "betrokenBijId": {
+          "betrokkenBijIdentificatie": {
             "type": "string",
-            "description": "Dit veld is alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
+            "description": "Bovenliggende (gesplitste) A-percelen."
           },
-          "betrokenBijKadastraleobjectenId": {
-            "type": "string",
-            "description": "Dit veld is alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
-          },
-          "betrokenBijIdentificatie": {
-            "type": "string",
-            "description": "Dit veld is alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
-          },
-          "betrokenBijVolgnummer": {
+          "betrokkenBijVolgnummer": {
             "type": "integer",
-            "description": "Dit veld is alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
-          },
-          "isOntstaanUitBrkGPerceelIdentificatie": {
-            "type": "string",
-            "description": "Dit veld is alleen gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
-          },
-          "betrokenBijBeginGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "betrokenBijEindGeldigheid": {
-            "type": "string",
-            "format": "date-time"
+            "description": "Bovenliggende (gesplitste) A-percelen."
           }
         }
       }

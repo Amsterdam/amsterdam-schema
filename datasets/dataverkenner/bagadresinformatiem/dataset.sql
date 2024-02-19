@@ -47,6 +47,8 @@ bag_verblijfsobjecten.begin_geldigheid as "verblijfsobject_begin_geldigheid",
 bag_verblijfsobjecten.eind_geldigheid as "verblijfsobject_eind_geldigheid",
 bag_onderzoeken.volgnummer as "onderzoeken_volgnummer",
 bag_onderzoeken.in_onderzoek as "onderzoeken_in_onderzoek",
+bag_onderzoeken.begin_geldigheid as "onderzoeken_begin_geldigheid",
+bag_onderzoeken.eind_geldigheid as "onderzoeken_eind_geldigheid",
 bag_ligplaatsen.identificatie as "ligplaats_identificatie",
 bag_ligplaatsen.volgnummer as "ligplaats_volgnummer",
 bag_ligplaatsen.geconstateerd as "ligplaats_geconstateerd",
@@ -107,5 +109,4 @@ left join bag_verblijfsobjecten_ligt_in_panden on bag_verblijfsobjecten.id = bag
 left join bag_panden on bag_panden.id = bag_verblijfsobjecten_ligt_in_panden.ligt_in_panden_id
 left join gebieden_bouwblokken on bag_panden.ligt_in_bouwblok_id=gebieden_bouwblokken.id
 left join bag_verblijfsobjecten_gebruiksdoel on bag_nummeraanduidingen.adresseert_verblijfsobject_id=bag_verblijfsobjecten_gebruiksdoel.parent_id
-left join bag_verblijfsobjecten_toegang on bag_nummeraanduidingen.adresseert_verblijfsobject_id=bag_verblijfsobjecten_toegang.parent_id
-with no data;
+left join bag_verblijfsobjecten_toegang on bag_nummeraanduidingen.adresseert_verblijfsobject_id=bag_verblijfsobjecten_toegang.parent_id with no data;
