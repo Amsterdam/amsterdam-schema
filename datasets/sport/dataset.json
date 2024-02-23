@@ -477,10 +477,6 @@
             "type": "integer",
             "description": "Unieke aanduiding van de sportaanbieder."
           },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Point.json",
-            "description": "Puntgeometrie van de sportfaciliteit."
-          },
           "typeSport": {
             "type": "string",
             "description": "Het sporttype dat de sportaanbieder aanbiedt.",
@@ -535,10 +531,20 @@
             "description": "Indicatie korting sporten via stadspas voor jeugd.",
             "provenance": "stadspas jeugd"
           },
-          "stadspas55": {
+          "stadspas55+": {
             "type": "boolean",
             "description": "Indicatie korting sporten via stadspas voor 55+.",
             "provenance": "stadspas 55+"
+          },
+          "latitude": {
+            "type": "number",
+            "description": "Latitude van de sportfaciliteit, x-coordinaat op de kaart.",
+            "provenance": "latitude (x)"
+          },
+          "longitude": {
+            "type": "number",
+            "description": "Longitude van de sportfaciliteit, y-coordinaat op de kaart.",
+            "provenance": "longitude (y)"
           }
         }
       }
