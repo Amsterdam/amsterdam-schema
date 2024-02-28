@@ -10,13 +10,21 @@
     "authorizationGrantor": "",
     "creator": "",
     "publisher": "Datateam MOSS+",
-    "theme": ["Subsidies"],
-    "keywords": ["Openbaar", "Subsidies", "Subsidieregister", "WOO", "Wet Open Overheid"],
+    "theme": [
+        "Subsidies"
+    ],
+    "keywords": [
+        "Openbaar",
+        "Subsidies",
+        "Subsidieregister",
+        "WOO",
+        "Wet Open Overheid"
+    ],
     "crs": "",
     "tables": [
         {
-            "id": "openbaar_subsidieregister",
-            "title": "openbaar_subsidieregister",
+            "id": "openbaarSubsidieregister",
+            "title": "openbaarSubsidieregister",
             "type": "table",
             "version": "1.0.0",
             "schema": {
@@ -29,6 +37,13 @@
                 ],
                 "display": "naam",
                 "properties": {
+                    "schema": {
+                        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "description": "Unieke aanduiding van de sportfaciliteit."
+                    },
                     "naam": {
                         "type": "string",
                         "description": "De naam van de subsidie"
