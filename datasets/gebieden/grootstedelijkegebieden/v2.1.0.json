@@ -29,18 +29,22 @@
       "naam": {
         "type": "string"
       },
-      "type": {
-        "type": "string",
-        "description": "Categorie GSP, OD, PHS of PHSOD"
+      "categorie": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "Categorie"
       },
       "url": {
         "type": "string",
         "format": "uri",
         "description": "URL naar bekendmaking"
-      },
-      "typering": {
-        "type": "string",
-        "description": "Omschrijving type"
       },
       "datum": {
         "type": "string"
