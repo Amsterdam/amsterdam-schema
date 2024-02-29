@@ -1,0 +1,125 @@
+{
+  "id": "veiligheidsinspecties",
+  "type": "table",
+  "version": "1.0.0",
+  "title": "veiligheidsinspecties van bomen",
+  "description": "bevat de actuele veiligheidsinspecties van de bomen in beheer van gemeente Amsterdam.",
+  "auth": "FP/MDW",
+  "reasonsNonPublic": [
+    "5.2 1: Bevat persoonlijke beleidsopvattingen (bevat geen milieu-informatie)"
+  ],
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van record"
+      },
+      "boomId": {
+        "type": "integer",
+        "description": "de vreemde sleutel (foreignkey) voor de relatie met de stamgegevens van de bomen"
+      },
+      "afgestorvenTakken": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "boombeeld": {
+        "type": "string",
+        "description": "Onderhoudssituatie van de boom"
+      },
+      "actueleOpkroonhoogte": {
+        "type": "string",
+        "description": "Actuele takvrije stam"
+      },
+      "boominspectietype": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "boomveiligheidsklasse": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "conclusieEnAdviesOnderzoek": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "controlePositieBoompunt": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "idUitOudeBeheerindeling": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "iepziekteInspectieStatus": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "kroondiameterklasseActueel": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "boomconditie": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "ntoAanvullendOnderzoek": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "boomhoogteklasseActueel": {
+        "type": "string",
+        "description": "Aanduiding van de boomhoogte in meters ingedeeld in vaste klassen"
+      },
+      "stamdiameterklasse": {
+        "type": "string",
+        "description": "Aanduiding van de diameter van de stam in diameterklassen"
+      },
+      "stamdiameter": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "snoeiwijze": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "toekomstverwachting": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "vasteBoomgegevens": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "guid": {
+        "type": "string",
+        "description": "Uniek nummer van het IMBOR-object (GUID)"
+      },
+      "mutatieDatum": {
+        "type": "string",
+        "format": "date",
+        "description": "Wordt later ingevuld"
+      },
+      "revisie": {
+        "type": "integer",
+        "description": "Wordt later ingevuld"
+      },
+      "objectBeginTijd": {
+        "type": "string",
+        "format": "date",
+        "description": "Wordt later ingevuld"
+      }
+    }
+  }
+}
