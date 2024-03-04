@@ -13,9 +13,10 @@ brk_2_kadastraleobjecten.aangeduid_door_brk_kadastralesectie_id as "aangeduid_do
 brk_2_kadastraleobjecten.indexletter as "indexletter",
 brk_2_kadastraleobjecten.indexnummer as "indexnummer",
 brk_2_kadastraleobjecten.aangeduid_door_brk_gemeente_id as "aangeduid_door_brk_gemeente_id",
+brk_2_gemeentes.naam  as "aangeduid_door_brk_gemeente",
 brk_2_kadastraleobjecten.grootte as "grootte",
 brk_2_kadastraleobjecten.perceelnummer as "perceelnummer",
-brk_2_kadastraleobjecten.soort_cultuur_onbebouwd_omschrijving as "soort_cultuur_onbebouwd_omschrijving",
+brk_2_kadastraleobjecten.soort_cultuur_onbebouwd_omschrijving as "soort_cultuur_onbebouwd_omschrijving",																			 
 brk_2_kadastraleobjecten.soort_cultuur_bebouwd_omschrijving as "soort_cultuur_bebouwd_omschrijving",
 brk_2_kadastraleobjecten.koopsom as "koopsom",
 brk_2_kadastraleobjecten.koopjaar as "koopjaar",
@@ -24,9 +25,12 @@ brk_2_kadastraleobjecten.soort_grootte_omschrijving as "soort_grootte_omschrijvi
 brk_2_kadastraleobjecten.toestandsdatum as "toestandsdatum",
 brk_2_kadastraleobjecten.in_onderzoek as "in_onderzoek",
 brk_2_kadastraleobjecten.indicatie_voorlopige_kadastrale_grens as "indicatie_voorlopige_kadastrale_grens",
-brk_2_kadastraleobjecten_hft_rel_mt_vot.hft_rel_mt_vot_identificatie as "heeft_een_relatie_met_bag_verblijfsobject_identificatie"
-from brk_2_kadastraleobjecten
+brk_2_kadastraleobjecten_hft_rel_mt_vot.hft_rel_mt_vot_identificatie as "heeft_een_relatie_met_bag_verblijfsobject_identificatie",
+brk_2_kadastraleobjecten.geometrie as "geometrie"
+from brk_2_kadastraleobjecten																																															
 left join brk_2_kadastraleobjecten_hft_rel_mt_vot on brk_2_kadastraleobjecten.id = brk_2_kadastraleobjecten_hft_rel_mt_vot.kadastraleobjecten_id
-where brk_2_kadastraleobjecten.datum_actueel_tot is null
-and brk_2_kadastraleobjecten_hft_rel_mt_vot.eind_geldigheid is null
+LEFT JOIN brk_2_gemeentes ON brk_2_kadastraleobjecten.aangeduid_door_brk_gemeente_id=brk_2_gemeentes.id 
+where brk_2_kadastraleobjecten.datum_actueel_tot is null																						 
+and brk_2_kadastraleobjecten_hft_rel_mt_vot.eind_geldigheid is NULL
+AND brk_2_gemeentes.eind_geldigheid IS null
 with no data;
