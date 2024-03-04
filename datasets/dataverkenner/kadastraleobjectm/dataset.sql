@@ -1,4 +1,15 @@
 CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_kadastraleobjectm_kadastraleobject as
+WITH verblijfsobjecten as
+     (
+              select
+                       kadastraleobjecten_id
+                     , array_agg(hft_rel_mt_vot_identificatie) as vots
+              from
+                       brk_2_kadastraleobjecten_hft_rel_mt_vot
+              WHERE eind_geldigheid IS null        
+              group by
+                       kadastraleobjecten_id
+     )
 select 
 brk_2_kadastraleobjecten.id as "id",
 brk_2_kadastraleobjecten.identificatie as "identificatie",
@@ -25,12 +36,11 @@ brk_2_kadastraleobjecten.soort_grootte_omschrijving as "soort_grootte_omschrijvi
 brk_2_kadastraleobjecten.toestandsdatum as "toestandsdatum",
 brk_2_kadastraleobjecten.in_onderzoek as "in_onderzoek",
 brk_2_kadastraleobjecten.indicatie_voorlopige_kadastrale_grens as "indicatie_voorlopige_kadastrale_grens",
-brk_2_kadastraleobjecten_hft_rel_mt_vot.hft_rel_mt_vot_identificatie as "heeft_een_relatie_met_bag_verblijfsobject_identificatie",
-brk_2_kadastraleobjecten.geometrie as "geometrie"
+verblijfsobjecten.vots as "heeft_een_relatie_met_bag_verblijfsobject_identificaties",
+brk_2_kadastraleobjecten.geometrie 
 from brk_2_kadastraleobjecten																																															
-left join brk_2_kadastraleobjecten_hft_rel_mt_vot on brk_2_kadastraleobjecten.id = brk_2_kadastraleobjecten_hft_rel_mt_vot.kadastraleobjecten_id
+LEFT JOIN verblijfsobjecten ON brk_2_kadastraleobjecten.id=verblijfsobjecten.kadastraleobjecten_id
 LEFT JOIN brk_2_gemeentes ON brk_2_kadastraleobjecten.aangeduid_door_brk_gemeente_id=brk_2_gemeentes.id 
 where brk_2_kadastraleobjecten.datum_actueel_tot is null																						 
-and brk_2_kadastraleobjecten_hft_rel_mt_vot.eind_geldigheid is NULL
-AND brk_2_gemeentes.eind_geldigheid IS null
+AND brk_2_gemeentes.eind_geldigheid IS NULL
 with no data;
