@@ -1,0 +1,63 @@
+{
+  "id": "stedelijkgebiedprojectofbelangen",
+  "type": "table",
+  "version": "1.0.0",
+  "description": "Stedelijke gebieden, projecten en belangen zijn projectgebieden binnen de gemeente Amsterdam, waar de voorbereiding van bestemmingsplannen door het college van burgemeester en wethouders of de burgemeester ter hand worden genomen",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": "identificatie",
+    "required": [
+      "schema",
+      "identificatie",
+      "geometrie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "provenance": "geometry"
+      },
+      "naam": {
+        "type": "string"
+      },
+      "categorie": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "Categorie"
+      },
+      "url": {
+        "type": "string",
+        "format": "uri",
+        "description": "URL naar bekendmaking"
+      },
+      "datum": {
+        "type": "string",
+        "format": "date"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status."
+      },
+      "legenda": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -6,15 +6,6 @@
   "version": "1.0.0",
   "crs": "EPSG:28992",
   "auth": "OPENBAAR",
-  "temporal": {
-    "identifier": "volgnummer",
-    "dimensions": {
-      "geldigOp": [
-        "objectBegintijd",
-        "objectEindtijd"
-      ]
-    }
-  },
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -33,6 +24,10 @@
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
       },
       "geometrie": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "multivlak- of vlakgeometrie"
+      },
+      "geometrieVlak": {
         "$ref": "https://geojson.org/schema/MultiPolygon.json",
         "description": "multivlakgeometrie"
       },

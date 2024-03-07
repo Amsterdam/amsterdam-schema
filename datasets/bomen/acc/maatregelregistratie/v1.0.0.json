@@ -1,0 +1,190 @@
+{
+  "id": "maatregelregistratie",
+  "type": "table",
+  "version": "1.0.0",
+  "title": "maatregelregistratie van bomen",
+  "description": "bevat de actuele maatregelregistratie van de bomen in beheer van gemeente Amsterdam.",
+  "auth": "FP/MDW",
+  "reasonsNonPublic": [
+    "5.2 1: Bevat persoonlijke beleidsopvattingen (bevat geen milieu-informatie)"
+  ],
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van record"
+      },
+      "boomId": {
+        "type": "integer",
+        "description": "de vreemde sleutel (foreignkey) voor de relatie met de stamgegevens van de bomen"
+      },
+      "boomveiligheidsinspectieId": {
+        "type": "integer",
+        "description": "de vreemde sleutel (foreignkey) voor de relatie met de veiligheidsinspecties"
+      },
+      "besteksadministratie": {
+        "type": "string",
+        "description": "Wordt later ingevuld",
+		    "enum": [
+  		   "Opdracht uitgesteld",
+		     "Geen besteksafwijkingen",
+		     "null",
+		     "Mutatie bestekpost geaccepteerd",
+		     "Mutatie bestekpost niet geaccepteerd",
+		     "Opdracht geannuleerd",
+		     "Opgegeven regie-uren niet geaccepteerd"
+	      ]
+      },
+      "boommaatregelGedetailleerd": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "boommaatregelBesluit": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "boommaatregelBesluitGedetailleerd": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "boommaatregel": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "boommaatregelurgentie": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "boomonderdeelPlaats": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "bestekspost": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "boommaatregelurgentieBesluit": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "datumBesluit": {
+        "type": "string",
+        "format": "date",
+        "description": "Wordt later ingevuld"
+              },
+      "datumToezicht": {
+        "type": "string",
+        "format": "date",
+        "description": "Wordt later ingevuld"
+      },
+      "datumVoorbereiding": {
+        "type": "string",
+        "format": "date",
+        "description": "Wordt later ingevuld"
+      },
+      "deelopdrachtKap": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "deelopdracht": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "geplandeEinddatum": {
+        "type": "string",
+        "format": "date",
+        "description": "Wordt later ingevuld"
+      },
+      "geplandeStartdatum": {
+        "type": "string",
+        "format": "date",
+        "description": "Wordt later ingevuld"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "idUitOudeBeheerindeling": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "keten": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "kaplijstBomen": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "maatregelDatumUitgevoerd": {
+        "type": "string",
+        "format": "date",
+        "description": "Wordt later ingevuld"
+      },
+      "maatregeldIsUitgevoerd": {
+        "type": "boolean",
+        "description": "Wordt later ingevuld"
+      },
+      "opdrachtstatus": {
+        "type": "string",
+        "description": "Wordt later ingevuld",
+		    "enum": [
+  		    "Uitgestelde opdracht",
+  		    "null",
+  		    "In opdracht IB, uitgevoerd",
+  		    "In opdracht, uitgevoerd",
+  		    "In opdracht",
+  		    "Niet in opdracht",
+  		    "In opdracht IB",
+  		    "Herstelwerk",
+  		    "Uitgevoerd, aangepaste opdracht",
+  		    "Opdracht geannuleerd, onherstelbare maatregelen uitgevoerd",
+  		    "Uitgevoerd, conform opdracht",
+  		    "Opdracht geannuleerd"
+		    ]
+      },
+      "termijn": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "uitvoeringGereed": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "code": {
+        "type": "string",
+        "description": "Wordt later ingevuld"
+      },
+      "guid": {
+        "type": "string",
+        "description": "Uniek nummer van het IMBOR-object (GUID)"
+      },
+      "mutatieDatum": {
+        "type": "string",
+        "format": "date",
+        "description": "Wordt later ingevuld"
+      },
+      "revisie": {
+        "type": "integer",
+        "description": "Wordt later ingevuld"
+      },
+      "objectBeginTijd": {
+        "type": "string",
+        "format": "date",
+        "description": "Wordt later ingevuld"
+      }
+    }
+  }
+}

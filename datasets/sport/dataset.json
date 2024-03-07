@@ -459,7 +459,7 @@
       "id": "sportaanbieder",
       "title": "Sportaanbieder",
       "type": "table",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -475,11 +475,11 @@
           },
           "id": {
             "type": "integer",
-            "description": "Unieke aanduiding van de aanbieder."
+            "description": "Unieke aanduiding van de sportaanbieder."
           },
           "geometry": {
             "$ref": "https://geojson.org/schema/Point.json",
-            "description": "Puntgeometrie van de aanbieder."
+            "description": "Puntgeometrie van de sportfaciliteit."
           },
           "typeSport": {
             "type": "string",
@@ -520,7 +520,7 @@
             "type": "string",
             "description": "Stadsdeel waaronder de aanbieder valt."
           },
-          "indicatieAangepastSporten": {
+          "aangepastSporten": {
             "type": "string",
             "description": "Indictie ondersteuning voor aangepast sporten.",
             "provenance": "aangepast sporten"
@@ -530,10 +530,15 @@
             "description": "Kamer van koophandel nummer van de aanbieder.",
             "provenance": "kvk"
           },
-          "indicatieStadspas": {
-            "type": "string",
-            "description": "Indicatie korting sporten via stadspas.",
-            "provenance": "stadspas"
+          "stadspasJeugd": {
+            "type": "boolean",
+            "description": "Indicatie korting sporten via stadspas voor jeugd.",
+            "provenance": "stadspas jeugd"
+          },
+          "stadspas55": {
+            "type": "boolean",
+            "description": "Indicatie korting sporten via stadspas voor 55+.",
+            "provenance": "stadspas 55+"
           }
         }
       }

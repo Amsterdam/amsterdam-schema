@@ -1,19 +1,16 @@
 create or replace view public.dataverkenner_betrokkenbij_betrokkenbij WITH (security_barrier) as
-select brk_2_kadastraleobjecten.id as "id",
-brk_2_kadastraleobjecten.identificatie as "identificatie",
-brk_2_kadastraleobjecten.neuron_id as "neuron_id",
-brk_2_kadastraleobjecten.volgnummer as "volgnummer",
-brk_2_kadastraleobjecten.kadastrale_aanduiding as "kadastrale_aanduiding",
-brk_2_kadastraleobjecten.begin_geldigheid as "begin_geldigheid",
-brk_2_kadastraleobjecten.eind_geldigheid as "eind_geldigheid",
-brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.id as "betrokken_bij_id",
-brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.kadastraleobjecten_id as "betrokken_bij_kadastraleobjecten_id",
-brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.kadastraleobjecten_identificatie as "betrokken_bij_identificatie",
-brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.kadastraleobjecten_volgnummer as "betrokken_bij_volgnummer",
-brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.is_ontstaan_uit_brk_kadastraalobject_identificatie AS "is_ontstaan_uit_kadastraalobject_identificatie",
-brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.begin_geldigheid as "betrokken_bij_begin_geldigheid",
-brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.eind_geldigheid as "betrokken_bij_eind_geldigheid"
-from brk_2_kadastraleobjecten
-LEFT JOIN brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject ON  brk_2_kadastraleobjecten.id=brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.kadastraleobjecten_id 
-WHERE brk_2_kadastraleobjecten.datum_actueel_tot IS NULL
-AND brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject.eind_geldigheid IS null;
+select kot.id as "id",
+kot.identificatie as "identificatie",
+kot.neuron_id as "neuron_id",
+kot.volgnummer as "volgnummer",
+kot.kadastrale_aanduiding as "kadastrale_aanduiding",
+betrokken_bij.kadastraleobjecten_id as "betrokken_bij_kadastraleobjecten_id",
+betrokken_bij.kadastraleobjecten_identificatie as "betrokken_bij_identificatie",
+betrokken_bij.kadastraleobjecten_volgnummer as "betrokken_bij_volgnummer"
+from brk_2_kadastraleobjecten kot
+LEFT JOIN 
+(SELECT *
+FROM brk_2_kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject
+WHERE eind_geldigheid IS NULL) betrokken_bij
+ON kot.id=betrokken_bij.is_ontstaan_uit_brk_kadastraalobject_id
+WHERE kot.datum_actueel_tot IS NULL;
