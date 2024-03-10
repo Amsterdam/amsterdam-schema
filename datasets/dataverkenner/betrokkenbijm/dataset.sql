@@ -1,5 +1,6 @@
 CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_betrokkenbijm_betrokkenbij as
 SELECT 
+    kot1.id,
     kot1.identificatie,
     kot1.volgnummer,
     kot1.kadastrale_aanduiding,
@@ -14,4 +15,4 @@ LEFT JOIN brk_2_kadastraleobjecten  kot2  ON ontstaan_uit.kadastraleobjecten_id 
 WHERE ontstaan_uit.eind_geldigheid IS NULL
 AND kot1.datum_actueel_tot IS NULL
 AND kot2.datum_actueel_tot IS NULL
-;
+WITH NO DATA;

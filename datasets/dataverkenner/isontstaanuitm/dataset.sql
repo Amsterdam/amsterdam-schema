@@ -1,5 +1,6 @@
 CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_isontstaanuitm_isontstaanuit AS
-SELECT kot.id AS "id",
+SELECT 
+kot.id AS "id",
 kot.identificatie AS "identificatie",
 kot.neuron_id AS "neuron_id",
 kot.volgnummer AS "volgnummer",

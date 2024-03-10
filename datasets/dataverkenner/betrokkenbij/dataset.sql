@@ -1,5 +1,6 @@
 create or replace view public.dataverkenner_betrokkenbij_betrokkenbij WITH (security_barrier) as
-SELECT 
+SELECT
+    kot1.id,
     kot1.identificatie,
     kot1.volgnummer,
     kot1.kadastrale_aanduiding,
