@@ -80,6 +80,10 @@
           },
           "aangeduidDoorBrkGemeenteId": {
             "type": "string",
+            "description": "De officiële vastgestelde gemeentecode."
+          },
+          "aangeduidDoorBrkGemeente": {
+            "type": "string",
             "description": "De officiële vastgestelde gemeentenaam."
           },
           "indexletter": {
@@ -153,9 +157,9 @@
             "type": "integer",
             "description": "Een numerieke aanduiding van het kadastrale perceel per sectie, deel van de kadastrale aanduiding van de onroerende zaak."
           },
-          "heeftEenRelatieMetBagVerblijfsobjectIdentificatie": {
+          "heeftEenRelatieMetBagVerblijfsobjectIdentificaties": {
             "type": "string",
-            "description": "Relatie naar verblijfsobject"
+            "description": "Relatie naar verblijfsobject(en)"
           },
           "beginGeldigheid": {
             "type": "string",
@@ -164,6 +168,10 @@
           "eindGeldigheid": {
             "type": "string",
             "format": "date-time"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Geometrie van het kadastrale object"
           }
         }
       }
