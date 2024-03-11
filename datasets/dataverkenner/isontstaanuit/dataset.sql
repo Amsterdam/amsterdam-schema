@@ -1,5 +1,6 @@
 create or replace view public.dataverkenner_isontstaanuit_isontstaanuit WITH (security_barrier) as
-SELECT kot.id AS "id",
+SELECT 
+kot.id AS "id",
 kot.identificatie AS "identificatie",
 kot.neuron_id AS "neuron_id",
 kot.volgnummer AS "volgnummer",
