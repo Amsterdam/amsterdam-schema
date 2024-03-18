@@ -2,7 +2,6 @@
   "id": "container",
   "version": "2.0.0",
   "type": "table",
-  "provenance": "afval_api_container",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -20,17 +19,14 @@
       },
       "id": {
         "type": "string",
-        "provenance": "container_id",
         "description": "Unieke aanduiding objecttype"
       },
       "idNummer": {
         "type": "string",
-        "provenance": "container_id_nummer",
         "description": "serienummer dat door de fabrikant aan het object is gegeven"
       },
       "serienummer": {
         "type": "string",
-        "provenance": "container_serienummer",
         "description": "serienummer uitgegeven door de fabrikant"
       },
       "cluster": {
@@ -40,17 +36,14 @@
       },
       "eigenaarId": {
         "type": "string",
-        "provenance": "container_eigenaar_id",
         "description": "Identificerend kenmerk eigenaar"
       },
       "eigenaarNaam": {
         "type": "string",
-        "provenance": "container_eigenaar_naam",
         "description": "Naam eigenaar"
       },
       "status": {
         "type": "integer",
-        "provenance": "container_status",
         "enum": [
           0,
           1,
@@ -60,7 +53,6 @@
       },
       "fractieCode": {
         "type": "string",
-        "provenance": "container_fractie_code",
         "enum": [
           "1",
           "2",
@@ -73,70 +65,58 @@
         "description": "Type afvalfractie code waarvoor de container is bedoeld: 1 - Rest, 2 - Glas, 3 - Papier, 4 - Plastic, 5 - Textiel, 6 - GFT, 9 - Brood"
       },
       "fractieOmschrijving": {
-        "provenance": "container_fractie_omschrijving",
         "type": "string",
         "description": "Container fractieomschrijving zoals door leverancier is geleverd."
       },
       "datumCreatie": {
-        "provenance": "container_datum_creatie",
         "type": "string",
         "format": "date",
         "description": "Datum waarop het object is gecre\u00eberd in container management systeem"
       },
       "datumPlaatsing": {
-        "provenance": "container_datum_plaatsing",
         "type": "string",
         "format": "date",
         "description": "Datum waarop het object op de locatie is geplaatst"
       },
       "datumOperationeel": {
-        "provenance": "container_datum_operationeel",
         "type": "string",
         "format": "date",
         "description": "Datum dat de container operationeel is voor het aanbieden van afval"
       },
       "datumAflopenGarantie": {
-        "provenance": "container_datum_aflopen_garantie",
         "type": "string",
         "format": "date",
         "description": "Datum waarop de garantie verloopt"
       },
       "datumOplevering": {
-        "provenance": "container_datum_oplevering",
         "type": "string",
         "format": "date",
         "description": "Datum waarop het object is geleverd"
       },
       "wijzigingsdatumDp": {
         "type": "string",
-        "provenance": "container_wijzigingsdatum_dp",
         "format": "date-time",
         "description": "Datum waarop het object is gewijzigd"
       },
       "verwijderdDp": {
         "type": "boolean",
-        "provenance": "container_verwijderd_dp",
         "description": "Indicatie of het object verwijderd is bij de bronhouder"
       },
       "geadopteerdInd": {
         "type": "boolean",
-        "provenance": "container_geadopteerd_ind",
         "description": "indicatie of het object door een bewoner geadopteerd is"
       },
       "locatie": {
         "type": "string",
-        "provenance": "containerlocatie_id",
         "relation": "huishoudelijkafval:containerlocatie",
         "description": "Identificerend kenmerk van de put waarin de container is geplaatst"
       },
       "geometrie": {
-        "provenance": "container_geometrie",
         "$ref": "https://geojson.org/schema/Point.json",
         "description": "Geometrie van het type POINT van de container RD (epsg:28992)"
       },
       "type": {
         "type": "string",
-        "provenance": "containertype_id",
         "relation": "huishoudelijkafval:containertype",
         "description": "Identificerend kenmerk van het containertype"
       },
