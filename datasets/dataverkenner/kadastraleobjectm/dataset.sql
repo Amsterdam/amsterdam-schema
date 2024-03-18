@@ -3,7 +3,7 @@ WITH verblijfsobjecten as
      (
               select
                        kadastraleobjecten_id
-                     , json_agg(hft_rel_mt_vot_identificatie) as vots
+                     , array_agg(hft_rel_mt_vot_identificatie) as vots
               from
                        brk_2_kadastraleobjecten_hft_rel_mt_vot
               WHERE eind_geldigheid IS null        
@@ -36,7 +36,7 @@ brk_2_kadastraleobjecten.soort_grootte_omschrijving as "soort_grootte_omschrijvi
 brk_2_kadastraleobjecten.toestandsdatum as "toestandsdatum",
 brk_2_kadastraleobjecten.in_onderzoek as "in_onderzoek",
 brk_2_kadastraleobjecten.indicatie_voorlopige_kadastrale_grens as "indicatie_voorlopige_kadastrale_grens",
-verblijfsobjecten.vots::VARCHAR as "heeft_een_relatie_met_bag_verblijfsobject_identificaties",
+verblijfsobjecten.vots::_VARCHAR as "heeft_een_relatie_met_bag_verblijfsobject_identificaties",
 brk_2_kadastraleobjecten.geometrie 
 from brk_2_kadastraleobjecten																																															
 LEFT JOIN verblijfsobjecten ON brk_2_kadastraleobjecten.id=verblijfsobjecten.kadastraleobjecten_id
