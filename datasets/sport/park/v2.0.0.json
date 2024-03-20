@@ -1,0 +1,77 @@
+{
+  "id": "park",
+  "title": "Sportpark",
+  "type": "table",
+  "version": "2.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["schema", "id"],
+    "display": "omschrijving",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van de sportfaciliteit.",
+        "title": "ID"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Vlakgeometrie van de sportfaciliteit.",
+        "title": "Vlakgeometrie"
+      },
+      "objecttype": {
+        "type": "string",
+        "description": "Objecttype waaronder sportfaciliteit valt.",
+        "title": "Objecttype"
+      },
+      "objectsubtype": {
+        "type": "string",
+        "description": "Objectsubtype waaronder de sportfaciliteit valt.",
+        "provenance": "objectty01",
+        "title": "Objectsubtype"
+      },
+      "omschrijving": {
+        "type": "string",
+        "description": "Omschrijving van de sportfaciliteit.",
+        "provenance": "omschrijvi",
+        "title": "Omschrijving"
+      },
+      "jaarVanActiviteit": {
+        "type": "number",
+        "description": "Jaar van start van de sportfaciliteit.",
+        "provenance": "jaar_van_a",
+        "title": "Jaar van activiteit"
+      },
+      "windrichting": {
+        "type": "string",
+        "description": "Windrichting van de sportfaciliteit.",
+        "provenance": "windrichti",
+        "title": "Windrichting"
+      },
+      "code": {
+        "type": "string",
+        "description": "Code van de sportfaciliteit.",
+        "provenance": "code",
+        "title": "Code"
+      },
+      "oppervlakte": {
+        "type": "number",
+        "unit": "m2",
+        "description": "Oppervlakte in vierkante meters van de sportfaciliteit.",
+        "provenance": "oppervlakt",
+        "title": "Oppervlakte"
+      },
+      "omtrek": {
+        "type": "number",
+        "unit": "m",
+        "description": "Omtrek in meters van sportfaciliteit.",
+        "provenance": "omtrek_gis",
+        "title": "Omtrek"
+      }
+    }
+  }
+}

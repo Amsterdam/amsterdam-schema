@@ -5,12 +5,14 @@
   "description": "Locaties en context ten aanzien van sportfaciliteiten en aanbieders.",
   "license": "public",
   "status": "beschikbaar",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "owner": "Gemeente Amsterdam",
   "auth": "OPENBAAR",
   "authorizationGrantor": "OIS",
-  "creator": "bronhouder onbekend",
-  "publisher": "Datateam Sociaal",
+  "creator": "Sport en Bos",
+  "publisher": {
+    "$ref": "publishers/MOSS"
+  },
   "theme": [
     "sportfaciliteiten en -aanbieders",
     "Ruimte en Topografie"
@@ -23,650 +25,67 @@
   "crs": "EPSG:28992",
   "tables": [
     {
-      "id": "zwembad",
-      "title": "Zwembad",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "naam",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van de sportfaciliteit."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Point.json",
-            "description": "Puntgeometrie van de sportfaciliteit."
-          },
-          "stadsdeel": {
-            "type": "string",
-            "description": "Stadsdeel waaronder de sportfaciliteit valt."
-          },
-          "naam": {
-            "type": "string",
-            "description": "Naam van de sportfaciliteit."
-          },
-          "adres": {
-            "type": "string",
-            "description": "Adres van de sportfaciliteit."
-          },
-          "postcode": {
-            "type": "string",
-            "description": "Postcode van de sportfaciliteit."
-          },
-          "plaats": {
-            "type": "string",
-            "description": "Plaats van de sportfaciliteit."
-          },
-          "telefoonnummer": {
-            "type": "string",
-            "description": "Telefoonnummer van de sportfaciliteit."
-          },
-          "emailadres": {
-            "type": "string",
-            "description": "E-mailadres van de sportfaciliteit.",
-            "provenance": "e_mailadres"
-          },
-          "website": {
-            "type": "string",
-            "format": "uri",
-            "description": "Website van de sportfaciliteit."
-          },
-          "type": {
-            "type": "string",
-            "description": "Type sportfaciliteit."
-          },
-          "aantalHallen": {
-            "type": "string",
-            "description": "Aantal hallen (ruimtes) in de sportfaciliteit.",
-            "provenance": "aantal hallen"
-          },
-          "gebiedsgerichtwerkengebied": {
-            "type": "string",
-            "description": "Naam van gebiedsgerichtwerkengebied waaronder sportfaciliteit valt.",
-            "provenance": "naam gebiedsgerichtwerkengebied"
-          },
-          "vastgoedeigenaar": {
-            "type": "string",
-            "description": "Eigenaar van de sportfaciliteit incl. erfpacht/opstal.",
-            "provenance": "vastgoedeigendom (incl. erfpacht/opstal)"
-          },
-          "exploitant": {
-            "type": "string",
-            "description": "Exploitant van de sportfaciliteit.",
-            "provenance": "exploitatie"
-          },
-          "verhuuradministratie": {
-            "type": "string",
-            "description": "Verhuuradministratie instantie van de sportfaciliteit."
-          }
-        }
+      "id": "aanbieder",
+      "$ref": "aanbieder/v2.0.0",
+      "activeVersions": {
+        "1.0.1": "aanbieder/v1.0.1",
+        "2.0.0": "aanbieder/v2.0.0"
       }
     },
     {
-      "id": "sportpark",
-      "title": "Sportpark",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "omschrijving",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van de sportfaciliteit."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Vlakgeometrie van de sportfaciliteit."
-          },
-          "objecttype": {
-            "type": "string",
-            "description": "Objecttype waaronder sportfaciliteit valt."
-          },
-          "objectsubtype": {
-            "type": "string",
-            "description": "Objectsubtype waaronder de sportfaciliteit valt.",
-            "provenance": "objectty01"
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "Omschrijving van de sportfaciliteit.",
-            "provenance": "omschrijvi"
-          },
-          "jaarVanActiviteit": {
-            "type": "number",
-            "description": "Jaar van start van de sportfaciliteit.",
-            "provenance": "jaar_van_a"
-          },
-          "windrichting": {
-            "type": "string",
-            "description": "Windrichting van de sportfaciliteit.",
-            "provenance": "windrichti"
-          },
-          "code": {
-            "type": "string",
-            "description": "Code van de sportfaciliteit."
-          },
-          "oppervlakte": {
-            "type": "number",
-            "unit": "m2",
-            "description": "Oppervlakte in vierkante meters van de sportfaciliteit.",
-            "provenance": "oppervlakt"
-          },
-          "omtrek": {
-            "type": "number",
-            "unit": "m",
-            "description": "Omtrek in meters van sportfaciliteit.",
-            "provenance": "omtrek_gis"
-          }
-        }
+      "id": "gymzaal",
+      "$ref": "gymzaal/v2.0.0",
+      "activeVersions": {
+        "1.0.0": "gymzaal/v1.0.0",
+        "2.0.0": "gymzaal/v2.0.0"
       }
     },
     {
-      "id": "sportveld",
-      "title": "Sportveld",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "sportparkFunctioneleNaam",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van de sportfaciliteit."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Vlakgeometrie van de sportfaciliteit."
-          },
-          "id2": {
-            "type": "string",
-            "description": "Globally unique identifier waaronder sportfaciliteit valt.",
-            "provenance": "guid"
-          },
-          "sportpark": {
-            "type": "string",
-            "description": "Sportpark waartoe de sportfaciliteit behoort."
-          },
-          "sportparkFunctioneleNaam": {
-            "type": "string",
-            "description": "Functionele naam van het sportpark waartoe de sportfaciliteit behoort.",
-            "provenance": "functionee"
-          },
-          "objecttype": {
-            "type": "string",
-            "description": "Objecttype waaronder de sportfaciliteit valt."
-          },
-          "objectsubtype": {
-            "type": "string",
-            "description": "Objectsubtype waaronder de sportfaciliteit valt.",
-            "provenance": "type_objec"
-          },
-          "veldindeling": {
-            "type": "string",
-            "description": "Veldindeling indicatie van de sportfaciliteit.",
-            "provenance": "veld_indel"
-          },
-          "sportfunctie": {
-            "type": "string",
-            "description": "Sportfunctie van de sportfaciliteit.",
-            "provenance": "sportfunct"
-          },
-          "jaarVanActiviteit": {
-            "type": "number",
-            "description": "Jaar van activiteit van de sportfaciliteit.",
-            "provenance": "jaar_van_a"
-          },
-          "soortOndergrond": {
-            "type": "string",
-            "description": "Soort ondergrond van sportfaciliteit.",
-            "provenance": "materiaal"
-          },
-          "oppervlakte": {
-            "type": "number",
-            "unit": "m2",
-            "description": "Oppervlakte in vierkante meters sportfaciliteit.",
-            "provenance": "oppervlakt"
-          },
-          "omtrek": {
-            "type": "number",
-            "unit": "m",
-            "description": "Omtrek in meters van de sportfaciliteit.",
-            "provenance": "omtrek_gis"
-          }
-        }
-      }
-    },
-    {
-      "id": "gymsportzaal",
-      "title": "Gym- en sportzaal",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "naam",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van de sportfaciliteit."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Point.json",
-            "description": "Puntgeometrie van de sportfaciliteit."
-          },
-          "stadsdeel": {
-            "type": "string",
-            "description": "Stadsdeel waaronder de sportfaciliteit valt."
-          },
-          "naam": {
-            "type": "string",
-            "description": "Naam van de sportfaciliteit."
-          },
-          "adres": {
-            "type": "string",
-            "description": "Adres van de sportfaciliteit."
-          },
-          "postcode": {
-            "type": "string",
-            "description": "Postcode van de sportfaciliteit."
-          },
-          "plaats": {
-            "type": "string",
-            "description": "Plaats van de sportfaciliteit."
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "Omschrijving van de sportfaciliteit."
-          },
-          "telefoonnummer": {
-            "type": "string",
-            "description": "Telefoonnummer van de sportfaciliteit."
-          },
-          "emailadres": {
-            "type": "string",
-            "description": "E-mailadres van de sportfaciliteit.",
-            "provenance": "e_mailadres"
-          },
-          "website": {
-            "type": "string",
-            "format": "uri",
-            "description": "Website van de sportfaciliteit."
-          },
-          "type": {
-            "type": "string",
-            "description": "Type sportfaciliteit."
-          },
-          "scheidingswand": {
-            "type": "string",
-            "description": "Aanwezigheid van een scheidingswand (en evt. aantallen) bij sportfaciliteit."
-          },
-          "beheerder": {
-            "type": "string",
-            "description": "Beheerder van sportfaciliteit.",
-            "provenance": "beheer"
-          },
-          "gebiedsgerichtwerkengebied": {
-            "type": "string",
-            "description": "Naam van gebiedsgerichtwerkengebied waaronder sportfaciliteit valt."
-          },
-          "bijzonderheden": {
-            "type": "string",
-            "description": "Bijzonderheden van de sportfaciliteit."
-          },
-          "indicatieToegankelijkMindervaliden": {
-            "type": "string",
-            "description": "Indicatie toegankelijk voor mindervaliden.",
-            "provenance": "toegankelijk mindervaliden"
-          },
-          "indicatieVoorzieningenMindervaliden": {
-            "type": "string",
-            "description": "Indicatie aanwezigheid voorzieningen voor mindervaliden.",
-            "provenance": "voorzieningen mindervaliden"
-          }
-        }
-      }
-    },
-    {
-      "id": "sporthal",
-      "title": "Sporthal",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "naam",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van de sportfaciliteit."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Point.json",
-            "description": "Puntgeometrie van de sportfaciliteit."
-          },
-          "stadsdeel": {
-            "type": "string",
-            "description": "Stadsdeel waaronder de sportfaciliteit valt."
-          },
-          "naam": {
-            "type": "string",
-            "description": "Naam van de sportfaciliteit."
-          },
-          "adres": {
-            "type": "string",
-            "description": "Adres van de sportfaciliteit."
-          },
-          "postcode": {
-            "type": "string",
-            "description": "Postcode van de sportfaciliteit."
-          },
-          "plaats": {
-            "type": "string",
-            "description": "Plaats van de sportfaciliteit."
-          },
-          "telefoonnummer": {
-            "type": "string",
-            "description": "Telefoonnummer van de sportfaciliteit."
-          },
-          "emailadres": {
-            "type": "string",
-            "description": "E-mailadres van de sportfaciliteit.",
-            "provenance": "e_mailadres"
-          },
-          "website": {
-            "type": "string",
-            "format": "uri",
-            "description": "Website van de sportfaciliteit."
-          },
-          "type": {
-            "type": "string",
-            "description": "Type sportfaciliteit."
-          },
-          "aantalHallen": {
-            "type": "string",
-            "description": "Aantal hallen (ruimtes) in de sportfaciliteit.",
-            "provenance": "aantal hallen"
-          },
-          "gebiedsgerichtwerkengebied": {
-            "type": "string",
-            "description": "Naam van gebiedsgerichtwerkengebied waaronder sportfaciliteit valt.",
-            "provenance": "naam gebiedsgerichtwerkengebied"
-          },
-          "vastgoedeigenaar": {
-            "type": "string",
-            "description": "Eigenaar van de sportfaciliteit incl. erfpacht/opstal.",
-            "provenance": "vastgoedeigendom (incl. erfpacht/opstal)"
-          },
-          "exploitant": {
-            "type": "string",
-            "description": "Exploitant van de sportfaciliteit.",
-            "provenance": "exploitatie"
-          },
-          "verhuuradministratie": {
-            "type": "string",
-            "description": "Naam van administratieinstantie van de sportfaciliteit."
-          }
-        }
-      }
-    },
-    {
-      "id": "sportaanbieder",
-      "title": "Sportaanbieder",
-      "type": "table",
-      "version": "1.0.1",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "naamAanbieder",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van de sportaanbieder."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Point.json",
-            "description": "Puntgeometrie van de sportfaciliteit."
-          },
-          "typeSport": {
-            "type": "string",
-            "description": "Het sporttype dat de sportaanbieder aanbiedt.",
-            "provenance": "sport"
-          },
-          "website": {
-            "type": "string",
-            "format": "uri",
-            "description": "Website van de aanbieder."
-          },
-          "naamAanbieder": {
-            "type": "string",
-            "description": "Naam van de aanbieder.",
-            "provenance": "naam"
-          },
-          "naamSportfaciliteit": {
-            "type": "string",
-            "description": "Naam van de sportfaciliteit.",
-            "provenance": "naam accommodatie"
-          },
-          "adres": {
-            "type": "string",
-            "description": "Adres van de sportfaciliteit.",
-            "provenance": "adres accommodatie"
-          },
-          "postcode": {
-            "type": "string",
-            "description": "Postcode van de sportfaciliteit.",
-            "provenance": "postcode accommodatie"
-          },
-          "plaats": {
-            "type": "string",
-            "description": "Plaats van de sportfaciliteit.",
-            "provenance": "plaats accommodatie"
-          },
-          "stadsdeel": {
-            "type": "string",
-            "description": "Stadsdeel waaronder de aanbieder valt."
-          },
-          "aangepastSporten": {
-            "type": "string",
-            "description": "Indictie ondersteuning voor aangepast sporten.",
-            "provenance": "aangepast sporten"
-          },
-          "kvkNummer": {
-            "type": "string",
-            "description": "Kamer van koophandel nummer van de aanbieder.",
-            "provenance": "kvk"
-          },
-          "stadspasJeugd": {
-            "type": "boolean",
-            "description": "Indicatie korting sporten via stadspas voor jeugd.",
-            "provenance": "stadspas jeugd"
-          },
-          "stadspas55": {
-            "type": "boolean",
-            "description": "Indicatie korting sporten via stadspas voor 55+.",
-            "provenance": "stadspas 55+"
-          }
-        }
-      }
-    },
-    {
-      "id": "openbaresportplek",
-      "title": "Openbaresportplek",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "naam",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van de sportfaciliteit."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Point.json",
-            "description": "Puntgeometrie van de sportfaciliteit."
-          },
-          "naam": {
-            "type": "string",
-            "description": "Naam van de sportfaciliteit."
-          },
-          "sportvoorziening": {
-            "type": "string",
-            "description": "Sportvoorziening die wordt aangeboden bij sportfaciliteit."
-          },
-          "soortLocatie": {
-            "type": "string",
-            "description": "Soort locatie van de sportfaciliteit.",
-            "provenance": "locatie"
-          },
-          "soortOmheining": {
-            "type": "string",
-            "description": "Soort omheining bij sportfaciliteit.",
-            "provenance": "omheining"
-          },
-          "soortOndergrond": {
-            "type": "string",
-            "description": "Soort ondergrond bij sportfaciliteit.",
-            "provenance": "ondergrond"
-          },
-          "soortVerlichting": {
-            "type": "string",
-            "description": "Soort verlichting bij sportfaciliteit.",
-            "provenance": "verlichting"
-          },
-          "indicatieOverdekt": {
-            "type": "string",
-            "description": "Indicatie overdekt.",
-            "provenance": "overdekt"
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "Omschrijving van sportfaciliteit."
-          },
-          "oppervlakte": {
-            "type": "number",
-            "unit": "m2",
-            "description": "Oppervlakte in vierkante meters.",
-            "provenance": "oppervlak"
-          },
-          "foto": {
-            "type": "string",
-            "description": "Naam van foto van de sportfaciliteit."
-          }
-        }
+      "id": "hal",
+      "$ref": "hal/v2.0.0",
+      "activeVersions": {
+        "1.0.0": "hal/v1.0.0",
+        "2.0.0": "hal/v2.0.0"
       }
     },
     {
       "id": "hardlooproute",
-      "title": "Hardlooproute",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "naam",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van de hardlooproute."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiLineString.json",
-            "description": "Lijngeometrie van de hardlooproute."
-          },
-          "naam": {
-            "type": "string",
-            "description": "Naam van de hardlooproute.",
-            "provenance": "name"
-          },
-          "categorie": {
-            "type": "string",
-            "description": "Categorie waaronder de hardlooproute valt.",
-            "provenance": "category"
-          },
-          "lengte": {
-            "type": "number",
-            "unit": "km",
-            "description": "Lengte in kilometers van de hardlooproute.",
-            "provenance": "length_km"
-          },
-          "id2": {
-            "type": "string",
-            "description": "Tweede unieke aanduiding van de hardlooproute.",
-            "provenance": "fid"
-          }
-        }
+      "$ref": "hardlooproute/v2.0.0",
+      "activeVersions": {
+        "1.0.0": "hardlooproute/v1.0.0",
+        "2.0.0": "hardlooproute/v2.0.0"
+      }
+    },
+    {
+      "id": "openbaresportplek",
+      "$ref": "openbaresportplek/v2.0.0",
+      "activeVersions": {
+        "1.0.0": "openbaresportplek/v1.0.0",
+        "2.0.0": "openbaresportplek/v2.0.0"
+      }
+    },
+    {
+      "id": "park",
+      "$ref": "park/v2.0.0",
+      "activeVersions": {
+        "1.0.0": "park/v1.0.0",
+        "2.0.0": "park/v2.0.0"
+      }
+    },
+    {
+      "id": "veld",
+      "$ref": "veld/v2.0.0",
+      "activeVersions": {
+        "1.0.0": "veld/v1.0.0",
+        "2.0.0": "veld/v2.0.0"
+      }
+    },
+    {
+      "id": "zwembad",
+      "$ref": "zwembad/v2.0.0",
+      "activeVersions": {
+        "1.0.0": "zwembad/v1.0.0",
+        "2.0.0": "zwembad/v2.0.0"
       }
     }
   ]
