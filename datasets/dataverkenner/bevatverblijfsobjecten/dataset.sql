@@ -1,6 +1,6 @@
 create or replace view public.dataverkenner_bevatverblijfsobjecten_bevatverblijfsobjecten WITH (security_barrier) as
 select
-bag_verblijfsobjecten_ligt_in_panden.id as "id",
+bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_id as "id",
 bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_id as "verblijfsobjecten_id",
 bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_identificatie as "verblijfsobjecten_identificatie",
 bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_volgnummer as "verblijfsobjecten_volgnummer",
