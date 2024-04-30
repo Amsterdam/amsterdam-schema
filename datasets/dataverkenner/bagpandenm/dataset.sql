@@ -17,7 +17,7 @@ bag_panden.documentdatum as "pand_documentdatum",
 bag_panden.documentnummer as "pand_documentnummer",
 bag_panden.begin_geldigheid as "pand_begin_geldigheid",
 bag_panden.eind_geldigheid as "pand_eind_geldigheid",
-vot.identificatie as "verblijfsobject_identificatie"
+vot.identificatie as "verblijfsobject_identificaties"
 from bag_panden
 left join bag_verblijfsobjecten_ligt_in_panden vpnd
 on bag_panden.id = vpnd.ligt_in_panden_id
