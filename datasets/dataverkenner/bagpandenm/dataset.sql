@@ -16,7 +16,14 @@ bag_panden.laagste_bouwlaag as "pand_laagste_bouwlaag",
 bag_panden.documentdatum as "pand_documentdatum",
 bag_panden.documentnummer as "pand_documentnummer",
 bag_panden.begin_geldigheid as "pand_begin_geldigheid",
-bag_panden.eind_geldigheid as "pand_eind_geldigheid"
+bag_panden.eind_geldigheid as "pand_eind_geldigheid",
+vot.identificatie as "verblijfsobject_identificatie"
 from bag_panden
-where bag_panden.eind_geldigheid is null 
+left join bag_verblijfsobjecten_ligt_in_panden vpnd
+on bag_panden.id = vpnd.ligt_in_panden_id
+left join bag_verblijfsobjecten vot
+on vpnd.verblijfsobjecten_id = vot.id
+where bag_panden.eind_geldigheid is null
+and vpnd.eind_geldigheid is null
+and vot.status_omschrijving in ('Verblijfsobject gevormd','Verblijfsobject in gebruik (niet ingemeten)','Verblijfsobject in gebruik','Verblijfsobject buiten gebruik','Verbouwing Verblijfsobject')
 and bag_panden.status_omschrijving in ('Bouwaanvraag ontvangen','Bouwvergunning verleend','Bouw gestart','Pand in gebruik (niet ingemeten)','Pand in gebruik','Sloopvergunning verleend','Pand buiten gebruik','Verbouwing pand') with no data;
