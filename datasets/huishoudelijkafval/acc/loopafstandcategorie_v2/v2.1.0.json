@@ -1,6 +1,6 @@
 {
-  "id": "loopafstandCategorie",
-  "version": "2.0.0",
+  "id": "loopafstandCategorieV2",
+  "version": "2.1.0",
   "type": "table",
   "provenance": "afval_api_loopafstand_categorie",
   "schema": {
@@ -16,7 +16,8 @@
       "id": {
         "type": "string",
         "provenance": "afval_loopafstand_categorie_id",
-        "description": "identificatie categorie loopafstand"
+        "description": "identificatie categorie loopafstand",
+        "title": "Id"
       },
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
@@ -24,33 +25,40 @@
       "fractie": {
         "type": "string",
         "provenance": "afval_fractie",
-        "description": "Code afvalfractie waarnaar de afstand is bepaald"
+        "description": "Code afvalfractie waarnaar de afstand is bepaald",
+        "title": "Afvalfractie code"
       },
       "fractieOmschrijving": {
         "type": "string",
         "provenance": "afval_fractie_omschrijving",
-        "description": "Omschrijving afvalfractie waarnaar de afstand is bepaald"
+        "description": "Omschrijving afvalfractie waarnaar de afstand is bepaald",
+        "title": "Afvalfractie omschrijving"
       },
       "loopafstandCategorieOmschrijving": {
         "type": "string",
-        "description": "Omschrijving van de categorie waarin de berekende loopafstand valt"
+        "description": "Omschrijving van de categorie waarin de berekende loopafstand valt",
+        "title": "Loopafstand categorie omschrijving"
       },
       "loopafstandCategorieVanaf": {
         "type": "integer",
-        "description": "Ondergrens van de categorie waarin de berekende loopafstand valt"
+        "description": "Ondergrens van de categorie waarin de berekende loopafstand valt",
+        "title": "Loopafstand categorie vanaf"
       },
       "loopafstandCategorieTot": {
         "type": "integer",
-        "description": "Bovengrens van de categorie waarin de berekende loopafstand valt"
+        "description": "Bovengrens van de categorie waarin de berekende loopafstand valt",
+        "title": "Loopafstand categorie tot"
       },
       "wijzigingsdatumDp": {
         "type": "string",
         "format": "date-time",
-        "description": "Datum waarop het object is gewijzigd"
+        "description": "De datum waarop het object in de datapijplijn is aangepast",
+        "title": "Wijzigingsdatum in de pijplijn"
       },
       "verwijderdDp": {
         "type": "boolean",
-        "description": "indicatie of het object verwijderd is"
+        "description": "indicatie of het object verwijderd is",
+        "title": "Verwijderd datum"
       }
     }
   }

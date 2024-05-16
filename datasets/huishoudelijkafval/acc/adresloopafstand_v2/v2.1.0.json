@@ -1,0 +1,94 @@
+{
+  "id": "adresLoopafstandV2",
+  "version": "2.1.0",
+  "type": "table",
+  "provenance": "afval_api_adres_loopafstand",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "mainGeometry": "geometrie",
+    "properties": {
+      "id": {
+        "type": "string",
+        "provenance": "afval_api_adres_loopafstand_id",
+        "description": "Uniek identificerend kenmerk van het record",
+        "title": "Id"
+      },
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+      },
+      "adresseerbaarobjectId": {
+        "type": "string",
+        "description": "Uniek identificerend kenmerk van adresseerbaarobject",
+        "title": "Adresseerbaarobject id"
+      },
+      "adresseerbaarobjectType": {
+        "type": "string",
+        "description": "Typering adresseerbaar object conform BAG: verblijfsobject, ligplaats , standplaats",
+        "title": "Adresseerbaarobject type"
+      },
+      "nummeraanduidingId": {
+        "type": "string",
+        "description": "BAG:Landelijke identificatie nummeraanduiding",
+        "title": "Nummeraanduiding id"
+      },
+      "gebruiksdoel": {
+        "type": "string",
+        "description": "BAG:Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan",
+        "title": "Gebruiksdoel"
+      },
+      "cluster": {
+        "type": "string",
+        "relation": "huishoudelijkafval:cluster",
+        "description": "Uniek identificerend kenmerk van cluster waarnaar de afstand is berekend",
+        "title": "Cluster"
+      },
+      "fractie": {
+        "type": "string",
+        "provenance": "afval_fractie",
+        "description": "Code afvalfractie waarnaar de afstand is bepaald",
+        "title": "Afvalfractie code"
+      },
+      "fractieOmschrijving": {
+        "type": "string",
+        "provenance": "afval_fractie_omschrijving",
+        "description": "Omschrijving afvalfractie waarnaar de afstand is bepaald",
+        "title": "Aafvalfractie omschrijving"
+      },
+      "loopafstandCategorie": {
+        "type": "string",
+        "relation": "huishoudelijkafval:loopafstandCategorie",
+        "provenance": "afval_loopafstand_categorie_id",
+        "description": "relatie naar de categorie waarin de berekende loopafstand valt",
+        "title": "Loopafstand categorie"
+      },
+      "loopafstand": {
+        "type": "number",
+        "description": "Berekende afstand over de weg in meter in RD (epsg:28992) van woning tot cluster van containers van de betreffende afvalfractie",
+        "title": "Loopafstand in meter"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "Geometrie van het type POINT in RD (epsg:28992)",
+        "title": "Geometrie"
+      },
+      "wijzigingsdatumDp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop het object in de datapijplijn is aangepast",
+        "title": "Wijzigingsdatum in de pijplijn"
+      },
+      "verwijderdDp": {
+        "type": "boolean",
+        "description": "indicatie of het object verwijderd is bij de bronhouder",
+        "title": "Verwijderd datum"
+      }
+    }
+  }
+}
