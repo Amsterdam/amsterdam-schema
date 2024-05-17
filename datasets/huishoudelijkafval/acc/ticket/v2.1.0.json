@@ -1,0 +1,312 @@
+{
+  "id": "ticket",
+  "version": "2.1.0",
+  "type": "table",
+  "provenance": "afval_api_ticket",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "id",
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Identificerend kenmerk van het ticket.",
+        "title": "Id"
+      },
+      "container": {
+        "type": "string",
+        "relation": "huishoudelijkafval:container",
+        "description": "Identificerend kenmerk van de container.",
+        "title": "Container"
+      },
+      "containerlocatie": {
+        "type": "string",
+        "relation": "huishoudelijkafval:containerlocatie",
+        "description": "Identificerend kenmerk van de containerlocatie.",
+        "title": "Containerlocatie"
+      },
+      "datumCreatie": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop het ticket aangemaakt is.",
+        "title": "Datum creatie"
+      },
+      "datumFactuur": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop het ticket gefactureerd is.",
+        "title": "Datum factuur"
+      },
+      "factuurNummer": {
+        "type": "string",
+        "description": "Het nummer van de factuur.",
+        "title": "Factuur nummer"
+      },
+      "datumWijziging": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop het ticket is gewijzigd.",
+        "title": "Datum wijziging"
+      },
+      "referentienummerLeverancier": {
+        "type": "string",
+        "description": "Het referentienummer dat door de leverancier aan het ticket gegeven wordt.",
+        "title": "Referentienummer leverancier"
+      },
+      "prioriteitOpmerking": {
+        "type": "string",
+        "description": "Een opmerking die toegevoegd wordt om de prioritering te verduidelijken.",
+        "title": "Prioriteit opmerking"
+      },
+      "prioriteitNaam": {
+        "type": "string",
+        "description": "De naam die de soort prioriteit weergeeft.",
+        "title": "Prioriteit naam"
+      },
+      "prioriteitResponstijd": {
+        "type": "integer",
+        "description": "De toegestane responstijd voor deze prioriteit. ",
+        "title": "Prioriteit responstijd"
+      },
+      "probleemModuleNaam": {
+        "type": "array",
+        "items": {
+          "type": "string"
+                  },
+        "description": "Naam probleemmodule",
+        "title": "Naam probleemmodule"
+      },
+      "probleem": {
+        "type": "array",
+        "items": {
+          "type": "string"
+                  },
+        "description": "Naam van het probleem",
+        "title": "Probleem"          
+      },
+      "oorzaak": {
+        "type": "array",
+        "items": {
+          "type": "string"
+                  },
+        "description": "de naam van de oorzaken",
+        "title": "Oorzaak" 
+
+      },
+      "oplossing": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "de naam van de oplossingen",
+        "title": "Oplossing" 
+      },
+      "onderhoudsbedrijf": {
+        "type": "string",
+        "description": "De naam van het onderhoudsbedrijf.",
+        "title": "Onderhoudsbedrijf"
+      },
+      "eigenaar": {
+        "type": "string",
+        "description": "De naam van de eigenaar van de container.",
+        "title": "Eigenaar"
+      },
+      "ticketstatus": {
+        "type": "string",
+        "description": "De status van het ticket.",
+        "title": "Ticketstatus"
+      },
+      "tickettype": {
+        "type": "string",
+        "description": "De naam van het type ticket.",
+        "title": "Tickettype"
+      },
+      "rangordeNummerTickettype": {
+        "type": "integer",
+        "description": "Het rangordenummer van het type ticket.",
+        "title": "Rangordenummer tickettype"
+      },
+      "datumWorkflowStart": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop de workflow start.",
+        "title": "Datum workflow start"
+      },
+      "datumGeaccepteerd": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop het ticket geaccepteerd is door het onderhoudsbedrijf.",
+        "title": "Datum geaccepteerd"
+      },
+      "datumOfferte": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop de offerte is aangemaakt .",
+        "title": "Datum offerte"
+      },
+      "datumGepland": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop de uitvoering van de werkzaamheden is ingepland.",
+        "title": "Datum gepland"
+      },
+      "datumGereed": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop de werkzaamheden uitgevoerd zijn.",
+        "title": "Datum gereed"
+      },
+      "datumAfgerond": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop de werkzaamheden als gereed aangegeven zijn door het onderhoudsbedrijf.",
+        "title": "Datum afgerond"
+      },
+      "datumTechnischeGoedkeuring": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop de technische aspecten van de werkzaamheden goed- of afgekeurd zijn.",
+        "title": "Datum technische goedkeuring"
+      },
+      "datumFinancieleGoedkeuring": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop de financi\u00c3\u00able aspecten van de werkzaamheden goed- of afgekeurd zijn.",
+        "title": "Datum financiele goedkeuring"
+      },
+      "datumGefactureerd": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop de factuur in het systeem de status 'gefactureerd' krijgt.",
+        "title": "Datum gefactureerd"
+      },
+      "datumAfgewezen": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop het ticket de status 'afgewezen' krijgt.",
+        "title": "Datum afgewezen"
+      },
+      "redenAfgewezen": {
+        "type": "string",
+        "description": "De reden waarom het ticket de status 'afgewezen' heeft gekregen.",
+        "title": "Reden afgewezen"
+      },
+      "prijs": {
+        "type": "number",
+        "description": "De totale prijs van de gebruikte onderdelen en de uitgevoerde werkzaamheden.",
+        "title": "Prijs"
+      },
+      "prijsOfferte": {
+        "type": "number",
+        "description": "De totale prijs op de offerte voor de te gebruiken onderdelen en de uit te voeren werkzaamheden.",
+        "title": "Prijs offerte"
+      },
+      "doorlooptijd": {
+        "type": "string",
+        "description": "De tijdsspanne in werkdagen tussen de 'datumCreatie'en de 'datumAfgerond' of de tijdsspanne in werkdagen tussen de 'datumCreatie' en de laatste statuswijziging in het geval het ticket nog niet afgerond is.",
+        "title": "Doorlooptijd"
+      },
+      "itemsDefinitief": {
+        "type": "string",
+        "description": "De onderdelen en de werkzaamheden zoals deze op de factuur vermeld worden.",
+        "title": "Items definitief"
+      },
+      "itemsOfferte": {
+        "type": "string",
+        "description": "De onderdelen en de werkzaamheden zoals deze op de offerte vermeld worden.",
+        "title": "Items offerte"
+      },
+      "GebiedBuurt": {
+        "type": "string",
+        "relation": "gebieden:buurten",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+        "description": "Unieke identificatie van het object",
+        "title": "Gebied buurt identificatie"
+      },
+      "GbdBuurtNaam": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+        "description": "De naam van het object.",
+        "title": "Gebied buurt naam"
+      },
+      "GbdBuurtVolgnummer": {
+        "type": "integer",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+        "description": "Uniek volgnummer van de toestand van het object.",
+        "title": "Gebied buurt volgnummer"
+      },
+      "GbdBuurtCode": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+        "description": "Unieke code.",
+        "title": "Gebied buurt code"
+      },
+      "GbddWijk": {
+        "type": "string",
+        "relation": "gebieden:wijken",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/wijk",
+        "description": "Unieke identificatie van het object.",
+        "title": "Gebied wijk identificatie"
+      },
+      "GbdWijkNaam": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/wijk",
+        "description": "De naam van het object.",
+        "title": "Gebied wijk naam"
+      },
+      "GbdWijkVolgnummer": {
+        "type": "integer",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/wijk",
+        "description": "Uniek volgnummer van de toestand van het object.",
+        "title": "Gebied wijk volgnummer"
+      },
+      "GbdStadsdeel": {
+        "type": "string",
+        "relation": "gebieden:stadsdelen",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel",
+        "description": "Unieke identificatie van het object.",
+        "title": "Gebied stadsdeel identificatie"
+      },
+      "GbdStadsdeelNaam": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel",
+        "description": "De naam van het object.",
+        "title": "Gebied stadsdeel naam"
+      },
+      "GbdStadsdeelVolgnummer": {
+        "type": "integer",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel",
+        "description": "Uniek volgnummer van de toestand van het object.",
+        "title": "Gebied stadsdeel volgnummer"
+      },
+      "GbdGgw": {
+        "type": "string",
+        "relation": "gebieden:ggwgebieden",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/ggw/",
+        "description": "Unieke identificatie van het object.",
+        "title": "Gebied GGW identificatie"
+      },
+      "GbdGgwNaam": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/ggw/",
+        "description": "De naam van het object.",
+        "title": "Gebied GG naam"
+      },
+      "GbdGgwVolgnummer": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/ggw/",
+        "description": "Uniek volgnummer van de toestand van het object.",
+        "title": "Gebied GG volgnummer"
+      }
+    }
+  }
+}

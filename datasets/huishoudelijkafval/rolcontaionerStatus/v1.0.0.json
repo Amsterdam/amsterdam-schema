@@ -1,0 +1,63 @@
+{
+  "id": "rolcontainerStatus",
+  "type": "table",
+  "version": "1.0.0",
+  "description": "Deze tabel bevat informatie over de status historie van de rolcontainers.",
+  "provenance": "huishoudelijkafval_rolcontainer_actie",
+  "auth": "FP/MDW",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "identifier": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "id": {
+        "type": "number",
+        "description": "Unieke aanduiding van een status record",
+        "title": "Id"
+      },
+      "rolcontainerId": {
+        "type": "number",
+        "description": "Unieke aanduiding van een rolcontainer",
+        "title": "Rolcontainer id"
+      },
+      "status": {
+        "type": "string",
+        "description": "Dit attribuut geeft de vorige status van een rolcontainer aan. De volgende statussen zijn mogelijk.  Active, inactive en blocked.",
+        "title": "Status"
+      },
+      "vanafDatum": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum en tijd waarop de satus van een rolcontiner begint.",
+        "title": "Vanaf datum"
+      },
+      "totDatum": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum en tijd waarop de satus van een rolcontiner eindigt.",
+        "title": "Tot datum"
+      },
+      "aanmaakdatum": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum en tijd waarop de status van een melding in het systeem is vastgelegd",
+        "title": "Aanmaakdatum"
+      },
+      "wijzigingsdatum": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum en tijd waarop de status van een melding voor het laatst in het systeem is aangepast",
+        "title": "Wijzigingsdatum"
+      }
+    }
+  }
+}
