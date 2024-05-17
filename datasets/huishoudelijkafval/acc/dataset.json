@@ -1,26 +1,23 @@
 {
-  "id": "huishoudelijkafvalAcc",
+  "id": "huishoudelijkafval",
   "type": "dataset",
   "auth": "OPENBAAR",
   "authorizationGrantor": "Deze gegevensset wordt onderhouden voor uitvoering van taken betreffende het inzamelen van huishoudelijk afval. De juridische basis is de Wet Milieubeheer, Hoofdstuk 10. Afvalstoffen.",
   "theme": [
-    "Wonen",
-    "duurzaamheid en milieu",
-    "Ruimte en Topografie"
+    "duurzaamheid en milieu"
   ],
   "homepage": "https://data.amsterdam.nl",
-  "owner": "Gemeente Amsterdam, Stadswerken",
+  "owner": "Directie Afval en Grondstoffen, Gemeente Amsterdam",
   "dateModified": "2020-01-13T00:00:00+01:00",
   "spatialDescription": "Gemeente Amsterdam",
-  "version": "2.1.1",
-  "default_version": "2.1.1",
-  "title": "Onder- en bovengrondse Afvalcontainers en putten ACC",
+  "version": "2.2.2",
+  "title": "Afvalcontainers, putten en weeggegevens",
   "language": "nl",
   "dateCreated": "2020-01-13T00:00:00+01:00",
   "license": "Creative Commons, Naamsvermelding",
   "hasBeginning": "2016-01-01T00:00:00+01:00",
   "accrualPeriodicity": "dagelijks",
-  "description": "Alle locaties van de actieve onder- en bovengronds afvalcontainers en betonputten van de Gemeente Amsterdam. De locaties worden dagelijks bijgewerkt en bevatten de fracties Rest, Papier, Glas, Textiel en Plastic. Naast de objectinformatie zijn ook de weeggegevens beschikbaar.",
+  "description": "Alle locaties van afvalcontainers (ondergrondse afvalcontainers, bovengrondse afvalcontainers en rolcontainers) en  betonputten van de Gemeente Amsterdam. De locaties worden dagelijks bijgewerkt en bevatten de fracties Rest, Papier, Glas en Textiel. Naast de objectinformatie zijn ook de weeggegevens beschikbaar.",
   "status": "beschikbaar",
   "keywords": [
     "Afval",
@@ -29,100 +26,127 @@
     "Glas",
     "Glasbak",
     "Oud papier",
-    "Plastic",
     "Textiel",
     "Restafval"
   ],
   "crs": "EPSG:28992",
-  "objective": "Het doel van deze dataset is het beschikbaar stellen van gegevens voor het ondersteunen van plaatsingsbeleid betreffende ondergrondse afvalcontainers en het ondersteunen van routeoptimalisatie voor afvalinzameling.",
+  "objective": "Het doel van deze dataset is het beschikbaar stellen van gegevens voor het ondersteunen van plaatsingsbeleid betreffende afvalcontainers en het ondersteunen van routeoptimalisatie voor afvalinzameling.",
   "temporalUnit": "uren",
   "creator": "Directie Afval en Grondstoffen",
   "publisher": {
-    "$ref": "publishers/BOR"
+    "$ref": "/publishers/BOR"
   },
   "tables": [
     {
       "id": "container",
-      "$ref": "container/v2.0.0",
+      "$ref": "container/v2.2.0",
       "activeVersions": {
-        "2.0.0": "container/v2.0.0"
+        "2.2.0": "container/v2.2.0"
       }
     },
     {
       "id": "containerlocatie",
-      "$ref": "containerlocatie/v2.0.0",
+      "$ref": "containerlocatie/v2.1.0",
       "activeVersions": {
-        "2.0.0": "containerlocatie/v2.0.0"
+        "2.1.0": "containerlocatie/v2.1.0"
       }
     },
     {
       "id": "cluster",
-      "$ref": "cluster/v2.1.0",
+      "$ref": "cluster/v2.1.1",
       "activeVersions": {
-        "2.1.0": "cluster/v2.1.0"
+        "2.1.1": "cluster/v2.1.1"
       }
     },
     {
       "id": "containertype",
-      "$ref": "containertype/v2.0.0",
+      "$ref": "containertype/v2.1.0",
       "activeVersions": {
-        "2.0.0": "containertype/v2.0.0"
+        "2.1.0": "containertype/v2.1.0"
       }
     },
     {
       "id": "weging",
-      "$ref": "weging/v2.0.0",
+      "$ref": "weging/v2.1.0",
       "activeVersions": {
-        "2.0.0": "weging/v2.0.0"
+        "2.1.0": "weging/v2.1.0"
       }
     },
     {
       "id": "clusterfractie",
-      "$ref": "clusterfractie/v2.0.0",
+      "$ref": "clusterfractie/v2.1.0",
       "activeVersions": {
-        "2.0.0": "clusterfractie/v2.0.0"
-      }
-    },
-    {
-      "id": "loopafstandCategorie",
-      "$ref": "loopafstandcategorie/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "loopafstandcategorie/v2.0.0"
-      }
-    },
-    {
-      "id": "bagObjectLoopafstand",
-      "$ref": "bagobjectloopafstand/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "bagobjectloopafstand/v2.0.0"
-      }
-    },
-    {
-      "id": "adresLoopafstand",
-      "$ref": "adresloopafstand/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "adresloopafstand/v2.0.0"
+        "2.1.0": "clusterfractie/v2.1.0"
       }
     },
     {
       "id": "planningVoertuigen",
-      "$ref": "planningvoertuigen/v2.0.0",
+      "$ref": "planningvoertuigen/v2.1.0",
       "activeVersions": {
-        "2.0.0": "planningvoertuigen/v2.0.0"
+        "2.1.0": "planningvoertuigen/v2.1.0"
       }
     },
     {
       "id": "bijplaatsingen",
-      "$ref": "bijplaatsingen/v2.3.0",
+      "$ref": "bijplaatsingen/v2.3.1",
       "activeVersions": {
-        "2.3.0": "bijplaatsingen/v2.3.0"
+        "2.3.1": "bijplaatsingen/v2.3.1"
       }
     },
     {
       "id": "ticket",
-      "$ref": "ticket/v1.1.0",
+      "$ref": "ticket/v2.1.0",
       "activeVersions": {
-        "1.1.0": "ticket/v1.1.0"
+        "2.1.0": "ticket/v2.1.0"
+      }
+    },
+    {
+      "id": "loopafstandCategorieV2",
+      "$ref": "loopafstandcategorie_v2/v2.1.0",
+      "activeVersions": {
+        "2.1.0": "loopafstandcategorie_v2/v2.1.0"
+      }
+    },
+    {
+      "id": "bagObjectLoopafstandV2",
+      "$ref": "bagobjectloopafstand_v2/v2.1.0",
+      "activeVersions": {
+        "2.1.0": "bagobjectloopafstand_v2/v2.1.0"
+      }
+    },
+    {
+      "id": "adresLoopafstandV2",
+      "$ref": "adresloopafstand_v2/v2.1.0",
+      "activeVersions": {
+        "2.1.0": "adresloopafstand_v2/v2.1.0"
+      }
+    },
+    { 
+      "id": "rolcontainer",
+      "$ref": "rolcontainer/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "rolcontainer/v1.0.0"
+      }
+    },
+    { 
+      "id": "rolcontainerActie",
+      "$ref": "rolcontainer/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "rolcontainer/v1.0.0"
+      }
+    },
+    { 
+      "id": "rolcontainerMelding",
+      "$ref": "rolcontainer/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "rolcontainer/v1.0.0"
+      }
+    },
+    { 
+      "id": "rolcontainerStatus",
+      "$ref": "rolcontainer/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "rolcontainer/v1.0.0"
       }
     }
   ]
