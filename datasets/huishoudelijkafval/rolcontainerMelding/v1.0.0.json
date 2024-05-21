@@ -2,7 +2,6 @@
   "id": "rolcontainerMelding",
   "type": "table",
   "version": "1.0.0",
-  "provenance": "huishoudelijkafval_rolcontainer_melding",
   "description": "Deze tabel bevat informatie over de meldingen die door de bewoners zijn gedaan. De meldingen gaan over een of meer containers.",
   "auth": "FP/MDW",
   "reasonsNonPublic": [
@@ -23,9 +22,15 @@
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "id": {
-        "type": "number",
+        "type": "integer", 
         "description": "Unieke aanduiding van een melding",
         "title": "Id"
+      },
+      "rolcontainer": {
+        "type": "integer",
+        "relation": "huishoudelijkafval:rolcontainer",
+        "description": "Unieke aanduiding van een rolcontainer. (foreign key)",
+        "title": "Rolcontainer id"
       },
       "meldingType": {
         "type": "string",

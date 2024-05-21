@@ -3,7 +3,6 @@
   "type": "table",
   "version": "1.0.0",
   "description": "Deze tabel bevat informatie over de status historie van de rolcontainers.",
-  "provenance": "huishoudelijkafval_rolcontainer_actie",
   "auth": "FP/MDW",
   "reasonsNonPublic": [
     "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -23,12 +22,13 @@
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "id": {
-        "type": "number",
+        "type": "integer", 
         "description": "Unieke aanduiding van een status record",
         "title": "Id"
       },
-      "rolcontainerId": {
-        "type": "number",
+      "rolcontainer": {
+        "type": "integer",
+        "relation": "huishoudelijkafval:rolcontainer",
         "description": "Unieke aanduiding van een rolcontainer",
         "title": "Rolcontainer id"
       },

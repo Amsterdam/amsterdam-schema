@@ -23,12 +23,13 @@
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "id": {
-        "type": "number",
+        "type": "integer", 
         "description": "Unieke aanduiding van een onderhoudsactie",
         "title": "Id"
       },
-      "rolcontainerId": {
-        "type": "string",
+      "rolcontainer": {
+        "type": "integer",
+        "relation": "huishoudelijkafval:rolcontainer",
         "description": "Unieke aanduiding van een rolcontainer. (foreign key)",
         "title": "Rolcontainer id"
       },

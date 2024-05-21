@@ -3,7 +3,6 @@
   "type": "table",
   "version": "1.0.0",
   "description": "Deze tabel bevat informatie over de stanmgegevens van de rolcontainers in Gemeente Amsterdam",
-  "provenance": "huishoudelijkafval_container",
   "auth": "OPENBAAR",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -21,7 +20,7 @@
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "id": {
-        "type": "number",
+        "type": "integer",
         "description": "Unieke aanduiding van een rolcontainer",
         "title": "Id"
       },
@@ -116,7 +115,6 @@
         "title": "BAG Woonplaats naam"
       },
       "geometrie": {
-        "type": "string",
         "$ref": "https://geojson.org/schema/Point.json",
         "description": "Geometrie van het type POINT van de rolcontainer RD (epsg:28992). De geometrie\u00c3\u00abn zijn afkomstig uit BAG. ",
         "title": "Geometrie"
