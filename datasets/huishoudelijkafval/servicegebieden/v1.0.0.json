@@ -1,0 +1,57 @@
+{
+    "id": "servicegebieden",
+    "type": "table",
+    "version": "2.0.0",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+            "schema"
+        ],
+        "display": "id",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+            },
+            "bagObjectId": {
+                "type": "string"
+            },
+            "bagObjectType": {
+                "type": "string"
+            },
+            "servicegebieden": {
+                "type": "string",
+                "relation": "huishoudelijkafval:servicegebieden_locatie"
+            },
+            "fractieCode": {
+                "type": "string"
+            },
+            "fractieOmschrijving": {
+                "type": "string"
+            },
+            "loopafstandCategorieId": {
+                "type": "string"
+            },
+            "loopafstandCategorieOmschrijving": {
+                "type": "string"
+            },
+            "loopafstandCategorieVanaf": {
+                "type": "number"
+            },
+            "loopafstandCategorieTot": {
+                "type": "number"
+            },
+            "categorieWijzigingsdatumDp": {
+                "type": "string",
+                "format": "date-time"
+            },
+            "categorieVerwijderdDp": {
+                "type": "boolean"
+            },
+            "geometrie": {
+                "type": "string"
+            }
+        }
+    }
+}
