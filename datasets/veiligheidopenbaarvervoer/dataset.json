@@ -1,43 +1,46 @@
 {
-    "type": "dataset",
-    "id": "veiligheidopenbaarvervoer",
-    "title": "veiligheidopenbaarvervoer",
-    "status": "beschikbaar",
-    "description": "veiligheidopenbaarvervoer",
-    "crs": "EPSG:28992",
-    "auth": "OPENBAAR",
-    "authorizationGrantor": "n.v.t.",
-    "theme": ["verkeer en vervoer", "veiligheid"],
-    "owner": "Gemeente Amsterdam",
-    "creator": "Datateam BOR",
-    "publisher":  {
-        "$ref": "/publishers/BOR"
+  "type": "dataset",
+  "id": "veiligheidopenbaarvervoer",
+  "title": "veiligheidopenbaarvervoer",
+  "status": "beschikbaar",
+  "description": "veiligheidopenbaarvervoer",
+  "crs": "EPSG:28992",
+  "auth": "OPENBAAR",
+  "authorizationGrantor": "n.v.t.",
+  "theme": [
+    "verkeer en vervoer",
+    "veiligheid"
+  ],
+  "owner": "Gemeente Amsterdam",
+  "creator": "Datateam BOR",
+  "publisher": {
+    "$ref": "/publishers/BOR"
+  },
+  "keywords": [
+    "veiligheid",
+    "openbaar vervoer"
+  ],
+  "tables": [
+    {
+      "id": "vov",
+      "$ref": "vov/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "vov/v1.0.0"
+      }
     },
-    "keywords": [
-        "veiligheid",
-        "openbaar vervoer"
-    ],
-    "tables": [
-        {
-            "id": "vov",
-            "$ref": "vov/v1.0.0",
-            "activeVersions": {
-                "1.0.0": "vov/v1.0.0"
-            }
-        },
-        {
-            "id": "haltes",
-            "$ref": "haltes/v1.0.0",
-            "activeVersions": {
-                "1.0.0": "haltes/v1.0.0"
-            }
-        },
-        {
-            "id": "IncidentregistratieRegionaleVervoerder",
-            "$ref": "IncidentregistratieRegionaleVervoerder/v1.0.0",
-            "activeVersions": {
-                "1.0.0": "IncidentregistratieRegionaleVervoerder/v1.0.0"
-            }
-        }
-    ]
+    {
+      "id": "haltes",
+      "$ref": "haltes/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "haltes/v1.0.0"
+      }
+    },
+    {
+      "id": "IncidentregistratieRegionaleVervoerder",
+      "$ref": "IncidentregistratieRegionaleVervoerder/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "IncidentregistratieRegionaleVervoerder/v1.0.0"
+      }
+    }
+  ]
 }
