@@ -1,0 +1,80 @@
+{
+  "type": "dataset",
+  "id": "svdVoorbeeld",
+  "title": "voorbeeld dataset",
+  "description": "Minimale placeholder dataset met authorisatie groepen",
+  "license": "public",
+  "status": "niet_beschikbaar",
+  "version": "0.0.1",
+  "theme": [
+    "themaA",
+    "themaB"
+  ],
+  "publisher": {
+    "$ref": "/publishers/SVD"
+  },
+  "creator": "Datateam SVD",
+  "owner": "Gemeente Amsterdam",
+  "auth": "OPENBAAR",
+  "authorizationGrantor": "OIS",
+  "keywords": [
+    "Dienstverlening"
+  ],
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "voorbeeldTabel",
+      "title": "een voorbeeld tabel",
+      "type": "table",
+      "version": "1.0.0",
+      "auth": "een/voorbeeld/scope",
+      "reasonsNonPublic": ["5.1 2b: Zwaarwegende economische of financiële belangen van publiekrechtelijke lichamen (bevat geen mileu-informatie)"],
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding"
+          }
+        }
+      }
+    },
+    {
+      "id": "voorbeeldigeTabel",
+      "title": "een voorbeeld tabel",
+      "type": "table",
+      "version": "1.0.0",
+      "auth": "een/ander/voorbeeld",
+      "reasonsNonPublic": ["5.1 1d: Bevat persoonsgegevens"],
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding"
+          }
+        }
+      }
+    }
+  ]
+}
