@@ -4,7 +4,7 @@
   "title": "grex",
   "status": "beschikbaar",
   "description": "Grondexploitatie projecten",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "creator": "bronhouder onbekend",
@@ -32,20 +32,25 @@
             "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
           },
           "id": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Uniek plannummer"
           },
           "plannaam": {
-            "type": "string"
+            "type": "string",
+            "description": "Plannaam van het object"
           },
           "startdatum": {
             "type": "string",
+            "description": "Startdatum van het plan",
             "format": "date"
           },
           "planstatus": {
-            "type": "string"
+            "type": "string",
+            "description": "Planstatus: Planstatus van het project. Kan bestaan uit A (Actueel), F (Functioneel), H (Historisch) en T (Toekomstig)"
           },
           "oppervlakte": {
-            "type": "number"
+            "type": "number",
+            "description": "Oppervlakte in m2"
           },
           "geometry": {
             "$ref": "https://geojson.org/schema/MultiPolygon.json"
