@@ -1,0 +1,51 @@
+{
+  "type": "dataset",
+  "id": "klachtenafhandeling",
+  "title": "klachtenafhandeling",
+  "description": "Minimale placeholder dataset met authorisatie groepen",
+  "status": "niet_beschikbaar",
+  "version": "1.0.0",
+  "theme": [
+    "klachtenafhandeling"
+  ],
+  "publisher": {
+    "$ref": "/publishers/SVD"
+  },
+  "creator": "Datateam SVD",
+  "owner": "Gemeente Amsterdam",
+  "auth": "FP/KLACHTENRAFHANDELING",
+  "authorizationGrantor": "Datateam SVD",
+  "keywords": [
+    "klachtenafhandeling"
+  ],
+  "crs": "EPSG:28992",
+  "tables": [
+    {
+      "id": "dummy1",
+      "title": "dummy voor aanvraag van rol",
+      "type": "table",
+      "version": "1.0.0",
+      "auth": "KLACHTENAFHANDELING",
+      "reasonsNonPublic": ["nader te bepalen"],
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema",
+          "id"
+        ],
+        "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unieke aanduiding"
+          }
+        }
+      }
+    }
+  ]
+}
