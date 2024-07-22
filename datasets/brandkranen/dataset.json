@@ -35,63 +35,11 @@
   "tables": [
     {
       "id": "brandkranen",
-      "type": "table",
-      "version": "1.0.0",
-      "description": "De dataset bevat de openbare brandkranen in Amsterdam.",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "identifier": "id",
-        "required": [
-          "id",
-          "schema"
-        ],
-        "mainGeometry": "geometrie",
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "id": {
-            "title": "ID",
-            "type": "string",
-            "provenance": "brandkranen_id",
-            "description": "Unieke identifier van het object."
-          },
-          "adres": {
-            "title": "Adres",
-            "provenance": "brandkranen_adres",
-            "type": "string",
-            "description": "Adresgegevens (straat en huisnummmer) volgens de bron."
-          },
-          "postcode": {
-            "title": "Postcode",
-            "provenance": "brandkranen_postcode",
-            "type": "string",
-            "description": "De postcode (poscode 4) van het bject volgens de bron."
-          },
-          "geometrie": {
-            "title": "Geometrie",
-            "provenance": "brandkranen_geometrie",
-            "$ref": "https://geojson.org/schema/Point.json",
-            "description": "Geometrie van het type POINT van de brandkraan in Rijksdriehoeksmeting  (epsg:28992)"
-          },
-          "gbdBuurtIdentificatie": {
-            "title": "ID van de buurt",
-            "type": "string",
-            "relation": "gebieden:buurten",
-            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
-            "description": "Unie\u00adke iden\u00adti\u00adfi\u00adca\u00adtie van het ob\u00adject (naam van het ken\u00admerk wij\u00adzigt van ID naar Iden\u00adti\u00adfi\u00adca\u00adtie in 2019)"
-          },
-          "gbdBuurtCode": {
-            "title": "Buurtcode",
-            "type": "string",
-            "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
-            "description": "Unie\u00adke code (hier\u00adin zie je de Stads\u00addeel- en Wijk\u00adco\u00adde te\u00adrug)"
-          }
-        }
+      "$ref": "brandkranen/v1.0.0",
+      "activeVersions": {
+        "1.0.0": "brandkranen/v1.0.0"
       }
     }
-  ]
-}
+    ]
+  }
+  

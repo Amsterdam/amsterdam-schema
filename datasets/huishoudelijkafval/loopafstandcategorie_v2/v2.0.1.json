@@ -1,0 +1,61 @@
+{
+  "id": "loopafstandCategorieV2",
+  "version": "2.0.1",
+  "type": "table",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "id": {
+        "type": "string",
+        "title": "ID",
+        "description": "identificatie categorie loopafstand"
+      },
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+      },
+      "fractie": {
+        "type": "string",
+        "title": "Fractie",
+        "description": "Code afvalfractie waarnaar de afstand is bepaald"
+      },
+      "fractieOmschrijving": {
+        "type": "string",
+        "title": "Fractie Omschrijving",
+        "description": "Omschrijving afvalfractie waarnaar de afstand is bepaald"
+      },
+      "loopafstandCategorieOmschrijving": {
+        "type": "string",
+        "title": "Loopafstand Categorie Omschrijving",
+        "description": "Omschrijving van de categorie waarin de berekende loopafstand valt"
+      },
+      "loopafstandCategorieVanaf": {
+        "type": "integer",
+        "title": "Loopafstand Categorie Vanaf",
+        "description": "Ondergrens van de categorie waarin de berekende loopafstand valt"
+      },
+      "loopafstandCategorieTot": {
+        "type": "integer",
+        "title": "Loopafstand Categorie Tot",
+        "description": "Bovengrens van de categorie waarin de berekende loopafstand valt"
+      },
+      "wijzigingsdatumDp": {
+        "type": "string",
+        "format": "date-time",
+        "title": "Wijzings Datum",
+        "description": "Datum waarop het object is gewijzigd"
+      },
+      "verwijderdDp": {
+        "type": "boolean",
+        "title": "Verwijderd",
+        "description": "indicatie of het object verwijderd is"
+      }
+    }
+  }
+}
