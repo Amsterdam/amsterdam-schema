@@ -1,0 +1,94 @@
+{
+  "id": "kabelsEnLeidingen",
+  "type": "table",
+  "version": "1.0.0",
+  "title": "Historische kabels en leidingen",
+  "description": "-",
+  "auth": "OPENBAAR",
+  "status": "beschikbaar",
+  "creator": "Ingenieursbureau Team WGM",
+  "publisher": "Datateam Stedelijke Ontwikkeling en Beheer",
+  "authorizationGrantor": "datateamSOB@amsterdam.nl",
+  "owner": "Gemeente Amsterdam",
+  "theme": [
+    "ondergrondse infrastructuur",
+    "Ruimte en Topografie"
+  ],
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unieke aanduiding record."
+          },
+          "categorie": {
+            "type": "string",
+            "description": "Naam rapport met beschrijving aard rapport en/of locatie."
+          },
+          "beschrijving": {
+            "type": "string",
+            "description": "Rapportage identificatie nummer."
+          },
+          "opmerking": {
+            "type": "string",
+            "description": "Datum van rapportage."
+          },
+          "vanMinimaalJaar": {
+            "type": "string",
+            "format": "date",
+            "description": "-"
+          },
+          "vanMaximaalJaar": {
+            "type": "string",
+            "format": "date",
+            "description": "-"
+          },
+          "totMinimaalJaar": {
+            "type": "string",
+            "format": "date",
+            "description": "-"
+          },
+          "totMaximaalJaar": {
+            "type": "string",
+            "format": "date",
+            "description": "-"
+          },
+          "bron_1": {
+            "type": "string",
+            "description": "-"
+          },
+          "bron_2": {
+            "type": "string",
+            "description": "-"
+          },
+          "bron_3": {
+            "type": "string",
+            "description": "-"
+          },
+          "bron_4": {
+            "type": "string",
+            "description": "-"
+          },
+          "bewerkingsdatumGeometrie": {
+            "type": "string",
+            "format": "date",
+            "description": "-"
+          },
+          "geometrie": {
+            "$ref": "https://geojson.org/schema/Geometry.json",
+            "description": "Vlakgeometrie in RD (epsg:28992) van locatie onderzoek."
+      }
+    }
+  }
+}
