@@ -123,6 +123,27 @@
             "description": "dag van de datum, als deze bekend is."
           }
         }
+      },
+      "heeftBrpDocument": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "brp:documenten",
+        "description": "gemeenteDocument of Akte van de categorie 13: kiesrecht"
       }
     }
   }
