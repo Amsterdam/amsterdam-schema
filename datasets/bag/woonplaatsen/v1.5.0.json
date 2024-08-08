@@ -1,7 +1,7 @@
 {
-  "id": "panden",
+  "id": "woonplaatsen",
   "type": "table",
-  "version": "1.2.0",
+  "version": "1.5.0",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
@@ -27,11 +27,10 @@
     "mainGeometry": "geometrie",
     "display": "identificatie",
     "additionalRelations": {
-      "bevatVerblijfsobjecten": {
-        "table": "verblijfsobjecten",
-        "field": "ligtInPanden",
-        "format": "embedded",
-        "description": "Alle verblijfsobjecten die in een pand liggen (extra attribuut)."
+      "openbareruimtes": {
+        "table": "openbareruimtes",
+        "field": "ligtInWoonplaats",
+        "format": "summary"
       }
     },
     "properties": {
@@ -40,7 +39,7 @@
       },
       "identificatie": {
         "type": "string",
-        "description": "Landelijke identificerende sleutel."
+        "description": "Landelijke identificerende code 3594."
       },
       "volgnummer": {
         "type": "integer",
@@ -55,37 +54,31 @@
         "format": "date-time",
         "description": "De datum waarop de toestand is geregistreerd."
       },
-      "geconstateerd": {
-        "type": "boolean",
-        "description": "Dit geeft aan dat een PAND in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument (J/N)."
+      "woonplaatsPtt": {
+        "type": "string",
+        "description": "Woonplaatsnaam volgens de schrijfwijze van PostNL."
+      },
+      "naam": {
+        "type": "string",
+        "description": "Officiële naam woonplaats."
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
-        "description": "Vorm en ligging van het pand in het Nationale Rijksdriehoekstelsel."
+        "description": "Vorm en ligging woonplaats in het Nationale Rijksdriehoekstelsel."
       },
-      "oorspronkelijkBouwjaar": {
-        "type": "integer",
-        "description": "De aanduiding van het jaar waarin een pand oorspronkelijk als bouwkundig gereed is of wordt opgeleverd."
-      },
-      "statusCode": {
-        "type": "integer",
-        "provenance": "$.status.code",
-        "description": "De fase van de levenscyclus van een pand, waarin het betreffende pand zich bevindt. code"
-      },
-      "statusOmschrijving": {
+      "geconstateerd": {
         "type": "string",
-        "provenance": "$.status.omschrijving",
-        "description": "De fase van de levenscyclus van een pand, waarin het betreffende pand zich bevindt. omschrijving"
+        "description": "Dit geeft aan dat een WOONPLAATS in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument."
       },
       "beginGeldigheid": {
         "type": "string",
         "format": "date-time",
-        "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een PAND."
+        "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een WOONPLAATS."
       },
       "eindGeldigheid": {
         "type": "string",
         "format": "date-time",
-        "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een PAND."
+        "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een WOONPLAATS."
       },
       "heeftOnderzoeken": {
         "type": "array",
@@ -120,25 +113,17 @@
         "type": "string",
         "description": "Het unieke nummer van het brondocument."
       },
-      "naam": {
-        "type": "string",
-        "description": "Naamgeving van een pand (bv. naam van metrostation of bijzonder gebouw)."
-      },
-      "liggingCode": {
+      "statusCode": {
         "type": "integer",
-        "provenance": "$.ligging.code",
-        "description": "Situering pand met verblijfsobject (vrijstaand, tussenwoning, etc.). code"
+        "provenance": "$.status.code",
+        "description": "Levenscyclus van de woonplaats, Woonplaats aangewezen, Woonplaats ingetrokken. code"
       },
-      "liggingOmschrijving": {
+      "statusOmschrijving": {
         "type": "string",
-        "provenance": "$.ligging.omschrijving",
-        "description": "Situering pand met verblijfsobject (vrijstaand, tussenwoning, etc.). omschrijving"
+        "provenance": "$.status.omschrijving",
+        "description": "Levenscyclus van de woonplaats, Woonplaats aangewezen, Woonplaats ingetrokken. omschrijving"
       },
-      "typeWoonobject": {
-        "type": "string",
-        "description": "E\u00e9n woning, Meerdere woningen."
-      },
-      "ligtInBouwblok": {
+      "ligtInGemeente": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -148,33 +133,8 @@
             "type": "integer"
           }
         },
-        "relation": "gebieden:bouwblokken",
-        "description": "Het bouwblok waarin het pand ligt."
-      },
-      "ligtInBuurt": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          }
-        },
-        "relation": "gebieden:buurten",
-        "description": "De buurt waarin het pand ligt."
-      },
-      "aantalBouwlagen": {
-        "type": "integer",
-        "description": "Aantal bouwlagen van een pand."
-      },
-      "hoogsteBouwlaag": {
-        "type": "integer",
-        "description": "Hoogste bouwlaag van een pand."
-      },
-      "laagsteBouwlaag": {
-        "type": "integer",
-        "description": "Laagste bouwlaag van een pand."
+        "relation": "brk2:gemeentes",
+        "description": "De gemeente waarin de woonplaats ligt."
       },
       "heeftDossier": {
         "type": "string",
@@ -191,6 +151,11 @@
         "type": "string",
         "provenance": "$.bagproces.omschrijving",
         "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       }
     }
   }

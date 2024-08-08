@@ -1,7 +1,7 @@
 {
-  "id": "panden",
+  "id": "standplaatsen",
   "type": "table",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
@@ -26,14 +26,6 @@
     ],
     "mainGeometry": "geometrie",
     "display": "identificatie",
-    "additionalRelations": {
-      "bevatVerblijfsobjecten": {
-        "table": "verblijfsobjecten",
-        "field": "ligtInPanden",
-        "format": "embedded",
-        "description": "Alle verblijfsobjecten die in een pand liggen (extra attribuut)."
-      }
-    },
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
@@ -57,35 +49,88 @@
       },
       "geconstateerd": {
         "type": "boolean",
-        "description": "Dit geeft aan dat een PAND in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument (J/N)."
-      },
-      "geometrie": {
-        "$ref": "https://geojson.org/schema/Geometry.json",
-        "description": "Vorm en ligging van het pand in het Nationale Rijksdriehoekstelsel."
-      },
-      "oorspronkelijkBouwjaar": {
-        "type": "integer",
-        "description": "De aanduiding van het jaar waarin een pand oorspronkelijk als bouwkundig gereed is of wordt opgeleverd."
+        "description": "Dit geeft aan dat een STANDPLAATS in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument."
       },
       "statusCode": {
         "type": "integer",
         "provenance": "$.status.code",
-        "description": "De fase van de levenscyclus van een pand, waarin het betreffende pand zich bevindt. code"
+        "description": "De fase van de levenscyclus van een standplaats, waarin de betreffende standplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. code"
       },
       "statusOmschrijving": {
         "type": "string",
         "provenance": "$.status.omschrijving",
-        "description": "De fase van de levenscyclus van een pand, waarin het betreffende pand zich bevindt. omschrijving"
+        "description": "De fase van de levenscyclus van een standplaats, waarin de betreffende standplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. omschrijving"
+      },
+      "heeftHoofdadres": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "bag:nummeraanduidingen",
+        "description": "Het HOOFDadres dat de standplaats heeft."
+      },
+      "heeftNevenadres": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "relation": "bag:nummeraanduidingen",
+        "description": "Het NEVENadres dat de standplaats (optioneel) heeft."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Vorm en ligging van de standplaats in het Nationale Rijksdriehoekstelsel."
+      },
+      "gebruiksdoel": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "omschrijving": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Een categorisering van de gebruiksdoelen van de betreffende standplaats, zoals dit door de overheid als zodanig is toegestaan."
       },
       "beginGeldigheid": {
         "type": "string",
         "format": "date-time",
-        "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een PAND."
+        "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een STANDPLAATS."
       },
       "eindGeldigheid": {
         "type": "string",
         "format": "date-time",
-        "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een PAND."
+        "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een STANDPLAATS."
       },
       "heeftOnderzoeken": {
         "type": "array",
@@ -120,37 +165,6 @@
         "type": "string",
         "description": "Het unieke nummer van het brondocument."
       },
-      "naam": {
-        "type": "string",
-        "description": "Naamgeving van een pand (bv. naam van metrostation of bijzonder gebouw)."
-      },
-      "liggingCode": {
-        "type": "integer",
-        "provenance": "$.ligging.code",
-        "description": "Situering pand met verblijfsobject (vrijstaand, tussenwoning, etc.). code"
-      },
-      "liggingOmschrijving": {
-        "type": "string",
-        "provenance": "$.ligging.omschrijving",
-        "description": "Situering pand met verblijfsobject (vrijstaand, tussenwoning, etc.). omschrijving"
-      },
-      "typeWoonobject": {
-        "type": "string",
-        "description": "E\u00e9n woning, Meerdere woningen."
-      },
-      "ligtInBouwblok": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          }
-        },
-        "relation": "gebieden:bouwblokken",
-        "description": "Het bouwblok waarin het pand ligt."
-      },
       "ligtInBuurt": {
         "type": "object",
         "properties": {
@@ -159,22 +173,18 @@
           },
           "volgnummer": {
             "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date"
           }
         },
         "relation": "gebieden:buurten",
-        "description": "De buurt waarin het pand ligt."
-      },
-      "aantalBouwlagen": {
-        "type": "integer",
-        "description": "Aantal bouwlagen van een pand."
-      },
-      "hoogsteBouwlaag": {
-        "type": "integer",
-        "description": "Hoogste bouwlaag van een pand."
-      },
-      "laagsteBouwlaag": {
-        "type": "integer",
-        "description": "Laagste bouwlaag van een pand."
+        "description": "De buurt waarin een standplaats ligt."
       },
       "heeftDossier": {
         "type": "string",
@@ -191,6 +201,11 @@
         "type": "string",
         "provenance": "$.bagproces.omschrijving",
         "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       }
     }
   }
