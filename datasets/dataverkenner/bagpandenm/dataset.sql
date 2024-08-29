@@ -1,18 +1,15 @@
-CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_bagpandenm_bagpanden AS
-WITH verblijfsobjecten AS (
-    SELECT ligt_in_panden_id,
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_bagpandenm_bagpanden AS WITH verblijfsobjecten AS
+  ( SELECT ligt_in_panden_id,
            array_agg(verblijfsobjecten_identificatie) AS vots
-    FROM bag_verblijfsobjecten_ligt_in_panden
-    LEFT JOIN bag_verblijfsobjecten vot ON bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_id = vot.id
-    WHERE bag_verblijfsobjecten_ligt_in_panden.eind_geldigheid IS NULL
-      AND vot.status_omschrijving IN ('Verblijfsobject gevormd',
-                                      'Verblijfsobject in gebruik (niet ingemeten)',
-                                      'Verblijfsobject in gebruik',
-                                      'Verblijfsobject buiten gebruik',
-                                      'Verbouwing Verblijfsobject')
-    GROUP BY ligt_in_panden_id
-)
-
+   FROM bag_verblijfsobjecten_ligt_in_panden
+   LEFT JOIN bag_verblijfsobjecten vot ON bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_id = vot.id
+   WHERE bag_verblijfsobjecten_ligt_in_panden.eind_geldigheid IS NULL
+     AND vot.status_omschrijving IN ('Verblijfsobject gevormd',
+                                     'Verblijfsobject in gebruik (niet ingemeten)',
+                                     'Verblijfsobject in gebruik',
+                                     'Verblijfsobject buiten gebruik',
+                                     'Verbouwing Verblijfsobject')
+   GROUP BY ligt_in_panden_id)
 SELECT bag_panden.id AS "id",
        bag_panden.identificatie AS "pand_identificatie",
        bag_panden.volgnummer AS "pand_volgnummer",
@@ -31,7 +28,6 @@ SELECT bag_panden.id AS "id",
        bag_panden.begin_geldigheid AS "pand_begin_geldigheid",
        bag_panden.eind_geldigheid AS "pand_eind_geldigheid",
        verblijfsobjecten.vots::_VARCHAR AS "verblijfsobjecten_identificaties"
-
 FROM bag_panden
 LEFT JOIN verblijfsobjecten ON bag_panden.id = verblijfsobjecten.ligt_in_panden_id
 WHERE bag_panden.eind_geldigheid IS NULL
@@ -42,5 +38,4 @@ WHERE bag_panden.eind_geldigheid IS NULL
                                          'Pand in gebruik',
                                          'Sloopvergunning verleend',
                                          'Pand buiten gebruik',
-                                         'Verbouwing pand')
-WITH NO DATA;
+                                         'Verbouwing pand') WITH NO DATA;
