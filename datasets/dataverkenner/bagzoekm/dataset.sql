@@ -29,7 +29,7 @@ and bag_nummeraanduidingen.status_omschrijving = 'Naamgeving uitgegeven'
 and bag_openbareruimtes.eind_geldigheid is null
 and bag_openbareruimtes.status_omschrijving = 'Naamgeving uitgegeven'
 and bag_verblijfsobjecten.eind_geldigheid is null
-and bag_verblijfsobjecten.status_omschrijving in ('Verblijfsobject gevormd','Verblijfsobject in gebruik (niet ingemeten)','Verblijfsobject in gebruik','Verblijfsobject buiten gebruik','Verbouwing Verblijfsobject')
+and bag_verblijfsobjecten.status_omschrijving in ('Verblijfsobject gevormd','Verblijfsobject in gebruik (niet ingemeten)','Verblijfsobject in gebruik','Verblijfsobject buiten gebruik','Verbouwing verblijfsobject')
 and bag_woonplaatsen.eind_geldigheid is null
 and bag_woonplaatsen.status_omschrijving = 'Woonplaats aangewezen'
 with no data;

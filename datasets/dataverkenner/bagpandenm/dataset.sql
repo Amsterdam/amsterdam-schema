@@ -8,7 +8,7 @@ CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_bagpandenm_bagpanden
                                      'Verblijfsobject in gebruik (niet ingemeten)',
                                      'Verblijfsobject in gebruik',
                                      'Verblijfsobject buiten gebruik',
-                                     'Verbouwing Verblijfsobject')
+                                     'Verbouwing verblijfsobject')
    GROUP BY ligt_in_panden_id)
 SELECT bag_panden.id AS "id",
        bag_panden.identificatie AS "pand_identificatie",
