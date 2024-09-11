@@ -1,11 +1,11 @@
 {
-  "id": "objecten",
+  "id": "bodemgebruikEnObstakels",
   "type": "table",
-  "version": "1.1.0",
-  "title": "Historische objecten",
+  "version": "1.0.0",
+  "title": "Bodemgebruik en obstakels",
   "description": "-",
   "auth": "OPENBAAR",
-  "status": "niet_beschikbaar",
+  "status": "beschikbaar",
   "creator": "Ingenieursbureau Team WGM",
   "publisher": "Datateam Stedelijke Ontwikkeling en Beheer",
   "authorizationGrantor": "datateamSOB@amsterdam.nl",
@@ -34,60 +34,60 @@
           },
           "categorie": {
             "type": "string",
-            "description": "Categorie van het object."
+            "description": "Vlakvormige object of functie die geleid kunnen hebben tot het voorkomen van ondergrondse obstakels of bodemverontreiniging."
           },
           "beschrijving": {
             "type": "string",
-            "description": "Beschrijving van het desbetreffende object."
+            "description": "Korte beschrijving van het betreffende object of de functie."
           },
           "opmerking": {
             "type": "string",
-            "description": "Opmerking over het desbetreffende object."
+            "description": "Context, bevindingen en/of achtergrond van het object of de functie."
           },
           "vanMinimaalJaar": {
             "type": "integer",
             "minimum": 1100,
             "exclusiveMaximum": 2150,
-            "description": "-"
+            "description": "Het oprichtingsjaar van het object of de functie, of een benadering van het oprichtingsjaar."
           },
           "vanMaximaalJaar": {
             "type": "integer",
             "minimum": 1100,
             "exclusiveMaximum": 2150,
-            "description": "-"
+            "description": "Het oudste voorkomen van het object of de functie die door historisch onderzoek is gevonden. Het werkelijke oprichtingsjaar ligt hiervoor."
           },
           "totMinimaalJaar": {
             "type": "integer",
             "minimum": 1100,
             "exclusiveMaximum": 2150,
-            "description": "-"
+            "description": "Het jongste voorkomen van het object of de functie die door historisch onderzoek is gevonden. Het werkelijke eindjaar is thans onbekend."
           },
           "totMaximaalJaar": {
             "type": "integer",
             "minimum": 1100,
             "exclusiveMaximum": 2150,
-            "description": "-"
+            "description": "Het eindjaar van het object of de functie, of het jaar waarop het object of de functie niet meer is waargenomen."
           },
           "bron1": {
             "type": "string",
-            "description": "-"
+            "description": "Bronvermelding"
           },
           "bron2": {
             "type": "string",
-            "description": "-"
+            "description": "Hyperlink naar bron."
           },
           "bron3": {
             "type": "string",
-            "description": "-"
+            "description": "Hyperlink naar bron."
           },
           "bron4": {
             "type": "string",
-            "description": "-"
+            "description": "Hyperlink naar bron."
           },
           "bewerkingsdatumGeometrie": {
             "type": "string",
             "format": "date",
-            "description": "Datum wanneer de geometrie werd bewerkt."
+            "description": "Aanmaak- of bewerkingsdatum van geometrie."
           },
           "geometrie": {
             "$ref": "https://geojson.org/schema/Geometry.json",
