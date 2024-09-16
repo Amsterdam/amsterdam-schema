@@ -1,0 +1,121 @@
+{
+	"id": "brkbasis",
+	"type": "table",
+	"version": "1.0.0",
+	"crs": "EPSG:28992",
+	"status": "beschikbaar",
+	"owner": "Gemeente Amsterdam",
+	"publisher": {
+		"$ref": "publishers/BENK"
+	},
+	"creator": "Basisinformatie",
+	"auth": "BRK/RS",
+	"reasonsNonPublic": [
+		"5.1 1d: Bevat persoonsgegevens",
+		"5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+	],
+	"authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
+	"description": "BRK-tabel waar alle actueel tenaamgestelde Kadastrale Objecten gecombineerd worden met hun zakelijke rechten en tenaamstellingen.",
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": [
+			"kadastraalobject_id"
+		],
+		"required": [
+			"schema",
+			"kadastraalobject_id"
+		],
+		"display": "kadastraalobject_id",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+			},
+			"kadastraalobjectId": {
+				"type": "string",
+				"description": "De unieke aanduiding van een Kadastraal object, inclusief volgnummer."
+			},
+			"kadastraalobjectIdentificatie": {
+				"type": "string",
+				"description": "De unieke aanduiding van een Kadastraal object."
+			},
+			"kadastraleAanduiding": {
+				"type": "string",
+				"description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
+			},
+			"zakelijkrechtId": {
+				"type": "string",
+				"description": "De Kadaster identificatie is een door het Kadaster toegekende landelijk unieke aanduiding aan dit zakelijk recht binnen de kadastrale registratie, inclusief volgnummer"
+			},
+			"zakelijkrechtIdentificatie": {
+				"type": "string",
+				"description": "De Kadaster identificatie is een door het Kadaster toegekende landelijk unieke aanduiding aan dit zakelijk recht binnen de kadastrale registratie."
+			},
+			"aardZakelijkRecht": {
+			  "type": "string",
+			  "description": "De aard van het zakelijk recht."
+			},
+			"zakelijkrechtInOnderzoek": {
+				"type": "string",
+				"description": "Als dit veld is gevuld geeft dit de omschrijving waarom dit gegeven in onderzoek staat (art. 7n en 7r Kadasterwet)."
+			  },
+			"ontstaanUitAppartementsrechtsplitsing": {
+			  "type": "string",
+			  "description": "Als deze waarde is gevuld, dan is dit recht ontstaan uit een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt"
+			},
+			"betrokkenBijAppartementsrechtsplitsing": {
+			  "type": "string",
+			  "description": "Als deze waarde is gevuld, dan is dit recht betrokken bij een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt"
+			},
+			"vveIdentificatieOntstaanUit": {
+			  "type": "string",
+			  "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waaruit het zakelijk recht ontstaan is"
+			},
+			"vveIdentificatieBetrokkenBij": {
+			  "type": "string",
+			  "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waarbij het zakelijk recht betrokken is"
+			},
+			"appartementsrechtsplitsingType": {
+				"type": "string",
+				"description": "Het type appartementsrechtsplitsing. De mogelijke waarden zijn: hoofdsplitsing of ondersplitsing of splitsing afkoop erfpacht."
+			},
+			"tenaamstellingId": {
+				"type": "string",
+				"description": "De identificatie is een unieke aanduiding aan deze tenaamstelling binnen de kadastrale registratie, inclusief volgnummer."
+			  },
+			"tenaamstellingIdentificatie": {
+				"type": "string",
+				"description": "De identificatie is een unieke aanduiding aan deze tenaamstelling binnen de kadastrale registratie."
+			  },
+			"vanBrkKadastraalsubject": {
+				"type": "string",
+				"description": "Het Subject waarvoor deze tenaamstelling geldt."
+			  },
+			"aandeel": {
+				"type": "string",
+				"description": "Het aandeel waarvoor een persoon deelneemt in het Recht."
+			  },
+			"geldtVoor": {
+				"type": "string",
+				"description": "Twee of meer personen kunnen gezamenlijk een aandeel hebben in een recht, waarbij het afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is (als gezamenlijkAandeel bekend is dan is het individuele aandeel niet bekend en omgekeerd)."
+			  },  
+			"tenaamstellingInOnderzoek": {
+				"type": "string",
+				"description": "Als dit veld is gevuld geeft dit de omschrijving waarom dit gegeven in onderzoek staat (art. 7n en 7r Kadasterwet)."
+			  },
+			"subjectCategorie": {
+				"type": "string",
+				"description": "De omschrijving van de categorie waarbinnen het kadastrale subject valt. Voor uitleg over de categorieën: https://www.amsterdam.nl/stelselpedia/brk-index/producten-brk/uitleg-kadastertabel/ onder het kopje 'Filter op Zakelijk gerechtigde'."
+			},
+			"geometriePunt": {
+				"$ref": "https://geojson.org/schema/Point.json",
+				"description": "Puntgeometrie van het kadastrale object in het stelsel van de Rijksdriehoeksmeting (RD)"
+			},
+			"geometrieVlak": {
+				"$ref": "https://geojson.org/schema/Polygon.json",
+				"description": "Vlakgeometrie van het kadastrale object in het stelsel van de Rijksdriehoeksmeting (RD)"
+			}
+		}
+	}
+}
