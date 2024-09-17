@@ -1,5 +1,5 @@
 {
-  "id": "loopafstandCategorieV2",
+  "id": "bagObjectLoopafstandV2",
   "version": "2.0.1",
   "type": "table",
   "schema": {
@@ -11,14 +11,31 @@
       "schema"
     ],
     "display": "id",
+    "mainGeometry": "geometrie",
     "properties": {
       "id": {
         "type": "string",
         "title": "ID",
-        "description": "identificatie categorie loopafstand"
+        "description": "Uniek identificerend kenmerk van het record"
       },
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+      },
+      "bagObjectId": {
+        "type": "string",
+        "title": "Bag Object ID",
+        "description": "Uniek identificerend kenmerk van bagobject"
+      },
+      "bagObjectType": {
+        "type": "string",
+        "title": "Bag Object type",
+        "description": "BAG objectklasse: pand, ligplaats, standplaats"
+      },
+      "cluster": {
+        "type": "string",
+        "relation": "huishoudelijkafval:cluster",
+        "title": "Cluster",
+        "description": "Uniek identificerend kenmerk van cluster waarnaar de afstand is berekend"
       },
       "fractie": {
         "type": "string",
@@ -27,23 +44,24 @@
       },
       "fractieOmschrijving": {
         "type": "string",
-        "title": "Fractie Omschrijving",
-        "description": "Omschrijving afvalfractie waarnaar de afstand is bepaald"
+        "title": "Fractie Omscrijving",
+        "description": "Omschrijving afvalfractie waarnaar de afstand is bepaald."
       },
-      "loopafstandCategorieOmschrijving": {
+      "loopafstandCategorie": {
         "type": "string",
-        "title": "Loopafstand Categorie Omschrijving",
-        "description": "Omschrijving van de categorie waarin de berekende loopafstand valt"
+        "relation": "huishoudelijkafval:loopafstand_categorie",
+        "title": "Loopafstand Categorie",
+        "description": "relatie naar de categorie waarin de berekende loopafstand valt"
       },
-      "loopafstandCategorieVanaf": {
-        "type": "integer",
-        "title": "Loopafstand Categorie Vanaf",
-        "description": "Ondergrens van de categorie waarin de berekende loopafstand valt"
+      "loopafstand": {
+        "type": "number",
+        "title": "Loopafstand",
+        "description": "Berekende afstand over de weg in meter in RD (epsg:28992) van woning tot cluster van containers van de betreffende afvalfractie"
       },
-      "loopafstandCategorieTot": {
-        "type": "integer",
-        "title": "Loopafstand Categorie Tot",
-        "description": "Bovengrens van de categorie waarin de berekende loopafstand valt"
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Polygon.json",
+        "title": "Geometrie",
+        "description": "Geometrie van het type MULTIPOLYGON in RD (epsg:28992))"
       },
       "wijzigingsdatumDp": {
         "type": "string",
