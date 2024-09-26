@@ -1,7 +1,7 @@
 {
     "id": "afvalwijzer",
     "type": "table",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "title": "Afvalwijzer Amsterdam",
     "description": "Overzicht van informatie voor het aanbieden van afval per fractie per adres.",
     "schema": {
@@ -125,7 +125,7 @@
             },
             "afvalwijzerOphaaldagen": {
                 "title": "Afval ophaaldagen omschrijving",
-                "type": "string",
+                "type": "array",
                 "description": "Omschrijving van de dagen waarop het afval wordt opgehaald"
             },
             "afvalwijzerAfvalkalenderMelding": {
@@ -171,7 +171,7 @@
             },
             "afvalwijzerOphaaldagen2": {
                 "title": "Afval aanvullende ophaaldagen informatie",
-                "type": "string",
+                "type": "array",
                 "description": "Aanvullende informatie over de ophaaldagen"
             },
             "afvalwijzerWaar": {
@@ -221,6 +221,16 @@
                 "title": "Afval inzamelgebied code",
                 "type": "string",
                 "description": "Nadere aanduiding van het inzamelgebied"
+            },
+            "afvalwijzerFractiecodeActief": {
+                "title": "Afval fractiecode status",
+                "type": "string",
+                "description": "Geeft aan of de fractiecode actief of niet is"
+            },
+            "afvalwijzerFractieVolgorde": {
+                "title": "Volgorde van de fractie",
+                "type": "string",
+                "description": "Volgorde van de fractie"
             }
         }
     }
