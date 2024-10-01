@@ -1,0 +1,42 @@
+{
+  "type": "dataset",
+  "id": "Water",
+  "title": "Binnenhavenwater",
+  "description": "Deze dataset laat zien binnen welk gebied in Amsterdam men binnenhavengeldplichtig is.",
+  "license": "public",
+  "status": "beschikbaar",
+  "owner": "Gemeente Amsterdam",
+  "auth": "OPENBAAR",
+  "authorizationGrantor": "nvt",
+  "creator": "Programma Varen",
+  "publisher": "publishers/MOBI",
+  "theme": ["Mobiliteit", "Water"],
+  "keywords": ["Water","Varen","Mobiliteit"],
+  "crs": "EPSG:28992",
+  "tables": [{
+      "id": "Binnenhavenwater",
+      "title": "Binnenhavenwater Amsterdam",
+      "type": "table",
+      "version": "1.0.0",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "schema": {
+                  "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+                },
+                "zone_id": {
+                  "type": "integer",
+                  "description": "Unieke aanduiding van de zone."},
+                  "naam": {
+                    "type": "string",
+                    "description": "Naam van de zone."},
+                "geometry": {
+                "$ref": "https://geojson.org/schema/Polygon.json",
+                "description": "Het gebied waarbinnen in Amsterdam binnenhavengeld betaald moet worden."
+                }
+            }
+      }
+    }]
+}
