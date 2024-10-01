@@ -122,22 +122,31 @@
           },
           "bagVerblijfsobjectId": {
             "type": "string",
-            "description": "BAG identificatie van het verblijfsobject."
+            "description": "Id van het verblijfsobject in de BAG",
+            "relation": "bag:verblijfsobjecten"
           },
           "bagLigplaatsId": {
             "type": "string",
-            "description": "BAG identificatie van de ligplaats."
+            "description": "Id van de ligplaats in de BAG",
+            "relation": "bag:ligplaatsen"
           },
           "bagStandplaatsId": {
             "type": "string",
-            "description": "BAG identificatie van de standplaats."
+            "description": "Id van de standplaats in de BAG",
+            "relation": "bag:standplaatsen"
           },
-          "bagPandIds": {
-            "type": "array",
-            "description": "BAG identificatie(s) van het pand waar het verblijfsobject toe behoort.",
-            "items": {
-              "type": "string"
-            }
+          "bagPand": {
+            "type": "string",
+            "description": "Id van het pand in de BAG",
+            "relation": "bag:panden"
+          },
+          "gebouwtype": {
+            "type": "string",
+            "description": "Soort gebouwtype"
+          },
+          "gebouwsubtype": {
+            "type": "string",
+            "description": "Soort gebouwsubtype"
           },
           "projectnaam": {
             "type": "string",
