@@ -1,253 +1,253 @@
 {
-    "id": "bijplaatsingen",
-    "version": "2.5.0",
-    "type": "table",
-    "title": "Bijplaatsingen",
-    "description": "De Aanpak Bijplaatsingen (ABP) richt zich op afval dat op onjuiste wijze buiten wordt geplaatst. Momenteel wordt dit door de Gemeente Amsterdam op wijkniveau aangepakt via de ABP. Door communicatiemiddelen en interventies in te zetten rondom de meest vervuilde containerlocaties, neemt de netheid toe en daalt het aantal bijplaatsingen. Dit dataproduct bevat de registratie van bijplaatsingen zoals vastgelegd door de bevoegde medewerkers.",
-    "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-            "id",
-            "schema"
-        ],
-        "display": "id",
-        "mainGeometry": "geometrie",
-        "properties": {
-            "schema": {
-                "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-            },
-            "id": {
-                "type": "string",
-                "description": "Unieke aanduiding van het record.",
-                "title": "ID van waarneming"
-            },
-            "datumWaarneming": {
-                "type": "string",
-                "title": "Waarnemings datum",
-                "format": "date",
-                "description": "De datum waarop de waarneming is geregistreerd."
-            },
-            "tijdWaarneming": {
-                "type": "string",
-                "title": "Waarnemings tijdstip",
-                "format": "time",
-                "description": "De tijdstip waarop de waarneming is geregistreerd."
-            },
-            "cluster": {
-                "type": "string",
-                "title": "Cluster ID",
-                "relation": "huishoudelijkafval:cluster",
-                "description": "Uniek identificerend kenmerk van cluster"
-            },
-            "gbdBuurtCode": {
-                "type": "string",
-                "title": "Buurt code",
-                "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
-                "description": "Unieke code (hierin zie je de Stadsdeel- en Wijkcode terug)"
-            },
-            "gbdBuurt": {
-                "type": "string",
-                "title": "Buurt ID",
-                "relation": "gebieden:buurten",
-                "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
-                "description": "Unieke identificatie van het object (naam van het kenmerk wijzigt van ID naar Identificatie in 2019)"
-            },
-            "bagOpenbareruimte": {
-                "type": "string",
-                "title": "Openbare ruimte ID",
-                "relation": "bag:openbareruimtes",
-                "description": "Unieke identificatie van het object"
-            },
-            "bagVerblijfsobject": {
-                "type": "string",
-                "title": "Verblijfsobject ID",
-                "relation": "bag:verblijfsobjecten",
-                "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject."
-            },
-            "bagNummeraanduiding": {
-                "type": "string",
-                "title": "Nummeraanduiding ID",
-                "relation": "bag:nummeraanduidingen",
-                "description": "Identificatie nummeraanduiding"
-            },
-            "bagWoonplaats": {
-                "type": "string",
-                "title": "Woonplaats ID",
-                "relation": "bag:woonplaatsen",
-                "description": "Identificatie woonplaats"
-            },
-            "geometrie": {
-                "$ref": "https://geojson.org/schema/Point.json",
-                "title": "Geometrie",
-                "description": "Geometrie van het type POINT van de waarneming RD(epsg:28992)"
-            },
-            "bruingoed": {
-                "type": "boolean",
-                "title": "Bruingoed afval aangetroffen indicatie",
-                "description": "Aangetroffen afvalsoort (bruingoed) rondom de container(s)"
-            },
-            "containervies": {
-                "type": "boolean",
-                "title": "Container vies indicatie",
-                "description": "De uiterlijke toestand van de container(s). Container is vies en moet worden schoongemaakt"
-            },
-            "crowScore": {
-                "type": "string",
-                "title": "Afvalinspectie crow score",
-                "description": "De score van CROW inspectie. A+: 0 stuks afval, A: <= 1 stuk, B: <= 3 stuks, C: <= 5 stuks, D: > 5 stuks"
-            },
-            "glas": {
-                "type": "boolean",
-                "title": "Glas afval aangetroffen indicatie",
-                "description": "Aangetroffen afvalsoort (glas afval) rondom de container(s)"
-            },
-            "glasgestremd": {
-                "type": "boolean",
-                "title": "Glascontainer gestremd indicatie",
-                "description": "De glascontainer is gestremd"
-            },
-            "glastoegankelijk": {
-                "type": "boolean",
-                "title": "Glascontainer toegankelijk indicatie",
-                "description": "De glascontainer is toegangelijk"
-            },
-            "glasvol": {
-                "type": "boolean",
-                "title": "Glascontainer vol indicatie",
-                "description": "De glascontainer is vol"
-            },
-            "grof": {
-                "type": "boolean",
-                "title": "Grofvuil aangetroffen indicatie",
-                "description": "Aangetroffen afvalsoort (grofvuil) rondom de container(s)"
-            },
-            "handhaving": {
-                "type": "boolean",
-                "title": "Handhaving nodig indicatie",
-                "description": "Er zijn items aangetroffen met adresgegevens en is er dus handhaving nodig"
-            },
-            "waardeHandhaving": {
-                "type": "string",
-                "title": "Handhaving waarde",
-                "description": "Hoe veel items met adresgegevens zijn er aangetroffen?"
-            },
-            "huisvuil": {
-                "type": "boolean",
-                "title": "Huisvuil aangetroffen indicatie",
-                "description": "Aangetroffen afvalsoort (huisvuil) rondom de container(s)"
-            },
-            "karton": {
-                "type": "boolean",
-                "title": "Karton afval aangetroffen indicatie",
-                "description": "Aangetroffen afvalsoort (karton) rondom de container(s)"
-            },
-            "overig": {
-                "type": "boolean",
-                "title": "Overig afval aangetroffen indicatie",
-                "description": "Aangetroffen afvalsoort (overig) rondom de container(s)"
-            },
-            "papiervol": {
-                "type": "boolean",
-                "title": "Papiercontainer vol indicatie",
-                "description": "De papiercontainer is vol"
-            },
-            "papiergestremd": {
-                "type": "boolean",
-                "title": "Papiercontainer gestremd indicatie",
-                "description": "De papiercontainer is gestremd"
-            },
-            "papiertoegankelijk": {
-                "type": "boolean",
-                "title": "Papiercontainer toegangelijk indicatie",
-                "description": "De papiercontainer is toegankelijk"
-            },
-            "restgestremd": {
-                "type": "boolean",
-                "title": "Restcontainer gestremd indicatie",
-                "description": "De restcontainer is gestremd"
-            },
-            "resttoegankelijk": {
-                "type": "boolean",
-                "title": "Restcontainer toegangelijk indicatie",
-                "description": "De restcontainer is toegankelijk"
-            },
-            "restvol": {
-                "type": "boolean",
-                "title": "Restcontainer vol indicatie",
-                "description": "De restcontainer is vol"
-            },
-            "veegvuil": {
-                "type": "boolean",
-                "title": "Veegvuil aangetroffen indicatie",
-                "description": "Aangetroffen afvalsoort (veegvuil) rondom de container(s)"
-            },
-            "zwerfafval": {
-                "type": "boolean",
-                "title": "Zwerf afval aangetroffen indicatie",
-                "description": "Aangetroffen afvalsoort (zwerfafval) rondom de container(s)"
-            },
-            "waarnemerRol": {
-                "type": "string",
-                "title": "Waarnemer rol omschrijving",
-                "description": "De rol van de melder"
-            },
-            "gbdStadsdeelNaam": {
-                "type": "string",
-                "title": "Stadsdeel naam",
-                "description": "Naam van het stadsdeel waar de waarneming is geregistreerd (afgeleid o.b.v. geometrie)."
-            },
-            "postcode": {
-                "type": "string",
-                "title": "Postcode",
-                "description": "De postcode van de locatie waar de waarneming is geregistreerd (afgeleid o.b.v. geometrie)."
-            },
-            "straatnaam": {
-                "type": "string",
-                "title": "Straat naam",
-                "description": "De straat van de locatie waar de waarneming is geregistreerd (afgeleid op basis van de geometrie)."
-            },
-            "locatieWaarnemer": {
-                "type": "string",
-                "title": "Waarnemer locatie",
-                "description": "De locatie (stadsdeel) vanwaar de waarnemer in het systeem is ingelogd."
-            },
-            "typeWaarneming": {
-                "type": "string",
-                "title": "Waarnemings type",
-                "description": "Geeft aan of de waarneming een CROW waarneming is."
-            },
-            "grofvuildagen": {
-                "type": "string",
-                "title": "Grofvuil dagen omschrijving",
-                "description": "De waarde is 'true' of 'false' en geeft per dag aan of het waar of onwaar is. De eerste waarde correspondeert met maandag."
-            },
-            "adresType": {
-                "type": "string",
-                "title": "Type Meetlocatie",
-                "description": "Het type meetlocatie geeft aan om wat voor soort locatie het gaat. De locatie typen zijn er. Extra: De gemeten locatie bevond zich niet op de route, maar er is wel een meting van uitgevoerd. Bijvoorbeeld: een locatie die buiten de route ligt, heeft bijplaatsingen ernaast staan. Null: De gemeten locatie bevond zich op de route en werd direct gemeten zodra deze verscheen. Postponed: De meting van de locatie was eerder uitgesteld. Bijvoorbeeld, wanneer een locatie niet bereikbaar is, kun je deze uitstellen, waarna deze later opnieuw op de route verschijnt.  Forwarded: De gemeten locatie is bij het team binnengekomen omdat een ander team daar iets relevants had aangetroffen. Bijvoorbeeld: de werkbrigade vindt karton met adressen bij een locatie, vult aan het einde van het formulier in dat dit door het team gecontroleerd moet worden. De locatie wordt vervolgens toegevoegd aan de route. "
-            },
-            "dumpplek": {
-                "type": "boolean",
-                "title": "Locatie dumpplek indicatie",
-                "description": "Het geeft aan of de locatie een dumpplek is."
-            },
-            "meldingDoorCollegaDoorgezet": {
-                "type": "string",
-                "title": "Waarneming doorgezet indicatie",
-                "description": "Het geeft aan of de waarneming door een collega is doorgezet."
-            },
-            "naamMeldingDoorgezet": {
-                "type": "string",
-                "title": "Waarneming doorgezet soort",
-                "description": "Soort doorgezette waarneming."
-            },
-            "gebruikersRol": {
-                "type": "string",
-                "title": "Rol van de gebruiker",
-                "description": "De rol van de gebruiker in de applicatie."
-            }
-        }
+  "id": "bijplaatsingen",
+  "version": "2.5.0",
+  "type": "table",
+  "title": "Bijplaatsingen",
+  "description": "De Aanpak Bijplaatsingen (ABP) richt zich op afval dat op onjuiste wijze buiten wordt geplaatst. Momenteel wordt dit door de Gemeente Amsterdam op wijkniveau aangepakt via de ABP. Door communicatiemiddelen en interventies in te zetten rondom de meest vervuilde containerlocaties, neemt de netheid toe en daalt het aantal bijplaatsingen. Dit dataproduct bevat de registratie van bijplaatsingen zoals vastgelegd door de bevoegde medewerkers.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "mainGeometry": "geometrie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke aanduiding van het record.",
+        "title": "ID van waarneming"
+      },
+      "datumWaarneming": {
+        "type": "string",
+        "format": "date",
+        "description": "De datum waarop de waarneming is geregistreerd.",
+        "title": "Datum waarneming"
+      },
+      "tijdWaarneming": {
+        "type": "string",
+        "format": "time",
+        "description": "De tijdstip waarop de waarneming is geregistreerd.",
+        "title": "Tijd waarneming"
+      },
+      "cluster": {
+        "type": "string",
+        "relation": "huishoudelijkafval:cluster",
+        "description": "Uniek identificerend kenmerk van cluster",
+        "title": "Cluster ID"
+      },
+      "gbdBuurtCode": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+        "description": "Unieke code (hierin zie je de Stadsdeel- en Wijkcode terug)",
+        "title": "Gebied buurt code"
+      },
+      "gbdBuurt": {
+        "type": "string",
+        "relation": "gebieden:buurten",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+        "description": "Unieke identificatie van het object (naam van het kenmerk wijzigt van ID naar Identificatie in 2019)",
+        "title": "Buurt ID"
+      },
+      "bagOpenbareruimte": {
+        "type": "string",
+        "relation": "bag:openbareruimtes",
+        "description": "Unieke identificatie van het object",
+        "title": "Openbare ruimte ID"
+      },
+      "bagVerblijfsobject": {
+        "type": "string",
+        "relation": "bag:verblijfsobjecten",
+        "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject.",
+        "title": "Verblijfsobject ID"
+      },
+      "bagNummeraanduiding": {
+        "type": "string",
+        "relation": "bag:nummeraanduidingen",
+        "description": "Identificatie nummeraanduiding",
+        "title": "Nummeraanduiding ID"
+      },
+      "bagWoonplaats": {
+        "type": "string",
+        "relation": "bag:woonplaatsen",
+        "description": "Identificatie woonplaats",
+        "title": "Woonplaats ID"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "Geometrie van het type POINT van de waarneming RD(epsg:28992)",
+        "title": "Geometrie"
+      },
+      "bruingoed": {
+        "type": "boolean",
+        "description": "Aangetroffen afvalsoort (bruingoed) rondom de container(s)",
+        "title": "Aangetroffen afvalsoort (bruingoed) rondom de container(s)"
+      },
+      "containervies": {
+        "type": "boolean",
+        "description": "De uiterlijke toestand van de container(s). Container is vies en moet worden schoongemaakt",
+        "title": "Container vies indicatie"
+      },
+      "crowScore": {
+        "type": "string",
+        "description": "De score van CROW inspectie. A+: 0 stuks afval, A: <= 1 stuk, B: <= 3 stuks, C: <= 5 stuks, D: > 5 stuks",
+        "title": "Afvalinspectie crow score"
+      },
+      "glas": {
+        "type": "boolean",
+        "description": "Aangetroffen afvalsoort rondom de container(s)",
+        "title": "Aangetroffen afvalsoort (glas afval) rondom de container(s)"
+      },
+      "glasgestremd": {
+        "type": "boolean",
+        "description": "De glascontainer is gestremd",
+        "title": "Glascontainer gestremd indicatie"
+      },
+      "glastoegankelijk": {
+        "type": "boolean",
+        "description": "De glascontainer is toegangelijk",
+        "title": "Glascontainer toegankelijk indicatie"
+      },
+      "glasvol": {
+        "type": "boolean",
+        "description": "De glascontainer is vol",
+        "title": "Glascontainer vol indicatie"
+      },
+      "grof": {
+        "type": "boolean",
+        "description": "Aangetroffen afvalsoort (grofvuil) rondom de container(s)",
+        "title": "Grofvuil aangetroffen indicatief"
+      },
+      "handhaving": {
+        "type": "boolean",
+        "description": "Er zijn zijn items aangetroffen met adresgegevens en is er dus handhaving nodig",
+        "title": "Handhaving nodig indicatie"
+      },
+      "waardeHandhaving": {
+        "type": "string",
+        "description": "Hoe veel items met adresgegevens zijn er aangetroffen?",
+        "title": "Waarde handhaving"
+      },
+      "huisvuil": {
+        "type": "boolean",
+        "description": "Aangetroffen afvalsoort (huisvuil) rondom de container(s)",
+        "title": "Huisvuil aangetroffen indicatie"
+      },
+      "karton": {
+        "type": "boolean",
+        "description": "Aangetroffen afvalsoort (karton) rondom de container(s)",
+        "title": "Karton afval aangetroffen indicatie"
+      },
+      "overig": {
+        "type": "boolean",
+        "description": "Aangetroffen afvalsoort (overig) rondom de container(s)",
+        "title": "Overig afval aangetroffen indicatie"
+      },
+      "papiervol": {
+        "type": "boolean",
+        "description": "De papiercontainer is vol",
+        "title": "Papiercontainer vol indicatie"
+      },
+      "papiergestremd": {
+        "type": "boolean",
+        "description": "De papiercontainer is gestremd",
+        "title": "Papiercontainer gestremd indicatie"
+      },
+      "papiertoegankelijk": {
+        "type": "boolean",
+        "description": "De papiercontainer is toegankelijk",
+        "title": "Papiercontainer toegangelijk indicatie"
+      },
+      "restgestremd": {
+        "type": "boolean",
+        "description": "Restcontainer gestremd indicatie",
+        "title": "Restcontainer toegangelijk indicatie"
+      },
+      "resttoegankelijk": {
+        "type": "boolean",
+        "description": "De restcontainer is toegankelijk",
+        "title": "Restcontainer vol indicatie"
+      },
+      "restvol": {
+        "type": "boolean",
+        "description": "De restcontainer is vol",
+        "title": "Rest vol"
+      },
+      "veegvuil": {
+        "type": "boolean",
+        "description": "Aangetroffen afvalsoort (veegvuil) rondom de container(s)",
+        "title": "Veegvuil aangetroffen indicatie"
+      },
+      "zwerfafval": {
+        "type": "boolean",
+        "description": "Aangetroffen afvalsoort (zwerfafval) rondom de container(s)",
+        "title": "Zwerf afval aangetroffen indicatie"
+      },
+      "waarnemerRol": {
+        "type": "string",
+        "description": "De rol van de melder",
+        "title": "Waarnemer rol omschrijving"
+      },
+      "gbdStadsdeelNaam": {
+        "type": "string",
+        "description": "Naam van het stadsdeel waar de waarneming is geregistreerd (afgeleid o.b.v. geometrie).",
+        "title": "Stadsdeel naam"
+      },
+      "postcode": {
+        "type": "string",
+        "description": "De postcode van de locatie waar de waarneming is geregistreerd (afgeleid o.b.v. geometrie).",
+        "title": "Postcode"
+      },
+      "straatnaam": {
+        "type": "string",
+        "description": "De straat van de locatie waar de waar de waarneming is geregistreerd (afgeleid o.b.v. geometrie).",
+        "title": "Straat naam"
+      },
+      "locatieWaarnemer": {
+        "type": "string",
+        "description": "Het stadsdeel vanwaar van de waarnemer in het systeem is ingelogd",
+        "title": "Waarnemer locatie"
+      },
+      "typeWaarneming": {
+        "type": "string",
+        "description": "Geeft aan of de waarneming een CROW waarneming is.",
+        "title": "Waarnemings type"
+      },
+      "grofvuildagen": {
+        "type": "string",
+        "description": "De waarde is in true en false. Het geeft per dag aan of het true of false is. De eerste waarde is maandag. ",
+        "title": "Grofvuil dagen omschrijving"
+      },
+      "adresType": {
+        "type": "string",
+        "description": "Type is het type waarneming (extra of routelocatie)",
+        "title": "Type Meetlocatie"
+      },
+      "dumpplek": {
+        "type": "boolean",
+        "description": "Het geeft aan of de locatie een dumplek is.",
+        "title": "Locatie dumpplek indicatie"
+      },
+      "meldingDoorCollegaDoorgezet": {
+        "type": "string",
+        "description": "Het geeft aan of de waarneming door een collega is doorgezet.",
+        "title": "Waarneming doorgezet indicatie"
+      },
+      "naamMeldingDoorgezet": {
+        "type": "string",
+        "description": "Soort doorgezette waarneming.",
+        "title": "Waarneming doorgezet soort"
+      },
+      "gebruikersRol": {
+        "type": "string",
+        "title": "Gebruiker rol omschrijving",
+        "description": "De rol van de gebruiker in de applicatie."
     }
+    }
+  }
 }
