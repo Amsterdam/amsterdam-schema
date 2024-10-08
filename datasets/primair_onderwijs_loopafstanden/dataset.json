@@ -133,11 +133,11 @@
             "description": "gemeente van het adres"
           },
           "lonAdres": {
-            "type": "float",
+            "type": "number",
             "description": "longitude van het adres (wgs84)"
           },
           "latAdres": {
-            "type": "float",
+            "type": "number",
             "description": "latitude van het adres (wgs84)"
           },
           "geometrieAdres": {
@@ -152,18 +152,18 @@
             "description": "uniek identificerend kenmerk van de school binnen het loopfietsnetwerk"
           },
           "lonSchool": {
-            "type": "float",
+            "type": "number",
             "description": "longitude van het school (wgs84)"
           },
           "latSchool": {
-            "type": "float",
+            "type": "number",
             "description": "latitude van het school (wgs84)"
           },
           "geometrieSchool": {
             "$ref": "https://geojson.org/schema/Point.json"
           },
           "afstand": {
-            "type": "float",
+            "type": "number",
             "description": "afstand tussen woning en basisschool"
           },
           "rang": {
@@ -171,7 +171,7 @@
             "description": "volgordelijkheid van afstand tussen woning en basisschool, te beginnen met kortste afstand"
           }
         },
-        "mainGeometry": "geometrie"
+        "mainGeometry": "geometrieAdres"
       }
     }
   ]
