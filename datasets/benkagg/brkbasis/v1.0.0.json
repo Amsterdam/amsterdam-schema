@@ -22,16 +22,21 @@
 		"additionalProperties": false,
 		"mainGeometry": "geometrieVlak",
 		"identifier": [
-			"kadastraalobjectId"
+			"id"
 		],
 		"required": [
 			"schema",
-			"kadastraalobjectId"
+			"kadastraalobjectId",
+			"id"
 		],
-		"display": "kadastraalobjectId",
+		"display": "id",
 		"properties": {
 			"schema": {
 				"$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+			},
+			"id": {
+				"type": "string",
+				"description": "De unieke id, een combinatie van kadastraal object en tenaamstelling, inclusief volgnummer."
 			},
 			"kadastraalobjectId": {
 				"type": "string",
