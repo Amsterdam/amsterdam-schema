@@ -1,7 +1,7 @@
 {
   "id": "pandFunderingen",
   "type": "table",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "title": "Funderingsinformatie per pand",
   "description": "Informatie over de fundering van een pand",
   "status": "beschikbaar",
@@ -15,6 +15,7 @@
     "additionalProperties": false,
     "identifier": "pandIdentificatie",
     "required": [
+      "id",
       "pandIdentificatie",
       "schema"
     ],
@@ -23,6 +24,10 @@
           "schema": {
             "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
           },
+          "id": {
+            "type": "integer",
+            "description": "Unieke id."
+          },          
           "pandIdentificatie": {
             "type": "string",
             "description": "Unieke aanduiding van het pand."
