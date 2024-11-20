@@ -1,7 +1,7 @@
 {
   "id": "openbareruimtes",
   "type": "table",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
@@ -53,7 +53,7 @@
       },
       "straatnaamPtt": {
         "type": "string",
-        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd.."
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "statusCode": {
         "type": "integer",
@@ -111,7 +111,7 @@
       "typeOmschrijving": {
         "type": "string",
         "provenance": "$.type.omschrijving",
-        "description": "De aard van de zodanig benoemde openbare ruimte (01 Weg, 02 Water, 03 Spoorbaan, 04 Terrein, 05 Kunstwerk, 06 Landschappelijk gebied, 07 Administratief gebied) omschrijving"
+        "description": "De aard van de zodanig benoemde openbare ruimte (01 Weg, 02 Water, 03 Spoorbaan, 04 Terrein, 05 Kunstwerk, 06 Landschappelijk gebied, 07 Administratief gebied)."
       },
       "documentdatum": {
         "type": "string",
@@ -140,6 +140,10 @@
             "type": "integer"
           },
           "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
             "type": "string",
             "format": "date-time"
           },
