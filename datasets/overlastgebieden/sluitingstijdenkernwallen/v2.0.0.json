@@ -1,8 +1,8 @@
 {
-  "id": "alcoholverbod",
-  "title": "Alcoholverbodgebied",
+  "id": "sluitingstijdenkernwallen",
+  "title": "Sluitingstijden Kernwallen",
   "type": "table",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -22,15 +22,15 @@
       },
       "geometry": {
         "$ref": "https://geojson.org/schema/MultiPolygon.json",
-        "description": "Polygoon definitie van het overlastgebied."
+        "description": "Multi-Polygoon definitie van het overlastgebied."
       },
       "type": {
         "type": "string",
-        "description": "Code die het type overlastgebied aangeeft: (AVG) alcoholverbodgebied."
+        "description": "Code die het type overlastgebied aangeeft: (AVG) raamsluitingsverbodgebied."
       },
       "typering": {
         "type": "string",
-        "description": "Omschrijving van de code die het type overlastgebied aangeeft: (AVG) alcoholverbodgebied."
+        "description": "Omschrijving van de code die het type overlastgebied aangeeft: (AVG) raamsluitingsverbodgebied."
       },
       "soort": {
         "type": "string",
@@ -39,6 +39,7 @@
       "url": {
         "type": "string",
         "format": "uri",
+        "maxLength": 755,
         "description": "Verwijzing naar aanvullende informatie."
       },
       "oovNaam": {
@@ -56,7 +57,7 @@
       },
       "geldigheidSpecificatie": {
         "type": "string",
-        "description": "Beschrijving van de geldigheidsduur per dag vermeld zoals op donderdag, vrijdag en zaterdag  van 16.00 tot 04.00 uur \u00e9n op zondag van 16.00 tot 03.00 uur.",
+        "description": "Beschrijving van de geldigheidsduur per dag vermeld zoals op donderdag, vrijdag en zaterdag  van 16.00 tot 04.00 uur op zondag van 16.00 tot 03.00 uur.",
         "provenance": "tijd"
       }
     }
