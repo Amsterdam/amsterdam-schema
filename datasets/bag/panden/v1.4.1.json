@@ -1,13 +1,13 @@
 {
-  "id": "openbareruimtes",
+  "id": "panden",
   "type": "table",
-  "version": "1.3.0",
+  "version": "1.4.1",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
       "geldigOp": [
         "beginGeldigheid",
-        "eindGeldigheid"
+        "datumActueelTot"
       ]
     }
   },
@@ -26,6 +26,14 @@
     ],
     "mainGeometry": "geometrie",
     "display": "identificatie",
+    "additionalRelations": {
+      "bevatVerblijfsobjecten": {
+        "table": "verblijfsobjecten",
+        "field": "ligtInPanden",
+        "format": "embedded",
+        "description": "Alle verblijfsobjecten die in een pand liggen (extra attribuut)."
+      }
+    },
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
@@ -47,37 +55,37 @@
         "format": "date-time",
         "description": "De datum waarop de toestand is geregistreerd."
       },
-      "straatcode": {
-        "type": "string",
-        "description": "Straatcode."
+      "geconstateerd": {
+        "type": "boolean",
+        "description": "Dit geeft aan dat een PAND in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument (J/N)."
       },
-      "straatnaamPtt": {
-        "type": "string",
-        "description": "Straatnaam volgens de schrijfwijze van PostNL (17 tekens)."
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Vorm en ligging van het pand in het Nationale Rijksdriehoekstelsel."
+      },
+      "oorspronkelijkBouwjaar": {
+        "type": "integer",
+        "description": "De aanduiding van het jaar waarin een pand oorspronkelijk als bouwkundig gereed is of wordt opgeleverd."
       },
       "statusCode": {
         "type": "integer",
         "provenance": "$.status.code",
-        "description": "De status van de levenscyclus van een openbare ruimte (Naamgeving uitgegeven, Naamgeving ingetrokken). code"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "statusOmschrijving": {
         "type": "string",
         "provenance": "$.status.omschrijving",
-        "description": "De status van de levenscyclus van een openbare ruimte (Naamgeving uitgegeven, Naamgeving ingetrokken). omschrijving"
+        "description": "De fase van de levenscyclus van een pand, waarin het betreffende pand zich bevindt."
       },
       "beginGeldigheid": {
         "type": "string",
         "format": "date-time",
-        "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een OPENBARE RUIMTE."
+        "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een PAND."
       },
       "eindGeldigheid": {
         "type": "string",
         "format": "date-time",
-        "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een OPENBARE RUIMTE."
-      },
-      "geconstateerd": {
-        "type": "boolean",
-        "description": "Dit geeft aan dat een OPENBARE RUIMTE in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument (J/N)"
+        "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een PAND."
       },
       "heeftOnderzoeken": {
         "type": "array",
@@ -103,16 +111,6 @@
         "relation": "bag:onderzoeken",
         "description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object."
       },
-      "typeCode": {
-        "type": "integer",
-        "provenance": "$.type.code",
-        "description": "De aard van de zodanig benoemde openbare ruimte (01 Weg, 02 Water, 03 Spoorbaan, 04 Terrein, 05 Kunstwerk, 06 Landschappelijk gebied, 07 Administratief gebied) code"
-      },
-      "typeOmschrijving": {
-        "type": "string",
-        "provenance": "$.type.omschrijving",
-        "description": "De aard van de zodanig benoemde openbare ruimte (01 Weg, 02 Water, 03 Spoorbaan, 04 Terrein, 05 Kunstwerk, 06 Landschappelijk gebied, 07 Administratief gebied) omschrijving"
-      },
       "documentdatum": {
         "type": "string",
         "format": "date",
@@ -124,13 +122,23 @@
       },
       "naam": {
         "type": "string",
-        "description": "Officiële naam openbare ruimte (80 tekens)."
+        "description": "Naamgeving van een pand (bv. naam van metrostation of bijzonder gebouw)."
       },
-      "naamNen": {
+      "liggingCode": {
+        "type": "integer",
+        "provenance": "$.ligging.code",
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
+      },
+      "liggingOmschrijving": {
         "type": "string",
-        "description": "Straatnaam volgens de inkortingsregels van NEN 5825 (24 tekens)."
+        "provenance": "$.ligging.omschrijving",
+        "description": "Situering pand met verblijfsobject (vrijstaand, tussenwoning, etc.)."
       },
-      "ligtInWoonplaats": {
+      "typeWoonobject": {
+        "type": "string",
+        "description": "E\u00e9n woning, Meerdere woningen."
+      },
+      "ligtInBouwblok": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -138,22 +146,35 @@
           },
           "volgnummer": {
             "type": "integer"
-          },
-          "beginGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "eindGeldigheid": {
-            "type": "string",
-            "format": "date-time"
           }
         },
-        "relation": "bag:woonplaatsen",
-        "description": "De woonplaats (landelijke identificatie) waarin de openbare ruimte ligt."
+        "relation": "gebieden:bouwblokken",
+        "description": "Het bouwblok waarin het pand ligt."
       },
-      "beschrijvingNaam": {
-        "type": "string",
-        "description": "Beschrijving van de openbare ruimte bijvoorbeeld: Vogel. Wereldwijd komen 24 soorten albatrossen voor. De meeste leven op het zuidelijk halfrond. De grootste albatros heeft een spanwijdte van meer dan drie meter en is daarmee de grootste zeevogel ter wereld."
+      "ligtInBuurt": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "gebieden:buurten",
+        "description": "De buurt waarin het pand ligt."
+      },
+      "aantalBouwlagen": {
+        "type": "integer",
+        "description": "Aantal bouwlagen van een pand."
+      },
+      "hoogsteBouwlaag": {
+        "type": "integer",
+        "description": "Hoogste bouwlaag van een pand."
+      },
+      "laagsteBouwlaag": {
+        "type": "integer",
+        "description": "Laagste bouwlaag van een pand."
       },
       "heeftDossier": {
         "type": "string",
@@ -170,10 +191,6 @@
         "type": "string",
         "provenance": "$.bagproces.omschrijving",
         "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
-      },
-      "geometrie": {
-        "$ref": "https://geojson.org/schema/Geometry.json",
-        "description": "Zie inwinregels voor geometrie openbare ruimte."
       },
       "datumActueelTot": {
         "type": "string",

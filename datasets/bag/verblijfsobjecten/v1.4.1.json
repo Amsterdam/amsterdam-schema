@@ -1,13 +1,13 @@
 {
   "id": "verblijfsobjecten",
   "type": "table",
-  "version": "1.1.0",
+  "version": "1.4.1",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
       "geldigOp": [
         "beginGeldigheid",
-        "eindGeldigheid"
+        "datumActueelTot"
       ]
     }
   },
@@ -21,26 +21,26 @@
     ],
     "required": [
       "schema",
-      "id",
       "identificatie",
       "volgnummer"
     ],
-    "display": "id",
+    "display": "identificatie",
+    "mainGeometry": "geometrie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
         "description": "Landelijke identificerende sleutel."
       },
-      "id": {
-        "type": "string",
-        "description": "Unieke identificatie voor dit object, inclusief volgnummer"
-      },
       "volgnummer": {
         "type": "integer",
         "description": "Uniek volgnummer van de toestand van het object."
+      },
+      "plusvolgnummer": {
+        "type": "integer",
+        "description": "extra volgnummer BAG-plus gegevens"
       },
       "registratiedatum": {
         "type": "string",
@@ -49,21 +49,21 @@
       },
       "cbsNummer": {
         "type": "string",
-        "description": "CBS-nummer."
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "indicatieWoningvoorraad": {
         "type": "string",
-        "description": "Geeft aan of een verblijfsobject bij de woningvoorraad hoort."
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "financieringscodeCode": {
         "type": "integer",
         "provenance": "$.financieringscode.code",
-        "description": "Geeft aan op welke wijze een woning gefinancierd is bij de bouw. code"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "financieringscodeOmschrijving": {
         "type": "string",
         "provenance": "$.financieringscode.omschrijving",
-        "description": "Geeft aan op welke wijze een woning gefinancierd is bij de bouw. omschrijving"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "geconstateerd": {
         "type": "boolean",
@@ -124,14 +124,15 @@
           "type": "object",
           "properties": {
             "code": {
-              "type": "string"
+              "type": "string",
+              "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
             },
             "omschrijving": {
-              "type": "string"
+              "type": "string",
+              "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan."
             }
           }
-        },
-        "description": "Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit door de overheid als zodanig is toegestaan."
+        }
       },
       "oppervlakte": {
         "type": "integer",
@@ -140,12 +141,12 @@
       "statusCode": {
         "type": "integer",
         "provenance": "$.status.code",
-        "description": "De fase van de levenscyclus van een verblijfsobject, waarin het betreffende VERBLIJFSOBJECT zich bevindt. code"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "statusOmschrijving": {
         "type": "string",
         "provenance": "$.status.omschrijving",
-        "description": "De fase van de levenscyclus van een verblijfsobject, waarin het betreffende VERBLIJFSOBJECT zich bevindt. omschrijving"
+        "description": "De fase van de levenscyclus van een verblijfsobject, waarin het betreffende VERBLIJFSOBJECT zich bevindt."
       },
       "ligtInPanden": {
         "type": "array",
@@ -217,26 +218,26 @@
       "gebruiksdoelWoonfunctieCode": {
         "type": "integer",
         "provenance": "$.gebruiksdoelWoonfunctie.code",
-        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. code"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "gebruiksdoelWoonfunctieOmschrijving": {
         "provenance": "$.gebruiksdoelWoonfunctie.omschrijving",
         "type": "string",
-        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. omschrijving"
+        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject."
       },
       "gebruiksdoelGezondheidszorgfunctieCode": {
         "type": "integer",
         "provenance": "$.gebruiksdoelGezondheidszorgfunctie.code",
-        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. code"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "gebruiksdoelGezondheidszorgfunctieOmschrijving": {
         "type": "string",
         "provenance": "$.gebruiksdoelGezondheidszorgfunctie.omschrijving",
-        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. omschrijving"
+        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject."
       },
       "aantalEenhedenComplex": {
         "type": "integer",
-        "description": "Aantal eenheden complex per verblijfsobject (all\u00e9\u00e9n bij een speciale  woonfunctie of gezondheidszorgfunctie; zie gebruiksdoel-plus)."
+        "description": "Aantal eenheden complex per verblijfsobject (alléén bij een speciale  woonfunctie of gezondheidszorgfunctie; zie gebruiksdoel-plus)."
       },
       "verdiepingToegang": {
         "type": "integer",
@@ -261,22 +262,22 @@
       "eigendomsverhoudingCode": {
         "type": "integer",
         "provenance": "$.eigendomsverhouding.code",
-        "description": "Geeft de eigendomsverhouding aan (huur of eigendom). code"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "eigendomsverhoudingOmschrijving": {
         "type": "string",
         "provenance": "$.eigendomsverhouding.omschrijving",
-        "description": "Geeft de eigendomsverhouding aan (huur of eigendom). omschrijving"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "feitelijkGebruikCode": {
         "type": "integer",
         "provenance": "$.feitelijkGebruik.code",
-        "description": "Feitelijk gebruik van een verblijfsobject. code"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "feitelijkGebruikOmschrijving": {
         "type": "string",
         "provenance": "$.feitelijkGebruik.omschrijving",
-        "description": "Feitelijk gebruik van een verblijfsobject. omschrijving"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "toegang": {
         "type": "array",
@@ -285,11 +286,11 @@
           "properties": {
             "code": {
               "type": "string",
-              "description": "Plaats waar zich de toegang tot het verblijfsobject bevindt. code"
+              "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
             },
             "omschrijving": {
               "type": "string",
-              "description": "Plaats waar zich de toegang tot het verblijfsobject bevindt. omschrijving"
+              "description": "Plaats waar zich de toegang tot het verblijfsobject bevindt."
             }
           }
         }
@@ -297,22 +298,22 @@
       "redenopvoerCode": {
         "type": "integer",
         "provenance": "$.redenopvoer.code",
-        "description": "Reden van de opvoer van het verblijfsobject. code"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "redenopvoerOmschrijving": {
         "type": "string",
         "provenance": "$.redenopvoer.omschrijving",
-        "description": "Reden van de opvoer van het verblijfsobject. omschrijving"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "redenafvoerCode": {
         "type": "integer",
         "provenance": "$.redenafvoer.code",
-        "description": "Reden van de afvoer van het verblijfsobject. code"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "redenafvoerOmschrijving": {
         "type": "string",
         "provenance": "$.redenafvoer.omschrijving",
-        "description": "Reden van de afvoer van het verblijfsobject. omschrijving"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
       "ligtInBuurt": {
         "type": "object",
@@ -350,8 +351,12 @@
         "type": "string",
         "provenance": "$.bagproces.omschrijving",
         "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       }
-    },
-    "mainGeometry": "geometrie"
+    }
   }
 }

@@ -1,13 +1,13 @@
 {
-  "id": "ligplaatsen",
+  "id": "woonplaatsen",
   "type": "table",
-  "version": "1.2.0",
+  "version": "1.6.1",
   "temporal": {
     "identifier": "volgnummer",
     "dimensions": {
       "geldigOp": [
         "beginGeldigheid",
-        "eindGeldigheid"
+        "datumActueelTot"
       ]
     }
   },
@@ -26,13 +26,20 @@
     ],
     "mainGeometry": "geometrie",
     "display": "identificatie",
+    "additionalRelations": {
+      "openbareruimtes": {
+        "table": "openbareruimtes",
+        "field": "ligtInWoonplaats",
+        "format": "summary"
+      }
+    },
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
-        "description": "Landelijke identificerende sleutel."
+        "description": "Landelijke identificerende code 3594."
       },
       "volgnummer": {
         "type": "integer",
@@ -47,90 +54,31 @@
         "format": "date-time",
         "description": "De datum waarop de toestand is geregistreerd."
       },
-      "geconstateerd": {
-        "type": "boolean",
-        "description": "Dit geeft aan dat een LIGPLAATS in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument."
-      },
-      "statusCode": {
-        "type": "integer",
-        "provenance": "$.status.code",
-        "description": "De fase van de levenscyclus van een ligplaats, waarin de betreffende ligplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. code"
-      },
-      "statusOmschrijving": {
+      "woonplaatsPtt": {
         "type": "string",
-        "provenance": "$.status.omschrijving",
-        "description": "De fase van de levenscyclus van een ligplaats, waarin de betreffende ligplaats zich bevindt, Plaats aangewezen, plaats ingetrokken. omschrijving"
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
       },
-      "heeftHoofdadres": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          },
-          "beginGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "eindGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "relation": "bag:nummeraanduidingen",
-        "description": "Het HOOFDadres dat de ligplaats heeft."
-      },
-      "heeftNevenadres": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "identificatie": {
-              "type": "string"
-            },
-            "volgnummer": {
-              "type": "integer"
-            },
-            "beginGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "eindGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
-        },
-        "relation": "bag:nummeraanduidingen",
-        "description": "Het NEVENadres dat de ligplaats (optioneel) heeft."
+      "naam": {
+        "type": "string",
+        "description": "Officiële naam woonplaats."
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
-        "description": "Vorm en ligging van de ligplaats in het Nationale Rijksdriehoekstelsel."
+        "description": "Vorm en ligging woonplaats in het Nationale Rijksdriehoekstelsel."
       },
-      "gebruiksdoel": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "omschrijving": {
-              "type": "string"
-            }
-          }
-        },
-        "description": "Een categorisering van de gebruiksdoelen van de betreffende ligplaats, zoals dit door de overheid als zodanig is toegestaan."
+      "geconstateerd": {
+        "type": "string",
+        "description": "Dit geeft aan dat een WOONPLAATS in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument."
       },
       "beginGeldigheid": {
         "type": "string",
         "format": "date-time",
-        "description": "De begindatum van een periode waarin een of meer gegevens die worden bijgehouden over een ligplaats een wijziging hebben ondergaan."
+        "description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een WOONPLAATS."
       },
       "eindGeldigheid": {
         "type": "string",
         "format": "date-time",
-        "description": "De einddatum van een periode waarin een of meer gegevens die worden bijgehouden over een ligplaats een wijziging hebben ondergaan."
+        "description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een WOONPLAATS."
       },
       "heeftOnderzoeken": {
         "type": "array",
@@ -165,7 +113,17 @@
         "type": "string",
         "description": "Het unieke nummer van het brondocument."
       },
-      "ligtInBuurt": {
+      "statusCode": {
+        "type": "integer",
+        "provenance": "$.status.code",
+        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
+      },
+      "statusOmschrijving": {
+        "type": "string",
+        "provenance": "$.status.omschrijving",
+        "description": "Levenscyclus van de woonplaats, Woonplaats aangewezen, Woonplaats ingetrokken. omschrijving"
+      },
+      "ligtInGemeente": {
         "type": "object",
         "properties": {
           "identificatie": {
@@ -173,18 +131,10 @@
           },
           "volgnummer": {
             "type": "integer"
-          },
-          "beginGeldigheid": {
-            "type": "string",
-            "format": "date"
-          },
-          "eindGeldigheid": {
-            "type": "string",
-            "format": "date"
           }
         },
-        "relation": "gebieden:buurten",
-        "description": "De buurt waarin een ligplaats ligt."
+        "relation": "brk2:gemeentes",
+        "description": "De gemeente waarin de woonplaats ligt."
       },
       "heeftDossier": {
         "type": "string",
@@ -201,6 +151,11 @@
         "type": "string",
         "provenance": "$.bagproces.omschrijving",
         "description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
       }
     }
   }
