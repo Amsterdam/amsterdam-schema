@@ -1,0 +1,84 @@
+{
+  "id": "gebouwobjectenUitgebreid",
+  "type": "table",
+  "version": "2.0.0",
+  "title": "Gebouwobjecten-uitgebreid",
+  "description": "Gegevens over de gebouwobjecten van het gemeentelijk vastgoed in volledig eigendom dan wel als een appartementsrecht.",
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+      },
+      "objectId?": {
+        "type": "integer",
+        "description": "Unieke ID van het object."
+      },
+      "objectNaam": {
+        "type": "string",
+        "description": "Objectnaam."
+      },
+      "straatnaam": {
+        "type": "string",
+        "description": "Straatnaam."
+      },
+      "huisnummer": {
+        "type": "string",
+        "description": "Huisnummer."
+      },
+      "huisletter": {
+        "type": "integer",
+        "description": "Huisletter."
+      },
+      "huisnrtoevoeging": {
+        "type": "string",
+        "description": "Huisnummertoevoeging."
+      },
+      "huisnraanduiding": {
+        "type": "string",
+        "description": "Huisnummeraanduiding."
+      },
+      "assetmanager": {
+        "type": "string",
+        "description": "Naam assetmanager."
+      },
+      "themaportefeuille": {
+        "type": "string",
+        "description": "Geeft aan binnen welke themaportefeuille binnen GV het object valt."
+      },
+      "kostenplaats": {
+        "type": "string",
+        "description": "Betreft de gerelateerde kostenplaats in AFS/AFIS."
+      },
+      "eigendom": {
+        "type": "string",
+        "description": "Eigendom / Geeft de eigendomssituatie weer: volle eigendom of appartementsrecht (?)."
+      },
+      "bvo": {
+        "type": "string",
+        "description": "Bruto vloeroppervlak ."
+      },
+      "vvo": {
+        "type": "string",
+        "description": "Verhuurbaar vloeroppervlak."
+      },
+      "bagPandIds ": {
+        "type": "string",
+        "description": "BAG-pand-ID(s?)."
+      },
+      "geometrie": {
+        "description": "Objectgeometrie / Geometrie van het pand / Vorm en ligging van het pand in het Nationale Rijksdriehoekstelsel(?)",
+        "$ref": "https://geojson.org/schema/Geometry.json"
+      }
+    }
+  }
+}
