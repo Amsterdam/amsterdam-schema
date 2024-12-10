@@ -3,7 +3,7 @@
   "type": "table",
   "version": "2.0.0",
   "title": "Gebouwobjecten",
-  "description": "Gegevens over de gebouwobjecten van het gemeentelijk vastgoed in volledig eigendom dan wel als een appartementsrecht.",
+  "description": "Gegevens over de door de directie Gemeentelijk Vastgoed van de gemeente Amsterdam beheerde gebouwobjecten in volledige eigendom of waar de gemeente Amsterdam een appartementsrecht heeft. Een gebouwobject kent veelal een relatie met een BAG-pand.",
   "identifier": "id",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -19,7 +19,7 @@
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
       },
-      "objectId?": {
+      "objectId": {
         "type": "integer",
         "description": "Unieke ID van het object."
       },
@@ -35,24 +35,24 @@
         "type": "integer",
         "description": "Huisletter."
       },
-      "huisnrtoevoeging": {
+      "huisnummertoevoeging": {
         "type": "string",
         "description": "Huisnummertoevoeging."
       },
-      "huisnraanduiding": {
+      "huisnummeraanduiding": {
         "type": "string",
         "description": "Huisnummeraanduiding."
       },
       "eigendom": {
         "type": "string",
-        "description": "Eigendom / Geeft de eigendomssituatie weer: volle eigendom of appartementsrecht (?)."
+        "description": "Geeft de eigendomssituatie weer: volledige eigendom of appartementsrecht."
       },
       "bagPandIds ": {
         "type": "string",
-        "description": "BAG-pand-ID(s?)."
+        "description": "BAG-pand-ID's."
       },
       "geometrie": {
-        "description": "Objectgeometrie / Geometrie van het pand / Vorm en ligging van het pand in het Nationale Rijksdriehoekstelsel(?)",
+        "description": "Vorm en ligging van het pand in het Nationale Rijksdriehoekstelsel",
         "$ref": "https://geojson.org/schema/Geometry.json"
       }
     }
