@@ -3,7 +3,7 @@
   "type": "table",
   "version": "2.0.0",
   "title": "Verhuurbare eenheden",
-  "description": "Gegevens over de verhuurbare eenheden (VHE’s) in beheer bij de directie Gemeentelijk Vastgoed waarop de gemeente Amsterdam een appartementsrecht heeft. Een verhuurbare eenheid kent veelal een relatie met een BAG-verblijfsobject",
+  "description": "Gegevens over de verhuurbare eenheden in beheer bij de directie Gemeentelijk Vastgoed waarop de gemeente Amsterdam een appartementsrecht heeft. Een verhuurbare eenheid kent veelal een relatie met een BAG-verblijfsobject.",
   "identifier": "id",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -21,7 +21,7 @@
       },
       "vheId": {
         "type": "string",
-        "description": "Unieke ID van de VHE."
+        "description": "Unieke ID van de verhuurbare eenheid."
       },
       "objectId": {
         "type": "string",
@@ -29,39 +29,43 @@
       },
       "vheNaam": {
         "type": "string",
-        "description": "VHE-naam."
+        "description": "Verhuurbare-eenheidnaam."
       },
       "straatnaam": {
         "type": "string",
-        "description": "Straatnaam."
+        "description": "Straatnaam van het gebouwobject uit het vastgoedbeheersysteem."
       },
       "huisnummer": {
         "type": "string",
-        "description": "Huisnummer."
+        "description": "Huisnummer van het gebouwobject uit het vastgoedbeheersysteem."
       },
       "huisletter": {
-        "type": "integer",
-        "description": "Huisletter."
+        "type": "string",
+        "description": "Huisletter van het gebouwobject uit het vastgoedbeheersysteem."
       },
       "huisnummertoevoeging": {
         "type": "string",
-        "description": "Huisnummertoevoeging."
+        "description": "Huisnummertoevoeging van het gebouwobject uit het vastgoedbeheersysteem."
       },
       "huisnummeraanduiding": {
         "type": "string",
-        "description": "Huisnummeraanduiding."
+        "description": "Huisnummeraanduiding van het gebouwobject uit het vastgoedbeheersysteem."
       },
       "postcode": {
         "type": "string",
-        "description": "Postcode."
+        "description": "Postcode van de verhuurbare eenheid uit het vastgoedbeheersysteem."
+      },
+      "plaats": {
+        "type": "string",
+        "description": "Plaats van de verhuurbare eenheid uit het vastgoedbeheersysteem."
       },
       "vheSoort": {
         "type": "string",
-        "description": "Geeft het soort VHE aan. Dit betreft een categorisering vanuit Gemeentelijk Vastgoed."
+        "description": "Geeft het soort verhuurbare eenheid aan. Dit betreft een categorisering vanuit Gemeentelijk Vastgoed."
       },
       "vvo": {
         "type": "string",
-        "description": "Verhuurbaar vloeroppervlak."
+        "description": "Verhuurbaar vloeroppervlak van de verhuurbare eenheid."
       },
       "contractId": {
         "type": "string",
@@ -69,19 +73,15 @@
       },
       "feitelijkGebruik": {
         "type": "string",
-        "description": "Het gebruik volgens het contract."
-      },
-      "feitelijkGebruik": {
-        "type": "string",
-        "description": "Het gebruik volgens het contract."
+        "description": "Het feitelijk gebruik volgens het contract."
       },
       "bagVerblijfsobjectId": {
         "type": "string",
-        "description": "Unieke ID van het BAG-verblijfsobject."
+        "description": "Landelijke identificerende sleutel van het verblijfsobject."
       },
       "geometrie": {
-        "description": "Vorm en ligging van het BAG-verblijfsobject in het Nationale Rijksdriehoekstelsel",
-        "$ref": "https://geojson.org/schema/Polygon.json"
+        "description": "Geometrie van het type point in RD (EPSG:28992).",
+        "$ref": "https://geojson.org/schema/Geometry.json"
       }
     }
   }

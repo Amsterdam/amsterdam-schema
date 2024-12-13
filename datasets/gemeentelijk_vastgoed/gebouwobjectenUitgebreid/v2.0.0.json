@@ -3,7 +3,7 @@
   "type": "table",
   "version": "2.0.0",
   "title": "Gebouwobjecten-uitgebreid",
-  "description": "Gegevens over de door de directie Gemeentelijk Vastgoed van de gemeente Amsterdam beheerde gebouwobjecten in volledige eigendom of waar de gemeente Amsterdam een appartementsrecht heeft. Een gebouwobject kent veelal een relatie met een BAG-pand. Deze uitgebreide dataset bevat extra gegevens, onder andere contactgegevens van de assetmanager/beheerder van het pand. Hierom is deze set niet openbaar.",
+  "description": "Gegevens over de door de directie Gemeentelijk Vastgoed van de gemeente Amsterdam beheerde gebouwobjecten in volle eigendom of waar de gemeente Amsterdam een appartementsrecht heeft. Een gebouwobject kent veelal een relatie met een BAG-pand. Deze uitgebreide dataset bevat extra gegevens, onder andere contactgegevens van de assetmanager/beheerder van het pand. Hierom is deze set niet openbaar.",
   "identifier": "id",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -25,27 +25,27 @@
       },
       "objectNaam": {
         "type": "string",
-        "description": "Objectnaam."
+        "description": "Naam van het gebouwobject uit het vastgoedbeheersysteem."
       },
       "straatnaam": {
         "type": "string",
-        "description": "Straatnaam."
+        "description": "Straatnaam van het gebouwobject uit het vastgoedbeheersysteem."
       },
       "huisnummer": {
         "type": "string",
-        "description": "Huisnummer."
+        "description": "Huisnummer van het gebouwobject uit het vastgoedbeheersysteem."
       },
       "huisletter": {
-        "type": "integer",
-        "description": "Huisletter."
+        "type": "string",
+        "description": "Huisletter van het gebouwobject uit het vastgoedbeheersysteem."
       },
       "huisnummertoevoeging": {
         "type": "string",
-        "description": "Huisnummertoevoeging."
+        "description": "Huisnummertoevoeging van het gebouwobject uit het vastgoedbeheersysteem."
       },
       "huisnummeraanduiding": {
         "type": "string",
-        "description": "Huisnummeraanduiding."
+        "description": "Huisnummeraanduiding van het gebouwobject uit het vastgoedbeheersysteem."
       },
       "assetmanager": {
         "type": "string",
@@ -53,30 +53,30 @@
       },
       "themaportefeuille": {
         "type": "string",
-        "description": "Geeft aan binnen welke themaportefeuille binnen GV het object valt."
+        "description": "Geeft aan in welke themaportefeuille het object binnen Gemeentelijk Vastgoed valt."
       },
       "kostenplaats": {
-        "type": "string",
+        "type": "integer",
         "description": "Betreft de gerelateerde kostenplaats in AFS/AFIS."
       },
       "eigendom": {
         "type": "string",
-        "description": "Geeft de eigendomssituatie weer: volledige eigendom of appartementsrecht."
+        "description": "Geeft de eigendomssituatie weer: volle eigendom of appartementsrecht."
       },
       "bvo": {
         "type": "string",
-        "description": "Bruto vloeroppervlak."
+        "description": "Bruto vloeroppervlak van het object."
       },
       "vvo": {
         "type": "string",
-        "description": "Verhuurbaar vloeroppervlak."
+        "description": "Verhuurbaar vloeroppervlak van het object."
       },
       "bagPandIds ": {
         "type": "string",
-        "description": "BAG-pand-ID's."
+        "description": "Landelijke identificerende sleutel van de pandobjecten. Kan één of meerdere waardes bevatten doordat een object in meerdere panden kan liggen."
       },
       "geometrie": {
-        "description": "Vorm en ligging van het pand in het Nationale Rijksdriehoekstelsel",
+        "description": "Geometrie van het type multipolygoon in RD (EPSG:28992).",
         "$ref": "https://geojson.org/schema/Geometry.json"
       }
     }
