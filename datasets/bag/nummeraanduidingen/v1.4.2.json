@@ -1,0 +1,293 @@
+{
+	"id": "nummeraanduidingen",
+	"type": "table",
+	"version": "1.4.2",
+	"description": "Een NUMMERAANDUIDING, in de volksmond ook wel adres genoemd, is een door het bevoegde gemeentelijke orgaan als zodanig toegekende aanduiding van een verblijfsobject, standplaats of ligplaats",
+	"temporal": {
+		"identifier": "volgnummer",
+		"dimensions": {
+			"geldigOp": [
+				"beginGeldigheid",
+				"datumActueelTot"
+			]
+		}
+	},
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": [
+			"identificatie",
+			"volgnummer"
+		],
+		"required": [
+			"schema",
+			"identificatie",
+			"volgnummer"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Nummeraanduiding ID",
+				"description": "De unieke aanduiding van een nummeraanduiding"
+			},
+			"volgnummer": {
+				"type": "integer",
+				"title": "Object volgnummer",
+				"description": "Uniek volgnummer van de toestand van het object"
+			},
+			"plusvolgnummer": {
+				"type": "integer",
+				"title": "Object plus volgnummer",
+				"description": "extra volgnummer BAG-plus gegevens"
+			},
+			"registratiedatum": {
+				"type": "string",
+				"title": "Object registratie datum",
+				"format": "date-time",
+				"description": "De datum waarop de toestand van het object is geregistreerd"
+			},
+			"huisnummer": {
+				"type": "integer",
+				"title": "Huisnummer",
+				"description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering"
+			},
+			"geconstateerd": {
+				"type": "boolean",
+				"title": "Nummeraanduiding geconstateerd indicatie",
+				"description": "Een aanduiding waarmee kan worden aangegeven dat een nummeraanduiding in de registratie is opgenomen als gevolg van een feitelijke constatering, zonder dat er op het moment van opname sprake was van een regulier brondocument voor deze opname"
+			},
+			"huisletter": {
+				"type": "string",
+				"title": "Huisletter",
+				"description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken"
+			},
+			"huisnummertoevoeging": {
+				"type": "string",
+				"title": "Huisnummer toevoeging",
+				"description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
+			},
+			"postcode": {
+				"type": "string",
+				"title": "Postcode",
+				"description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)"
+			},
+			"ligtInWoonplaats": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "bag:woonplaatsen",
+				"title": "Adresseerbaar object ligt in woonplaats",
+				"description": "De woonplaats (landelijke identificatie) waarin de nummeraanduiding ligt"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Nummeraanduiding geldigheid begindatum",
+				"format": "date-time",
+				"description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een NUMMERAANDUIDING"
+			},
+			"eindGeldigheid": {
+				"type": "string",
+				"title": "Nummeraanduiding geldigheid einddatum",
+				"format": "date-time",
+				"description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een NUMMERAANDUIDING"
+			},
+			"heeftOnderzoeken": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"identificatie": {
+							"type": "string"
+						},
+						"volgnummer": {
+							"type": "integer"
+						},
+						"beginGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"eindGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						}
+					}
+				},
+				"relation": "bag:onderzoeken",
+				"title": "Nummeraanduiding heeft onderzoeken",
+				"description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object"
+			},
+			"ligtAanOpenbareruimte": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "bag:openbareruimtes",
+				"title": "Adresseerbaar object ligt aan openbare ruimte",
+				"description": "De openbare ruimte (landelijke identificatie) waaraan het betreffende adresseerbare object ligt"
+			},
+			"typeAdresseerbaarObjectCode": {
+				"provenance": "$.typeAdresseerbaarObject.code",
+				"type": "integer",
+				"title": "Nummeraanduiding adresseerbaar object type code",
+				"description": "Het type adresseerbaar object waaraan een nummeraanduiding is toegekend. code"
+			},
+			"typeAdresseerbaarObjectOmschrijving": {
+				"provenance": "$.typeAdresseerbaarObject.omschrijving",
+				"title": "Nummeraanduiding adresseerbaar object type omschrijving",
+				"type": "string",
+				"description": "Het type adresseerbaar object waaraan een nummeraanduiding is toegekend"
+			},
+			"documentdatum": {
+				"type": "string",
+				"title": "Brondocument datum",
+				"format": "date",
+				"description": "De datum waarop het brondocument is vastgesteld"
+			},
+			"documentnummer": {
+				"type": "string",
+				"title": "Brondocument nummer",
+				"description": "Het unieke nummer van het brondocument"
+			},
+			"statusCode": {
+				"type": "integer",
+				"provenance": "$.status.code",
+				"title": "Nummeraanduiding status code",
+				"description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd"
+			},
+			"statusOmschrijving": {
+				"type": "string",
+				"provenance": "$.status.omschrijving",
+				"title": "Nummeraanduiding status omschrijving",
+				"description": "De fase van de levenscyclus van een nummeraanduiding,waarin de betreffende nummeraanduiding zich bevindt. (Naamgeving uitgegeven, Naamgeving ingetrokken)"
+			},
+			"typeAdres": {
+				"type": "string",
+				"title": "Adres type",
+				"description": "Hiermee wordt aangegeven of het een relatie betreft vanuit een hoofdadres. Anders is er sprake van een nevenadres (Hoofdadres, Nevenadres)"
+			},
+			"adresseertVerblijfsobject": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "bag:verblijfsobjecten",
+				"title": "Nummeraanduiding adresseert verblijfsobject",
+				"description": "Het verblijfsobject (landelijke identificatie) dat door de nummeraanduiding wordt aangeduid"
+			},
+			"adresseertLigplaats": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "bag:ligplaatsen",
+				"title": "Nummeraanduiding adresseert ligplaats",
+				"description": "De ligplaats (landelijke identificatie) die door de nummeraanduiding wordt aangeduid"
+			},
+			"adresseertStandplaats": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "bag:standplaatsen",
+				"title": "Nummeraanduiding adresseert standplaats",
+				"description": "De standplaats (landelijke identificatie) die door de nummeraanduiding wordt aangeduid"
+			},
+			"heeftDossier": {
+				"type": "string",
+				"relation": "bag:dossiers",
+				"provenance": "$.heeftDossier.dossier",
+				"title": "Nummeraanduiding heeft dossier",
+				"description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie"
+			},
+			"bagprocesCode": {
+				"type": "integer",
+				"provenance": "$.bagproces.code",
+				"title": "BAG proces code",
+				"description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. code"
+			},
+			"bagprocesOmschrijving": {
+				"type": "string",
+				"provenance": "$.bagproces.omschrijving",
+				"title": "BAG proces omschrijving",
+				"description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
+			},
+			"datumActueelTot": {
+				"type": "string",
+				"title": "Actueel tot datum",
+				"format": "date-time",
+				"description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+			}
+		}
+	}
+}

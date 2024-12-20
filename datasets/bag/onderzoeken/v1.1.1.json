@@ -1,0 +1,106 @@
+{
+	"id": "onderzoeken",
+	"type": "table",
+	"version": "1.1.1",
+	"description": "Bronhouder zet een kenmerk, waarvan een formele terugmelding of correctieverzoek niet binnen twee werkdagen is afgehandeld, in de basisregistratie adressen en gebouwen in onderzoek.",
+	"temporal": {
+		"identifier": "volgnummer",
+		"dimensions": {
+			"geldigOp": [
+				"beginGeldigheid",
+				"eindGeldigheid"
+			]
+		}
+	},
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": [
+			"identificatie",
+			"volgnummer"
+		],
+		"required": [
+			"schema",
+			"identificatie",
+			"volgnummer"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Onderzoek ID",
+				"description": "De unieke aanduiding van een nummeraanduiding"
+			},
+			"volgnummer": {
+				"type": "integer",
+				"title": "Object volgnummer",
+				"description": "Uniek volgnummer van de toestand van het object"
+			},
+			"registratiedatum": {
+				"type": "string",
+				"title": "Object registratiedatum",
+				"format": "date-time",
+				"description": "De datum waarop de toestand van een object is geregistreerd"
+			},
+			"objectIdentificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "Identificerende nummer van het object dat in onderzoek is geplaatst"
+			},
+			"objecttype": {
+				"type": "string",
+				"title": "Onderzoek object type",
+				"description": "Geeft aan welk objectklasse in onderzoek staat"
+			},
+			"kenmerk": {
+				"type": "string",
+				"title": "Onderzoek kenmerk naam",
+				"description": "De naam van het kenmerk van het object dat in onderzoek is geplaatst. Het kenmerk kan ook een relatie zijn met een ander object"
+			},
+			"inOnderzoek": {
+				"type": "string",
+				"title": "Onderzoek indicatie",
+				"description": "Indicatie of het kenmerk wel of niet in onderzoek staat"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Onderzoek geldigheid begindatum",
+				"format": "date-time",
+				"description": "De datum waarop het kenmerk of de relatie van een object bij de bronhouder in onderzoek is geplaatst"
+			},
+			"eindGeldigheid": {
+				"type": "string",
+				"title": "Onderzoek geldigheid einddatum",
+				"format": "date-time",
+				"description": "De datum waarop het onderzoek naar het kenmerk of de relatie van een object door de bronhouder is afgerond"
+			},
+			"documentdatum": {
+				"type": "string",
+				"title": "Document datum",
+				"format": "date",
+				"description": "De datum waarop het document, waarin de grondslag van het onderzoek wordt vastgelegd, is vastgesteld"
+			},
+			"documentnummer": {
+				"type": "string",
+				"title": "Document nummer",
+				"description": "Het nummer van het document waarin de grondslag van het onderzoek wordt vastgelegd"
+			},
+			"tijdstipRegistratie": {
+				"type": "string",
+				"title": "Onderzoek registratie datumtijd",
+				"format": "date-time",
+				"description": "Het tijdstip waarop het onderzoek is geregistreerd bij de bronhouder"
+			},
+			"eindRegistratie": {
+				"type": "string",
+				"title": "Onderzoek eindregistratie datumtijd",
+				"format": "date-time",
+				"description": "Het tijdstip waarop de registratie van het onderzoek is beëindigd bij de bronhouder"
+			}
+		}
+	}
+}
