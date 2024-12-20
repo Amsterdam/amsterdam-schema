@@ -1,0 +1,96 @@
+{
+	"id": "bouwblokken",
+	"type": "table",
+	"version": "1.1.2",
+	"description": "Een bouwblok is het kleinst mogelijk afgrensbare gebied, in zijn geheel tot een buurt behorend, dat geheel of grotendeels door bestaande of aan te leggen wegen en/of waterlopen is of zal zijn ingesloten en waarop tenminste één gebouw met verblijfsobject staat op maaiveld niveau. Dus ondergrondse garages en metrostations krijgen géén bouwblok",
+	"temporal": {
+		"identifier": "volgnummer",
+		"dimensions": {
+			"geldigOp": [
+				"beginGeldigheid",
+				"eindGeldigheid"
+			]
+		}
+	},
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"mainGeometry": "geometrie",
+		"identifier": [
+			"identificatie",
+			"volgnummer"
+		],
+		"required": [
+			"schema",
+			"identificatie",
+			"volgnummer"
+		],
+		"display": "code",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "Unieke identificatie van het object"
+			},
+			"volgnummer": {
+				"type": "integer",
+				"title": "Object volgnummer",
+				"description": "Uniek volgnummer van de toestand van het object"
+			},
+			"registratiedatum": {
+				"type": "string",
+				"title": "Object registratiedatum",
+				"format": "date-time",
+				"description": "Datum waarop het gegeven in de bron geregistreerd is"
+			},
+			"code": {
+				"type": "string",
+				"title": "Object code",
+				"description": "Officiële code van het object"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid startdatum",
+				"format": "date-time",
+				"description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een bouwblok"
+			},
+			"eindGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid einddatum",
+				"format": "date-time",
+				"description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een bouwblok"
+			},
+			"ligtInBuurt": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "gebieden:buurten",
+				"title": "Bouwblok ligt in buurt",
+				"description": "De buurt waar het bouwblok in ligt"
+			},
+			"geometrie": {
+				"$ref": "https://geojson.org/schema/Polygon.json",
+				"title": "Geometrie",
+				"description": "Geometrische beschrijving van een object"
+			}
+		}
+	}
+}

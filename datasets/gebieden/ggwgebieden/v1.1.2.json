@@ -1,0 +1,138 @@
+{
+	"id": "ggwgebieden",
+	"type": "table",
+	"title": "Gebiedsgerichtwerken-gebied",
+	"version": "1.1.2",
+	"description": "Gebiedsgericht werken is een manier om breed samenwerken in de stad te verbeteren tussen  gemeente, bewoners, ondernemers, (lokale) partners en maatschappelijke organisaties",
+	"temporal": {
+		"identifier": "volgnummer",
+		"dimensions": {
+			"geldigOp": [
+				"beginGeldigheid",
+				"eindGeldigheid"
+			]
+		}
+	},
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"mainGeometry": "geometrie",
+		"identifier": [
+			"identificatie",
+			"volgnummer"
+		],
+		"required": [
+			"schema",
+			"identificatie",
+			"volgnummer"
+		],
+		"display": "naam",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "Unieke identificatie van het object"
+			},
+			"volgnummer": {
+				"type": "integer",
+				"title": "Object volgnummer",
+				"description": "Uniek volgnummer van de toestand van het object"
+			},
+			"registratiedatum": {
+				"type": "string",
+				"title": "Object registratiedatum",
+				"format": "date-time",
+				"description": "De datum waarop een gegeven in de bron is geregistreerd"
+			},
+			"naam": {
+				"type": "string",
+				"title": "Object naam",
+				"description": "De naam van het object"
+			},
+			"code": {
+				"type": "string",
+				"title": "Object code",
+				"description": "Officiële code van het object"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid startdatum",
+				"format": "date-time",
+				"description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een gebied"
+			},
+			"eindGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid einddatum",
+				"format": "date-time",
+				"description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een gebied"
+			},
+			"documentdatum": {
+				"type": "string",
+				"title": "Brondocument datum",
+				"format": "date",
+				"description": "De datum waarop het document is vastgesteld, op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden"
+			},
+			"documentnummer": {
+				"type": "string",
+				"title": "Brondocument nummer",
+				"description": "Unieke aanduiding van het brondocument op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden"
+			},
+			"ligtInStadsdeel": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "gebieden:stadsdelen",
+				"title": "GGW gebied ligt in stadsdeel",
+				"description": "Het stadsdeel waar het gebied in ligt"
+			},
+			"bestaatUitBuurten": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"identificatie": {
+							"type": "string"
+						},
+						"volgnummer": {
+							"type": "integer"
+						},
+						"beginGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"eindGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						}
+					}
+				},
+				"relation": "gebieden:buurten",
+				"title": "GGW gebied bestaat uit buurten",
+				"description": "De gebieden waaruit dit ggwgebied bestaat"
+			},
+			"geometrie": {
+				"$ref": "https://geojson.org/schema/Polygon.json",
+				"title": "Geometrie",
+				"description": "Geometrische beschrijving van een object"
+			}
+		}
+	}
+}

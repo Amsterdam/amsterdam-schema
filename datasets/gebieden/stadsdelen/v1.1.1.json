@@ -1,0 +1,97 @@
+{
+	"id": "stadsdelen",
+	"type": "table",
+	"version": "1.1.1",
+	"description": "Door de Amsterdamse gemeenteraad vastgestelde begrenzing van een stadsdeel, ressorterend onder een stadsgebied- of stadsdeelbestuur",
+	"temporal": {
+		"identifier": "volgnummer",
+		"dimensions": {
+			"geldigOp": [
+				"beginGeldigheid",
+				"eindGeldigheid"
+			]
+		}
+	},
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"mainGeometry": "geometrie",
+		"identifier": [
+			"identificatie",
+			"volgnummer"
+		],
+		"required": [
+			"schema",
+			"identificatie",
+			"volgnummer"
+		],
+		"display": "naam",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "Unieke identificatie van het object"
+			},
+			"volgnummer": {
+				"type": "integer",
+				"title": "Object volgnummer",
+				"description": "Uniek volgnummer van de toestand van het object"
+			},
+			"registratiedatum": {
+				"type": "string",
+				"title": "Object registratiedatum",
+				"format": "date-time",
+				"description": "De datum waarop een gegeven in de bron is geregistreerd"
+			},
+			"naam": {
+				"type": "string",
+				"title": "Object naam",
+				"description": "De naam van het object"
+			},
+			"code": {
+				"type": "string",
+				"title": "Buurt code",
+				"description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode en wijkcode"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid startdatum",
+				"format": "date-time",
+				"description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een stadsdeel"
+			},
+			"eindGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid einddatum",
+				"format": "date-time",
+				"description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een stadsdeel"
+			},
+			"documentdatum": {
+				"type": "string",
+				"format": "date",
+				"title": "Object geldigheid documentdatum",
+				"description": "De datum waarop het document is vastgesteld, op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden"
+			},
+			"documentnummer": {
+				"type": "string",
+				"title": "Brondocument nummer",
+				"description": "De unieke aanduiding van het brondocument op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden"
+			},
+			"ligtInGemeente": {
+				"type": "string",
+				"relation": "brk2:gemeentes",
+				"provenance": "$.ligtInGemeente.identificatie",
+				"title": "Stadsdeel ligt in gemeente",
+				"description": "De gemeente waar het stadsdeel in ligt"
+			},
+			"geometrie": {
+				"$ref": "https://geojson.org/schema/Polygon.json",
+				"title": "Geometrie",
+				"description": "Geometrische beschrijving van een object"
+			}
+		}
+	}
+}

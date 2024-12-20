@@ -1,0 +1,234 @@
+{
+	"id": "ligplaatsen",
+	"type": "table",
+	"version": "1.4.2",
+	"description": "Een LIGPLAATS is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen plaats in het water die bestemd is voor het permanent afmeren van een voor woon-, bedrijfsmatige of recreatieve doeleinden geschikt drijvend object",
+	"temporal": {
+		"identifier": "volgnummer",
+		"dimensions": {
+			"geldigOp": [
+				"beginGeldigheid",
+				"datumActueelTot"
+			]
+		}
+	},
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": [
+			"identificatie",
+			"volgnummer"
+		],
+		"required": [
+			"schema",
+			"identificatie",
+			"volgnummer"
+		],
+		"mainGeometry": "geometrie",
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "De unieke aanduiding van een ligplaats"
+			},
+			"volgnummer": {
+				"type": "integer",
+				"title": "Object volgnummer",
+				"description": "Uniek volgnummer van de toestand van het object"
+			},
+			"plusvolgnummer": {
+				"type": "integer",
+				"title": "Object plus volgnummer",
+				"description": "extra volgnummer BAG-plus gegevens"
+			},
+			"registratiedatum": {
+				"type": "string",
+				"title": "Object registratie",
+				"format": "date-time",
+				"description": "De datum waarop de toestand van het object is geregistreerd"
+			},
+			"geconstateerd": {
+				"type": "boolean",
+				"title": "Ligplaats geconstateerd indicatie",
+				"description": "Een aanduiding waarmee kan worden aangegeven dat een ligplaats in de registratie is opgenomen als gevolg van een feitelijke constatering, zonder dat er op het moment van opname sprake was van een regulier brondocument voor deze opname"
+			},
+			"statusCode": {
+				"type": "integer",
+				"provenance": "$.status.code",
+				"title": "Ligplaats status code",
+				"description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd"
+			},
+			"statusOmschrijving": {
+				"type": "string",
+				"title": "Ligplaats status omschrijving",
+				"provenance": "$.status.omschrijving",
+				"description": "De fase van de levenscyclus van een ligplaats, waarin de betreffende ligplaats zich bevindt, Plaats aangewezen, plaats ingetrokken"
+			},
+			"heeftHoofdadres": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "bag:nummeraanduidingen",
+				"title": "Ligplaats heeft hoofdadres",
+				"description": "Het HOOFDadres dat de ligplaats heeft"
+			},
+			"heeftNevenadres": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"identificatie": {
+							"type": "string"
+						},
+						"volgnummer": {
+							"type": "integer"
+						},
+						"beginGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"eindGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						}
+					}
+				},
+				"relation": "bag:nummeraanduidingen",
+				"title": "Ligplaats heeft nevenadres",
+				"description": "Het NEVENadres dat de ligplaats (optioneel) heeft"
+			},
+			"geometrie": {
+				"$ref": "https://geojson.org/schema/Geometry.json",
+				"title": "Ligplaats geometrie",
+				"description": "Vorm en ligging van de ligplaats in het Nationale Rijksdriehoekstelsel"
+			},
+			"gebruiksdoel": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"omschrijving": {
+							"type": "string"
+						}
+					}
+				},
+				"title": "Ligplaats gebruiksdoelen",
+				"description": "Een categorisering van de gebruiksdoelen van de betreffende ligplaats, zoals dit door de overheid als zodanig is toegestaan"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"format": "date-time",
+				"title": "Ligplaats geldigheid begindatum",
+				"description": "De begindatum van een periode waarin een of meer gegevens die worden bijgehouden over een ligplaats een wijziging hebben ondergaan"
+			},
+			"eindGeldigheid": {
+				"type": "string",
+				"format": "date-time",
+				"title": "Ligplaats geldigheid einddatum",
+				"description": "De einddatum van een periode waarin een of meer gegevens die worden bijgehouden over een ligplaats een wijziging hebben ondergaan"
+			},
+			"heeftOnderzoeken": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"identificatie": {
+							"type": "string"
+						},
+						"volgnummer": {
+							"type": "integer"
+						},
+						"beginGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"eindGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						}
+					}
+				},
+				"relation": "bag:onderzoeken",
+				"title": "Ligplaats heeft onderzoeken",
+				"description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object"
+			},
+			"documentdatum": {
+				"type": "string",
+				"title": "Document datum",
+				"format": "date",
+				"description": "De datum waarop het brondocument is vastgesteld"
+			},
+			"documentnummer": {
+				"type": "string",
+				"title": "Document nummer",
+				"description": "Het unieke nummer van het brondocument"
+			},
+			"ligtInBuurt": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date"
+					}
+				},
+				"relation": "gebieden:buurten",
+				"title": "Ligplaats ligt in buurt",
+				"description": "De buurt waarin een ligplaats ligt"
+			},
+			"heeftDossier": {
+				"type": "string",
+				"relation": "bag:dossiers",
+				"provenance": "$.heeftDossier.dossier",
+				"title": "Ligplaats heeft dossier",
+				"description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie"
+			},
+			"bagprocesCode": {
+				"type": "integer",
+				"provenance": "$.bagproces.code",
+				"title": "BAG proces code",
+				"description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. code"
+			},
+			"bagprocesOmschrijving": {
+				"type": "string",
+				"provenance": "$.bagproces.omschrijving",
+				"title": "BAG proces omschrijving",
+				"description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
+			},
+			"datumActueelTot": {
+				"type": "string",
+				"title": "Actueel tot datum",
+				"format": "date-time",
+				"description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+			}
+		}
+	}
+}

@@ -1,0 +1,215 @@
+{
+	"id": "openbareruimtes",
+	"type": "table",
+	"version": "1.5.2",
+	"description": "Een OPENBARE RUIMTE is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen en van een naam voorziene buitenruimte die binnen één woonplaats is gelegen. Als openbare ruimte worden onder meer aangemerkt weg, water, terrein, spoorbaan en landschappelijk gebied.",
+	"temporal": {
+		"identifier": "volgnummer",
+		"dimensions": {
+			"geldigOp": [
+				"beginGeldigheid",
+				"datumActueelTot"
+			]
+		}
+	},
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": [
+			"identificatie",
+			"volgnummer"
+		],
+		"required": [
+			"schema",
+			"identificatie",
+			"volgnummer"
+		],
+		"display": "naam",
+		"mainGeometry": "geometrie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Openbare ruimte ID",
+				"description": "De unieke aanduiding van een openbare ruimte"
+			},
+			"volgnummer": {
+				"type": "integer",
+				"title": "Object volgnummer",
+				"description": "Uniek volgnummer van de toestand van het object"
+			},
+			"plusvolgnummer": {
+				"type": "integer",
+				"title": "Object plus volgnummer",
+				"description": "extra volgnummer BAG-plus gegevens"
+			},
+			"registratiedatum": {
+				"type": "string",
+				"title": "Object registratiedatum",
+				"format": "date-time",
+				"description": "De datum waarop de toestand van het object is geregistreerd"
+			},
+			"straatcode": {
+				"title": "Straat code",
+				"type": "string",
+				"description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd"
+			},
+			"straatnaamPtt": {
+				"title": "Straatnaam PTT",
+				"type": "string",
+				"description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd"
+			},
+			"statusCode": {
+				"type": "integer",
+				"provenance": "$.status.code",
+				"title": "Openbare ruimte status code",
+				"description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd"
+			},
+			"statusOmschrijving": {
+				"type": "string",
+				"provenance": "$.status.omschrijving",
+				"title": "Openbare ruimte status omschrijving",
+				"description": "De status van de levenscyclus van een openbare ruimte (Naamgeving uitgegeven, Naamgeving ingetrokken)"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Openbare ruimte geldigheid begindatum",
+				"format": "date-time",
+				"description": "De ingangsdatum van de geldigheid van een bepaalde combinatie van gegevens over een OPENBARE RUIMTE"
+			},
+			"eindGeldigheid": {
+				"type": "string",
+				"title": "Openbare ruimte geldigheid einddatum",
+				"format": "date-time",
+				"description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een OPENBARE RUIMTE"
+			},
+			"geconstateerd": {
+				"type": "boolean",
+				"title": "Openbare ruimte geconstateerd indicatie",
+				"description": "Een aanduiding waarmee kan worden aangegeven dat een openbare ruimte in de registratie is opgenomen als gevolg van een feitelijke constatering, zonder dat er op het moment van opname sprake was van een regulier brondocument voor deze opname"
+			},
+			"heeftOnderzoeken": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"identificatie": {
+							"type": "string"
+						},
+						"volgnummer": {
+							"type": "integer"
+						},
+						"beginGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"eindGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						}
+					}
+				},
+				"relation": "bag:onderzoeken",
+				"title": "Openbare ruime heeft onderzoeken",
+				"description": "Hiermee wordt aangegeven welke onderzoeken er worden uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object"
+			},
+			"typeCode": {
+				"type": "integer",
+				"provenance": "$.type.code",
+				"title": "Openbare ruimte type code",
+				"description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd"
+			},
+			"typeOmschrijving": {
+				"type": "string",
+				"provenance": "$.type.omschrijving",
+				"title": "Openbare ruimte type omschrijving",
+				"description": "De aard van de zodanig benoemde openbare ruimte (Weg, Water, Spoorbaan, Terrein, Kunstwerk, Landschappelijk gebied, Administratief gebied) omschrijving"
+			},
+			"documentdatum": {
+				"type": "string",
+				"title": "Brondocument datum",
+				"format": "date",
+				"description": "De datum waarop het brondocument is vastgesteld"
+			},
+			"documentnummer": {
+				"type": "string",
+				"title": "Brondocument nummer",
+				"description": "Het unieke nummer van het brondocument"
+			},
+			"naam": {
+				"type": "string",
+				"title": "Openbare ruimte naam",
+				"description": "Officiële naam openbare ruimte (80 tekens)"
+			},
+			"naamNen": {
+				"type": "string",
+				"title": "Openbare ruimte NEN naam",
+				"description": "Straatnaam volgens de inkortingsregels van NEN 5825 (24 tekens)"
+			},
+			"ligtInWoonplaats": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"datumActueelTot": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "bag:woonplaatsen",
+				"title": "Openbare ruimte ligt in woonplaats",
+				"description": "De woonplaats (landelijke identificatie) waarin de openbare ruimte ligt"
+			},
+			"beschrijvingNaam": {
+				"type": "string",
+				"title": "Openbare ruimte naam beschrijving",
+				"description": "Beschrijving van de openbare ruimte bijvoorbeeld: Vogel. Wereldwijd ......... grootste zeevogel ter wereld"
+			},
+			"heeftDossier": {
+				"type": "string",
+				"relation": "bag:dossiers",
+				"provenance": "$.heeftDossier.dossier",
+				"title": "Openbare ruimte heeft dossier",
+				"description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie"
+			},
+			"bagprocesCode": {
+				"type": "integer",
+				"provenance": "$.bagproces.code",
+				"title": "BAG proces code",
+				"description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. code"
+			},
+			"bagprocesOmschrijving": {
+				"type": "string",
+				"provenance": "$.bagproces.omschrijving",
+				"title": "BAG proces omschrijving",
+				"description": "Functionele handeling die ten grondslag ligt aan de gebeurtenis. omschrijving"
+			},
+			"geometrie": {
+				"$ref": "https://geojson.org/schema/Geometry.json",
+				"title": "Openbare ruimte geometrie",
+				"description": "Zie inwinregels voor geometrie openbare ruimte"
+			},
+			"datumActueelTot": {
+				"type": "string",
+				"format": "date-time",
+				"title": "Actueel tot datum",
+				"description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+			}
+		}
+	}
+}
