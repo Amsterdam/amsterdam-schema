@@ -1,0 +1,176 @@
+{
+  "id": "natuurlijkepersonen",
+  "type": "table",
+  "version": "1.0.0",
+  "auth": ["FP/MDW","HR/RS"],
+  "shortname": "Nps",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "identificatie"
+    ],
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "interne identificatie voor de Natuurlijk persoon"
+      },
+      "bsn": {
+        "type": "string",
+        "auth": "HR/RSN",
+        "description": "burgerservicenummer"
+      },
+      "voorvoegselGeslachtsnaam": {
+        "type": "string",
+        "description": "eventuele voorvoegsels van de naam van de NPS"
+      },
+      "geslachtsnaam": {
+        "type": "string",
+        "auth": "HR/RSN",
+        "description": "geslachtsnaam van de NPS"
+      },
+      "voornamen": {
+        "type": "string",
+        "auth": "HR/RSN",
+        "description": "voornaam of voornamen van de NPS"
+      },
+      "geslachtsaanduiding": {
+        "type": "string",
+        "auth": "HR/RSN",
+        "description": "geslachtsaanduiding van de NPS conform de GBA"
+      },
+      "volledigeNaam": {
+        "type": "string",
+        "auth": "HR/RSN",
+        "description": "volledige naam van de Persoon (PRS)"
+      },
+      "geboortedatum": {
+        "type": "object",
+        "auth": "HR/RSN",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        },
+        "description": "geboortedatum van de NPS"
+      },
+      "geboorteplaats": {
+        "type": "string",
+        "auth": "HR/RSN",
+        "description": "plaats waar de betreffende NPS is geboren"
+      },
+      "geboorteland": {
+        "type": "string",
+        "auth": "HR/RSN",
+        "description": "land waar de NPS geboren is"
+      },
+      "overlijdensdatum": {
+        "type": "object",
+        "auth": "HR/RSN",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        },
+        "description": "overlijdensdatum van de NPS"
+      },
+      "schuldsanering": {
+        "type": "string",
+        "description": "(SSN)"
+      },
+      "surceanceVanBetaling": {
+        "type": "boolean",
+        "description": "(SUR)"
+      },
+      "status": {
+        "type": "string",
+        "description": "status waarin de surseance verkeert, dit kan voorlopig of definitief zijn"
+      },
+      "duur": {
+        "type": "integer",
+        "description": "duur van de periode (in maanden) waarvoor surseance van betaling geldt"
+      },
+      "faillisement": {
+        "type": "string",
+        "description": "(FAL)"
+      },
+      "persoonRechtsvorm": {
+        "type": "string",
+        "description": "type persoon (NPS) of (NNP, Samenwerkingsverband, Rechtspersoon"
+      },
+      "uitgebreideRechtsvorm": {
+        "type": "string",
+        "description": "Rechtsvorm van inschrijving aangevuld met informatie over structuur, rechtbevoegdehid etc."
+      },
+      "typePersoon": {
+        "type": "string",
+        "description": "type persoon"
+      },
+      "rol": {
+        "type": "string"
+      },
+      "toegangscode": {
+        "type": "string",
+        "description": "toegangscode telefoonnummer"
+      },
+      "nummer": {
+        "type": "integer",
+        "auth": "HR/RSN",
+        "description": "telefoonnummer"
+      },
+      "heeftFunctieVervullingen": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "relation": "hr:functievervullingen",
+        "description": "Een Natuurlijk Persoon (NPS) heeft een of meer Functievervullingen (FVV)"
+      },
+      "isFunctieVervullingen": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "relation": "hr:functievervullingen",
+        "description": "Een Natuurlijk Persoon (NPS) is een of meer Functievervullingen (FVV)"
+      }
+    }
+  }
+}
