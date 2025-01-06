@@ -1,0 +1,76 @@
+{
+	"id": "stedelijkgebiedprojectofbelangen",
+	"type": "table",
+	"version": "1.0.1",
+	"description": "Stedelijke gebieden, projecten en belangen zijn projectgebieden binnen de gemeente Amsterdam, waar de voorbereiding van bestemmingsplannen door het college van burgemeester en wethouders of de burgemeester ter hand worden genomen",
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"mainGeometry": "geometrie",
+		"identifier": "identificatie",
+		"required": [
+			"schema",
+			"identificatie",
+			"geometrie"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "Unieke identificatie van het object"
+			},
+			"geometrie": {
+				"$ref": "https://geojson.org/schema/MultiPolygon.json",
+				"provenance": "geometry",
+				"title": "Geometrie",
+				"description": "Geometrische beschrijving van een object"
+			},
+			"naam": {
+				"type": "string",
+				"title": "Object naam",
+				"description": "De naam van het object"
+			},
+			"categorie": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string"
+					},
+					"omschrijving": {
+						"type": "string"
+					}
+				},
+				"title": "Object categorie",
+				"description": "Categorie"
+			},
+			"url": {
+				"type": "string",
+				"format": "uri",
+				"title": "Object URL",
+				"description": "URL naar bekendmaking"
+			},
+			"datum": {
+				"type": "string",
+				"format": "date",
+				"title": "Wordt nog aangevuld",
+				"description": "Wordt nog aangevuld"
+			},
+			"datumActueelTot": {
+				"type": "string",
+				"format": "date-time",
+				"title": "Actueel tot datum",
+				"description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+			},
+			"legenda": {
+				"type": "string",
+				"title": "Wordt nog aangevuld",
+				"description": "Wordt nog aangevuld"
+			}
+		}
+	}
+}

@@ -1,0 +1,468 @@
+{
+	"id": "kadastralesubjecten",
+	"type": "table",
+	"version": "1.1.1",
+	"auth": "BRK/RS",
+	"reasonsNonPublic": [
+		"5.1 1d: Bevat persoonsgegevens",
+		"5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+	],
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": "identificatie",
+		"required": [
+			"schema",
+			"identificatie"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "De aan dit subject toegekende landelijk unieke aanduiding"
+			},
+			"typeSubject": {
+				"auth": "BRK/RS",
+				"type": "string",
+				"title": "Subject type omschrijving",
+				"description": "Afgeleid gegeven. Is het subject een natuurlijk persoon of een niet-natuurlijk persoon"
+			},
+			"beschikkingsbevoegdheid": {
+				"auth": "BRK/RSN",
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"provenance": "$.beschikkingsbevoegdheidCode"
+					},
+					"omschrijving": {
+						"type": "string",
+						"provenance": "$.beschikkingsbevoegdheidOmschrijving"
+					}
+				},
+				"title": "Subject beschikkingsbevoegdheid",
+				"description": "Aanduiding van de beschikkingsbevoegdheid van een persoon"
+			},
+			"indicatieAfschermingGegevens": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"title": "Aanduiding afscherming gegevens",
+				"description": "Als extra toevoeging indien een persoon is afgeschermd. De vulling van andere attributen blijft hetzelfde zoals bij afscherming gebruikelijk is (met o.a. de identificatie gevuld met 15 x het cijfer 8)"
+			},
+			"heeftBsnVoorBrpPersoon": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"$comment": "relation brp:personen",
+				"title": "Persoon BSN",
+				"description": "Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene bepalingen burgerservicenummer"
+			},
+			"voornamen": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"title": "Subject voornamen",
+				"description": "Voornamen van het subject"
+			},
+			"voorvoegsels": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"title": "Subject voorvoegsels",
+				"description": "Voorvoegsels bij de geslachtsnaam"
+			},
+			"geslachtsnaam": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"title": "Subject geslachtsnaam",
+				"description": "Geslachtsnaam van de geregistreerde persoon"
+			},
+			"geslacht": {
+				"auth": "BRK/RSN",
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string"
+					},
+					"omschrijving": {
+						"type": "string"
+					}
+				},
+				"title": "Subject geslacht",
+				"description": "Geslacht van het geregistreerd persoon"
+			},
+			"naamGebruik": {
+				"auth": "BRK/RSN",
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string"
+					},
+					"omschrijving": {
+						"type": "string"
+					}
+				},
+				"description": "Aanduiding voor de wijze van aanschrijving van de ingeschrevene",
+				"title": "Subject naamgebruik"
+			},
+			"titelOfPredicaat": {
+				"auth": "BRK/RSN",
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string"
+					},
+					"omschrijving": {
+						"type": "string"
+					}
+				},
+				"title": "Subject titel of predicaat",
+				"description": "De adellijke titel of het predicaat"
+			},
+			"indicatieDiakrietNietToonbaar": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"title": "Aanduiding diakriet niet toonbaar",
+				"description": "Als een diakriet niet juist geregistreerd is in de BRP, wordt deze ook onjuist geleverd in BRK. In BRK wordt dan deze waarde geleverd (met waarde J)"
+			},
+			"geboortedatum": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"format": "date",
+				"title": "Subject geboortedatum",
+				"description": "De datum waarop een natuurlijk persoon is geboren"
+			},
+			"geboortedatumOnvolledig": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"title": "Subject onvolledige geboortedatum",
+				"description": "De datum waarop een natuurlijk persoon is geboren. Als dit kenmerk is gevuld is deze datum onvolledig (alleen jaar, of alleen jaar en maand bekend)"
+			},
+			"geboorteplaats": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"title": "Subject geboorteplaats",
+				"description": "De geboorteplaats is een plaatsaanduiding, die aangeeft waar de natuurlijke persoon geboren is"
+			},
+			"geboorteland": {
+				"auth": "BRK/RSN",
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string"
+					},
+					"omschrijving": {
+						"type": "string"
+					}
+				},
+				"title": "Subject geboorteland",
+				"description": "Geboorteland is een aanduiding van het land waar de natuurlijke persoon geboren is"
+			},
+			"datumOverlijden": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"format": "date",
+				"title": "Subject overlijdensdatum",
+				"description": "De overlijdensdatum is de datum waarop een natuurlijk persoon is overleden"
+			},
+			"datumOverlijdenOnvolledig": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"title": "Subject onvolledige overlijdensdatum",
+				"description": "De overlijdensdatum is de datum waarop een natuurlijk persoon is overleden. Als dit kenmerk is gevuld is deze datum onvolledig (alleen jaar, of alleen jaar en maand bekend)"
+			},
+			"indicatieOverleden": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"title": "Subject aanduiding overlijden",
+				"description": "Indicatie of de persoon al dan niet overleden is. De datum van overlijden is soms niet bekend, maar wel dat iemand overleden is. Dat is uit dit attribuut af te leiden"
+			},
+			"voornamenPartner": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"title": "Subject partner voornamen",
+				"description": "Voorna(a)m(en) van de geregistreerde partner"
+			},
+			"voorvoegselsPartner": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"title": "Subject partner voorvoegsels",
+				"description": "Voorvoegsel van de geregistreerde partner"
+			},
+			"geslachtsnaamPartner": {
+				"auth": "BRK/RSN",
+				"type": "string",
+				"title": "Subject partner geslachtsnaam",
+				"description": "Geslachtsna(a)m(en) van de geregistreerde partner"
+			},
+			"heeftRsinVoorHrNietNatuurlijkepersoon": {
+				"auth": "BRK/RS",
+				"type": "string",
+				"$comment": "relation handelsregister:nietnatuurlijkepersonen *stringify*",
+				"title": "Subject Niet natuurlijke persoon RSIN",
+				"description": "Het Rechtspersonen Samenwerking Identificatie Nummer uit het Handelsregister"
+			},
+			"heeftKvknummerVoorHrMaatschappelijkeactiviteit": {
+				"auth": "BRK/RS",
+				"type": "string",
+				"$comment": "relation handelsregister:maatschappelijkeactiviteiten *stringify*",
+				"title": "Subject Maatschappelijke activiteit KvK-nummer",
+				"description": "Het KvK-nummer uit het Handelsregister"
+			},
+			"rechtsvorm": {
+				"auth": "BRK/RS",
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string"
+					},
+					"omschrijving": {
+						"type": "string"
+					}
+				},
+				"title": "Subject rechtsvorm",
+				"description": "De juridische vorm van een niet-natuurlijk persoon"
+			},
+			"statutaireNaam": {
+				"auth": "BRK/RS",
+				"type": "string",
+				"title": "Subject statutaire naam",
+				"description": "De naam van de rechtspersoon. Het betreft de naam die is opgenomen in de oprichtingsakte"
+			},
+			"statutaireZetel": {
+				"auth": "BRK/RS",
+				"type": "string",
+				"title": "Subject statutaire naam",
+				"description": "De statutaire plaats van vestiging"
+			},
+			"woonadres": {
+				"auth": "BRK/RSN",
+				"type": "object",
+				"properties": {
+					"type": {
+						"type": "integer",
+						"title": "Woonadres type",
+						"description": "Woonlocatietype: 0: geen, 1: binnenland, 2: buitenland"
+					},
+					"adresseerbaarObject": {
+						"type": "string",
+						"provenance": "$.woonadresAdresseerbaarObject",
+						"title": "BAG adresseerbaar object",
+						"description": "BAG: Verblijfsobject / Standplaats / Ligplaats adresseerbaar_object"
+					},
+					"openbareRuimtenaam": {
+						"type": "string",
+						"provenance": "$.woonadresOpenbareRuimtenaam",
+						"title": "BAG openbare ruimtenaam",
+						"description": "BAG: Verblijfsobject / Standplaats / Ligplaats openbare_ruimte"
+					},
+					"huisnummer": {
+						"type": "integer",
+						"provenance": "$.woonadresHuisnummer",
+						"title": "BAG huisnummer",
+						"description": "BAG: Verblijfsobject / Standplaats / Ligplaats huisnummer"
+					},
+					"huisletter": {
+						"type": "string",
+						"provenance": "$.woonadresHuisletter",
+						"title": "BAG huisletter",
+						"description": "BAG: Verblijfsobject / Standplaats / Ligplaats huisletter"
+					},
+					"huisnummertoevoeging": {
+						"type": "string",
+						"provenance": "$.woonadresHuisnummerToevoeging",
+						"title": "BAG huisnummertoevoeging",
+						"description": "BAG: Verblijfsobject / Standplaats / Ligplaats huisnummertoevoeging"
+					},
+					"postcode": {
+						"type": "string",
+						"provenance": "$.woonadresPostcode",
+						"title": "BAG postcode",
+						"description": "BAG: Verblijfsobject / Standplaats / Ligplaats postcode"
+					},
+					"woonplaats": {
+						"type": "string",
+						"provenance": "$.woonadresWoonplaats",
+						"title": "BAG woonplaats",
+						"description": "BAG: Verblijfsobject / Standplaats / Ligplaats woonplaats"
+					},
+					"woonplaatsAfwijkend": {
+						"type": "string",
+						"title": "BAG afwijkende woonplaats",
+						"description": "BAG: Verblijfsobject / Standplaats / Ligplaats woonplaats afwijkend"
+					},
+					"buitenlandAdres": {
+						"type": "string",
+						"description": "Buitenlands adres adres",
+						"title": "Buitenlands adres",
+						"provenance": "$.woonadresBuitenlandAdres"
+					},
+					"buitenlandWoonplaats": {
+						"type": "string",
+						"description": "Buitenlands adres woonplaats",
+						"title": "Buitenlandse woonplaats",
+						"provenance": "$.woonadresBuitenlandWoonplaats"
+					},
+					"buitenlandRegio": {
+						"type": "string",
+						"provenance": "$.woonadresBuitenlandRegio",
+						"title": "Buitenlandse regio",
+						"description": "Buitenlands adres regio"
+					},
+					"buitenlandLandCode": {
+						"type": "string",
+						"provenance": "$.woonadresBuitenlandLandCode",
+						"title": "Buitenlandse land code",
+						"description": "Buitenlands adres land. Code"
+					},
+					"buitenlandLandOmschrijving": {
+						"type": "string",
+						"provenance": "$.woonadresBuitenlandLandOmschrijving",
+						"title": "Buitenlandse land omschrijving",
+						"description": "Buitenlands adres land. Omschrijving"
+					}
+				},
+				"title": "Subject woonadres",
+				"description": "Het woonadres van de (natuurlijke of niet natuurlijke) persoon"
+			},
+			"landWaarnaarVertrokken": {
+				"auth": "BRK/RSN",
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string"
+					},
+					"omschrijving": {
+						"type": "string"
+					}
+				},
+				"title": "Land waarnaar vertrokken",
+				"description": "Land dat de ingeschrevene opgeeft bij vertrek naar het buitenland"
+			},
+			"postadres": {
+				"auth": "BRK/RSN",
+				"type": "object",
+				"properties": {
+					"type": {
+						"type": "integer",
+						"title": "Postadres type",
+						"description": "Postlocatietype: 0: geen, 1: binnenland, 2: buitenland"
+					},
+					"adresseerbaarObject": {
+						"type": "string",
+						"provenance": "$.postadresAdresseerbaarObject",
+						"title": "Postadres adresseerbaar object",
+						"description": "Adresseerbaar object"
+					},
+					"openbareRuimtenaam": {
+						"type": "string",
+						"provenance": "$.postadresOpenbareRuimtenaam",
+						"title": "Postadres openbare ruimte",
+						"description": "Openbare ruimte"
+					},
+					"huisnummer": {
+						"type": "integer",
+						"provenance": "$.postadresHuisnummer",
+						"title": "Postadres huisnummer",
+						"description": "Huisnummer"
+					},
+					"huisletter": {
+						"type": "string",
+						"provenance": "$.postadresHuisletter",
+						"title": "Postadres huisletter",
+						"description": "Huisletter"
+					},
+					"huisnummertoevoeging": {
+						"type": "string",
+						"provenance": "$.postadresHuisnummertoevoeging",
+						"title": "Postadres huisnummertoevoeging",
+						"description": "Huisletter"
+					},
+					"postcode": {
+						"type": "string",
+						"provenance": "$.postadresPostcode",
+						"title": "Postadres postcode",
+						"description": "Postcode"
+					},
+					"woonplaatsnaam": {
+						"type": "string",
+						"provenance": "$.postadresWoonplaatsnaam",
+						"title": "Postadres woonplaats",
+						"description": "Woonplaats"
+					},
+					"woonplaatsnaamAfwijkend": {
+						"type": "string",
+						"title": "Postadres afwijkende woonplaats",
+						"description": "Woonplaats afwijkend"
+					},
+					"buitenlandAdres": {
+						"type": "string",
+						"provenance": "$.postadresBuitenlandAdres",
+						"title": "Postadres buitenlands adres",
+						"description": "Buitenlands adres"
+					},
+					"buitenlandWoonplaats": {
+						"type": "string",
+						"provenance": "$.postadresBuitenlandWoonplaats",
+						"title": "Postadres buitenlandse woonplaats",
+						"description": "Buitenlandse woonplaats"
+					},
+					"buitenlandRegio": {
+						"type": "string",
+						"provenance": "$.postadresBuitenlandRegio",
+						"title": "Postadres buitenlandse regio",
+						"description": "Buitenlandse regio"
+					},
+					"buitenlandLandCode": {
+						"type": "string",
+						"provenance": "$.postadresBuitenlandLand.code",
+						"title": "Postadres buitenlandse land code",
+						"description": "Buitenlands land. Code"
+					},
+					"buitenlandLandOmschrijving": {
+						"type": "string",
+						"provenance": "$.postadresBuitenlandLand.omschrijving",
+						"title": "Postadres buitenlandse land omschrijving",
+						"description": "Buitenlands land. Omschrijving"
+					},
+					"postbusNummer": {
+						"type": "integer",
+						"provenance": "$.postadresPostbusNummer",
+						"title": "Postadres postbus nummer",
+						"description": "Postbusnummer"
+					},
+					"postbusPostcode": {
+						"type": "string",
+						"provenance": "$.postadresPostbusPostcode",
+						"title": "Postadres postbus postcode",
+						"description": "Postcode"
+					},
+					"postbusWoonplaatsnaam": {
+						"type": "string",
+						"provenance": "$.postadresPostbusWoonplaatsnaam",
+						"title": "Postadres postbus woonplaats",
+						"description": "Woonplaatsnaam"
+					}
+				},
+				"title": "Subject postadres",
+				"description": "Het postadres van de (natuurlijke of niet natuurlijke) persoon"
+			},
+			"datumActueelTot": {
+				"auth": "BRK/RS",
+				"type": "string",
+				"format": "date-time",
+				"title": "Datum actueel tot",
+				"description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+			},
+			"toestandsdatum": {
+				"auth": "BRK/RS",
+				"type": "string",
+				"format": "date",
+				"title": "Kadastrale registratie toestand datum",
+				"description": "De datum waarop de geleverde toestand van het onderliggende kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)"
+			}
+		}
+	}
+}

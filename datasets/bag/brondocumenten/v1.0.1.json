@@ -1,0 +1,68 @@
+{
+	"id": "brondocumenten",
+	"type": "table",
+	"version": "1.0.1",
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": "documentnummer",
+		"required": [
+			"schema",
+			"documentnummer"
+		],
+		"display": "documentnummer",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+			},
+			"documentnummer": {
+				"type": "string",
+				"title": "Brondocument nummer",
+				"description": "Identificerende nummer van het document"
+			},
+			"bronleverancierCode": {
+				"type": "string",
+				"provenance": "$.bronleverancier.code",
+				"title": "Bron leverancier code",
+				"description": "Verstrekker van brondocumenten en/​of gegevens voortkomend uit het uitoefenen of voorbereiden van een gemeentelijke bevoegdheid, die nodig zijn voor een registratie aan de bronhouder, conform vastgestelde aanleverspecificaties. code"
+			},
+			"bronleverancierOmschrijving": {
+				"type": "string",
+				"provenance": "$.bronleverancier.omschrijving",
+				"title": "Bron leverancier omschrijving",
+				"description": "Verstrekker van brondocumenten en/​of gegevens voortkomend uit het uitoefenen of voorbereiden van een gemeentelijke bevoegdheid, die nodig zijn voor een registratie aan de bronhouder, conform vastgestelde aanleverspecificaties. omschrijving"
+			},
+			"typeDossierCode": {
+				"type": "string",
+				"provenance": "$.typeDossier.code",
+				"title": "Dossier type code",
+				"description": "Het type dossier. code"
+			},
+			"typeDossierOmschrijving": {
+				"type": "string",
+				"provenance": "$.typeDossier.omschrijving",
+				"title": "Dossier type omschrijving",
+				"description": "Het type dossier. omschrijving"
+			},
+			"typeBrondocumentCode": {
+				"type": "string",
+				"provenance": "$.typeBrondocument.code",
+				"title": "Brondocument type code",
+				"description": "Het type brondocument. code"
+			},
+			"typeBrondocumentOmschrijving": {
+				"type": "string",
+				"provenance": "$.typeBrondocument.omschrijving",
+				"title": "Brondocument type omschrijving",
+				"description": "Het type brondocument. omschrijving"
+			},
+			"registratiedatum": {
+				"type": "string",
+				"title": "Registratie datum",
+				"format": "date-time",
+				"description": "De datum waarop het brondocument is opgeslagen in het register"
+			}
+		}
+	}
+}
