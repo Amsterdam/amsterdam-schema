@@ -16,16 +16,18 @@
       "schema",
       "objectId"
     ],
-    "mainGeometry": "geometrie",
     "display": "objectId",
     "properties": {
         "objectId": {
-          "title": "Gebouwobject identificatie",
           "type": "integer",
           "description": "Unieke ID van het object."
       },
-        "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke identificatie."
       },
       "objectNaam": {
         "type": "string",
@@ -82,10 +84,6 @@
       "geometrie": {
         "description": "Geometrie van het type multipolygon in RD (EPSG:28992).",
         "$ref": "https://geojson.org/schema/Geometry.json"
-      },
-      "id": {
-        "type": "integer",
-        "description": "Unieke identificatie."
       }
     }
   }
