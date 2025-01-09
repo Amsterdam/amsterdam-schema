@@ -1491,7 +1491,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version 742f3d674, updated Mon Nov 4 14:56:54 2024 -0800" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="e1b5679c4dfeb11d8b50a20cafa71b1f3b184ac7" name="revision">
+  <meta content="4b2fd5d6608857c0e883ae24c89ed76d7d1016bf" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
     p[data-fill-with="logo"] {
@@ -2358,7 +2358,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Amsterdam Schema Specificatie</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2024-12-02">2 December 2024</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2025-01-09">9 January 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2434,8 +2434,8 @@ om datasets in een machineleesbaar format te beschrijven en op generieke wijze t
     <li>
      <a href="#changelog"><span class="secno">9</span> <span class="content">Changelog</span></a>
      <ol class="toc">
-      <li><a href="#lastchange"><span class="secno">9.1</span> <span class="content">[2.2.0] dataclass atribuut toegevoegd (2023-01-12)</span></a>
-      <li><a href="#20230110"><span class="secno">9.2</span> <span class="content">[2.1.5] dataclass atribuut toegevoegd (2023-01-10)</span></a>
+      <li><a href="#lastchange"><span class="secno">9.1</span> <span class="content">[2.2.0] dataclass attribuut toegevoegd (2023-01-12)</span></a>
+      <li><a href="#20230110"><span class="secno">9.2</span> <span class="content">[2.1.5] dataclass attribuut toegevoegd (2023-01-10)</span></a>
       <li><a href="#20221221"><span class="secno">9.3</span> <span class="content">[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</span></a>
       <li><a href="#20220413-2"><span class="secno">9.4</span> <span class="content">[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</span></a>
       <li><a href="#20220413-1"><span class="secno">9.5</span> <span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span></a>
@@ -2457,7 +2457,7 @@ om datasets in een machineleesbaar format te beschrijven en op generieke wijze t
    </ol>
   </nav>
   <main>
-   <p><strong class="advisement"> De meest recente aanpassing aan deze specificatie is:<br> <a href="#lastchange">§ 9.1 [2.2.0] dataclass atribuut toegevoegd (2023-01-12)</a></strong></p>
+   <p><strong class="advisement"> De meest recente aanpassing aan deze specificatie is:<br> <a href="#lastchange">§ 9.1 [2.2.0] dataclass attribuut toegevoegd (2023-01-12)</a></strong></p>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introductie</span><a class="self-link" href="#intro"></a></h2>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Alle data van gemeente Amsterdam binnen één machine verwerkbaar universeel format beschrijven,
@@ -2846,7 +2846,7 @@ Daarnaast kan aan een tabel meta informatie en autorisatie instellingen worden m
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-reasonsnonpublic"><code class="highlight">reasonsNonPublic</code></dfn>
       <td> array(<code class="idl"><a data-link-type="idl" href="#typedefdef-nonpubreason" id="ref-for-typedefdef-nonpubreason①">nonPubReason</a></code>)
       <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de <a data-link-type="biblio" href="#biblio-woo" title="Wet open overheid">[Woo]</a>.
-            (Vanaf 1 mei 2022 verplicht wanneer de dataset openbaar is maar het <code class="idl"><a data-link-type="idl" href="#dom-tabel-auth" id="ref-for-dom-tabel-auth">auth</a></code> atribuut van de tabel niet gelijk is aan "OPENBAAR") zie <a href="#autorisatie">§ 7.2 Autorisatie</a>
+            (Vanaf 1 mei 2022 verplicht wanneer de dataset openbaar is maar het <code class="idl"><a data-link-type="idl" href="#dom-tabel-auth" id="ref-for-dom-tabel-auth">auth</a></code> attribuut van de tabel niet gelijk is aan "OPENBAAR") zie <a href="#autorisatie">§ 7.2 Autorisatie</a>
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-provenance"><code class="highlight">provenance</code></dfn>
       <td> string
@@ -3190,7 +3190,7 @@ Een <a data-link-type="dfn" href="#veld" id="ref-for-veld⑨">veld</a> is een co
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="veld" data-dfn-type="attribute" data-export id="dom-veld-reasonsnonpublic"><code class="highlight">reasonsNonPublic</code></dfn>
       <td> array(<code class="idl"><a data-link-type="idl" href="#typedefdef-nonpubreason" id="ref-for-typedefdef-nonpubreason②">nonPubReason</a></code>)
       <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de <a data-link-type="biblio" href="#biblio-woo" title="Wet open overheid">[Woo]</a>.
-            (Vanaf 1 mei 2022 verplicht wanneer de tabel openbaar is maar het <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth②">auth</a></code> atribuut van het veld niet gelijk is aan "OPENBAAR") zie <a href="#autorisatie">§ 7.2 Autorisatie</a>
+            (Vanaf 1 mei 2022 verplicht wanneer de tabel openbaar is maar het <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth②">auth</a></code> attribuut van het veld niet gelijk is aan "OPENBAAR") zie <a href="#autorisatie">§ 7.2 Autorisatie</a>
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="veld" data-dfn-type="attribute" data-export id="dom-veld-provenance"><code class="highlight">provenance</code></dfn>
       <td> string
@@ -4121,15 +4121,15 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
     Dit is een chronologisch overzicht van aanpassingen aan de amsterdam-schema specificatie.
 Uitsluitend normatieve aanpassingen aan de specificatie worden vermeld. Aanpassingen aan voorbeelden,
 waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
-   <h3 class="heading settled" data-level="9.1" id="lastchange"><span class="secno">9.1. </span><span class="content">[2.2.0] dataclass atribuut toegevoegd (2023-01-12)</span><a class="self-link" href="#lastchange"></a></h3>
+   <h3 class="heading settled" data-level="9.1" id="lastchange"><span class="secno">9.1. </span><span class="content">[2.2.0] dataclass attribuut toegevoegd (2023-01-12)</span><a class="self-link" href="#lastchange"></a></h3>
    <blockquote>
-    <p><strong>Doelstelling</strong><br> UItzonderingsgronden WOO in lijn gebracht met versie van WOO die nu van kracht is.</p>
+    <p><strong>Doelstelling</strong><br> Uitzonderingsgronden WOO in lijn gebracht met versie van WOO die nu van kracht is.</p>
    </blockquote>
    <ul>
     <li data-md>
      <p>Het <code class="idl"><a data-link-type="idl" href="#dom-tabel-dataclass" id="ref-for-dom-tabel-dataclass">dataclass</a></code> attribuut is toegevoegd.</p>
    </ul>
-   <h3 class="heading settled" data-level="9.2" id="20230110"><span class="secno">9.2. </span><span class="content">[2.1.5] dataclass atribuut toegevoegd (2023-01-10)</span><a class="self-link" href="#20230110"></a></h3>
+   <h3 class="heading settled" data-level="9.2" id="20230110"><span class="secno">9.2. </span><span class="content">[2.1.5] dataclass attribuut toegevoegd (2023-01-10)</span><a class="self-link" href="#20230110"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Beschrijving en relatering van ongestructureerde data mogelijk maken.</p>
    </blockquote>
@@ -4691,7 +4691,7 @@ let dfnPanelData = {
 "dom-dataset-owner": {"dfnID":"dom-dataset-owner","dfnText":"owner","external":false,"refSections":[],"url":"#dom-dataset-owner"},
 "dom-dataset-provenance": {"dfnID":"dom-dataset-provenance","dfnText":"provenance","external":false,"refSections":[],"url":"#dom-dataset-provenance"},
 "dom-dataset-publisher": {"dfnID":"dom-dataset-publisher","dfnText":"publisher","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-publisher"}],"title":"9.3. [2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)"},{"refs":[{"id":"ref-for-dom-dataset-publisher\u2460"}],"title":"9.7. [2.1.0] Dataset contact gegevens (2022-03-17)"}],"url":"#dom-dataset-publisher"},
-"dom-dataset-reasonsnonpublic": {"dfnID":"dom-dataset-reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-reasonsnonpublic"}],"title":"9.2. [2.1.5] dataclass atribuut toegevoegd (2023-01-10)"},{"refs":[{"id":"ref-for-dom-dataset-reasonsnonpublic\u2460"}],"title":"9.4. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-dataset-reasonsnonpublic"},
+"dom-dataset-reasonsnonpublic": {"dfnID":"dom-dataset-reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-reasonsnonpublic"}],"title":"9.2. [2.1.5] dataclass attribuut toegevoegd (2023-01-10)"},{"refs":[{"id":"ref-for-dom-dataset-reasonsnonpublic\u2460"}],"title":"9.4. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-dataset-reasonsnonpublic"},
 "dom-dataset-spatial": {"dfnID":"dom-dataset-spatial","dfnText":"spatial","external":false,"refSections":[],"url":"#dom-dataset-spatial"},
 "dom-dataset-spatialcoordinates": {"dfnID":"dom-dataset-spatialcoordinates","dfnText":"spatialCoordinates","external":false,"refSections":[],"url":"#dom-dataset-spatialcoordinates"},
 "dom-dataset-spatialdescription": {"dfnID":"dom-dataset-spatialdescription","dfnText":"spatialDescription","external":false,"refSections":[],"url":"#dom-dataset-spatialdescription"},
@@ -4722,7 +4722,7 @@ let dfnPanelData = {
 "dom-schema-type": {"dfnID":"dom-schema-type","dfnText":"type","external":false,"refSections":[],"url":"#dom-schema-type"},
 "dom-tabel-auth": {"dfnID":"dom-tabel-auth","dfnText":"auth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-auth"}],"title":"3.2. Optionele attributen"},{"refs":[{"id":"ref-for-dom-tabel-auth\u2460"}],"title":"4.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-tabel-auth\u2461"}],"title":"7.2. Autorisatie"}],"url":"#dom-tabel-auth"},
 "dom-tabel-crs": {"dfnID":"dom-tabel-crs","dfnText":"crs","external":false,"refSections":[],"url":"#dom-tabel-crs"},
-"dom-tabel-dataclass": {"dfnID":"dom-tabel-dataclass","dfnText":"dataclass","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-dataclass"}],"title":"9.1. [2.2.0] dataclass atribuut toegevoegd (2023-01-12)"}],"url":"#dom-tabel-dataclass"},
+"dom-tabel-dataclass": {"dfnID":"dom-tabel-dataclass","dfnText":"dataclass","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-dataclass"}],"title":"9.1. [2.2.0] dataclass attribuut toegevoegd (2023-01-12)"}],"url":"#dom-tabel-dataclass"},
 "dom-tabel-datecreated": {"dfnID":"dom-tabel-datecreated","dfnText":"dateCreated","external":false,"refSections":[],"url":"#dom-tabel-datecreated"},
 "dom-tabel-datemodified": {"dfnID":"dom-tabel-datemodified","dfnText":"dateModified","external":false,"refSections":[],"url":"#dom-tabel-datemodified"},
 "dom-tabel-derivedfrom": {"dfnID":"dom-tabel-derivedfrom","dfnText":"derivedFrom","external":false,"refSections":[],"url":"#dom-tabel-derivedfrom"},
