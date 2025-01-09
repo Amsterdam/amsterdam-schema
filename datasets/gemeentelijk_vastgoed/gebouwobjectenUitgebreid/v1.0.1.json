@@ -20,63 +20,77 @@
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
     },
       "object_id": {
+        "type": "integer",
         "description": "Unieke identificatie van het object gemeentelijk vastgoed.",
         "title": "Gemeentelijk vastgoed ID"
-
     },
       "objectnaam": {
+        "type": "string",
         "description": "Naam van het gebouwobject uit het vastgoedbeheersysteem.",
         "title": "Gemeentelijk vastgoed objectnaam"
     },
       "straatnaam": {
+        "type": "string",
         "description": "De naam van de straat",
         "title": "Straatnaam"
     },
-    "huisnummer": {
-      "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering.",
-      "title": "Huisnummer"
+      "huisnummer": {
+        "type": "integer",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering.",
+        "title": "Huisnummer"
     },
-    "huisletter": {
-      "type": "string",
-      "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken.",
-      "title": "Huisletter"
+      "huisletter": {
+        "type": "string",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken.",
+        "title": "Huisletter"
     },
-    "huisnummertoevoeging": {
-      "type": "string",
-      "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter",
-      "title": "Huisnummer toevoeging"
+      "huisnummertoevoeging": {
+        "type": "string",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter",
+        "title": "Huisnummer toevoeging"
     },
       "huisnummeraanduiding": {
+        "type": "string",
         "description": "Huisnummeraanduiding van het gebouwobject uit het vastgoedbeheersysteem.",
         "title": "Huisnummer aanduiding"
     },
       "assetmanager": {
+        "type": "string",
         "description": "Naam assetmanager.",
         "title": "Naam assetmanager"
     },
       "themaportefeuille": {
+        "type": "string",
         "description": "Geeft aan in welke themaportefeuille het object binnen Gemeentelijk Vastgoed valt.",
         "title": "Gemeentelijk vastgoed themaportefeuille"
     },
       "kostenplaats": {
+        "type": "integer",
         "description": "Betreft de gerelateerde kostenplaats in AFS/AFIS.",
         "title": "Kostenplaats binnen Amsterdams Financieel en Inkoop Systeem"
     },
       "eigendom": {
+        "type": "string",
         "description": "Geeft de eigendomssituatie weer: volle eigendom of appartementsrecht.",
         "title": "Eigendomssituatie gebouwobject"
     },
       "bvo": {
+        "type": "number",
         "description": "Bruto vloeroppervlak van het object gemeentelijk vastgoed.",
         "title": "Bruto vloeroppervlak"
     },
       "vvo": {
+        "type": "number",
         "description": "Verhuurbaar vloeroppervlak van het object gemeentelijk vastgoed.",
         "title": "Verhuurbaar vloeroppervlak"
     },
-      "bag_pand_ids": {
+    "bag_pand_ids": {
+        "type": "array",
         "description": "Landelijke identificerende sleutel van de pandobjecten. Kan één of meerdere waardes bevatten doordat een object meerdere BAG panden kan beslaan.",
-        "title": "Pand ID"
+        "title": "Pand ID",
+        "items": {
+          "type": "string"
+        }
     },
       "geometrie": {
         "description": "Geometrie van het type multipolygoon in RD (EPSG:28992).",

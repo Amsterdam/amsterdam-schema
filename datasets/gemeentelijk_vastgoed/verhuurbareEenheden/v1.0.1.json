@@ -19,65 +19,81 @@
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
     },
-      "vhe_id": {
+    "vhe_id": {
+        "type": "integer",
         "description": "Unieke identificatie van de verhuurbare eenheid.",
         "title": "Verhuurbare eenheid ID"
     },
       "object_id": {
+        "type": "integer",
         "description": "Unieke ID van het object.",
         "title": "Gemeentelijk vastgoed ID"
     },
       "vheNaam": {
+        "type": "string",
         "description": "Verhuurbare eenheid naam.",
         "title": "Verhuurbare eenheid naam"
     },
       "straatnaam": {
+        "type": "string",
         "description": "De naam van de straat",
         "title": "Straatnaam"
     },
       "huisnummer": {
-      "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering.",
-      "title": "Huisnummer"
+        "type": "integer",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering.",
+        "title": "Huisnummer"
     },
       "huisletter": {
-      "type": "string",
-      "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken.",
-      "title": "Huisletter"
+        "type": "string",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken.",
+        "title": "Huisletter"
     },
       "huisnummertoevoeging": {
-      "type": "string",
-      "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter",
-      "title": "Huisnummer toevoeging"
+        "type": "string",
+       "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter",
+       "title": "Huisnummer toevoeging"
     },
       "huisnummeraanduiding": {
+        "type": "string",
         "description": "Huisnummer aanduiding van de verhuurbare eenheid uit het vastgoedbeheersysteem.",
         "title": "Huisnummeraanduiding"
     },
       "postcode": {
+        "type": "string",
         "description": "Postcode van de verhuurbare eenheid uit het vastgoedbeheersysteem.",
         "title": "Postcode"
     },
       "plaats": {
+        "type": "string",
         "description": "Plaats van de verhuurbare eenheid uit het vastgoedbeheersysteem.",
         "title": "Plaats"
     },
       "vhe_soort": {
+        "type": "string",
         "description": "Geeft het soort verhuurbare eenheid aan. Dit betreft een categorisering vanuit Gemeentelijk Vastgoed.",
         "title": "Gemeentelijk vastgoed verhuurbare eenheid soort"
     },
       "vvo": {
+        "type": "number",
         "description": "Verhuurbaar vloeroppervlak van de verhuurbare eenheid.",
         "title": "Verhuurbaar vloeroppervlak"
     },
-      "contract_id": {
-        "description": "Uniek identificatie van het gerelateerde contract.",
-        "title": "Gemeentelijk vastgoed contract ID"
+      "contract_ids": {
+        "type": "string",
+        "description": "Uniek identificatie van het gerelateerde contract. Kan meerdere waardes bevatten",
+        "title": "Gemeentelijk vastgoed contract ID",
+        "items": {
+            "type": "string"
+          }
     },
       "feitelijk_gebruik": {
+        "type": "string",
         "description": "Het feitelijk gebruik volgens het contract.",
         "title": "Feitelijk gebruik"
     },
       "bag_verblijfsobject_id": {
+        "type": "integer",
         "description": "Landelijke identificerende sleutel van het verblijfsobject.",
         "title": "Verblijfsobject ID"
     },
