@@ -181,7 +181,7 @@ In order to develop a new metaschema version locally and run structural and sema
 4) generate-index > datasets/index.json
 
 *Point the references in the dataset that we will use for development to the devserver*  
-5) sed -i 's/https:\/\/schemas\.data\.amsterdam\.nl/http:\/\/localhost:8000/g' datasets/<some-dataset>/{,**/}*.json
+5) ```sed -i 's/https:\/\/schemas\.data\.amsterdam\.nl/http:\/\/localhost:8000/g' datasets/<some-dataset>/{,**/}*.json```
 
 *Start an nginx server with the source mounted and which rewrites URIs so*  
 *that it supports the URL structure expected by the schema references.*  
