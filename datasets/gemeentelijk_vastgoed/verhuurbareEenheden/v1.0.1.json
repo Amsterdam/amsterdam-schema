@@ -1,0 +1,90 @@
+{
+  "id": "verhuurbareEenheden",
+  "type": "table",
+  "version": "1.0.1",
+  "title": "Verhuurbare eenheden",
+  "description": "Gegevens over de verhuurbare eenheden in beheer bij de directie Gemeentelijk Vastgoed waarop de gemeente Amsterdam een appartementsrecht heeft. Een verhuurbare eenheid kent veelal een relatie met een BAG-verblijfsobject.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "vheId",
+    "mainGeometry": "geometrie",
+    "required": [
+      "schema",
+      "vheId"
+    ],
+    "display": "vheId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+    },
+      "vhe_id": {
+        "description": "Unieke identificatie van de verhuurbare eenheid.",
+        "title": "Verhuurbare eenheid ID"
+    },
+      "object_id": {
+        "description": "Unieke ID van het object.",
+        "title": "Gemeentelijk vastgoed ID"
+    },
+      "vheNaam": {
+        "description": "Verhuurbare eenheid naam.",
+        "title": "Verhuurbare eenheid naam"
+    },
+      "straatnaam": {
+        "description": "De naam van de straat",
+        "title": "Straatnaam"
+    },
+      "huisnummer": {
+      "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering.",
+      "title": "Huisnummer"
+    },
+      "huisletter": {
+      "type": "string",
+      "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken.",
+      "title": "Huisletter"
+    },
+      "huisnummertoevoeging": {
+      "type": "string",
+      "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter",
+      "title": "Huisnummer toevoeging"
+    },
+      "huisnummeraanduiding": {
+        "description": "Huisnummer aanduiding van de verhuurbare eenheid uit het vastgoedbeheersysteem.",
+        "title": "Huisnummeraanduiding"
+    },
+      "postcode": {
+        "description": "Postcode van de verhuurbare eenheid uit het vastgoedbeheersysteem.",
+        "title": "Postcode"
+    },
+      "plaats": {
+        "description": "Plaats van de verhuurbare eenheid uit het vastgoedbeheersysteem.",
+        "title": "Plaats"
+    },
+      "vhe_soort": {
+        "description": "Geeft het soort verhuurbare eenheid aan. Dit betreft een categorisering vanuit Gemeentelijk Vastgoed.",
+        "title": "Gemeentelijk vastgoed verhuurbare eenheid soort"
+    },
+      "vvo": {
+        "description": "Verhuurbaar vloeroppervlak van de verhuurbare eenheid.",
+        "title": "Verhuurbaar vloeroppervlak"
+    },
+      "contract_id": {
+        "description": "Uniek identificatie van het gerelateerde contract.",
+        "title": "Gemeentelijk vastgoed contract ID"
+    },
+      "feitelijk_gebruik": {
+        "description": "Het feitelijk gebruik volgens het contract.",
+        "title": "Feitelijk gebruik"
+    },
+      "bag_verblijfsobject_id": {
+        "description": "Landelijke identificerende sleutel van het verblijfsobject.",
+        "title": "Verblijfsobject ID"
+    },
+      "geometrie": {
+        "description": "Geometrie van het type point in RD (EPSG:28992).",
+        "title": "Geometrie"
+      }
+    }
+  }
+}
