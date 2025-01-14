@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://schemas.data.amsterdam.nl/dataset@v2.0.1",
+  "$id": "https://schemas.data.amsterdam.nl/dataset@v2.1.0",
   "type": "object",
   "allOf": [
     {
-      "$ref": "./schema@v2.0.1#/definitions/basicProperties"
+      "$ref": "./schema@v2.1.0#/definitions/basicProperties"
     }
   ],
   "required": [
@@ -21,7 +21,7 @@
       "const": "dataset"
     },
     "version": {
-      "$ref": "./schema@v2.0.1#/definitions/version"
+      "$ref": "./schema@v2.1.0#/definitions/version"
     },
     "status": {
       "type": "string",
@@ -110,7 +110,7 @@
     },
     "contactPoint": {
       "description": "Person and (optional) e-mail.",
-      "$ref": "./schema@v2.0.1#/definitions/contactPoint",
+      "$ref": "./schema@v2.1.0#/definitions/contactPoint",
       "default": {
         "name": "datapunt",
         "email": "datapunt@amsterdam.nl"
@@ -118,7 +118,7 @@
     },
     "crs": {
       "description": "Coordinate reference system",
-      "$ref": "./schema@v2.0.1#/definitions/crs"
+      "$ref": "./schema@v2.1.0#/definitions/crs"
     },
     "tables": {
       "type": "array",
@@ -126,7 +126,7 @@
       "items": {
         "oneOf": [
           {
-            "$ref": "./table@v2.0.1"
+            "$ref": "./table@v2.1.0"
           },
           {
             "type": "object",
