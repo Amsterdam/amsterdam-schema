@@ -1,0 +1,118 @@
+{
+    "id": "rolcontainerActie",
+    "type": "table",
+    "version": "1.1.1",
+    "description": "Deze tabel bevat informatie over onderhoud handelingen.",
+    "provenance": "huishoudelijkafval_rolcontainer_actie",
+    "auth": "FP/MDW",
+    "reasonsNonPublic": [
+        "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+    ],
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+            "schema",
+            "id"
+        ],
+        "display": "id",
+        "identifier": "id",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+            },
+            "id": {
+                "type": "integer",
+                "description": "Unieke aanduiding van een onderhoudsactie",
+                "title": "Onderhoudsactie ID"
+            },
+            "rolcontainer": {
+                "type": "integer",
+                "relation": "huishoudelijkafval:rolcontainer",
+                "description": "Unieke aanduiding van een rolcontainer. (foreign key)",
+                "title": "Rolcontainer ID"
+            },
+            "actieTypeCode": {
+                "type": "string",
+                "description": "Dit attribuut beschrijft de code van de actie type",
+                "title": "Actie type code"
+            },
+            "actieTypeNaam": {
+                "type": "string",
+                "description": "Dit attribuut beschrijft de aard van de actie type",
+                "title": "Actie type naam"
+            },
+            "interventieDatum": {
+                "type": "string",
+                "description": "De geplande datum voor een bepaalde actie.",
+                "title": "Interventie datum"
+            },
+            "status": {
+                "type": "string",
+                "description": "Dit attribuut geeft de actuele status van een rolcontainer aan. De volgende statussen zijn mogelijk.  Active, inactive en blocked.",
+                "title": "Rolcontainer status"
+            },
+            "ronde": {
+                "type": "string",
+                "description": "",
+                "title": "Ronde"
+            },
+            "bezoek": {
+                "type": "integer",
+                "description": "Het aantal bezoeken dat is afgelegd om het verzoek te realiseren.",
+                "title": "Bezoek aantal"
+            },
+            "afkomstVerzoek": {
+                "type": "string",
+                "description": "Deze attribuut geeft aan of de actie door intern of extern verzoek is tot stand gekomen.",
+                "title": "Verzoek afkomst"
+            },
+            "soortVerzoek": {
+                "type": "string",
+                "description": "Dit attribuut geeft aan welk communicatiemiddel is gebruikt om het verzoek te registreren..",
+                "title": "Verzoek soort"
+            },
+            "team": {
+                "type": "string",
+                "description": "Het team dat verantwoordelijk is voor het afhandelen van het verzoek.",
+                "title": "Team"
+            },
+            "chipNummer": {
+                "type": "string",
+                "description": "Unieke aanduiding van de chip dat aan de rolcontainer is bevestigd. Het chipnummer is van buitenaf niet leesbaar.",
+                "title": "Chip nummer"
+            },
+            "soortContainer": {
+                "type": "string",
+                "description": "Dit attribuut geeft een aantal kenmerken (materieel, inhoud in liter en fractie) van een rolcontainer. Bijvoorbeeld: GFE/T 140 Kunststof.",
+                "title": "Rolcontainer soort"
+            },
+            "aanmaakdatum": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Datum tijd waarop de rolcontainer in het systeem is aangemaakt",
+                "title": "Rolcontainer aanmaakdatum"
+            },
+            "wijzigingsdatum": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Datum tijd waarop de rolcontainer in het systeem voor het laatst is aangepast",
+                "title": "Rolcontainer wijzigingsdatum"
+            },
+            "bagVerblijfsobject": {
+                "type": "string",
+                "relation": "bag:verblijfsobjecten",
+                "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
+                "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject.",
+                "title": "BAG verblijfsobject identificatie"
+            },
+            "bagNummeraanduiding": {
+                "type": "string",
+                "relation": "bag:nummeraanduidingen",
+                "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
+                "description": "BAG Identificatie nummeraanduiding"
+            }
+        }
+    }
+}
