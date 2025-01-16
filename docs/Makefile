@@ -1,6 +1,6 @@
 ams-schema-spec.html: ams-schema-spec.bs
 	bikeshed spec $< $@
-# Clear training whitespace
+# Clear trailing whitespace
 	sed -i.bak -e 's/ *$$//' $@
 	rm $@.bak
 
