@@ -1451,7 +1451,7 @@ Confirm the [[Woo|Wet Open Overheid]] (Woo) zijn gegevens standaard openbaar.
 Er zijn twee mechanismen om de toegang te beperken en authorisatie in te regelen:
 
 1. De `"auth"`-attributen in het Amsterdam-schema beperken de toegang. zie [[#auth]].
-2. De profielen geven grunulair toegang op basis van een gebruikersprofiel. zie [[#profielen]].
+2. De profielen geven granulair toegang op basis van een gebruikersprofiel. zie [[#profielen]].
 
 Beide mechanismen gebruiken doorvoor scopes om te koppelen met gebruikersgroepen in de bestaande architectuur.
 Deze scopes worden bijvoorbeeld verkregen vanuit een bestaande OAuth-flow die een JSON Web Token (JWT) aanbiedt.
@@ -1583,7 +1583,7 @@ Scope `"LEVEL/A"` heeft dataset level autorisatie op gebieden, scope `"LEVEL/B"`
 Profielen {#profielen}
 ---------------------------------------------------
 
-Waar een `"auth"`-attribuut de toegang ontzegt, geeft een profiel gralunair toegang onder voorwaarden.
+Waar een `"auth"`-attribuut de toegang ontzegt, geeft een profiel granulair toegang onder voorwaarden.
 Een profiel wordt alleen toegepast als er geen authorisatie verkregen is via de `"auth"`-attributen.
 
 <div class=example>
@@ -1697,7 +1697,7 @@ Operatoren zijn alleen toegestaan als deze letterlijk opgegeven worden, bijvoorb
 
 Een gebruiker heeft toegang tot een [=dataset=] indien deze:
 
-* Toegang krijgt via `"auth"` regel.
+* Toegang krijgt via de `"auth"` regel.
 * Of een profiel heeft met `"permissions": "read"` op dataset niveau.
 
 Een gebruiker heeft toegang tot een [=tabel=] indien deze:
