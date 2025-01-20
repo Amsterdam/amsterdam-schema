@@ -1,0 +1,73 @@
+{
+  "id": "gebouwobjecten",
+  "type": "table",
+  "version": "1.0.2",
+  "title": "Gebouwobjecten",
+  "description": "Gegevens over de door de directie Gemeentelijk Vastgoed van de gemeente Amsterdam beheerde gebouwobjecten in volle eigendom of waar de gemeente Amsterdam een appartementsrecht heeft. Een gebouwobject kent veelal een relatie met een BAG-pand. ",
+  "status": "beschikbaar",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "objectId",
+    "mainGeometry": "geometrie",
+    "required": [
+      "schema",
+      "objectId"
+    ],
+    "display": "objectId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+    },
+      "objectId": {
+        "type": "integer",
+        "description": "Unieke identificatie van het object.",
+        "title": "Gemeentelijk vastgoed ID"
+    },
+      "straatnaam": {
+        "type": "string",
+        "description": "De naam van de straat.",
+        "title": "Straatnaam"
+    },
+      "huisnummer": {
+        "type": "integer",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering.",
+        "title": "Huisnummer"
+    },
+      "huisletter": {
+        "type": "string",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken.",
+        "title": "Huisletter"
+    },
+      "huisnummertoevoeging": {
+        "type": "string",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter",
+        "title": "Huisnummer toevoeging"
+    },
+      "huisnummeraanduiding": {
+        "type": "string",
+        "description": "Huisnummeraanduiding van het gebouwobject uit het vastgoedbeheersysteem.",
+        "title": "Huisnummer aanduiding"
+    },
+      "eigendom": {
+        "type": "string",
+        "description": "Geeft de eigendomssituatie weer: volle eigendom of appartementsrecht.",
+        "title": "Eigendomssituatie gebouwobject"
+    },
+      "bagPandIds": {
+        "type": "array",
+        "description": "Landelijke identificerende sleutel van de pandobjecten. Kan één of meerdere waardes bevatten doordat een object meerdere BAG panden kan beslaan.",
+        "title": "Pand ID",
+        "items": {
+          "type": "string"
+        }
+    },
+      "geometrie": {
+        "description": "Geometrie van het type multipolygoon in RD (EPSG:28992).",
+        "title": "Geometrie",
+        "$ref": "https://geojson.org/schema/Geometry.json"
+      }
+    }
+  }
+}
