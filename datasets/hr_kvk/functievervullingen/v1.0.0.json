@@ -224,11 +224,19 @@
         "description": ""
       },
       "beperkingInGeld": {
-        "type": "string",
+        "type": "object",
+        "properties": {
+          "waarde": {
+            "type": "decimal"
+          },
+          "valuta": {
+            "type": "string"
+          }
+        },
         "description": "indien de GMA tot een bepaald bedrag is gemachtigd"
       },
       "doenVanOpgaveAanHandelsregister": {
-        "type": "string",
+        "type": "object",
         "properties": {
           "code": {
             "type": "integer"
@@ -240,7 +248,7 @@
         "description": "indien de GMA opgave mag doen van aan het HR"
       },
       "overigeVolmacht": {
-        "type": "string",
+        "type": "object",
         "properties": {
           "code": {
             "type": "integer"
