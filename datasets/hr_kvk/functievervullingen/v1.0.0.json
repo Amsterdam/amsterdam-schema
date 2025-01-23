@@ -174,7 +174,7 @@
         "properties": {
           "soortBevoegdheid": {
             "type": "string",
-            "description": "Alleen zelfstandig bevoegd, gezamenlijk bevoegd"
+            "description": "Alleen/zelfstandig bevoegd, gezamenlijk bevoegd"
           },
           "bevoegdMetAnderePersonen": {
             "type": "string",
@@ -219,9 +219,13 @@
         },
         "description": "indicatie die aangeeft of de Volmacht in de statuten is opgenomen"
       },
+      "heeftHrVestiging": {
+        "type": "integer",
+        "description": "Een vestiging is gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een onderneming of rechtspersoon plaatsvindt."
+      },
       "beperkteVolmacht": {
         "type": "string",
-        "description": ""
+        "description": "Een volmacht is beperkt als deze voor een bepaald doel is verstrekt."
       },
       "beperkingInGeld": {
         "type": "object",
@@ -302,16 +306,8 @@
         },
         "description": "functionaris (PRF) die werkzaam is bij een publiekrechtelijke Rechtspersoon"
       },
-      "soortBevoegdheid": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "integer"
-          },
-          "omschrijving": {
-            "type": "string"
-          }
-        },
+      "bevoegdheidPubliekrechtelijkeFunctionaris": {
+        "type": "string",
         "description": "alleen/zelfstandig, gezamenlijk bevoegdheid, niet bevoegd"
       }
     }
