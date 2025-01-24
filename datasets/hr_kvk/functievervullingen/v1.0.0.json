@@ -127,7 +127,7 @@
         },
         "description": "datum waarop de schorsing is opgeheven"
       },
-      "aansprakelijke": {
+      "aansprakelijkeFunctie": {
         "type": "object",
         "properties": {
           "code": {
@@ -137,14 +137,14 @@
             "type": "string"
           }
         },
-        "description": "De Aansprakelijke (ANS) is de PRS die aansprakelijk is voor de rechtshandelingen van het {Samenwerkingsverband}"
+        "description": "een nadere aanduiding van de aansprakelijke"
       },
       "bevoegdheidAansprakelijke": {
         "type": "object",
         "properties": {
           "soortBevoegdheid": {
             "type": "string",
-            "description": "onbeperkt bevoegd, beperkt bevoegd of niet bevoegd"
+            "description": "Het soort bevoegdheid die een aansprakelijke van een samenwerkingsverband kan hebben"
           },
           "beperkingInEuros": {
             "type": "decimal",
@@ -157,7 +157,7 @@
         },
         "description": "BHA"
       },
-      "bestuursfunctie": {
+      "bestuursFunctie": {
         "type": "object",
         "properties": {
           "code": {
@@ -167,23 +167,23 @@
             "type": "string"
           }
         },
-        "description": "functionaris (BSF) die als bestuurder werkzaam is bij een privaatrechtelijke Rechtspersoon"
+        "description": "de nadere aanduiding van de bestuurder"
       },
       "bevoegdheidBestuurder": {
         "type": "object",
         "properties": {
           "soortBevoegdheid": {
             "type": "string",
-            "description": "Alleen/zelfstandig bevoegd, gezamenlijk bevoegd"
+            "description": "De soort bevoegdheid die een bestuurder kan hebben."
           },
           "bevoegdMetAnderePersonen": {
             "type": "string",
-            "description": "indicatie die aangeeft dat eren gezamennlijke bevoegdheid is met andere personen JA, of met de andere bestuurders NEE"
+            "description": "Indicatie die aangeeft dat er een gezamenlijke bevoegdheid is met andere personen (Ja) of met de andere bestuurders (Nee)."
           }
         },
         "description": "(BHB)"
       },
-      "gemachtigde": {
+      "gemachtigdeFunctie": {
         "type": "object",
         "properties": {
           "code": {
@@ -193,7 +193,7 @@
             "type": "string"
           }
         },
-        "description": "gemachtigde (GMA) wordt gekenmerkt door een volmacht verleend door de PRS bij wie de GMA is toegetreden"
+        "description": "een nadere aanduiding van de gemachtigde."
       },
       "volmacht": {
         "type": "object",
@@ -221,11 +221,7 @@
       },
       "heeftHrVestiging": {
         "type": "integer",
-        "description": "Een vestiging is gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een onderneming of rechtspersoon plaatsvindt."
-      },
-      "beperkteVolmacht": {
-        "type": "string",
-        "description": "Een volmacht is beperkt als deze voor een bepaald doel is verstrekt."
+        "description": "een vestiging is gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een onderneming of rechtspersoon plaatsvindt."
       },
       "beperkingInGeld": {
         "type": "object",
@@ -237,7 +233,7 @@
             "type": "string"
           }
         },
-        "description": "indien de GMA tot een bepaald bedrag is gemachtigd"
+        "description": "indien de gemachtigde een (gestructureerde) beperking in handelen heeft kan daarvoor een beperking tot een bepaald bedrag in geld worden opgegeven."
       },
       "doenVanOpgaveAanHandelsregister": {
         "type": "object",
@@ -273,7 +269,7 @@
         },
         "description": "indien de gemachtigde een gestructureerde beperking in handelen heeft kan gekozen worden uit een standaardlijst met beperkingen"
       },
-      "overigeFunctionaris": {
+      "overigeFunctionarisFunctie": {
         "type": "object",
         "properties": {
           "code": {
@@ -294,7 +290,7 @@
         "description": "alleen/zelfstandig, gezamenlijk bevoegdheid, niet bevoegd"
         }
       },
-      "publiekrechtelijkeFunctionaris": {
+      "publiekrechtelijkeFunctionarisFunctie": {
         "type": "object",
         "properties": {
           "code": {
