@@ -1,0 +1,111 @@
+{
+  "id": "verhuurbareEenheden",
+  "type": "table",
+  "version": "1.0.4",
+  "title": "Verhuurbare eenheden",
+  "description": "Gegevens over de verhuurbare eenheden in beheer bij de directie Gemeentelijk Vastgoed waarop de gemeente Amsterdam een appartementsrecht heeft. Een verhuurbare eenheid kent veelal een relatie met een BAG-verblijfsobject.",
+  "status": "beschikbaar",  
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "vheId",
+    "mainGeometry": "geometrie",
+    "required": [
+      "schema",
+      "vheId"
+    ],
+    "display": "vheId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+    },
+    "vheId": {
+        "type": "integer",
+        "description": "Unieke identificatie van de verhuurbare eenheid.",
+        "title": "Verhuurbare eenheid ID"
+    },
+      "objectId": {
+        "type": "integer",
+        "description": "Unieke ID van het object.",
+        "title": "Gemeentelijk vastgoed ID"
+    },
+      "vheNaam": {
+        "type": "string",
+        "description": "Verhuurbare eenheid naam.",
+        "title": "Verhuurbare eenheid naam"
+    },
+      "straatnaam": {
+        "type": "string",
+        "description": "De naam van de straat",
+        "title": "Straatnaam"
+    },
+      "huisnummer": {
+        "type": "integer",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering.",
+        "title": "Huisnummer"
+    },
+      "huisletter": {
+        "type": "string",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken.",
+        "title": "Huisletter"
+    },
+      "huisnummertoevoeging": {
+        "type": "string",
+       "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter",
+       "title": "Huisnummer toevoeging"
+    },
+      "huisnummeraanduiding": {
+        "type": "string",
+        "description": "Huisnummer aanduiding van de verhuurbare eenheid uit het vastgoedbeheersysteem.",
+        "title": "Huisnummeraanduiding"
+    },
+      "postcode": {
+        "type": "string",
+        "description": "Postcode van de verhuurbare eenheid uit het vastgoedbeheersysteem.",
+        "title": "Postcode"
+    },
+      "plaats": {
+        "type": "string",
+        "description": "Plaats van de verhuurbare eenheid uit het vastgoedbeheersysteem.",
+        "title": "Plaats"
+    },
+      "vheSoort": {
+        "type": "string",
+        "description": "Geeft het soort verhuurbare eenheid aan. Dit betreft een categorisering vanuit Gemeentelijk Vastgoed.",
+        "title": "Gemeentelijk vastgoed verhuurbare eenheid soort"
+    },
+      "vvo": {
+        "type": "number",
+        "description": "Verhuurbaar vloeroppervlak van de verhuurbare eenheid.",
+        "title": "Verhuurbaar vloeroppervlak"
+    },
+      "contractIds": {
+        "type": "array",
+        "description": "Uniek identificatie van het gerelateerde contract. Kan meerdere waardes bevatten",
+        "title": "Gemeentelijk vastgoed contract ID",
+        "items": {
+            "type": "string"
+          }
+    },
+      "feitelijkGebruik": {
+        "type": "string",
+        "description": "Het feitelijk gebruik volgens het contract.",
+        "title": "Feitelijk gebruik"
+    },
+      "bagVerblijfsobjectIds": {
+        "type": "array",
+        "description": "Landelijke identificerende sleutel van het verblijfsobject.",
+        "title": "Verblijfsobject ID",
+        "items": {
+          "type": "string"
+        }
+    },
+      "geometrie": {
+        "description": "Geometrie van het type point in RD (EPSG:28992).",
+        "title": "Geometrie",
+        "$ref": "https://geojson.org/schema/Geometry.json"
+      }
+    }
+  }
+}
