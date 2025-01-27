@@ -147,7 +147,7 @@
             "description": "Het soort bevoegdheid die een aansprakelijke van een samenwerkingsverband kan hebben"
           },
           "beperkingInEuros": {
-            "type": "decimal",
+            "type": "number",
             "description": "bevoegdheid is beperkt ot het genoemende bedrag"
           },
           "overigeBeperking": {
@@ -227,7 +227,7 @@
         "type": "object",
         "properties": {
           "waarde": {
-            "type": "decimal"
+            "type": "number"
           },
           "valuta": {
             "type": "string"
@@ -288,23 +288,23 @@
       "bevoegdheidFuntionarisVolgensBuitlandsRecht": {
         "type": "string",
         "description": "de soort bevoegdheid die een functionaris naar buitenlands recht kan hebben."
+      }
+    },
+    "publiekrechtelijkeFunctionarisFunctie": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "omschrijving": {
+          "type": "string"
         }
       },
-      "publiekrechtelijkeFunctionarisFunctie": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "integer"
-          },
-          "omschrijving": {
-            "type": "string"
-          }
-        },
-        "description": "functionaris (PRF) die werkzaam is bij een publiekrechtelijke Rechtspersoon"
-      },
-      "soortBevoegdheid": {
-        "type": "string",
-        "description": "de soort bevoegdheid die een functionaris kan hebben."
-      }
+      "description": "functionaris (PRF) die werkzaam is bij een publiekrechtelijke Rechtspersoon"
+    },
+    "soortBevoegdheid": {
+      "type": "string",
+      "description": "de soort bevoegdheid die een functionaris kan hebben."
     }
+  }
 }
