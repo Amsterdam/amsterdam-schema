@@ -1,0 +1,90 @@
+{
+  "id": "hoogtes",
+  "title":"hoogtes",
+  "description": "Virtuele objecten met informatie over de hoogte van het terrein of de diepte van het water.",
+  "type": "table",
+  "version": "1.0.1",
+  "crs": "EPSG:28992",
+  "auth": "OPENBAAR",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": [
+      "identificatie"
+    ],
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "title": "Geo object ID",
+        "description": "De unieke identiteit van het geo-object."
+      },
+      "bronactualiteit": {
+        "type": "string",
+        "title": "Bron actualiteit datum",
+        "format": "date",
+        "description": "De actualiteit van de gebruikte bron."
+      },
+      "bronbeschrijving": {
+        "type": "string",
+        "title": "Bron beschrijving",
+        "description": "De beschrijving van de gebruikte bron."
+      },
+      "brontype": {
+        "type": "string",
+        "title": "Bron type",
+        "description": "Het type van de gebruikte bron."
+      },
+      "objectBeginTijd": {
+        "type": "string",
+        "title": "Object geldigheid begintijd",
+        "format": "date",
+        "description": "Tijdstip waarop het object ontstaan is."
+      },
+      "visualisatieCode": {
+        "type": "integer",
+        "title": "Object visualisatie code",
+        "description": "Code voor het visualiseren van het object."
+      },
+      "tdnCode": {
+        "type": "integer",
+        "title": "Object TOP10vector code",
+        "description": "Code die het object in TOP10vector had."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Geometrie",
+        "description": "geometrie"
+      },
+      "hoogte": {
+        "type": "number",
+        "title": "Object referentievlak hoogte",
+        "description": "Hoogte van het object t.o.v. het referentievlak in meters met een nauwkeurigheid van 1 decimeter. / De diepte van het water."
+      },
+      "type": {
+        "type": "string",
+        "title": "Hoogte type",
+        "description": "Het soort hoogte."
+      },
+      "geometriePunt": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "title": "Punt geometrie",
+        "description": "puntgeometrie"
+      },
+      "geometrieLijn": {
+        "$ref": "https://geojson.org/schema/LineString.json",
+        "title": "Lijn geometrie",
+        "description": "lijngeometrie"
+      }
+    }
+  }
+}
