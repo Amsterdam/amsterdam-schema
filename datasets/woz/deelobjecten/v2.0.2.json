@@ -1,0 +1,146 @@
+{
+	"id": "deelobjecten",
+	"type": "table",
+	"version": "2.0.2",
+	"temporal": {
+		"identifier": "volgnummer",
+		"dimensions": {
+			"geldigOp": [
+				"beginGeldigheid",
+				"eindGeldigheid"
+			]
+		}
+	},
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": [
+			"wozdeelobjectnummer",
+			"volgnummer"
+		],
+		"required": [
+			"schema",
+			"wozdeelobjectnummer",
+			"volgnummer"
+		],
+		"display": "id",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"volgnummer": {
+				"title": "Deelobject volgnummer",
+				"type": "integer",
+				"description": "Uniek volgnummer van de toestand van het deelobject, gelijk aan volgnummer van WOZ-object"
+			},
+			"registratiedatum": {
+				"title": "Deelobject registratie datum",
+				"type": "string",
+				"format": "date-time",
+				"description": "De datum waarop de toestand van het deelobject is geregistreerd"
+			},
+			"wozdeelobjectnummer": {
+				"title": "WOZ deelobject ID",
+				"type": "string",
+				"description": "De unieke identificatie van een WOZ-deelobject"
+			},
+			"deelnummer": {
+				"title": "Deelobject nummer",
+				"type": "string",
+				"description": "Nummer van het deelobject binnen het WOZ-object"
+			},
+			"wozobjectnummer": {
+				"title": "WOZ object ID",
+				"type": "string",
+				"description": "De unieke identificatie van een WOZ-object, waar dit deelobject onderdeel van is"
+			},
+			"soortObject": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "integer",
+						"title": "Deelobject soort code",
+						"provenance": "$.soortobject.code"
+					},
+					"omschrijving": {
+						"type": "string",
+						"title": "Deelobject soort omschrijving",
+						"provenance": "$.soortobject.omschrijving"
+					}
+				},
+				"title": "Deelobject soort",
+				"description": "Aanduiding van het soort deelobject ten behoeve van een correcte bepaling van de waarde"
+			},
+			"beginGeldigheid": {
+				"title": "Deelobject geldigheid begindatumtijd",
+				"type": "string",
+				"format": "date",
+				"description": "De begindatum van een periode waarin één of meer gegevens die worden bijgehouden over een deelobject, een wijziging hebben ondergaan"
+			},
+			"eindGeldigheid": {
+				"title": "Deelobject geldigheid einddatumtijd",
+				"type": "string",
+				"format": "date",
+				"description": "De einddatum van een periode waarin één of meer gegevens die worden bijgehouden over een deelobject, een wijziging hebben ondergaan"
+			},
+			"isVerbondenMetBagVerblijfsobject": {
+				"type": "object",
+				"shortname": "isVbnMetBagVerblijfsobj",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					}
+				},
+				"relation": "bag:verblijfsobjecten",
+				"title": "Verbonden met verblijfsobject",
+				"description": "De unieke aanduiding van het verblijfsobject dat deel uitmaakt van het WOZ-deelobject"
+			},
+			"isVerbondenMetBagLigplaats": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					}
+				},
+				"relation": "bag:ligplaatsen",
+				"title": "Verbonden met ligplaats",
+				"description": "De unieke aanduiding van de ligplaats die deel uitmaakt van het WOZ-deelobject"
+			},
+			"isVerbondenMetBagStandplaats": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					}
+				},
+				"relation": "bag:standplaatsen",
+				"title": "Verbonden met standplaats",
+				"description": "De unieke aanduiding van de standplaats die deel uitmaakt van het WOZ-deelobject"
+			},
+			"heeftBagPand": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					}
+				},
+				"relation": "bag:panden",
+				"title": "Verbonden met pand",
+				"description": "De unieke aanduiding van het pand dat deel uitmaakt van het WOZ-deelobject"
+			}
+		}
+	}
+}

@@ -2,7 +2,6 @@
   "id": "maatschappelijkeactiviteiten",
   "type": "table",
   "version": "1.0.0",
-  "auth": ["FP/MDW","HR/R"],
   "shortname": "Mac",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -120,19 +119,21 @@
             "type": "string"
           }
         },
-        "relation": "hr:vestigingen",
+        "relation": "hrKvk:vestigingen",
         "description": "vestiging die als hoofdvestiging wordt gebruikt."
       },
       "heeftAlsEigenaarHrNps": {
         "shortname": "heeftEigenaarNp",
-        "auth": "HR/RSN",
+        "auth": [
+          "HR/RS"
+        ],
         "type": "object",
         "properties": {
           "identificatie": {
             "type": "string"
           }
         },
-        "relation": "hr:natuurlijkepersonen",
+        "relation": "hrKvk:natuurlijkepersonen",
         "description": "heeft als eigenaar een natuurlijke persoon."
       },
       "heeftAlsEigenaarHrNnp": {
@@ -143,7 +144,7 @@
             "type": "string"
           }
         },
-        "relation": "hr:nietnatuurlijkepersonen",
+        "relation": "hrKvk:nietnatuurlijkepersonen",
         "description": "heeft als eigenaar een niet atuurlijke persoon."
       },
       "onderneming": {
@@ -216,7 +217,7 @@
         "provenance": "$.datumOverdrachtVoortzettingOnderneming.formatted",
         "description": "De datum waarop de onderneming is overgedragen of voortgezet."
       },
-      "OverdrachtOfVoortzettingOnderneming": {
+      "overdrachtOfVoortzettingOnderneming": {
         "type": "string",
         "description": "Indicatie of de Onderneming is voortgezet of is overgedragen. (Overdracht of Voortzetting)."
       },
@@ -237,7 +238,7 @@
             }
           }
         },
-        "relation": "hr:vestigingen",
+        "relation": "hrKvk:vestigingen",
         "description": "omschrijving"
       },
       "wordtUitgeoefendInNietCommercieleHrVestigingen": {
@@ -257,7 +258,7 @@
             }
           }
         },
-        "relation": "hr:vestigingen",
+        "relation": "hrKvk:vestigingen",
         "description": "omschrijvng"
       },
       "handelsnamen": {

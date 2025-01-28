@@ -1,0 +1,161 @@
+{
+	"id": "buurten",
+	"type": "table",
+	"version": "1.1.3",
+	"description": "Amsterdam is opgedeeld in buurten ten behoeve van statistieken, een buurt is aaneengesloten gedeelte binnen een wijk, waarvan de grenzen zo veel mogelijk gebaseerd zijn op topografische elementen",
+	"temporal": {
+		"identifier": "volgnummer",
+		"dimensions": {
+			"geldigOp": [
+				"beginGeldigheid",
+				"eindGeldigheid"
+			]
+		}
+	},
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"mainGeometry": "geometrie",
+		"identifier": [
+			"identificatie",
+			"volgnummer"
+		],
+		"required": [
+			"schema",
+			"identificatie",
+			"volgnummer"
+		],
+		"display": "naam",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+			},
+			"volgnummer": {
+				"type": "integer",
+				"title": "Object volgnummer",
+				"description": "Uniek volgnummer van de toestand van het object"
+			},
+			"registratiedatum": {
+				"type": "string",
+				"title": "Object registratiedatum",
+				"format": "date-time",
+				"description": "Datum waarop het gegeven in de bron geregistreerd is"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "Unieke identificatie van het object"
+			},
+			"naam": {
+				"type": "string",
+				"title": "Object naam",
+				"description": "De naam van het object"
+			},
+			"code": {
+				"type": "string",
+				"title": "Buurt code",
+				"description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode en wijkcode"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid startdatum",
+				"format": "date-time",
+				"description": "De begindatum van de geldigheid van een bepaalde combinatie van gegevens over een buurt"
+			},
+			"eindGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid einddatum",
+				"format": "date-time",
+				"description": "De einddatum van de geldigheid van een bepaalde combinatie van gegevens over een buurt"
+			},
+			"documentdatum": {
+				"type": "string",
+				"title": "Brondocument datum",
+				"format": "date",
+				"description": "De datum waarop het document is vastgesteld, op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden"
+			},
+			"documentnummer": {
+				"type": "string",
+				"title": "Brondocument nummer",
+				"description": "De unieke aanduiding van het brondocument op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van het object heeft plaatsgevonden"
+			},
+			"cbsCode": {
+				"type": "string",
+				"title": "Object CBS code",
+				"description": "De CBS-code van het object"
+			},
+			"ligtInWijk": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "gebieden:wijken",
+				"title": "Buurt ligt in wijk",
+				"description": "De wijk waar de buurt in ligt"
+			},
+			"ligtInGgpgebied": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "gebieden:ggpgebieden",
+				"title": "Buurt ligt in GGP gebied",
+				"description": "Het GGP gebied waar de buurt in ligt"
+			},
+			"ligtInGgwgebied": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "gebieden:ggwgebieden",
+				"title": "Buurt ligt in GGW gebied",
+				"description": "Het gebiedsgericht werken gebied waar de buurt in ligt"
+			},
+			"geometrie": {
+				"$ref": "https://geojson.org/schema/Polygon.json",
+				"title": "Geometrie",
+				"description": "Geometrische beschrijving van een object"
+			}
+		}
+	}
+}

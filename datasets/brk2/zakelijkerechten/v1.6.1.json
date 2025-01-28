@@ -1,0 +1,304 @@
+{
+	"id": "zakelijkerechten",
+	"type": "table",
+	"version": "1.6.1",
+	"auth": "BRK/RS",
+	"reasonsNonPublic": [
+		"5.1 1d: Bevat persoonsgegevens",
+		"5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+	],
+	"temporal": {
+		"identifier": "volgnummer",
+		"dimensions": {
+			"geldigOp": [
+				"beginGeldigheid",
+				"eindGeldigheid"
+			]
+		}
+	},
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": [
+			"identificatie",
+			"volgnummer"
+		],
+		"required": [
+			"schema",
+			"identificatie",
+			"volgnummer"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"volgnummer": {
+				"type": "integer",
+				"title": "Object volgnummer",
+				"description": "Uniek volgnummer van de toestand van het object"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "De Kadaster identificatie is een door het Kadaster toegekende landelijk unieke aanduiding aan dit zakelijk recht binnen de kadastrale registratie"
+			},
+			"wasIdentificatie": {
+				"type": "string",
+				"title": "ID in BRK1.0",
+				"description": "De (oude) identificatie die dit object in BRK 1.0 had"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"format": "date-time",
+				"title": "Object geldigheid datumtijd",
+				"description": "Begindatum geldigheid"
+			},
+			"eindGeldigheid": {
+				"type": "string",
+				"format": "date-time",
+				"title": "Object eindgeldigheid datumtijd",
+				"description": "Einddatum geldigheid"
+			},
+			"datumActueelTot": {
+				"type": "string",
+				"format": "date-time",
+				"title": "Datum actueel tot",
+				"description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+			},
+			"belastBrkZakelijkeRechten": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"identificatie": {
+							"type": "string"
+						},
+						"volgnummer": {
+							"type": "integer"
+						},
+						"beginGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"eindGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						}
+					}
+				},
+				"relation": "brk2:zakelijkerechten",
+				"title": "Belast zakelijke rechten",
+				"description": "Dit zakelijk recht belast de volgende (Aard)zakelijkrechten"
+			},
+			"belastMetBrkZakelijkeRechten": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"identificatie": {
+							"type": "string"
+						},
+						"volgnummer": {
+							"type": "integer"
+						},
+						"beginGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"eindGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						}
+					}
+				},
+				"relation": "brk2:zakelijkerechten",
+				"title": "Belast met zakelijke rechten ",
+				"description": "Dit zakelijk recht is belast met de volgende Aardzakelijkrechten"
+			},
+			"ontstaanUitBrkZakelijkeRechten": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"identificatie": {
+							"type": "string"
+						},
+						"volgnummer": {
+							"type": "integer"
+						},
+						"beginGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"eindGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						}
+					}
+				},
+				"relation": "brk2:zakelijkerechten",
+				"title": "Ontstaan uit zakelijke rechten",
+				"description": "Als deze waarde is gevuld, dan is dit recht ontstaan uit een appartementssplitsing. Hier worden de zakelijke rechten getoond die betrokken waren in de appartementsrechtsplitsing"
+			},
+			"ontstaanUitAppartementsrechtsplitsingVve": {
+				"shortname": "ontstaanUitApptrechtsplitsingVve",
+				"type": "string",
+				"title": "Ontstaan uit appartementsrechtsplitsing",
+				"description": "Als deze waarde is gevuld, dan is dit recht betrokken bij een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt"
+			},
+			"betrokkenBijBrkZakelijkeRechten": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"identificatie": {
+							"type": "string"
+						},
+						"volgnummer": {
+							"type": "integer"
+						},
+						"beginGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"eindGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						}
+					}
+				},
+				"relation": "brk2:zakelijkerechten",
+				"title": "Betrokken bij zakelijke rechten",
+				"description": "Als deze waarde is gevuld, dan is dit recht betrokken bij een appartementssplitsing. Hier worden de zakelijke rechten getoond die ontstaan zijn bij de appartementsrechtsplitsing"
+			},
+			"betrokkenBijAppartementsrechtsplitsingVve": {
+				"type": "string",
+				"title": "Betrokken bij appartementsrechtsplitsing",
+				"description": "VVE Subject betrokken bij Appartementsrechtsplitsing"
+			},
+			"isBeperktTotBrkTenaamstellingen": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"identificatie": {
+							"type": "string"
+						},
+						"volgnummer": {
+							"type": "integer"
+						},
+						"beginGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"eindGeldigheid": {
+							"type": "string",
+							"format": "date-time"
+						}
+					}
+				},
+				"relation": "brk2:tenaamstellingen",
+				"title": "Tenaamstelling waartoe beperkt",
+				"description": "Is beperkt tot tenaamstelling, dat wil zeggen is beperkt tot een subject. Het gaat hier om een Zakelijk Recht dat één of meer (maar niet alle) tenaamstellingen van een ander Zakelijk Recht belast"
+			},
+			"rustOpBrkKadastraalObject": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "brk2:kadastraleobjecten",
+				"title": "Kadastraal object identificatie",
+				"description": "Het kadastraal object en volgnummer waarop het zakelijk recht rust"
+			},
+			"vveIdentificatieOntstaanUit": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brk2:kadastralesubjecten",
+				"title": "Ontstaan uit VVE appartementsrechtsplitsing",
+				"description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waaruit het zakelijk recht ontstaan is"
+			},
+			"vveIdentificatieBetrokkenBij": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brk2:kadastralesubjecten",
+				"title": "Betrokken bij VVE appartementsrechtsplitsing",
+				"description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waarbij het zakelijk recht betrokken is"
+			},
+			"appartementsrechtsplitsingType": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string"
+					},
+					"omschrijving": {
+						"type": "string"
+					}
+				},
+				"title": "Appartementsrechtsplitsing type",
+				"description": "Het type appartementsrechtsplitsing. De mogelijke waarden zijn: hoofdsplitsing of ondersplitsing of splitsing afkoop erfpacht"
+			},
+			"isBestemdTotIdentificatie": {
+				"type": "string",
+				"title": "Bestemd tot mandeligheid",
+				"description": "De relatie naar het nieuwe objecttype Mandeligheid"
+			},
+			"toelichtingBewaarder": {
+				"type": "string",
+				"title": "Toelichting van bewaarder",
+				"description": "Toelichtende tekst van de bewaarder bij het zakelijk recht. Een Toelichting Bewaarder wordt opgevoerd wanneer een toelichting bij gegevens in de registratie noodzakelijk is"
+			},
+			"inOnderzoek": {
+				"type": "string",
+				"title": "Reden waarvoor in onderzoek",
+				"description": "Als dit veld is gevuld geeft dit de omschrijving waarom dit gegeven in onderzoek staat (art. 7n en 7r Kadasterwet)"
+			},
+			"aardZakelijkRecht": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string"
+					},
+					"omschrijving": {
+						"type": "string"
+					}
+				},
+				"title": "Zakelijk recht aard",
+				"description": "De aard van het zakelijk recht"
+			},
+			"akrAardZakelijkRecht": {
+				"type": "string",
+				"title": "Zakelijk recht AKR-code",
+				"description": "De AKR code van de aard van het zakelijk recht"
+			},
+			"toestandsdatum": {
+				"type": "string",
+				"format": "date",
+				"title": "Kadastrale registratie toestand datum",
+				"description": "De datum waarop de geleverde toestand van het onderliggende kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)"
+			}
+		}
+	}
+}

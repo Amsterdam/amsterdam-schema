@@ -1,0 +1,67 @@
+{
+  "id": "gebouwobjecten",
+  "crs": "EPSG:28992",
+  "type": "table",
+  "version": "1.0.0",
+  "title": "Gebouwobjecten",
+  "description": "Gegevens over de door de directie Gemeentelijk Vastgoed van de gemeente Amsterdam beheerde gebouwobjecten in volle eigendom of waar de gemeente Amsterdam een appartementsrecht heeft. Een gebouwobject kent veelal een relatie met een BAG-pand. ",
+  "auth": "OPENBAAR",
+  "status": "beschikbaar",  
+  "identifier": "objectId",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "objectId"
+    ],
+    "display": "objectId",
+    "mainGeometry": "geometrie",
+    "properties": {
+        "objectId": {
+          "type": "integer",
+          "description": "Unieke ID van het object."
+      },
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke identificatie."
+      },
+      "straatnaam": {
+        "type": "string",
+        "description": "Straatnaam van het gebouwobject uit het vastgoedbeheersysteem."
+      },
+      "huisnummer": {
+        "type": "integer",
+        "description": "Huisnummer van het gebouwobject uit het vastgoedbeheersysteem."
+      },
+      "huisletter": {
+        "type": "string",
+        "description": "Huisletter van het gebouwobject uit het vastgoedbeheersysteem."
+      },
+      "huisnummertoevoeging": {
+        "type": "string",
+        "description": "Huisnummertoevoeging van het gebouwobject uit het vastgoedbeheersysteem."
+      },
+      "huisnummeraanduiding": {
+        "type": "string",
+        "description": "Huisnummeraanduiding van het gebouwobject uit het vastgoedbeheersysteem.."
+      },
+      "eigendom": {
+        "type": "string",
+        "description": "Geeft de eigendomssituatie weer: volle eigendom of appartementsrecht."
+      },
+      "bagPandIds": {
+        "type": "string",
+        "description": "Landelijke identificerende sleutel van de pandobjecten. Kan één of meerdere waardes bevatten doordat een object in meerdere panden kan liggen."
+      },
+      "geometrie": {
+        "description": "Geometrie van het type multipolygon in RD (EPSG:28992).",
+        "$ref": "https://geojson.org/schema/Geometry.json"
+      }
+    }
+  }
+}

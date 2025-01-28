@@ -15,14 +15,15 @@ Logo: https://api.data.amsterdam.nl/api/gemeente_Amsterdam_logo.svg
 Favicon: https://data.amsterdam.nl/favicon.png
 Boilerplate: copyright no, footer no
 Max ToC Depth: 2
-Text Macro: DCAT <a data-link-type=biblio data-lt="vocab-dcat-2" data-biblio-type=informative>DCAT</a>
-Text Macro: DCATURL https://www.w3.org/TR/vocab-dcat-2/
+Text Macro: DCAT <a data-link-type=biblio data-lt="vocab-dcat-3" data-biblio-type=informative>DCAT</a>
+Text Macro: DCATURL https://www.w3.org/TR/vocab-dcat-3/
 Text Macro: BP <blockquote class="best-practice"> **Best Practice**
 Text Macro: BPE </blockquote>
 Text Macro: CONST *constant*
-Text Macro: HIDELINESEXAMPLE class="example hide-lines" onClick="this.classList.toggle('hide-lines');this.classList.toggle('unhide-lines');"
-Text Macro: SYNCSCROLLA class="a" onscroll="let sibling =this.nextElementSibling; sibling.scrollTop=this.scrollTop;sibling.scrollLeft=this.scrollLeft;"
-Text Macro: SYNCSCROLLB class="b" onscroll="let sibling =this.previousElementSibling; sibling.scrollTop=this.scrollTop;sibling.scrollLeft=this.scrollLeft;"
+Text Macro: HIDELINESEXAMPLE <div class="example hide-lines" onClick="this.classList.toggle('hide-lines');this.classList.toggle('unhide-lines');">
+Text Macro: COMPAREA <div class="a" onscroll="let sibling =this.nextElementSibling; sibling.scrollTop=this.scrollTop;sibling.scrollLeft=this.scrollLeft;">
+Text Macro: COMPAREB <div class="b" onscroll="let sibling =this.previousElementSibling; sibling.scrollTop=this.scrollTop;sibling.scrollLeft=this.scrollLeft;">
+Text Macro: END </div>
 </pre>
 
 Advisement: De meest recente aanpassing aan deze specificatie is:<br/> [[#lastchange]]
@@ -69,7 +70,7 @@ Een dataset wordt beschreven in één of meer JSON bestanden.
 Binnen deze bestanden bestaan de volgende niveaus:
 : [[#datasets| dataset]]
 :: Een samenhangende collectie van data met één beheerder of beherende instantie.
-    Zoals bedoeld in [[VOCAB-DCAT-2#dcat-scope|DCAT]].
+    Zoals bedoeld in [[vocab-dcat-3#dcat-scope|DCAT]].
     Op dit niveau wordt voornamelijk meta-informatie over de herkomst en aard van de data meegegeven, zoals de naam, beschrijving, licentie en publicatiedatum.
     Een dataset bevat minstens één tabel.
 : [[#tables|tabel]]
@@ -96,13 +97,13 @@ Met een dataset wordt een dataset zoals gedefinieerd in [DCAT] bedoeld. [DCAT] d
   A collection of data, published or curated by a single agent or identifiable community.
   The notion of dataset in DCAT is broad and inclusive, with the intention of accommodating resource types arising from all communities.
   Data comes in many forms including numbers, text, pixels, imagery, sound and other multi-media, and potentially other types,
-  any of which might be collected into a dataset. (From [[VOCAB-DCAT-2#dcat-scope]])
+  any of which might be collected into a dataset. (From [[vocab-dcat-3#dcat-scope]])
 
 Verplichte attributen {#dataset-mandatory-fields}
 -------------------------------------------------------
 Een <dfn dfn export>dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON bestand met in ieder geval de volgende velden:
 <table dfn-type="attribute" dfn-for=dataset export class="dfn-table">
-    <tr><td><dfn>id</dfn>       <td> {{id-type|identifier}} <td> Unieke identifier voor deze dataset. Moet voldoen aan [[#naamgeving]]. Conform \[DCAT § resource_identifier](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_identifier).
+    <tr><td><dfn>id</dfn>       <td> {{id-type|identifier}} <td> Unieke identifier voor deze dataset. Moet voldoen aan [[#naamgeving]]. Conform \[DCAT § resource_identifier](https://www.w3.org/TR/vocab-dcat-3/#Property:resource_identifier).
     <tr><td><dfn>type</dfn>     <td> {{schema-type}}        <td> Type van dit bestand, in dit geval `"dataset"`.
     <tr><td><dfn>status</dfn>   <td> string
         <td> Publicatiestatus van de dataset
@@ -154,7 +155,8 @@ Naast bovenstaande verplichte attributen mag een [=dataset=] ook de volgende eig
     <tr><td><dfn>description</dfn>      <td> string     <td> zie [[#omschrijving]] [DCAT § Property:resource_description]([DCATURL]#Property:resource_description)
     <tr><td><dfn>provenance</dfn>       <td> string     <td> zie [[#provenance]]
     <tr><td><dfn>reasonsNonPublic</dfn>  <td> array({{nonPubReason}})
-        <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de [[Woo]]. (Vanaf 1 mei 2022 verplicht wanneer {{dataset/auth}} niet gelijk is aan `"OPENBAAR"`) zie [[#autorisatie]]
+        <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de [[Woo]].
+             Verplicht wanneer {{dataset/auth}} niet gelijk is aan `"OPENBAAR"`) zie [[#autorisatie]]
     <tr><td><dfn>version</dfn>          <td> {{version-string}}     <td> Het versie nummer van deze dataset.
     <tr><td><dfn>homepage</dfn>         <td> {{uri-type|uri}}    <td> Homepage van de dataset
     <tr><td><dfn>crs</dfn>
@@ -179,7 +181,7 @@ Het is mogelijk op dataset niveau extra eigenschappen met meta-gegevens mee te g
 Dit kan indien gewenst worden gebruikt om automatisch een [DCAT] catalogus te genereren.
 De volgende velden zijn toegestaan:
 <table dfn-type="attribute" dfn-for=dataset export class="dfn-table">
-    <tr><td><dfn>language</dfn>             <td> string <td> Taal van de dataset volgens [ISO 639-1](http://id.loc.gov/vocabulary/iso639-1.html) of [ISO 639-2](http://id.loc.gov/vocabulary/iso639-2.html) Conform \[DCAT § resource_language](https://www.w3.org/TR/vocab-dcat-2/#Property:resource_language)
+    <tr><td><dfn>language</dfn>             <td> string <td> Taal van de dataset volgens [ISO 639-1](http://id.loc.gov/vocabulary/iso639-1.html) of [ISO 639-2](http://id.loc.gov/vocabulary/iso639-2.html) Conform \[DCAT § resource_language](https://www.w3.org/TR/vocab-dcat-3/#Property:resource_language)
     <tr><td><dfn>dateCreated</dfn>          <td> {{date-time}} <td> Datum van publicatie. Conform \[DCAT § resource_release_date]([DCATURL]#Property:resource_release_date)
     <tr><td><dfn>dateModified</dfn>         <td> {{date-time}} <td> Meest recente datum waarop de dataset is aangepast. Conform \[DCAT § resource_update_date]([DCATURL]#Property:resource_update_date)
     <tr><td><dfn>accrualPeriodicity</dfn>   <td> string <td> Frequentie waarmee de dataset gepubliceerd wordt. Conform \[DCAT § dataset_frequency]([DCATURL]#Property:dataset_frequency)
@@ -244,7 +246,7 @@ Het pad gezien vanuit de locatie van het dataset bestand **zou** dus de volgende
 
 Advisement: Van deze bestandsnaam en padstructuur moet niet worden afgeweken behalve als daar een zwaarwegende reden voor is.
 
-<div [HIDELINESEXAMPLE]>
+[HIDELINESEXAMPLE]
     Voorbeeld van een dataset met twee tabel referenties.
 
     Een `locaties` tabel in `./locaties/v1.0.0.json`.<br/>
@@ -254,7 +256,7 @@ Advisement: Van deze bestandsnaam en padstructuur moet niet worden afgeweken beh
             highlight: json
             line-highlight: 12-25
         </pre>
-</div>
+[END]
 
 Publisherreferenties {#publisher-refs}
 ----------------------------------------------------------
@@ -305,7 +307,7 @@ Een <dfn dfn export>tabel</dfn> binnen Amsterdam Schema is een JSON object met i
 
 Advisement: Let op: Zie [[#naamgeving]] voor de eisen waaraan {{tabel/id}} moet voldoen.
 
-<div [HIDELINESEXAMPLE]>
+[HIDELINESEXAMPLE]
     Voorbeeld van een minimale tabel definitie. De {{tabel/title}} en {{tabel/description}} velden zijn niet verplicht,
     maar het is best practice ze toe te voegen.
     <pre class="include-code">
@@ -313,7 +315,7 @@ Advisement: Let op: Zie [[#naamgeving]] voor de eisen waaraan {{tabel/id}} moet 
         highlight: json
         line-highlight: 0-7,25-27
     </pre>
-</div>
+[END]
 
 
 Optionele attributen {#tabel-optional-fields}
@@ -323,11 +325,11 @@ Een  [=tabel=] mag daarnaast de volgende attributen bezitten:
     <tr><td><dfn>title</dfn>        <td> string <td> zie [[#omschrijving]] Default: Gelijk aan {{tabel/id}}.
     <tr><td><dfn>description</dfn>  <td> string <td> zie [[#omschrijving]]
     <tr><td><dfn>shortname</dfn>    <td> string <td> Verkorte unieke naam van de tabel. zie [[#naamgeving]]
-    <tr><td><dfn>derivedFrom</dfn>  <td> array<td> De datasets waar deze view op gebaseerd is. e.g. `<dataset>:<tabel>`. Dit attribuut is enkel noodzakelijk wanneer de dataset een view is. 
+    <tr><td><dfn>derivedFrom</dfn>  <td> array<td> De datasets waar deze view op gebaseerd is. e.g. `<dataset>:<tabel>`. Dit attribuut is enkel noodzakelijk wanneer de dataset een view is.
     <tr><td><dfn>auth</dfn>         <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Default: gelijk aan waarde in dataset/{{dataset/auth}}, zie [[#autorisatie]].
     <tr><td><dfn>reasonsNonPublic</dfn>  <td> array({{nonPubReason}})
         <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de [[Woo]].
-            (Vanaf 1 mei 2022 verplicht wanneer de dataset openbaar is maar het {{tabel/auth}} atribuut van de tabel niet gelijk is aan "OPENBAAR") zie [[#autorisatie]]
+            Verplicht wanneer de dataset openbaar is maar het {{tabel/auth}} attribuut van de tabel niet gelijk is aan "OPENBAAR". zie [[#autorisatie]]
     <tr><td><dfn>provenance</dfn>   <td> string <td> zie [[#provenance]]
     <tr><td><dfn>dateCreated</dfn>  <td> {{date-time}} <td> Datum van publicatie.
     <tr><td><dfn>dateModified</dfn> <td> {{date-time}} <td> Meest recente datum waarop de tabel is aangepast.
@@ -393,7 +395,7 @@ Daarnaast mag een [=schema=] object de volgende attributen bezitten:
 
 Issue: Het identifier veld moet string zijn. De array optie wordt binnenkort verwijderd.
 
-<div [HIDELINESEXAMPLE]>
+[HIDELINESEXAMPLE]
     Voorbeeld van een schema.
 
     Het {{display}} veld zorgt ervoor dat niet de "id" de maar de "naam" van een persoon als samenvattende titel wordt gebruikt.
@@ -402,7 +404,7 @@ Issue: Het identifier veld moet string zijn. De array optie wordt binnenkort ver
         highlight: json
         line-highlight: 7-25
     </pre>
-</div>
+[END]
 
 
 Temporaliteit {#temporaliteit}
@@ -484,33 +486,33 @@ Het versie nummer bestaat uit 3 getallen gescheiden door punten `MAJOR.MINOR.PAT
 
 Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
 
-<div [HIDELINESEXAMPLE]>
+[HIDELINESEXAMPLE]
     Voorbeeld aan versie "1.2.1" van de personen tabel wordt een nieuw optioneel veld toegevoegd en aan een bestaand {{enum}} veld wordt een optie toegevoegd.
 
     Dit zijn backwards compatible veranderingen dus het minor versie nummer wordt opgehoogd en de nieuwe versie wordt "1.3.0".
 
     De nieuwe tabel wordt in een nieuw bestand `personen/v1.3.0.json` geplaatst.
     <div class="compare-code">
-        <div [SYNCSCROLLA]>
+        [COMPAREA]
             `personen/v1.2.1.json`
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v1.2.1.json
                 highlight: json
                 line-highlight: 5,28,31-34
             </pre>
-        </div>
-        <div [SYNCSCROLLB]>
+        [END]
+        [COMPAREB]
             `personen/v1.3.0.json`
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v1.3.0.json
                 highlight: json
                 line-highlight: 5,28, 31-35,37-44
             </pre>
-        </div>
+        [END]
     </div>
-</div>
+[END]
 
-<div [HIDELINESEXAMPLE]>
+[HIDELINESEXAMPLE]
     Nu wordt in de tabel uit het vorige voorbeeld een veld hernoemd, krijgt een string veld een maximale lengte,
     wordt uit een {{enum}} veld een optie verwijderd en wordt een optioneel veld verplicht gemaakt.
 
@@ -518,52 +520,52 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
 
     De nieuwe tabel wordt in een nieuw bestand `personen/v2.0.0.json` geplaatst.
     <div class="compare-code">
-        <div [SYNCSCROLLA]>
+        [COMPAREA]
             `personen/v1.3.0.json`
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v1.3.0.json
                 highlight: json
                 line-highlight: 5,10-13,19-23,31-35
             </pre>
-        </div>
-        <div [SYNCSCROLLB]>
+        [END]
+        [COMPAREB]
             `personen/v2.0.0.json`
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v2.0.0.json
                 highlight: json
                 line-highlight: 5,10-14,20-25,33-40
             </pre>
-        </div>
+        [END]
     </div>
-</div>
+[END]
 
-<div [HIDELINESEXAMPLE]>
+[HIDELINESEXAMPLE]
     Voorbeeld in versie 2.0.0" wordt een aantal metadata velden aangepast.
 
     Deze veranderingen passen de data structuur niet aan dus het patch nummer wordt opgehoogd en de nieuwe versie wordt "2.0.1".
 
     De nieuwe tabel wordt in een nieuw bestand `personen/v2.0.1.json` geplaatst het oude bestand mag e.v.t. verwijderd worden.
     <div class="compare-code">
-        <div [SYNCSCROLLA]>
+        [COMPAREA]
             `personen/v2.0.0.json`
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v2.0.0.json
                 highlight: json
                 line-highlight: 5-6,15,31,44
             </pre>
-        </div>
-        <div [SYNCSCROLLB]>
+        [END]
+        [COMPAREB]
             `personen/v2.0.1.json`
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v2.0.1.json
                 highlight: json
                 line-highlight: 5-6,15,31,44
             </pre>
-        </div>
+        [END]
     </div>
-</div>
+[END]
 
-<div [HIDELINESEXAMPLE]>
+[HIDELINESEXAMPLE]
     Om de nieuwe versie van de tabel aan de [=dataset=] toe te voegen, moet de [=tabel referentie=] in de dataset ook aangepast worden.
     De default versie van de tabel is nu "2.0.1".
 
@@ -578,7 +580,7 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
             line-highlight: 1,13-20,26
         </pre>
     </div>
-</div>
+[END]
 
 Note: Deze semantic versioning standaard is geinspireerd door [[SCHEMVER inline]] wat weer is gebaseerd op [[SEMVER inline]].
 
@@ -646,9 +648,12 @@ Een [=veld=] definitie mag naast het [[#veld-mandatory-fields|verplichte attribu
     <tr><td><dfn>auth</dfn>             <td> string | array
         <td> geautoriseerde [=scope|scope(s)=]. Default: gelijk aan waarde in tabel/{{tabel/auth}}, zie [[#autorisatie]].
             Niet toegestaan in velden waarnaar wordt verwezen in {{schema/identifier}} of {{schema/display}}.
+    <tr><td><dfn>filterAuth</dfn>        <td> string | array
+        <td> geautoriseerde [=scope|scope(s)=] die dit veld in zoekvragen mogen gebruiken.
+             De gebruiker moet daarnaast leestoegang hebben tot het veld via {{veld/auth}} of [[#profielen]].
     <tr><td><dfn>reasonsNonPublic</dfn>  <td> array({{nonPubReason}})
         <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de [[Woo]].
-            (Vanaf 1 mei 2022 verplicht wanneer de tabel openbaar is maar het {{veld/auth}} atribuut van het veld niet gelijk is aan "OPENBAAR") zie [[#autorisatie]]
+            Verplicht wanneer de tabel openbaar is maar het {{veld/auth}} attribuut van het veld niet gelijk is aan "OPENBAAR". zie [[#autorisatie]]
     <tr><td><dfn>provenance</dfn>       <td> string <td> zie [[#provenance]]
     <tr><td><dfn>shortname</dfn>        <td> string <td> zie [[#naamgeving]]
     <tr><td><dfn>unit</dfn>             <td> string | object <td> De eenheid van de waarden in dit veld. zie [[#units]]
@@ -1024,7 +1029,7 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
 
     <div class=example>
         Voorbeeld van een geometrie veld.
-        <pre class=example class="include-code">
+        <pre class="include-code">
             path: examples/datasets/bekendeAmsterdammers/pleinen/v1.0.0.json
             highlight: json
             show: 28-32
@@ -1044,7 +1049,7 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
     Note: Als een tabel een geometrie veld bevat, moet op dataset niveau het coordinaat
     referentie systeem worden aangegeven in het {{dataset/crs}} attribuut.
 
-    <div [HIDELINESEXAMPLE]>
+    [HIDELINESEXAMPLE]
         Voorbeeld van een tabel met meerdere geometrie velden. Het veld `"locatie"` is hier als primaire geometrie
         aangegeven in "{{mainGeometry}}".
         <pre class="include-code">
@@ -1052,7 +1057,7 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
             highlight: json
             line-highlight: 0-7,28-37
         </pre>
-    </div>
+    [END]
 
 
 ### object ### {#data-types-object}
@@ -1394,6 +1399,22 @@ Publisher {#publishers}
 Een [=publisher=] definitie bevat een publisher object. Deze word onder andere gebruikt voor billing en tagging
 van resources die via het amsterdam schema worden aangevraagd.
 
+<div class=example>
+    Voorbeeld van een publisher object.
+    <pre highlight="json">
+    {
+      "id": "NOBODY",
+      "type": "publisher"
+      "name": "Datateam Nobody",
+      "shortname": "nobody",
+      "tags": {
+        "costcenter": "00000000.0000"
+        "team": "nobody",
+      },
+    }
+    </pre>
+</div>
+
 Verplichte attributen {#publisher-mandatory-fields}
 ---------------------------------------------------------
 Een <dfn dfn export>publisher</dfn> binnen Amsterdam Schema is een JSON object met in ieder geval de volgende attributen.
@@ -1413,6 +1434,286 @@ Een <dfn dfn export>publisher</dfn> binnen Amsterdam Schema is een JSON object m
             </details>
 </table>
 
+
+<!--
+   ███    ██     ██ ████████  ███████  ████████  ████  ██████     ███    ████████ ████ ████████
+  ██ ██   ██     ██    ██    ██     ██ ██     ██  ██  ██    ██   ██ ██      ██     ██  ██
+ ██   ██  ██     ██    ██    ██     ██ ██     ██  ██  ██        ██   ██     ██     ██  ██
+██     ██ ██     ██    ██    ██     ██ ████████   ██   ██████  ██     ██    ██     ██  ██████
+█████████ ██     ██    ██    ██     ██ ██   ██    ██        ██ █████████    ██     ██  ██
+██     ██ ██     ██    ██    ██     ██ ██    ██   ██  ██    ██ ██     ██    ██     ██  ██
+██     ██  ███████     ██     ███████  ██     ██ ████  ██████  ██     ██    ██    ████ ████████
+-->
+Autorisatie {#autorisatie}
+======================================================
+
+Confirm the [[Woo|Wet Open Overheid]] (Woo) zijn gegevens standaard openbaar.
+Er zijn twee mechanismen om de toegang te beperken en authorisatie in te regelen:
+
+1. De `"auth"`-attributen in het Amsterdam-schema beperken de toegang. zie [[#auth]].
+2. De profielen geven granulair toegang op basis van een gebruikersprofiel. zie [[#profielen]].
+
+Beide mechanismen gebruiken doorvoor scopes om te koppelen met gebruikersgroepen in de bestaande architectuur.
+Deze scopes worden bijvoorbeeld verkregen vanuit een bestaande OAuth-flow die een JSON Web Token (JWT) aanbiedt.
+
+Scopes {#scopes}
+---------------
+
+Een <dfn export>scope</dfn> is een groep gebruikers (medewerkers) met gedeelde rechten. Een gebruiker kan meerdere scopes hebben.
+Een scope is een string bestaande uit een reeks lower of uppercase letters eventueel gescheiden door een forward slash (`/`),
+bijvoorbeeld `"BRP/RO"`.
+
+Auth-attributen {#auth}
+---------------
+
+Op zowel [=dataset=], [=tabel=] als [=veld=] niveau kan een `"auth"`-attribuut worden meegegeven om toegang tot een entitieit te beperken.
+<table export class="dfn-table">
+    <tr><td><dfn>auth</dfn> <td> string | array <td> geautoriseerde [=scope|scope(s)=].
+    <tr><td><dfn>reasonsNonPublic</dfn>  <td> array({{nonPubReason}})
+        <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de [[Woo]].
+             Verplicht op het eerste niveau waar de `"auth"` niet gelijk is aan `"OPENBAAR"`.
+</table>
+
+Het `"auth"`-attribuut bevat één of meer scopes, die leesrechten hebben op de entiteit waarop `"auth"` is gedefinieerd.
+
+### Meerdere scopes
+
+Als het `"auth"`-attribuut een array bevat is elke scope in de array afzonderlijk geautoriseerd.
+Dus een gebruiker heeft slechts één van de [=scopes=] in een array nodig voor toegang.
+
+<div class=example>
+    Voorbeeld van een `"auth"` array op een veld.
+    Zowel scope `"LEVEL/X"` als scope `"LEVEL/Y"` toegang tot het veld. Een gebruiker hoeft niet beide scopes te bezitten.
+    <pre highlight="json">
+        "aantalDuivenOpDeDam": {
+            "title": "aantal duiven op de Dam",
+            "description": "Het gemeten aantal duiven op de de Dam",
+            "auth": ["LEVEL/X", "LEVEL/Y"]
+            "type": "integer"
+        }
+    </pre>
+</div>
+
+### Meerdere niveau's
+
+Op dataset niveau is het {{dataset/auth}} attribuut verplicht.
+Bij een openbare [=dataset=] krijgt het {{dataset/auth}} attribuut de waarde `"OPENBAAR"`.
+
+Als een [=tabel=] geen `"auth"` attribuut heeft, is de scope van de [=tabel=] gelijk aan die van de dataset.
+
+Als een [=veld=] geen `"auth"` attribuut heeft, is de scope van het [=veld=] gelijk aan die van de tabel.
+
+Om toegang tot een veld te krijgen, moet de gebruiker op alle niveau's toegang krijgen; op veld-, tabel- en datasetniveau.
+
+Op het eerste niveau waarop data niet openbaar wordt gemaakt moet een `"reasonsNonPublic"`-attribuut bestaan.
+Dus als een dataset openbaar is, maar deze een tabel bevat waarop een {{tabel/auth}} attribuut met een andere waarde dan "OPENBAAR" bestaat.
+Moet in de betreffende tabel of tabellen een {{tabel/reasonsNonPublic}} attribuut bestaan.
+
+<div class=example>
+In dit voorbeeld vindt autorisatie plaats op 3 niveaus.
+Scope `"LEVEL/A"` heeft dataset level autorisatie op gebieden, scope `"LEVEL/B"` heeft tabel level autorisatie op bouwblokken en scope `"LEVEL/C"` heeft autorisatie op veld beginGeldigheid.
+
+    * Een user met scope `"LEVEL/A"` mag alles uit de dataset `gebieden` zien, behalve tabel `bouwblokken`.
+    * Een user met scope `"LEVEL/A"` en `"LEVEL/B"` mag alle velden van tabel `bouwblokken` zien, behalve `beginGeldigheid`.
+    * Een user met scope `"LEVEL/A"` en `"LEVEL/B"` en `"LEVEL/C"` mag het veld `beginGeldigheid` ook zien.
+
+    <pre highlight="json" line-highlight=5,17,39>
+        {
+            "type": "dataset",
+            "id": "gebieden",
+            "title": "gebieden",
+            "auth": "LEVEL/A",
+            "reasonsNonPublic": [
+                "5.1 1b: Gevaar voor staatsveiligheid"
+            ],
+            "status": "beschikbaar",
+            "crs": "EPSG:28992",
+            "tables": [
+                {
+                    "id": "bouwblokken",
+                    "mainGeometry": "geometrie",
+                    "type": "table",
+                    "version": "1.0.0",
+                    "auth": "LEVEL/B",
+                    "schema": {
+                        "$id": "https://github.com/Amsterdam/schemas/gebieden/bouwblokken.json",
+                        "$schema": "http://json-schema.org/draft-07/schema#",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "identifier": ["id"],
+                        "required": ["schema", "id"],
+                        "display": "id",
+                        "properties": {
+                            "schema": {
+                                "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+                            },
+                            "id": {
+                                "type": "string",
+                                "description": "Unieke identificatie voor dit object, inclusief volgnummer"
+                            },
+                            "beginGeldigheid": {
+                                "type": "string",
+                                "format": "date",
+                                "title": "Begin geldigheid",
+                                "description": "De datum waarop het object is gecreëerd.",
+                                "auth": "LEVEL/C"
+                            },
+                            "eindGeldigheid": {
+                                "type": "string",
+                                "format": "date",
+                                "title": "Eind geldigheid",
+                                "description": "De datum waarop het object is komen te vervallen.",
+                                "provenance": "eindgeldigheid"
+                            },
+                            "ligtInBuurt": {
+                                "type": "string",
+                                "relation": "gebieden:buurten",
+                                "provenance": "ligtinbuurt",
+                                "title": "Ligt in buurt",
+                                "description": "De buurt waar het bouwblok in ligt."
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    </pre>
+</div>
+
+Profielen {#profielen}
+---------------------------------------------------
+
+Waar een `"auth"`-attribuut de toegang ontzegt, geeft een profiel granulair toegang onder voorwaarden.
+Een profiel wordt alleen toegepast als er geen authorisatie verkregen is via de `"auth"`-attributen.
+
+<div class=example>
+    Voorbeeld van een profiel, wat het functieprofiel "parkeerwachter" toegang geeft tot "parkeervakken".
+    <pre highlight="json">
+        {
+            "id": "parkeerwachter",
+            "type": "profile",
+            "name": "Parkeerwacht toegang",
+            "scopes": ["FP/PARKEERWACHTER"],
+            "datasets": {
+                "parkeervakken": {
+                    "tables": {
+                        "parkeervakken": {
+                            "permissions": "read",
+                        }
+                    }
+                }
+            }
+        }
+    </pre>
+</div>
+
+Een profiel kan toegang geven op dataset-, tabel- en veldniveau.
+Daarbij kan ook een zoekvraag (`"mandatoryFilterSets"`) verplicht zijn om toegang te krijgen.
+
+<div class=example>
+    Voorbeeld van een profiel wat slechts toegang geeft tot een paar velden, en een zoekvraag verplicht.
+    <pre highlight="json">
+        {
+            "id": "parkeerwachter",
+            "type": "profile",
+            "name": "Parkeerwacht toegang beperkt",
+            "scopes": ["FP/PARKEERWACHTER-B"],
+            "datasets": {
+                "parkeervakken": {
+                    "tables": {
+                        "parkeervakken": {
+                            "fields": {
+                                "type": "read",
+                                "grootte": "read",
+                                "opmerking": "letters:10",
+                            },
+                            "mandatoryFilterSets": [
+                                ["id", "volgnummer"],
+                                ["buurtcode", "type"],
+                            ],
+                        }
+                    }
+                }
+            }
+        }
+    </pre>
+</div>
+
+Verplichte attributen {#publisher-mandatory-fields}
+---------------------------------------------------------
+Een <dfn dfn export>profiel</dfn> binnen Amsterdam Schema is een JSON object met in ieder geval de volgende attributen.
+
+<table dfn-type="attribute" dfn-for=profiel export class="dfn-profile">
+    <tr><td style="min-width: 10em"><dfn>id</dfn>       <td style="min-width: 5em"> {{id-type|identifier}} <td> Identifier van de publisher. Moet globaal uniek zijn en gelijk aan de file waarin het publisher object is opgeslagen.
+    <tr><td><dfn>type</dfn>     <td> constante <td> Type van dit bestand, in dit geval `"profile"`.
+    <tr><td><dfn>name</dfn>     <td> string <td> Naam van het gebruikersprofiel.
+    <tr><td><dfn>scopes</dfn>   <td> {{resource-identifier}} <td> De geautoriseerde [=scope|scope(s)=] die de gebruiker moet hebben om dit profiel te activeren.
+    <tr><td><dfn>datasets</dfn> <td> object <td> Mapping van alle datasets, waarbij iedere sleutel verwijst naar het `id` van een [=dataset=].
+</table>
+
+Iedere *dataset* in een profiel kan de volgende waarden bevatten:
+
+<table dfn-type="attribute" dfn-for=profiledataset export class="dfn-profiledataset">
+    <tr><td style="min-width: 10em"><dfn>permissions</dfn> <td style="min-width: 5em"> string <td> De waarde `"read"` voor leestoegang.
+    <tr><td><dfn>tables</dfn>      <td> object <td> Een mapping van tabellen, waarbij iedere sleutel verwijst naar het `id` van een [=tabel=].
+</table>
+
+Iedere *tabel* in een profiel kan over de volgende waarden bevatten:
+
+<table dfn-type="attribute" dfn-for=profiletable export class="dfn-profiletable">
+    <tr><td style="min-width: 10em"><dfn>permissions</dfn> <td style="min-width: 5em"> string <td> De waarde `"read"` voor leestoegang.
+    <tr><td><dfn>fields</dfn>              <td> object <td> Een mapping van velden, waarbij iedere sleutel verwijst naar het `id` van een [=veld=].
+    <tr><td><dfn>mandatoryFilterSets</dfn> <td> array  <td> Een array van tuples met verplichte zoekvelden.
+</table>
+
+Ieder *veld* in een profiel kan over de volgende waarden bevatten:
+
+<table dfn-type="attribute" dfn-for=profilefield export class="dfn-profilefield">
+    <tr><td style="min-width: 10em"><dfn>permissions</dfn> <td style="min-width: 5em"> string <td> Het toegangsniveau tot het veld.
+       Mogelijke waarden: `"read"` voor leestoegang,
+       `"letters:##"` geeft toegang tot de eerste aantal karakters van het veld.
+</table>
+
+### Verplichte zoekvragen
+
+De <dfn export>mandatoryFilterSets</dfn> verplicht het gebruik van een zoekvraag om de tabel te raadplegen.
+De waarde bevat een lijst van mogelijke toegestane vragen.
+Operatoren zijn alleen toegestaan als deze letterlijk opgegeven worden, bijvoorbeeld `"regimes.aantal[gte]"`.
+
+<div class=example>
+    Voorbeeld van verplicht zoeken op id+volgnummer óf buurtcode+type.
+    In een REST API betekend dit bijvoorbeeld dat de resource alleen inzichtelijk is
+    met de zoekvraag `?id=...&amp;volgnummer=...` óf `?buurtcode=...&amp;type=...`.
+
+    <pre highlight="json">
+        "mandatoryFilterSets": [
+            ["id", "volgnummer"],
+            ["buurtcode", "type"]
+        ]
+    </pre>
+</div>
+
+### Toegangsregels
+
+Een gebruiker heeft toegang tot een [=dataset=] indien deze:
+
+* Toegang krijgt via de `"auth"` regel.
+* Of een profiel heeft met `"permissions": "read"` op dataset niveau.
+
+Een gebruiker heeft toegang tot een [=tabel=] indien deze:
+
+* Toegang krijgt via `"auth"` regels op de tabel én dataset.
+* Of volledige toegang heeft tot de dataset door middel van een profiel met `"permissions": "read"` op dataset niveau.
+* Of een profiel heeft met `"permissions": "read"` op tabel niveau, én voldoet aan de [=mandatoryFilterSets=] indien deze aanwezig zijn.
+    Toegang tot het openen van dataset wordt daarmee impliciet verkregen.
+
+Een gebruiker heeft toegang tot een [=veld=] indien deze:
+
+* Toegang krijgt via `"auth"` regels op de dataset, tabel én het veld.
+* Of volledige toegang heeft tot de dataset door middel van een profiel met `"permissions": "read"` op dataset niveau.
+* Of volledige toegang heeft tot een tabel door middel van een profiel heeft met `"permissions": "read"` op het tabel niveau, waarbij de de [=mandatoryFilterSets=] voldaan zijn indien deze aanwezig zijn.
+* Of een profiel heeft met `"permissions"` op het veld niveau, én voldoet aan de [=mandatoryFilterSets=] vam de tabel indien deze aanwezig zijn.
+    Toegang tot het openen van de dataset en tabel wordt daarmee impliciet verkregen.
 
 
 <!--
@@ -1468,124 +1769,6 @@ Het `description` veld is bedoeld voor bijvoorbeeld contextmenu's (mouseover) bi
 </div>
 
 Note: Als een [=veld=] geen {{veld/title}}-attibuut heeft, wordt de naam van het veld gebruikt.
-
-<!--
-   ███    ██     ██ ████████  ███████  ████████  ████  ██████     ███    ████████ ████ ████████
-  ██ ██   ██     ██    ██    ██     ██ ██     ██  ██  ██    ██   ██ ██      ██     ██  ██
- ██   ██  ██     ██    ██    ██     ██ ██     ██  ██  ██        ██   ██     ██     ██  ██
-██     ██ ██     ██    ██    ██     ██ ████████   ██   ██████  ██     ██    ██     ██  ██████
-█████████ ██     ██    ██    ██     ██ ██   ██    ██        ██ █████████    ██     ██  ██
-██     ██ ██     ██    ██    ██     ██ ██    ██   ██  ██    ██ ██     ██    ██     ██  ██
-██     ██  ███████     ██     ███████  ██     ██ ████  ██████  ██     ██    ██    ████ ████████
--->
-Autorisatie {#autorisatie}
-----------------------------------------------------
-
-Op zowel [=dataset=], [=tabel=] als [=veld=] niveau kan een `"auth"`-attribuut worden meegegeven om toegang tot een entitieit te beperken.
-<table export class="dfn-table">
-    <tr><td><dfn>auth</dfn> <td> string | array <td> geautoriseerde [=scope|scope(s)=].
-</table>
-
-Het `"auth"`-attribuut bevat één of meer scopes, die leesrechten hebben op de entiteit waarop `"auth"` is gedefinieerd.
-Een <dfn export>scope</dfn> is een groep gebruikers (medewerkers) met gedeelde rechten. Een gebruiker kan meerdere scopes hebben.
-
-Een scope is een string bestaande uit een reeks lower of uppercase letters eventueel gescheiden door een forward slash (`/`).
-
-Als het `"auth"`-attribuut een array bevat is elke scope in de array afzonderlijk geautoriseerd.
-Dus een gebruiker heeft slechts één van de [=scopes=] in een array nodig voor toegang.
-
-<div class=example>
-    Voorbeeld van een "auth" array op een veld.
-    Zowel scope `"LEVEL/X"` als scope `"LEVEL/Y"` toegang tot het veld. Een gebruiker hoeft niet beide scopes te bezitten.
-    <pre highlight="json">
-        "aantalDuivenOpDeDam": {
-            "title": "aantal duiven op de Dam",
-            "description": "Het gemeten aantal duiven op de de Dam",
-            "auth": ["LEVEL/X", "LEVEL/Y"]
-            "type": "integer"
-        }
-    </pre>
-</div>
-
-Op dataset niveau is het {{dataset/auth}} attribuut verplicht. Bij een openbare [=dataset=] krijgt het {{dataset/auth}} attribuut
-de waarde `"OPENBAAR"`.
-
-Als een [=tabel=] geen `"auth"` attribuut heeft is de scope van de [=tabel=] gelijk aan die van de dataset.
-
-Als een [=veld=] geen `"auth"` attribuut heeft is de scope van het [=veld=] gelijk aan die van de tabel.
-
-
-Op het eerste niveau waarop data niet openbaar wordt gemaakt moet met ingang van 1 mei 2022 een '"reasonsNonPublic"' attribuut bestaan.
-Dus als een dataset openbaar is, maar deze een tabel bevat waarop een {{tabel/auth}} attribuut met een andere waarde dan "OPENBAAR" bestaat.
-Moet in de betreffende tabel of tabellen een {{tabel/reasonsNonPublic}} attribuut bestaan.
-
-<div class=example>
-In dit voorbeeld vindt autorisatie plaats op 3 niveaus.
-Scope `"LEVEL/A"` heeft dataset level autorisatie op gebieden, scope `"LEVEL/B"` heeft tabel level autorisatie op bouwblokken en scope `"LEVEL/C"` heeft autorisatie op veld beginGeldigheid.
-
-    * Een user met scope `"LEVEL/A"` mag alles uit de dataset gebieden zien, behalve tabel bouwblokken.
-    * Een user met scope `"LEVEL/B"` mag alle velden van tabel bouwblokken zien, behalve beginGeldigheid.
-    * Een user met scope `"LEVEL/C"` mag veld beginGeldigheid zien.
-
-    <pre highlight="json" line-highlight=5,14,36>
-        {
-            "type": "dataset",
-            "id": "gebieden",
-            "title": "gebieden",
-            "auth": "LEVEL/A",
-            "status": "beschikbaar",
-            "crs": "EPSG:28992",
-            "tables": [
-                {
-                "id": "bouwblokken",
-                "mainGeometry": "geometrie",
-                "type": "table",
-                "version": "1.0.0",
-                "auth": "LEVEL/B",
-                "schema": {
-                    "$id": "https://github.com/Amsterdam/schemas/gebieden/bouwblokken.json",
-                    "$schema": "http://json-schema.org/draft-07/schema#",
-                    "type": "object",
-                    "additionalProperties": false,
-                    "identifier": ["id"],
-                    "required": ["schema", "id"],
-                    "display": "id",
-                    "properties": {
-                    "schema": {
-                        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-                    },
-                    "id": {
-                        "type": "string",
-                        "description": "Unieke identificatie voor dit object, inclusief volgnummer"
-                    },
-                    "beginGeldigheid": {
-                        "type": "string",
-                        "format": "date",
-                        "title": "Begin geldigheid",
-                        "description": "De datum waarop het object is gecreëerd.",
-                        "auth": "LEVEL/C"
-                    },
-                    "eindGeldigheid": {
-                        "type": "string",
-                        "format": "date",
-                        "title": "Eind geldigheid",
-                        "description": "De datum waarop het object is komen te vervallen.",
-                        "provenance": "eindgeldigheid"
-                    },
-                    "ligtInBuurt": {
-                        "type": "string",
-                        "relation": "gebieden:buurten",
-                        "provenance": "ligtinbuurt",
-                        "title": "Ligt in buurt",
-                        "description": "De buurt waar het bouwblok in ligt."
-                    }
-                    }
-                }
-                }
-            ]
-        }
-    </pre>
-</div>
 
 
 Provenance {#provenance}
@@ -1667,23 +1850,23 @@ Attribuuttypen {#attr-types}
             Kijk voor de exacte definitie van een uitzondering in hoofdstuk 5 van de Woo.
         <details open>
             <summary>Opties</summary>
-                * "5.1 1a: Gevaar voor eenheid van de Kroon",
-                * "5.1 1b: Gevaar voor staatsveiligheid",
-                * "5.1 1c: Vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens",
-                * "5.1 1d: Bevat persoonsgegevens",
-                * "5.1 1e: Bevat nationaal identificatienummer",
-                * "5.1 2a: Zwaarwegend belang: internationale betrekkingen",
-                * "5.1 2b: Zwaarwegende economische of financiële belangen van publiekrechtelijke lichamen (bevat geen mileu-informatie)",
-                * "5.1 2b: Zwaarwegende economische of financiële belangen van publiekrechtelijke lichamen (bevat mileu-informatie met betrekking op handelingen met een vertrouwelijk karakter)",
-                * "5.1 2c: Zwaarwegend belang: opsporing en vervolging van strafbare feiten",
-                * "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen",
-                * "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer",
-                * "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens",
-                * "5.1 2g: Zwaarwegend belang: bescherming van het milieu waarop deze informatie betrekking heeft",
-                * "5.1 2h: Zwaarwegend belang: beveiliging van personen en bedrijven en het voorkomen van sabotage",
-                * "5.1 2i: Zwaarwegend belang: het goed functioneren van de Staat, andere publiekrechtelijke lichamen of bestuursorganen",
-                * "5.2 1: Bevat persoonlijke beleidsopvattingen (bevat geen milieu-informatie)",
-                * "5.2 4: Zwaarwegend belang: persoonlijke beleidsopvattingen (bevat milieu-informatie)",
+                * "5.1 1a: Gevaar voor eenheid van de Kroon"
+                * "5.1 1b: Gevaar voor staatsveiligheid"
+                * "5.1 1c: Vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+                * "5.1 1d: Bevat persoonsgegevens"
+                * "5.1 1e: Bevat nationaal identificatienummer"
+                * "5.1 2a: Zwaarwegend belang: internationale betrekkingen"
+                * "5.1 2b: Zwaarwegende economische of financiële belangen van publiekrechtelijke lichamen (bevat geen mileu-informatie)"
+                * "5.1 2b: Zwaarwegende economische of financiële belangen van publiekrechtelijke lichamen (bevat mileu-informatie met betrekking op handelingen met een vertrouwelijk karakter)"
+                * "5.1 2c: Zwaarwegend belang: opsporing en vervolging van strafbare feiten"
+                * "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+                * "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+                * "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+                * "5.1 2g: Zwaarwegend belang: bescherming van het milieu waarop deze informatie betrekking heeft"
+                * "5.1 2h: Zwaarwegend belang: beveiliging van personen en bedrijven en het voorkomen van sabotage"
+                * "5.1 2i: Zwaarwegend belang: het goed functioneren van de Staat, andere publiekrechtelijke lichamen of bestuursorganen"
+                * "5.2 1: Bevat persoonlijke beleidsopvattingen (bevat geen milieu-informatie)"
+                * "5.2 4: Zwaarwegend belang: persoonlijke beleidsopvattingen (bevat milieu-informatie)"
                 * "nader te bepalen"
         </details>
         De laatste optie ("nader te bepalen") is niet toegestaan wanneer {{dataset/status}}=`"beschikbaar"`.
@@ -1718,14 +1901,22 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 <!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
 <!-- Update the version number in the metadata at the top and refer to it here. -->
 
-[2.2.0] dataclass atribuut toegevoegd (2023-01-12) {#lastchange}
+[2.3.0] filterAuth attribuut toegevoegd (2025-01-12) {#lastchange}
 ------------------------------------------------
 > **Doelstelling**<br/>
-    UItzonderingsgronden WOO in lijn gebracht met versie van WOO die nu van kracht is.
+    Betere afscherming van velden bij speciale zoekacties.
+
+* Het {{veld/filterAuth}} attribuut is toegevoegd.
+* De [[#profielen]] zijn gedocumenteerd.
+
+[2.2.0] dataclass attribuut toegevoegd (2023-01-12) {#20230112}
+------------------------------------------------
+> **Doelstelling**<br/>
+    Uitzonderingsgronden WOO in lijn gebracht met versie van WOO die nu van kracht is.
 
 * Het {{tabel/dataclass}} attribuut is toegevoegd.
 
-[2.1.5] dataclass atribuut toegevoegd (2023-01-10) {#20230110}
+[2.1.5] dataclass attribuut toegevoegd (2023-01-10) {#20230110}
 ------------------------------------------------
 > **Doelstelling**<br/>
     Beschrijving en relatering van ongestructureerde data mogelijk maken.
@@ -1857,10 +2048,10 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
         float: right;
         background-repeat: no-repeat;
         background-size: contain;
-        background-image: url("[LOGO]");
+        background-image: url("https://api.data.amsterdam.nl/api/gemeente_Amsterdam_logo.svg");  /* Using [LOGO] here fails on Bikeshed 4 */
     }
     #toc::before {
-        content: "[TITLE]";
+        content: "Amsterdam Schema Specificatie";  /* Using [TITLE] here fails on Bikeshed 4 */
         background: rgb(0, 90, 156);
         color: var(--tocsidebar-bg);
         font-size: 18px;

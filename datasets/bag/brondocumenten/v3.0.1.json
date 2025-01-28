@@ -1,0 +1,57 @@
+{
+	"id": "brondocumenten",
+	"type": "table",
+	"version": "3.0.1",
+	"description": "Een BRONDOCUMENT is nodig als verantwoording van de registratie.",
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": "documentnummer",
+		"required": [
+			"schema",
+			"identificatie"
+		],
+		"display": "documentnummer",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"documentnummer": {
+				"type": "string",
+				"title": "Brondocument nummer",
+				"description": "Identificerende nummer van het document"
+			},
+			"bronleverancier": {
+				"type": "string",
+				"title": "Bron leverancier",
+				"provenance": "$.bronleverancier.omschrijving",
+				"description": "Verstrekker van brondocumenten en of gegevens voortkomend uit het uitoefenen of voorbereiden van een gemeentelijke bevoegdheid, die nodig zijn voor een registratie aan de bronhouder, conform vastgestelde aanleverspecificaties"
+			},
+			"typeDossier": {
+				"type": "string",
+				"title": "Dossier type",
+				"provenance": "$.typeDossier.omschrijving",
+				"description": "Omschrijving van het type dossier"
+			},
+			"typeBrondocument": {
+				"type": "string",
+				"title": "Brondocument type",
+				"provenance": "$.typeBrondocument.omschrijving",
+				"description": "Omschrijving van het type brondocument"
+			},
+			"registratiedatum": {
+				"type": "string",
+				"title": "Brondocument registratiedatum",
+				"format": "date-time",
+				"description": "De datum waarop het brondocument is opgeslagen in het register"
+			},
+			"datumActueelTot": {
+				"type": "string",
+				"title": "Actueel tot datum",
+				"format": "date-time",
+				"description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+			}
+		}
+	}
+}

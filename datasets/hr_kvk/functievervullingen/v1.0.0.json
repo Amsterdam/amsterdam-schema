@@ -1,11 +1,7 @@
 {
   "id": "functievervullingen",
   "type": "table",
-  "version": "1.5.0",
-  "auth": [
-    "FP/MDW",
-    "HR/R"
-  ],
+  "version": "1.0.0",
   "shortname": "Fvv",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -147,7 +143,7 @@
             "description": "Het soort bevoegdheid die een aansprakelijke van een samenwerkingsverband kan hebben"
           },
           "beperkingInEuros": {
-            "type": "decimal",
+            "type": "number",
             "description": "bevoegdheid is beperkt ot het genoemende bedrag"
           },
           "overigeBeperking": {
@@ -226,14 +222,14 @@
             "type": "string"
           }
         },
-        "relation": "hr:vestigingen",
+        "relation": "hrKvk:vestigingen",
         "description": "een vestiging is gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een onderneming of rechtspersoon plaatsvindt"
       }},
       "beperkingInGeld": {
         "type": "object",
         "properties": {
           "waarde": {
-            "type": "decimal"
+            "type": "number"
           },
           "valuta": {
             "type": "string"
@@ -294,7 +290,6 @@
       "bevoegdheidFuntionarisVolgensBuitlandsRecht": {
         "type": "string",
         "description": "de soort bevoegdheid die een functionaris naar buitenlands recht kan hebben."
-        }
       },
       "publiekrechtelijkeFunctionarisFunctie": {
         "type": "object",
@@ -313,4 +308,5 @@
         "description": "de soort bevoegdheid die een functionaris kan hebben."
       }
     }
+  }
 }

@@ -1,0 +1,142 @@
+{
+	"id": "erfpachtcanons",
+	"type": "table",
+	"version": "2.0.1",
+	"auth": "BRK/RS",
+	"temporal": {
+		"identifier": "volgnummer",
+		"dimensions": {
+			"geldigOp": [
+				"beginGeldigheid",
+				"eindGeldigheid"
+			]
+		}
+	},
+	"reasonsNonPublic": [
+		"5.1 1d: Bevat persoonsgegevens",
+		"5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+	],
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": [
+			"identificatie",
+			"volgnummer"
+		],
+		"required": [
+			"schema",
+			"identificatie",
+			"volgnummer"
+		],
+		"display": "volgnummer",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"volgnummer": {
+				"type": "integer",
+				"title": "Object volgnummer",
+				"description": "Uniek volgnummer van de toestand van het object"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "De door het Kadaster toegekende landelijk unieke aanduiding aan deze erfpachtcanon"
+			},
+			"soort": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string"
+					},
+					"omschrijving": {
+						"type": "string"
+					}
+				},
+				"description": "De soort erfpachtcanon",
+				"title": "Erfpachtcanon soort"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"format": "date-time",
+				"title": "Object geldigheid datumtijd",
+				"description": "Begindatum geldigheid object"
+			},
+			"eindGeldigheid": {
+				"type": "string",
+				"format": "date-time",
+				"title": "Object eindgeldigheid datumtijd",
+				"description": "Einddatum geldigheid object"
+			},
+			"jaarlijksBedrag": {
+				"type": "object",
+				"properties": {
+					"valutaSom": {
+						"type": "number",
+						"multipleOf": 0.01
+					},
+					"valutaCode": {
+						"type": "string"
+					},
+					"betreftMeerOnroerendeZaken": {
+						"type": "string"
+					}
+				},
+				"title": "Jaarlijks te betalen bedrag",
+				"description": "Het jaarlijkse bedrag"
+			},
+			"isGebaseerdOpBrkStukdeel": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brk2:stukdelen",
+				"title": "Stukdeel identificatie",
+				"description": "Identificatie van het stukdeel waar de erfpacht op gebaseerd is"
+			},
+			"einddatum": {
+				"type": "string",
+				"format": "date-time",
+				"title": "Stukdeel eind geldigheid",
+				"description": "Einddatum geeft aan wanneer een bepaalde aantekening volgens het ingeschreven stuk niet langer meer rechtsgeldig is"
+			},
+			"datumActueelTot": {
+				"type": "string",
+				"format": "date-time",
+				"title": "Datum actueel tot",
+				"description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+			},
+			"toestandsdatum": {
+				"type": "string",
+				"format": "date",
+				"title": "Kadastrale registratie toestand datum",
+				"description": "De datum waarop de geleverde toestand van het onderliggende kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)"
+			},
+			"betreftBrkZakelijkrecht": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "brk2:zakelijkerechten",
+				"title": "Betrokken zakelijke recht identificatie",
+				"description": "Identificatie van het betrokken zakelijkrecht"
+			}
+		}
+	}
+}

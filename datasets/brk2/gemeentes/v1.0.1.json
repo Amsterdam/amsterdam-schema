@@ -1,0 +1,67 @@
+{
+	"id": "gemeentes",
+	"type": "table",
+	"version": "1.0.1",
+	"temporal": {
+		"identifier": "volgnummer",
+		"dimensions": {
+			"geldigOp": [
+				"beginGeldigheid",
+				"eindGeldigheid"
+			]
+		}
+	},
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"mainGeometry": "geometrie",
+		"identifier": [
+			"identificatie",
+			"volgnummer"
+		],
+		"required": [
+			"schema",
+			"identificatie",
+			"volgnummer"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Gemeente ID",
+				"description": "De unieke aanduiding van een gemeente"
+			},
+			"volgnummer": {
+				"type": "integer",
+				"title": "Object volgnummer",
+				"description": "Uniek volgnummer van de toestand van het object"
+			},
+			"naam": {
+				"type": "string",
+				"title": "Gemeente naam",
+				"description": "De officiële vastgestelde gemeentenaam"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Gemeente begindatum",
+				"format": "date-time",
+				"description": "De datum waarop de gemeente is ontstaan"
+			},
+			"eindGeldigheid": {
+				"type": "string",
+				"title": "Gemeente einddatum",
+				"format": "date-time",
+				"description": "De datum waarop de gemeente is opgeheven"
+			},
+			"geometrie": {
+				"$ref": "https://geojson.org/schema/Geometry.json",
+				"title": "Geometrie",
+				"description": "Vorm en ligging van de gemeentegrens in het stelsel van de Rijksdriehoekmeting (RD)"
+			}
+		}
+	}
+}
