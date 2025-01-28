@@ -220,9 +220,15 @@
         "description": "indicatie die aangeeft of de Volmacht in de statuten is opgenomen"
       },
       "heeftHrVestiging": {
-        "type": "integer",
-        "description": "een vestiging is gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een onderneming of rechtspersoon plaatsvindt."
-      },
+        "type": "object",
+        "properties": {
+          "vestigingsnummer": {
+            "type": "string"
+          }
+        },
+        "relation": "hr:vestigingen",
+        "description": "een vestiging is gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een onderneming of rechtspersoon plaatsvindt"
+      }},
       "beperkingInGeld": {
         "type": "object",
         "properties": {
