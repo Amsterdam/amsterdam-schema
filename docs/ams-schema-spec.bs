@@ -112,7 +112,7 @@ Een <dfn dfn export>dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON b
                     * "beschikbaar"
                     * "niet_beschikbaar"
             </details>
-    <tr><td><dfn>auth</dfn>                 <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Voor openbare data: `"OPENBAAR"`. zie [[#autorisatie]]
+    <tr><td><dfn>auth</dfn>                 <td> string | array | scope-$ref <td> geautoriseerde [=scope|scope(s)=]. Voor openbare data: `"OPENBAAR"`. zie [[#autorisatie]]
     <tr><td><dfn>authorizationGrantor</dfn> <td> string     <td> E-mailadres van de afdeling verantwoordelijk voor autorisatie op deze dataset. Dit is meestal de bronhouder. Aan dit adres worden authorisatie verzoeken gericht.
     <tr><td><dfn>creator</dfn>              <td> string     <td> Team, afdeling of organisatie die de data produceert, meestal de bronhouder. Wanneer data van meerdere bronhouders wordt gecomineerd, wordt hier de opdrachtgever bedoelt.
     <tr><td><dfn>owner</dfn>                <td> string     <td> Juridisch eigenaar van de data. Bijvoorbeeld `"Gemeente Amsterdam, Directie Wonen"` of `"Centraal Bureau voor de Statistiek"`  Default: `"Gemeente Amsterdam"`
@@ -326,7 +326,7 @@ Een  [=tabel=] mag daarnaast de volgende attributen bezitten:
     <tr><td><dfn>description</dfn>  <td> string <td> zie [[#omschrijving]]
     <tr><td><dfn>shortname</dfn>    <td> string <td> Verkorte unieke naam van de tabel. zie [[#naamgeving]]
     <tr><td><dfn>derivedFrom</dfn>  <td> array<td> De datasets waar deze view op gebaseerd is. e.g. `<dataset>:<tabel>`. Dit attribuut is enkel noodzakelijk wanneer de dataset een view is.
-    <tr><td><dfn>auth</dfn>         <td> string | array <td> geautoriseerde [=scope|scope(s)=]. Default: gelijk aan waarde in dataset/{{dataset/auth}}, zie [[#autorisatie]].
+    <tr><td><dfn>auth</dfn>         <td> string | array | scope-$ref <td> geautoriseerde [=scope|scope(s)=]. Default: gelijk aan waarde in dataset/{{dataset/auth}}, zie [[#autorisatie]].
     <tr><td><dfn>reasonsNonPublic</dfn>  <td> array({{nonPubReason}})
         <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de [[Woo]].
             Verplicht wanneer de dataset openbaar is maar het {{tabel/auth}} attribuut van de tabel niet gelijk is aan "OPENBAAR". zie [[#autorisatie]]
@@ -645,7 +645,7 @@ Een [=veld=] definitie mag naast het [[#veld-mandatory-fields|verplichte attribu
 <table dfn-type="attribute" dfn-for=veld export class="dfn-table">
     <tr><td><dfn>title</dfn>            <td> string <td> zie [[#omschrijving]] Default: Gelijk aan de naam van het veld.
     <tr><td><dfn>description</dfn>      <td> string <td> zie [[#omschrijving]]
-    <tr><td><dfn>auth</dfn>             <td> string | array
+    <tr><td><dfn>auth</dfn>             <td> string | array | scope-$ref
         <td> geautoriseerde [=scope|scope(s)=]. Default: gelijk aan waarde in tabel/{{tabel/auth}}, zie [[#autorisatie]].
             Niet toegestaan in velden waarnaar wordt verwezen in {{schema/identifier}} of {{schema/display}}.
     <tr><td><dfn>filterAuth</dfn>        <td> string | array
@@ -1468,7 +1468,7 @@ Auth-attributen {#auth}
 
 Op zowel [=dataset=], [=tabel=] als [=veld=] niveau kan een `"auth"`-attribuut worden meegegeven om toegang tot een entitieit te beperken.
 <table export class="dfn-table">
-    <tr><td><dfn>auth</dfn> <td> string | array <td> geautoriseerde [=scope|scope(s)=].
+    <tr><td><dfn>auth</dfn> <td> string | array | scope-$ref <td> geautoriseerde [=scope|scope(s)=].
     <tr><td><dfn>reasonsNonPublic</dfn>  <td> array({{nonPubReason}})
         <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de [[Woo]].
              Verplicht op het eerste niveau waar de `"auth"` niet gelijk is aan `"OPENBAAR"`.
@@ -1489,6 +1489,56 @@ Dus een gebruiker heeft slechts één van de [=scopes=] in een array nodig voor 
             "title": "aantal duiven op de Dam",
             "description": "Het gemeten aantal duiven op de de Dam",
             "auth": ["LEVEL/X", "LEVEL/Y"]
+            "type": "integer"
+        }
+    </pre>
+</div>
+
+In versie 2.1.0 is de mogelijkheid toegevoegd om een scope in een apart bestand te definieren.
+<div class=example>
+    Voorbeeld van een `"scope"`.
+    <pre highlight="json">
+        {
+            "type": "scope",
+            "id": "LEVEL/X",
+            "naam": "Toegang tot level X",
+            "owner": {
+                "$ref": "publishers/BENK
+            }
+        }
+    </pre>
+</div>
+
+Deze kunnen op deze manier in een auth veld worden gebruikt:
+<div class=example>
+    Voorbeeld van een `"auth"` dat verwijst naar een scope.
+    <pre highlight="json">
+        "aantalDuivenOpDeDam": {
+            "title": "aantal duiven op de Dam",
+            "description": "Het gemeten aantal duiven op de de Dam",
+            "auth": {
+                "$ref": "scopes/BENK/LEVEL-X
+            },
+            "type": "integer"
+        }
+    </pre>
+</div>
+
+Het is ook mogelijk om een array van scopes mee te geven:
+<div class=example>
+    Voorbeeld van een `"auth"` dat verwijst naar een array met scopes.
+    <pre highlight="json">
+        "aantalDuivenOpDeDam": {
+            "title": "aantal duiven op de Dam",
+            "description": "Het gemeten aantal duiven op de de Dam",
+            "auth": [
+                {
+                    "$ref": "scopes/BENK/LEVEL-X
+                },
+                {
+                    "$ref": "scopes/BOR/LEVEL-Y
+                }
+            ],
             "type": "integer"
         }
     </pre>
@@ -1840,6 +1890,7 @@ Attribuuttypen {#attr-types}
                     * "dataset"
                     * "table"
                     * "publisher"
+                    * "scope"
             </details>
     <tr><td><dfn typedef export lt=nonPubReason>reden-niet-publiek</dfn>
         <td> (enum-string)

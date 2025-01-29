@@ -30,6 +30,7 @@ from swiftclient.service import SwiftService, SwiftUploadObject
 logger = logging.getLogger("__name__")
 
 PUBLISHERS_DIR = "publishers"
+SCOPES_DIR = "scopes"
 PUBLISHABLE_PREFIXES = ("datasets", "schema@", PUBLISHERS_DIR)
 DEFAULT_BASE_URL = "https://schemas.data.amsterdam.nl"
 SCHEMAS_SA_NAME = os.getenv("SCHEMAS_SA_NAME", "devschemassa")
@@ -82,20 +83,6 @@ def fetch_local_as_publishable(
         publishable_paths.append(list(sub_path.parts))
 
     return publishable_paths
-
-
-def fetch_publisher_files(root_pkg: str) -> list[str]:
-    """Get all publisher files from the filesystem.
-
-    These are always stored under root/publishers
-    """
-    # filter publishers.json for backwards compat, this can be removed
-    # when the file has been removed from the repo
-    return [
-        x
-        for x in resources.contents(".".join([root_pkg, PUBLISHERS_DIR]))
-        if x not in ("publishers.json", "index.json")
-    ]
 
 
 def get_index_file_obj(publishable_paths: List[List[str]], files_root: Path) -> BytesIO:
@@ -234,7 +221,6 @@ def swift_uploader(
         "container_threads": 1,
     }
     with SwiftService(opts) as swift:
-
         # Delete old objects in datasets
         deletes = swift.delete(container, options={"prefix": "datasets"})
         for r in deletes:
@@ -377,19 +363,58 @@ def generate_indexjson() -> None:
         sys.stdout.write(buf.read().decode())
 
 
+def fetch_publisher_files() -> list[str]:
+    """Get all publisher files from the filesystem.
+
+    These are always stored under root/publishers
+    """
+    # filter publishers.json for backwards compat, this can be removed
+    # when the file has been removed from the repo
+    return [
+        x.stem
+        for x in Path(".").glob(PUBLISHERS_DIR + "/*.json")
+        if x.name not in ("publishers.json", "index.json")
+    ]
+
+
 def get_publisher_index() -> str:
-    return json.dumps([Path(p).stem for p in fetch_publisher_files("amsterdam_schema")])
+    return json.dumps(fetch_publisher_files())
 
 
 @click.command()  # type: ignore[misc]
 def generate_publisher_index() -> None:
     """Generate a publisher index.json.
 
-    With paths relative to the datasets directory. Note that
-    we assume the pathname is equal to the ID. This is validated
-    by schematools.
+    With a list of available publisher files in the publishers directory.
     """
     sys.stdout.write(get_publisher_index())
+
+
+def fetch_scope_files() -> Dict[str, List[str]]:
+    result = {}
+    for p in Path(".").glob(SCOPES_DIR + "/**/*.json"):
+        if p.stem == "index":
+            continue
+        if p.parent.stem not in result:
+            result[p.parent.stem] = [p.stem]
+        else:
+            result[p.parent.stem].append(p.stem)
+    return result
+
+
+def get_scope_index() -> str:
+    return json.dumps(fetch_scope_files())
+
+
+@click.command()  # type: ignore[misc]
+def generate_scope_index() -> None:
+    """Generate a scope index.json.
+
+    With a list of available scope files in the scopes directory. These are
+    located in subfolders per datateam, the structure of the JSON will be a
+    dict with the datateam name as key and a list of scope files as value.
+    """
+    sys.stdout.write(get_scope_index())
 
 
 if __name__ == "__main__":

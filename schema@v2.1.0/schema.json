@@ -72,7 +72,8 @@
       "enum": [
         "dataset",
         "table",
-        "publisher"
+        "publisher",
+        "scope"
       ]
     },
     "reasonsNonPublic": {
@@ -173,6 +174,9 @@
         },
         {
           "$ref": "./publisher@v2.1.0"
+        },
+        {
+          "$ref": "./scope@v2.1.0"
         }
       ]
     },
@@ -210,6 +214,18 @@
       },
       "then": {
         "$ref": "./publisher@v2.1.0"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "scope"
+          }
+        }
+      },
+      "then": {
+        "$ref": "./scope@v2.1.0"
       }
     },
     {

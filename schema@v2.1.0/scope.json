@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.data.amsterdam.nl/scope@v2.1.0",
+  "type": "object",
+  "required": [
+    "name",
+    "id",
+    "type",
+    "owner"
+  ],
+  "properties": {
+    "type": {
+      "const": "scope"
+    },
+    "name": {
+      "description": "Naam van de scope.",
+      "type": "string",
+      "minLength": 1
+    },
+    "id": {
+      "description": "ID van de scope.",
+      "type": "string",
+      "minLength": 1,
+      "pattern": "[A-Za-z/]"
+    },
+    "owner": {
+      "description": "id van het team dat de data beheert in de DataHub (doorgaans het datateam). Zie /publishers voor de mogelijke ids.",
+      "type": "object",
+      "required": [
+        "$ref"
+      ],
+      "properties": {
+        "$ref": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
