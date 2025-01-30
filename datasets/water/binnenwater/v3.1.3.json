@@ -1,0 +1,32 @@
+{
+    "id": "binnenwater",
+    "title": "Binnenhavengeldplichtige zone",
+    "type": "table",
+    "version": "3.1.3",
+       "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "identifier":"id",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "schema"
+          ],
+          "display": "id",
+          "properties": {
+           "schema": {
+           "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+           },
+           "id": {
+           "type": "integer",
+           "title":"Binnen water zone ID",
+           "description": "Unieke aanduiding van de binnen water zone."
+          },
+           "geometry": {
+           "title":"Binnen water havengeld geometriee",
+           "$ref": "https://geojson.org/schema/MultiPolygon.json",
+           "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992)."
+                  }
+              }
+        }
+      }
