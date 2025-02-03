@@ -1,0 +1,30 @@
+name: pre-commit validate-scopes
+
+on:
+  pull_request:
+  push:
+    paths:
+      - scopes/
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    env:
+      SCHEMA_URL: datasets/
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch_depth: 0
+      - name: "Fetch master branch"  # So we can diff against it.
+        run: |
+          git fetch origin master
+      - id: changed-scopes
+        # We are only interested in changed and new (not deleted) scopes files.
+        run: echo "::set-output name=SCOPE_FILES::$(git diff --name-only --diff-filter=d origin/master.. -- scopes)"
+        shell: bash
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9.x'
+      - uses: pre-commit/action@v2.0.3
+        if: ${{ steps.changed-scopes.outputs.SCOPE_FILES != '' }}
+        with:
+          extra_args: validate-scopes

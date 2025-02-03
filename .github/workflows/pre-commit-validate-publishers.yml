@@ -1,0 +1,30 @@
+name: pre-commit validate-publishers
+
+on:
+  pull_request:
+  push:
+    paths:
+      - publishers/
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    env:
+      SCHEMA_URL: datasets/
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch_depth: 0
+      - name: "Fetch master branch"  # So we can diff against it.
+        run: |
+          git fetch origin master
+      - id: changed-publishers
+        # We are only interested in changed and new (not deleted) scopes files.
+        run: echo "::set-output name=PUBLISHER_FILES::$(git diff --name-only --diff-filter=d origin/master.. -- publishers)"
+        shell: bash
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9.x'
+      - uses: pre-commit/action@v2.0.3
+        if: ${{ steps.changed-publishers.outputs.PUBLISHER_FILES != '' }}
+        with:
+          extra_args: validate-publishers
