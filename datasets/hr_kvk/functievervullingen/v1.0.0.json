@@ -268,7 +268,15 @@
       "soortHandeling": {
         "type": "array",
         "items": {
-          "type": "string"
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "omschrijving": {
+              "type": "string"
+            }
+          }
         },
         "description": "indien de gemachtigde een gestructureerde beperking in handelen heeft kan gekozen worden uit een standaardlijst met beperkingen"
       },
@@ -324,7 +332,7 @@
         "type": "string",
         "properties": {
           "code": {
-            "type": "integer"
+            "type": "string"
           },
           "omschrijving": {
             "type": "string"
