@@ -1,7 +1,7 @@
 <pre class='metadata'>
 Title: Amsterdam Schema Specificatie
 Shortname: ams-schema-spec
-Revision: 2.2.0
+Revision: 2.4.0
 Status: LS
 URL: https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html
 Repository: Amsterdam/amsterdam-schema
@@ -1434,6 +1434,59 @@ Een <dfn dfn export>publisher</dfn> binnen Amsterdam Schema is een JSON object m
             </details>
 </table>
 
+<!--
+ ███▌   ███▌   ███▌  ████▌  █████▌  ███▌
+█▌  █▌ █▌  █▌ █▌  █▌ █▌  █▌ █▌     █▌  █▌
+█▌     █▌     █▌  █▌ █▌  █▌ █▌     █▌
+ ███▌  █▌     █▌  █▌ ████▌  ████    ███▌
+    █▌ █▌     █▌  █▌ █▌     █▌         █▌
+█▌  █▌ █▌  █▌ █▌  █▌ █▌     █▌     █▌  █▌
+ ███▌   ███▌   ███▌  █▌     █████▌  ███▌
+-->
+Scope {#scopes}
+===========================
+
+Een <dfn export>scope</dfn> is een groep gebruikers (medewerkers) met gedeelde rechten. Een gebruiker kan meerdere scopes hebben.
+Een scope is een string bestaande uit een reeks lower of uppercase letters eventueel gescheiden door een forward slash (`/`),
+bijvoorbeeld `"BRP/RO"`.
+
+In versie 2.1.0 van het metaschema is de mogelijkheid toegevoegd om een scope in een apart bestand te definieren. Dit is
+in versie 2.2.0 uitgebreid met velden waar een Azure access package kan worden gespecificeerd voor
+productie en niet-productie omgevingen. Deze bestanden bevinden zich in de scopes/<team> folders.
+
+<div class=example>
+    Voorbeeld van een scope object.
+    <pre highlight="json">
+        {
+            "type": "scope",
+            "id": "LEVEL/X",
+            "naam": "Toegang tot level X",
+            "nonProductiePackage": "EM4W-DATA-schemascope-ot-scope_level_x",
+            "productiePackage": "EM4W-DATA-schemascope-p-scope_level_x",
+            "owner": {
+                "$ref": "publishers/BENK
+            }
+        }
+    </pre>
+</div>
+
+Verplichte attributen {#scope-mandatory-fields}
+---------------------------------------------------------
+Een scope binnen Amsterdam Schema is een JSON object met in ieder geval de volgende attributen.
+<table dfn-type="attribute" dfn-for=scope export class="dfn-table">
+    <tr><td><dfn>id</dfn>                   <td> {{id-type|identifier}} <td> Identifier van de scope. Moet globaal uniek zijn, maar kan afwijken van de bestandsnaam, omdat scopes vaak een '/' bevatten.
+    <tr><td><dfn>type</dfn>                 <td> "scope" <td> Type van dit bestand, altijd de constante `"scope"`.
+    <tr><td><dfn>name</dfn>                 <td> string <td> Naam van de scope.
+    <tr><td><dfn>nonProductiePackage</dfn>  <td> string <td> Naam van de access package voor niet-productie omgevingen.
+    <tr><td><dfn>productiePackage</dfn>     <td> string <td> Naam van de access package voor productie omgeving.
+    <tr><td><dfn>owner</dfn>                <td> object <td> Referentie naar de eigenaar van de scope.
+            <details>
+                <summary>Verplichte referentie</summary>
+                    <table class="dfn-table">
+                        <tr><td><dfn>$ref</dfn> <td> **REQUIRED**       <td> string <td> Referentie naar de publisher/owner van de dataset.
+                    </table>
+            </details>
+</table>
 
 <!--
    ███    ██     ██ ████████  ███████  ████████  ████  ██████     ███    ████████ ████ ████████
@@ -1455,13 +1508,6 @@ Er zijn twee mechanismen om de toegang te beperken en authorisatie in te regelen
 
 Beide mechanismen gebruiken doorvoor scopes om te koppelen met gebruikersgroepen in de bestaande architectuur.
 Deze scopes worden bijvoorbeeld verkregen vanuit een bestaande OAuth-flow die een JSON Web Token (JWT) aanbiedt.
-
-Scopes {#scopes}
----------------
-
-Een <dfn export>scope</dfn> is een groep gebruikers (medewerkers) met gedeelde rechten. Een gebruiker kan meerdere scopes hebben.
-Een scope is een string bestaande uit een reeks lower of uppercase letters eventueel gescheiden door een forward slash (`/`),
-bijvoorbeeld `"BRP/RO"`.
 
 Auth-attributen {#auth}
 ---------------
@@ -1494,22 +1540,7 @@ Dus een gebruiker heeft slechts één van de [=scopes=] in een array nodig voor 
     </pre>
 </div>
 
-In versie 2.1.0 is de mogelijkheid toegevoegd om een scope in een apart bestand te definieren.
-<div class=example>
-    Voorbeeld van een `"scope"`.
-    <pre highlight="json">
-        {
-            "type": "scope",
-            "id": "LEVEL/X",
-            "naam": "Toegang tot level X",
-            "owner": {
-                "$ref": "publishers/BENK
-            }
-        }
-    </pre>
-</div>
-
-Deze kunnen op deze manier in een auth veld worden gebruikt:
+Een [=scope=] kan op deze manier in een auth veld worden gebruikt:
 <div class=example>
     Voorbeeld van een `"auth"` dat verwijst naar een scope.
     <pre highlight="json">
@@ -1689,7 +1720,7 @@ Daarbij kan ook een zoekvraag (`"mandatoryFilterSets"`) verplicht zijn om toegan
     </pre>
 </div>
 
-Verplichte attributen {#publisher-mandatory-fields}
+Verplichte attributen {#profile-mandatory-fields}
 ---------------------------------------------------------
 Een <dfn dfn export>profiel</dfn> binnen Amsterdam Schema is een JSON object met in ieder geval de volgende attributen.
 
@@ -1952,7 +1983,15 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 <!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
 <!-- Update the version number in the metadata at the top and refer to it here. -->
 
-[2.3.0] filterAuth attribuut toegevoegd (2025-01-12) {#lastchange}
+[2.4.0] Scopes documentatie toegevoegd (2025-02-04) {#lastchange}
+---------------------------------------------------
+> **Doelstelling**<br/>
+    Aparte scopes objecten die de authorisatie van datasets, tabellen en velden bepalen.
+
+* [[#scopes]] gedocumenteerd.
+* auth velden kunnen nu verwijzen naar een of meer scope files.
+
+[2.3.0] filterAuth attribuut toegevoegd (2025-01-12) {#20250112}
 ------------------------------------------------
 > **Doelstelling**<br/>
     Betere afscherming van velden bij speciale zoekacties.
