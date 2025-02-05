@@ -25,7 +25,6 @@
       },
       "bsn": {
         "type": "string",
-        "auth": "HR/RSN",
         "description": "burgerservicenummer"
       },
       "voorvoegselGeslachtsnaam": {
@@ -34,27 +33,22 @@
       },
       "geslachtsnaam": {
         "type": "string",
-        "auth": "HR/RSN",
         "description": "geslachtsnaam van de NPS"
       },
       "voornamen": {
         "type": "string",
-        "auth": "HR/RSN",
         "description": "voornaam of voornamen van de NPS"
       },
       "geslachtsaanduiding": {
         "type": "string",
-        "auth": "HR/RSN",
         "description": "geslachtsaanduiding van de NPS conform de GBA"
       },
       "volledigeNaam": {
         "type": "string",
-        "auth": "HR/RSN",
         "description": "volledige naam van de Persoon (PRS)"
       },
       "geboortedatum": {
         "type": "object",
-        "auth": "HR/RSN",
         "properties": {
           "datum": {
             "type": "string",
@@ -78,17 +72,14 @@
       },
       "geboorteplaats": {
         "type": "string",
-        "auth": "HR/RSN",
         "description": "plaats waar de NPS geboren is"
       },
       "geboorteland": {
         "type": "string",
-        "auth": "HR/RSN",
         "description": "land waar de NPS geboren is"
       },
       "overlijdensdatum": {
         "type": "object",
-        "auth": "HR/RSN",
         "properties": {
           "datum": {
             "type": "string",
@@ -118,6 +109,10 @@
         "type": "boolean",
         "description": "schuldsanering zorgt ervoor dat de schuldenaar na verloop van zekere tijd bevrijd wordt van zijn schuldenlast, omdat de vorderingen van zijn schuldeisers niet langer afdwingbaar zijn"
       },
+      "faillisement": {
+        "type": "boolean",
+        "description": "faillissement is een gerechtelijk beslag op en in de regel executie van het gehele vermogen van de schuldenaar ten behoeve van zijn gezamenlijke schuldeisers."
+      },
       "status": {
         "type": "string",
         "description": "status waarin de surseance verkeert, dit kan voorlopig of definitief zijn"
@@ -125,10 +120,6 @@
       "duur": {
         "type": "integer",
         "description": "duur van de periode (in maanden) waarvoor surseance van betaling geldt"
-      },
-      "faillisement": {
-        "type": "boolean",
-        "description": "faillissement is een gerechtelijk beslag op en in de regel executie van het gehele vermogen van de schuldenaar ten behoeve van zijn gezamenlijke schuldeisers."
       },
       "persoonRechtsvorm": {
         "type": "string",
@@ -140,20 +131,11 @@
       },
       "typePersoon": {
         "type": "string",
-        "description": "afgeleid veld, een natuurlijk (NPS) of niet-natuurlijk (NNP) persoon"
+        "description": "afgeleid veld: een natuurlijk (NPS) of niet-natuurlijk (NNP) persoon"
       },
       "rol": {
         "type": "string",
-        "description": "afgeleid: de rol van de rechtspersoon (Eigenaar of Aansprakelijke)."
-      },
-      "toegangscode": {
-        "type": "string",
-        "description": "toegangscode telefoonnummer"
-      },
-      "nummer": {
-        "type": "integer",
-        "auth": "HR/RSN",
-        "description": "telefoonnummer"
+        "description": "afgeleid veld: de rol van de rechtspersoon (Eigenaar of Aansprakelijke)."
       },
       "heeftHrFunctievervullingen": {
         "type": "array",
