@@ -1,0 +1,258 @@
+{
+    "id": "energielabel",
+    "type": "table",
+    "version": "1.1.3",
+    "title": "energielabel",
+    "description": "De energielabel per verblijfsobject van de gemeente Amsterdam.",
+    "auth": "OPENBAAR",
+    "status": "beschikbaar",
+    "creator": "Rijksdienst voor Ondernemend Nederland",
+    "publisher": {
+        "$ref": "/publishers/SOEB"
+      },
+    "authorizationGrantor": "datateamSOB@amsterdam.nl",
+    "owner": "Gemeente Amsterdam",
+    "theme": [
+        "energielabel",
+        "duurzaamheid"
+      ],
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "schema"
+      ],
+      "display": "id",
+          "properties": {
+            "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+            },
+            "id": {
+              "type": "integer",
+              "title": "Energielabel ID",
+              "description": "Unieke aanduiding energielabel."
+            },
+            "registratiedatum": {
+              "type": "string",
+              "format": "date",
+              "title": "Energielabel registratiedatum",
+              "description": "De datum waarop het energielabel, de energieprestatieberekening of het maatwerkadvies is geregistreerd."
+            },
+            "opnamedatum": {
+              "type": "string",
+              "format": "date",
+              "title": "Energielabel opnamedatum",
+              "description": "De datum waarop het energielabel, de energieprestatieberekening of het maatwerkadvies is opgenomen."
+            },
+            "metingGeldigTot": {
+              "type": "string",
+              "format": "date",
+              "title": "Energielabel meting geldigheid einddatum",
+              "description": "De uiterste datum tot wanneer het energielabel of de energieprestatieberekening geldig is."
+            },
+            "certificaathouder": {
+              "type": "string",
+              "title": "Naam certificaathouder",
+              "description": "De naam van de certificaathouder die het energielabel, de energieprestatieberekening of het maatwerkadvies heeft geregistreerd."
+            },
+            "opnametype": {
+              "type": "string",
+              "title": "Energielabel opnametype",
+              "description": "Indicator of het een basis- of detailopname betreft."
+            },
+            "status": {
+              "type": "string",
+              "title": "Status bouw",
+              "description": "De status van het bouwproject of gebouw."
+            },
+            "berekeningstype": {
+              "type": "string",
+              "title": "Energielabel berekeningstype",
+              "description": "De bepalingsmethode die gebruikt is bij de opname en berekening."
+            },
+            "isOpBasisVanReferentieGebouw": {
+              "type": "boolean",
+              "title": "Energielabel berekening referentiegebouw indicatie",
+              "description": "Indicator of het energielabel of de energieprestatieberekening op basis van representativiteit is geregistreerd."
+            },
+            "gebouwklasse": {
+              "type": "string",
+              "title": "Gebouw energieklasse code",
+              "description": "Het soort gebouw: een woning (W) of een utiliteitsgebouw (U)."
+            },
+            "gebouwtype": {
+              "type": "string",
+              "title": "Gebouw type",
+              "description": "Woningtype."
+            },
+            "gebouwsubtype": {
+              "type": "string",
+              "title": "Gebouw subtype",
+              "description": "Woningsubtype: de ligging van het appartement in het woongebouw."
+            },
+            "sbicode": {
+              "type": "string",
+              "title": "Standaard bedrijfsindeling code",
+              "description": "Standaard Bedrijfsindeling (SBI) code."
+            },
+            "postcode": {
+              "type": "string",
+              "title": "Postcode",
+              "description": "Postcode van het gebouw.",
+              "maxLength": 6,
+              "minLength": 6
+            },
+            "huisnummer": {
+              "type": "integer",
+              "title": "Huisnummer",
+              "description": "Huisnummer van het gebouw."
+            },
+            "huisletter": {
+              "type": "string",
+              "title": "Huisletter",
+              "description": "Huisletter van het gebouw."
+            },
+            "huisnummertoevoeging": {
+              "type": "string",
+              "title": "Huisnummer toevoeging",
+              "description": "Huisnummertoevoeging van het gebouw"
+            },
+            "detailaanduiding": {
+              "type": "string",
+              "title": "Gebouwaanduiding",
+              "description": "Gebouwaanduiding indien het gebouw(deel) geen eigen adres heeft."
+            },
+            "bagVerblijfsobjectId": {
+              "type": "string",
+              "title": "Verblijfsobject ID",
+              "description": "BAG identificatie van het verblijfsobject."
+            },
+            "bagLigplaatsId": {
+              "type": "string",
+              "title": "Ligplaats ID",
+              "description": "BAG identificatie van de ligplaats."
+            },
+            "bagStandplaatsId": {
+              "type": "string",
+              "title": "Standplaats ID",
+              "description": "BAG identificatie van de standplaats."
+            },
+            "bagPandIds": {
+              "type": "array",
+              "title": "Pand ID's",
+              "description": "BAG identificatie(s) van het pand waar het toe behoort.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "projectnaam": {
+              "type": "string",
+              "title": "Project naam",
+              "description": "Naam van het project dat bij het behoort. Alleen gevuld als er nog geen adres bekend is. "
+            },
+            "projectobject": {
+              "type": "string",
+              "title": "Project object omschrijving",
+              "description": "Projectobject. Alleen gevuld als er nog geen adres bekend is."
+            },
+            "bouwjaar": {
+              "type": "integer",
+              "title": "Bouwjaar gebouw",
+              "description": "Bouwjaar van het gebouw."
+            },
+            "gebruiksoppervlakteThermischeZone": {
+              "type": "string",
+              "title": "Gebruiksoppervlakte thermische zone",
+              "description": "Gebruiksoppervlakte van de thermische zone."
+            },
+            "compactheid": {
+              "type": "string",
+              "title": "Compactheid",
+              "description": "Compactheid: verhouding tussen verliesoppervlakte en gebruiksoppervlakte."
+            },
+            "energieklasse": {
+              "type": "string",
+              "title": "Energieklasse aanduiding",
+              "description": "De letter van het energielabel (labelklasse)."
+            },
+            "energieindex": {
+              "type": "string",
+              "title": "Energie-index",
+              "description": "De energie-index."
+            }, 
+            "energieindexMetEmgForfaitair": {
+              "type": "string",
+              "title": "Energie-index EMG forfaitair",
+              "description": "De energie-index met forfaitaire waarden voor gebiedsgebonden maatregelen."
+            },
+            "eisEnergiebehoefte": {
+              "type": "string",
+              "title": "Eis energiebehoefte",
+              "description": "De energiebehoefte in kilowattuur per vierkante meter per jaar (kWh/m2.jaar)."
+            },
+            "primaireFossieleEnergie": {
+              "type": "string",
+              "title": "Primair fossiele energiegebruik",
+              "description": "Het primair fossiel energiegebruik in kilowattuur per vierkante meter per jaar (kWh/m2.jaar)."
+            },
+            "primaireFossieleEnergieEmgForfaitair": {
+              "type": "string",
+              "title": "Primair fossiele energiegebruik EMG forfaitaire waarde",
+              "description": "Het primair fossiel energiegebruik met forfaitaire waarden voor gebiedsgebonden maatregelen per vierkante meter per jaar (kWh/m2.jaar)."
+            },
+            "aandeelHernieuwbareEnergie": {
+              "type": "string",
+              "title": "Aandeel hernieuwbare energie percentage",
+              "description": "Aandeel hernieuwbare energie in %."
+            },  
+            "aandeelHernieuwbareEnergieEmgForfaitair": {
+              "type": "string",
+              "title": "Aandeel hernieuwbare energie EMG forfaitair percentage",
+              "description": "Het aandeel hernieuwbare energie met forfaitaire waarden voor gebiedsgebonden maatregelen in %."
+            },
+            "temperatuuroverschrijding": {
+              "type": "string",
+              "title": "Temperatuuroverschrijding waarde",
+              "description": "Waarde voor het risico van te hoge temperaturen in de maand juli (TOjuli of GTO)."
+            },
+            "warmtebehoefte": {
+              "type": "string",
+              "title": "Warmtebehoefte",
+              "description": "Netto warmtevraag t.b.v. de energieprestatievergoeding (EPV) in kilowattuur per vierkante meter per jaar (kWh/m2.jaar)."
+            },
+            "energiebehoefte": {
+              "type": "string",
+              "title": "Maximaal toegestane Energiebehoefte",
+              "description": "De maximaal toegestane energiebehoefte in kilowattuur per vierkante meter per jaar (kWh/m2.jaar)."
+            },
+            "eisPrimaireFossieleEnergie": {
+              "type": "string",
+              "title": "Maximaal toegestane primaire fossiele energiegebruik",
+              "description": "Het maximaal toegestane primair fossiel energiegebruik in kilowattuur per vierkante meter per jaar (kWh/m2.jaar)."
+            },
+            "eisAandeelHernieuwbareEnergie": {
+              "type": "string",
+              "title": "Eis aandeel hernieuwbare energie percentage",
+              "description": "Het minimaal vereiste aandeel hernieuwbare energie in %."
+            },
+            "eisTemperatuuroverschrijding": {
+              "type": "string",
+              "title": "Maximaal toegestane temperatuuroverschrijding waarde",
+              "description": "De maximaal toegestane waarde voor de temperatuuroverschrijding."
+            },
+            "berekendeCo2Emissie": {
+              "type": "string",
+              "title": "Berekende CO2-emissie",
+              "description": "De berekende CO2-emissie in kilo per vierkante meter per jaar (kg/m2.jaar)."
+            },
+            "berekendeEnergieverbruik": {
+              "type": "string",
+              "title": "Berekende totale energieverbruik",
+              "description": "Het berekende totale energieverbruik in kilowattuur per vierkante meter per jaar (kWh/m2.jaar)."
+            }
+            }
+          }
+        }
+    
