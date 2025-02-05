@@ -231,351 +231,352 @@
             "type": "integer",
             "description": "dag van de datum, als deze bekend is."
           },
-        "provenance": "$.datumOverdrachtVoortzettingOnderneming.formatted",
-        "description": "de datum waarop de onderneming is overgedragen of voortgezet."
-      },
-      "overdrachtOfVoortzettingOnderneming": {
-        "type": "string",
-        "description": "indicatie of de Onderneming is voortgezet of is overgedragen. (Overdracht of Voortzetting)."
-      },
-      "wordtUitgeoefendInCommercieleHrVestigingen": {
-        "shortname": "uitgeoefendInCvs",
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "datumAanvang": {
-              "type": "string",
-              "format": "date"
+          "provenance": "$.datumOverdrachtVoortzettingOnderneming.formatted",
+          "description": "de datum waarop de onderneming is overgedragen of voortgezet."
+        },
+        "overdrachtOfVoortzettingOnderneming": {
+          "type": "string",
+          "description": "indicatie of de Onderneming is voortgezet of is overgedragen. (Overdracht of Voortzetting)."
+        },
+        "wordtUitgeoefendInCommercieleHrVestigingen": {
+          "shortname": "uitgeoefendInCvs",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "datumAanvang": {
+                "type": "string",
+                "format": "date"
+              },
+              "datumEinde": {
+                "type": "string",
+                "format": "date"
+              },
+              "vestigingsnummer": {
+                "type": "string"
+              }
+            }
+          },
+          "relation": "hrKvk:vestigingen",
+          "description": "hiermee wordt vastgelegd in welke periode (datumAanvang-datumEinde) de commerciele VES bij een onderneming behoort."
+        },
+        "wordtUitgeoefendInNietCommercieleHrVestigingen": {
+          "shortname": "uitgeoefendInNcv",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "datumAanvang": {
+                "type": "string",
+                "format": "date"
+              },
+              "datumEinde": {
+                "type": "string",
+                "format": "date"
+              },
+              "vestigingsnummer": {
+                "type": "string"
+              }
+            }
+          },
+          "relation": "hrKvk:vestigingen",
+          "description": "hiermee wordt beschreven in welke periode (datumAanvang-datumEinde) de niet commerciele VES bij een MAC behoort."
+        },
+        "handelsnamen": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "datumAanvang": {
+                "type": "string",
+                "format": "date",
+                "description": "datum aanvang van de Handelsnaam"
+              },
+              "datumEinde": {
+                "type": "string",
+                "format": "date",
+                "description": "datum einde van de Handelsnaam"
+              },
+              "handelsnaam": {
+                "type": "string",
+                "description": "dandelsnaam van de vestiging waaronder gehandeld wordt"
+              },
+              "volgorde": {
+                "type": "integer",
+                "description": "volgorde waarop de handelsnamen worden getoond bij de onderneming of Commerciele Vestiging"
+              }
             },
-            "datumEinde": {
-              "type": "string",
-              "format": "date"
-            },
-            "vestigingsnummer": {
-              "type": "string"
+            "description": "handelsnaam van de niet-commerciële of commerciële VES"
+          }
+        },
+        "communicatie": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "toegangscode": {
+                "type": "string",
+                "description": "internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft"
+              },
+              "nummer": {
+                "type": "string",
+                "description": "telefoon- of faxnummer zonder opmaak"
+              },
+              "soort": {
+                "type": "string",
+                "description": "geeft aan of het communicatienummer een telefoon- of een faxnummer betreft"
+              }
             }
           }
         },
-        "relation": "hrKvk:vestigingen",
-        "description": "hiermee wordt vastgelegd in welke periode (datumAanvang-datumEinde) de commerciele VES bij een onderneming behoort."
-      },
-      "wordtUitgeoefendInNietCommercieleHrVestigingen": {
-        "shortname": "uitgeoefendInNcv",
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "datumAanvang": {
-              "type": "string",
-              "format": "date"
-            },
-            "datumEinde": {
-              "type": "string",
-              "format": "date"
-            },
-            "vestigingsnummer": {
-              "type": "string"
+        "emailAdressen": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAdres": {
+                "type": "string",
+                "description": "e-mailadres waarop de ondernemer gemaild kan worden"
+              }
             }
           }
         },
-        "relation": "hrKvk:vestigingen",
-        "description": "hiermee wordt beschreven in welke periode (datumAanvang-datumEinde) de niet commerciele VES bij een MAC behoort."
-      },
-      "handelsnamen": {
-        "type": "array",
-        "items": {
+        "domeinnamen": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "domeinnaam": {
+                "type": "string",
+                "description": "internetadres (web site)"
+              }
+            }
+          }
+        },
+        "bezoekLocatie": {
           "type": "object",
           "properties": {
-            "datumAanvang": {
+            "afgeschermd": {
               "type": "string",
-              "format": "date",
-              "description": "datum aanvang van de Handelsnaam"
+              "description": "geeft aan of het adres afgeschermd is of niet."
             },
-            "datumEinde": {
+            "toevoegingAdres": {
               "type": "string",
-              "format": "date",
-              "description": "datum einde van de Handelsnaam"
+              "description": "vrije tekst om een Locatie nader te kunnen duiden. Bijvoorbeeld om bedrijfsverzamelgebouwen met meerdere vestigingen"
             },
-            "handelsnaam": {
+            "volledigAdres": {
               "type": "string",
-              "description": "dandelsnaam van de vestiging waaronder gehandeld wordt"
+              "description": "samengesteld adres dat wordt afgeleid van de overige adresgegevens."
             },
-            "volgorde": {
+            "straatnaam": {
+              "type": "string",
+              "description": "de straat van het binnenlandse adres"
+            },
+            "huisnummer": {
               "type": "integer",
-              "description": "volgorde waarop de handelsnamen worden getoond bij de onderneming of Commerciele Vestiging"
-            }
-          },
-          "description": "handelsnaam van de niet-commerciële of commerciële VES"
-        }
-      },
-      "communicatie": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "toegangscode": {
-              "type": "string",
-              "description": "internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft"
+              "description": "het huisnummer van het adres"
             },
-            "nummer": {
+            "huisletter": {
               "type": "string",
-              "description": "telefoon- of faxnummer zonder opmaak"
+              "description": "de huisletter van het binnenlandse adres die die door de gemeente is toegekend aan het huisnummer"
             },
-            "soort": {
+            "huisnummerToevoeging": {
               "type": "string",
-              "description": "geeft aan of het communicatienummer een telefoon- of een faxnummer betreft"
+              "description": "een toevoeging van het huisnummer van het binnenlandse adres"
+            },
+            "postcode": {
+              "type": "string",
+              "description": "de postcode van het binnenlandse adres, waarbij minimaal de vier cijfers bekend zijn"
+            },
+            "plaats": {
+              "type": "string",
+              "description": "de plaatsaanduiding van het binnenlandse adres"
+            },
+            "straatHuisnummerBuitenland": {
+              "type": "string",
+              "description": "het straat/huisnummer is een combinatie van de straat en het huisnummer van het buitenlandse adres"
+            },
+            "postcodePlaatsBuitenland": {
+              "type": "string",
+              "description": "de postcode/woonplaats is de combinatie van een eventuele postcode en woonplaats van het buitenlandse adres"
+            },
+            "regioBuitenland": {
+              "type": "string",
+              "description": "regio is een deel van het land (streek, provincie, etc.) van het buitenlandse adres"
+            },
+            "landBuitenland": {
+              "type": "string",
+              "description": "de naam van het land waar het adres zich bevindt"
             }
-          }
-        }
-      },
-      "emailAdressen": {
-        "type": "array",
-        "items": {
+          },
+          "description": "de locatiegegevens van de bezoekLocatie"
+        },
+        "bezoekHeeftBagNummeraanduiding": {
           "type": "object",
           "properties": {
-            "emailAdres": {
-              "type": "string",
-              "description": "e-mailadres waarop de ondernemer gemaild kan worden"
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
             }
-          }
-        }
-      },
-      "domeinnamen": {
-        "type": "array",
-        "items": {
+          },
+          "relation": "bag:nummeraanduidingen",
+          "description": "met welk adres heeft de locatie een relatie."
+        },
+        "bezoekHeeftBagVerblijfsobject": {
           "type": "object",
           "properties": {
-            "domeinnaam": {
-              "type": "string",
-              "description": "internetadres (web site)"
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
             }
-          }
+          },
+          "relation": "bag:verblijfsobjecten",
+          "description": "met welke verblijfsobject heeft de locatie een relatie."
+        },
+        "bezoekHeeftBagLigplaats": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            }
+          },
+          "relation": "bag:ligplaatsen",
+          "description": "met welke ligplaats heeft de locatie een relatie."
+        },
+        "bezoekHeeftBagStandplaats": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            }
+          },
+          "relation": "bag:standplaatsen",
+          "description": "met welke standplaats heeft de locatie een relatie."
+        },
+        "postLocatie": {
+          "type": "object",
+          "properties": {
+            "afgeschermd": {
+              "type": "string",
+              "description": "geeft aan of het adres afgeschermd is of niet."
+            },
+            "toevoegingAdres": {
+              "type": "string",
+              "description": "vrije tekst om een Locatie nader te kunnen duiden. Bijvoorbeeld om bedrijfsverzamelgebouwen met meerdere vestigingen"
+            },
+            "volledigAdres": {
+              "type": "string",
+              "description": "samengesteld adres dat wordt afgeleid van de overige adresgegevens."
+            },
+            "straatnaam": {
+              "type": "string",
+              "description": "de straat van het binnenlandse adres"
+            },
+            "huisnummer": {
+              "type": "integer",
+              "description": "het huisnummer van het adres"
+            },
+            "huisletter": {
+              "type": "string",
+              "description": "de huisletter van het binnenlandse adres die die door de gemeente is toegekend aan het huisnummer"
+            },
+            "huisnummerToevoeging": {
+              "type": "string",
+              "description": "een toevoeging van het huisnummer van het binnenlandse adres"
+            },
+            "postbusnummer": {
+              "type": "string",
+              "description": "het nummer van de postbus behorende bij het binnenlandse adres"
+            },
+            "postcode": {
+              "type": "string",
+              "description": "de postcode van het binnenlandse adres, waarbij minimaal de vier cijfers bekend zijn"
+            },
+            "plaats": {
+              "type": "string",
+              "description": "de plaatsaanduiding van het binnenlandse adres"
+            },
+            "straatHuisnummerBuitenland": {
+              "type": "string",
+              "description": "het straat/huisnummer is een combinatie van de straat en het huisnummer van het buitenlandse adres"
+            },
+            "postcodePlaatsBuitenland": {
+              "type": "string",
+              "description": "de postcode/woonplaats is de combinatie van een eventuele postcode en woonplaats van het buitenlandse adres"
+            },
+            "regioBuitenland": {
+              "type": "string",
+              "description": "regio is een deel van het land (streek, provincie, etc.) van het buitenlandse adres"
+            },
+            "landBuitenland": {
+              "type": "string",
+              "description": "de naam van het land waar het adres zich bevind"
+            }
+          },
+          "description": "de locatiegegevens van de postLocatie"
+        },
+        "postHeeftBagNummeraanduiding": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            }
+          },
+          "relation": "bag:nummeraanduidingen",
+          "description": "met welk adres heeft de locatie een relatie."
+        },
+        "postHeeftBagVerblijfsobject": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            }
+          },
+          "relation": "bag:verblijfsobjecten",
+          "description": "met welke verblijfsobject heeft de locatie een relatie."
+        },
+        "postHeeftBagLigplaats": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            }
+          },
+          "relation": "bag:ligplaatsen",
+          "description": "met welke ligplaats heeft de locatie een relatie."
+        },
+        "postHeeftBagStandplaats": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            }
+          },
+          "relation": "bag:standplaatsen",
+          "description": "met welke standplaats heeft de locatie een relatie."
         }
-      },
-      "bezoekLocatie": {
-        "type": "object",
-        "properties": {
-          "afgeschermd": {
-            "type": "string",
-            "description": "geeft aan of het adres afgeschermd is of niet."
-          },
-          "toevoegingAdres": {
-            "type": "string",
-            "description": "vrije tekst om een Locatie nader te kunnen duiden. Bijvoorbeeld om bedrijfsverzamelgebouwen met meerdere vestigingen"
-          },
-          "volledigAdres": {
-            "type": "string",
-            "description": "samengesteld adres dat wordt afgeleid van de overige adresgegevens."
-          },
-          "straatnaam": {
-            "type": "string",
-            "description": "de straat van het binnenlandse adres"
-          },
-          "huisnummer": {
-            "type": "integer",
-            "description": "het huisnummer van het adres"
-          },
-          "huisletter": {
-            "type": "string",
-            "description": "de huisletter van het binnenlandse adres die die door de gemeente is toegekend aan het huisnummer"
-          },
-          "huisnummerToevoeging": {
-            "type": "string",
-            "description": "een toevoeging van het huisnummer van het binnenlandse adres"
-          },
-          "postcode": {
-            "type": "string",
-            "description": "de postcode van het binnenlandse adres, waarbij minimaal de vier cijfers bekend zijn"
-          },
-          "plaats": {
-            "type": "string",
-            "description": "de plaatsaanduiding van het binnenlandse adres"
-          },
-          "straatHuisnummerBuitenland": {
-            "type": "string",
-            "description": "het straat/huisnummer is een combinatie van de straat en het huisnummer van het buitenlandse adres"
-          },
-          "postcodePlaatsBuitenland": {
-            "type": "string",
-            "description": "de postcode/woonplaats is de combinatie van een eventuele postcode en woonplaats van het buitenlandse adres"
-          },
-          "regioBuitenland": {
-            "type": "string",
-            "description": "regio is een deel van het land (streek, provincie, etc.) van het buitenlandse adres"
-          },
-          "landBuitenland": {
-            "type": "string",
-            "description": "de naam van het land waar het adres zich bevindt"
-          }
-        },
-        "description": "de locatiegegevens van de bezoekLocatie"
-      },
-      "bezoekHeeftBagNummeraanduiding": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          }
-        },
-        "relation": "bag:nummeraanduidingen",
-        "description": "met welk adres heeft de locatie een relatie."
-      },
-      "bezoekHeeftBagVerblijfsobject": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          }
-        },
-        "relation": "bag:verblijfsobjecten",
-        "description": "met welke verblijfsobject heeft de locatie een relatie."
-      },
-      "bezoekHeeftBagLigplaats": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          }
-        },
-        "relation": "bag:ligplaatsen",
-        "description": "met welke ligplaats heeft de locatie een relatie."
-      },
-      "bezoekHeeftBagStandplaats": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          }
-        },
-        "relation": "bag:standplaatsen",
-        "description": "met welke standplaats heeft de locatie een relatie."
-      },
-      "postLocatie": {
-        "type": "object",
-        "properties": {
-          "afgeschermd": {
-            "type": "string",
-            "description": "geeft aan of het adres afgeschermd is of niet."
-          },
-          "toevoegingAdres": {
-            "type": "string",
-            "description": "vrije tekst om een Locatie nader te kunnen duiden. Bijvoorbeeld om bedrijfsverzamelgebouwen met meerdere vestigingen"
-          },
-          "volledigAdres": {
-            "type": "string",
-            "description": "samengesteld adres dat wordt afgeleid van de overige adresgegevens."
-          },
-          "straatnaam": {
-            "type": "string",
-            "description": "de straat van het binnenlandse adres"
-          },
-          "huisnummer": {
-            "type": "integer",
-            "description": "het huisnummer van het adres"
-          },
-          "huisletter": {
-            "type": "string",
-            "description": "de huisletter van het binnenlandse adres die die door de gemeente is toegekend aan het huisnummer"
-          },
-          "huisnummerToevoeging": {
-            "type": "string",
-            "description": "een toevoeging van het huisnummer van het binnenlandse adres"
-          },
-          "postbusnummer": {
-            "type": "string",
-            "description": "het nummer van de postbus behorende bij het binnenlandse adres"
-          },
-          "postcode": {
-            "type": "string",
-            "description": "de postcode van het binnenlandse adres, waarbij minimaal de vier cijfers bekend zijn"
-          },
-          "plaats": {
-            "type": "string",
-            "description": "de plaatsaanduiding van het binnenlandse adres"
-          },
-          "straatHuisnummerBuitenland": {
-            "type": "string",
-            "description": "het straat/huisnummer is een combinatie van de straat en het huisnummer van het buitenlandse adres"
-          },
-          "postcodePlaatsBuitenland": {
-            "type": "string",
-            "description": "de postcode/woonplaats is de combinatie van een eventuele postcode en woonplaats van het buitenlandse adres"
-          },
-          "regioBuitenland": {
-            "type": "string",
-            "description": "regio is een deel van het land (streek, provincie, etc.) van het buitenlandse adres"
-          },
-          "landBuitenland": {
-            "type": "string",
-            "description": "de naam van het land waar het adres zich bevind"
-          }
-        },
-        "description": "de locatiegegevens van de postLocatie"
-      },
-      "postHeeftBagNummeraanduiding": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          }
-        },
-        "relation": "bag:nummeraanduidingen",
-        "description": "met welk adres heeft de locatie een relatie."
-      },
-      "postHeeftBagVerblijfsobject": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          }
-        },
-        "relation": "bag:verblijfsobjecten",
-        "description": "met welke verblijfsobject heeft de locatie een relatie."
-      },
-      "postHeeftBagLigplaats": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          }
-        },
-        "relation": "bag:ligplaatsen",
-        "description": "met welke ligplaats heeft de locatie een relatie."
-      },
-      "postHeeftBagStandplaats": {
-        "type": "object",
-        "properties": {
-          "identificatie": {
-            "type": "string"
-          },
-          "volgnummer": {
-            "type": "integer"
-          }
-        },
-        "relation": "bag:standplaatsen",
-        "description": "met welke standplaats heeft de locatie een relatie."
       }
     }
   }
