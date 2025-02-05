@@ -148,7 +148,7 @@
         "description": "heeft als eigenaar een niet natuurlijke persoon."
       },
       "onderneming": {
-        "type": "string",
+        "type": "boolean",
         "description": "van onderneming (OND) is sprake indien een zelfstandig optredende eenheid waarin door arbeid of middelen worden geleverd met het oogmerk meterieel voordeel (winst)"
       },
       "totaalWerkzamePersonen": {
@@ -212,8 +212,25 @@
         "description": "datum van beeindiging van de Onderneming."
       },
       "datumOverdrachtVoortzettingOnderneming": {
-        "type": "string",
-        "format": "date",
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          },
         "provenance": "$.datumOverdrachtVoortzettingOnderneming.formatted",
         "description": "de datum waarop de onderneming is overgedragen of voortgezet."
       },
@@ -228,10 +245,12 @@
           "type": "object",
           "properties": {
             "datumAanvang": {
-              "type": "string"
+              "type": "string",
+              "format": "date"
             },
             "datumEinde": {
-              "type": "string"
+              "type": "string",
+              "format": "date"
             },
             "vestigingsnummer": {
               "type": "string"
@@ -248,10 +267,12 @@
           "type": "object",
           "properties": {
             "datumAanvang": {
-              "type": "string"
+              "type": "string",
+              "format": "date"
             },
             "datumEinde": {
-              "type": "string"
+              "type": "string",
+              "format": "date"
             },
             "vestigingsnummer": {
               "type": "string"
@@ -281,7 +302,7 @@
               "description": "dandelsnaam van de vestiging waaronder gehandeld wordt"
             },
             "volgorde": {
-              "type": "string",
+              "type": "integer",
               "description": "volgorde waarop de handelsnamen worden getoond bij de onderneming of Commerciele Vestiging"
             }
           },
