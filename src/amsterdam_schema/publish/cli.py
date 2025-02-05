@@ -31,7 +31,7 @@ logger = logging.getLogger("__name__")
 
 PUBLISHERS_DIR = "publishers"
 SCOPES_DIR = "scopes"
-PUBLISHABLE_PREFIXES = ("datasets", "schema@", PUBLISHERS_DIR)
+PUBLISHABLE_PREFIXES = ("datasets", "schema@", PUBLISHERS_DIR, SCOPES_DIR)
 DEFAULT_BASE_URL = "https://schemas.data.amsterdam.nl"
 SCHEMAS_SA_NAME = os.getenv("SCHEMAS_SA_NAME", "devschemassa")
 
