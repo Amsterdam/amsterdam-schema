@@ -45,7 +45,7 @@
             "description": "dag van de datum, als deze bekend is."
           }
         },
-        "description": "De datum waarbij de Maatschappelijke Activiteit in de echte wereld is ontstaan."
+        "description": "de datum waarbij de Maatschappelijke Activiteit in de echte wereld is ontstaan."
       },
       "datumEindeMaatschappelijkeActiviteit": {
         "shortname": "datumEindeMac",
@@ -69,17 +69,17 @@
             "description": "dag van de datum, als deze bekend is."
           }
         },
-        "description": "De datum waarbij de Maatschappelijke Activiteit in de echte wereld is beëindigd."
+        "description": "de datum waarbij de Maatschappelijke Activiteit in de echte wereld is beëindigd."
       },
       "registratieTijdstipMaatschappelijkeActiviteit": {
         "shortname": "registratieTijdstipMac",
         "type": "string",
         "format": "date-time",
-        "description": "Het tijdstip waarop de maatschappelijke activiteit bij de KvK in het handelsregister is geregistreerd. Indien het registratietijdstip om (migratie)redenen niet bekend is wordt de waarde 'vastgesteldOnbekend' opgenomen."
+        "description": "het tijdstip waarop de maatschappelijke activiteit bij de KvK in het handelsregister is geregistreerd. Indien het registratietijdstip om (migratie)redenen niet bekend is wordt de waarde 'vastgesteldOnbekend' opgenomen."
       },
       "naam": {
         "type": "string",
-        "description": "De statutaire naam of eerste handelsnaam van de inschrijving."
+        "description": "de statutaire naam of eerste handelsnaam van de inschrijving."
       },
       "nonMailing": {
         "type": "string",
@@ -104,7 +104,7 @@
             },
             "isHoofdactiviteit": {
               "type": "string",
-              "description": "indicatie die aangeeft welke van de activiteiten de hoofdactiviteit is (wordt afgeschaft)"
+              "description": "indicatie die aangeeft welke van de activiteiten de hoofdactiviteit is."
             }
           },
           "description": "codering van activiteiten binnen HR volgens de standaard bedrijfsindeling (SBI) 2008"
@@ -179,7 +179,7 @@
             "description": "dag van de datum, als deze bekend is."
           }
         },
-        "description": "datum van aanvang van de Oderneming."
+        "description": "datum van aanvang van de Onderneming."
       },
       "datumEindeOnderneming": {
         "type": "object",
@@ -251,7 +251,7 @@
           }
         },
         "relation": "hrKvk:vestigingen",
-        "description": "hiermee wordt vastgelegd in welke periode (datumAanvang-datumEinde) de commerciele VES bij een onderneming behoort."
+        "description": "hiermee wordt vastgelegd in welke periode (datumAanvang-datumEinde) welke commerciele VES bij een onderneming behoort."
       },
       "wordtUitgeoefendInNietCommercieleHrVestigingen": {
         "shortname": "uitgeoefendInNcv",
@@ -273,7 +273,7 @@
           }
         },
         "relation": "hrKvk:vestigingen",
-        "description": "hiermee wordt beschreven in welke periode (datumAanvang-datumEinde) de niet commerciele VES bij een MAC behoort."
+        "description": "hiermee wordt beschreven in welke periode (datumAanvang-datumEinde) welke niet commerciele VES bij een MAC behoort."
       },
       "handelsnamen": {
         "type": "array",
@@ -292,7 +292,7 @@
             },
             "handelsnaam": {
               "type": "string",
-              "description": "dandelsnaam van de vestiging waaronder gehandeld wordt"
+              "description": "handelsnaam van de vestiging waaronder gehandeld wordt"
             },
             "volgorde": {
               "type": "integer",
@@ -341,7 +341,7 @@
           "properties": {
             "domeinnaam": {
               "type": "string",
-              "description": "internetadres (web site)"
+              "description": "internetadres (website)"
             }
           }
         }
@@ -355,7 +355,7 @@
           },
           "toevoegingAdres": {
             "type": "string",
-            "description": "vrije tekst om een Locatie nader te kunnen duiden. Bijvoorbeeld om bedrijfsverzamelgebouwen met meerdere vestigingen"
+            "description": "vrije tekst om een Locatie nader te kunnen duiden, bijvoorbeeld om bedrijfsverzamelgebouwen met meerdere vestigingen"
           },
           "volledigAdres": {
             "type": "string",
@@ -367,23 +367,23 @@
           },
           "huisnummer": {
             "type": "integer",
-            "description": "het huisnummer van het adres"
+            "description": "een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering"
           },
           "huisletter": {
             "type": "string",
-            "description": "de huisletter van het binnenlandse adres die die door de gemeente is toegekend aan het huisnummer"
+            "description": "een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken"
           },
           "huisnummerToevoeging": {
             "type": "string",
-            "description": "een toevoeging van het huisnummer van het binnenlandse adres"
+            "description": "een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
           },
           "postcode": {
             "type": "string",
-            "description": "de postcode van het binnenlandse adres, waarbij minimaal de vier cijfers bekend zijn"
+            "description": "de door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters"
           },
           "plaats": {
             "type": "string",
-            "description": "de plaatsaanduiding van het binnenlandse adres"
+            "description": "een woonplaats is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen en van een naam voorzien gedeelte van het grondgebied van de gemeente."
           },
           "straatHuisnummerBuitenland": {
             "type": "string",
@@ -415,7 +415,7 @@
           }
         },
         "relation": "bag:nummeraanduidingen",
-        "description": "met welk adres heeft de locatie een relatie."
+        "description": "unieke identificatie van de BAG nummeraanduiding.."
       },
       "bezoekHeeftBagVerblijfsobject": {
         "type": "object",
@@ -428,7 +428,7 @@
           }
         },
         "relation": "bag:verblijfsobjecten",
-        "description": "met welke verblijfsobject heeft de locatie een relatie."
+        "description": "unieke identificatie van de BAG verblijfsobject."
       },
       "bezoekHeeftBagLigplaats": {
         "type": "object",
@@ -441,7 +441,7 @@
           }
         },
         "relation": "bag:ligplaatsen",
-        "description": "met welke ligplaats heeft de locatie een relatie."
+        "description": "unieke identificatie van de BAG ligplaats."
       },
       "bezoekHeeftBagStandplaats": {
         "type": "object",
@@ -454,7 +454,7 @@
           }
         },
         "relation": "bag:standplaatsen",
-        "description": "met welke standplaats heeft de locatie een relatie."
+        "description": "unieke identificatie van de BAG standplaats."
       },
       "postLocatie": {
         "type": "object",
@@ -477,15 +477,15 @@
           },
           "huisnummer": {
             "type": "integer",
-            "description": "het huisnummer van het adres"
+            "description": "een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering"
           },
           "huisletter": {
             "type": "string",
-            "description": "de huisletter van het binnenlandse adres die die door de gemeente is toegekend aan het huisnummer"
+            "description": "een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken"
           },
           "huisnummerToevoeging": {
             "type": "string",
-            "description": "een toevoeging van het huisnummer van het binnenlandse adres"
+            "description": "een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
           },
           "postbusnummer": {
             "type": "string",
@@ -493,11 +493,11 @@
           },
           "postcode": {
             "type": "string",
-            "description": "de postcode van het binnenlandse adres, waarbij minimaal de vier cijfers bekend zijn"
+            "description": "de door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters"
           },
           "plaats": {
             "type": "string",
-            "description": "de plaatsaanduiding van het binnenlandse adres"
+            "description": "een woonplaats is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen en van een naam voorzien gedeelte van het grondgebied van de gemeente."
           },
           "straatHuisnummerBuitenland": {
             "type": "string",
@@ -529,7 +529,7 @@
           }
         },
         "relation": "bag:nummeraanduidingen",
-        "description": "met welk adres heeft de locatie een relatie."
+        "description": "unieke identificatie van de BAG nummeraanduiding."
       },
       "postHeeftBagVerblijfsobject": {
         "type": "object",
@@ -542,7 +542,7 @@
           }
         },
         "relation": "bag:verblijfsobjecten",
-        "description": "met welke verblijfsobject heeft de locatie een relatie."
+        "description": "unieke identificatie van de BAG verblijfsobject."
       },
       "postHeeftBagLigplaats": {
         "type": "object",
@@ -555,7 +555,7 @@
           }
         },
         "relation": "bag:ligplaatsen",
-        "description": "met welke ligplaats heeft de locatie een relatie."
+        "description": "unieke identificatie van de BAG ligplaats."
       },
       "postHeeftBagStandplaats": {
         "type": "object",
@@ -568,7 +568,7 @@
           }
         },
         "relation": "bag:standplaatsen",
-        "description": "met welke standplaats heeft de locatie een relatie."
+        "description": "unieke identificatie van de BAG standplaats"
       }
     }
   }
