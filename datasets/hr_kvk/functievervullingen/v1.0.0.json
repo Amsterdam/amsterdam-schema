@@ -1,0 +1,347 @@
+{
+  "id": "functievervullingen",
+  "type": "table",
+  "version": "1.0.0",
+  "shortname": "Fvv",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "identificatie"
+    ],
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "interne identificatie voor functievervulling."
+      },
+      "datumAanvang": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        },
+        "description": "datum van aanvang van de functievervulling."
+      },
+      "datumEinde": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        },
+        "description": "datum van einde van de functievervulling."
+      },
+      "functieTitel": {
+        "type": "string",
+        "description": "titel van de functionaris voor zover die afwijkt van de functie titel bestuurder, commissaris, gevolmachtigde, beheerder, lid van het toezichthoudend, besturend of leidinggevend orgaan en functionaris volgens het buitenlands recht."
+      },
+      "indicatieStatutair": {
+        "type": "string",
+        "description": "indicatie of de titel in de statuten is opgenomen of niet."
+      },
+      "schorsingAanvang": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        },
+        "description": "datum waarop de schorsing is ingegaan."
+      },
+      "schorsingEinde": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        },
+        "description": "datum waarop de schorsing is opgeheven."
+      },
+      "aansprakelijkeFunctie": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "een nadere aanduiding van de aansprakelijke."
+      },
+      "bevoegdheidAansprakelijke": {
+        "type": "object",
+        "properties": {
+          "soortBevoegdheid": {
+            "type": "string",
+            "description": "soort bevoegdheid die een aansprakelijke van een samenwerkingsverband kan hebben."
+          },
+          "beperkingInEuros": {
+            "type": "number",
+            "multipleOf": 0.01,
+            "description": "bevoegdheid is beperkt tot het genoemde bedrag."
+          },
+          "overigeBeperking": {
+            "type": "string",
+            "description": "indicatie of er aandere beperking voor de aansprakelijke geldt."
+          }
+        },
+        "description": "bevoegdheid (soort; beperking in Euros en overige beperkignen) die de aansprakelijke kan hebben."
+      },
+      "bestuursFunctie": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "de nadere aanduiding van de bestuurder."
+      },
+      "bevoegdheidBestuurder": {
+        "type": "object",
+        "properties": {
+          "soortBevoegdheid": {
+            "type": "string",
+            "description": "de soort bevoegdheid die een bestuurder kan hebben."
+          },
+          "bevoegdMetAnderePersonen": {
+            "type": "string",
+            "description": "indicatie die aangeeft dat er een gezamenlijke bevoegdheid is met andere personen (Ja) of met de andere bestuurders (Nee)."
+          }
+        },
+        "description": "bevoegdheid (soort en bevoegd met andere personen) die een bestuurder kan hebben."
+      },
+      "gemachtigdeFunctie": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "een nadere aanduiding van de gemachtigde."
+      },
+      "volmacht": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "een gemachtigde wordt gekenmerkt door een volmacht verleend door de persoon bij wie de gemachtigde is toegetreden (VOL)."
+      },
+      "statutair": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "indicatie die aangeeft of de volmacht in de statuten is opgenomen."
+      },
+      "heeftHrVestiging": {
+        "type": "object",
+        "properties": {
+          "vestigingsnummer": {
+            "type": "string"
+          }
+        },
+        "relation": "hrKvk:vestigingen",
+        "description": "een vestiging is gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een onderneming of rechtspersoon plaatsvindt."
+      },
+      "beperkingInGeld": {
+        "type": "object",
+        "properties": {
+          "waarde": {
+            "type": "number",
+            "multipleOf": 0.01
+          },
+          "valuta": {
+            "type": "string"
+          }
+        },
+        "description": "indien de gemachtigde een (gestructureerde) beperking in handelen heeft kan daarvoor een beperking tot een bepaald bedrag in geld worden opgegeven."
+      },
+      "doenVanOpgaveAanHandelsregister": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "indien de GMA opgave mag doen van aan het Handelsregister."
+      },
+      "overigeVolmacht": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "indicatie die aangeeft dat de GMA een Volmacht heeft die niet gestructureerd als soort handeling opgenomen kan worden."
+      },
+      "beperkingInHandeling": {
+        "type": "string",
+        "description": "elke aanvang of beëindiging van een beperking in rechtshandeling wordt gedaan als gevolg van een rechterlijke uitspraak."
+      },
+      "soortHandeling": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "omschrijving": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "indien de gemachtigde een gestructureerde beperking in handelen heeft kan gekozen worden uit een standaardlijst met beperkingen."
+      },
+      "overigeFunctionarisFunctie": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "functionaris die niet in een van de andere groepen is genoemd; OFV."
+      },
+      "afwijkendAansprakelijkheidsbeding": {
+        "type": "string",
+        "description": "hier wordt de aanwezigheid van een afwijkendAansprakelijkheidsbeding van leden geregistreerd, in het geval van een EESV."
+      },
+      "bevoegdheidFunctionarisVolgensBuitlandsRecht": {
+        "type": "string",
+        "description": "de soort bevoegdheid die een functionaris naar buitenlands recht kan hebben BBR."
+      },
+      "publiekrechtelijkeFunctionarisFunctie": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "functionaris (PRF) die werkzaam is bij een publiekrechtelijke rechtspersoon."
+      },
+      "bevoegdheidPubliekrechtelijkFunctionaris": {
+        "type": "string",
+        "description": "de soort bevoegdheid die de PRF kan hebben."
+      },
+      "functionarisBijzondereRechtstoestandFunctie": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "De door de rechter aangewezen FBR bij schuldsanering, sureseance van betaling, faillisement, onderbewinstelling, of ondercuratelestelling of provisioneel bewind van de persoon."
+      },
+      "bevoegdheidFunctionarisBijzondereRechtstoestand": {
+        "type": "string",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "de soort bevoegdheid die een FBR kan hebben."
+      }
+    }
+  }
+}
