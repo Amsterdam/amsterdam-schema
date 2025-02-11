@@ -192,3 +192,12 @@ In order to develop a new metaschema version locally and run structural and sema
 
 And of course; after the metaschema is finished, the references in the new metaschema and the dataset used for development
 need to be be reset to the online URL.
+
+## Scopes
+Two useful commands:
+
+- To generate the index.json file, containing a map of all the available scope objects:
+```generate-scope-index > scopes/index.json```
+
+- To generate the packages.json file, containing a list of all the unique access packages:
+```generate-access-package-list > scopes/packages.json```
