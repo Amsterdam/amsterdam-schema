@@ -4162,6 +4162,33 @@ Een profiel wordt alleen toegepast als er geen authorisatie verkregen is via de 
 <c- p>}</c->
 </pre>
    </div>
+   <div class="example" id="example-18e66cf8">
+    <a class="self-link" href="#example-18e66cf8"></a> Voorbeeld an een profiel wat interne gegevenssets beschikbaar stelt.
+<pre class="highlight"><c- p>{</c->
+    <c- f>"name"</c-><c- p>:</c-> <c- u>"medewerker"</c-><c- p>,</c->
+    <c- f>"scopes"</c-><c- p>:</c-> <c- p>[</c-><c- u>"FP/MDW"</c-><c- p>],</c->
+    <c- f>"datasets"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"blackspots"</c-><c- p>:</c-> <c- p>{</c-><c- f>"permissions"</c-><c- p>:</c-> <c- u>"read"</c-><c- p>},</c->
+        <c- f>"wior"</c-><c- p>:</c-> <c- p>{</c-><c- f>"permissions"</c-><c- p>:</c-> <c- u>"read"</c-><c- p>},</c->
+        <c- f>"ondergrond"</c-><c- p>:</c-> <c- p>{</c-><c- f>"permissions"</c-><c- p>:</c-> <c- u>"read"</c-><c- p>},</c->
+        <c- f>"meldingen"</c-><c- p>:</c-> <c- p>{</c-><c- f>"permissions"</c-><c- p>:</c-> <c- u>"read"</c-><c- p>},</c->
+        <c- f>"huishoudelijkafval"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"tables"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"planningvoertuigen"</c-><c- p>:</c-> <c- p>{</c-><c- f>"permissions"</c-><c- p>:</c-> <c- u>"read"</c-><c- p>}</c->
+            <c- p>}</c->
+        <c- p>},</c->
+        <c- f>"leidingeninfrastructuur"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"tables"</c-><c- p>:</c-> <c- p>{</c->
+                <c- f>"liggingPuntTotaal"</c-><c- p>:</c-> <c- p>{</c-><c- f>"permissions"</c-><c- p>:</c-> <c- u>"read"</c-><c- p>},</c->
+                <c- f>"liggingVlakTotaal"</c-><c- p>:</c-> <c- p>{</c-><c- f>"permissions"</c-><c- p>:</c-> <c- u>"read"</c-><c- p>},</c->
+                <c- f>"liggingLijnTotaal"</c-><c- p>:</c-> <c- p>{</c-><c- f>"permissions"</c-><c- p>:</c-> <c- u>"read"</c-><c- p>}</c->
+            <c- p>}</c->
+        <c- p>}</c->
+
+    <c- p>}</c->
+<c- p>}</c->
+</pre>
+   </div>
    <p>Een profiel kan toegang geven op dataset-, tabel- en veldniveau.
 Daarbij kan ook een zoekvraag (<code class="highlight"><c- u>"mandatoryFilterSets"</c-></code>) verplicht zijn om toegang te krijgen.</p>
    <div class="example" id="example-ed00dcab">
