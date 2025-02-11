@@ -1770,6 +1770,35 @@ Een profiel wordt alleen toegepast als er geen authorisatie verkregen is via de 
     </pre>
 </div>
 
+<div class=example>
+    Voorbeeld an een profiel wat interne gegevenssets beschikbaar stelt.
+    <pre highlight="json">
+        {
+            "name": "medewerker",
+            "scopes": ["FP/MDW"],
+            "datasets": {
+                "blackspots": {"permissions": "read"},
+                "wior": {"permissions": "read"},
+                "ondergrond": {"permissions": "read"},
+                "meldingen": {"permissions": "read"},
+                "huishoudelijkafval": {
+                    "tables": {
+                        "planningvoertuigen": {"permissions": "read"}
+                    }
+                },
+                "leidingeninfrastructuur": {
+                    "tables": {
+                        "liggingPuntTotaal": {"permissions": "read"},
+                        "liggingVlakTotaal": {"permissions": "read"},
+                        "liggingLijnTotaal": {"permissions": "read"}
+                    }
+                }
+
+            }
+        }
+    </pre>
+</div>
+
 Een profiel kan toegang geven op dataset-, tabel- en veldniveau.
 Daarbij kan ook een zoekvraag (`"mandatoryFilterSets"`) verplicht zijn om toegang te krijgen.
 
