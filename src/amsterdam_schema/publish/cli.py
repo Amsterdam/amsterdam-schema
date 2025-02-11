@@ -393,7 +393,7 @@ def generate_publisher_index() -> None:
 def fetch_scope_files() -> Dict[str, List[str]]:
     result = {}
     for p in Path(".").glob(SCOPES_DIR + "/**/*.json"):
-        if p.stem == "index":
+        if p.stem in ["index", "packages"]:
             continue
         if p.parent.stem not in result:
             result[p.parent.stem] = [p.stem]
@@ -415,6 +415,27 @@ def generate_scope_index() -> None:
     dict with the datateam name as key and a list of scope files as value.
     """
     sys.stdout.write(get_scope_index())
+
+
+def fetch_access_packages() -> list[str]:
+    result = set()
+    for p in Path(".").glob(SCOPES_DIR + "/**/*.json"):
+        if p.stem in ["index", "packages"]:
+            continue
+        with open(p) as f:
+            scope = json.load(f)
+            result.update(scope["accessPackages"].values())
+    return sorted(result)
+
+
+def get_access_packages() -> str:
+    return json.dumps(fetch_access_packages())
+
+
+@click.command()  # type: ignore[misc]
+def generate_access_package_list() -> None:
+    """Generate a (deduped) list of all available access packages."""
+    sys.stdout.write(get_access_packages())
 
 
 if __name__ == "__main__":
