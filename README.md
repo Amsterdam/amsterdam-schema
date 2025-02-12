@@ -165,29 +165,29 @@ The default value for `CONTAINER_PREFIX` is `schemas-`.
 
 In order to develop a new metaschema version locally and run structural and semantic validation against it:
 
-*Install the package from the repository root dir*  
+*Install the package from the repository root dir*
 0) ```pip install -e .[dev]```
 
-*Create a new schema that we will develop*  
+*Create a new schema that we will develop*
 1) ```cp -R schema@<latest-version> schema@<your-version>```
 
-*Replace the internal references of the metaschema with the new version*  
+*Replace the internal references of the metaschema with the new version*
 2) ```sed -i s/<latest-version>/<your-version>/g schema@<your-version>/{,**/}*.json```
 
-*Point the references in the new schema to the devserver*  
+*Point the references in the new schema to the devserver*
 3) ```sed -i 's/https:\/\/schemas\.data\.amsterdam\.nl/http:\/\/localhost:8000/g' schema@<your-version>/{,**/}*.json```
 
-*Generate the index expected by schematools*  
+*Generate the index expected by schematools*
 4) generate-index > datasets/index.json
 
-*Point the references in the dataset that we will use for development to the devserver*  
+*Point the references in the dataset that we will use for development to the devserver*
 5) ```sed -i 's/https:\/\/schemas\.data\.amsterdam\.nl/http:\/\/localhost:8000/g' datasets/<some-dataset>/{,**/}*.json```
 
-*Start an nginx server with the source mounted and which rewrites URIs so*  
-*that it supports the URL structure expected by the schema references.*  
+*Start an nginx server with the source mounted and which rewrites URIs so*
+*that it supports the URL structure expected by the schema references.*
 5) ```docker-compose up devserver```
 
-*Validate a dataset*  
+*Validate a dataset*
 6) ```schema validate --schema-url='http://localhost:8000/datasets' <some-dataset> 'http://localhost:8000/schema@<your-version>'```
 
 And of course; after the metaschema is finished, the references in the new metaschema and the dataset used for development
@@ -201,3 +201,5 @@ Two useful commands:
 
 - To generate the packages.json file, containing a list of all the unique access packages:
 ```generate-access-package-list > scopes/packages.json```
+
+These commands have been added to a script run by pre-commit, to ensure these stay up to date.
