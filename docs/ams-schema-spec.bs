@@ -1452,7 +1452,7 @@ bijvoorbeeld `"BRP/RO"`.
 
 In versie 2.1.0 van het metaschema is de mogelijkheid toegevoegd om een scope in een apart bestand te definieren. Dit is
 in versie 2.2.0 uitgebreid met velden waar een Azure access package kan worden gespecificeerd voor
-productie en niet-productie omgevingen. Deze bestanden bevinden zich in de scopes/<team> folders.
+de verschillende omgevingen. Deze bestanden bevinden zich in de scopes/<team> folders.
 
 <div class=example>
     Voorbeeld van een scope object.
@@ -1461,8 +1461,10 @@ productie en niet-productie omgevingen. Deze bestanden bevinden zich in de scope
             "type": "scope",
             "id": "LEVEL/X",
             "naam": "Toegang tot level X",
-            "nonProductiePackage": "EM4W-DATA-schemascope-ot-scope_level_x",
-            "productiePackage": "EM4W-DATA-schemascope-p-scope_level_x",
+            "accessPackages": {
+                "production": "EM4W-DATA-schemascope-p-scope_level_x",
+                "nonProduction": "EM4W-DATA-schemascope-ot-scope_level_x"
+            },
             "owner": {
                 "$ref": "publishers/BENK
             }
@@ -1477,8 +1479,7 @@ Een scope binnen Amsterdam Schema is een JSON object met in ieder geval de volge
     <tr><td><dfn>id</dfn>                   <td> {{id-type|identifier}} <td> Identifier van de scope. Moet globaal uniek zijn, maar kan afwijken van de bestandsnaam, omdat scopes vaak een '/' bevatten.
     <tr><td><dfn>type</dfn>                 <td> "scope" <td> Type van dit bestand, altijd de constante `"scope"`.
     <tr><td><dfn>name</dfn>                 <td> string <td> Naam van de scope.
-    <tr><td><dfn>nonProductiePackage</dfn>  <td> string <td> Naam van de access package voor niet-productie omgevingen.
-    <tr><td><dfn>productiePackage</dfn>     <td> string <td> Naam van de access package voor productie omgeving.
+    <tr><td><dfn>accessPackages</dfn>       <td> object <td> De access packages voor verschillende omgevingen.
     <tr><td><dfn>owner</dfn>                <td> object <td> Referentie naar de eigenaar van de scope.
             <details>
                 <summary>Verplichte referentie</summary>

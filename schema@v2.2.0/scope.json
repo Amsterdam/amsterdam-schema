@@ -7,8 +7,7 @@
     "id",
     "type",
     "owner",
-    "nonProductiePackage",
-    "productiePackage"
+    "accessPackages"
   ],
   "properties": {
     "type": {
@@ -25,15 +24,22 @@
       "minLength": 1,
       "pattern": "[A-Za-z/]"
     },
-    "nonProductiePackage": {
-      "description": "Naam van het Access Package dat in niet-productieomgevingen gebruikt wordt.",
-      "type": "string",
-      "pattern": "^EM4W-DATA-schemascope-ot-scope_[a-z_]*$"
-    },
-    "productiePackage": {
-      "description": "Naam van het Access Package dat in de productieomgeving gebruikt wordt.",
-      "type": "string",
-      "pattern": "^EM4W-DATA-schemascope-p-scope_[a-z_]*$"
+    "accessPackages": {
+      "description": "Object met omgevingen en hun bijbehorende Access Packages.",
+      "type": "object",
+      "properties": {
+        "production": {
+          "description": "Access Package voor de productieomgeving.",
+          "type": "string"
+        },
+        "nonProduction": {
+          "description": "Access Package voor de niet-productieomgeving.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": {
+        "type": "string"
+      }
     },
     "owner": {
       "description": "id van het team dat de data beheert in de DataHub (doorgaans het datateam). Zie /publishers voor de mogelijke ids.",
