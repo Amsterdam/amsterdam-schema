@@ -1,0 +1,41 @@
+{
+    "id": "hoofdbomenstructuurBuffer",
+    "type": "table",
+    "version": "1.0.0",
+    "title": "Hoofdboomstructuur buffer",
+    "description": "deze tabel bevat de buffer van de hoofdboomstructuur (HBS). Voor bomen in de HBS geldt bij aanplant en vervanging een groeiplaatsverbetering van 25-40m3 doorwortelbare ruimte. De stamomtrek van de te planten boom is minimaal 25-30 cm.",
+    "identifier": "id",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "additionalProperties": false,
+      "mainGeometry": "geometrie",
+      "required": [
+        "schema",
+        "id"
+      ],
+      "display": "id",
+      "properties": {
+        "schema": {
+          "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+        },
+        "id": {
+          "type": "integer",
+          "title": "ID",
+          "description": "Unieke aanduiding van record"
+        },
+        "geometrie": {
+          "$ref": "https://geojson.org/schema/Point.json",
+          "title": "Geometrie",
+          "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992). bevat punt-geometrie."
+          },
+        "mutatieDatum": {
+          "type": "string",
+          "title": "Datum mutatie",
+          "format": "date-time",
+          "description": "Datum waarop laatste mutatie heeft plaatsgevonden"
+        },
+        }
+      }
+    }
+  
