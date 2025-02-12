@@ -1,0 +1,96 @@
+{
+    "id": "stormmeldingen",
+    "type": "table",
+    "version": "1.2.0",
+    "title": "stormmeldingen bomen",
+    "description": "Tijdens een storm kan schade ontstaan aan (of door) bomen. Deze tabel bevat storm meldingen met betrekking tot de bomen in beheer van gemeente Amsterdam. Meldingen kunnen o.a. afkomstig zijn van inwoners, inspecteurs, controleurs en team Groen ",
+    "auth": "OPENBAAR",
+    "identifier": "id",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "mainGeometry": "geometrie",        
+        "required": [
+            "schema",
+            "id"
+        ],
+        "display": "id",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+            },
+            "id": {
+                "type": "integer",
+                "description": "Unieke aanduiding van record"
+            },
+            "boomId": {
+                "type": "integer",
+                "description": "de vreemde sleutel (foreignkey) voor de relatie met de stamgegevens van de bomen"
+            },	
+            "buurtId": {
+                "type": "string",
+                "relation": "gebieden:buurten",
+                "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+                "description": "Unieke identificatie van een buurt.",
+                "title": "Buurt ID"
+            },			
+            "datum": {
+                "type": "string",
+                "format": "date",
+                "description": "datum waarop de melding is geregistreerd",
+                "title": "Datum stormschade melding"
+            },
+            "gebrek": {
+                "type": "string",
+                "description": "het gebrek dat is geconstateerd na aanleiding van de stormschade",
+                "title": "Gebrek na stormschade"
+            },
+			"dichtsbijzijndeBagAdres": {
+                "type": "string",
+                "description": "Het dichtsbijzijnde adres uit de BAG.",
+                "title": "Dichtsbijzijnde BAG adres"
+            },
+            "laatstGeupdatet": {
+                "type": "string",
+                "description": "moment waarop de data voor het laatst is ververst uit het bronsysteem (Gisib).",
+                "title": "Laatste data verversing"
+            },
+            "meldingHerkomst": {
+                "type": "string",
+                "description": "Herkomst van de melding.",
+                "title": "Herkomst melding"
+            },			
+            "statusMelding": {
+                "type": "string",
+                "description": "status van een stormschade melding",
+                "title": "status stormschade"
+            },
+            "stormnaam": {
+                "type": "string",
+                "description": "naam van de storm",
+                "title": "Stormnaam"
+            },
+            "tijdstip": {
+                "type": "string",
+                "description": "tijdstip waarop de melding is geregistreerd",
+                "title": "<tijdstip stormschade melding>"
+            },
+			"wijk": {
+                "type": "string",
+                "description": "Wijknaam",
+                "title": "Wijknaam"
+            },			
+            "geometrie": {
+                "$ref": "https://geojson.org/schema/Point.json",
+                "title": "Geometrie",
+                "description": "Aanduiding voor de geometrie van de stormmelding volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992). bevat punt-geometrie."
+              },
+            "actieveStorm": {
+                "type": "boolean",
+                "description": "actieve status van de storm",
+                "title": "<tijdstip stormschade melding>"
+            }
+        }
+    }
+}
