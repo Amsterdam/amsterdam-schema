@@ -68,7 +68,9 @@ repos:
         exclude: "^schema@.+" # exclude meta schemas
       - id: validate-publishers
         args: ['https://schemas.data.amsterdam.nl/schema@v2.2.0', '--schema-url', './publishers']
+        files: '^publishers/.*\.json$'
         verbose: true # so we can see against which metaschema it is valid
       - id: validate-scopes
         args: ['https://schemas.data.amsterdam.nl/schema@v2.2.0', '--schema-url', './scopes']
+        files: '^scopes/.*\.json$'
         verbose: true # so we can see against which metaschema it is valid
