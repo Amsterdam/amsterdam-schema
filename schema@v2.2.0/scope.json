@@ -27,6 +27,16 @@
     "accessPackages": {
       "description": "Object met omgevingen en hun bijbehorende Access Packages.",
       "type": "object",
+      "properties": {
+        "production": {
+          "description": "Access Package voor de productieomgeving.",
+          "type": "string"
+        },
+        "nonProduction": {
+          "description": "Access Package voor de niet-productieomgeving.",
+          "type": "string"
+        }
+      },
       "additionalProperties": {
         "type": "string"
       }
