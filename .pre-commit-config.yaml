@@ -2,6 +2,12 @@
 # Supported hooks: https://pre-commit.com/hooks.html
 # Running "make format" fixes most issues for you
 repos:
+  - repo: local
+    hooks:
+      - id: generate-indexes
+        name: generate indexes
+        entry: ./generate_indexes.sh
+        language: script
   - repo: https://github.com/psf/black
     rev: 23.3.0
     hooks:
