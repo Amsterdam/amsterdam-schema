@@ -1491,7 +1491,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version c67c745b1, updated Fri Jan 17 14:27:28 2025 -0800" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="a58ea08e9d8631b930a7756ab8bfb97a394ac2f7" name="revision">
+  <meta content="903e6ff51f6a46f44992228c40b7ea6f68c52222" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
     p[data-fill-with="logo"] {
@@ -2358,7 +2358,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Amsterdam Schema Specificatie</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2025-02-04">4 February 2025</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2025-02-12">12 February 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -3941,17 +3941,19 @@ bijvoorbeeld <code class="highlight"><c- u>"BRP/RO"</c-></code>.</p>
    <p>
     In versie 2.1.0 van het metaschema is de mogelijkheid toegevoegd om een scope in een apart bestand te definieren. Dit is
 in versie 2.2.0 uitgebreid met velden waar een Azure access package kan worden gespecificeerd voor
-productie en niet-productie omgevingen. Deze bestanden bevinden zich in de scopes/
+de verschillende omgevingen. Deze bestanden bevinden zich in de scopes/
     <team> folders.</team>
    </p>
-   <div class="example" id="example-79da8313">
-    <a class="self-link" href="#example-79da8313"></a> Voorbeeld van een scope object.
+   <div class="example" id="example-1ffdd19b">
+    <a class="self-link" href="#example-1ffdd19b"></a> Voorbeeld van een scope object.
 <pre class="highlight"><c- p>{</c->
     <c- f>"type"</c-><c- p>:</c-> <c- u>"scope"</c-><c- p>,</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"LEVEL/X"</c-><c- p>,</c->
     <c- f>"naam"</c-><c- p>:</c-> <c- u>"Toegang tot level X"</c-><c- p>,</c->
-    <c- f>"nonProductiePackage"</c-><c- p>:</c-> <c- u>"EM4W-DATA-schemascope-ot-scope_level_x"</c-><c- p>,</c->
-    <c- f>"productiePackage"</c-><c- p>:</c-> <c- u>"EM4W-DATA-schemascope-p-scope_level_x"</c-><c- p>,</c->
+    <c- f>"accessPackages"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"production"</c-><c- p>:</c-> <c- u>"EM4W-DATA-schemascope-p-scope_level_x"</c-><c- p>,</c->
+        <c- f>"nonProduction"</c-><c- p>:</c-> <c- u>"EM4W-DATA-schemascope-ot-scope_level_x"</c->
+    <c- p>},</c->
     <c- f>"owner"</c-><c- p>:</c-> <c- p>{</c->
         <c- f>"$ref"</c-><c- p>:</c-> "publishers/BENK
     }
@@ -3975,13 +3977,9 @@ productie en niet-productie omgevingen. Deze bestanden bevinden zich in de scope
       <td> string
       <td> Naam van de scope.
      <tr>
-      <td><dfn class="dfn-paneled idl-code" data-dfn-for="scope" data-dfn-type="attribute" data-export id="dom-scope-nonproductiepackage"><code class="highlight">nonProductiePackage</code></dfn>
-      <td> string
-      <td> Naam van de access package voor niet-productie omgevingen.
-     <tr>
-      <td><dfn class="dfn-paneled idl-code" data-dfn-for="scope" data-dfn-type="attribute" data-export id="dom-scope-productiepackage"><code class="highlight">productiePackage</code></dfn>
-      <td> string
-      <td> Naam van de access package voor productie omgeving.
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="scope" data-dfn-type="attribute" data-export id="dom-scope-accesspackages"><code class="highlight">accessPackages</code></dfn>
+      <td> object
+      <td> De access packages voor verschillende omgevingen.
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="scope" data-dfn-type="attribute" data-export id="dom-scope-owner"><code class="highlight">owner</code></dfn>
       <td> object
@@ -4528,6 +4526,7 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
+   <li><a href="#dom-scope-accesspackages">accessPackages</a><span>, in § 7.1</span>
    <li><a href="#dom-dataset-accrualperiodicity">accrualPeriodicity</a><span>, in § 2.2.1</span>
    <li><a href="#dom-table-ref-activeversions">activeVersions</a><span>, in § 2.3</span>
    <li><a href="#dom-schema-additionalproperties">additionalProperties</a><span>, in § 3.3</span>
@@ -4644,7 +4643,6 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
      <li><a href="#dom-scope-name">attribute for scope</a><span>, in § 7.1</span>
     </ul>
    <li><a href="#noabrev">noAbrev</a><span>, in § 5</span>
-   <li><a href="#dom-scope-nonproductiepackage">nonProductiePackage</a><span>, in § 7.1</span>
    <li><a href="#typedefdef-nonpubreason">nonPubReason</a><span>, in § 10</span>
    <li><a href="#norepeat">noRepeat</a><span>, in § 5</span>
    <li><a href="#nouns">nouns</a><span>, in § 5</span>
@@ -4663,7 +4661,6 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
      <li><a href="#dom-profiletable-permissions">attribute for profiletable</a><span>, in § 8.3</span>
     </ul>
    <li><a href="#plural">plural</a><span>, in § 5</span>
-   <li><a href="#dom-scope-productiepackage">productiePackage</a><span>, in § 7.1</span>
    <li><a href="#profiel">profiel</a><span>, in § 8.3</span>
    <li>
     properties
@@ -5094,11 +5091,10 @@ let dfnPanelData = {
 "dom-schema-required": {"dfnID":"dom-schema-required","dfnText":"required","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-schema-required"}],"title":"4. Veld"},{"refs":[{"id":"ref-for-dom-schema-required\u2460"}],"title":"4.3. Data types"}],"url":"#dom-schema-required"},
 "dom-schema-schema": {"dfnID":"dom-schema-schema","dfnText":"$schema","external":false,"refSections":[],"url":"#dom-schema-schema"},
 "dom-schema-type": {"dfnID":"dom-schema-type","dfnText":"type","external":false,"refSections":[],"url":"#dom-schema-type"},
+"dom-scope-accesspackages": {"dfnID":"dom-scope-accesspackages","dfnText":"accessPackages","external":false,"refSections":[],"url":"#dom-scope-accesspackages"},
 "dom-scope-id": {"dfnID":"dom-scope-id","dfnText":"id","external":false,"refSections":[],"url":"#dom-scope-id"},
 "dom-scope-name": {"dfnID":"dom-scope-name","dfnText":"name","external":false,"refSections":[],"url":"#dom-scope-name"},
-"dom-scope-nonproductiepackage": {"dfnID":"dom-scope-nonproductiepackage","dfnText":"nonProductiePackage","external":false,"refSections":[],"url":"#dom-scope-nonproductiepackage"},
 "dom-scope-owner": {"dfnID":"dom-scope-owner","dfnText":"owner","external":false,"refSections":[],"url":"#dom-scope-owner"},
-"dom-scope-productiepackage": {"dfnID":"dom-scope-productiepackage","dfnText":"productiePackage","external":false,"refSections":[],"url":"#dom-scope-productiepackage"},
 "dom-scope-ref": {"dfnID":"dom-scope-ref","dfnText":"$ref","external":false,"refSections":[],"url":"#dom-scope-ref"},
 "dom-scope-type": {"dfnID":"dom-scope-type","dfnText":"type","external":false,"refSections":[],"url":"#dom-scope-type"},
 "dom-tabel-auth": {"dfnID":"dom-tabel-auth","dfnText":"auth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-auth"}],"title":"3.2. Optionele attributen"},{"refs":[{"id":"ref-for-dom-tabel-auth\u2460"}],"title":"4.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-tabel-auth\u2461"}],"title":"8.1.2. Meerdere niveau\u2019s"}],"url":"#dom-tabel-auth"},
