@@ -1,0 +1,141 @@
+{
+    "id": "vergunningsplichtigeSnoei",
+    "type": "table",
+    "version": "1.0.0",
+    "title": "vergunningsplichtige snoei",
+    "description": "deze tabel bevat data over vergunningsplichtige snoei.Voor het kappen, rooien, verplanten of vormsnoei van een vergunningplichtige boom of andersoortige houtopstand dient door de eigenaar een vergunningsaanvraagte worden ingediend bij Burgemeester en Wethouders"
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "additionalProperties": false,
+      "mainGeometry": "geometrie",
+      "required": [
+        "schema",
+        "id"
+      ],
+      "display": "id",
+      "properties": {
+        "schema": {
+          "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+        },
+        "id": {
+          "type": "integer",
+          "title": "ID",
+          "description": "Unieke aanduiding van record"
+        },
+        "boomId": {
+          "type": "integer",
+          "title": "ID van de boom",
+          "description":  "de vreemde sleutel (foreignkey) voor de relatie met de stamgegevens van de bomen"
+        },
+        "datumVergunningVerleend": {
+          "type": "string",
+          "title": "wordt later ingevuld",
+          "format": "date-time",
+          "description": "wordt later ingevuld"
+          },
+        "datumVergunningsaanvraag": {
+          "type": "string",
+          "title": "",
+          "format": "date-time",
+          "description": "wordt later ingevuld"
+        },
+        "boommaatregelregistratieOpdrachtverlening": {
+          "type": "string",
+          "title": "wordt later ingevuld",
+          "description": "wordt later ingevuld",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "bezwaarOpVergunning": {
+          "type": "string",
+          "title": "wordt later ingevuld",
+          "description": "wordt later ingevuld",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "datumOpdrachtverlening": {
+          "type": "string",
+          "title": "wordt later ingevuld",
+          "format": "date-time",
+          "description": "wordt later ingevuld",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "datumVergunningDefinitief": {
+          "type": "string",
+          "title": "wordt later ingevuld",
+          "format": "date-time",
+          "description": "wordt later ingevuld",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "floraEnFaunaAspecten": {
+          "type": "string",
+          "title": "wordt later ingevuld",
+          "description": "wordt later ingevuld",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "lijstVergunningsplichtigeSnoei": {
+          "type": "strig",
+          "title": "wordt later ingevuld",
+          "description": "wordt later ingevuld",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "risicotoeslag": {
+          "type": "string",
+          "title": "wordt later ingevuld",
+          "description": "wordt later ingevuld",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "title": "wordt later ingevuld",
+          "description": "wordt later ingevuld",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "termijnurgentie": {
+          "type": "string",
+          "title": "wordt later ingevuld",
+          "description": "wordt later ingevuld",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "geometrie": {
+          "$ref": "https://geojson.org/schema/Point.json",
+          "title": "Geometrie",
+          "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992). bevat punt-geometrie."
+        },
+        "mutatieDatum": {
+          "type": "string",
+          "title": "Datum mutatie",
+          "format": "date-time",
+          "description": "Datum waarop laatste mutatie heeft plaatsgevonden"
+
+        }
+      }
+    }
+  }
+  
