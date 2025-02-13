@@ -370,15 +370,17 @@ def fetch_publisher_files() -> list[str]:
     """
     # filter publishers.json for backwards compat, this can be removed
     # when the file has been removed from the repo
-    return [
-        x.stem
-        for x in Path(".").glob(PUBLISHERS_DIR + "/*.json")
-        if x.name not in ("publishers.json", "index.json")
-    ]
+    return sorted(
+        [
+            x.stem
+            for x in Path(".").glob(PUBLISHERS_DIR + "/*.json")
+            if x.name not in ("publishers.json", "index.json")
+        ]
+    )
 
 
 def get_publisher_index() -> str:
-    return json.dumps(fetch_publisher_files())
+    return json.dumps(fetch_publisher_files(), indent=2) + "\n"
 
 
 @click.command()  # type: ignore[misc]
@@ -399,11 +401,12 @@ def fetch_scope_files() -> Dict[str, List[str]]:
             result[p.parent.stem] = [p.stem]
         else:
             result[p.parent.stem].append(p.stem)
+        result[p.parent.stem].sort()
     return result
 
 
 def get_scope_index() -> str:
-    return json.dumps(fetch_scope_files())
+    return json.dumps(fetch_scope_files(), indent=2) + "\n"
 
 
 @click.command()  # type: ignore[misc]
@@ -429,7 +432,7 @@ def fetch_access_packages() -> list[str]:
 
 
 def get_access_packages() -> str:
-    return json.dumps(fetch_access_packages())
+    return json.dumps(fetch_access_packages(), indent=2) + "\n"
 
 
 @click.command()  # type: ignore[misc]
