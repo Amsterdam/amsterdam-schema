@@ -434,9 +434,7 @@ def fetch_scope_files() -> list[dict]:
 def generate_scope_list() -> None:
     """Generate a scope scopes.json.
 
-    With a list of available scope files in the scopes directory. These are
-    located in subfolders per datateam, the structure of the JSON will be a
-    dict with the datateam name as key and a list of scope files as value.
+    With a list of scopes fully inlined.
     """
     sys.stdout.write(get_json_formatted_string(fetch_scope_files))
 
