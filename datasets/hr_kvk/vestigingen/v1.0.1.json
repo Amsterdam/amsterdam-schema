@@ -1,0 +1,480 @@
+{
+  "id": "vestigingen",
+  "type": "table",
+  "version": "1.0.1",
+  "shortname": "ves",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "vestigingsnummer"
+    ],
+    "required": [
+      "schema",
+      "vestigingsnummer"
+    ],
+    "display": "vestigingsnummer",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "vestigingsnummer": {
+        "type": "string",
+        "description": "identificatie voor de vestiging."
+      },
+      "datumAanvang": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        },
+        "description": "de datum waarbij de vestiging is ontstaan."
+      },
+      "datumEinde": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        },
+        "description": "de datum waarbij de vestiging is beëindigd."
+      },
+      "datumVoortzetting": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        },
+        "description": "datum voortzetting van de vestiging."
+      },
+      "isCommercieleVestiging": {
+        "type": "string",
+        "description": "geeft aan of dit een commerciële (JA) of niet-commerciële vestiging (NEE) betreft."
+      },
+      "eersteHandelsnaam": {
+        "type": "string",
+        "description": "eerste handelsnaam van de vestiging."
+      },
+      "communicatie": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "toegangscode": {
+              "type": "string",
+              "description": "internationale toegangscode van het land waarop het telefoonnummer betrekking heeft."
+            },
+            "nummer": {
+              "type": "string",
+              "description": "telefoon zonder opmaak."
+            },
+            "soort": {
+              "type": "string",
+              "description": "geeft aan of het communicatienummer een telefoonnummer betreft."
+            }
+          }
+        }
+      },
+      "emailAdressen": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "emailAdres": {
+              "type": "string",
+              "description": "e-mailadres waarop de ondernemer gemaild kan worden."
+            }
+          }
+        }
+      },
+      "domeinnamen": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "domeinnaam": {
+              "type": "string",
+              "description": "internetadres (website)."
+            }
+          }
+        }
+      },
+      "isSamengevoegdMetHrVestigingen": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "vestigingsnummer": {
+              "type": "string"
+            }
+          }
+        },
+        "relation": "hrKvk:vestigingen",
+        "description": "dit kenmerk legt de relatie van de afgesloten vestiging met de samengevoegde vestiging(en)."
+      },
+      "naam": {
+        "type": "string",
+        "description": "de naam van de niet-commerciële vestiging."
+      },
+      "ookGenoemd": {
+        "type": "string",
+        "description": "een andere naam waaronder de vereniging, stichtingen en vereniging van eigenaars ook bekend is."
+      },
+      "totaalWerkzamePersonen": {
+        "type": "integer",
+        "description": "het aantal werkzame (voltijd en deeltijd) personen bij de vestiging."
+      },
+      "voltijdWerkzamePersonen": {
+        "type": "integer",
+        "description": "het aantal voltijd (>15 uur per week) werkzame personen bij de vestiging."
+      },
+      "deeltijdWerkzamePersonen": {
+        "type": "integer",
+        "description": "het aantal in deeltijd (<=15 uur per week) werkzame personen bij de vestiging."
+      },
+      "hoofdvestiging": {
+        "type": "string",
+        "description": "indicatie of de vestiging de hoofdvestiging betreft."
+      },
+      "activiteitOmschrijving": {
+        "type": "string",
+        "description": "de omschrijving van de activiteiten die de vestiging uitoefent. De beschrijving bevat de nadere aanduiding van de commerciële activiteiten of de nadere aanduiding van de niet-commerciële activiteiten."
+      },
+      "importeert": {
+        "type": "string",
+        "description": "indicatie of de commerciële activiteit import betreft."
+      },
+      "exporteert": {
+        "type": "string",
+        "description": "indicatie of de commerciële activiteit export betreft."
+      },
+      "activiteiten": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "sbiCode": {
+              "type": "string",
+              "description": "code van de SBI-code"
+            },
+            "omschrijving": {
+              "type": "string",
+              "description": "omschrijving van de SBI-code"
+            },
+            "isHoofdactiviteit": {
+              "type": "string",
+              "description": "indicatie die aangeeft welke van de activiteiten de hoofdactiviteit is."
+            }
+          },
+          "description": "codering van activiteiten binnen het handelsregister volgens de standaard bedrijfsindeling (SBI) 2008."
+        }
+      },
+      "handelsnamen": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "datumAanvang": {
+              "type": "string",
+              "format": "date",
+              "description": "datum aanvang van de handelsnaam."
+            },
+            "datumEinde": {
+              "type": "string",
+              "format": "date",
+              "description": "datum einde van de Handelsnaam."
+            },
+            "handelsnaam": {
+              "type": "string",
+              "description": "handelsnaam van de vestiging waaronder gehandeld wordt."
+            },
+            "volgorde": {
+              "type": "integer",
+              "description": "volgorde waarop de handelsnamen worden getoond bij de onderneming of commerciele vestiging."
+            }
+          },
+          "description": "handelsnaam of handelsnamen van de niet-commerciële of commerciële vestiging."
+        }
+      },
+      "isEenUitoefeningVanHrMac": {
+        "type": "object",
+        "properties": {
+          "kvknummer": {
+            "type": "string"
+          }
+        },
+        "relation": "hrKvk:maatschappelijkeactiviteiten",
+        "description": "identificatie (KvK-nummer) van de maatschappelijke activiteit die bij deze vestiging hoort."
+      },
+      "bezoekLocatie": {
+        "type": "object",
+        "properties": {
+          "afgeschermd": {
+            "type": "string",
+            "description": "geeft aan of het adres afgeschermd is of niet."
+          },
+          "toevoegingAdres": {
+            "type": "string",
+            "description": "vrije tekst om een Locatie nader te kunnen duiden. Bijvoorbeeld om bedrijfsverzamelgebouwen met meerdere vestigingen."
+          },
+          "volledigAdres": {
+            "type": "string",
+            "description": "samengesteld adres dat wordt afgeleid van de overige adresgegevens."
+          },
+          "straatnaam": {
+            "type": "string",
+            "description": "de straat van het binnenlandse adres."
+          },
+          "huisnummer": {
+            "type": "integer",
+            "description": "een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering."
+          },
+          "huisletter": {
+            "type": "string",
+            "description": "een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken."
+          },
+          "huisnummerToevoeging": {
+            "type": "string",
+            "description": "een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter."
+          },
+          "postcode": {
+            "type": "string",
+            "description": "de door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters."
+          },
+          "plaats": {
+            "type": "string",
+            "description": "een woonplaats is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen en van een naam voorzien gedeelte van het grondgebied van de gemeente."
+          },
+          "straatHuisnummerBuitenland": {
+            "type": "string",
+            "description": "het straat/huisnummer is een combinatie van de straat en het huisnummer van het buitenlandse adres."
+          },
+          "postcodePlaatsBuitenland": {
+            "type": "string",
+            "description": "de postcode/woonplaats is de combinatie van een eventuele postcode en woonplaats van het buitenlandse adres."
+          },
+          "regioBuitenland": {
+            "type": "string",
+            "description": "regio is een deel van het land (streek, provincie, etc.) van het buitenlandse adres."
+          },
+          "landBuitenland": {
+            "type": "string",
+            "description": "de naam van het land waar het adres zich bevindt."
+          }
+        },
+        "description": "de locatiegegevens van de bezoekLocatie"
+      },
+      "bezoekHeeftBagNummeraanduiding": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:nummeraanduidingen",
+        "description": "unieke identificatie van de BAG nummeraanduiding."
+      },
+      "bezoekHeeftBagVerblijfsobject": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:verblijfsobjecten",
+        "description": "unieke identificatie van de BAG verblijfsobject."
+      },
+      "bezoekHeeftBagLigplaats": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:ligplaatsen",
+        "description": "munieke identificatie van de BAG ligplaats."
+      },
+      "bezoekHeeftBagStandplaats": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:standplaatsen",
+        "description": "unieke identificatie van de BAG standplaats."
+      },
+      "postLocatie": {
+        "type": "object",
+        "properties": {
+          "afgeschermd": {
+            "type": "string",
+            "description": "geeft aan of het adres afgeschermd is of niet."
+          },
+          "toevoegingAdres": {
+            "type": "string",
+            "description": "vrije tekst om een locatie nader te kunnen duiden. Bijvoorbeeld om bedrijfsverzamelgebouwen met meerdere vestigingen."
+          },
+          "volledigAdres": {
+            "type": "string",
+            "description": "samengesteld adres dat wordt afgeleid van de overige adresgegevens."
+          },
+          "straatnaam": {
+            "type": "string",
+            "description": "de straat van het binnenlandse adres."
+          },
+          "huisnummer": {
+            "type": "integer",
+            "description": "een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering."
+          },
+          "huisletter": {
+            "type": "string",
+            "description": "een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken."
+          },
+          "huisnummerToevoeging": {
+            "type": "string",
+            "description": "een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter."
+          },
+          "postbusnummer": {
+            "type": "integer",
+            "description": "het nummer van de postbus behorende bij het binnenlandse adres."
+          },
+          "postcode": {
+            "type": "string",
+            "description": "de door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters."
+          },
+          "plaats": {
+            "type": "string",
+            "description": "een woonplaats is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen en van een naam voorzien gedeelte van het grondgebied van de gemeente."
+          },
+          "straatHuisnummerBuitenland": {
+            "type": "string",
+            "description": "het straat/huisnummer is een combinatie van de straat en het huisnummer van het buitenlandse adres."
+          },
+          "postcodePlaatsBuitenland": {
+            "type": "string",
+            "description": "de postcode/woonplaats is de combinatie van een eventuele postcode en woonplaats van het buitenlandse adres."
+          },
+          "regioBuitenland": {
+            "type": "string",
+            "description": "regio is een deel van het land (streek, provincie, etc.) van het buitenlandse adres."
+          },
+          "landBuitenland": {
+            "type": "string",
+            "description": "de naam van het land waar het adres zich bevindt."
+          }
+        },
+        "description": "de locatiegegevens van de postLocatie."
+      },
+      "postHeeftBagNummeraanduiding": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:nummeraanduidingen",
+        "description": "unieke identificatie van de BAG nummeraanduiding."
+      },
+      "postHeeftBagVerblijfsobject": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:verblijfsobjecten",
+        "description": "unieke identificatie van de BAG verblijfsobject."
+      },
+      "postHeeftBagLigplaats": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:ligplaatsen",
+        "description": "unieke identificatie van de BAG ligplaats."
+      },
+      "postHeeftBagStandplaats": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:standplaatsen",
+        "description": "unieke identificatie van de BAG standplaats."
+      }
+    }
+  }
+}

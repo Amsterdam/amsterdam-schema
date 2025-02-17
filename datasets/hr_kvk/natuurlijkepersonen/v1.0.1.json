@@ -1,0 +1,171 @@
+{
+  "id": "natuurlijkepersonen",
+  "type": "table",
+  "version": "1.0.1",
+  "shortname": "Nps",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "identificatie"
+    ],
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "title": "Natuurlijk persoon ID",
+				"description": "Interne identificatie voor de Natuurlijke persoon (NPS)"
+      },
+      "bsn": {
+        "type": "string",
+        "title": "Burgerservicenummer",
+				"description": "Het burgerservicenummer (BSN) van de Natuurlijke persoon (NPS)"
+      },
+      "voorvoegselGeslachtsnaam": {
+        "type": "string",
+        "title": "Natuurlijk persoon geslachtsnaam voorvoegsel",
+				"description": "Het voorvoegsel van de geslachtsnaam van de Natuurlijk persoon"
+      },
+      "geslachtsnaam": {
+        "type": "string",
+        "title": "Natuurlijk persoon geslachtsnaam",
+				"description": "Geslachtsnaam van de Natuurlijk persoon"
+      },
+      "voornamen": {
+        "type": "string",
+        "title": "Natuurlijk persoon voornaam",
+				"description": "De voornaam of voornamen van de Natuurlijk persoon"
+      },
+      "geslachtsaanduiding": {
+        "type": "string",
+        "title": "Natuurlijk persoon geslachtsaanduiding omschrijving",
+				"description": "De geslachtsaanduiding van de {NatuurlijkPersoon} conform de standaarden van de BRP"
+      },
+      "volledigeNaam": {
+        "type": "string",
+        "title": "Persoon volledige naam",
+				"description": "De volledige naam van de Natuurlijk Persoon (NPS)"
+      },
+      "geboortedatum": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "Geboortedatum van de Natuurlijk persoon"
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "Jaar van de datum, als deze bekend is"
+          },
+          "maand": {
+            "type": "integer",
+            "description": "Maand van de datum, als deze bekend is"
+          },
+          "dag": {
+            "type": "integer",
+            "description": "Dag van de datum, als deze bekend is"
+          }
+        },
+        "title": "Natuurlijk persoon geboortedatum",
+				"description": "Geboortedatum van de Natuurlijk persoon"
+      },
+      "geboorteplaats": {
+        "type": "string",
+        "title": "Natuurlijk persoon geboorteplaats",
+				"description": "De plaats waar de betreffende Natuurlijk persoon is geboren"
+      },
+      "geboorteland": {
+        "type": "string",
+        "title": "Natuurlijk persoon geboorteland",
+				"description": "Het land waar de Natuurlijk persoon geboren is"
+      },
+      "overlijdensdatum": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "De overlijdensdatum van de Natuurlijk persoon"
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "Jaar van de datum, als deze bekend is"
+          },
+          "maand": {
+            "type": "integer",
+            "description": "Maand van de datum, als deze bekend is"
+          },
+          "dag": {
+            "type": "integer",
+            "description": "Dag van de datum, als deze bekend is"
+          }
+        },
+        "title": "Natuurlijk persoon overlijdensdatum",
+				"description": "De overlijdensdatum van de Natuurlijk persoon"
+      },
+      "schuldsanering": {
+        "type": "boolean",
+        "title": "Schuldsanering omschrijving",
+				"description": "Zorgt ervoor dat de schuldenaar na verloop van zekere tijd bevrijd wordt van zijn schuldenlast, omdat de vorderingen van zijn schuldeisers niet langer afdwingbaar zijn. Een schuldsanering is alleen van toepassing op een natuurlijk persoon"
+      },
+      "surceanceVanBetaling": {
+        "type": "boolean",
+        "title": "Surceance van betaling indicatie",
+				"description": "Uitstel van betaling geldt vanaf het moment dat de rechter voorlopig uitstel van betaling heeft verleend tot het moment dat de (voorlopige of definitieve) surseance van betaling eindigt"
+      },
+      "faillisement": {
+        "type": "boolean",
+        "title": "Faillisement omschrijving",
+				"description": "Een gerechtelijk beslag op en in de regel executie van het gehele vermogen van de schuldenaar ten behoeve van zijn gezamenlijke schuldeisers"
+      },
+      "status": {
+        "type": "string",
+        "title": "Surceance status code",
+				"description": "De status waarin de surseance verkeert, dit kan voorlopig of definitief zijn"
+      },
+      "duur": {
+        "type": "integer",
+        "title": "Surceance duur",
+				"description": "De duur van de periode (in maanden) waarvoor surseance van betaling geldt"
+      },
+      "persoonRechtsvorm": {
+        "type": "string",
+        "title": "Persoon rechtsvorm omschrijving",
+				"description": "Rechtsvorm van de persoon, dus natuurlijke persoon of niet natuurlijke persoon"
+      },
+      "uitgebreideRechtsvorm": {
+        "type": "string",
+        "title": "Persoon rechtsvorm uitgebreide omschrijving",
+				"description": "Rechtsvorm van inschrijving aangevuld met informatie over structuur, rechtbevoegdheid etc"
+      },
+      "typePersoon": {
+        "type": "string",
+        "title": "Persoon type",
+				"description": "Type persoon"
+      },
+      "rol": {
+        "title": "Rol omschrijving",
+				"type": "string",
+				"description": "De rol die een NPS vervult bij de maatschappelijke activiteit"
+      },
+      "heeftHrFunctievervullingen": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "relation": "hrKvk:functievervullingen",
+        "title": "Functievervulling die de natuurlijke persoon heeft",
+        "description": "Een Natuurlijk Persoon (NPS) heeft een of meer Functievervullingen (FVV)"
+      }
+    }
+  }
+}
