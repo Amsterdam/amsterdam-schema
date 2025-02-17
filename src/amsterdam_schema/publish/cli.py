@@ -308,7 +308,7 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type:
         if schema_base_url is not None:
             replace_schema_base_url(files_root, schema_base_url)
         index_file_obj = get_index_file_obj(schema_pub_paths, files_root)
-        publisher_index_file_obj = StringIO(get_json_formatted_string(fetch_publisher_files))
+        publisher_index_file_obj = StringIO(json.dumps(fetch_publisher_files()))
 
         # Then fetch the documentation
         doc_pub_paths = fetch_local_as_publishable(
@@ -379,8 +379,8 @@ def fetch_publisher_files() -> list[str]:
     )
 
 
-def get_json_formatted_string(fetcher: Callable) -> str:
-    return json.dumps(fetcher(), indent=2) + "\n"
+def _write_json(fetcher: Callable) -> int:
+    return sys.stdout.write(json.dumps(fetcher(), indent=2) + "\n")
 
 
 @click.command()  # type: ignore[misc]
@@ -389,7 +389,7 @@ def generate_publisher_index() -> None:
 
     With a list of available publisher files in the publishers directory.
     """
-    sys.stdout.write(get_json_formatted_string(fetch_publisher_files))
+    _write_json(fetch_publisher_files)
 
 
 SCOPES_IGNORED_FILES = ["index", "packages", "scopes"]
@@ -416,7 +416,7 @@ def generate_scope_index() -> None:
     located in subfolders per datateam, the structure of the JSON will be a
     dict with the datateam name as key and a list of scope files as value.
     """
-    sys.stdout.write(get_json_formatted_string(fetch_scope_index))
+    _write_json(fetch_scope_index)
 
 
 def fetch_scope_files() -> list[dict]:
@@ -436,7 +436,7 @@ def generate_scope_list() -> None:
 
     With a list of scopes fully inlined.
     """
-    sys.stdout.write(get_json_formatted_string(fetch_scope_files))
+    _write_json(fetch_scope_files)
 
 
 def fetch_access_packages() -> list[str]:
@@ -453,7 +453,7 @@ def fetch_access_packages() -> list[str]:
 @click.command()  # type: ignore[misc]
 def generate_access_package_list() -> None:
     """Generate a (deduped) list of all available access packages."""
-    sys.stdout.write(get_json_formatted_string(fetch_access_packages))
+    _write_json(fetch_access_packages)
 
 
 if __name__ == "__main__":
