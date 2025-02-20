@@ -426,6 +426,7 @@ def fetch_scope_files() -> list[dict]:
             continue
         with open(p) as f:
             scope = json.load(f)
+            scope["dbRole"] = "scope_" + scope["id"].lower().replace("/", "_")
             result.append(scope)
     return sorted(result, key=lambda s: s["id"])
 
