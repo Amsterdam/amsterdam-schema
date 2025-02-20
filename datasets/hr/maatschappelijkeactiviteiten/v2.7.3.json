@@ -1,0 +1,565 @@
+{
+	"id": "maatschappelijkeactiviteiten",
+	"type": "table",
+	"version": "2.7.3",
+	"auth": [
+		"FP/MDW",
+		"HR/R"
+	],
+	"shortname": "Mac",
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"mainGeometry": "bezoekGeopunt",
+		"identifier": [
+			"kvknummer"
+		],
+		"required": [
+			"schema",
+			"kvknummer"
+		],
+		"display": "kvknummer",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"kvknummer": {
+				"type": "string",
+				"title": "Kamer van Koophandel nummer",
+				"description": "Betreft het identificerende gegeven voor de Maatschappelijke Activiteit"
+			},
+			"datumActueelTot": {
+				"type": "string",
+				"title": "Actueel tot datum",
+				"format": "date-time",
+				"description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+			},
+			"datumAanvangMaatschappelijkeActiviteit": {
+				"shortname": "datumAanvangMac",
+				"title": "Maatschappelijke activiteit geldigheid aanvangsdatum",
+				"type": "string",
+				"format": "date",
+				"provenance": "$.datumAanvangMaatschappelijkeActiviteit.formatted",
+				"description": "De datum waarbij de Maatschappelijke Activiteit in de echte wereld is ontstaan"
+			},
+			"datumEindeMaatschappelijkeActiviteit": {
+				"shortname": "datumEindeMac",
+				"title": "Maatschappelijke activiteit geldigheid einddatum",
+				"type": "string",
+				"format": "date",
+				"provenance": "$.datumEindeMaatschappelijkeActiviteit.formatted",
+				"description": "De datum waarbij de Maatschappelijke Activiteit in de echte wereld is beëindigd"
+			},
+			"registratieTijdstipMaatschappelijkeActiviteit": {
+				"shortname": "registratieTijdstipMac",
+				"title": "Maatschappelijke activiteit registratie datumtijd",
+				"type": "string",
+				"format": "date-time",
+				"description": "Het tijdstip waarop de maatschappelijke activiteit bij de KvK in het handelsregister is geregistreerd. Indien het registratietijdstip om (migratie)redenen niet bekend is wordt de waarde 'vastgesteldOnbekend' opgenomen"
+			},
+			"naam": {
+				"type": "string",
+				"title": "Statutaire naam",
+				"description": "De statutaire naam of eerste handelsnaam van de inschrijving"
+			},
+			"nonMailing": {
+				"type": "string",
+				"title": "Non mailing indicatie",
+				"description": "Indicator die aangeeft of de inschrijving haar adresgegevens beschikbaar stelt voor mailing-doeleinden"
+			},
+			"incidenteelUitlenenArbeidskrachten": {
+				"type": "string",
+				"title": "Incidenteel uitlenen arbeidskrachten indicatie",
+				"description": "Indicatie die aangeeft of de ondernemer tijdelijk arbeidskrachten ter beschikking stelt en dit niet onderdeel is van zijn 'reguliere' activiteiten"
+			},
+			"activiteiten": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"sbiCode": {
+							"type": "string",
+							"title": "Standaard bedrijfsindeling code",
+							"description": "De code van de standaard bedrijfsindeling"
+						},
+						"omschrijving": {
+							"type": "string",
+							"title": "Standaard bedrijfsindeling omschrijving",
+							"description": "De omschrijving van de standaard bedrijfsindeling"
+						},
+						"isHoofdactiviteit": {
+							"type": "string",
+							"title": "Hoofdactiviteit indicatie",
+							"description": "De indicatie die aangeeft welke van de activiteiten de hoofdactiviteit is (wordt afgeschaft)"
+						},
+						"volgorde": {
+							"type": "integer",
+							"title": "Standaard bedrijfsindeling volgorde nummer",
+							"description": "De volgorde van de (hoofd) SBIactiviteit"
+						}
+					}
+				},
+				"title": "Incidenteel uitlenen arbeidskrachten indicatie",
+				"description": "De SBI-activiteiten van de maatschappelijke activiteit is het totaal van alle SBI-Activiteiten die voorkomen bij de maatschappelijke activiteit behorende niet commerciële vestiging (NCV)en bij de Rechtspersoon"
+			},
+			"heeftHoofdvestiging": {
+				"type": "object",
+				"properties": {
+					"vestigingsnummer": {
+						"type": "string"
+					}
+				},
+				"relation": "hr:vestigingen",
+				"title": "Hoofdvestiging van maatschappelijke activiteit",
+				"description": "De vestiging die als hoofdvestiging wordt gebruikt"
+			},
+			"datumAanvangMaatschappelijkeActiviteitVestiging": {
+				"shortname": "datumAanvangMacVes",
+				"type": "string",
+				"title": "Maatschappelijke activiteit vestiging aanvangsdatum",
+				"format": "date",
+				"provenance": "$.datumAanvangMaatschappelijkeActiviteitVes.formatted",
+				"description": "De datum van aanvang van de relatie tussen de maatschappelijke activiteit en de niet commerciële vestiging (NCV)"
+			},
+			"datumEindeMaatschappelijkeActiviteitVestiging": {
+				"shortname": "datumEindeMacVes",
+				"type": "string",
+				"title": "Maatschappelijke activiteit vestiging einddatum",
+				"format": "date",
+				"provenance": "$.datumEindeMaatschappelijkeActiviteitVest.formatted",
+				"description": "De einddatum van de relatie tussen de maatschappelijke activiteit en de niet commerciële vestiging (NCV)"
+			},
+			"wordtUitgeoefendInNietCommercieleVestigingen": {
+				"shortname": "uitgeoefendInNcv",
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"vestigingsnummer": {
+							"type": "string"
+						}
+					}
+				},
+				"relation": "hr:vestigingen",
+				"title": "Niet commerciële vestiging (NCV) waarin Maatschappelijke activiteit uitgevoerd wordt",
+				"description": "Een classificatie van de vestiging van de maatschappelijke activiteit, niet zijnde de onderneming"
+			},
+			"heeftAlsEigenaarNp": {
+				"shortname": "heeftEigenaarNp",
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "hr:natuurlijkepersonen",
+				"title": "Natuurlijke persoon die eigenaar is",
+				"description": "Heeft als eigenaar een natuurlijke persoon (NPS)"
+			},
+			"heeftAlsEigenaarNnp": {
+				"shortname": "heeftEigenaarNnp",
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "hr:nietnatuurlijkepersonen",
+				"title": "Niet natuurlijke persoon die eigenaar is",
+				"description": "Heeft als eigenaar een niet natuurlijke persoon (NNP)"
+			},
+			"onderneming": {
+				"type": "string",
+				"title": "Onderneming naam",
+				"description": "Van onderneming (OND) is sprake indien een voldoende zelfstandig optredende organisatorische eenheid van één of meer personen bestaat waarin door voldoende inbreng van arbeid of middelen, ten behoeve van derden diensten of goederen worden geleverd of werken tot stand worden gebracht met het oogmerk daarmee materieel voordeel te behalen"
+			},
+			"totaalWerkzamePersonen": {
+				"type": "integer",
+				"title": "Aantal werkzame personen",
+				"description": "Totaal aantal werkzame personen bij de onderneming"
+			},
+			"voltijdWerkzamePersonen": {
+				"type": "integer",
+				"title": "Aantal voltijd werkzame personen",
+				"description": "Aantal voltijd (meer dan 15 uur per week) werkzame personen bij de onderneming"
+			},
+			"deeltijdWerkzamePersonen": {
+				"type": "integer",
+				"title": "Aantal deeltijd werkzame personen",
+				"description": "Aantal deeltijd (kleiner of gelijk aan 15 uur per week) werkzame personen bij de onderneming"
+			},
+			"datumAanvangOnderneming": {
+				"type": "string",
+				"format": "date",
+				"title": "Onderneming aanvangsdatum",
+				"provenance": "$.datumAanvangOnderneming.formatted",
+				"description": "De datum van aanvang van de relatie tussen de onderneming en de commercielevestiging"
+			},
+			"datumEindeOnderneming": {
+				"type": "string",
+				"format": "date",
+				"title": "Onderneming einddatum",
+				"provenance": "$.datumEindeOnderneming.formatted",
+				"description": "De einddatum van de relatie tussen de onderneming en de commercielevestiging"
+			},
+			"isOverdrachtVoortzettingOnderneming": {
+				"type": "string",
+				"title": "Onderneming voortgezet overgedragen indicatie",
+				"description": "Indicatie of de onderneming is voortgezet of is overgedragen. Nee betekent overdracht, Ja betekent voortzetting"
+			},
+			"datumOverdrachtVoortzettingOnderneming": {
+				"type": "string",
+				"format": "date",
+				"title": "Onderneming voortgezet overgedragen datum",
+				"provenance": "$.datumOverdrachtVoortzettingOnderneming.formatted",
+				"description": "De datum waarop de onderneming is overgedragen of voortgezet"
+			},
+			"wordtUitgeoefendInCommercieleVestigingen": {
+				"shortname": "uitgeoefendInCvs",
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"vestigingsnummer": {
+							"type": "string"
+						}
+					}
+				},
+				"relation": "hr:vestigingen",
+				"title": "Commerciële vestiging maatschappelijke activiteit",
+				"description": "Een vestiging is een gebouw of een complex van gebouwen waar duurzame uitoefening van activiteiten van een Onderneming of Rechtspersoon plaatsvindt"
+			},
+			"datumAanvangOndernemingVestiging": {
+				"type": "string",
+				"format": "date",
+				"title": "Onderneming vestiging aanvangsdatum",
+				"provenance": "$.datumAanvangOndernemingVestiging.formatted",
+				"description": "De datum van aanvang van de relatie tussen de onderneming en Commerciële Vestiging (CVS)"
+			},
+			"datumEindeOndernemingVestiging": {
+				"type": "string",
+				"format": "date",
+				"title": "Onderneming vestiging einddatum",
+				"provenance": "$.datumEindeOndernemingVestiging.formatted",
+				"description": "De datum van beeindiging van de de relatie tussen de onderneming en Commerciële Vestiging (CVS)"
+			},
+			"datumAanvangOndernemingHandelsnaam": {
+				"type": "string",
+				"format": "date",
+				"title": "Onderneming handelsnaam aanvangsdatum",
+				"provenance": "$.datumAanvangOndernemingHandelsnaam.formatted",
+				"description": "De datum van aanvang van de relatie tussen de Handelsnaam met de onderneming"
+			},
+			"datumEindeOndernemingHandelsnaam": {
+				"type": "string",
+				"format": "date",
+				"title": "Onderneming handelsnaam einddatum",
+				"provenance": "$.datumEindeOndernemingHandelsnaam.formatted",
+				"description": "De datum van beeindiging van de de relatie tussen de Handelsnaam met de onderneming"
+			},
+			"handelsnamen": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"datumAanvang": {
+							"type": "string",
+							"format": "date",
+							"title": "Handelsnaam aanvangsdatum",
+							"description": "Datum aanvang van de Handelsnaam"
+						},
+						"datumEinde": {
+							"type": "string",
+							"format": "date",
+							"title": "Handelsnaam einddatum",
+							"description": "Datum einde van de Handelsnaam"
+						},
+						"handelsnaam": {
+							"type": "string",
+							"title": "Handelsnaam",
+							"description": "Handelsnaam van de vestiging waaronder gehandeld wordt"
+						},
+						"volgorde": {
+							"type": "string",
+							"title": "Handelsnaam volgorde",
+							"description": "Volgorde waarop de handelsnamen worden getoond bij de onderneming of Commerciele Vestiging"
+						}
+					}
+				},
+				"title": "Handelsnaam",
+				"description": "Handelsnaam van de commerciële vestiging"
+			},
+			"communicatie": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"toegangscode": {
+							"type": "string",
+							"title": "Communicatie internationale toegangscode",
+							"description": "De internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft"
+						},
+						"nummer": {
+							"type": "string",
+							"title": "Communicatie nummer",
+							"description": "Het telefoon- of faxnummer zonder opmaak"
+						},
+						"soort": {
+							"type": "string",
+							"title": "Communicatie nummer soort",
+							"description": "Geeft aan of het communicatienummer een telefoon- of een faxnummer betreft"
+						}
+					}
+				},
+				"title": "Communicatiegegevens",
+				"description": "Communicatiegegevens van de maatschappelijke activiteit"
+			},
+			"emailAdressen": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"emailAdres": {
+							"type": "string",
+							"title": "Email adres",
+							"description": "Het e-mailadres waarop de ondernemer gemaild kan worden"
+						}
+					}
+				},
+				"title": "Email adres",
+				"description": "Het e-mailadres waarop de ondernemer gemaild kan worden"
+			},
+			"domeinnamen": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"domeinnaam": {
+							"type": "string",
+							"title": "Domein naam",
+							"description": "Het internetadres (web site)"
+						}
+					}
+				},
+				"title": "Domein naam",
+				"description": "Het internetadres (web site)"
+			},
+			"bezoekLocatie": {
+				"type": "object",
+				"properties": {
+					"afgeschermd": {
+						"type": "string",
+						"title": "Adres afgeschermd indicatie",
+						"description": "Geeft aan of het adres afgeschermd is of niet"
+					},
+					"toevoegingAdres": {
+						"type": "string",
+						"title": "Adres toevoeging omschrijving",
+						"description": "Vrije tekst om een locatie nader te kunnen duiden. Bijvoorbeeld om bedrijfsverzamelgebouwen met meerdere vestigingen"
+					},
+					"volledigAdres": {
+						"type": "string",
+						"title": "Volledig adres",
+						"description": "Samengesteld adres dat wordt afgeleid van de overige adresgegevens"
+					},
+					"straatnaam": {
+						"type": "string",
+						"title": "Straat naam",
+						"description": "Officiële naam openbare ruimte (80 tekens)"
+					},
+					"huisnummer": {
+						"type": "integer",
+						"title": "Huisnummer",
+						"description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering"
+					},
+					"huisletter": {
+						"type": "string",
+						"title": "Huisletter",
+						"description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken"
+					},
+					"huisnummerToevoeging": {
+						"type": "string",
+						"title": "Huisnummer toevoeging",
+						"description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
+					},
+					"postcode": {
+						"type": "string",
+						"title": "Postcode",
+						"description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)"
+					},
+					"plaats": {
+						"type": "string",
+						"title": "Plaats naam",
+						"description": "Officiële naam woonplaats"
+					},
+					"straatHuisnummerBuitenland": {
+						"type": "string",
+						"title": "Buitenland straat huisnummer",
+						"description": "Het straat/huisnummer is een combinatie van de straat en het huisnummer van het buitenlandse adres"
+					},
+					"postcodePlaatsBuitenland": {
+						"type": "string",
+						"title": "Buitenland plaats postcode",
+						"description": "De postcode/woonplaats is de combinatie van een eventuele postcode en woonplaats van het buitenlandse adres"
+					},
+					"regioBuitenland": {
+						"type": "string",
+						"title": "Buitenland regio naam",
+						"description": "Regio is een deel van het land (streek, provincie, etc.) van het buitenlandse adres"
+					},
+					"landBuitenland": {
+						"type": "string",
+						"title": "Buitenland naam",
+						"description": "De naam van het land waar het adres zich bevindt"
+					}
+				},
+				"title": "Bezoeklocatie locatiegegevens",
+				"description": "De locatiegegevens van de bezoekLocatie"
+			},
+			"bezoekGeopunt": {
+				"$ref": "https://geojson.org/schema/Point.json",
+				"title": "Bezoeklocatie geometrie",
+				"description": "De geometrie van de bezoekLocatie"
+			},
+			"heeftNummeraanduiding": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					}
+				},
+				"relation": "bag:nummeraanduidingen",
+				"title": "Nummeraanduiding locatie",
+				"description": "Met welk adres heeft de locatie een relatie"
+			},
+			"heeftVerblijfsobject": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					}
+				},
+				"relation": "bag:verblijfsobjecten",
+				"title": "Verblijfsobject locatie",
+				"description": "Met welk verblijfsobject heeft de locatie een relatie"
+			},
+			"heeftLigplaats": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					}
+				},
+				"relation": "bag:ligplaatsen",
+				"title": "Ligplaats locatie",
+				"description": "Met welke ligplaats heeft de locatie een relatie"
+			},
+			"heeftStandplaats": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					}
+				},
+				"relation": "bag:standplaatsen",
+				"title": "Standplaats locatie",
+				"description": "Met welke standplaats heeft de locatie een relatie"
+			},
+			"postLocatie": {
+				"type": "object",
+				"properties": {
+					"afgeschermd": {
+						"type": "string",
+						"title": "Adres afgeschermd indicatie",
+						"description": "Geeft aan of het adres afgeschermd is of niet"
+					},
+					"toevoegingAdres": {
+						"type": "string",
+						"title": "Adres toevoeging omschrijving",
+						"description": "Vrije tekst om een locatie nader te kunnen duiden. Bijvoorbeeld bij bedrijfsverzamelgebouwen met meerdere vestigingen"
+					},
+					"volledigAdres": {
+						"type": "string",
+						"title": "Volledig adres",
+						"description": "Samengesteld adres dat wordt afgeleid van de overige adresgegevens"
+					},
+					"straatnaam": {
+						"type": "string",
+						"title": "Straat naam",
+						"description": "Officiële naam openbare ruimte (80 tekens)"
+					},
+					"huisnummer": {
+						"type": "integer",
+						"title": "Huisnummer",
+						"description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering"
+					},
+					"huisletter": {
+						"type": "string",
+						"title": "Huisletter",
+						"description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken"
+					},
+					"huisnummerToevoeging": {
+						"type": "string",
+						"title": "Huisnummer toevoeging",
+						"description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
+					},
+					"postbusnummer": {
+						"type": "string",
+						"title": "Postbus nummer",
+						"description": "Het nummer van de postbus behorende bij het binnenlandse adres"
+					},
+					"postcode": {
+						"type": "string",
+						"title": "Postcode",
+						"description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)"
+					},
+					"plaats": {
+						"type": "string",
+						"title": "Plaats naam",
+						"description": "Officiële naam woonplaats"
+					},
+					"straatHuisnummerBuitenland": {
+						"type": "string",
+						"title": "Buitenland straat huisnummer",
+						"description": "Het straat/huisnummer is een combinatie van de straat en het huisnummer van het buitenlandse adres"
+					},
+					"postcodePlaatsBuitenland": {
+						"type": "string",
+						"title": "Buitenland plaats postcode",
+						"description": "De postcode/woonplaats is de combinatie van een eventuele postcode en woonplaats van het buitenlandse adres"
+					},
+					"regioBuitenland": {
+						"type": "string",
+						"title": "Buitenland regio naam",
+						"description": "Regio is een deel van het land (streek, provincie, etc.) van het buitenlandse adres"
+					},
+					"landBuitenland": {
+						"type": "string",
+						"title": "Buitenland naam",
+						"description": "De naam van het land waar het adres zich bevindt"
+					}
+				},
+				"title": "Postlocatie locatiegegevens",
+				"description": "De locatiegegevens van de postLocatie"
+			},
+			"postGeopunt": {
+				"$ref": "https://geojson.org/schema/Point.json",
+				"title": "Bezoeklocatie geometrie",
+				"description": "De geometrie van de postlocatie"
+			}
+		}
+	}
+}

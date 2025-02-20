@@ -19,7 +19,7 @@ from io import BytesIO, StringIO
 from os.path import splitext
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from typing import Dict, Iterator, List, Tuple
+from typing import Callable, Dict, Iterator, List, Tuple
 
 import click
 import in_place
@@ -308,7 +308,7 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type:
         if schema_base_url is not None:
             replace_schema_base_url(files_root, schema_base_url)
         index_file_obj = get_index_file_obj(schema_pub_paths, files_root)
-        publisher_index_file_obj = StringIO(get_publisher_index())
+        publisher_index_file_obj = StringIO(json.dumps(fetch_publisher_files()))
 
         # Then fetch the documentation
         doc_pub_paths = fetch_local_as_publishable(
@@ -379,8 +379,8 @@ def fetch_publisher_files() -> list[str]:
     )
 
 
-def get_publisher_index() -> str:
-    return json.dumps(fetch_publisher_files(), indent=2) + "\n"
+def _write_json(fetcher: Callable) -> int:
+    return sys.stdout.write(json.dumps(fetcher(), indent=2) + "\n")
 
 
 @click.command()  # type: ignore[misc]
@@ -389,13 +389,16 @@ def generate_publisher_index() -> None:
 
     With a list of available publisher files in the publishers directory.
     """
-    sys.stdout.write(get_publisher_index())
+    _write_json(fetch_publisher_files)
 
 
-def fetch_scope_files() -> Dict[str, List[str]]:
+SCOPES_IGNORED_FILES = ["index", "packages", "scopes"]
+
+
+def fetch_scope_index() -> Dict[str, List[str]]:
     result = {}
     for p in Path(".").glob(SCOPES_DIR + "/**/*.json"):
-        if p.stem in ["index", "packages"]:
+        if p.stem in SCOPES_IGNORED_FILES:
             continue
         if p.parent.stem not in result:
             result[p.parent.stem] = [p.stem]
@@ -403,10 +406,6 @@ def fetch_scope_files() -> Dict[str, List[str]]:
             result[p.parent.stem].append(p.stem)
         result[p.parent.stem].sort()
     return result
-
-
-def get_scope_index() -> str:
-    return json.dumps(fetch_scope_files(), indent=2) + "\n"
 
 
 @click.command()  # type: ignore[misc]
@@ -417,13 +416,33 @@ def generate_scope_index() -> None:
     located in subfolders per datateam, the structure of the JSON will be a
     dict with the datateam name as key and a list of scope files as value.
     """
-    sys.stdout.write(get_scope_index())
+    _write_json(fetch_scope_index)
+
+
+def fetch_scope_files() -> list[dict]:
+    result = []
+    for p in Path(".").glob(SCOPES_DIR + "/**/*.json"):
+        if p.stem in SCOPES_IGNORED_FILES:
+            continue
+        with open(p) as f:
+            scope = json.load(f)
+            result.append(scope)
+    return sorted(result, key=lambda s: s["id"])
+
+
+@click.command()  # type: ignore[misc]
+def generate_scope_list() -> None:
+    """Generate a scope scopes.json.
+
+    With a list of scopes fully inlined.
+    """
+    _write_json(fetch_scope_files)
 
 
 def fetch_access_packages() -> list[str]:
     result = set()
     for p in Path(".").glob(SCOPES_DIR + "/**/*.json"):
-        if p.stem in ["index", "packages"]:
+        if p.stem in SCOPES_IGNORED_FILES:
             continue
         with open(p) as f:
             scope = json.load(f)
@@ -431,14 +450,10 @@ def fetch_access_packages() -> list[str]:
     return sorted(result)
 
 
-def get_access_packages() -> str:
-    return json.dumps(fetch_access_packages(), indent=2) + "\n"
-
-
 @click.command()  # type: ignore[misc]
 def generate_access_package_list() -> None:
     """Generate a (deduped) list of all available access packages."""
-    sys.stdout.write(get_access_packages())
+    _write_json(fetch_access_packages)
 
 
 if __name__ == "__main__":

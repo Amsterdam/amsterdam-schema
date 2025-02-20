@@ -1,0 +1,156 @@
+{
+	"id": "spoorbaandelen",
+	"title": "spoorbaandelen",
+	"description": "Kleinste functioneel onafhankelijk stukje spoorbaan met gelijkblijvende, homogene eigenschappen en relaties dat er binnen een spoorwegnet wordt onderscheiden.",
+	"type": "table",
+	"version": "1.0.4",
+	"crs": "EPSG:28992",
+	"auth": "OPENBAAR",
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"mainGeometry": "geometrie",
+		"identifier": [
+			"identificatie"
+		],
+		"required": [
+			"schema",
+			"identificatie"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Geo object ID",
+				"description": "De unieke identiteit van het geo-object"
+			},
+			"bronactualiteit": {
+				"type": "string",
+				"title": "Bron actualiteit datum",
+				"format": "date",
+				"description": "De actualiteit van de gebruikte bron"
+			},
+			"bronbeschrijving": {
+				"type": "string",
+				"title": "Bron beschrijving",
+				"description": "De beschrijving van de gebruikte bron"
+			},
+			"bronnauwkeurigheid": {
+				"type": "number",
+				"title": "Bron nauwkeurigheid meters",
+				"description": "De nauwkeurigheid van de gebruikte bron in meters"
+			},
+			"brontype": {
+				"type": "string",
+				"title": "Bron type",
+				"description": "Het type van de gebruikte bron"
+			},
+			"objectBeginTijd": {
+				"type": "string",
+				"title": "Object geldigheid begintijd",
+				"format": "date",
+				"description": "Tijdstip waarop het object ontstaan is"
+			},
+			"tijdstipRegistratie": {
+				"type": "string",
+				"title": "Object registratie tijdstip",
+				"format": "date",
+				"description": "Tijdstip waarop een versie van het object ontstaan is"
+			},
+			"visualisatieCode": {
+				"type": "integer",
+				"title": "Object visualisatie code",
+				"description": "Code voor het visualiseren van het object"
+			},
+			"tdnCode": {
+				"type": "integer",
+				"title": "Object TOP10vector code",
+				"description": "Code die het object in TOP10vector had"
+			},
+			"mutatietype": {
+				"type": "string",
+				"title": "Object mutatie type",
+				"description": "Het soort mutatie dat een object als laatste ondergaan heeft"
+			},
+			"geometrie": {
+				"$ref": "https://geojson.org/schema/Geometry.json",
+				"title": "Geometrie",
+				"description": "Geometrie"
+			},
+			"type": {
+				"type": "string",
+				"title": "Spoorbaandeel vervoermiddel type",
+				"description": "Het soort vervoermiddel waarvoor het spoorbaandeel bestemd is"
+			},
+			"typeInfrastructuur": {
+				"type": "string",
+				"title": "Spoorbaandeel infrastructuur type",
+				"description": "Aanduiding of het object een verbinding of een kruising is"
+			},
+			"fysiekVoorkomen": {
+				"type": "string",
+				"title": "Object relatieve positie",
+				"description": "De plaats waar het object zich bevindt t.o.v. andere constructies"
+			},
+			"spoorbreedte": {
+				"type": "string",
+				"title": "Spoorbreedte klasse code",
+				"description": "De breedteklasse van het spoor"
+			},
+			"aantalSporen": {
+				"type": "string",
+				"title": "Spoorbaandeel aantal sporen",
+				"description": "Het aantal sporen van het spoorbaandeel"
+			},
+			"vervoerfunctie": {
+				"type": "string",
+				"title": "Spoorbaandeel vervoer functie",
+				"description": "De functie waarvoor het spoor gebruikt wordt"
+			},
+			"elektrificatie": {
+				"type": "string",
+				"title": "Spoorbaandeel elektrificatie indicatie",
+				"description": "Aanduiding of het spoorbaandeel geëlektrificeerd is of niet"
+			},
+			"brugnaam": {
+				"type": "string",
+				"title": "Spoorbrug naam",
+				"description": "De naam van een spoorbrug"
+			},
+			"tunnelnaam": {
+				"type": "string",
+				"title": "Spoortunnel naam",
+				"description": "Naam van een spoortunnel"
+			},
+			"baanvaknaam": {
+				"type": "string",
+				"title": "Baanvak naam",
+				"description": "De naam van het baanvak waarin het spoorbaandeel zich bevindt"
+			},
+			"status": {
+				"type": "string",
+                "title": "Object status",
+				"description": "De staat waarin het object zich bevindt"
+			},
+			"hoogteniveau": {
+				"type": "integer",
+				"title": "Object hoogteniveau",
+				"description": "Het hoogteniveau van het object"
+			},
+			"geometrieLijn": {
+				"$ref": "https://geojson.org/schema/LineString.json",
+				"title": "Lijn geometrie",
+				"description": "Lijngeometrie"
+			},
+			"geometriePunt": {
+				"$ref": "https://geojson.org/schema/Point.json",
+				"title": "Punt geometrie",
+				"description": "Puntgeometrie"
+			}
+		}
+	}
+}
