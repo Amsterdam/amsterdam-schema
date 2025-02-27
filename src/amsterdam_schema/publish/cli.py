@@ -393,6 +393,7 @@ def generate_publisher_index() -> None:
 
 
 SCOPES_IGNORED_FILES = ["index", "packages", "scopes"]
+SCOPES_UNAVAILABLE_DATASETS = ["brp_r"]
 
 
 def fetch_scope_index() -> Dict[str, List[str]]:
@@ -422,7 +423,7 @@ def generate_scope_index() -> None:
 def fetch_scope_files() -> list[dict]:
     result = []
     for p in Path(".").glob(SCOPES_DIR + "/**/*.json"):
-        if p.stem in SCOPES_IGNORED_FILES:
+        if p.stem in SCOPES_IGNORED_FILES + SCOPES_UNAVAILABLE_DATASETS:
             continue
         with open(p) as f:
             scope = json.load(f)
