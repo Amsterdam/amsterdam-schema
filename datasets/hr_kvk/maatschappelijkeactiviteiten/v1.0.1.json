@@ -135,9 +135,11 @@
       "heeftAlsEigenaarHrNps": {
         "shortname": "heeftEigenaarHrNps",
         "type": "object",
-        "auth": [
-          "HR/RSN"
-        ],
+        "auth": {
+          "$ref": [
+            "scopes/BENK/hr_rsn"
+          ]
+        },
         "properties": {
           "identificatie": {
             "type": "string"
