@@ -3,24 +3,39 @@
   "type": "dataset",
   "title": "Bekende Amsterdammers",
   "description": "Bekende historische personen die in Amsterdam hebben gewoond.\n (Een voorbeeld dataset)",
-  "status": "beschikbaar",
   "owner": "Gemeente Amsterdam",
   "publisher": "myDataTeam",
   "creator": "myBronhouder",
   "auth": "OPENBAAR",
   "authorizationGrantor": "myDataTeam@amsterdam.nl",
-  "tables": [
-    {
-      "$ref": "personen/v2.0.1",
-      "id": "personen",
-      "activeVersions": {
-        "1.3.0": "personen/v1.3.0",
-        "2.0.1": "personen/v2.0.1"
-      }
+  "versions": {
+    "v1": {
+      "status": "niet_beschikbaar",
+      "version": "1.3.0",
+      "tables": [
+        {
+          "$ref": "personen/v1",
+          "id": "personen"
+        },
+        {
+          "$ref": "locaties/v1",
+          "id": "locaties"
+        }
+      ]
     },
-    {
-      "$ref": "locaties/v1.0.0",
-      "id": "locaties"
+    "v2": {
+      "status": "beschikbaar",
+      "version": "2.0.1",
+      "tables": [
+        {
+          "$ref": "personen/v2",
+          "id": "personen"
+        },
+        {
+          "$ref": "locaties/v1",
+          "id": "locaties"
+        }
+      ]
     }
-  ]
+  }
 }
