@@ -2,8 +2,8 @@
   "id": "personen",
   "type": "table",
   "title": "Personen",
-  "version": "2.0.0",
-  "description": "Bekende Amsterdamse personen",
+  "version": "2.0.1",
+  "description": "Bekende historische Amsterdammers",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -12,7 +12,7 @@
       "schema",
       "geassocieerdeLocaties"
     ],
-    "display": "naam",
+    "display": "volledigeNaam",
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v3#/definitions/schema"
@@ -28,7 +28,7 @@
       },
       "beroep": {
         "title": "Beroep",
-        "description": "Reden, dat de persoon bekend is.",
+        "description": "Primaire reden, dat de persoon bekend is.",
         "type": "string",
         "enum": [
           "voetballer",
@@ -41,7 +41,7 @@
       },
       "geassocieerdeLocaties": {
         "shortname": "locaties",
-        "title": "Locaties geassocieerd met de Persoon",
+        "title": "Geassocieerde locaties",
         "description": "Locaties geassocieerd met de persoon. \nBijvoorbeeld een voormalige woon of verblijfplaats.",
         "type": "array",
         "relation": "bekendeAmsterdammers:locaties",
