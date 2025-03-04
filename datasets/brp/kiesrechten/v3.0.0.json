@@ -1,0 +1,163 @@
+{
+	"id": "kiesrechten",
+	"type": "table",
+	"version": "3.0.0",
+	"auth": "BRP/R",
+	"reasonsNonPublic": [
+		"5.1 1d: Bevat persoonsgegevens"
+	],
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": "identificatie",
+		"required": [
+			"schema",
+			"identificatie"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "De unieke aanduiding van een kiesrecht. Nummer in combinatie met de afkorting 'KR'"
+			},
+			"aNummer": {
+				"type": "string",
+				"title": "Persoon anummer",
+				"description": "Anummer van de persoon"
+			},
+			"aandEuroKiesrecht": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code aanduiding Europees kiesrecht"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving aanduiding Europees kiesrecht"
+					}
+				},
+				"title": "Europees kiesrecht aanduiding",
+				"description": "Aanduiding Europees kiesrecht"
+			},
+			"datumVerzoekEuroKiesrecht": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "Datum verzoek of mededeling Europees kiesrecht"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Europees kiesrecht verzoek datum",
+				"description": "Datum verzoek of mededeling Europees kiesrecht"
+			},
+			"einddatumUitsluitingEuroKiesrecht": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "Einddatum verzoek of mededeling Europees kiesrecht"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Uitsluiting europees kiesrecht einddatum",
+				"description": "De datum waarop een uitsluiting voor deelname aan verkiezingen voor het Europees parlement niet meer van toepassing is. Dit element wordt uitsluitend opgenomen indien er sprake is van een uitsluiting voor bepaalde tijd"
+			},
+			"adresEulidstaatHerkomst": {
+				"type": "string",
+				"title": "Eulidstaat herkomst adres",
+				"description": "Adres EU-lidstaat van herkomst 31.40"
+			},
+			"plaatsEulidstaatHerkomst": {
+				"type": "string",
+				"title": "Eulidstaat herkomst plaats",
+				"description": "Plaats EU-lidstaat van herkomst 31.50"
+			},
+			"landEulidstaatHerkomst": {
+				"type": "string",
+				"title": "Eulidstaat herkomst land",
+				"description": "Land EU-lidstaat van herkomst 31.60"
+			},
+			"aandUitsluitingKiesrecht": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code aanduiding uitsluiting kiesrecht"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving aanduiding uitsluiting kiesrecht"
+					}
+				},
+				"title": "Uitsluiting kiesrecht aanduiding",
+				"description": "Aanduiding uitgesloten kiesrecht 38.10"
+			},
+			"einddatumUitsluitingkiesrecht": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop een uitsluiting kiesrecht niet meer van toepassing is 38.20"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Uitsluiting kiesrecht einddatum",
+				"description": "De datum waarop een uitsluiting kiesrecht niet meer van toepassing is 38.20"
+			},
+			"heeftBrpDocument": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brp:documenten",
+				"title": "Document of akte identificatie",
+				"description": "Gemeentedocument of akte van de categorie 13 kiesrecht"
+			}
+		}
+	}
+}

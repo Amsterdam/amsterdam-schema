@@ -1,0 +1,251 @@
+{
+	"id": "ouder1",
+	"type": "table",
+	"version": "3.0.0",
+	"auth": "BRP/R",
+	"reasonsNonPublic": [
+		"5.1 1d: Bevat persoonsgegevens"
+	],
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": [
+			"identificatie"
+		],
+		"required": [
+			"schema",
+			"identificsatie"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "De unieke aanduiding van een ouder. Nummer in combinatie met de afkorting 'O1' "
+			},
+			"vanBrpPersoon": {
+				"type": "object",
+				"title": "Persoon anummer",
+				"description": "A-nummer van persoon"
+			},
+			"aNummer": {
+				"type": "object",
+				"title": "Persoon anummer",
+				"description": "A-nummer van ouder1"
+			},
+			"bsn": {
+				"type": "object",
+				"title": "Persoon bsn",
+				"description": "BSN-nummer van ouder1"
+			},
+			"voorletters": {
+				"type": "string",
+				"title": "Voorletters",
+				"description": "Afgeleid gegeven"
+			},
+			"voornamen": {
+				"type": "string",
+				"title": "Voornamen",
+				"description": "De verzameling namen die, gescheiden door spaties, aan de geslachtsnaam voorafgaat. Indien aanwezig, wordt het predicaat"
+			},
+			"adellijkeTitelPredikaat": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Soort adellijkeTitelPredikaat"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving adellijkeTitelPredikaat"
+					}
+				},
+				"title": "Adellijke titel of predikaat",
+				"description": "Adellijke titel/predicaat, die aangeeft welke titel of welk predicaat behoort tot de naam (bij adellijke titel geslachtsnaam, bij predicaat voornaam)"
+			},
+			"voorvoegselGeslachtsnaam": {
+				"type": "string",
+				"title": "Voorvoegsel",
+				"description": "Dat deel van de geslachtsnaam dat voorkomt in Tabel 36, Voorvoegseltabel, en door een spatie van de geslachtsnaam is gescheiden"
+			},
+			"geslachtsnaam": {
+				"type": "string",
+				"title": "Echtgenoot geslachtsnaam",
+				"description": "Afgeleid gegeven: De geslachtsnaam waarvan de eventueel aanwezige voorvoegsels (tabel 36) en adellijke titel (Tabel 38) zijn afgesplitst"
+			},
+			"geboorteDatum": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"description": "De datum waarop de persoon is geboren",
+						"format": "date"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Geboorte datum",
+				"description": "De datum waarop de persoon is geboren"
+			},
+			"geboortePlaats": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code, gemeententabel op naam of een buitenlandse plaats of een plaatsbepaling, die aangeeft waar het persoon is geboren"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving, gemeententabel op naam of een buitenlandse plaats of een plaatsbepaling, die aangeeft waar het persoon is geboren"
+					}
+				},
+				"title": "Geboorte plaats",
+				"description": "Gemeententabel op naam of een buitenlandse plaats of een plaatsbepaling, die aangeeft waar de persoon is geboren. Afgeleid uit BRK:Gemeente"
+			},
+			"geboorteLand": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code, Landentabel op naam, die het land aangeeft waar het persoon is geboren"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving, Landentabel op naam, die het land aangeeft waar het persoon is geboren"
+					}
+				},
+				"title": "Geboorte land",
+				"description": "Een code, opgenomen in Tabel 34, Landentabel op naam, die het land aangeeft waar de persoon is geboren"
+			},
+			"geslachtsaanduiding": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code geslachtsaanduiding"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving geslachtsaanduiding"
+					}
+				},
+				"title": "Persoon geslacht",
+				"description": "Geslacht van de persoon, mogelijke waarden: M (man), V (vrouw), O (onbekend)"
+			},
+			"datumFamilierechtelijkeBetrekking": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"description": "De datum waarop de familierechtelijke betrekking is ontstaan",
+						"format": "date"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Familierechtelijke betrekking datum",
+				"description": "De datum waarop de familierechtelijke betrekking is ontstaan"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid datum",
+				"format": "date",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden. Alleen complete datum"
+			},
+			"ingangsdatumGeldigheid": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"description": "De datum waarop het geheel van gegevens geldig is geworden",
+						"format": "date"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object inganggeldigheid datum",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden"
+			},
+			"datumOpneming": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object opname datum",
+				"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+			},
+			"heeftBrpDocument": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brp:documenten",
+				"title": "Document of akte identificatie",
+				"description": "Gemeentedocument of akte van de categorie 02 en 03 ouder"
+			},
+			"heeftBrpOnderzoek": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brp:onderzoeken",
+				"title": "Onderzoek identificatie",
+				"description": "Onderzoeken van de categorie 02 en 03 ouder"
+			}
+		}
+	}
+}

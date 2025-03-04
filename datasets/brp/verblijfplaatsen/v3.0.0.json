@@ -1,0 +1,439 @@
+{
+	"id": "verblijfplaatsen",
+	"type": "table",
+	"version": "3.0.0",
+	"auth": "BRP/R",
+	"reasonsNonPublic": [
+		"5.1 1d: Bevat persoonsgegevens"
+	],
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": [
+			"identificatie"
+		],
+		"required": [
+			"schema",
+			"identificatie"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "De unieke aanduiding van een verblijfplaats. Nummer in combinatie met de afkorting 'VP'"
+			},
+			"aNummer": {
+				"type": "string",
+				"title": "Persoon anummer",
+				"description": "Het administratienummer, bedoeld in artikel 50 van de Wet GBA"
+			},
+			"adresseertBagVerblijfsobject": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "bag:verblijfsobjecten",
+				"title": "Verblijfsobject identificatie",
+				"description": "verblijfsobject (landelijke identificatie) dat door de nummeraanduiding wordt aangeduid"
+			},
+			"adresseertBagLigplaats": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "bag:ligplaatsen",
+				"title": "Ligplaats identificatie",
+				"description": "ligplaats (landelijke identificatie) die door de nummeraanduiding wordt aangeduid"
+			},
+			"adresseertBagStandplaats": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "bag:standplaatsen",
+				"title": "Standplaats identificatie",
+				"description": "standplaats (landelijke identificatie) die door de nummeraanduiding wordt aangeduid"
+			},
+			"gemeenteVanInschrijving": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code van de gemeente"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving van de gemeente"
+					}
+				},
+				"title": "Gemeente identificatie",
+				"description": "De gemeente van inschrijving"
+			},
+			"datumInschrijving": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "Aangiftedatum, geboortedatum of datumOpnemingMededeling"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Inschrijving datum",
+				"description": "Aangiftedatum, geboortedatum of datumOpnemingMededeling"
+			},
+			"functieAdres": {
+				"type": "string",
+				"title": "Adres functie",
+				"description": "Woonadres (W) of briefadres (B)"
+			},
+			"datumAanvangAdreshouding": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "Datum van aangifte of ambtshalve melding van verblijf en adres"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Adreshouding aanvang datum",
+				"description": "Datum van aangifte of ambtshalve melding van verblijf en adres"
+			},
+			"straatnaam": {
+				"type": "string",
+				"title": "Verblijfplaats straatnaam",
+				"description": "De officiële straatnaam zoals door het gemeentebestuur is vastgesteld dan wel een kopie van de inhoud van element 11.15 Naam openbare ruimte, indien noodzakelijk afgekort volgens de NEN-5825 [2002] norm"
+			},
+			"naamOpenbareruimte": {
+				"type": "string",
+				"title": "Verblijfplaats openbare ruimte naam",
+				"description": "Officiële naam de openbare ruimte"
+			},
+			"huisnummer": {
+				"type": "integer",
+				"title": "Verblijfplaats huisnummer",
+				"description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering"
+			},
+			"huisletter": {
+				"type": "string",
+				"title": "Verblijfplaats huisletter",
+				"description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken"
+			},
+			"huisnummertoevoeging": {
+				"type": "string",
+				"title": "Verblijfplaats huisnummertoevoeging",
+				"description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
+			},
+			"aanduidingBijHuisnummer": {
+				"type": "string",
+				"title": "Verblijfplaats aanduiding",
+				"description": "Vervallen per 01-01-2024: De aanduiding die wordt gebruikt voor adressen die niet zijn voorzien van de gebruikelijke straatnaam en huisnummeraanduidingen"
+			},
+			"postcode": {
+				"type": "string",
+				"title": "Verblijfplaats postcode",
+				"description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)"
+			},
+			"woonplaatsNaam": {
+				"type": "string",
+				"title": "Verblijfplaats woonplaats",
+				"description": "Officiële naam woonplaats"
+			},
+			"heeftBagHoofdadres": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					},
+					"volgnummer": {
+						"type": "integer"
+					},
+					"beginGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"eindGeldigheid": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"relation": "bag:nummeraanduidingen",
+				"title": "Verblijfplaats hoofdadres",
+				"description": "Hoofddadres (Verblijfsplaats) dat de persoon heeft"
+			},
+			"locatiebeschrijving": {
+				"type": "string",
+				"title": "Locatie beschrijving",
+				"description": "Geheel of gedeeltelijke omschrijving van de ligging van een object (indien niet in BAG)"
+			},
+			"adresBinnenlandOpgemaakt": {
+				"type": "object",
+				"properties": {
+					"adresBinnenlandOpgemaakt1": {
+						"type": "string",
+						"description": "Afgeleid gegeven: adres binnenland opgemaakt1"
+					},
+					"adresBinnenlandOpgemaakt2": {
+						"type": "string",
+						"description": "Afgeleid gegeven: adres binnenland opgemaakt2"
+					},
+					"adresBinnenlandOpgemaakt3": {
+						"type": "string",
+						"description": "Afgeleid gegeven: adres binnenland opgemaakt3"
+					}
+				},
+				"title": "Adres opgemaakt",
+				"description": "Afgeleid gegeven: adres binnenland opgemaakt"
+			},
+			"landWaarnaarVertrokken": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code van de landWaarnaarVertrokken"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving van de landWaarnaarVertrokken"
+					}
+				},
+				"title": "Vertrokken naar land",
+				"description": "Een code, opgenomen in Tabel 34, Landentabel"
+			},
+			"datumAanvangAdresBuitenland": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "Datum aanvang adres buitenland"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar aanvang adres buitenland, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand aanvang adres buitenland, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag aanvang adres buitenland, als deze bekend is"
+					}
+				},
+				"title": "Adres buitenland aanvang datum",
+				"description": "Datum aanvang adres buitenland"
+			},
+			"adresBuitenlandWaarnaarVertrokken": {
+				"type": "object",
+				"properties": {
+					"adresBuitenlandWaarnaarVertrokken1": {
+						"type": "string",
+						"description": "Eerste deel van het adres in het buitenland"
+					},
+					"adresBuitenlandWaarnaarVertrokken2": {
+						"type": "string",
+						"description": "Tweede deel van het adres in het buitenland"
+					},
+					"adresBuitenlandWaarnaarVertrokken3": {
+						"type": "string",
+						"description": "Derde deel van het adres in het buitenland"
+					}
+				},
+				"title": "Adres buitenland opgemaakt",
+				"description": "opgemaakt adres buitenland waarnaar vertrokken"
+			},
+			"landVanwaarIngeschreven": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code van de landVanwaarIngeschreven"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving van de landVanwaarIngeschreven"
+					}
+				},
+				"title": "Ingeschreven vanuit land",
+				"description": "Code, opgenomen in Tabel 34, Landentabel"
+			},
+			"datumVestigingNederland": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "Datum vestiging Nederland"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Vestiging datum",
+				"description": "Datum vestiging Nederland"
+			},
+			"aangeverAdreshouding": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code van de aangeverAdreshouding (A, B, G, H, I, K, M, M, O, P, T, W)"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving van de aangeverAdreshouding"
+					}
+				},
+				"title": "Adreshouding aangever",
+				"description": "Aanduiding van de persoon door wie de aangifte van verblijf en adres is gedaan"
+			},
+			"indicatieDocument": {
+				"type": "boolean",
+				"title": "Document indicatie",
+				"description": "Aanduiding dat gedurende de opschorting van de bijhouding van de PL documenten zijn binnengekomen, die na de beeindiging van de opschorting moeten worden verwerkt"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid datum",
+				"format": "date",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden. Alleen complete datum"
+			},
+			"ingangsdatumGeldigheid": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop het geheel van gegevens geldig is geworden"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object inganggeldigheid datum",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden"
+			},
+			"datumOpneming": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object opname datum",
+				"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+			},
+			"heeftBrpOnderzoek": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brp:onderzoeken",
+				"title": "Onderzoek identificatie",
+				"description": "Onderzoeken van de categorie 09 Verblijfplaats"
+			}
+		}
+	}
+}

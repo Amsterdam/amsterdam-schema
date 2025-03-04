@@ -1,0 +1,150 @@
+{
+	"id": "verwijzingen",
+	"type": "table",
+	"version": "3.0.0"
+	},
+	"auth": "BRP/R",
+	"reasonsNonPublic": [
+		"5.1 1d: Bevat persoonsgegevens"
+	],
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": [
+			"identificatie"
+		],
+		"required": [
+			"schema",
+			"identificatie"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "De unieke aanduiding van een verwijzing. Nummer in combinatie met de afkorting 'VW'"
+			},
+			"aNummer": {
+				"type": "string",
+				"title": "Persoon anummer",
+				"description": "Het administratienummer, bedoeld in artikel 50 van de Wet GBA"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid datum",
+				"format": "date",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden. Alleen complete datum"
+			},
+			"ingangsdatumGeldigheid": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop het geheel van gegevens geldig is geworden"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object inganggeldigheid datum",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden"
+			},
+			"datumOpneming": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object opname datum",
+				"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+			},
+			"datumUitschrijving": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum van de uitschrijving"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Uitschrijving datum",
+				"description": "De datum van de uitschrijving"
+			},
+			"gemeenteUitgeschreven": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code van de gemeente"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving van de gemeente"
+					}
+				},
+				"title": "Uitschrijving gemeente",
+				"description": "Gemeententabel op naam of een buitenlandse plaats of een plaatsbepaling, die aangeeft de eerste of volgende gemeente van inschrijving van uitgeschreven persoon"
+			},
+			"indicatieGeheim": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "code gegevens over het mogen verstrekken van informatie aan derden"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "omschrijving gegevens over het mogen verstrekken van informatie aan derden"
+					},
+					"geheim": {
+						"type": "boolean",
+						"description": "J/N  over het mogen verstrekken van informatie aan derden"
+					}
+				},
+				"title": "Geheimhouding indicatie",
+				"description": "Aanduiding die aangeeft dat gegevens wel of niet mogen worden verstrekt"
+			}
+		}
+	}
+}

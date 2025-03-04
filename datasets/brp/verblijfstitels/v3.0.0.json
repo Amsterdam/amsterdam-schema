@@ -1,0 +1,165 @@
+{
+	"id": "verblijfstitels",
+	"type": "table",
+	"version": "3.0.0",
+	"auth": "BRP/R",
+	"reasonsNonPublic": [
+		"5.1 1d: Bevat persoonsgegevens"
+	],
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": [
+			"identificatie"
+		],
+		"required": [
+			"schema",
+			"identificatie"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "De unieke aanduiding van een verblijfstitel. Nummer in combinatie met de afkorting 'VT'"
+			},
+			"aNummer": {
+				"type": "string",
+				"title": "Persoon anummer",
+				"description": "Het administratienummer, bedoeld in artikel 50 van de Wet GBA"
+			},
+			"aanduidingVerblijfstitel": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code van de aanduidingVerblijfstitel"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving van de aanduidingVerblijfstitel"
+					}
+				},
+				"title": "Persoon anummer",
+				"description": "Code, opgenomen in Tabel 56, Verblijfstitel"
+			},
+			"ingangsdatumVerblijfstitel": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop de verblijfstitel zijn geldigheid krijgt"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Verblijfstitel ingangsdatum",
+				"description": "De datum waarop de verblijfstitel zijn geldigheid krijgt"
+			},
+			"datumEindeVerblijfstitel": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop de verblijfstitel zijn geldigheid zal verliezen. Dit element wordt uitsluitend opgenomen indien er sprake is van een verblijfstitel voor bepaalde tijd. Bij een verblijfstitel voor het leven komt het element niet voor"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Verblijfstitel einddatum",
+				"description": "De datum waarop de verblijfstitel zijn geldigheid zal verliezen. Dit element wordt uitsluitend opgenomen indien er sprake is van een verblijfstitel voor bepaalde tijd. Bij een verblijfstitel voor het leven komt het element niet voor"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid datum",
+				"format": "date",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden. Alleen complete datum"
+			},
+			"ingangsdatumGeldigheid": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop het geheel van gegevens geldig is geworden"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object inganggeldigheid datum",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden"
+			},
+			"datumOpneming": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object opname datum",
+				"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+			},
+			"heeftBrpOnderzoek": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brp:onderzoeken",
+				"title": "Onderzoek identificatie",
+				"description": "Onderzoeken van de categorie 10: verblijfstitel"
+			}
+		}
+	}
+}

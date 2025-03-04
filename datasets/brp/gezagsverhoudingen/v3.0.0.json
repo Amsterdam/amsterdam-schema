@@ -1,0 +1,137 @@
+{
+	"id": "gezagsverhoudingen",
+	"type": "table",
+	"version": "3.0.0",
+	"auth": "BRP/R",
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": [
+			"identificatie"
+		],
+		"required": [
+			"schema",
+			"identificatie"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "De unieke aanduiding van een gezagsverhouding. Nummer in combinatie met de afkorting 'GV'"
+			},
+			"aNummer": {
+				"type": "string",
+				"title": "Persoon anummer",
+				"description": "Anummer van de persoon"
+			},
+			"indicatieGezagMinderjarige": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string"
+					},
+					"omschrijving": {
+						"type": "string"
+					}
+				},
+				"title": "Belast met gezag minderjarige",
+				"description": "Een aanduiding die aangeeft wie belast is met het gezag over de minderjarige ingeschrevene"
+			},
+			"indicatieCurateleRegister": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code van de aanduiding dat de ingeschrevene onder curatele is gesteld"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving van de aanduiding dat de ingeschrevene onder curatele is gesteld"
+					}
+				},
+				"title": "Onder curatele gesteld",
+				"description": "Een aanduiding dat de ingeschrevene onder curatele is gesteld"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid datum",
+				"format": "date",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden. Alleen complete datum"
+			},
+			"ingangsdatumGeldigheid": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object inganggeldigheid datum",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden"
+			},
+			"datumOpneming": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object opname datum",
+				"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+			},
+			"heeftBrpDocument": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brp:documenten",
+				"title": "Document of akte identificatie",
+				"description": "Gemeentedocument of akte van de categorie 11 gezagsverhoudingen"
+			},
+			"heeftBrpOnderzoek": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brp:onderzoeken",
+				"title": "Onderzoek identificatie",
+				"description": "Onderzoeken van de categorie 11 gezagsverhouding"
+			}
+		}
+	}
+}

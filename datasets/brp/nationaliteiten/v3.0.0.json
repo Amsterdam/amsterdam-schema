@@ -1,0 +1,163 @@
+{
+	"id": "nationaliteiten",
+	"type": "table",
+	"version": "3.0.0",
+	"auth": "BRP/R",
+	"reasonsNonPublic": [
+		"5.1 1d: Bevat persoonsgegevens"
+	],
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": [
+			"identificatie"
+		],
+		"required": [
+			"schema",
+			"identificatie"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "De unieke aanduiding van een nationaliteit. Nummer in combinatie met de afkorting 'N' en een volgnummer"
+			},
+			"aNummer": {
+				"type": "string",
+				"title": "Persoon anummer",
+				"description": "A-nummer van de persoon"
+			},
+			"nationaliteit": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code van de nationaliteit"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving van de nationaliteit"
+					}
+				},
+				"title": "Nationaliteit",
+				"description": "Een code, opgenomen in Tabel 32, die aangeeft welke nationaliteit de ingeschrevene bezit"
+			},
+			"redenVerkrijgingNedNat": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code van de reden verkrijging"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving van de reden verkrijging"
+					}
+				},
+				"title": "Nationaliteit reden verkrijging",
+				"description": "Gegevens over de verkrijging van de Nederlandse Nationaliteit, code opgenomen in Tabel 37"
+			},
+			"redenVerliesNedNat": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code van de reden verlies"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving van de reden verlies"
+					}
+				},
+				"title": "Nationaliteit reden verlies",
+				"description": "Gegevens over het verlies van de Nederlandse Nationaliteit, code opgenomen in Tabel 37"
+			},
+			"aanduidingBijzonderNedschap": {
+				"type": "string",
+				"title": "Bijzonder Nederlanschap aanduiding",
+				"description": "Gegevens over bijzonder Nederlanderschap dit kan inhouden: B: aantekening dat betrokkene als Nederlander behandeld wordt of V: aantekening dat betrokkene op grond van de Rijkswet op nederlanderschap niet de Nederlandse nationaliteit bezit"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid datum",
+				"format": "date",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden. Alleen complete datum"
+			},
+			"ingangsdatumGeldigheid": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop het geheel van gegevens geldig is geworden"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object inganggeldigheid datum",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden"
+			},
+			"datumOpneming": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object opname datum",
+				"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+			},
+			"heeftBrpDocument": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brp:documenten",
+				"title": "Document of akte identificatie",
+				"description": "Gemeentedocument of akte van de categorie 04 nationaliteit"
+			},
+			"heeftBrpOnderzoek": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brp:onderzoeken",
+				"title": "Onderzoek identificatie",
+				"description": "Onderzoeken van de categorie 04 nationaliteit"
+			}
+		}
+	}
+}

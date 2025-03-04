@@ -1,0 +1,238 @@
+{
+	"id": "reisdocumenten",
+	"type": "table",
+	"version": "3.0.0",
+	"auth": "BRP/R",
+	"reasonsNonPublic": [
+		"5.1 1d: Bevat persoonsgegevens"
+	],
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": "identificatie",
+		"required": [
+			"schema",
+			"identificatie"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "De unieke aanduiding van een reisdocument. Nummer in combinatie met de afkorting 'R' "
+			},
+			"aNummer": {
+				"type": "string",
+				"title": "Persoon anummer",
+				"description": "Anummer van de persoon"
+			},
+			"soortNedReisdocument": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code van de soortNlReisdocument"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving van de soortNlReisdocument"
+					}
+				},
+				"title": "Reisdocument soort",
+				"description": "Codering, opgenomen in Tabel 48, Tabel Nederlands reisdocumenten"
+			},
+			"nummerNedReisdocument": {
+				"type": "string",
+				"title": "Reisdocument nummer",
+				"description": "Nummer van het verstrekte Nederlandse reisdocument"
+			},
+			"datumVerstrekkingNedReisdocument": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "Datum waarop het Nederlands reisdocument is uitgegeven"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Reisdocument verstrekking datum",
+				"description": "Datum waarop het Nederlands reisdocument is uitgegeven"
+			},
+			"autoriteitNedReisdocument": {
+				"type": "string",
+				"title": "Reisdocument autoriteit",
+				"description": "Autoriteit die het Nederlands reisdocument heeft verstrekt of de bijschrijving heeft verricht"
+			},
+			"datumEindeGeldigheidNlReisdocument": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "Datum waarop een Nederlands reisdocument zijn geldigheid verliest"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Reisdocument eind geldigheid datum",
+				"description": "Datum waarop een Nederlands reisdocument zijn geldigheid verliest"
+			},
+			"datumInhoudingNedReisdocument": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "Datum waarop een Nederlands reisdocument is vermist, ingehouden, dan wel ingeleverd"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Reisdocument inhouding datum",
+				"description": "Datum waarop een Nederlands reisdocument is vermist, ingehouden, dan wel ingeleverd"
+			},
+			"aanduidingInhoudingNedReisdocument": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code dat een Nederlands reisdocument is vermist, ingehouden, dan wel ingeleverd"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving dat een Nederlands reisdocument is vermist, ingehouden, dan wel ingeleverd"
+					}
+				},
+				"title": "Reisdocument inhouding indicatie",
+				"description": "Codering, opgenomen in Tabel 48, Tabel Nederlands reisdocumenten"
+			},
+			"lengteHouder": {
+				"type": "integer",
+				"title": "Houder lengte",
+				"description": "Lengte van de ingeschrevene in hele centimeters zoals vermeld in het Nederlands reisdocument"
+			},
+			"signaleringNedReisdocument": {
+				"type": "boolean",
+				"title": "Reisdocument signalering",
+				"description": "Aanduiding dat aan de ingeschrevene geen reisdocument mag worden verstrekt"
+			},
+			"aanduidingBuitenlandsReisdocument": {
+				"type": "string",
+				"title": "Buitenlands reisdocument aanduiding",
+				"description": "Aanduiding dat de ingeschrevene beschikt over één of meer buitenlandse reisdocumenten of is bijgeschreven in een buitenlands reisdocument"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid datum",
+				"format": "date",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden. Alleen complete datum"
+			},
+			"ingangsdatumGeldigheid": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop het geheel van gegevens geldig is geworden"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object inganggeldigheid datum",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden"
+			},
+			"datumOpneming": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object opname datum",
+				"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+			},
+			"heeftBrpDocument": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brp:documenten",
+				"title": "Document of akte identificatie",
+				"description": "Gemeentedocument of akte van de categorie 12 reisdocument"
+			},
+			"heeftBrpOnderzoek": {
+				"type": "object",
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brp:onderzoeken",
+				"title": "Onderzoek identificatie",
+				"description": "Onderzoeken van de categorie 12 reisdocument"
+			}
+		}
+	}
+}

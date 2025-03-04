@@ -1,0 +1,214 @@
+{
+	"id": "inschrijvingen",
+	"type": "table",
+	"version": "3.0.0",
+	"auth": "BRP/R",
+	"reasonsNonPublic": [
+		"5.1 1d: Bevat persoonsgegevens"
+	],
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"type": "object",
+		"additionalProperties": false,
+		"identifier": "identificatie",
+		"required": [
+			"schema",
+			"identificatie"
+		],
+		"display": "identificatie",
+		"properties": {
+			"schema": {
+				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+			},
+			"identificatie": {
+				"type": "string",
+				"title": "Object ID",
+				"description": "De unieke aanduiding van een inschrijving. Nummer in combinatie met de afkorting 'I'"
+			},
+			"aNummer": {
+				"type": "string",
+				"title": "Persoon anummer",
+				"description": "Anummer van de persoon"
+			},
+			"datumIngangBlokkeringPl": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "Inschrijvng: datum waarop de gemeente de PersoonsLijst naar een andere gemeente stuurt"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Blokkering datum",
+				"description": "Datum waarop de gemeente de PersoonsLijst naar een andere gemeente stuurt"
+			},
+			"datumOpschortingBijhouding": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "Inschrijvng: datum waarop de bijhouding van de PersoonsLijst is gestaakt"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Opschorting datum",
+				"description": "Datum waarop de bijhouding van de PersoonsLijst is gestaakt"
+			},
+			"redenOpschortingBijhouding": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code: aanduiding van de reden waarom de bijhouding van de Persoons-Lijst is opgeschort"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving: aanduiding van de reden waarom de bijhouding van de Persoons-Lijst is opgeschort"
+					}
+				},
+				"title": "Opschorting reden",
+				"description": "Aanduiding van de reden waarom de bijhouding van de PersoonsLijst is opgeschort"
+			},
+			"datumEersteInschrijvingGba": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "Inschrijvng: datum vanaf wanneer een persoon in de GBA is ingeschreven"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Eerste inschrijving datum",
+				"description": "Bij inschrijving op grond van een geboorte-akte is dit de geboortedatum. Bij inschrijving op grond van een aangifte van verblijf en adres is dit de datum waarop de burger aangifte doet. Bij ambtshalve inschrijving is dit de datum waarop de betrokkene schriftelijk van het voornemen van ambtshalve opneming mededeling is gedaan"
+			},
+			"gemeenteWaarPersoonskaartIs": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code van de gemeente"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving van de gemeente"
+					}
+				},
+				"title": "Persoonskaart gemeente",
+				"description": "Een code, opgenomen in Tabel 33 die aangeeft in welke gemeente de persoonskaart zich bevindt"
+			},
+			"persoonskaartGegevensVolledigMeegeconverteerd": {
+				"type": "string",
+				"title": "Persoonskaart kinderen volledig indicatie",
+				"description": "Indien de gegevens van alle kinderen van de PK zijn geconverteerd, wordt dit gegeven opgenomen. De op te nemen waarde is P. Deze waarde wordt ook opgenomen als er op een PK geen kindgegevens voorkomen"
+			},
+			"indicatieGeheim": {
+				"type": "object",
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Code gegevens over het mogen verstrekken van informatie aan derden"
+					},
+					"omschrijving": {
+						"type": "string",
+						"description": "Omschrijving gegevens over het mogen verstrekken van informatie aan derden"
+					},
+					"geheim": {
+						"type": "boolean",
+						"description": "J/N  over het mogen verstrekken van informatie aan derden"
+					}
+				},
+				"title": "Geheim indicatie",
+				"description": "CATEGORIE 21: Aanduiding die aangeeft dat gegevens wel of niet mogen worden verstrekt"
+			},
+			"beginGeldigheid": {
+				"type": "string",
+				"title": "Object geldigheid datum",
+				"format": "date",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden. Alleen complete datum"
+			},
+			"ingangsdatumGeldigheid": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object inganggeldigheid datum",
+				"description": "De datum waarop het geheel van gegevens geldig is geworden"
+			},
+			"datumOpneming": {
+				"type": "object",
+				"properties": {
+					"datum": {
+						"type": "string",
+						"format": "date",
+						"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+					},
+					"jaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"maand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"dag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
+					}
+				},
+				"title": "Object opname datum",
+				"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+			}
+		}
+	}
+}
