@@ -174,23 +174,19 @@
 				"description": "Officiële naam woonplaats"
 			},
 			"heeftBagHoofdadres": {
-				"type": "object",
-				"properties": {
-					"identificatie": {
-						"type": "string"
-					},
-					"volgnummer": {
-						"type": "integer"
-					},
-					"beginGeldigheid": {
-						"type": "string",
-						"format": "date-time"
-					},
-					"eindGeldigheid": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
+    			"type": "object",
+    			"properties": {
+       				"identificatie": {
+          				"type": "string"
+       				}
+    			},
+    			"relation": "bag:nummeraanduidingen",
+    			"title": "Verblijfplaats hoofdadres",
+    			"description": "Hoofddadres (Verblijfsplaats) dat de persoon heeft"
+			},
+			---------------------------------KEUZE MAKEN ------------------------------------------------------------
+			"heeftBagHoofdadres": {
+				"type": "string"
 				"relation": "bag:nummeraanduidingen",
 				"title": "Verblijfplaats hoofdadres",
 				"description": "Hoofddadres (Verblijfsplaats) dat de persoon heeft"
