@@ -25,22 +25,28 @@
 			"identificatie": {
 				"type": "string",
 				"title": "Object ID",
-				"description": "De unieke aanduiding van een ouder. Nummer in combinatie met de afkorting 'O2' "
-			},
-			"vanBrpPersoon": {
-				"type": "object",
-				"title": "Persoon anummer",
-				"description": "A-nummer van persoon"
+				"description": "De unieke aanduiding van een ouder2. Nummer in combinatie met de afkorting 'O2' "
 			},
 			"aNummer": {
 				"type": "object",
 				"title": "Persoon anummer",
-				"description": "A-nummer van ouder1"
+				"description": "A-nummer van ouder2"
 			},
-			"bsn": {
+			"burgerservicenummer": {
+				"type": "string",
+				"title": "Ouder2 burgerservicenummer",
+				"description": "Burgerservicenummer (BSN) voorheen SoFi-nummer"
+			},
+			"vanBrpPersoon": {
 				"type": "object",
-				"title": "Persoon bsn",
-				"description": "BSN-nummer van ouder1"
+				"properties": {
+					"identificatie": {
+						"type": "string"
+					}
+				},
+				"relation": "brp:personen",
+				"title": "Persoon anummer",
+				"description": "A-nummer van persoon"
 			},
 			"voorletters": {
 				"type": "string",
