@@ -72,7 +72,9 @@ Binnen deze bestanden bestaan de volgende niveaus:
 :: Een samenhangende collectie van data met één beheerder of beherende instantie.
     Zoals bedoeld in [[vocab-dcat-3#dcat-scope|DCAT]].
     Op dit niveau wordt voornamelijk meta-informatie over de herkomst en aard van de data meegegeven, zoals de naam, beschrijving, licentie en publicatiedatum.
-    Een dataset bevat minstens één tabel.
+    Een dataset bevat minstens één versie.
+: [[#dataset-version|versie]]
+:: Beschrijft een versie van een dataset. Bevat een set van velden die beschrijft welke eigenschappen deze versie heeft en bevat minstens één tabel.
 : [[#tables|tabel]]
 :: Beschrijft een type object dat in de dataset voorkomt. Bevat een set van velden die beschrijft welke eigenschappen datarijen in deze tabel moeten of mogen bezitten.
 : [[#fields|veld]]
@@ -105,31 +107,23 @@ Een <dfn dfn export>dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON b
 <table dfn-type="attribute" dfn-for=dataset export class="dfn-table">
     <tr><td><dfn>id</dfn>       <td> {{id-type|identifier}} <td> Unieke identifier voor deze dataset. Moet voldoen aan [[#naamgeving]]. Conform \[DCAT § resource_identifier](https://www.w3.org/TR/vocab-dcat-3/#Property:resource_identifier).
     <tr><td><dfn>type</dfn>     <td> {{schema-type}}        <td> Type van dit bestand, in dit geval `"dataset"`.
-    <tr><td><dfn>status</dfn>   <td> string
-        <td> Publicatiestatus van de dataset
-            <details>
-                <summary>Toegestane waarden</summary>
-                    * "beschikbaar"
-                    * "niet_beschikbaar"
-            </details>
-    <tr><td><dfn>auth</dfn>                 <td> string | array | scope-$ref <td> geautoriseerde [=scope|scope(s)=]. Voor openbare data: `"OPENBAAR"`. zie [[#autorisatie]]
+    <tr><td><dfn>auth</dfn>                 <td> string | array | [[#scope-refs|scope-ref]] <td> geautoriseerde [=scope|scope(s)=]. Voor openbare data: `"OPENBAAR"`. zie [[#autorisatie]]
     <tr><td><dfn>authorizationGrantor</dfn> <td> string     <td> E-mailadres van de afdeling verantwoordelijk voor autorisatie op deze dataset. Dit is meestal de bronhouder. Aan dit adres worden authorisatie verzoeken gericht.
     <tr><td><dfn>creator</dfn>              <td> string     <td> Team, afdeling of organisatie die de data produceert, meestal de bronhouder. Wanneer data van meerdere bronhouders wordt gecomineerd, wordt hier de opdrachtgever bedoelt.
     <tr><td><dfn>owner</dfn>                <td> string     <td> Juridisch eigenaar van de data. Bijvoorbeeld `"Gemeente Amsterdam, Directie Wonen"` of `"Centraal Bureau voor de Statistiek"`  Default: `"Gemeente Amsterdam"`
     <tr><td><dfn>publisher</dfn>            <td> string | [[#publisher-refs|publisher-ref]] <td> Het team verantwoordelijk voor het technisch ontsluiten van de data. Meestal het datateam. Conform \[DCAT § resource_publisher]([DCATURL]#Property:resource_publisher)
-    <tr><td><dfn>tables</dfn>   <td> array
-        <td> Tabellen in deze dataset. Moet minimaal 1 element bevatten.
+    <tr><td><dfn>defaultVersion</dfn>       <td> {{major-version-string}} <td> De default versie van de dataset die gebruikt wordt in de doelsystemen.
+    <tr><td><dfn>versions</dfn>             <td> object
+        <td> [=versie|Versies=] in deze dataset. Moet minimaal 1 element bevatten.
             <details>
                 <summary>Valide elementen</summary>
-                * een [=tabel=] json object
-                * een referentie naar een JSON bestand van een tabel.
-                    Zie [[#table-refs]] voor details.
+                * een [=versie=] json object
             </details>
 </table>
 
 Advisement: Let op: Zie [[#naamgeving]] voor de eisen waaraan {{dataset/id}} moet voldoen.
 
-Note: Als een dataset nog niet klaar is voor publicatie, zet de {{dataset/status}} dan op `"niet_beschikbaar"`. Zo wordt de dataset nog niet zichtbaar in doelsystemen.
+Note: Als een versie van een dataset nog niet klaar is voor publicatie, zet de {{versie/status}} dan op `"niet_beschikbaar"`. Zo wordt de dataset nog niet zichtbaar in doelsystemen.
 
 <div class=example>
     Een minimale dataset definitie. De 'title' en 'description' velden zijn niet verplicht,
@@ -142,7 +136,7 @@ Note: Als een dataset nog niet klaar is voor publicatie, zet de {{dataset/status
 
 [BP]
     Zet bij datasets met meer dan één tabel alle tabellen in hun een eigen bestand
-    en gebruik [=tabel referenties=]. Dit komt de leesbaarheid ten goede en maakt versioning mogelijk.
+    en gebruik [=tabelreferenties=]. Dit komt de leesbaarheid ten goede en maakt versionering mogelijk.
 [BPE]
 
 Optionele attributen {#dataset-optional-fields}
@@ -157,7 +151,6 @@ Naast bovenstaande verplichte attributen mag een [=dataset=] ook de volgende eig
     <tr><td><dfn>reasonsNonPublic</dfn>  <td> array({{nonPubReason}})
         <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de [[Woo]].
              Verplicht wanneer {{dataset/auth}} niet gelijk is aan `"OPENBAAR"`) zie [[#autorisatie]]
-    <tr><td><dfn>version</dfn>          <td> {{version-string}}     <td> Het versie nummer van deze dataset.
     <tr><td><dfn>homepage</dfn>         <td> {{uri-type|uri}}    <td> Homepage van de dataset
     <tr><td><dfn>crs</dfn>
         <td> enum(string)
@@ -208,10 +201,10 @@ Issue: Sommige velden missen een beschrijving
 Tabelreferenties {#table-refs}
 ----------------------------------------------------------
 Tabelreferenties zijn verwijzingen naar JSON-bestanden waarin een [=tabel=] gedefinieerd wordt.
-Dit maakt het mogelijk om elke tabel in een dataset in een eigen bestand te definieeren.
-Tabel referenties zijn gebaseerd op [[JSON-SCHEMA#ref]].
+Dit maakt het mogelijk om elke tabel in een dataset in een eigen bestand te definiëren.
+Tabelreferenties zijn gebaseerd op [[JSON-SCHEMA#ref]].
 
-Een <dfn export>tabel referentie</dfn> is een JSON object met in ieder geval de volgende attributen:
+Een <dfn export>tabelreferentie</dfn> is een JSON object met in ieder geval de volgende attributen:
 <table dfn-type="attribute" dfn-for=table-ref export class="dfn-table">
     <tr><td><dfn>id</dfn>   <td> {{id-type|identifier}} <td> Binnen deze dataset unieke identifier voor deze tabel. Zou gelijk moeten zijn aan tabel.id. Moet voldoen aan [[#naamgeving]].
     <tr><td><dfn lt="ref">$ref</dfn> <td> {{uri-reference}}
@@ -220,50 +213,23 @@ Een <dfn export>tabel referentie</dfn> is een JSON object met in ieder geval de 
         </td>
 </table>
 
-Optioneel kan een object met actieve versies van de tabel worden meegegeven.
-Actieve versies zijn alle versies die actief worden onderhouden en ondersteund.
-<table dfn-type="attribute" dfn-for=table-ref export class="dfn-table">
-    <tr><td><dfn>activeVersions</dfn> <td> object <td> Dit object bevat elementen van de vorm:
-        <pre>
-            "MAJOR.MINOR.PATCH": "path/to/tableVersion/file"
-        </pre>
-        activeVersions moet in iedergeval een element bevatten voor de versie waaraan wordt verwezen in het {{table-ref/ref|$ref}} veld.
-</table>
-
-Wanneer activeVersions is gedefinieerd, wordt de versie waaraan verwezen wordt in {{table-ref/ref|$ref}} als de default versie beschouwd.
-
-Zie [[#versioning]] voor meer details over versionering en versienummers.
-
-Note: Eventuele non-default versies worden in de huidige versie van DSO-api nog niet opgenomen.
-
-Elk tabel definitie bestand **zou** samen met andere versies van dezelfde tabel
+Elk tabeldefinitiebestand **zou** samen met andere versies van dezelfde tabel
 in een eigen map moeten staan waarvan de naam gelijk is aan de tabel id.
-De bestandsnaam van een tabel definite bestand **zou** gelijk moeten zijn aan het versienummer van de tabel voorafgegaan door 'v' met een '.json' extensie.
-Het pad gezien vanuit de locatie van het dataset bestand **zou** dus de volgende vorm moeten hebben:
+De bestandsnaam van een tabeldefinitiebestand **zou** gelijk moeten zijn aan het major versienummer van de tabel
+voorafgegaan door 'v' met een '.json' extensie.
+Het pad gezien vanuit de locatie van het datasetbestand **zou** dus de volgende vorm moeten hebben:
     ```bash
-    <tabelid>/v<major>.<minor>.<patch>.json
+    <tabelid>/v<major>.json
     ```
 
 Advisement: Van deze bestandsnaam en padstructuur moet niet worden afgeweken behalve als daar een zwaarwegende reden voor is.
 
-[HIDELINESEXAMPLE]
-    Voorbeeld van een dataset met twee tabel referenties.
-
-    Een `locaties` tabel in `./locaties/v1.0.0.json`.<br/>
-    En een `personen` tabel in `./personen/v2.0.1.json`, waarvan ook de oudere versie `1.3.0` beschikbaar is.
-    <pre class="include-code">
-            path: examples/datasets/bekendeAmsterdammers/dataset.json
-            highlight: json
-            line-highlight: 12-25
-        </pre>
-[END]
-
 Publisherreferenties {#publisher-refs}
 ----------------------------------------------------------
 Publisherreferenties zijn verwijzingen naar JSON-bestanden waarin een [=publisher=] gedefinieerd wordt.
-Publisher referenties zijn gebaseerd op [[JSON-SCHEMA#ref]].
+Publisherreferenties zijn gebaseerd op [[JSON-SCHEMA#ref]].
 
-Een <dfn export>publisher referentie</dfn> is een JSON object met 1 attribuut:
+Een <dfn export>publisherreferentie</dfn> is een JSON object met 1 attribuut:
 <table dfn-type="attribute" dfn-for=publisher-ref export class="dfn-table">
     <tr><td><dfn lt="ref">$ref</dfn> <td> {{uri-reference}}
         <td> URI-Reference naar JSON bestand met de [=publisher=] definitie zonder de bestandsextensie.
@@ -271,7 +237,117 @@ Een <dfn export>publisher referentie</dfn> is een JSON object met 1 attribuut:
         </td>
 </table>
 
+Scopereferenties {#scope-refs}
+----------------------------------------------------------
+Scopereferenties zijn verwijzingen naar JSON-bestanden waarin een [=scope=] gedefinieerd wordt.
+Scopereferenties zijn gebaseerd op [[JSON-SCHEMA#ref]].
 
+Een <dfn export>scopereferentie</dfn> is een JSON object met 1 attribuut:
+<table dfn-type="attribute" dfn-for=scope-ref export class="dfn-table">
+    <tr><td><dfn lt="ref">$ref</dfn> <td> {{uri-reference}}
+        <td> URI-Reference naar JSON bestand met de [=scope=] definitie zonder de bestandsextensie.
+            De reference is altijd van de vorm `scopes/<BESTANDSNAAM>`. Bijvoorbeeld: `scopes/BENK/LEVEL-X`
+        </td>
+</table>
+
+Versionering {#dataset-versioning}
+------------------------------------------------------
+
+Een dataset kan geversioneerd worden zodat er tegelijkertijd meerdere versies van een dataproduct actief kunnen zijn
+en er een overgangsperiode kan ontstaan waarin een oudere versie van een dataset ondersteund blijft totdat alle
+afnemers overgestapt zijn op een nieuwe versie van de dataset. Zie [[#dataset-version|versie]] voor de implementatie in het
+Amsterdam Schema.
+
+Note: Deze manier van versioneren is geïntroduceerd in V3 van het Amsterdam schema.
+
+Note: Er kan momenteel slechts één versie van de dataset zijn met de status 'beschikbaar'. Dit dient
+overeen te komen met de waarde in {{dataset/defaultVersion}}.
+
+Een [=versie=] wordt in het schema aangeduid door middel van een {{major-version-string|major versie}} van het
+{{version-string|versienummer}} van een dataset. Iedere versie van een dataset bevat een of meerdere tabellen die
+ook geversioneerd kunnen zijn. De versienummers van een dataset gebruiken semantic versioning. Dit betekend dat de
+versienummers betekenis hebben. Zo valt met een blik op het versienummer iets te zeggen over de aard van de gedane
+aanpassing.
+
+Het versie nummer bestaat uit 3 getallen gescheiden door punten `MAJOR.MINOR.PATCH`:
+    * **major** versie bumps vinden plaats bij veranderingen die *niet backwards compatible* zijn.
+        Dit zijn alle aanpassingen waarbij het kan voorkomen een afnemer de data volgens het nieuwe schema niet meer
+        kan consumeren.
+    * **minor** versies zijn *volledig backwards compatible* en vereisen dus geen aanpassingen voor een afnemer.
+    * **patch** versies bevatten *alleen metadata aanpassingen*, waarbij de datastructuur gelijk blijft.
+
+Note: We behandelen aanpassingen als breaking changes vanuit het oogpunt van de afnemer. Voorheen was dit vanuit het
+ oogpunt van de leverancier.
+
+**Metadata aanpassingen** zijn veranderingen aan een of meer van de volgende attributen:
+    * "title" op [=dataset=], [=tabel=] of [=veld=] niveau
+    * "description" op [=dataset=], [=tabel=] of [=veld=] niveau
+    * "shortname" op [=dataset=], [=tabel=] of [=veld=] niveau
+    * "{{unit}}"
+    * "{{display}}"
+
+**Backwards compatible** veranderingen zijn:
+    * Een [=tabel=] is toegevoegd aan een dataset.
+    * Een [=veld=] is toegevoegd aan een tabel.
+
+**Niet backwards compatible** zijn alle andere aanpassingen:
+    * Een [=tabel=] is verwijderd of hernoemd in een dataset.
+    * Een [=veld=] is verwijderd of hernoemd.
+    * Een optioneel veld wordt verplicht gemaakt.
+    * Inputmogelijkheden van een veld zijn verruimd (zoals wanneer een waarde aan {{enum}} is toegevoegd,
+        of een {{maximum}} of {{minimum}} is verruimd).
+
+Note: Deze semantic versioning standaard is geinspireerd door [[SCHEMVER inline]] wat weer is gebaseerd op [[SEMVER inline]].
+
+<!--
+█▌   █▌ █████▌ ████▌   ███▌  ████ █████▌
+█▌   █▌ █▌     █▌  █▌ █▌  █▌  ▐▌  █▌
+█▌   █▌ █▌     █▌  █▌ █▌      ▐▌  █▌
+▐▌   █  ████   ████▌   ███▌   ▐▌  ████
+ █  ▐▌  █▌     █▌▐█       █▌  ▐▌  █▌
+ ▐▌ █   █▌     █▌ ▐█  █▌  █▌  ▐▌  █▌
+  ▐█    █████▌ █▌  █▌  ███▌  ████ █████▌
+-->
+
+Versie {#dataset-version}
+======================================================
+
+Een [=versie=] definitie beschrijft een versie van de dataset, met daarin de status, versienummer en tabellen die
+bij deze versie horen.
+
+Verplichte attributen {#version-mandatory-fields}
+-------------------------------------------------------
+Een <dfn dfn export>versie</dfn> binnen Amsterdam Schema is een JSON object met in ieder geval de volgende attributen:
+<table dfn-type="attribute" dfn-for=versie export class="dfn-table">
+    <tr><td><dfn>status</dfn>   <td> string
+        <td> Publicatiestatus van de versie van de dataset
+            <details>
+                <summary>Toegestane waarden</summary>
+                    * "beschikbaar"
+                    * "niet_beschikbaar"
+            </details>
+    <tr><td><dfn>version</dfn>  <td> {{version-string}}     <td> Het versie nummer van deze versie. Zie [[#dataset-versioning]]
+    <tr><td><dfn>tables</dfn>             <td> object
+        <td> Tabellen in deze versie van de dataset. Moet minimaal 1 element bevatten.
+            <details>
+                <summary>Valide elementen</summary>
+                * een [=tabel=] json object
+                * een referentie naar een JSON bestand van een tabel.
+                    Zie [[#table-refs]] voor details.
+            </details>
+</table>
+
+[HIDELINESEXAMPLE]
+    Voorbeeld van een dataset met twee versies en twee tabelreferenties.
+
+    Een `locaties` tabel in `./locaties/v1.json`.<br/>
+    En een `personen` tabel in `./personen/v2.json`, waarvan ook de oudere versie `v1` beschikbaar is.
+    <pre class="include-code">
+            path: examples/datasets/bekendeAmsterdammers/dataset.json
+            highlight: json
+            line-highlight: 11-40
+        </pre>
+[END]
 
 <!--
 ████████    ███    ████████  ████████ ██
@@ -295,7 +371,7 @@ Een <dfn dfn export>tabel</dfn> binnen Amsterdam Schema is een JSON object met i
 <table dfn-type="attribute" dfn-for=tabel export class="dfn-table">
     <tr><td><dfn>id</dfn>       <td> {{id-type|identifier}} <td> Naam van de tabel. Unieke (binnen de parent dataset) identifier voor deze tabel. Moet voldoen aan [[#naamgeving]].
     <tr><td><dfn>type</dfn>     <td> {{schema-type}}        <td> Type van dit bestand, in dit geval `"table"`.
-    <tr><td><dfn>version</dfn>  <td> {{version-string}}     <td> Het versie nummer van deze tabel. Zie [[#versioning]]
+    <tr><td><dfn>version</dfn>  <td> {{version-string}}     <td> Het versie nummer van deze tabel. Zie [[#table-versioning]]
     <tr><td><dfn>schema</dfn>   <td> object
         <td> Het schema van objecten in de tabel. zie [[#tabel-schema]]
             <details>
@@ -311,7 +387,7 @@ Advisement: Let op: Zie [[#naamgeving]] voor de eisen waaraan {{tabel/id}} moet 
     Voorbeeld van een minimale tabel definitie. De {{tabel/title}} en {{tabel/description}} velden zijn niet verplicht,
     maar het is best practice ze toe te voegen.
     <pre class="include-code">
-        path: examples/datasets/minimaal/personen/v1.0.0.json
+        path: examples/datasets/minimaal/personen/v1.json
         highlight: json
         line-highlight: 0-7,25-27
     </pre>
@@ -326,7 +402,7 @@ Een  [=tabel=] mag daarnaast de volgende attributen bezitten:
     <tr><td><dfn>description</dfn>  <td> string <td> zie [[#omschrijving]]
     <tr><td><dfn>shortname</dfn>    <td> string <td> Verkorte unieke naam van de tabel. zie [[#naamgeving]]
     <tr><td><dfn>derivedFrom</dfn>  <td> array<td> De datasets waar deze view op gebaseerd is. e.g. `<dataset>:<tabel>`. Dit attribuut is enkel noodzakelijk wanneer de dataset een view is.
-    <tr><td><dfn>auth</dfn>         <td> string | array | scope-$ref <td> geautoriseerde [=scope|scope(s)=]. Default: gelijk aan waarde in dataset/{{dataset/auth}}, zie [[#autorisatie]].
+    <tr><td><dfn>auth</dfn>         <td> string | array | [[#scope-refs|scope-ref]] <td> geautoriseerde [=scope|scope(s)=]. Default: gelijk aan waarde in dataset/{{dataset/auth}}, zie [[#autorisatie]].
     <tr><td><dfn>reasonsNonPublic</dfn>  <td> array({{nonPubReason}})
         <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de [[Woo]].
             Verplicht wanneer de dataset openbaar is maar het {{tabel/auth}} attribuut van de tabel niet gelijk is aan "OPENBAAR". zie [[#autorisatie]]
@@ -400,7 +476,7 @@ Issue: Het identifier veld moet string zijn. De array optie wordt binnenkort ver
 
     Het {{display}} veld zorgt ervoor dat niet de "id" de maar de "naam" van een persoon als samenvattende titel wordt gebruikt.
     <pre class=include-code>
-        path: examples/datasets/minimaal/personen/v1.0.0.json
+        path: examples/datasets/minimaal/personen/v1.json
         highlight: json
         line-highlight: 7-25
     </pre>
@@ -442,86 +518,59 @@ Voorbeeld van een temporal object.
 </div>
 
 
-Versionering {#versioning}
+Versionering {#table-versioning}
 --------------------------
 Verschillende versies van een tabel worden van elkaar onderscheiden door middel van versienummers.
 
 Een geversioneerde tabel moet in een eigen bestand staan.
-De bestandsnaam van de tabel **zou** gelijk moeten zijn aan het versienummer van de tabel voorafgegaan door 'v' met een '.json' extensie.
-Zie [[#table-refs]] voor hoe in de dataset naar een tabel bestand moet worden verwezen.
+De bestandsnaam van de tabel **zou** gelijk moeten zijn aan het major versienummer van de tabel voorafgegaan
+door 'v' met een '.json' extensie. Zie [[#table-refs]] voor hoe in de dataset naar een tabel bestand moet worden
+verwezen.
 
-Voor versienummers wordt gebruik gemaakt van semantic versioning. Dit betekent dat de versienummers betekenis hebben.
-Zo valt met een blik op het versienummer iets te zeggen over de aard van de gedane aanpassing.
-
-Het versie nummer bestaat uit 3 getallen gescheiden door punten `MAJOR.MINOR.PATCH`:
-    * **major** versie bumps vinden plaats bij veranderingen die *niet backwards compatible* zijn.
-        Dit zijn alle aanpassingen waarbij het kan voorkomen dat bestaande data niet aan het nieuwe schema voldoet.
-    * **minor** versies zijn *volledig backwards compatible*. Alle bestaande data, blijft geldig in het nieuwe schema.
-    * **patch** versies bevatten *alleen metadata aanpassingen*, waarbij de datastructuur gelijk blijft.
-
-**Metadata aanpassingen** zijn veranderingen aan een of meer van de volgende attributen:
-    * "title" op [=dataset=], [=tabel=] of [=veld=] niveau
-    * "description" op [=dataset=], [=tabel=] of [=veld=] niveau
-    * "shortname" op [=dataset=], [=tabel=] of [=veld=] niveau
-    * "{{unit}}"
-    * "{{display}}"
-
-**Backwards compatible** veranderingen zijn:
-    * een optioneel [=veld=] is toegevoegd.
-    * input mogelijkheden van een veld zijn verruimd (zoals wanneer een waarde aan {{enum}} is toegevoegd,
-        of een {{maximum}} of {{minimum}} is verruimd).
-    * een verplicht veld is optioneel gemaakt
-
-**Niet backwards compatible** zijn alle andere aanpassingen.
-
-<div class="example">
-    Voorbeelden van niet backwards compatible aanpassingen:
-        * een nieuw verplicht [=veld=] is toegevoegd
-        * een optioneel veld is verplicht gemaakt
-        * een veld is verwijderd of hernoemd
-        * input mogelijkheden van een veld zijn beperkt. (zoals wanneer een waarde uit een {{enum}} is verwijderd,
-            of een {{maximum}} of {{minimum}} verkleind)
-</div>
-
+Zie [[#dataset-versioning]] voor uitleg over semantic versioning.
 
 Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
 
 [HIDELINESEXAMPLE]
-    Voorbeeld aan versie "1.2.1" van de personen tabel wordt een nieuw optioneel veld toegevoegd en aan een bestaand {{enum}} veld wordt een optie toegevoegd.
+    Voorbeeld aan versie "1.2.1" van de personen tabel wordt een nieuw veld toegevoegd en aan een bestaand {{enum}}
+    veld wordt een optie toegevoegd.
 
-    Dit zijn backwards compatible veranderingen dus het minor versie nummer wordt opgehoogd en de nieuwe versie wordt "1.3.0".
+    Dit zijn backwards compatible veranderingen dus het minor versienummer wordt opgehoogd en de nieuwe versie
+    wordt "1.3.0". Voor deze wijzigingen hoeven dus geen nieuwe bestanden aangemaakt te worden, omdat de
+    major version niet verhoogd.
 
-    De nieuwe tabel wordt in een nieuw bestand `personen/v1.3.0.json` geplaatst.
-    <div class="compare-code">
-        [COMPAREA]
-            `personen/v1.2.1.json`
-            <pre class="include-code">
-                path: examples/datasets/bekendeAmsterdammers/personen/v1.2.1.json
-                highlight: json
-                line-highlight: 5,28,31-34
-            </pre>
-        [END]
-        [COMPAREB]
-            `personen/v1.3.0.json`
-            <pre class="include-code">
-                path: examples/datasets/bekendeAmsterdammers/personen/v1.3.0.json
-                highlight: json
-                line-highlight: 5,28, 31-35,37-44
-            </pre>
-        [END]
+    <div style="text-align:center;">
+        `personen/v2.json`
+        <div class="compare-code">
+            [COMPAREA]
+                <pre class="include-code">
+                    path: examples/datasets/bekendeAmsterdammers/personen/v1.2.1.json
+                    highlight: json
+                    line-highlight: 5,28,31-34
+                </pre>
+            [END]
+            [COMPAREB]
+                <pre class="include-code">
+                    path: examples/datasets/bekendeAmsterdammers/personen/v1.3.0.json
+                    highlight: json
+                    line-highlight: 5,28, 31-35,37-44
+                </pre>
+            [END]
+        </div>
     </div>
 [END]
 
 [HIDELINESEXAMPLE]
-    Nu wordt in de tabel uit het vorige voorbeeld een veld hernoemd, krijgt een string veld een maximale lengte,
-    wordt uit een {{enum}} veld een optie verwijderd en wordt een optioneel veld verplicht gemaakt.
+    Nu wordt in de tabel uit het vorige voorbeeld een veld hernoemd, wordt uit een {{enum}} veld een optie verwijderd
+    en wordt een optioneel veld verplicht gemaakt.
 
-    Deze veranderingen zijn niet backwards compatible dus het major versie nummer wordt opgehoogd en de nieuwe versie wordt "2.0.0".
+    Deze veranderingen zijn niet backwards compatible dus het major versie nummer wordt opgehoogd en de
+    nieuwe versie wordt "2.0.0".
 
-    De nieuwe tabel wordt in een nieuw bestand `personen/v2.0.0.json` geplaatst.
+    De nieuwe tabel wordt in een nieuw bestand `personen/v2.json` geplaatst.
     <div class="compare-code">
         [COMPAREA]
-            `personen/v1.3.0.json`
+            `personen/v1.json`
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v1.3.0.json
                 highlight: json
@@ -529,7 +578,7 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
             </pre>
         [END]
         [COMPAREB]
-            `personen/v2.0.0.json`
+            `personen/v2.json`
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v2.0.0.json
                 highlight: json
@@ -544,46 +593,47 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
 
     Deze veranderingen passen de data structuur niet aan dus het patch nummer wordt opgehoogd en de nieuwe versie wordt "2.0.1".
 
-    De nieuwe tabel wordt in een nieuw bestand `personen/v2.0.1.json` geplaatst het oude bestand mag e.v.t. verwijderd worden.
-    <div class="compare-code">
-        [COMPAREA]
-            `personen/v2.0.0.json`
-            <pre class="include-code">
-                path: examples/datasets/bekendeAmsterdammers/personen/v2.0.0.json
-                highlight: json
-                line-highlight: 5-6,15,31,44
-            </pre>
-        [END]
-        [COMPAREB]
-            `personen/v2.0.1.json`
-            <pre class="include-code">
-                path: examples/datasets/bekendeAmsterdammers/personen/v2.0.1.json
-                highlight: json
-                line-highlight: 5-6,15,31,44
-            </pre>
-        [END]
+    Er hoeft in dit geval dus geen nieuw bestand gemaakt te worden.
+
+    <div style="text-align:center;">
+        `personen/v2.json`
+        <div class="compare-code">
+
+            [COMPAREA]
+                <pre class="include-code">
+                    path: examples/datasets/bekendeAmsterdammers/personen/v2.0.0.json
+                    highlight: json
+                    line-highlight: 5-6,15,31,44
+                </pre>
+            [END]
+            [COMPAREB]
+                <pre class="include-code">
+                    path: examples/datasets/bekendeAmsterdammers/personen/v2.0.1.json
+                    highlight: json
+                    line-highlight: 5-6,15,31,44
+                </pre>
+            [END]
+        </div>
     </div>
 [END]
 
 [HIDELINESEXAMPLE]
-    Om de nieuwe versie van de tabel aan de [=dataset=] toe te voegen, moet de [=tabel referentie=] in de dataset ook aangepast worden.
-    De default versie van de tabel is nu "2.0.1".
+    Om de nieuwe versie van de tabel aan de [=dataset=] toe te voegen, moet er een nieuwe versie aan het dataset bestand
+    toegevoegd worden, waarin de [=tabelreferentie=] in de dataset ook aangepast worden.
+    De defaultVersion van de dataset is nu "v2" en de status van de juiste versie wordt aangepast naar beschikbaar.
 
-    In dit geval staat de versie "1.3.0" ook in {{activeVersions}} zodat de oudere versie van de data ook beschikbaar blijft.
-    Dit is optioneel.
+    In dit geval staat de versie "1.3.0" ook in "v1" zodat de oudere versie van de data ook beschikbaar blijft.
 
     <div style="text-align:center;">
         `personen/dataset.json`
         <pre class="include-code">
             path: examples/datasets/bekendeAmsterdammers/dataset.json
             highlight: json
-            line-highlight: 1,13-20,26
+            line-highlight: 1,12-19,26-33
         </pre>
     </div>
 [END]
-
-Note: Deze semantic versioning standaard is geinspireerd door [[SCHEMVER inline]] wat weer is gebaseerd op [[SEMVER inline]].
-
+e
 
 <!--
 ██     ██ ████████ ██       ████████
@@ -1030,7 +1080,7 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
     <div class=example>
         Voorbeeld van een geometrie veld.
         <pre class="include-code">
-            path: examples/datasets/bekendeAmsterdammers/pleinen/v1.0.0.json
+            path: examples/datasets/bekendeAmsterdammers/pleinen/v1.json
             highlight: json
             show: 28-32
         </pre>
@@ -1053,7 +1103,7 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
         Voorbeeld van een tabel met meerdere geometrie velden. Het veld `"locatie"` is hier als primaire geometrie
         aangegeven in "{{mainGeometry}}".
         <pre class="include-code">
-            path: examples/datasets/bekendeAmsterdammers/pleinen/v1.0.0.json
+            path: examples/datasets/bekendeAmsterdammers/pleinen/v1.json
             highlight: json
             line-highlight: 0-7,28-37
         </pre>
@@ -1504,13 +1554,13 @@ Autorisatie {#autorisatie}
 Confirm the [[Woo|Wet Open Overheid]] (Woo) zijn gegevens standaard openbaar.
 Er zijn twee mechanismen om de toegang te beperken en authorisatie in te regelen:
 
-1. De `"auth"`-attributen in het Amsterdam-schema beperken de toegang. zie [[#auth]].
+1. De `"auth"`-attributen in het Amsterdam-schema beperken de toegang. zie [[#auth-attributes]].
 2. De profielen geven granulair toegang op basis van een gebruikersprofiel. zie [[#profielen]].
 
 Beide mechanismen gebruiken doorvoor scopes om te koppelen met gebruikersgroepen in de bestaande architectuur.
 Deze scopes worden bijvoorbeeld verkregen vanuit een bestaande OAuth-flow die een JSON Web Token (JWT) aanbiedt.
 
-Auth-attributen {#auth}
+Auth-attributen {#auth-attributes}
 ---------------
 
 Op zowel [=dataset=], [=tabel=] als [=veld=] niveau kan een `"auth"`-attribuut worden meegegeven om toegang tot een entitieit te beperken.
@@ -1523,7 +1573,7 @@ Op zowel [=dataset=], [=tabel=] als [=veld=] niveau kan een `"auth"`-attribuut w
 
 Het `"auth"`-attribuut bevat één of meer scopes, die leesrechten hebben op de entiteit waarop `"auth"` is gedefinieerd.
 
-### Meerdere scopes
+### Meerdere scopes {#auth-multiple-scopes}
 
 Als het `"auth"`-attribuut een array bevat is elke scope in de array afzonderlijk geautoriseerd.
 Dus een gebruiker heeft slechts één van de [=scopes=] in een array nodig voor toegang.
@@ -1576,7 +1626,7 @@ Het is ook mogelijk om een array van scopes mee te geven:
     </pre>
 </div>
 
-### Meerdere niveau's
+### Meerdere niveau's {#auth-multiple-levels}
 
 Op dataset niveau is het {{dataset/auth}} attribuut verplicht.
 Bij een openbare [=dataset=] krijgt het {{dataset/auth}} attribuut de waarde `"OPENBAAR"`.
@@ -1756,7 +1806,7 @@ Ieder *veld* in een profiel kan over de volgende waarden bevatten:
        `"letters:##"` geeft toegang tot de eerste aantal karakters van het veld.
 </table>
 
-### Verplichte zoekvragen
+### Verplichte zoekvragen {#mandatory-filter-sets}
 
 De <dfn export>mandatoryFilterSets</dfn> verplicht het gebruik van een zoekvraag om de tabel te raadplegen.
 De waarde bevat een lijst van mogelijke toegestane vragen.
@@ -1775,7 +1825,7 @@ Operatoren zijn alleen toegestaan als deze letterlijk opgegeven worden, bijvoorb
     </pre>
 </div>
 
-### Toegangsregels
+### Toegangsregels {#access-rules}
 
 Een gebruiker heeft toegang tot een [=dataset=] indien deze:
 
@@ -1835,7 +1885,7 @@ Het `description` veld is bedoeld voor bijvoorbeeld contextmenu's (mouseover) bi
 <div class=example>
     `title` en `description` van een [=Tabel=].
     <pre class=include-code>
-        path: examples/datasets/bekendeAmsterdammers/locaties/v1.0.0.json
+        path: examples/datasets/bekendeAmsterdammers/locaties/v1.json
         highlight: json
         show: 4-5
     </pre>
@@ -1844,7 +1894,7 @@ Het `description` veld is bedoeld voor bijvoorbeeld contextmenu's (mouseover) bi
 <div class=example>
     `title` en `description` in een [=Veld=].
     <pre class=include-code>
-        path: examples/datasets/bekendeAmsterdammers/locaties/v1.0.0.json
+        path: examples/datasets/bekendeAmsterdammers/locaties/v1.json
         highlight: json
         show: 44-45
     </pre>
@@ -1952,10 +2002,13 @@ Attribuuttypen {#attr-types}
                 * "5.2 4: Zwaarwegend belang: persoonlijke beleidsopvattingen (bevat milieu-informatie)"
                 * "nader te bepalen"
         </details>
-        De laatste optie ("nader te bepalen") is niet toegestaan wanneer {{dataset/status}}=`"beschikbaar"`.
+        De laatste optie ("nader te bepalen") is niet toegestaan wanneer {{versie/status}}=`"beschikbaar"`.
+    <tr><td><dfn typedef export lt=majorversion|major-version-string>major-version</dfn>
+        <td> (string)
+        <td> Version string van de vorm "v&bs<;MAJOR&bs>;"
     <tr><td><dfn typedef export lt=version|version-string>version</dfn>
         <td> (string)
-        <td> Version string van de vorm "<MAJOR>.<MINOR>.<PATCH>" of "<MAJOR>.<MINOR>" (patch nummer is optioneel)
+        <td> Version string van de vorm "&bs<;MAJOR&bs>;.&bs<;MINOR&bs>;.&bs<;PATCH&bs>;" of "&bs<;MAJOR&bs>;.&bs<;MINOR&bs>;" (patch nummer is optioneel)
     <tr><td><dfn typedef export lt=contact|contactPoint>contact</dfn>
         <td> (object)
         <td> Contactgegevens. Een object met de volgende optionele velden:
@@ -1984,7 +2037,16 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 <!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
 <!-- Update the version number in the metadata at the top and refer to it here. -->
 
-[2.4.0] Scopes documentatie toegevoegd (2025-02-04) {#lastchange}
+[3.0.0] Dataset versionering toegevoegd (2025-03-03) {#lastchange}
+---------------------------------------------------
+> **Doelstelling**<br/>
+    Toevoegen van versionering van datasets aan V3 van het Amsterdam Schema.
+
+* [[#dataset-versioning]] van datasets gedocumenteerd.
+* [[#dataset-version]] toegevoegd.
+* [[#table-versioning]] van tabellen aangepast naar de nieuwe situatie
+
+[2.4.0] Scopes documentatie toegevoegd (2025-02-04) {#20250204}
 ---------------------------------------------------
 > **Doelstelling**<br/>
     Aparte scopes objecten die de authorisatie van datasets, tabellen en velden bepalen.
