@@ -10,25 +10,25 @@
 		"$schema": "http://json-schema.org/draft-07/schema#",
 		"type": "object",
 		"additionalProperties": false,
-		"identifier": "identificatie",
+		"identifier": "aNummerVanPersoon",
 		"required": [
 			"schema",
-			"identificatie"
+			"aNummerVanPersoon"
 		],
-		"display": "identificatie",
+		"display": "aNummerVanPersoon",
 		"properties": {
 			"schema": {
 				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
 			},
-			"identificatie": {
-				"type": "string",
-				"title": "Object ID",
-				"description": "De unieke aanduiding van een reisdocument. Nummer in combinatie met de afkorting 'R' "
-			},
-			"aNummer": {
+			"aNummerVanPersoon": {
 				"type": "string",
 				"title": "Persoon anummer",
-				"description": "Anummer van de persoon"
+				"description": "A-nummer van persoon"
+			},
+			"bsnVanPersoon": {
+				"type": "string",
+				"title": "Persoon bsnnummer",
+				"description": "bsnnummer van persoon"
 			},
 			"soortNedReisdocument": {
 				"type": "object",

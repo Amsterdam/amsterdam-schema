@@ -11,26 +11,26 @@
 		"type": "object",
 		"additionalProperties": false,
 		"identifier": [
-			"identificatie"
+			"aNummerVanPersoon"
 		],
 		"required": [
 			"schema",
-			"identificatie"
+			"aNummerVanPersoon"
 		],
-		"display": "identificatie",
+		"display": "aNummerVanPersoon",
 		"properties": {
 			"schema": {
 				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
 			},
-			"identificatie": {
-				"type": "string",
-				"title": "Object ID",
-				"description": "De unieke aanduiding van een verwijzing. Nummer in combinatie met de afkorting 'VW'"
-			},
-			"aNummer": {
+			"aNummerVanPersoon": {
 				"type": "string",
 				"title": "Persoon anummer",
-				"description": "Het administratienummer, bedoeld in artikel 50 van de Wet GBA"
+				"description": "A-nummer van persoon"
+			},
+			"bsnVanPersoon": {
+				"type": "string",
+				"title": "Persoon bsnnummer",
+				"description": "bsnnummer van persoon"
 			},
 			"ingangsdatumGeldigheid": {
 				"type": "object",
