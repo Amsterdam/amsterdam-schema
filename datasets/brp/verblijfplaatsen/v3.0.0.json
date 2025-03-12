@@ -353,16 +353,33 @@
 				"title": "Object opname datum",
 				"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
 			},
-			"heeftBrpOnderzoek": {
+			"onderzoek": {
 				"type": "object",
 				"properties": {
-					"identificatie": {
-						"type": "string"
+					"aanduidingGegevensInOnderzoek": {
+						"type": "string",
+						"title": "In onderzoek aanduiding",
+						"description": "Afgeleid gegeven: aanduiding dat in een categorie één of meer gegevens met betrekking tot de onjuistheid of de strijdigheid met de openbare orde zijn of worden onderzocht"
+					},
+					"datumIngangOnderzoek": {
+						"type": "string",
+						"format": "date",
+						"title": "In onderzoek datum",
+						"description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is gestart"
+					},
+					"datumEindeOnderzoek": {
+						"type": "string",
+						"format": "date",
+						"title": "In onderzoek einddatum",
+						"description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is beeindigd"
+					},
+					"indicatieOnjuist": {
+						"type": "boolean",
+						"title": "Onjuist indicatie",
+						"description": "Gegevens over het onjuist of strijdig zijn met de openbare orde van de gegevens in de categorie"
 					}
 				},
-				"relation": "brp:onderzoeken",
-				"title": "Onderzoek identificatie",
-				"description": "Onderzoeken van de categorie 09 Verblijfplaats"
+				"description": "Onderzoeken van de categorie verblijfplaats (08)"
 			}
 		}
 	}

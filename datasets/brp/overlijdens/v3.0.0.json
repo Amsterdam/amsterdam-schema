@@ -134,27 +134,86 @@
 				"title": "Object opname datum",
 				"description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
 			},
-			"heeftBrpDocument": {
+			"document": {
 				"type": "object",
 				"properties": {
-					"identificatie": {
-						"type": "string"
-					}
+					"aktenummer": {
+						"type": "string",
+						"title": "Akte nummer",
+						"description": "Aanduiding van de akte die is opgenomen in de registers van de burgerlijke stand in Nederland"
+					},
+					"gemeente": {
+					"type": "object",
+					"properties": {
+						"code": {
+							"type": "string"
+						},
+						"omschrijving": {
+							"type": "string"
+						}
+					},
+					"title": "Gemeente",
+					"description": "Een gemeente is een afgebakend gedeelte van het grondgebied van Nederland"
 				},
-				"relation": "brp:documenten",
-				"title": "Document of akte identificatie",
-				"description": "Gemeentedocument of akte van de categorie 06 overlijden"
+					"datumDocument": {
+						"type": "object",
+						"properties": {
+							"datum": {
+								"type": "string",
+								"format": "date",
+								"description": "De datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden"
+							},
+							"jaar": {
+								"type": "integer",
+								"description": "Jaar van de datum, als deze bekend is"
+							},
+							"maand": {
+								"type": "integer",
+								"description": "Maand van de datum, als deze bekend is"
+							},
+							"dag": {
+								"type": "integer",
+								"description": "Dag van de datum, als deze bekend is"
+							}
+						},
+						"title": "Document datum",
+						"description": "De datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden"
+					},
+					"beschrijvingDocument": {
+						"type": "string",
+						"title": "Document beschrijving",
+						"description": "Beschrijving van het document waaraan de gegevens zijn ontleend of waaruit de gegevens zijn afgeleid"
+					},
+				"description": "Gemeentedocument of akte van de categorie nationaliteit (06)"
+				}
 			},
-			"heeftBrpOnderzoek": {
+			"onderzoek": {
 				"type": "object",
 				"properties": {
-					"identificatie": {
-						"type": "string"
+					"aanduidingGegevensInOnderzoek": {
+						"type": "string",
+						"title": "In onderzoek aanduiding",
+						"description": "Afgeleid gegeven: aanduiding dat in een categorie één of meer gegevens met betrekking tot de onjuistheid of de strijdigheid met de openbare orde zijn of worden onderzocht"
+					},
+					"datumIngangOnderzoek": {
+						"type": "string",
+						"format": "date",
+						"title": "In onderzoek datum",
+						"description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is gestart"
+					},
+					"datumEindeOnderzoek": {
+						"type": "string",
+						"format": "date",
+						"title": "In onderzoek einddatum",
+						"description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is beeindigd"
+					},
+					"indicatieOnjuist": {
+						"type": "boolean",
+						"title": "Onjuist indicatie",
+						"description": "Gegevens over het onjuist of strijdig zijn met de openbare orde van de gegevens in de categorie"
 					}
 				},
-				"relation": "brp:onderzoeken",
-				"title": "Onderzoek identificatie",
-				"description": "Onderzoeken van de categorie 06 overlijden"
+				"description": "Onderzoeken van de categorie nationaliteit (06)"
 			}
 		}
 	}
