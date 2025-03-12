@@ -11,21 +11,26 @@
 		"type": "object",
 		"additionalProperties": false,
 		"identifier": [
-			"identificatie"
+			"aNummer"
 		],
 		"required": [
 			"schema",
-			"identificatie"
+			"aNummer"
 		],
-		"display": "identificatie",
+		"display": "aNummer",
 		"properties": {
 			"schema": {
 				"$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
 			},
-			"identificatie": {
+			"aNummerVanPersoon": {
 				"type": "string",
-				"title": "Object ID",
-				"description": "De unieke aanduiding van een kind. Nummer in combinatie met de afkorting 'K' "
+				"title": "Persoon anummer",
+				"description": "A-nummer van persoon"
+			},
+			"bsnVanPersoon": {
+				"type": "string",
+				"title": "Persoon bsnnummer",
+				"description": "bsnnummer van persoon"
 			},
 			"aNummer": {
 				"type": "string",
@@ -36,12 +41,6 @@
 				"type": "string",
 				"title": "kind burgerservicenummer",
 				"description": "Burgerservicenummer (BSN) voorheen SoFi-nummer"
-			},
-			"vanBrpPersoon": {
-				"type": "string",
-				"relation": "brp:personen",
-				"title": "Persoon anummer",
-				"description": "A-nummer van ouder"
 			},
 			"voorletters": {
 				"type": "string",
