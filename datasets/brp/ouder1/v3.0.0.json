@@ -226,49 +226,38 @@
 						"title": "Akte nummer",
 						"description": "Aanduiding van de akte die is opgenomen in de registers van de burgerlijke stand in Nederland"
 					},
-					"gemeente": {
-						"type": "object",
-						"properties": {
-							"code": {
-								"type": "string"
-							},
-							"omschrijving": {
-								"type": "string"
-							}
-						},
-						"title": "Gemeente",
-						"description": "Een gemeente is een afgebakend gedeelte van het grondgebied van Nederland"
+					"gemeenteCode": {
+						"type": "string",
+						"title": "Code gemeente",
+						"description": "Gemeente code is een afgebakend gedeelte van het grondgebied van Nederland"
 					},
-					"datumDocument": {
-						"type": "object",
-						"properties": {
-							"datum": {
-								"type": "string",
-								"format": "date",
-								"description": "De datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden"
-							},
-							"jaar": {
-								"type": "integer",
-								"description": "Jaar van de datum, als deze bekend is"
-							},
-							"maand": {
-								"type": "integer",
-								"description": "Maand van de datum, als deze bekend is"
-							},
-							"dag": {
-								"type": "integer",
-								"description": "Dag van de datum, als deze bekend is"
-							}
-						},
-						"title": "Document datum",
+					"gemeenteOmschrijving": {
+						"type": "string",
+						"title": "Omschrijving gemeente",
+						"description": "Gemeente omschrijving is een afgebakend gedeelte van het grondgebied van Nederland"
+					},
+					"datumDocumentDatum": {
+						"type": "string",
 						"description": "De datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden"
+					},
+					"datumDocumentJaar": {
+						"type": "integer",
+						"description": "Jaar van de datum, als deze bekend is"
+					},
+					"datumDocumentMaand": {
+						"type": "integer",
+						"description": "Maand van de datum, als deze bekend is"
+					},
+					"datumDocumentDag": {
+						"type": "integer",
+						"description": "Dag van de datum, als deze bekend is"
 					},
 					"beschrijvingDocument": {
 						"type": "string",
 						"title": "Document beschrijving",
 						"description": "Beschrijving van het document waaraan de gegevens zijn ontleend of waaruit de gegevens zijn afgeleid"
 					},
-				"description": "Gemeentedocument of akte van de categorie ouder1 (02)"
+					"description": "Gemeentedocument of akte van de categorie ouder1 (02)"
 				}
 			},
 			"onderzoek": {
