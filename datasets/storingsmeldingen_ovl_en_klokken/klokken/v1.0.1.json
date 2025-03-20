@@ -1,0 +1,72 @@
+{
+  "id": "klokken",
+  "type": "table",
+  "version": "1.0.1",
+  "title": "Klokken",
+  "description": "Gegevens over de storingsmeldingen van de klokken van de Gemeente van Amsterdam. Deze klokken zijn te herkennen aan de 3 rode kruizen op de klok.",
+  "status": "beschikbaar",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "objectId",
+    "mainGeometry": "geometry",
+    "required": [
+      "schema",
+      "objectId"
+    ],
+    "display": "objectId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+    },
+    "objectId": {
+      "type": "integer",
+      "description": "Een unieke aanduiding van een klok door de bron.",
+      "provenance": "objectid"
+    },
+    "objecttype": {
+      "type": "string",
+      "description": "Type aanduiding van een klok."
+    },
+    "objecttypeOmschrijving": {
+      "type": "string",
+      "description": "Omschrijving van type aanduiding van een klok."
+    },
+    "objectnummer": {
+      "type": "string",
+      "description": "Een unieke aanduiding van een klok door de bron."
+    },
+    "breedtegraad": {
+      "type": "number",
+      "description": "Breedtegraad van een klok.",
+      "provenance": "lat"
+    },
+    "lengtegraad": {
+      "type": "number",
+      "description": "Lengtegraad van een klok.",
+      "provenance": "lon"
+    },
+    "storingstatus": {
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "Indicatie of een storing bekend is van een klok. Waarde 1 is storing, waarde 0 geen storing."
+    },
+    "meldingstatus": {
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "Indicatie of een melding is gemaakt op een klok. Waarde 1 is melding, waarde 0 geen melding."
+    },
+    "geometry": {
+      "$ref": "https://geojson.org/schema/Geometry.json",
+      "description": "Punt definitie van een klok."
+    }
+    }
+  }
+}
