@@ -92,9 +92,12 @@ For more information, see (some of these pages are in Dutch):
 - [Amsterdam Schema Playground 🎠](https://observablehq.com/@bertspaan/amsterdam-schema-playground)
 
 # Publishing
+Publishing the schemas to the Azure Blob Storage is handled by the publish-schemas pipeline. This calls the `publish` cli command under the hood.
 
-In order to publish the Amsterdam Schema to the object store
-install the Python package included in this repository:
+In order to publish the Amsterdam Schema from your local environment to the dev
+storage, you will need to do an install and set some environment variables.
+
+Install the Python package included in this repository:
 
 ```console
 % python3.8 -m venv venv
@@ -104,64 +107,29 @@ install the Python package included in this repository:
 
 The extra options `tests` and `dev` are not strictly necessary for publishing,
 but are handy to have installed while working on the schema definitions.
-Once installed publishing could be as simple as running:
+
+You will also need to set some environment variables.
+
+```console
+export SCHEMAS_SA_NAME=[dev|test]schemassa
+export SCHEMAS_SA_KEY=$(az storage account keys list \
+    --account-name $SCHEMAS_SA_NAME | jq -r \
+    '.[] | select(.keyName == "key1") | .value');
+```
+
+Once everything has been set up, you can publish with:
 
 ```console
 % publish
 ```
 
-but it likely isn't.
+This uploads everything to the environment of your choosing and also creates
+the index files needed for other processes.
 
-See, the `publish` tool expects a number of environment variables to be set.
-These are:
+Note that these environments are ephemeral, meaning that once a branch is merged
+into master, the pipelines start again and everything will be replaced.
 
-```console
-DATAPUNT_ENVIRONMENT=[acceptance|production|...]  # default is 'acceptance'
-OS_USERNAME=dataservices
-OS_TENANT_NAME=...
-OS_PASSWORD=...
-OS_AUTH_URL=https://identity.stack.cloudvps.com/v2.0
-```
-
-Where the `OS` prefix stands for Object Store,
-and the `...` for values that you should provide.
-
-For development purposes, it can be convenient to publish schemas
-to an isolated development location on the objectstore.
-The `schema:$ref` attributes will be set correctly during the publishing process.
-This is essential for the validator in `schema-tools`
-to follow the references to the metaschema during validation.
-
-This development location is a `container` on the `dataservices` objectstore.
-
-To create a new container, the `swift` commandline client can be used
-(has been installed as part of `python-swiftclient`) that is a dependency.
-
-Create new container with:
-
-```console
-% swift post <schemas-yourname>  # example name, remove <>
-```
-
-Now make this location read-accessible over HTTP with:
-
-```console
-swift post --read-acl ".r:*,.rlistings" <schemas-yourname>
-```
-
-Change the `SCHEMA_BASE_URL` environment variable to the http address
-of the container you just created.
-
-```console
-SCHEMA_BASE_URL=https://<OS_TENANT_NAME>.objectstore.eu/<schemas-yourname>
-```
-
-The name of the objectstore container is constructed from 2 environment variables:
-`$CONTAINER_PREFIX-$DATAPUNT_ENVIRONMENT`
-
-The default value for `CONTAINER_PREFIX` is `schemas-`.
-
-## Developing a new metaschema
+# Developing a new metaschema
 
 In order to develop a new metaschema version locally and run structural and semantic validation against it:
 
@@ -192,14 +160,3 @@ In order to develop a new metaschema version locally and run structural and sema
 
 And of course; after the metaschema is finished, the references in the new metaschema and the dataset used for development
 need to be be reset to the online URL.
-
-## Scopes
-Two useful commands:
-
-- To generate the index.json file, containing a map of all the available scope objects:
-```generate-scope-index > scopes/index.json```
-
-- To generate the packages.json file, containing a list of all the unique access packages:
-```generate-access-package-list > scopes/packages.json```
-
-These commands have been added to a script run by pre-commit, to ensure these stay up to date.
