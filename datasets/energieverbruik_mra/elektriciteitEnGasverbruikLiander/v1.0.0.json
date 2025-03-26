@@ -1,0 +1,88 @@
+{
+  "id": "elektriciteitEnGasverbruikLiander",
+  "type": "table",
+  "version": "1.0.0",
+  "title": "Elektriciteit- en gasverbruik Liander",
+  "description": "Verbruiksdata gas en elektricteit van de metropoolregio Amsterdam geleverd door Liander.",
+  "status": "beschikbaar",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "id",
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+    },
+    "id": {
+      "type": "integer",
+      "description": "Unieke aanduiding record."
+    },
+    "jaar": {
+      "type": "integer",
+      "description": "Het jaar waarop het verbruik betrekking heeft."
+    },
+    "jaarKwartaal": {
+      "type": "string",
+      "description": "Het jaar en kwartaal waarop het verbruik betrekking heeft."
+    },
+    "jaarMaand": {
+      "type": "string",
+      "description": "Het jaar en de maand waarop het verbruik betrekking heeft."
+    },
+    "product": {
+      "type": "string",
+      "description": "Het producttype: ELK = elektriciteit, GAS = gas."
+    },
+    "klantsegment": {
+      "type": "string",
+      "description": "Typering van de grootte van de aansluiting: KVB = kleinverbruik, GVB = grootverbruik."
+    },
+    "provincie": {
+      "type": "string",
+      "description": "De provincie waar binnen de aansluitingen zich bevinden."
+    },
+    "gemeente": {
+      "type": "string",
+      "description": "De gemeente waar binnen de aansluitingen zich bevinden."
+    },
+    "plaats": {
+      "type": "string",
+      "description": "De plaats waar binnen de aansluitingen zich bevinden."
+    },
+    "wijkCode": {
+      "type": "string",
+      "description": "Code van de wijk waar binnen de aansluitingen zich bevinden."
+    },
+    "wijkNaam": {
+      "type": "string",
+      "description": "Naam van de wijk waar binnen de aansluitingen zich bevinden."
+    },
+    "buurtCode": {
+      "type": "string",
+      "description": "Code van de buurt waar binnen de aansluitingen zich bevinden.."
+    },
+    "buurtNaam": {
+      "type": "string",
+      "description": "Naam van de buurt waar binnen de aansluitingen zich bevinden."
+    },
+    "levering": {
+      "type": "integer",
+      "description": "Schatting op basis van historische gegevens van het jaarverbruik in kWh (elektriciteit) of nm3 (gas)."
+    },
+    "teruglevering": {
+      "type": "integer",
+      "description": "Schatting op basis van historische gegevens van de jaarlijkse teruglevering in kWh (elektriciteit) of nm3 (gas)."
+    },
+    "aantalAansluitingen": {
+      "type": "integer",
+      "description": "Het aantal afleverpunten."
+    }
+    }
+  }
+}
