@@ -25,7 +25,6 @@ import click
 import in_place
 from azure.storage.blob import BlobServiceClient, ContentSettings
 from more_itertools import chunked
-from swiftclient.service import SwiftService, SwiftUploadObject
 
 logger = logging.getLogger("__name__")
 
@@ -203,73 +202,6 @@ def azure_blob_uploader(
             blob.upload_blob(bf, content_settings=sql_content_settings, overwrite=True)
 
 
-def swift_uploader(
-    files_root: Path,
-    schema_pub_paths: List[List[str]],
-    doc_pub_paths: List[List[str]],
-    sql_pub_paths: List[List[str]],
-    container: str,
-    index_file_obj: BytesIO,
-    publisher_index_file_obj: StringIO,
-) -> None:
-    """Upload files to the Swift objectstore."""
-    # tmp options to workaround objectstore unavailability (2022-08-17)
-    opts = {
-        "segment_threads": 1,
-        "object_dd_threads": 1,
-        "object_uu_threads": 1,
-        "container_threads": 1,
-    }
-    with SwiftService(opts) as swift:
-        # Delete old objects in datasets
-        deletes = swift.delete(container, options={"prefix": "datasets"})
-        for r in deletes:
-            if not r["success"]:
-                logger.warn(
-                    f"Warning: Remote object {container}/{r['object']} could not be removed."
-                )
-
-        # Add new objects
-        upload_objects = [SwiftUploadObject(index_file_obj, object_name="datasets/index.json")]
-        for schema_path_parts in schema_pub_paths:
-            object_name = create_object_name(schema_path_parts)
-            upload_objects.append(
-                SwiftUploadObject(  # type: ignore
-                    str(files_root / "/".join(schema_path_parts)),
-                    object_name=object_name,
-                    options={"header": ["content-type:application/json"]},
-                )
-            )
-        for doc_path_parts in doc_pub_paths:
-            object_name = "/".join(doc_path_parts[1:])
-            upload_objects.append(
-                SwiftUploadObject(  # type: ignore
-                    str(files_root / "/".join(doc_path_parts)),
-                    object_name=object_name,
-                    options={"header": ["content-type:text/html"]},
-                )
-            )
-
-        for sql_path_parts in sql_pub_paths:
-            object_name = "/".join(sql_path_parts[1:])
-            upload_objects.append(
-                SwiftUploadObject(  # type: ignore
-                    str(files_root / "/".join(sql_path_parts)),
-                    object_name=object_name,
-                    options={"header": ["content-type:text/plain"]},
-                )
-            )
-
-        uploads = swift.upload(container, upload_objects)
-        errors = False
-        for r in uploads:
-            if not r["success"]:
-                errors = True
-                logger.error(r["error"])
-        if errors:
-            raise Exception("Failed to publish schemas")
-
-
 @click.command()  # type: ignore[misc]
 @click.option(
     "--dp-env",
@@ -293,9 +225,9 @@ def swift_uploader(
 )  # type: ignore[misc]
 @click.option(
     "--storage-type",
-    default="swift",
+    default="azure",
     help="""Type of storage that is used for the schema files.
-        Possible values are: `swift`,`azure`.""",
+        Must be: `azure`.""",  # TODO: remove flag once pipeline is updated
 )  # type: ignore[misc]
 def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type: str) -> None:
     """Publish a set of amsterdam schema files to a storage container."""
@@ -332,21 +264,8 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type:
                 index_file_obj,
                 publisher_index_file_obj,
             )
-        elif storage_type == "swift":
-            logger.info("Using swift uploader")
-            swift_uploader(
-                files_root,
-                schema_pub_paths,
-                doc_pub_paths,
-                sql_pub_paths,
-                container,
-                index_file_obj,
-                publisher_index_file_obj,
-            )
         else:
-            raise ValueError(
-                f"Unknown storage_type {storage_type}, possible values `swift` or `azure`"
-            )
+            raise ValueError(f"Unknown storage_type {storage_type}, must be `azure`")
 
 
 @click.command()  # type: ignore[misc]
