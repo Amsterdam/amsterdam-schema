@@ -29,6 +29,7 @@ from more_itertools import chunked
 logger = logging.getLogger("__name__")
 
 DEFAULT_BASE_URL = "https://schemas.data.amsterdam.nl"
+DEFAULT_STORAGE_CONTAINER = "schemas"
 PUBLISHERS_DIR = "publishers"
 SCHEMAS_SA_NAME = os.getenv("SCHEMAS_SA_NAME", "devschemassa")
 SCOPES_DIR = "scopes"
@@ -150,11 +151,11 @@ def replace_schema_base_url(temp_dir: Path, schema_base_url: str) -> None:
 
 
 def azure_blob_uploader(
+    container: str,
     files_root: Path,
     schema_pub_paths: List[List[str]],
     doc_pub_paths: List[List[str]],
     sql_pub_paths: List[List[str]],
-    container: str,
     index_files: Dict[str, BytesIO],
 ) -> None:
     """Upload files to the Azure blob storage."""
@@ -171,7 +172,7 @@ def azure_blob_uploader(
     )
 
     # First delete all blobs in the container
-    container_client = blob_srv.get_container_client("schemas")
+    container_client = blob_srv.get_container_client(container)
 
     # There is a hard limitation of 256 items on the `delete_blobs` azure method,
     # So we need to chunk the list of blobs.
@@ -206,35 +207,19 @@ def azure_blob_uploader(
             blob.upload_blob(bf, content_settings=sql_content_settings, overwrite=True)
 
 
-# TODO: Some flags can be removed when we clean up the publish command in the pipeline
 @click.command()  # type: ignore[misc]
-@click.option(  # TODO: remove
-    "--dp-env",
-    envvar="DATAPUNT_ENVIRONMENT",
-    default="",
-    help="Override the environment to be used, values can be 'acceptance' or 'production'.",
-)  # type: ignore[misc]
-@click.option(  # TODO: remove
-    "--container-prefix",
-    envvar="CONTAINER_PREFIX",
-    default="schemas",
-    help="""Prefix for the name of the storage container, default is 'schemas'
-        This name will be prefixed to the value of DATAPUNT_ENVIRONMENT,
-        to create the full name of the storage container.
-    """,
+@click.option(
+    "--container",
+    envvar="STORAGE_CONTAINER",
+    default=DEFAULT_STORAGE_CONTAINER,
+    help="""The name of the storage container, default is "schemas".""",
 )  # type: ignore[misc]
 @click.option(
     "--schema-base-url",
     envvar="SCHEMA_BASE_URL",
     help="Override the base url in schema files (for testing).",
 )  # type: ignore[misc]
-@click.option(  # TODO: remove
-    "--storage-type",
-    default="azure",
-    help="""Type of storage that is used for the schema files.
-        Must be: `azure`.""",
-)  # type: ignore[misc]
-def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type: str) -> None:
+def main(container: str, schema_base_url: str) -> None:
     """Publish a set of amsterdam schema files to a storage container."""
     ROOT_PKG_NAME = "amsterdam_schema"
     with TemporaryDirectory() as temp_dir:
@@ -263,20 +248,15 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type:
             root_pkg_name=ROOT_PKG_NAME, temp_dir_path=files_root, glob="**/*.sql"
         )
 
-        container = f"{container_prefix}{dp_env}"
-
-        if storage_type == "azure":
-            logger.info("Using azure blob uploader")
-            azure_blob_uploader(
-                files_root,
-                schema_pub_paths,
-                doc_pub_paths,
-                sql_pub_paths,
-                container,
-                index_files,
-            )
-        else:
-            raise ValueError(f"Unknown storage_type {storage_type}, must be `azure`")
+        logger.info("Using azure blob uploader")
+        azure_blob_uploader(
+            container,
+            files_root,
+            schema_pub_paths,
+            doc_pub_paths,
+            sql_pub_paths,
+            index_files,
+        )
 
 
 @click.command()  # type: ignore[misc]
