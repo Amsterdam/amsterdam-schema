@@ -28,11 +28,13 @@ from more_itertools import chunked
 
 logger = logging.getLogger("__name__")
 
-PUBLISHERS_DIR = "publishers"
-SCOPES_DIR = "scopes"
-PUBLISHABLE_PREFIXES = ("datasets", "schema@", PUBLISHERS_DIR, SCOPES_DIR)
 DEFAULT_BASE_URL = "https://schemas.data.amsterdam.nl"
+PUBLISHERS_DIR = "publishers"
 SCHEMAS_SA_NAME = os.getenv("SCHEMAS_SA_NAME", "devschemassa")
+SCOPES_DIR = "scopes"
+SCOPES_IGNORED_FILES = ["index", "packages", "scopes"]
+SCOPES_UNAVAILABLE_DATASETS = ["brp_r"]
+PUBLISHABLE_PREFIXES = ("datasets", "schema@", PUBLISHERS_DIR, SCOPES_DIR)
 
 
 def fetch_local_as_publishable(
@@ -307,25 +309,8 @@ def fetch_publisher_files() -> list[str]:
     )
 
 
-def _write_json(fetcher: Callable) -> int:
-    return sys.stdout.write(json.dumps(fetcher(), indent=2) + "\n")
-
-
 def _bytes_io_json(fetcher: Callable) -> BytesIO:
     return BytesIO(json.dumps(fetcher()).encode())
-
-
-@click.command()  # type: ignore[misc]
-def generate_publisher_index() -> None:
-    """Generate a publisher index.json.
-
-    With a list of available publisher files in the publishers directory.
-    """
-    _write_json(fetch_publisher_files)
-
-
-SCOPES_IGNORED_FILES = ["index", "packages", "scopes"]
-SCOPES_UNAVAILABLE_DATASETS = ["brp_r"]
 
 
 def fetch_scope_index() -> Dict[str, List[str]]:
@@ -341,17 +326,6 @@ def fetch_scope_index() -> Dict[str, List[str]]:
     return result
 
 
-@click.command()  # type: ignore[misc]
-def generate_scope_index() -> None:
-    """Generate a scope index.json.
-
-    With a list of available scope files in the scopes directory. These are
-    located in subfolders per datateam, the structure of the JSON will be a
-    dict with the datateam name as key and a list of scope files as value.
-    """
-    _write_json(fetch_scope_index)
-
-
 def fetch_scope_files() -> list[dict]:
     result = []
     for p in Path(".").glob(SCOPES_DIR + "/**/*.json"):
@@ -364,15 +338,6 @@ def fetch_scope_files() -> list[dict]:
     return sorted(result, key=lambda s: s["id"])
 
 
-@click.command()  # type: ignore[misc]
-def generate_scope_list() -> None:
-    """Generate a scope scopes.json.
-
-    With a list of scopes fully inlined.
-    """
-    _write_json(fetch_scope_files)
-
-
 def fetch_access_packages() -> list[str]:
     result = set()
     for p in Path(".").glob(SCOPES_DIR + "/**/*.json"):
@@ -382,12 +347,6 @@ def fetch_access_packages() -> list[str]:
             scope = json.load(f)
             result.update(scope["accessPackages"].values())
     return sorted(result)
-
-
-@click.command()  # type: ignore[misc]
-def generate_access_package_list() -> None:
-    """Generate a (deduped) list of all available access packages."""
-    _write_json(fetch_access_packages)
 
 
 if __name__ == "__main__":
