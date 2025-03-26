@@ -15,7 +15,7 @@ import os
 import shutil
 import sys
 from importlib import resources
-from io import BytesIO, StringIO
+from io import BytesIO
 from os.path import splitext
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -153,8 +153,7 @@ def azure_blob_uploader(
     doc_pub_paths: List[List[str]],
     sql_pub_paths: List[List[str]],
     container: str,
-    index_file_obj: BytesIO,
-    publisher_index_file_obj: StringIO,
+    index_files: Dict[str, BytesIO],
 ) -> None:
     """Upload files to the Azure blob storage."""
     json_content_settings = ContentSettings(content_type="application/json")
@@ -177,8 +176,11 @@ def azure_blob_uploader(
     for chunk in chunked((b.name for b in container_client.list_blobs()), 256):
         container_client.delete_blobs(*chunk)  # 256 items limit?
 
-    blob = blob_srv.get_blob_client(container, "datasets/index.json")
-    blob.upload_blob(index_file_obj, content_settings=json_content_settings, overwrite=True)
+    # Upload indexes
+    for filename, bytes_io_obj in index_files.items():
+        blob = blob_srv.get_blob_client(container, filename)
+        blob.upload_blob(bytes_io_obj, content_settings=json_content_settings, overwrite=True)
+
     for schema_path_parts in schema_pub_paths:
         file_path = str(files_root / "/".join(schema_path_parts))
         blob = blob_srv.get_blob_client(container, create_object_name(schema_path_parts))
@@ -202,20 +204,21 @@ def azure_blob_uploader(
             blob.upload_blob(bf, content_settings=sql_content_settings, overwrite=True)
 
 
+# TODO: Some flags can be removed when we clean up the publish command in the pipeline
 @click.command()  # type: ignore[misc]
-@click.option(
+@click.option(  # TODO: remove
     "--dp-env",
     envvar="DATAPUNT_ENVIRONMENT",
-    default="acceptance",
+    default="",
     help="Override the environment to be used, values can be 'acceptance' or 'production'.",
 )  # type: ignore[misc]
-@click.option(
+@click.option(  # TODO: remove
     "--container-prefix",
     envvar="CONTAINER_PREFIX",
-    default="schemas-",
-    help="""Prefix for the name of the objectstore container, default is 'schemas-'
+    default="schemas",
+    help="""Prefix for the name of the storage container, default is 'schemas'
         This name will be prefixed to the value of DATAPUNT_ENVIRONMENT,
-        to create the full name of the objectstore container.
+        to create the full name of the storage container.
     """,
 )  # type: ignore[misc]
 @click.option(
@@ -223,11 +226,11 @@ def azure_blob_uploader(
     envvar="SCHEMA_BASE_URL",
     help="Override the base url in schema files (for testing).",
 )  # type: ignore[misc]
-@click.option(
+@click.option(  # TODO: remove
     "--storage-type",
     default="azure",
     help="""Type of storage that is used for the schema files.
-        Must be: `azure`.""",  # TODO: remove flag once pipeline is updated
+        Must be: `azure`.""",
 )  # type: ignore[misc]
 def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type: str) -> None:
     """Publish a set of amsterdam schema files to a storage container."""
@@ -239,8 +242,15 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type:
         schema_pub_paths = fetch_local_as_publishable(ROOT_PKG_NAME, files_root)
         if schema_base_url is not None:
             replace_schema_base_url(files_root, schema_base_url)
-        index_file_obj = get_index_file_obj(schema_pub_paths, files_root)
-        publisher_index_file_obj = StringIO(json.dumps(fetch_publisher_files()))
+
+        # Create the index files
+        index_files = {
+            "datasets/index.json": get_index_file_obj(schema_pub_paths, files_root),
+            "publishers/index.json": _bytes_io_json(fetch_publisher_files),
+            "scopes/index.json": _bytes_io_json(fetch_scope_index),
+            "scopes/packages.json": _bytes_io_json(fetch_access_packages),
+            "scopes/scopes.json": _bytes_io_json(fetch_scope_files),
+        }
 
         # Then fetch the documentation
         doc_pub_paths = fetch_local_as_publishable(
@@ -261,8 +271,7 @@ def main(dp_env: str, container_prefix: str, schema_base_url: str, storage_type:
                 doc_pub_paths,
                 sql_pub_paths,
                 container,
-                index_file_obj,
-                publisher_index_file_obj,
+                index_files,
             )
         else:
             raise ValueError(f"Unknown storage_type {storage_type}, must be `azure`")
@@ -300,6 +309,10 @@ def fetch_publisher_files() -> list[str]:
 
 def _write_json(fetcher: Callable) -> int:
     return sys.stdout.write(json.dumps(fetcher(), indent=2) + "\n")
+
+
+def _bytes_io_json(fetcher: Callable) -> BytesIO:
+    return BytesIO(json.dumps(fetcher()).encode())
 
 
 @click.command()  # type: ignore[misc]
