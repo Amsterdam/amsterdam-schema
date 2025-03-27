@@ -181,12 +181,7 @@ def azure_blob_uploader(
 
     # Upload indexes
     for filename, bytes_io_obj in index_files.items():
-        # upload both with and without .json extension.
         blob = blob_srv.get_blob_client(container, filename)
-        blob.upload_blob(bytes_io_obj, content_settings=json_content_settings, overwrite=True)
-
-        json_filename = filename + ".json"
-        blob = blob_srv.get_blob_client(container, json_filename)
         blob.upload_blob(bytes_io_obj, content_settings=json_content_settings, overwrite=True)
 
     for schema_path_parts in schema_pub_paths:
@@ -242,6 +237,11 @@ def main(container: str, schema_base_url: str) -> None:
             "scopes/index": _bytes_io_json(fetch_scope_index),
             "scopes/packages": _bytes_io_json(fetch_access_packages),
             "scopes/scopes": _bytes_io_json(fetch_scope_files),
+            "datasets/index.json": get_index_file_obj(schema_pub_paths, files_root),
+            "publishers/index.json": _bytes_io_json(fetch_publisher_files),
+            "scopes/index.json": _bytes_io_json(fetch_scope_index),
+            "scopes/packages.json": _bytes_io_json(fetch_access_packages),
+            "scopes/scopes.json": _bytes_io_json(fetch_scope_files),
         }
 
         # Then fetch the documentation
