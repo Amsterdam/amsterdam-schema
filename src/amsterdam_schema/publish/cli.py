@@ -232,11 +232,11 @@ def main(container: str, schema_base_url: str) -> None:
 
         # Create the index files
         index_files = {
-            "datasets/index.json": get_index_file_obj(schema_pub_paths, files_root),
-            "publishers/index.json": _bytes_io_json(fetch_publisher_files),
-            "scopes/index.json": _bytes_io_json(fetch_scope_index),
-            "scopes/packages.json": _bytes_io_json(fetch_access_packages),
-            "scopes/scopes.json": _bytes_io_json(fetch_scope_files),
+            "datasets/index": get_index_file_obj(schema_pub_paths, files_root),
+            "publishers/index": _bytes_io_json(fetch_publisher_files),
+            "scopes/index": _bytes_io_json(fetch_scope_index),
+            "scopes/packages": _bytes_io_json(fetch_access_packages),
+            "scopes/scopes": _bytes_io_json(fetch_scope_files),
         }
 
         # Then fetch the documentation
