@@ -181,7 +181,12 @@ def azure_blob_uploader(
 
     # Upload indexes
     for filename, bytes_io_obj in index_files.items():
+        # upload both with and without .json extension.
         blob = blob_srv.get_blob_client(container, filename)
+        blob.upload_blob(bytes_io_obj, content_settings=json_content_settings, overwrite=True)
+
+        json_filename = filename + ".json"
+        blob = blob_srv.get_blob_client(container, json_filename)
         blob.upload_blob(bytes_io_obj, content_settings=json_content_settings, overwrite=True)
 
     for schema_path_parts in schema_pub_paths:
