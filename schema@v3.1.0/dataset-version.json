@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.data.amsterdam.nl/dataset-version@v3.1.0",
+  "type": "object",
+  "required": [
+    "status",
+    "lifecycleStatus",
+    "tables",
+    "version"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "beschikbaar",
+        "niet_beschikbaar"
+      ]
+    },
+    "lifecycleStatus": {
+      "description": "de status die iets zegt over de stabiliteit van de versie van een dataset. Een versie met de status 'experimental' kan nog wijzigen, wanneer deze 'stable' is kunnen er geen breaking changes meer in plaatsvinden.",
+      "type": "string",
+      "enum": [
+        "experimental",
+        "stable"
+      ]
+    },
+    "tables": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "./table@v3.1.0"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "$ref": {
+                "type": "string",
+                "format": "uri-reference"
+              },
+              "id": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "version": {
+      "$ref": "./schema@v3.1.0#/definitions/version"
+    }
+  }
+}
