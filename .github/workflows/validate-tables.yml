@@ -1,0 +1,30 @@
+name: validate-tables
+
+on:
+  push:
+  pull_request:
+    paths:
+      - datasets/
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: "Fetch master branch"  # So we can diff against it.
+        run: |
+          git fetch origin master
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - id: install-schema-tools
+        run: |
+          python -m pip install --force-reinstall -v "amsterdam-schema-tools>=7.2.2"
+      - id: generate-previous-tables
+        run: |
+          changed_paths=$(./scripts/generate_previous_tables_from_master.sh ${{github.head_ref || github.ref_name}} | tail -n 1)
+          echo "changed_paths=$changed_paths" >> $GITHUB_OUTPUT
+      - id: validate-tables
+        run: |
+          schema validate-tables ${{steps.generate-previous-tables.outputs.changed_paths}}
