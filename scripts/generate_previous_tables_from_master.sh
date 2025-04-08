@@ -21,6 +21,7 @@ do
     if [[ $previous_patch ]]; then
         git show origin/master:$folder_name/$previous_patch > $previous_name
         echo "created \"previous-$file_name\" from master's \"$previous_patch\" for \"$table_path\""
+        git --no-pager diff --no-index $previous_name $table_path || true
         changed_paths+=("$table_path")
         continue
     fi
@@ -29,6 +30,7 @@ do
     if [[ $previous_minor ]]; then
         git show origin/master:$folder_name/$previous_minor > $previous_name
         echo "created \"previous-$file_name\" from master's \"$previous_minor\" for \"$table_path\""
+        git --no-pager diff --no-index $previous_name $table_path || true
         changed_paths+=("$table_path")
     fi
 done
@@ -40,6 +42,7 @@ do
     previous_name="$(dirname $table_path)/previous-$file_name"
     git show origin/master:$table_path > $previous_name
     echo "created \"previous-$file_name\" for \"$table_path\""
+    git --no-pager diff --no-index $previous_name $table_path || true
     changed_paths+=("$table_path")
 done
 echo "${changed_paths[*]}"
