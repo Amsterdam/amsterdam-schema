@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 declare -a changed_paths
-
+echo ""
 added_tables=$(git diff --name-only --diff-filter=A origin/master..origin/$1  -- 'datasets/**/v*.json')
 modified_tables=$(git diff --name-only --diff-filter=M origin/master..origin/$1  -- 'datasets/**/v*.json')
 
@@ -17,18 +17,24 @@ do
     minor=${semver[1]}
     patch=${semver[2]}
     previous_patch="$(ls $folder_name | grep "$major.$minor.[^0-$patch]" | grep -v "$(basename $table_path)" | tail -n 1)"
-    echo $previous_patch
     if [[ $previous_patch ]]; then
+        echo "=======$table_path========="
+        echo ""
         git show origin/master:$folder_name/$previous_patch > $previous_name
-        echo "created \"previous-$file_name\" from master's \"$previous_patch\" for \"$table_path\""
+        echo "Comparing to master's \"$previous_patch\":"
+        git --no-pager diff --no-index --color $previous_name $table_path || true
+        echo ""
         changed_paths+=("$table_path")
         continue
     fi
     previous_minor="$(ls $folder_name | grep "$major.[0-$minor]" | grep -v "$(basename $table_path)" | tail -n 1)"
-    echo $previous_minor
     if [[ $previous_minor ]]; then
+        echo "=======$table_path========="
+        echo ""
         git show origin/master:$folder_name/$previous_minor > $previous_name
-        echo "created \"previous-$file_name\" from master's \"$previous_minor\" for \"$table_path\""
+        echo "Comparing to master's \"$previous_minor\":"
+        git --no-pager diff --no-index --color $previous_name $table_path || true
+        echo ""
         changed_paths+=("$table_path")
     fi
 done
@@ -38,8 +44,14 @@ for table_path in $modified_tables
 do
     file_name="$(basename $table_path)"
     previous_name="$(dirname $table_path)/previous-$file_name"
+    echo "=======$table_path========="
+    echo ""
     git show origin/master:$table_path > $previous_name
-    echo "created \"previous-$file_name\" for \"$table_path\""
+    echo "Comparing to master's \"$file_name\":"
+    git --no-pager diff --no-index --color $previous_name $table_path || true
+    echo ""
     changed_paths+=("$table_path")
 done
+echo "======================Summary======================"
+echo "Added and modified files that need to be validated:"
 echo "${changed_paths[*]}"
