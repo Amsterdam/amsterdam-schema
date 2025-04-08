@@ -1,3 +1,4 @@
+import shutil
 import subprocess  # nosec
 
 import click
@@ -20,7 +21,7 @@ def create(base_version: str, target_version: str) -> None:
 
     Both arguments should include the `v`, i.e. `v3.2.0`, not `3.2.0`.
     """
-    subprocess.run(f"cp -R schema@{base_version} schema@{target_version}", shell=True)  # nosec
+    shutil.copytree(f"schema@{base_version}", f"schema@{target_version}")
     subprocess.run(
         f"sed -i s/{base_version}/{target_version}/g schema@{target_version}/{{,**/}}*.json",
         shell=True,
@@ -128,9 +129,9 @@ def remote_refs(version: str, dataset: str) -> None:
 def drop(version: str) -> None:
     """Delete a metaschema version.
 
-    Uses rm -rf, as discarding git changes keeps the folders around.
+    Uses shutil.rmtree, as discarding git changes keeps the folders around.
     """
-    subprocess.run(f"rm -rf schema@{version}", shell=True, executable="/bin/bash")  # nosec
+    shutil.rmtree(f"schema@{version}")
 
 
 def main() -> None:
