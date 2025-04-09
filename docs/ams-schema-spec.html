@@ -1488,10 +1488,10 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 60c422380, updated Thu Feb 20 19:11:22 2025 -0800" name="generator">
+  <meta content="Bikeshed version c67c745b1, updated Fri Jan 17 14:27:28 2025 -0800" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="25a8409ce09a7ebd285d3c33b594b855acb97004" name="revision">
+  <meta content="523f5c1bfbbdf273d3cc3983f7ae535457e5ff87" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
     p[data-fill-with="logo"] {
@@ -2358,7 +2358,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Amsterdam Schema Specificatie</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2025-04-03">3 April 2025</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2025-04-09">9 April 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2412,6 +2412,7 @@ om datasets in een machineleesbaar format te beschrijven en op generieke wijze t
       <li><a href="#temporaliteit"><span class="secno">4.4</span> <span class="content">Temporaliteit</span></a>
       <li><a href="#table-versioning"><span class="secno">4.5</span> <span class="content">Versionering</span></a>
       <li><a href="#table-lifecycle-status"><span class="secno">4.6</span> <span class="content">Lifecycle</span></a>
+      <li><a href="#zoom"><span class="secno">4.7</span> <span class="content">Zoom</span></a>
      </ol>
     <li>
      <a href="#fields"><span class="secno">5</span> <span class="content">Veld</span></a>
@@ -3048,6 +3049,10 @@ Daarnaast kan aan een tabel meta informatie en autorisatie instellingen worden m
         </ul>
        </details>
         Default: <code class="highlight"><c- u>"structured"</c-></code>
+     <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-zoom"><code class="highlight">zoom</code></dfn>
+      <td> object
+      <td> De zoom niveaus waarbinnen de velden getoond moeten worden. zie <a href="#zoom">§ 4.7 Zoom</a>
    </table>
    <blockquote class="best-practice"> <strong>Best Practice</strong> Voeg altijd op zijn minst een <code class="idl"><a data-link-type="idl" href="#dom-tabel-title" id="ref-for-dom-tabel-title①">title</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-tabel-description" id="ref-for-dom-tabel-description①">description</a></code> toe. </blockquote>
    <h3 class="heading settled" data-level="4.3" id="tabel-schema"><span class="secno">4.3. </span><span class="content">Schema</span><a class="self-link" href="#tabel-schema"></a></h3>
@@ -3216,6 +3221,31 @@ verwezen.</p>
 is, zullen er geen breaking changes meer plaatsvinden. Bij de validatie van het schema wordt er gecontroleerd of een
 wijziging in een 'stable' tabel geen breaking changes bevat. Een tabel met de status 'experimental' is nog in
 ontwikkeling en kan tijdens deze periode nog veranderen.
+   <h3 class="heading settled" data-level="4.7" id="zoom"><span class="secno">4.7. </span><span class="content">Zoom</span><a class="self-link" href="#zoom"></a></h3>
+    Een tabel met een of meer geovelden kan via vectortiles (MVT) worden opgevraagd. Aangezien sommige tabellen
+flinke hoeveelheden data bevatten, is het vaak raadzaam om niet alle data op te vragen op elk zoomniveau. De
+identifiers worden op elk niveau getoond, maar andere velden alleen als ze binnen de zoom.min en zoom.max (beide
+inclusief) vallen.
+   <p>In het onderstaande voorbeeld zullen alle velden meegegeven worden als de zoom >= 12 en &lt;= 17.</p>
+   <div class="example" id="example-c0e476f5">
+    <a class="self-link" href="#example-c0e476f5"></a> Voorbeeld van een zoom object op een tabel.
+<pre class="language-json highlight"><c- f>"zoom"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"min"</c-><c- p>:</c-> <c- mi>12</c-><c- p>,</c->
+    <c- f>"max"</c-><c- p>:</c-> <c- mi>17</c->
+<c- p>}</c->
+</pre>
+   </div>
+   <p>De waarde van "min" dient kleiner te zijn dan die van "max", en valide waarden zijn van 0 tot 30.
+Een indicatie van de reikwijdte van een laag bij verschillende zoomniveaus:</p>
+   <p>7: geheel Nederland
+12: geheel Amsterdam
+14: de binnenring
+17/18: een woonblok
+20/21: een pand</p>
+   <p>Je kunt op <a href="https://docs.maptiler.com/google-maps-coordinates-tile-bounds-projection/">deze</a> site zelf bekijken
+welke zoomniveaus voor jouw tabel passend zijn.</p>
+   <p>Het zoom object is niet verplicht. Indien de zoom niet wordt meegegeven, zullen de velden meegegeven worden vanaf
+niveau 15.</p>
    <h2 class="heading settled" data-level="5" id="fields"><span class="secno">5. </span><span class="content">Veld</span><a class="self-link" href="#fields"></a></h2>
     Een veld beschrijft een eigenschap die een rij in de tabel mag of moet (zie <code class="idl"><a data-link-type="idl" href="#dom-schema-required" id="ref-for-dom-schema-required">required</a></code>) bezitten.
 Een <a data-link-type="dfn" href="#veld" id="ref-for-veld⑨">veld</a> is een concrete JSON Schema-typedefinitie waaraan ook meta-informatie kan worden meegegeven.
@@ -4513,11 +4543,11 @@ Het <code class="highlight">description</code> veld is bedoeld voor bijvoorbeeld
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export data-lt="majorversion|major-version-string" id="typedefdef-majorversion"><code class="highlight">major<c- o>-</c->version</code></dfn>
       <td> (string)
-      <td> Version string van de vorm "v&lt;MAJOR>"
+      <td> Version string van de vorm "v&amp;bs&lt;;MAJOR&amp;bs>;"
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export data-lt="version|version-string" id="typedefdef-version"><code class="highlight">version</code></dfn>
       <td> (string)
-      <td> Version string van de vorm "&lt;MAJOR>.&lt;MINOR>.&lt;PATCH>" of "&lt;MAJOR>.&lt;MINOR>" (patch nummer is optioneel)
+      <td> Version string van de vorm "&amp;bs&lt;;MAJOR&amp;bs>;.&amp;bs&lt;;MINOR&amp;bs>;.&amp;bs&lt;;PATCH&amp;bs>;" of "&amp;bs&lt;;MAJOR&amp;bs>;.&amp;bs&lt;;MINOR&amp;bs>;" (patch nummer is optioneel)
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export data-lt="contact|contactPoint" id="typedefdef-contact"><code class="highlight">contact</code></dfn>
       <td> (object)
@@ -4932,6 +4962,7 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
     </ul>
    <li><a href="#dom-dataset-versions">versions</a><span>, in § 2.1</span>
    <li><a href="#typedefdef-version">version-string</a><span>, in § 11</span>
+   <li><a href="#dom-tabel-zoom">zoom</a><span>, in § 4.2</span>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
@@ -5263,6 +5294,7 @@ let dfnPanelData = {
 "dom-tabel-title": {"dfnID":"dom-tabel-title","dfnText":"title","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-title"}],"title":"4.1. Verplichte attributen"},{"refs":[{"id":"ref-for-dom-tabel-title\u2460"}],"title":"4.2. Optionele attributen"}],"url":"#dom-tabel-title"},
 "dom-tabel-type": {"dfnID":"dom-tabel-type","dfnText":"type","external":false,"refSections":[],"url":"#dom-tabel-type"},
 "dom-tabel-version": {"dfnID":"dom-tabel-version","dfnText":"version","external":false,"refSections":[],"url":"#dom-tabel-version"},
+"dom-tabel-zoom": {"dfnID":"dom-tabel-zoom","dfnText":"zoom","external":false,"refSections":[],"url":"#dom-tabel-zoom"},
 "dom-table-ref-id": {"dfnID":"dom-table-ref-id","dfnText":"id","external":false,"refSections":[],"url":"#dom-table-ref-id"},
 "dom-table-ref-ref": {"dfnID":"dom-table-ref-ref","dfnText":"$ref","external":false,"refSections":[],"url":"#dom-table-ref-ref"},
 "dom-temporal-dimensionsgeldigop": {"dfnID":"dom-temporal-dimensionsgeldigop","dfnText":"dimensions.geldigOp","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-temporal-dimensionsgeldigop"}],"title":"4.4. Temporaliteit"}],"url":"#dom-temporal-dimensionsgeldigop"},
@@ -5858,12 +5890,7 @@ function hideRefHint(refHint) {
 function showRefHint(link) {
     if(link.classList.contains("dfn-link")) return;
     const url = link.getAttribute("href");
-    const refHintKey = link.getAttribute("data-refhint-key");
-    let key = url;
-    if(refHintKey) {
-        key = refHintKey + "_" + url;
-    }
-    const ref = refsData[key];
+    const ref = refsData[url];
     if(!ref) return;
 
     hideAllRefHints(); // Only display one at this time.
