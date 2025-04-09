@@ -1,0 +1,21 @@
+name: show-diffs
+
+on:
+  pull_request:
+  push:
+    paths:
+      - datasets/
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: "Fetch master branch"  # So we can diff against it.
+        run: |
+          git fetch origin master
+      - id: show-diffs
+        name: "Show diffs of the added and modified dataset tables"
+        run: |
+          ./scripts/generate_previous_tables_from_master.sh ${{github.head_ref || github.ref_name}}
