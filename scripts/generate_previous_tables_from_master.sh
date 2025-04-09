@@ -36,6 +36,17 @@ do
         git --no-pager diff --no-index --color $previous_name $table_path || true
         echo ""
         changed_paths+=("$table_path")
+        continue
+    fi
+    previous_major="$(ls $folder_name | grep "v[0-${major:1}]" | grep -v "$(basename $table_path)" | tail -n 1)"
+    if [[ $previous_major ]]; then
+        # this isn't  breaking, so no need to add to changed_paths, but helpful to see the diff.
+        echo "=======$table_path========="
+        echo ""
+        git show origin/master:$folder_name/$previous_major > $previous_name
+        echo "Comparing to master's \"$previous_major\":"
+        git --no-pager diff --no-index --color $previous_name $table_path || true
+        echo ""
     fi
 done
 
