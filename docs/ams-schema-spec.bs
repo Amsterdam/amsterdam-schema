@@ -455,6 +455,7 @@ Een  [=tabel=] mag daarnaast de volgende attributen bezitten:
                     * "event"
             </details>
             Default: `"structured"`
+    <tr><td><dfn>zoom</dfn><td> object <td> De zoom niveaus waarbinnen de velden getoond moeten worden. zie [[#zoom]]
 </table>
 
 [BP]
@@ -665,6 +666,39 @@ is, zullen er geen breaking changes meer plaatsvinden. Bij de validatie van het 
 wijziging in een 'stable' tabel geen breaking changes bevat. Een tabel met de status 'experimental' is nog in
 ontwikkeling en kan tijdens deze periode nog veranderen.
 
+Zoom {#zoom}
+--------------
+Een tabel met een of meer geovelden kan via vectortiles (MVT) worden opgevraagd. Aangezien sommige tabellen
+flinke hoeveelheden data bevatten, is het vaak raadzaam om niet alle data op te vragen op elk zoomniveau. De
+identifiers worden op elk niveau getoond, maar andere velden alleen als ze binnen de zoom.min en zoom.max (beide
+inclusief) vallen.
+
+In het onderstaande voorbeeld zullen alle velden meegegeven worden als de zoom >= 12 en <= 17.
+
+<div class=example>
+Voorbeeld van een zoom object op een tabel.
+    ```json
+        "zoom": {
+            "min": 12,
+            "max": 17
+        }
+    ```
+</div>
+
+De waarde van "min" dient kleiner te zijn dan die van "max", en valide waarden zijn van 0 tot 30.
+Een indicatie van de reikwijdte van een laag bij verschillende zoomniveaus:
+
+7: geheel Nederland
+12: geheel Amsterdam
+14: de binnenring
+17/18: een woonblok
+20/21: een pand
+
+Je kunt op [deze](https://docs.maptiler.com/google-maps-coordinates-tile-bounds-projection/) site zelf bekijken
+welke zoomniveaus voor jouw tabel passend zijn.
+
+Het zoom object is niet verplicht. Indien de zoom niet wordt meegegeven, zullen de velden meegegeven worden vanaf
+niveau 15.
 
 <!--
 ██     ██ ████████ ██       ████████
