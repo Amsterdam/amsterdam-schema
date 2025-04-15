@@ -2,8 +2,8 @@
     "id": "verbindingszones",
     "type": "table",
     "version": "1.0.0",
-    "title": "",
-    "description": "",
+    "title": "Verbindingszones",
+    "description": "Tabel met gegevens over verbindingszones. Verbindingszones zijn onderdeel van het ecologisch areaal van Amsterdam.",
     "identifier": "id",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -21,8 +21,8 @@
         },
         "id": {
           "type": "integer",
-          "title": "ID",
-          "description": "Unieke aanduiding van record"
+          "title": "Object ID",
+          "description": "Uniek identificerend kenmerk van een object."
         },
          "geometrie": {
           "$ref": "https://geojson.org/schema/Geometry.json",
@@ -30,9 +30,9 @@
           "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992). bevat punt-geometrie."
         },
         "imgeoIdentificatie": {
-          "type": "float",
-          "title": "",
-          "description": "",
+          "type": "string",
+          "title": "IMGeo identificatie",
+          "description": "Overerving van de geometrie van beheerobject uit bovenliggend informatiemodel of automatisch genereren.",
           "auth": "FP/MDW",
           "reasonsNonPublic": [
             "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -40,8 +40,8 @@
         },
         "guid": {
           "type": "string",
-          "title": "",
-          "description": "",
+          "title": "Guid",
+          "description": "Global Unique Identifier: unieke aanduiding van het object.",
           "auth": "FP/MDW",
           "reasonsNonPublic": [
             "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -49,8 +49,8 @@
         },
         "onderhoudsplichtige": {
           "type": "string",
-          "title": "",
-          "description": "",
+          "title": "Onderhoudsplichtige",
+          "description": "Organisatie die verantwoordelijk is voor het onderhoud van het beheerobject.",
           "auth": "FP/MDW",
           "reasonsNonPublic": [
             "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -58,8 +58,8 @@
         },
         "beheerafspraak": {
           "type": "string",
-          "title": "",
-          "description": "",
+          "title": "Beheerafspraak",
+          "description": "Voor het vermelden van aanvullende afspraken over het beheer van een object of voor het vermelden van specificaties van de beheersituatie van een object.",
           "auth": "FP/MDW",
           "reasonsNonPublic": [
             "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -67,127 +67,123 @@
         },
         "typeBeheerder": {
           "type": "string",
-          "title": "",
-          "description": "",
-          "auth": "FP/MDW",
-          "reasonsNonPublic": [
-            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
-          ]
+          "title": "Type beheerder",
+          "description": "Een publiekrechtelijke instantie of (rechts) persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT)."
         },
         "typeBeheerderPlus": {
-          "title": "string",
-          "type": "",
-          "description": ""
+          "type": "string",
+          "title": "Type beheerder plus",
+          "description": "Nadere specificatie van de beheerder van het beheerobject."
          },
         "beheergebied": {
-          "title": "string",
-          "type": "",
-          "description": ""
+          "type": "string",
+          "title": "Beheergebied",
+          "description": "Aanduiding van het beheergebied waarbinnen het beheerobject ligt. Indeling in beheergebieden is organisatiespecifiek."
         },
         "buurtNaam": {
-          "title": "string",
-          "type": "",
-          "description": ""
+          "type": "string",
+          "title": "Buurt naam",
+          "description": "Aanduiding van de buurt waarbinnen het beheerobject ligt (conform CBS-indeling)."
         },
         "categorie": {
-          "title": "string",
-          "type": "",
-          "description": ""
+          "type": "string",
+          "title": "Categorie",
+          "description": "Het beheerobject is ingedeeld in een categorie nat of droog."
 	},
         "conversieid": {
-          "title": "integer",
-          "type": "",
-          "description": ""	
+          "type": "integer",
+          "title": "Conversie ID",
+          "description": "Tweede oude identificatie."	
 	},
         "typeEigenaar": {
-          "title": "string",
-          "type": "",
-          "description": ""	
+          "type": "string",
+          "title": "Type eigenaar",
+          "description": "(Rechts)persoon die het meest omvattend recht op een zaak heeft . De typen eigenaren zijn conform de indeling in bronhouders (BGT)."	
 	},
         "TypeEigenaarPlus": {
-          "title": "float",
-          "type": "",
-          "description": ""	
+          "type": "string",
+          "title": "Type eigenaar plus",
+          "description": "Nadere specificatie van de eigenaar van het beheerobject."	
 	},
         "gebiedstype": {
-          "title": "float",
-          "type": "",
-          "description": ""	
+          "type": "string",
+          "title": "Gebiedstype",
+          "description": "Aanduiding van het gebiedstype waarbinnen het beheerobject ligt. Conform de indeling zoals toegepast bij de CROW Benchmark Beheerprestaties."
 	},
-        "GemeenteNaam": {
-          "title": "string",
-          "type": "",
-          "description": ""	
+        "gemeenteNaam": {
+          "type": "string",
+          "title": "Gemeente naam",
+          "description": "Naam van de gemeente waarbinnen het beheerobject ligt."	
 	},
         "gidssoort": {
-          "title": "",
-          "type": "",
-          "description": ""	
+          "type": "string",
+          "title": "Gidssoort",
+          "description": "De gidssoort van het beheerobject."	
 	},
         "imgeoIdentificatie": {
-          "title": "string",
-          "type": "",
-          "description": ""	
+          "type": "string",
+          "ttitle": "IMGeo identificatie",
+          "description": "Overerving van de geometrie van beheerobject uit bovenliggend informatiemodel of automatisch genereren."	
 	},
         "ligging": {
-          "title": "string",
-          "type": "",
-          "description": ""	
+          "type": "string",
+          "title": "Ligging",
+          "description": "Aanduiding van de ligging van het beheerobject binnen of buiten de bebouwde kom."	
 	},
         "objectNaam": {
-          "title": "string",
-          "type": "",
-          "description": ""	
+          "type": "string",
+          "title": "Objectnaam",
+          "description": "Naam van het beheerobject."	
 	},
         "objectNummer": {
-          "title": "string",
-          "type": "",
-          "description": ""	
+          "type": "integer",
+          "title": "Objectnummer",
+          "description": "Nummer van het beheerobject, door de organisatie gegeven."	
 	},
-        "objecttype": {
-          "title": "string",
-          "type": "",
-          "description": ""	
+        "objectType": {
+          "type": "string",
+          "title": "Objecttype",
+          "description": "Aanduiding van het beheerobject conform IMBOR."	
 	},
         "omtrekGis": {
-          "title": "float",
-          "type": "",
-          "description": ""	
+          "type": "float",
+          "title": "Omtrek GIS",
+          "description": "Op geometrie automatisch berekende lengte (lijn) of omtrek (vlak) in meters"	
 	},
         "openbareRuimteNaam": {
-          "title": "string",
-          "type": "",
-          "description": ""	
+          "type": "string",
+          "title": "Openbare ruimte naam",
+          "description": "Aanduiding van de openbare ruimte, zoals gedefinieerd in IMGeo of in de BAG, waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met grenzen openbare ruimtes of uit de Basisregistratie Adressen en Gebouwen (zonder begrenzig)."	
 	},
         "oppervlakteGis": {
-          "title": "float",
-          "type": "",
-          "description": ""	
+          "type": "float",
+          "title": "Omtrek GIS",
+          "description": "Op geometrie automatisch berekende lengte (lijn) of omtrek (vlak) in meters."	
 	},
         "relatieveHoogteligging": {
-          "title": "string",
-          "type": "",
-          "description": ""	
+          "type": "string",
+          "title": "Relatieve hoogteligging",
+          "description": "Aanduiding voor de relatieve hoogte van het beheerobject."	
 	},
         "stadsdeelNaam": {
-          "title": "string",
-          "type": "",
-          "description": ""	
+          "type": "string",
+          "title": "Stadsdeel naam",
+          "description": "Stadsdeel, niet te verwarren met Stadsdeel BGT-IMGeo: zie hiervoor Woonplaats. Voor de meeste gemeenten gelijk aan Woonplaats, maar kan ook functioneren als hiërarchische laag tussen de niveaus wijk en woonplaats."	
 	},
         "waterschapNaam": {
-          "title": "string",
-          "type": "",
-          "description": ""	
+          "type": "string",
+          "title": "Waterschap naam",
+          "description": "Aanduiding van het waterschap, waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met waterschapsgrenzen."	
 	},
         "wijkNaam": {
-          "title": "string",
-          "type": "",
-          "description": ""	
+          "type": "string",
+          "title": "Wijk naam",
+          "description": "Aanduiding van de wijk waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met wijkgrenzen."	
 	},
         "woonplaatsNaam": {
-          "title": "string",
-          "type": "",
-          "description": ""		
+          "type": "string",
+          "title": "Woonplaats naam",
+          "description": "Woonplaats, overeenkomstig met Stadsdeel of Woonplaats conform BGT-IMGeo."		
         }
       }
     }
