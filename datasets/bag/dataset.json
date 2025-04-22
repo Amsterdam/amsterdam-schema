@@ -3,8 +3,6 @@
   "id": "bag",
   "title": "BAG",
   "description": "De Basisregistratie adressen en gebouwen (BAG) bevat gegevens over panden, verblijfsobjecten, standplaatsen en ligplaatsen en de bijbehorende adressen (openbare ruimte, nummeraanduiding en woonplaats).",
-  "status": "beschikbaar",
-  "version": "1.0.0",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam, afdeling Basisinformatie",
   "publisher": {
@@ -24,93 +22,58 @@
     "standplaatsen",
     "panden"
   ],
-  "tables": [
-    {
-      "id": "woonplaatsen",
-      "$ref": "woonplaatsen/v1.6.3",
-      "activeVersions": {
-        "1.6.3": "woonplaatsen/v1.6.3",
-        "3.2.0": "woonplaatsen/v3.2.0"
-      }
-    },
-    {
-      "id": "standplaatsen",
-      "$ref": "standplaatsen/v1.4.2",
-      "activeVersions": {
-        "1.4.2": "standplaatsen/v1.4.2",
-        "3.1.0": "standplaatsen/v3.1.0"
-      }
-    },
-    {
-      "id": "ligplaatsen",
-      "$ref": "ligplaatsen/v1.4.2",
-      "activeVersions": {
-        "1.4.2": "ligplaatsen/v1.4.2",
-        "3.1.0": "ligplaatsen/v3.1.0"
-      }
-    },
-    {
-      "id": "openbareruimtes",
-      "$ref": "openbareruimtes/v1.5.2",
-      "activeVersions": {
-        "1.5.2": "openbareruimtes/v1.5.2",
-        "3.1.0": "openbareruimtes/v3.1.0"
-      }
-    },
-    {
-      "id": "nummeraanduidingen",
-      "$ref": "nummeraanduidingen/v1.4.2",
-      "activeVersions": {
-        "1.4.2": "nummeraanduidingen/v1.4.2",
-        "3.1.0": "nummeraanduidingen/v3.1.0"
-      }
-    },
-    {
-      "id": "verblijfsobjecten",
-      "$ref": "verblijfsobjecten/v1.4.4",
-      "activeVersions": {
-        "1.4.4": "verblijfsobjecten/v1.4.4",
-        "3.1.0": "verblijfsobjecten/v3.1.0"
-      }
-    },
-    {
-      "id": "panden",
-      "$ref": "panden/v1.4.2",
-      "activeVersions": {
-        "1.4.2": "panden/v1.4.2",
-        "3.1.0": "panden/v3.1.0"
-      }
-    },
-    {
-      "id": "dossiers",
-      "$ref": "dossiers/v1.0.2",
-      "activeVersions": {
-        "1.0.2": "dossiers/v1.0.2",
-        "2.0.2": "dossiers/v2.0.2"
-      }
-    },
-    {
-      "id": "brondocumenten",
-      "$ref": "brondocumenten/v1.0.1",
-      "activeVersions": {
-        "1.0.1": "brondocumenten/v1.0.1",
-        "3.0.1": "brondocumenten/v3.0.1"
-      }
-    },
-    {
-      "id": "onderzoeken",
-      "$ref": "onderzoeken/v1.1.1",
-      "activeVersions": {
-        "1.1.1": "onderzoeken/v1.1.1",
-        "2.0.1": "onderzoeken/v2.0.1"
-      }
-    },
-    {
-      "id": "votopafvoerlegacy",
-      "$ref": "votopafvoerlegacy/v1.0.1",
-      "activeVersions": {
-        "1.0.1": "votopafvoerlegacy/v1.0.1"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "woonplaatsen",
+          "$ref": "woonplaatsen/v1"
+        },
+        {
+          "id": "standplaatsen",
+          "$ref": "standplaatsen/v1"
+        },
+        {
+          "id": "ligplaatsen",
+          "$ref": "ligplaatsen/v1"
+        },
+        {
+          "id": "openbareruimtes",
+          "$ref": "openbareruimtes/v1"
+        },
+        {
+          "id": "nummeraanduidingen",
+          "$ref": "nummeraanduidingen/v1"
+        },
+        {
+          "id": "verblijfsobjecten",
+          "$ref": "verblijfsobjecten/v1"
+        },
+        {
+          "id": "panden",
+          "$ref": "panden/v1"
+        },
+        {
+          "id": "dossiers",
+          "$ref": "dossiers/v1"
+        },
+        {
+          "id": "brondocumenten",
+          "$ref": "brondocumenten/v1"
+        },
+        {
+          "id": "onderzoeken",
+          "$ref": "onderzoeken/v1"
+        },
+        {
+          "id": "votopafvoerlegacy",
+          "$ref": "votopafvoerlegacy/v1"
+        }
+      ]
     }
-  ]
+  }
 }

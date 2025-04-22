@@ -1,0 +1,68 @@
+{
+  "type": "table",
+  "id": "aantekeningen",
+  "version": "0.0.1",
+  "derivedFrom": [
+    "brk2:aantekeningenkadastraleobjecten"
+  ],
+  "temporal": {
+    "identifier": "volgnummer",
+    "dimensions": {
+      "geldigOp": [
+        "beginGeldigheid",
+        "eindGeldigheid"
+      ]
+    }
+  },
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "identificatie",
+      "volgnummer"
+    ],
+    "required": [
+      "schema",
+      "identificatie",
+      "volgnummer"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "De door het Kadaster toegekende landelijk unieke aanduiding aan deze aantekening."
+      },
+      "volgnummer": {
+        "type": "integer",
+        "description": "Uniek volgnummer van de toestand van het object."
+      },
+      "aardOmschrijving": {
+        "type": "string",
+        "description": "De aard van de aantekening."
+      },
+      "omschrijving": {
+        "type": "string",
+        "description": "Nadere beschrijving van de aantekening."
+      },
+      "hftBtrkOpKotIdentificatie": {
+        "type": "string",
+        "description": "Identificatie van het kadastrale object (onroerende zaak)."
+      },
+      "beginGeldigheid": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Begindatum geldigheid object."
+      },
+      "eindGeldigheid": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum geldigheid object."
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

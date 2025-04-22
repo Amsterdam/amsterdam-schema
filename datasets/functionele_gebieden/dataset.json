@@ -2,8 +2,6 @@
   "type": "dataset",
   "id": "functioneleGebieden",
   "auth": "OPENBAAR",
-  "version": "0.0.1",
-  "status": "beschikbaar",
   "title": "Functionele gebieden",
   "description": "Begrensd en benoemd gebied dat door een functionele eenheid beschreven wordt.",
   "owner": "Gemeente Amsterdam",
@@ -13,61 +11,18 @@
     "$ref": "publishers/STAT"
   },
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "groen",
-      "type": "table",
-      "version": "1.0.0",
-      "description": "Alle functionele gebieden, die onderdeel vormen van de groen hoofdstructuur",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "mainGeometry": "geometrie",
-        "identifier": [
-          "id"
-        ],
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "title": "id",
-            "description": "Uniek identificatie van het functionele gebied"
-          },
-          "functie": {
-            "type": "string",
-            "title": "functie",
-            "description": "Functie van het functionele gebied"
-          },
-          "naam": {
-            "type": "string",
-            "title": "naam",
-            "description": "Naam van het functionele gebied"
-          },
-          "bron": {
-            "type": "string",
-            "title": "bron",
-            "description": "Bron van het functionele gebied"
-          },
-          "bronId": {
-            "type": "string",
-            "title": "bronId",
-            "description": "Unieke identificatie, zoals bekend in de bron"
-          },
-          "geometrie": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "title": "geometrie",
-            "description": "Vorm en ligging van de vestiging in het Nationale Rijksdriehoekstelsel."
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "groen",
+          "$ref": "groen/v1"
         }
-      }
+      ]
     }
-  ]
+  }
 }

@@ -1,0 +1,74 @@
+{
+  "id": "bedrijven",
+  "title": "Overige bedrijven",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "geometrie",
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke identificatie record."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Vlakgeometrie van een bedrijf."
+      },
+      "geometriePunt": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "Locatie van een bedrijf."
+      },
+      "naamBedrijf": {
+        "type": "string",
+        "description": "Bedrijfsnaam.",
+        "provenance": "bedrijfsnaam"
+      },
+      "adresBedrijf": {
+        "type": "string",
+        "description": "Adres van bedrijf.",
+        "provenance": "adres"
+      },
+      "typeBedrijf": {
+        "type": "string",
+        "description": "Typering /aard van het bedrijf."
+      },
+      "categorieBevi": {
+        "type": "string",
+        "description": "verwijzing naar Besluit externe veiligheid inrichtingen die van toepassing is."
+      },
+      "bevoegdgezag": {
+        "type": "string",
+        "enum": [
+          "provincie",
+          "gemeente"
+        ],
+        "description": "Instantie (provincie of gemeente) die verantwoordelijk is voor risicobewaking.",
+        "provenance": "bevoegd_gezag"
+      },
+      "stadsdeel": {
+        "type": "string",
+        "description": "Naam stadsdeel waar bedrijf onder valt."
+      },
+      "aantalBronnen": {
+        "type": "integer",
+        "description": "Aantal bronnen."
+      },
+      "opmerkingen": {
+        "type": "string",
+        "description": "Opmerkingen"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

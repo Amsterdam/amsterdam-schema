@@ -1,0 +1,60 @@
+{
+  "id": "afwijking",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "title": "affwijking",
+  "description": "Attribuutwaarden uit tabellen die niet voldoen aan opgestelde regels.",
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "title": "Id",
+        "description": "Samenstelling van Id uit tabel regels en datum van uitvoering"
+      },
+      "regelId": {
+        "type": "string",
+        "title": "Regel Id",
+        "description": "Id van de datakwaliteitsregel waarop  afwijking gebaseerd is."
+      },
+      "identificatieVeldWaarde": {
+        "type": "string",
+        "title": "Identificatie veldwaarde",
+        "description": "Waarde van het attribuut uit de brontabel met het identificerende kenmerk behorende bij afwijkening, waarmee de record terug kan worden gevonden in de brontabel."
+      },
+      "datum": {
+        "type": "string",
+        "format": "date",
+        "title": "Validatie datum",
+        "description": "Datum van validatie."
+      },
+      "tabelnaam": {
+        "type": "string",
+        "title": "Naam tabel",
+        "description": "Naam van de geanalyseerde tabel."
+      },
+      "attrnaam": {
+        "type": "string",
+        "title": "Attribuutnaam",
+        "description": "Naam van het geanalyseerde attribuut."
+      },
+      "value": {
+        "type": "string",
+        "title": "Attribuut waarde",
+        "description": "Waarde van het attribuut."
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "uitgevoerdonderzoek",
+  "title": "Uitgevoerd onderzoek",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "kenmerk",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Geometry.json"
+      },
+      "kenmerk": {
+        "type": "string"
+      },
+      "detailType": {
+        "type": "string",
+        "provenance": "soort_rapp"
+      },
+      "onderzoeksgebied": {
+        "type": "string",
+        "provenance": "onderzoeks"
+      },
+      "opdrachtnemer": {
+        "type": "string",
+        "provenance": "opdrachtne"
+      },
+      "opdrachtgever": {
+        "type": "string",
+        "provenance": "opdrachtge"
+      },
+      "verdachtgebied": {
+        "type": "string",
+        "provenance": "verdacht_g"
+      },
+      "datum": {
+        "type": "string",
+        "format": "date"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "touringcar",
+  "title": "Gebied met milieuzone touringcars vanaf 01/01/2025",
+  "type": "table",
+  "version": "1.1.2",
+  "lifecycleStatus": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "identifier": "id",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "Touringcar milieuzone ID",
+        "description": "Unieke aanduiding van het milieuzone gebied voor touringcars."
+      },
+      "geometry": {
+        "title": "Touringcar milieuzone geometrie",
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992)."
+      }
+    }
+  }
+}

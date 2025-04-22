@@ -1,0 +1,77 @@
+{
+  "id": "bagpandbevatverblijfsobjecten",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "crs": "EPSG:28992",
+  "status": "beschikbaar",
+  "owner": "Gemeente Amsterdam",
+  "publisher": {
+    "$ref": "publishers/BENK"
+  },
+  "creator": "Basisinformatie",
+  "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
+  "description": "Specifiek voor Data Verkenner gemaakte BAG-tabel van Panden met de verblijfsobjecten die ze bevatten.",
+  "temporal": {
+    "identifier": "verblijfsobjectenVolgnummer",
+    "dimensions": {
+      "geldigOp": [
+        "beginGeldigheid",
+        "eindGeldigheid"
+      ]
+    }
+  },
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "verblijfsobjectenId",
+      "ligtInPandenId"
+    ],
+    "display": "verblijfsobjectenIdentificatie",
+    "required": [
+      "schema",
+      "verblijfsobjectenIdentificatie"
+    ],
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "verblijfsobjectenId": {
+        "type": "string",
+        "description": "Landelijke identificerende sleutel."
+      },
+      "verblijfsobjectenIdentificatie": {
+        "type": "string",
+        "description": "Landelijke identificerende sleutel."
+      },
+      "verblijfsobjectenVolgnummer": {
+        "type": "integer",
+        "description": "Volgnummer van de nummeraanduiding in de administratie van de bronhouder."
+      },
+      "ligtInPandenId": {
+        "type": "string",
+        "description": "Landelijke identificerende sleutel."
+      },
+      "ligtInPandenIdentificatie": {
+        "type": "string",
+        "description": "Landelijke identificerende sleutel."
+      },
+      "ligtInPandenVolgnummer": {
+        "type": "integer",
+        "description": "Volgnummer van de nummeraanduiding in de administratie van de bronhouder."
+      },
+      "beginGeldigheid": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop de nummeraanduiding geldig is geworden."
+      },
+      "eindGeldigheid": {
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop de nummeraanduiding niet meer geldig is."
+      }
+    }
+  }
+}

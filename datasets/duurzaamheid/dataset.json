@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "duurzaamheid",
   "title": "Duurzaamheid",
-  "status": "beschikbaar",
   "description": "De energielabel per verblijfsobject van de gemeente Amsterdam.",
-  "version": "1.0.0",
   "dateCreated": "2024-10-29T00:00:00+01:00",
   "dateModified": "2024-10-29T00:00:00+01:00",
   "language": "nl",
@@ -15,8 +13,8 @@
   "accrualPeriodicity": "maandelijks",
   "spatialDescription": "Gemeente Amsterdam",
   "theme": [
-        "energielabel",
-        "duurzaamheid"
+    "energielabel",
+    "duurzaamheid"
   ],
   "owner": "Gemeente Amsterdam",
   "auth": "OPENBAAR",
@@ -26,13 +24,18 @@
     "duurzaamheid"
   ],
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "energielabel",
-      "$ref": "energielabel/v1.1.2",
-      "activeVersions": {
-        "1.1.2": "energielabel/v1.1.2"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "energielabel",
+          "$ref": "energielabel/v1"
+        }
+      ]
     }
-  ]
+  }
 }

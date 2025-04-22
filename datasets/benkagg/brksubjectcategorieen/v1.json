@@ -1,0 +1,46 @@
+{
+  "id": "brksubjectcategorieen",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "crs": "EPSG:28992",
+  "status": "beschikbaar",
+  "owner": "Gemeente Amsterdam",
+  "publisher": {
+    "$ref": "publishers/BENK"
+  },
+  "creator": "Basisinformatie",
+  "auth": "OPENBAAR",
+  "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
+  "description": "BRK-tabel van Kadastrale subjecten met hun categorie.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "identificatie"
+    ],
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "De aan dit subject toegekende landelijk unieke aanduiding"
+      },
+      "categorie": {
+        "type": "string",
+        "description": "De omschrijving van de categorie waarbinnen dit kadastrale subject valt. Voor uitleg over de categorieën: https://www.amsterdam.nl/stelselpedia/brk-index/producten-brk/uitleg-kadastertabel/ onder het kopje 'Filter op Zakelijk gerechtigde'."
+      },
+      "categorieCode": {
+        "type": "integer",
+        "description": "De code van de categorie waarbinnen dit kadastrale subject valt. Voor uitleg over de categorieën: https://www.amsterdam.nl/stelselpedia/brk-index/producten-brk/uitleg-kadastertabel/ onder het kopje 'Filter op Zakelijk gerechtigde'."
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "id": "servicecontract",
+  "type": "table",
+  "version": "1.1.0",
+  "lifecycleStatus": "stable",
+  "titel": "servicecontract",
+  "description": "Deze end-point bevat de servicecontract gegevens over transport- of werkmaterieel",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "id",
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "title": "Objectservicecontract ID",
+        "type": "string",
+        "description": "Uniek identificerend kenmerk voor van het objectservicecontract"
+      },
+      "wagenparkMaterieel": {
+        "title": "Servicecontract materieel ID",
+        "type": "string",
+        "relation": "wagenpark:materieel",
+        "description": "Uniek identificerend kenmerk voor transport- en werkmaterieel"
+      },
+      "batchnummer": {
+        "title": "Batchnummer",
+        "type": "string",
+        "description": "Door de financieel medewerker tijdens het inlezen meegegeven batchnummer, bedoeld om de verschillende geïmporteerde CSV-bestanden te kunnen identificeren"
+      },
+      "documentnummer": {
+        "title": "Documentnummer",
+        "type": "string",
+        "description": "Optioneel door de financieel medewerker toegevoegde documentnummer van de gekoppelde factuur in AFS"
+      },
+      "contractstartdatum": {
+        "title": "Contractstartdatum",
+        "type": "string",
+        "format": "date",
+        "description": "Startdatum van het betreffende contract"
+      },
+      "contracteinddatum": {
+        "title": "Contracteinddatum",
+        "type": "string",
+        "format": "date",
+        "description": "Einddatum van het betreffende contract"
+      },
+      "kosten": {
+        "title": "Kosten",
+        "type": "number",
+        "multipleOf": 0.01,
+        "description": "De kosten in euro's exclusief BTW behorende bij de desbetreffende kostenregel"
+      },
+      "statusObjectServicecontract": {
+        "title": "Status objectservicecontract",
+        "type": "string",
+        "description": "De status van een objectservicecontract"
+      },
+      "omschrijvingKostenregel": {
+        "title": "Omschrijving kostenregel",
+        "type": "string",
+        "description": "Optioneel door de financieel medewerker toegevoegde beschrijving van de desbetreffende kostenregel"
+      },
+      "servicecontractId": {
+        "title": "Servicecontract ID",
+        "type": "string",
+        "description": "Uniek identificerend kenmerk van het servicecontract"
+      },
+      "omschrijving": {
+        "title": "Servicecontract omschrijving",
+        "type": "string",
+        "description": "Omschrijving van een servicecontract"
+      },
+      "status": {
+        "title": "Status servicecontract",
+        "type": "string",
+        "enum": [
+          "-1",
+          "0",
+          "1",
+          "2",
+          "8",
+          "16",
+          "32",
+          "64",
+          "128",
+          "256",
+          "512",
+          "32768"
+        ],
+        "description": "Status van een servicecontract. De volgende waardes zijn mogelijk. 0=contract, 1=contract, 2=contract, 4=SLA, 8=contract, 16=huurcontract, 32=contract, 64=contract, 128=contract, 256=contract, 512=Prijsafspraak, 32768= contract"
+      }
+    }
+  }
+}

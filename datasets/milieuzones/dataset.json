@@ -4,8 +4,6 @@
   "title": "Milieuzones",
   "description": "Milieuzones gedefinieerd voor touringcar, taxi, brom-en snorfiets, vrachtautos en bestelautos.",
   "license": "public",
-  "status": "beschikbaar",
-  "version": "0.0.1",
   "theme": [
     "milieuzones",
     "Ruimte en Topografie"
@@ -21,196 +19,34 @@
     "milieuzones"
   ],
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "touringcar",
-      "title": "Touringcar milieuzone",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "verkeerstype",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van de milieuzone."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Polygoon definitie van de milieuzone."
-          },
-          "verkeerstype": {
-            "type": "string",
-            "description": "Typering van het verkeer waarop milieuzone van toepassing is."
-          },
-          "vanafdatum": {
-            "type": "string",
-            "format": "date",
-            "description": "Datum van wanneer milieuzone van kracht is."
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "touringcar",
+          "$ref": "touringcar/v1"
+        },
+        {
+          "id": "taxi",
+          "$ref": "taxi/v1"
+        },
+        {
+          "id": "bromensnorfiets",
+          "$ref": "bromensnorfiets/v1"
+        },
+        {
+          "id": "vrachtauto",
+          "$ref": "vrachtauto/v1"
+        },
+        {
+          "id": "bestelbus",
+          "$ref": "bestelbus/v1"
         }
-      }
-    },
-    {
-      "id": "taxi",
-      "title": "Taxi milieuzone",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "verkeerstype",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van de milieuzone."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Polygoon definitie van de milieuzone."
-          },
-          "verkeerstype": {
-            "type": "string",
-            "description": "Typering van het verkeer waarop milieuzone van toepassing is."
-          },
-          "vanafdatum": {
-            "type": "string",
-            "format": "date",
-            "description": "Datum van wanneer milieuzone van kracht is."
-          }
-        }
-      }
-    },
-    {
-      "id": "bromensnorfiets",
-      "title": "Brom-en snorfiets milieuzone",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "verkeerstype",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van de milieuzone."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Polygoon definitie van de milieuzone."
-          },
-          "verkeerstype": {
-            "type": "string",
-            "description": "Typering van het verkeer waarop milieuzone van toepassing is."
-          },
-          "vanafdatum": {
-            "type": "string",
-            "format": "date",
-            "description": "Datum van wanneer milieuzone van kracht is."
-          }
-        }
-      }
-    },
-    {
-      "id": "vrachtauto",
-      "title": "Vrachtauto milieuzone",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "verkeerstype",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van de milieuzone."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Polygoon definitie van de milieuzone."
-          },
-          "verkeerstype": {
-            "type": "string",
-            "description": "Typering van het verkeer waarop milieuzone van toepassing is."
-          },
-          "vanafdatum": {
-            "type": "string",
-            "format": "date",
-            "description": "Datum van wanneer milieuzone van kracht is."
-          }
-        }
-      }
-    },
-    {
-      "id": "bestelbus",
-      "title": "Bestelbus milieuzone",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "verkeerstype",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van de milieuzone."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Polygoon definitie van de milieuzone."
-          },
-          "verkeerstype": {
-            "type": "string",
-            "description": "Typering van het verkeer waarop milieuzone van toepassing is."
-          },
-          "vanafdatum": {
-            "type": "string",
-            "format": "date",
-            "description": "Datum van wanneer milieuzone van kracht is."
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

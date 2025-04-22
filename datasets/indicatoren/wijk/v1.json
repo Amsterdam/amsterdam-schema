@@ -1,0 +1,203 @@
+{
+  "id": "wijk",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "type": "table",
+  "provenance": "indicatoren_wijk",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "id",
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke identifier voor de indicator."
+      },
+      "indNaam": {
+        "type": "string",
+        "description": "De naam voor de indicator."
+      },
+      "indWaarde": {
+        "type": "number",
+        "description": "Berekende waarde van de indicator op basis van de brondata."
+      },
+      "indTeller": {
+        "type": "number",
+        "description": "Aantal van de registraties waarop de de indicator van toepassing is."
+      },
+      "indNoemer": {
+        "type": "number",
+        "description": "Totaal aantal van de registraties waarover de indicator-waarde is berekend."
+      },
+      "indNorm": {
+        "type": "string",
+        "description": "Vastgestelde norm-waarde voor de indicator."
+      },
+      "indNormBron": {
+        "type": "string",
+        "description": "Herkomst van de norm (bijv. Landelijk (wettelijk), bestuurlijk (APV), bedrijf, etc.)."
+      },
+      "indNormDefinitie": {
+        "type": "string",
+        "description": "Beschrijving waarop de norm is gebaseerd."
+      },
+      "indPeildatumAfleiding": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Peildatum van de brondata waarop de indicatorwaarde is berekend."
+      },
+      "indDefinitie": {
+        "type": "string",
+        "description": "Beschrijving van de indicator."
+      },
+      "indVariableType": {
+        "type": "string",
+        "description": "Logische beschrijving van het type indicator-waarde (zoals nominaal, interval, cyclisch, etc)."
+      },
+      "indDatatype": {
+        "type": "string",
+        "description": "Datatype van de indicator-waarde (bijv integer, floating-point, boolean, etc)."
+      },
+      "indGrootheid": {
+        "type": "string",
+        "description": "Grootheid van de indicator -norm en de -waarde (bijv aandeel (fractie), gewicht, aantal,  etc.)."
+      },
+      "indEenheid": {
+        "type": "string",
+        "description": "Eenheid van de indicator -norm en de -waarde (bijv percentage, kilogram, etc)."
+      },
+      "indFrequentieAfleiding": {
+        "type": "string",
+        "description": "Frequentie waarmee de indicator-waarde wordt berekend/ververst (bijv dagelijks, wekelijks, maandelijks)."
+      },
+      "indBron": {
+        "type": "string",
+        "description": "Bron voor de berekening van de indicator-waarde."
+      },
+      "indDomeinNaam": {
+        "type": "string",
+        "description": "Domein waarover de indicator iets zegt."
+      },
+      "indTempUur": {
+        "type": "integer",
+        "description": "Temporele resolutie waarde van het uur waarop de indicator-waarde is gebaseerd (indien van toepassing)."
+      },
+      "indTempDag": {
+        "type": "integer",
+        "description": "Temporele resolutie waarde van de dag waarop de indicator-waarde is gebaseerd (indien van toepassing)."
+      },
+      "indTempWeek": {
+        "type": "integer",
+        "description": "Temporele resolutie waarde van de week waarop de indicator-waarde is gebaseerd (indien van toepassing)."
+      },
+      "indTempMaand": {
+        "type": "integer",
+        "description": "Temporele resolutie waarde van de maand waarop de indicator-waarde is gebaseerd (indien van toepassing)."
+      },
+      "indTempKwartaal": {
+        "type": "integer",
+        "description": "Temporele resolutie waarde van het kwartaal waarop de indicator-waarde is gebaseerd (indien van toepassing)."
+      },
+      "indTempHalfjaar": {
+        "type": "integer",
+        "description": "Temporele resolutie waarde van het halfjaar waarop de indicator-waarde is gebaseerd (indien van toepassing)."
+      },
+      "indTempJaar": {
+        "type": "integer",
+        "description": "Temporele resolutie waarde van het jaar waarop de indicator-waarde is gebaseerd (indien van toepassing)."
+      },
+      "indTempLustrum": {
+        "type": "integer",
+        "description": "Temporele resolutie waarde van het lustrum waarop de indicator-waarde is gebaseerd (indien van toepassing)."
+      },
+      "indTempDecennium": {
+        "type": "integer",
+        "description": "Temporele resolutie waarde van het decennium waarop de indicator-waarde is gebaseerd (indien van toepassing)."
+      },
+      "indDirectie": {
+        "type": "string",
+        "description": "Directie waarop de indicator betrekking heeft (indien van toepassing)."
+      },
+      "indAfdeling": {
+        "type": "string",
+        "description": "Afdeling waarop de indicator betrekking heeft (indien van toepassing)."
+      },
+      "indBeginPeriode": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum (vanaf) waarop de temporele resolutie, waarover de waarde is berekend, begint."
+      },
+      "indEindPeriode": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum (tot en met) waarop de temporele resolutie, waarover de waarde is berekend, eindigt."
+      },
+      "indDoelenboom": {
+        "type": "string",
+        "description": "Unieke identifier van de doelenboom waarop de indicator betrekking heeft (indien van toepassing)."
+      },
+      "indDoelenboomActiviteit": {
+        "type": "string",
+        "description": "Naam van de doelenboom waarop de indicator betrekking heeft (indien van toepassing)."
+      },
+      "gbdWijk": {
+        "type": "integer",
+        "relation": "gebieden:wijken",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/wijk/",
+        "description": "Verwijzing naar de unieke identifier van de wijk waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
+      },
+      "gbdWijkVolgnummer": {
+        "type": "integer",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/wijk/",
+        "description": "Volgnummer van de wijkregistratie waarop de indicator-waarde is gebaseerd (leeg is altijd meest recente)."
+      },
+      "gbdWijkNaam": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/wijk/",
+        "description": "Naam van de wijk waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
+      },
+      "gbdGgw": {
+        "type": "integer",
+        "relation": "gebieden:ggwgebieden",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/ggw/",
+        "description": "Verwijzing naar de unieke identifier van het gebiedsgericht werken gebied waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
+      },
+      "gbdGgwNaam": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/ggw/",
+        "description": "Naam van het gebiedsgericht werken gebied waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
+      },
+      "gbdStadsdeel": {
+        "type": "integer",
+        "relation": "gebieden:stadsdelen",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
+        "description": "Verwijzing naar de unieke identifier van het stadsdeel waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
+      },
+      "gbdStadsdeelNaam": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
+        "description": "Naam van het stadsdeel waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
+      },
+      "bagWoonplaats": {
+        "type": "integer",
+        "relation": "bag:woonplaatsen",
+        "uri": "https://www.amsterdam.nl/stelselpedia/bag-index/catalogus-bag/objectklasse-woonplaats/",
+        "description": "Verwijzing naar de unieke identifier van de woonplaats waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
+      },
+      "bagWoonplaatsNaam": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/bag-index/catalogus-bag/objectklasse-woonplaats/",
+        "description": "Naam van de woonplaats waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
+      }
+    }
+  }
+}

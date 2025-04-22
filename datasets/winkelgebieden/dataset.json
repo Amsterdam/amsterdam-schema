@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "winkelgebieden",
   "title": "winkelgebieden",
-  "status": "beschikbaar",
   "description": "Winkelgebieden",
-  "version": "0.0.1",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "creator": "bronhouder onbekend",
@@ -13,74 +11,18 @@
   },
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
-  "tables": [
-    {
-      "id": "winkelgebieden",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "gebiedsnaam",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json"
-          },
-          "gebiedscode": {
-            "type": "string",
-            "provenance": "gebcode"
-          },
-          "gebiedsnaam": {
-            "type": "string",
-            "provenance": "gebnaam"
-          },
-          "code": {
-            "type": "string"
-          },
-          "oppervlakte": {
-            "type": "number",
-            "provenance": "oppha",
-            "unit": "har"
-          },
-          "winkelgebiedcode": {
-            "type": "string",
-            "provenance": "codewg"
-          },
-          "concentratiegebiedcode": {
-            "type": "string",
-            "provenance": "concgebied"
-          },
-          "concentratiegebiednaam": {
-            "type": "string",
-            "provenance": "concnaam"
-          },
-          "wijk": {
-            "type": "string",
-            "provenance": "bc2015"
-          },
-          "gebied": {
-            "type": "string",
-            "provenance": "geb22"
-          },
-          "categorie": {
-            "type": "string"
-          },
-          "categorienaam": {
-            "type": "string"
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "winkelgebieden",
+          "$ref": "winkelgebieden/v1"
         }
-      }
+      ]
     }
-  ]
+  }
 }

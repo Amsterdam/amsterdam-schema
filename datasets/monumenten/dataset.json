@@ -2,12 +2,10 @@
   "type": "dataset",
   "id": "monumenten",
   "title": "monumenten",
-  "version": "1.0.0",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam, DataOffice",
   "publisher": "Datateam Basis- en Kernregistraties",
   "creator": "Monumenten en Archeologie",
-  "status": "beschikbaar",
   "description": "de kernregistratie monumenten bevat alle rijksmonumenten en gemeentelijke monumenten in Amsterdam",
   "homepage": "https://www.amsterdam.nl/stelselpedia/monumenten-index",
   "auth": "OPENBAAR",
@@ -15,34 +13,30 @@
   "contactPoint": {
     "email": "OIS.GOB@amsterdam.nl"
   },
-  "tables": [
-    {
-      "id": "complexen",
-      "$ref": "complexen/v3.0.3",
-      "activeVersions": {
-        "3.0.3": "complexen/v3.0.3"
-      }
-    },
-    {
-      "id": "monumenten",
-      "$ref": "monumenten/v2.0.2",
-      "activeVersions": {
-        "2.0.2": "monumenten/v2.0.2"
-      }
-    },
-    {
-      "id": "situeringen",
-      "$ref": "situeringen/v3.0.2",
-      "activeVersions": {
-        "3.0.2": "situeringen/v3.0.2"
-      }
-    },
-    {
-      "id": "unesco",
-      "$ref": "unesco/v3.0.2",
-      "activeVersions": {
-        "3.0.2": "unesco/v3.0.2"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "complexen",
+          "$ref": "complexen/v3"
+        },
+        {
+          "id": "monumenten",
+          "$ref": "monumenten/v2"
+        },
+        {
+          "id": "situeringen",
+          "$ref": "situeringen/v3"
+        },
+        {
+          "id": "unesco",
+          "$ref": "unesco/v3"
+        }
+      ]
     }
-  ]
+  }
 }

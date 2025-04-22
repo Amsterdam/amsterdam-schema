@@ -1,0 +1,70 @@
+{
+  "id": "daken",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": ""
+      },
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "bouwjaar": {
+        "type": "number",
+        "description": "Bouwjaar"
+      },
+      "gebruiksdoel": {
+        "type": "string",
+        "description": "Gebruiksdoel"
+      },
+      "status": {
+        "type": "string",
+        "description": "Status"
+      },
+      "woonplaats": {
+        "type": "string",
+        "description": "Woonplaats"
+      },
+      "perceelnummer": {
+        "type": "number",
+        "description": "Perceelnummer"
+      },
+      "bestemming": {
+        "type": "string",
+        "description": "Bestemming"
+      },
+      "asbestVerdacht": {
+        "type": "boolean",
+        "description": "Asbest Verdacht"
+      },
+      "kwaliteit": {
+        "type": "string",
+        "description": "Kwaliteit"
+      },
+      "oppervlakte": {
+        "type": "number",
+        "description": "Oppervlakte",
+        "unit": "m2"
+      },
+      "kadaster": {
+        "type": "string",
+        "description": "Kadaster"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Geometrie"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

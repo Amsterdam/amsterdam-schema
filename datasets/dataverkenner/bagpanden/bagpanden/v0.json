@@ -1,0 +1,112 @@
+{
+  "type": "table",
+  "id": "bagpanden",
+  "version": "0.0.1",
+  "crs": "EPSG:28992",
+  "auth": "OPENBAAR",
+  "derivedFrom": [
+    "bag:panden"
+  ],
+  "temporal": {
+    "identifier": "pandVolgnummer",
+    "dimensions": {
+      "geldigOp": [
+        "pandBeginGeldigheid",
+        "pandEindGeldigheid"
+      ]
+    }
+  },
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "pandGeometrie",
+    "identifier": [
+      "pandIdentificatie",
+      "pandVolgnummer"
+    ],
+    "required": [
+      "schema",
+      "pandIdentificatie",
+      "pandVolgnummer"
+    ],
+    "display": "pandIdentificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Interne unieke identificatie van een pand."
+      },
+      "pandIdentificatie": {
+        "type": "string",
+        "description": "Landelijke identificerende sleutel."
+      },
+      "pandVolgnummer": {
+        "type": "integer",
+        "description": "Uniek volgnummer van de toestand van het object."
+      },
+      "pandGeometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Vorm en ligging van het pand in het Nationale Rijksdriehoekstelsel."
+      },
+      "pandOorspronkelijkBouwjaar": {
+        "type": "integer",
+        "description": "De aanduiding van het jaar waarin een pand oorspronkelijk als bouwkundig gereed is of wordt opgeleverd."
+      },
+      "pandNaam": {
+        "type": "string",
+        "description": "Naamgeving van een pand (bv. naam van metrostation of bijzonder gebouw)."
+      },
+      "pandGeconstateerd": {
+        "type": "boolean",
+        "description": "Dit geeft aan dat een PAND in de registratie is opgenomen als gevolg van een feitelijke constatering en niet op basis van een regulier brondocument (J/N)."
+      },
+      "pandStatusOmschrijving": {
+        "type": "string",
+        "description": "De fase van de levenscyclus van een pand, waarin het betreffende pand zich bevindt."
+      },
+      "pandLiggingOmschrijving": {
+        "type": "string",
+        "description": "Situering pand met verblijfsobject (vrijstaand, tussenwoning, etc.). omschrijving"
+      },
+      "pandTypeWoonobject": {
+        "type": "string",
+        "description": "Eén woning, Meerdere woningen."
+      },
+      "pandAantalBouwlagen": {
+        "type": "integer",
+        "description": "Aantal bouwlagen van een pand."
+      },
+      "pandHoogsteBouwlaag": {
+        "type": "integer",
+        "description": "Hoogste bouwlaag van een pand."
+      },
+      "pandLaagsteBouwlaag": {
+        "type": "integer",
+        "description": "Laagste bouwlaag van een pand."
+      },
+      "pandDocumentdatum": {
+        "type": "string",
+        "format": "date",
+        "description": "De datum waarop het brondocument is vastgesteld."
+      },
+      "pandDocumentnummer": {
+        "type": "string",
+        "description": "Het unieke nummer van het brondocument."
+      },
+      "pandBeginGeldigheid": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Begindatum van de geldigheid van de gegevens van het pand."
+      },
+      "pandEindGeldigheid": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de geldigheid van de gegevens van het pand."
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

@@ -1,0 +1,315 @@
+{
+  "id": "verhardingen",
+  "type": "table",
+  "auth": "OPENBAAR",
+  "license": "CC BY-NC",
+  "title": "Verhardingen",
+  "description": "Verharde lagen van een weglichaam, speel- en sportondergronden en onbegroeid terreindelen inclusief fundering.",
+  "identifier": "id",
+  "version": "1.6.0",
+  "lifecycleStatus": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "description": "Uniek identificerend kenmerk van het object.",
+        "type": "integer",
+        "title": "Object ID"
+      },
+      "guid": {
+        "description": "Uniek nummer van het IMBOR-object (GUID)",
+        "type": "string",
+        "title": "Guid"
+      },
+      "imgeoIdentificatie": {
+        "description": "Overerving van de geometrie van beheerobject uit bovenliggend informatiemodel of automatisch genereren.",
+        "type": "string",
+        "title": "Imgeo identificatie"
+      },
+      "identificatie": {
+        "description": "Uniek identificatienummer voor het object dat onveranderlijk is zolang het object bestaat.",
+        "type": "string",
+        "title": "Verhardingen Identificatie"
+      },
+      "afmeting": {
+        "auth": [
+          "FP/IASSET",
+          "FP/MDW"
+        ],
+        "reasonsNonPublic": [
+          "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+        ],
+        "description": "Nadere toelichting van de afmeting van een object in lengte, breedte en hoogte.",
+        "type": "string",
+        "unit": "m",
+        "title": "Afmeting"
+      },
+      "bagOpenbareRuimteNaam": {
+        "description": "Officiële naam openbare ruimte",
+        "type": "string",
+        "title": "Openbare ruimte naam"
+      },
+      "bagWoonplaatsNaam": {
+        "description": "Een woonplaatsnaam is de naam van een door het bevoegde gemeentelijke orgaan als zodanig aangewezen gedeelte van het gemeentelijk grondgebied",
+        "type": "string",
+        "title": "Woonplaats naam"
+      },
+      "beginGarantieperiode": {
+        "description": "Jaar waarin de garantieperiode van het opgeleverde beheerobject begint.",
+        "auth": [
+          "FP/IASSET",
+          "FP/MDW"
+        ],
+        "reasonsNonPublic": [
+          "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+        ],
+        "type": "string",
+        "format": "date",
+        "title": "Begin garantieperiode"
+      },
+      "beheergebied": {
+        "description": "Aanduiding van het beheergebied waarbinnen het beheerobject ligt. Indeling in beheergebieden is organisatiespecifiek.",
+        "type": "string",
+        "title": "Beheergebied"
+      },
+      "breedte": {
+        "description": "Breedte van het beheerobject",
+        "type": "number",
+        "unit": "m",
+        "title": "Breedte"
+      },
+      "brkGemeenteNaam": {
+        "description": "De officiële vastgestelde gemeentenaam",
+        "type": "string",
+        "shortname": "brkGmeNaam",
+        "title": "Gemeente naam"
+      },
+      "dikteConstructie": {
+        "description": "Aanduiding van de zwaarte van de constructie van het beheerobject.",
+        "auth": [
+          "FP/IASSET",
+          "FP/MDW"
+        ],
+        "reasonsNonPublic": [
+          "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+        ],
+        "type": "string",
+        "title": "Dikte constructie"
+      },
+      "mutatiedatum": {
+        "description": "Datum waarop het object voor het laatst is gewijzigd.",
+        "type": "string",
+        "format": "date-time",
+        "title": "Mutatiedatum"
+      },
+      "eindeGarantieperiode": {
+        "description": "Jaar (datum) waarin de garantieperiode van het opgeleverde beheerobject eindigt.",
+        "auth": [
+          "FP/IASSET",
+          "FP/MDW"
+        ],
+        "reasonsNonPublic": [
+          "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+        ],
+        "type": "string",
+        "format": "date",
+        "title": "Einde garantieperiode"
+      },
+      "fabrikant": {
+        "description": "Fabrikant van het beheerobject.",
+        "auth": [
+          "FP/IASSET",
+          "FP/MDW"
+        ],
+        "reasonsNonPublic": [
+          "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+        ],
+        "type": "string",
+        "title": "Fabrikant"
+      },
+      "formaat": {
+        "description": "Aanduiding voor het formaat van elementenverharding.",
+        "auth": [
+          "FP/IASSET",
+          "FP/MDW"
+        ],
+        "reasonsNonPublic": [
+          "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+        ],
+        "type": "string",
+        "title": "Formaat"
+      },
+      "gbdBuurtNaam": {
+        "description": "De naam van de buurt",
+        "type": "string",
+        "title": "Buurt naam"
+      },
+      "gbdStadsdeelNaam": {
+        "description": "Een naam die aan een stadsdeel is toegekend in een daartoe strekkend formeel gemeentelijk besluit",
+        "type": "string",
+        "title": "Stadsdeel naam"
+      },
+      "gbdWijkNaam": {
+        "description": "De naam van de wijk",
+        "type": "string",
+        "title": "Wijk naam"
+      },
+      "gebruiksfunctie": {
+        "description": "Aanduiding van Ã©Ã©n of meer gebruiksfuncties van het beheerobject.",
+        "type": "string",
+        "title": "Gebruiksfunctie"
+      },
+      "geluidsreducerend": {
+        "description": "Registratie of een object een geluidsreducerend effect heeft.",
+        "type": "boolean",
+        "title": "Geluidsreducerend"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992)",
+        "title": "Geometrie"
+      },
+      "imborVersie": {
+        "description": "Versie-aanduiding van het Informatiemodel Beheer Openbare Ruimte (IMBOR).",
+        "type": "string",
+        "title": "Imbor versie"
+      },
+      "jaarConserveren": {
+        "description": "Het jaar waarin schade(s) aan een beheerobject is geconserveerd.",
+        "type": "number",
+        "title": "Jaar conserveren"
+      },
+      "jaarUitgevoerdOnderhoud": {
+        "description": "Het jaar waarin het onderhoud van een beheerobject is uitgevoerd.",
+        "type": "number",
+        "title": "Beheerobject onderhoud uitgevoerd jaar"
+      },
+      "jaarVanAanleg": {
+        "description": "Jaar waarin het beheerobject is aangelegd of aangeplant (kan ook voor de plaatsingsdatum gebruikt worden).",
+        "type": "number",
+        "title": "Jaar van aanleg"
+      },
+      "kleur": {
+        "description": "Kleur van een beheerobject.",
+        "type": "string",
+        "title": "Beheerobject kleur"
+      },
+      "lengte": {
+        "description": "Lengte van het beheerobject",
+        "type": "number",
+        "unit": "m",
+        "title": "Beheerobject lengte"
+      },
+      "materiaal": {
+        "description": "Lijst met materialen waaruit het beheerobject opgebouwd is.",
+        "auth": [
+          "FP/IASSET",
+          "FP/MDW"
+        ],
+        "reasonsNonPublic": [
+          "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+        ],
+        "type": "string",
+        "title": "Materiaal"
+      },
+      "objecttype": {
+        "description": "Kleinste functionele eenheid (beheerobject of hulpobject).",
+        "type": "string",
+        "title": "Objecttype"
+      },
+      "omtrek": {
+        "description": "Omtrek van het beheerobject.",
+        "type": "number",
+        "unit": "m",
+        "title": "Omtrek"
+      },
+      "onderhoudsplichtige": {
+        "description": "Organisatie die verantwoordelijk is voor het onderhoud van het beheerobject",
+        "type": "string",
+        "title": "Onderhoudsplichtige"
+      },
+      "opleverdatum": {
+        "description": "Datum waarop het beheerobject daadwerkelijk opgeleverd is. Begin van de garantieperiode.",
+        "auth": [
+          "FP/IASSET",
+          "FP/MDW"
+        ],
+        "reasonsNonPublic": [
+          "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+        ],
+        "type": "string",
+        "format": "date",
+        "title": "Opleverdatum"
+      },
+      "oppervlakteGis": {
+        "description": "Oppervlakte van het  beheerobject, overname van BGT/IMGeo.",
+        "type": "number",
+        "unit": "m2",
+        "title": "Oppervlakte gis"
+      },
+      "relatieveHoogteligging": {
+        "description": "Aanduiding voor de relatieve hoogte van het object",
+        "type": "string",
+        "title": "Relatieve hoogteligging"
+      },
+      "typeObject": {
+        "description": "Typering van het beheerobject.",
+        "type": "string",
+        "title": "Type object"
+      },
+      "typeBeheerder": {
+        "description": "Een publiekrechtelijke instantie of (rechts) persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT).",
+        "type": "string",
+        "title": "Type beheerder"
+      },
+      "typeBeheerderPlus": {
+        "description": "Nadere specificatie van de beheerder van het beheerobject.",
+        "type": "string",
+        "title": "Type beheerder plus"
+      },
+      "typePlus": {
+        "description": "Nadere typering van het type beheerobject.",
+        "type": "string",
+        "title": "Type beheerobject plus"
+      },
+      "typePlus2": {
+        "description": "Extra typering van het beheerobject, nadere typering van type gedetailleerd.",
+        "type": "string",
+        "title": "Type beheerobject plus2"
+      },
+      "typeRijstrook": {
+        "description": "Begrensd gedeelte van de rijbaan dat voldoende breed is voor een rij van het voor dat gedeelte bestemde verkeer.",
+        "type": "string",
+        "title": "Type rijstrook"
+      },
+      "waterdoorlatendheid": {
+        "description": "Waterdoorlatendheid betreft de aanwezigheid van infiltratiebestrating. Bij infiltratiebestrating loopt water niet meer via kolken in het riool, maar door (waterdoorlatend) of langs (waterpasserend) de bestrating de grond in.",
+        "auth": [
+          "FP/IASSET",
+          "FP/MDW"
+        ],
+        "reasonsNonPublic": [
+          "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+        ],
+        "type": "string",
+        "title": "Waterdoorlatendheid"
+      },
+      "wegtypeBestaand": {
+        "description": "Indeling in wegtypen conform de CROW Systematiek Wegbeheer.",
+        "type": "string",
+        "title": "Wegtype bestaand"
+      }
+    }
+  }
+}

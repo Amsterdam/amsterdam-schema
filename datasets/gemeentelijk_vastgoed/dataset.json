@@ -9,7 +9,6 @@
   "homepage": "https://data.amsterdam.nl",
   "owner": "Directie Gemeentelijk Vastgoed, Gemeente Amsterdam",
   "spatialDescription": "Gemeente Amsterdam",
-  "version": "1.0.0",
   "title": "Gemeentelijk Vastgoed",
   "language": "nl",
   "dateCreated": "2024-12-09T00:00:00+01:00",
@@ -18,9 +17,8 @@
   "publisher": {
     "$ref": "/publishers/SOEB"
   },
-  "authorizationGrantor": "datateamsob@amsterdam.nl", 
+  "authorizationGrantor": "datateamsob@amsterdam.nl",
   "description": "De dataset bevat gegevens van gebouwen en verhuurbare eenheden in beheer van de directie Gemeentelijk Vastgoed. Het gaat hierbij om gebouwobjecten in volledige eigendom of waar de gemeente Amsterdam een appartementsrecht heeft.",
-  "status": "beschikbaar",
   "keywords": [
     "vastgoed",
     "gemeentelijk vastgoed",
@@ -30,27 +28,45 @@
   ],
   "crs": "EPSG:28992",
   "temporalUnit": "",
-  "tables": [
-    {
-      "id": "gebouwobjecten",
-      "$ref": "gebouwobjecten/v1.0.2",
-      "activeVersions": {
-        "1.0.2": "gebouwobjecten/v1.0.2"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "gebouwobjecten",
+          "$ref": "gebouwobjecten/v1"
+        },
+        {
+          "id": "gebouwobjectenUitgebreid",
+          "$ref": "gebouwobjectenUitgebreid/v1"
+        },
+        {
+          "id": "verhuurbareEenheden",
+          "$ref": "verhuurbareEenheden/v1"
+        }
+      ]
     },
-    {
-      "id": "gebouwobjectenUitgebreid",
-      "$ref": "gebouwobjectenUitgebreid/v1.0.2",
-      "activeVersions": {
-        "1.0.2": "gebouwobjectenUitgebreid/v1.0.2"
-      }
-    },
-    {
-      "id": "verhuurbareEenheden",
-      "$ref": "verhuurbareEenheden/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "verhuurbareEenheden/v2.0.0"
-      }
+    "v2": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "experimental",
+      "version": "2.0.0",
+      "tables": [
+        {
+          "id": "gebouwobjecten",
+          "$ref": "gebouwobjecten/v1"
+        },
+        {
+          "id": "gebouwobjectenUitgebreid",
+          "$ref": "gebouwobjectenUitgebreid/v1"
+        },
+        {
+          "id": "verhuurbareEenheden",
+          "$ref": "verhuurbareEenheden/v2"
+        }
+      ]
     }
-  ]
+  }
 }

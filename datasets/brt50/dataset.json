@@ -3,8 +3,6 @@
   "id": "brt50",
   "title": "brt 50",
   "description": "De Basisregistratie Topografie (BRT) bevat de kleinschalige topografische objecten. De TOP50NL is specifiek vervaardigd voor visualisaties op schalen rond 1:50.000.",
-  "status": "beschikbaar",
-  "version": "1.0.0",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam, afdeling Basisinformatie",
   "publisher": {
@@ -33,90 +31,62 @@
     "labels",
     "plusinformatie"
   ],
-  "tables": [
-    {
-      "id": "functionelegebieden",
-      "$ref": "functionelegebieden/v1.0.1",
-      "activeVersions": {
-        "1.0.1": "functionelegebieden/v1.0.1"
-      }
-    },
-    {
-    "id": "gebouwen",
-    "$ref": "gebouwen/v1.0.1",
-    "activeVersions": {
-      "1.0.1": "gebouwen/v1.0.1"
-      }
-   },
-   {
-    "id": "hoogtes",
-    "$ref": "hoogtes/v1.0.1",
-    "activeVersions": {
-      "1.0.1": "hoogtes/v1.0.1"
-      }
-   },
-   {
-    "id": "inrichtingselementen",
-    "$ref": "inrichtingselementen/v1.0.1",
-    "activeVersions": {
-      "1.0.1": "inrichtingselementen/v1.0.1"
-      }
-   },
-   {
-    "id": "registratievegebieden",
-    "$ref": "registratievegebieden/v1.0.1",
-    "activeVersions": {
-      "1.0.1": "registratievegebieden/v1.0.1"
-      }
-   },
-   {
-    "id": "relief",
-    "$ref": "relief/v1.0.1",
-    "activeVersions": {
-      "1.0.1": "relief/v1.0.1"
-      }
-   },
-   {
-    "id": "spoorbaandelen",
-    "$ref": "spoorbaandelen/v1.0.1",
-    "activeVersions": {
-      "1.0.1": "spoorbaandelen/v1.0.1"
-      }
-   },
-   {
-    "id": "terreinen",
-    "$ref": "terreinen/v1.0.1",
-    "activeVersions": {
-      "1.0.1": "terreinen/v1.0.1"
-      }
-   },
-   {
-    "id": "waterdelen",
-    "$ref": "waterdelen/v1.0.1",
-    "activeVersions": {
-      "1.0.1": "waterdelen/v1.0.1"
-      }
-   },
-   {
-    "id": "wegdelen",
-    "$ref": "wegdelen/v1.0.1",
-    "activeVersions": {
-      "1.0.1": "wegdelen/v1.0.1"
-      }
-   },
-   {
-    "id": "pluslabels",
-    "$ref": "pluslabels/v1.0.1",
-    "activeVersions": {
-      "1.0.1": "pluslabels/v1.0.1"
-      }
-   },
-   {
-    "id": "plusterreinen",
-    "$ref": "plusterreinen/v1.0.1",
-    "activeVersions": {
-      "1.0.1": "plusterreinen/v1.0.1"
-      }
-   }
-  ]
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "functionelegebieden",
+          "$ref": "functionelegebieden/v1"
+        },
+        {
+          "id": "gebouwen",
+          "$ref": "gebouwen/v1"
+        },
+        {
+          "id": "hoogtes",
+          "$ref": "hoogtes/v1"
+        },
+        {
+          "id": "inrichtingselementen",
+          "$ref": "inrichtingselementen/v1"
+        },
+        {
+          "id": "registratievegebieden",
+          "$ref": "registratievegebieden/v1"
+        },
+        {
+          "id": "relief",
+          "$ref": "relief/v1"
+        },
+        {
+          "id": "spoorbaandelen",
+          "$ref": "spoorbaandelen/v1"
+        },
+        {
+          "id": "terreinen",
+          "$ref": "terreinen/v1"
+        },
+        {
+          "id": "waterdelen",
+          "$ref": "waterdelen/v1"
+        },
+        {
+          "id": "wegdelen",
+          "$ref": "wegdelen/v1"
+        },
+        {
+          "id": "pluslabels",
+          "$ref": "pluslabels/v1"
+        },
+        {
+          "id": "plusterreinen",
+          "$ref": "plusterreinen/v1"
+        }
+      ]
+    }
+  }
 }

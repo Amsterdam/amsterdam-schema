@@ -1,0 +1,136 @@
+{
+  "id": "japanseduizendknoopPercelen",
+  "type": "table",
+  "version": "2.0.0",
+  "lifecycleStatus": "stable",
+  "title": "Japanse duizendknoop op percelen",
+  "description": "Eigenaarschap van percelen waarop de japanse duizendknoop is geconstateerd.",
+  "authorizationGrantor": "Directie V&OR, stedelijk beheer, team groen, water & wegen",
+  "status": "beschikbaar",
+  "auth": "OPENBAAR",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke aanduiding van het record"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "title": "Perceel geometrie",
+        "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992). bevat een of meerdere vlakken"
+      },
+      "aandeel": {
+        "type": "string",
+        "description": "Aandeel in Recht is het aandeel waarvoor een tenaamgestelde deelneemt in het Recht",
+        "title": "Aandeel eigenaarschap"
+      },
+      "aangeduidDoorBrkKadastralegemeentecodeId": {
+        "type": "string",
+        "description": "De kadastrale gemeentecode. Het eerste deel van de kadastrale aanduiding. Bijvoorbeeld: ASD01, STN02.",
+        "title": "Kadastrale gemeentecode identificatie"
+      },
+      "aangeduidDoorBrkKadastralesectieId": {
+        "type": "string",
+        "description": "De kadastrale sectie, het tweede gedeelte van de aanduiding van een kadastraal object.",
+        "title": "Kadastrale sectie ID"
+      },
+      "aantalEigenaren": {
+        "type": "integer",
+        "description": "Aantal eigenaren van het Recht.",
+        "title": "Aantal eigenaren van perceel"
+      },
+      "aardZakelijkRecht": {
+        "type": "string",
+        "description": "Recht dat rust op een perceel. Het meest omvattende recht dat een persoon op een zaak kan hebben is eigendom.",
+        "title": "Aardzakelijk recht"
+      },
+      "categorie": {
+        "type": "string",
+        "description": "Categorie rechtspersoon",
+        "title": "Categorie rechtspersoon"
+      },
+      "deelVanInspectievlak": {
+        "type": "integer",
+        "description": "Deel van het Japanse Duizendknoop inspectievlak, in procenten",
+        "title": "Deel van het Japanse Duizendknoopinspectievlak, in procenten"
+      },
+      "deelVanKadastraalPerceel": {
+        "type": "integer",
+        "description": "Deel van het kadastraal perceel, in procenten",
+        "title": "Deel van het kadastraal perceel, in procenten"
+      },
+      "indexletter": {
+        "type": "string",
+        "description": "Letter Kadastraal object, dit geeft een indicatie voor het type object. G Grond perceel. A Appartementsrecht",
+        "title": "Kadastraal object indexletter"
+      },
+      "indexnummer": {
+        "type": "integer",
+        "description": "Volgnummer van het Appartementsrecht",
+        "title": "Kadastraal object indexnummer"
+      },
+      "japanseduizendknoopInspectiesId": {
+        "type": "string",
+        "description": "Unieke aanduiding van de Japanse Duizendknoop inspectie",
+        "title": "Japanse Duizendknoop inspectie ID"
+      },
+      "kadastraalobjectId": {
+        "type": "string",
+        "description": "De unieke aanduiding van een Kadastraal object",
+        "title": "Uniek kadastraal object ID"
+      },
+      "kadastraalobjectIdentificatie": {
+        "type": "string",
+        "description": "De unieke aanduiding van een Kadastraal object",
+        "title": "Kadastraal object ID"
+      },
+      "kadastraalsubjectIdentificatie": {
+        "type": "string",
+        "description": "Identificatie kadastraal subject. Een Kadastraal subject is een persoon die in de kadastrale registratie voorkomt. Het kan hier gaan om een natuurlijk of een niet-natuurlijk persoon.",
+        "title": "Kadastraal subject ID"
+      },
+      "ligtOpPercelen": {
+        "type": "number",
+        "description": "Aantal kadastrale percelen waarop inspectievlak ligt",
+        "title": "Ligt op percelen aantal"
+      },
+      "perceelnummer": {
+        "type": "integer",
+        "description": "Een numerieke aanduiding van het kadastrale perceel per sectie, deel van de kadastrale aanduiding van de onroerende zaak.",
+        "title": "Perceel nummer"
+      },
+      "rangordeOpp": {
+        "type": "integer",
+        "description": "De rangorde deel van inspectievlak",
+        "title": "Rangorde deel"
+      },
+      "subjectCategorie": {
+        "type": "string",
+        "description": "De categorie van het subject",
+        "title": "Subject categorie"
+      },
+      "tenaamstellingIdentificatie": {
+        "type": "string",
+        "description": "Identificatie van de tenaamstelling van een (aandeel van) zakelijk recht dat rust op een kadastraal object.",
+        "title": "Tenaamstelling ID"
+      },
+      "zakelijkrechtIdentificatie": {
+        "type": "string",
+        "description": "Identificatie van het zakelijkrecht dat rust op een kadastraal object.",
+        "title": "Zakelijkrecht ID"
+      }
+    }
+  }
+}

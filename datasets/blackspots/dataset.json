@@ -2,101 +2,28 @@
   "type": "dataset",
   "id": "blackspots",
   "title": "blackspots",
-  "status": "niet_beschikbaar",
   "description": "Blackspots",
   "auth": "FP/MDW",
   "reasonsNonPublic": [
     "nader te bepalen"
   ],
-  "version": "0.0.2",
   "crs": "EPSG:4326",
   "owner": "Gemeente Amsterdam",
   "authorizationGrantor": "n.v.t.",
   "creator": "bronhouder onbekend",
   "publisher": "Datateam Mobiliteit",
-  "tables": [
-    {
-      "id": "blackspots",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id",
-          "locatieId",
-          "spotType",
-          "geometry",
-          "stadsdeel",
-          "status"
-        ],
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "locatieId": {
-            "type": "string"
-          },
-          "spotType": {
-            "type": "string",
-            "enum": [
-              "protocol ernstig",
-              "blackspot",
-              "risico",
-              "protocol dodelijk",
-              "wegvak"
-            ]
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Point.json"
-          },
-          "stadsdeel": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "voorbereiding",
-              "onderzoek ontwerp",
-              "geen maatregel",
-              "gereed",
-              "uitvoering"
-            ]
-          },
-          "startUitvoering": {
-            "type": "string",
-            "format": "date"
-          },
-          "eindUitvoering": {
-            "type": "string",
-            "format": "date"
-          },
-          "startOpmerking": {
-            "type": "string"
-          },
-          "eindOpmerking": {
-            "type": "string"
-          },
-          "jaarBlackspotlijst": {
-            "type": "integer",
-            "unit": "a_g"
-          },
-          "jaarOngevalQuickscan": {
-            "type": "integer",
-            "unit": "a_g"
-          },
-          "jaarOplevering": {
-            "type": "integer",
-            "unit": "a_g"
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "niet_beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.2",
+      "tables": [
+        {
+          "id": "blackspots",
+          "$ref": "blackspots/v1"
         }
-      }
+      ]
     }
-  ]
+  }
 }

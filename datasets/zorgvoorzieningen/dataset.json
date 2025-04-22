@@ -3,8 +3,6 @@
   "type": "dataset",
   "title": "Voorzieningen Zorg",
   "description": "Gegevens over de voorzieningen voor Zorg",
-  "version": "0.0.1",
-  "status": "niet_beschikbaar",
   "publisher": {
     "$ref": "publishers/DTJZ"
   },
@@ -15,13 +13,18 @@
   ],
   "authorizationGrantor": "Datateam Jeugd en Zorg",
   "owner": "Gemeente Amsterdam",
-  "tables": [
-    {
-      "id": "beschiktevoorzieningen",
-      "$ref": "beschiktevoorzieningen/v0.0.1",
-      "activeVersions": {
-        "0.0.1": "beschiktevoorzieningen/v0.0.1"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "niet_beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "beschiktevoorzieningen",
+          "$ref": "beschiktevoorzieningen/v0"
+        }
+      ]
     }
-  ]
+  }
 }

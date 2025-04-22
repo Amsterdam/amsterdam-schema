@@ -2,14 +2,12 @@
   "type": "dataset",
   "id": "npr",
   "title": "RDW parkeerrechten NPR",
-  "status": "niet_beschikbaar",
   "theme": [
     "Parkeren",
     "Parkeerrechten",
     "Nationaal Parkeer register"
   ],
   "description": "Nationaal Parkeer Register Regelingen",
-  "version": "0.0.1",
   "crs": "EPSG:4326",
   "owner": "Gemeente Amsterdam Directie Parkeren",
   "creator": "rdw",
@@ -23,55 +21,42 @@
   },
   "provenance": "Data van diverse bronnen bij rdw.nl",
   "additionalProperties": false,
-  "tables": [
-    {
-      "id": "parkeerEnVerblijfsRechten",
-      "$ref": "parkeerEnVerblijfsRechten/v0.0.1",
-      "activeVersions": {
-        "0.0.1": "parkeerEnVerblijfsRechten/v0.0.1"
-      }
-    },
-    {
-      "id": "verkooppunten",
-      "$ref": "verkooppunten/v0.0.1",
-      "activeVersions": {
-        "0.0.1": "verkooppunten/v0.0.1"
-      }
-    },
-    {
-      "id": "gebiedsbeheerders",
-      "$ref": "gebiedsbeheerders/v0.0.1",
-      "activeVersions": {
-        "0.0.1": "gebiedsbeheerders/v0.0.1"
-      }
-    },
-    {
-      "id": "gebiedsGeodata",
-      "$ref": "gebiedsGeodata/v0.0.1",
-      "activeVersions": {
-        "0.0.1": "gebiedsGeodata/v0.0.1"
-      }
-    },
-    {
-      "id": "gebiedsRegelingen",
-      "$ref": "gebiedsRegelingen/v0.0.1",
-      "activeVersions": {
-        "0.0.1": "gebiedsRegelingen/v0.0.1"
-      }
-    },
-    {
-      "id": "gebruiksdoelen",
-      "$ref": "gebruiksdoelen/v0.0.1",
-      "activeVersions": {
-        "0.0.1": "gebruiksdoelen/v0.0.1"
-      }
-    },
-    {
-      "id": "tijdvakken",
-      "$ref": "tijdvakken/v0.0.1",
-      "activeVersions": {
-        "0.0.1": "tijdvakken/v0.0.1"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "niet_beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "parkeerEnVerblijfsRechten",
+          "$ref": "parkeerEnVerblijfsRechten/v0"
+        },
+        {
+          "id": "verkooppunten",
+          "$ref": "verkooppunten/v0"
+        },
+        {
+          "id": "gebiedsbeheerders",
+          "$ref": "gebiedsbeheerders/v0"
+        },
+        {
+          "id": "gebiedsGeodata",
+          "$ref": "gebiedsGeodata/v0"
+        },
+        {
+          "id": "gebiedsRegelingen",
+          "$ref": "gebiedsRegelingen/v0"
+        },
+        {
+          "id": "gebruiksdoelen",
+          "$ref": "gebruiksdoelen/v0"
+        },
+        {
+          "id": "tijdvakken",
+          "$ref": "tijdvakken/v0"
+        }
+      ]
     }
-  ]
+  }
 }

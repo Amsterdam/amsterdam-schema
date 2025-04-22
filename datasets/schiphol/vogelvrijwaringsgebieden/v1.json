@@ -1,0 +1,51 @@
+{
+  "id": "vogelvrijwaringsgebieden",
+  "title": "Vogelvrijwaringsgebieden",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "geometrie",
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van het record."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Vlakgeometrie van de zone."
+      },
+      "type": {
+        "type": "string",
+        "description": "Typering zone."
+      },
+      "thema": {
+        "type": "string",
+        "description": "Naam van thema waaronder zone valt."
+      },
+      "themaToelichting": {
+        "type": "string",
+        "description": "Toelichting thema waaronder zone valt."
+      },
+      "themaWetOfRegelgeving": {
+        "type": "string",
+        "description": "Naam van wet of regelgeving waaronder zone valt."
+      },
+      "themaDatumLaatsteWijziging": {
+        "type": "string",
+        "description": "Datum (bijv september 2020) van wijziging van wet of regelgeving waaronder zone valt."
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

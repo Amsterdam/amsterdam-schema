@@ -2,175 +2,29 @@
   "type": "dataset",
   "id": "parkeerzones",
   "title": "Parkeerzones met en zonder uitzonderingen",
-  "status": "beschikbaar",
   "description": "Parkeerzones gemeente Amsterdam",
-  "version": "0.0.1",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "creator": "bronhouder onbekend",
   "publisher": "Datateam Mobiliteit",
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
-  "tables": [
-    {
-      "id": "parkeerzones",
-      "title": "Parkeerzones zonder uitzonderingen",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "gebiedsnaam",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding voor parkeerzone."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Polygoon definitie van de parkeerzone."
-          },
-          "beginGeldigheid": {
-            "type": "string",
-            "format": "date",
-            "description": "Startdatum geldigheid.",
-            "provenance": "b_dat_gebi"
-          },
-          "eindGeldigheid": {
-            "type": "string",
-            "format": "date",
-            "description": "Einddatum geldigheid.",
-            "provenance": "e_dat_gebi"
-          },
-          "gebiedscode": {
-            "type": "string",
-            "description": "Gebiedscode waarbinnen de parkeerzone valt.",
-            "provenance": "gebied_cod"
-          },
-          "gebiedsomschrijving": {
-            "type": "string",
-            "description": "Omschrijving van gebiedscode waarbinnen de parkeerzone valt.",
-            "provenance": "gebied_oms"
-          },
-          "gebiedsnaam": {
-            "type": "string",
-            "description": "Naam van het gebied waarbinnen de parkeerzone valt.",
-            "provenance": "gebied_naa"
-          },
-          "gebiedsouder": {
-            "type": "string",
-            "description": "Naam van de overkoepelende parkeerzone waaronder de parkeerzone valt.",
-            "provenance": "parent"
-          },
-          "domeincode": {
-            "type": "string",
-            "description": "Domeincode waarbinnen de parkeerzone valt.",
-            "provenance": "domein_cod"
-          },
-          "gebruiksdoel": {
-            "type": "string",
-            "description": "Gebruiksdoel van de parkeerzone.",
-            "provenance": "gebruiks_d"
-          },
-          "indicatieZichtbaar": {
-            "type": "string",
-            "enum": [
-              "True",
-              "False"
-            ],
-            "description": "Indicatie of parkeerzone gepubliceerd mag worden.",
-            "provenance": "show"
-          },
-          "gebiedskleurcode": {
-            "type": "string",
-            "description": "Gedefinieerde gebiedskleur in hexidecimale code voor presentatie.",
-            "provenance": "color"
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "parkeerzones",
+          "$ref": "parkeerzones/v1"
+        },
+        {
+          "id": "parkeerzonesUitzondering",
+          "$ref": "parkeerzonesUitzondering/v1"
         }
-      }
-    },
-    {
-      "id": "parkeerzonesUitzondering",
-      "title": "Parkeerzones met uitzonderingen",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "gebiedsnaam",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding voor parkeerzone."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Polygoon definitie van de parkeerzone."
-          },
-          "beginGeldigheid": {
-            "type": "string",
-            "format": "date",
-            "description": "Startdatum geldigheid.",
-            "provenance": "b_dat_gebi"
-          },
-          "eindGeldigheid": {
-            "type": "string",
-            "format": "date",
-            "description": "Einddatum geldigheid.",
-            "provenance": "e_dat_gebi"
-          },
-          "gebiedscode": {
-            "type": "string",
-            "description": "Gebiedscode waarbinnen de parkeerzone valt.",
-            "provenance": "gebied_cod"
-          },
-          "gebiedsomschrijving": {
-            "type": "string",
-            "description": "Omschrijving van gebiedscode waarbinnen de parkeerzone valt.",
-            "provenance": "omschrijvi"
-          },
-          "gebiedsnaam": {
-            "type": "string",
-            "description": "Naam van het gebied waarbinnen de parkeerzone valt.",
-            "provenance": "gebied_naa"
-          },
-          "domeincode": {
-            "type": "string",
-            "description": "Domeincode waarbinnen de parkeerzone valt.",
-            "provenance": "domein_cod"
-          },
-          "gebruiksdoel": {
-            "type": "string",
-            "description": "Gebruiksdoel van de parkeerzone.",
-            "provenance": "gebruiks_d"
-          },
-          "indicatieZichtbaar": {
-            "type": "string",
-            "enum": [
-              "True",
-              "False"
-            ],
-            "description": "Indicatie of parkeerzone gepubliceerd mag worden.",
-            "provenance": "show"
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

@@ -2,8 +2,6 @@
   "type": "dataset",
   "id": "brp",
   "title": "brp",
-  "status": "niet_beschikbaar",
-  "version": "2.0.0",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam, DataOffice",
   "publisher": {
@@ -20,97 +18,66 @@
   "contactPoint": {
     "email": "OIS.GOB@amsterdam.nl"
   },
-  "tables": [
-    {
-      "id": "gezagsverhoudingen",
-      "$ref": "gezagsverhoudingen/v2.1.0",
-      "activeVersions": {
-        "2.1.0": "gezagsverhoudingen/v2.1.0"
-      }
-    },
-    {
-      "id": "nationaliteiten",
-      "$ref": "nationaliteiten/v2.1.0",
-      "activeVersions": {
-        "2.1.0": "nationaliteiten/v2.1.0"
-      }
-    },
-    {
-      "id": "verblijfstitels",
-      "$ref": "verblijfstitels/v2.1.0",
-      "activeVersions": {
-        "2.1.0": "verblijfstitels/v2.1.0"
-      }
-    },
-    {
-      "id": "reisdocumenten",
-      "$ref": "reisdocumenten/v2.1.0",
-      "activeVersions": {
-        "2.1.0": "reisdocumenten/v2.1.0"
-      }
-    },
-    {
-      "id": "inschrijvingen",
-      "$ref": "inschrijvingen/v2.1.0",
-      "activeVersions": {
-        "2.1.0": "inschrijvingen/v2.1.0"
-      }
-    },
-    {
-      "id": "overlijdens",
-      "$ref": "overlijdens/v2.1.0",
-      "activeVersions": {
-        "2.1.0": "overlijdens/v2.1.0"
-      }
-    },
-    {
-      "id": "ouders",
-      "$ref": "ouders/v2.1.0",
-      "activeVersions": {
-        "2.1.0": "ouders/v2.1.0"
-      }
-    },
-    {
-      "id": "kinderen",
-      "$ref": "kinderen/v2.1.0",
-      "activeVersions": {
-        "2.1.0": "kinderen/v2.1.0"
-      }
-    },
-    {
-      "id": "huwelijkenpartnerschappen",
-      "$ref": "huwelijkenpartnerschappen/v2.1.0",
-      "activeVersions": {
-        "2.1.0": "huwelijkenpartnerschappen/v2.1.0"
-      }
-    },
-    {
-      "id": "personen",
-      "$ref": "personen/v2.1.0",
-      "activeVersions": {
-        "2.1.0": "personen/v2.1.0"
-      }
-    },
-    {
-      "id": "verblijfplaatsen",
-      "$ref": "verblijfplaatsen/v2.1.0",
-      "activeVersions": {
-        "2.1.0": "verblijfplaatsen/v2.1.0"
-      }
-    },
-    {
-      "id": "verwijzingen",
-      "$ref": "verwijzingen/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "verwijzingen/v2.0.0"
-      }
-    },
-    {
-      "id": "kiesrechten",
-      "$ref": "kiesrechten/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "kiesrechten/v2.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "niet_beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "2.0.0",
+      "tables": [
+        {
+          "id": "gezagsverhoudingen",
+          "$ref": "gezagsverhoudingen/v2"
+        },
+        {
+          "id": "nationaliteiten",
+          "$ref": "nationaliteiten/v2"
+        },
+        {
+          "id": "verblijfstitels",
+          "$ref": "verblijfstitels/v2"
+        },
+        {
+          "id": "reisdocumenten",
+          "$ref": "reisdocumenten/v2"
+        },
+        {
+          "id": "inschrijvingen",
+          "$ref": "inschrijvingen/v2"
+        },
+        {
+          "id": "overlijdens",
+          "$ref": "overlijdens/v2"
+        },
+        {
+          "id": "ouders",
+          "$ref": "ouders/v2"
+        },
+        {
+          "id": "kinderen",
+          "$ref": "kinderen/v2"
+        },
+        {
+          "id": "huwelijkenpartnerschappen",
+          "$ref": "huwelijkenpartnerschappen/v2"
+        },
+        {
+          "id": "personen",
+          "$ref": "personen/v2"
+        },
+        {
+          "id": "verblijfplaatsen",
+          "$ref": "verblijfplaatsen/v2"
+        },
+        {
+          "id": "verwijzingen",
+          "$ref": "verwijzingen/v2"
+        },
+        {
+          "id": "kiesrechten",
+          "$ref": "kiesrechten/v2"
+        }
+      ]
     }
-  ]
+  }
 }

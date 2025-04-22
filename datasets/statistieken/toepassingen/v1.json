@@ -1,0 +1,60 @@
+{
+  "id": "toepassingen",
+  "type": "table",
+  "version": "1.0.0",
+  "description": "Alle cijfers, gerelateerd aan de bijhorende indicatoren en dimensies",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id",
+      "naam",
+      "versie",
+      "ruimtelijkeDimensie",
+      "temporeleDimensie",
+      "indicator"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "id",
+        "description": "Unieke identificatie"
+      },
+      "naam": {
+        "type": "string",
+        "title": "naam",
+        "description": "Naam van de toepassing"
+      },
+      "versie": {
+        "type": "string",
+        "title": "versie",
+        "description": "Versie van de toepassing"
+      },
+      "ruimtelijkeDimensie": {
+        "type": "string",
+        "title": "ruimtelijkeDimensie",
+        "description": "Ruimtelijke indeling"
+      },
+      "temporeleDimensie": {
+        "type": "string",
+        "title": "temporeleDimensie",
+        "description": "Type van de tijddimensie. Dit kan een vaste peildatum zijn of een periode"
+      },
+      "indicator": {
+        "type": "string",
+        "title": "indicator",
+        "description": "Naam van de indicator"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

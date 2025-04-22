@@ -3,8 +3,6 @@
   "type": "dataset",
   "title": "Aanvragen levensonderhoud",
   "description": "Gegevens over aanvragen levensonderhoud die intern beschikbaar zijn voor analyse en rapportage",
-  "version": "1.0.0",
-  "status": "niet_beschikbaar",
   "publisher": {
     "$ref": "publishers/WPI"
   },
@@ -15,13 +13,18 @@
   ],
   "authorizationGrantor": "Datateam WPI",
   "owner": "Gemeente Amsterdam",
-  "tables": [
-    {
-      "id": "openstaandeAanvragen",
-      "$ref": "openstaandeaanvragen/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "openstaandeaanvragen/v1.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "niet_beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "openstaandeAanvragen",
+          "$ref": "openstaandeaanvragen/v1"
+        }
+      ]
     }
-  ]
+  }
 }

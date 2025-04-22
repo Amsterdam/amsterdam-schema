@@ -1,0 +1,171 @@
+{
+  "id": "woningbouwplannenKwartaalUitgebreid",
+  "title": "Woningbouwplannen kwartaal afslag uitgebreid",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "auth": "BB/WB/GO/UITG",
+  "reasonsNonPublic": [
+    "5.1 2b: Zwaarwegende economische of financiële belangen van publiekrechtelijke lichamen (bevat geen milieu-informatie)"
+  ],
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "geometrie",
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van nieuwbouwproject"
+      },
+      "idPrimavera": {
+        "type": "string",
+        "description": "ID van het project in Primavera"
+      },
+      "projectnaamAfkorting": {
+        "type": "string",
+        "description": "Projectnaam"
+      },
+      "buurtCode": {
+        "type": "string",
+        "description": "Code van de buurt"
+      },
+      "buurtNaam": {
+        "type": "string",
+        "description": "Naam van de buurt"
+      },
+      "wijkCode": {
+        "type": "string",
+        "description": "Code van de wijk"
+      },
+      "wijkNaam": {
+        "type": "string",
+        "description": "Naam van de wijk"
+      },
+      "gebiedCode": {
+        "type": "string",
+        "description": "Code van het gebied"
+      },
+      "gebiedNaam": {
+        "type": "string",
+        "description": "Naam van het gebied"
+      },
+      "stadsdeelCode": {
+        "type": "string",
+        "description": "Code van het stadsdeel"
+      },
+      "stadsdeelNaam": {
+        "type": "string",
+        "description": "Naam van het stadsdeel"
+      },
+      "grex": {
+        "type": "string",
+        "description": "Nummer grondexploitatie"
+      },
+      "gebiedsindelingPrimavera": {
+        "type": "string",
+        "description": "Gebiedsindeling uit Primavera"
+      },
+      "zelfbouw": {
+        "type": "string",
+        "description": "Zelfbouwproject"
+      },
+      "socialeHuurCorporatie": {
+        "type": "string",
+        "description": "Woningcorporatie betrokken bij de ontwikkeling van de sociale huurwoningen"
+      },
+      "plaberumPublicatie": {
+        "type": "string",
+        "description": "Plaberumfase"
+      },
+      "startBouwGepland": {
+        "type": "string",
+        "description": "Datum waarop start bouw van het project gepland staat",
+        "format": "date"
+      },
+      "startBouwGerealiseerd": {
+        "type": "string",
+        "description": "Datum waarop start van het project is gerealiseerd",
+        "format": "date"
+      },
+      "opleveringGepland": {
+        "type": "string",
+        "description": "Datum waarop oplevering van het project gepland staat",
+        "format": "date"
+      },
+      "socialeHuurZelfstPerm": {
+        "type": "integer",
+        "description": "Aantal zelfstandige permanente sociale huurwoningen"
+      },
+      "middeldureHuur": {
+        "type": "integer",
+        "description": "Aantal middeldure huurwoningen"
+      },
+      "socialeKoop": {
+        "type": "integer",
+        "description": "Aantal sociale koopwoningen"
+      },
+      "vrijeSectorHuur": {
+        "type": "integer",
+        "description": "Aantal vrije sector huurwoningen"
+      },
+      "vrijeSectorKoop": {
+        "type": "integer",
+        "description": "Aantal vrije sector koopwoningen"
+      },
+      "vrijeSectorNb": {
+        "type": "integer",
+        "description": "Aantal vrije sector woningen waarvan later nog wordt bepaald of dit koop of huur wordt"
+      },
+      "onbekend": {
+        "type": "integer",
+        "description": "Aantal woningen waarvan de segmentering onbekend is"
+      },
+      "jongeren": {
+        "type": "integer",
+        "description": "Aantal jongerenwoningen"
+      },
+      "studenten": {
+        "type": "integer",
+        "description": "Aantal studentenwoningen"
+      },
+      "shOnzelfstEnOfTijdelijk": {
+        "type": "integer",
+        "description": "Aantal onzelfstandig en/of tijdelijke sociale huurwoningen"
+      },
+      "onzelfstandig": {
+        "type": "integer",
+        "description": "Aantal onzelfstandige woningen"
+      },
+      "tijdelijk": {
+        "type": "integer",
+        "description": "Aantal tijdelijke woningen"
+      },
+      "totaal": {
+        "type": "integer",
+        "description": "Totaal aantal woningen incl. onzelfstandige en/of tijdelijke woningen"
+      },
+      "totaalZelfstPerm": {
+        "type": "integer",
+        "description": "Totaal aantal zelfstandige en permanente woningen"
+      },
+      "peildatum": {
+        "type": "string",
+        "description": "Peildatum van het bestand",
+        "format": "date"
+      },
+      "geometrie": {
+        "description": "Geometrie van het type MULTIPOLYGON van het nieuwbouwproject",
+        "$ref": "https://geojson.org/schema/MultiPolygon.json"
+      }
+    }
+  }
+}

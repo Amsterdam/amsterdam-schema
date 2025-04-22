@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "touringcars",
   "title": "Touringcars",
-  "status": "beschikbaar",
   "description": "Informatie voor busbedrijven en chauffeurs over parkeerplaatsen, aanbevolen- en verplichteroutes, in- en uitstaphaltes, maximale doorrijhoogtes en wegwerkzaamheden",
-  "version": "0.0.1",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "publisher": {
@@ -13,249 +11,38 @@
   "creator": "bronhouder onbekend",
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
-  "tables": [
-    {
-      "id": "parkeerplaatsen",
-      "title": "Parkeerplaatsen touringcars",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "omschrijving",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "provenance": "lokatie"
-          },
-          "omschrijving": {
-            "type": "string",
-            "title": "Parkeerplaatsnaam",
-            "provenance": "title"
-          },
-          "bijzonderheden": {
-            "type": "string"
-          },
-          "plaatsen": {
-            "type": "string",
-            "unit": "aantal",
-            "description": "Aantallen busplaatsen of coaches",
-            "provenance": "busplaatsen"
-          },
-          "meerInformatie": {
-            "type": "string",
-            "description": "Naam van de URL",
-            "provenance": "linknaam"
-          },
-          "url": {
-            "type": "string",
-            "description": "Verwijzing naar aanvullende informatie",
-            "provenance": "linkurl"
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "parkeerplaatsen",
+          "$ref": "parkeerplaatsen/v1"
+        },
+        {
+          "id": "wegwerkzaamheden",
+          "$ref": "wegwerkzaamheden/v1"
+        },
+        {
+          "id": "doorrijhoogtes",
+          "$ref": "doorrijhoogtes/v1"
+        },
+        {
+          "id": "haltes",
+          "$ref": "haltes/v1"
+        },
+        {
+          "id": "aanbevolenroutes",
+          "$ref": "aanbevolenroutes/v1"
+        },
+        {
+          "id": "verplichteroutes",
+          "$ref": "verplichteroutes/v1"
         }
-      }
-    },
-    {
-      "id": "wegwerkzaamheden",
-      "title": "Tijdelijke verkeershinder voor touringcars",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "omschrijving",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "provenance": "lokatie"
-          },
-          "omschrijving": {
-            "type": "string",
-            "title": "Aard/Scope wegwerkzaamheden",
-            "provenance": "title"
-          },
-          "opmerkingen": {
-            "type": "string"
-          },
-          "meerInformatie": {
-            "type": "string",
-            "description": "Naam van de URL",
-            "provenance": "linknaam"
-          },
-          "url": {
-            "type": "string",
-            "description": "Verwijzing naar aanvullende informatie",
-            "provenance": "linkurl"
-          }
-        }
-      }
-    },
-    {
-      "id": "doorrijhoogtes",
-      "title": "Maximale doorrijhoogtes",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "omschrijving",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "provenance": "lokatie"
-          },
-          "omschrijving": {
-            "type": "string",
-            "title": "Locatie doorrijhoogte beperking",
-            "provenance": "title"
-          },
-          "maximaleDoorrijhoogte": {
-            "type": "string",
-            "unit": "m"
-          }
-        }
-      }
-    },
-    {
-      "id": "haltes",
-      "title": "Haltes touringcars",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "omschrijving",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "provenance": "lokatie"
-          },
-          "omschrijving": {
-            "type": "string",
-            "title": "Naam halte",
-            "provenance": "title"
-          },
-          "bijzonderheden": {
-            "type": "string"
-          },
-          "plaatsen": {
-            "type": "string",
-            "unit": "aantal",
-            "description": "Aantallen busplaatsen of coaches",
-            "provenance": "busplaatsen"
-          }
-        }
-      }
-    },
-    {
-      "id": "aanbevolenroutes",
-      "title": "Aanbevolen route touringcars",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "omschrijving",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "provenance": "lokatie"
-          },
-          "omschrijving": {
-            "type": "string",
-            "title": "Routenaam",
-            "provenance": "title"
-          }
-        }
-      }
-    },
-    {
-      "id": "verplichteroutes",
-      "title": "Verplichte route touringcars",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "omschrijving",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "provenance": "lokatie"
-          },
-          "omschrijving": {
-            "type": "string",
-            "title": "Routenaam",
-            "provenance": "title"
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

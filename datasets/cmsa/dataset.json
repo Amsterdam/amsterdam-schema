@@ -2,10 +2,8 @@
   "type": "dataset",
   "id": "cmsa",
   "title": "CMSA: Crowd Monitoring Systeem Amsterdam",
-  "status": "beschikbaar",
   "description": "Locaties en context t.a.v. crowd monitoring sensoren: 3D sensoren, wifi sensoren, (tel)camera's en beacons.",
   "license": "public",
-  "version": "0.0.1",
   "theme": [
     "CMSA",
     "Crowd monitoring",
@@ -27,148 +25,26 @@
     "IoT"
   ],
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "sensor",
-      "title": "Sensor",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "naam",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "string",
-            "description": "Unieke aanduiding van de crowd monitoring sensor."
-          },
-          "referentiecode": {
-            "type": "string",
-            "description": "Unieke code van de crowd monitoring sensor."
-          },
-          "naam": {
-            "type": "string",
-            "description": "Naam van de crowd monitoring sensor."
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "Omschrijving van de crowd monitoring sensor."
-          },
-          "type": {
-            "type": "string",
-            "enum": [
-              "Camera",
-              "Beacon",
-              "3D sensor",
-              "WiFi sensor",
-              "Telcamera"
-            ],
-            "description": "Type crowd monitoring sensor."
-          },
-          "doel": {
-            "type": "string",
-            "description": "Doel van crowd monitoring sensor."
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "sensor",
+          "$ref": "sensor/v1"
+        },
+        {
+          "id": "locatie",
+          "$ref": "locatie/v1"
+        },
+        {
+          "id": "markering",
+          "$ref": "markering/v1"
         }
-      }
-    },
-    {
-      "id": "locatie",
-      "title": "Locatie",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "naam",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding voor locatie van de crowd monitoring sensor."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Punt geometrie van de locatie van de crowd monitoring sensor."
-          },
-          "sensor": {
-            "type": "string",
-            "relation": "cmsa:sensor",
-            "description": "Verwijzing naar de crowd monitoring sensor."
-          },
-          "referentiecode": {
-            "type": "string",
-            "description": "Unieke code van de locatie van de crowd monitoring sensor."
-          },
-          "naam": {
-            "type": "string",
-            "description": "Naam van locatie van de van de crowd monitoring sensor."
-          }
-        }
-      }
-    },
-    {
-      "id": "markering",
-      "title": "Markering",
-      "description": "Een markering bevat de gegevens over de locatie en crowd monitor sensor zelf.",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding voor de markering."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Punt geometrie van de locatie van de crowd monitoring sensor."
-          },
-          "sensor": {
-            "type": "string",
-            "relation": "cmsa:sensor",
-            "description": "Verwijzing naar de crowd monitoring sensor."
-          },
-          "locatie": {
-            "type": "integer",
-            "relation": "cmsa:locatie",
-            "description": "Verwijzing naar de locatie van de crowd monitoring sensor."
-          },
-          "sensornaam": {
-            "type": "string",
-            "description": "Naam van de crowd monitoring sensor."
-          },
-          "sensortype": {
-            "type": "string",
-            "description": "Type van de crowd monitoring sensor."
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

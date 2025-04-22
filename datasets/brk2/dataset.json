@@ -2,8 +2,6 @@
   "type": "dataset",
   "id": "brk2",
   "title": "brk2",
-  "status": "beschikbaar",
-  "version": "1.0.0",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam, afdeling Basisinformatie",
   "creator": "Kadaster",
@@ -17,104 +15,70 @@
   "contactPoint": {
     "email": "OIS.GOB@amsterdam.nl"
   },
-  "tables": [
-    {
-      "id": "kadastraleobjecten",
-      "$ref": "kadastraleobjecten/v2.4.1",
-      "activeVersions": {
-        "2.4.1": "kadastraleobjecten/v2.4.1"
-      }
-    },
-    {
-      "id": "kadastralesubjecten",
-      "$ref": "kadastralesubjecten/v1.1.2",
-      "activeVersions": {
-        "1.1.2": "kadastralesubjecten/v1.1.2"
-      }
-    },
-    {
-      "id": "zakelijkerechten",
-      "$ref": "zakelijkerechten/v1.6.1",
-      "activeVersions": {
-        "1.6.1": "zakelijkerechten/v1.6.1"
-      }
-    },
-    {
-      "id": "tenaamstellingen",
-      "$ref": "tenaamstellingen/v2.2.1",
-      "activeVersions": {
-        "2.2.1": "tenaamstellingen/v2.2.1"
-      }
-    },
-    {
-      "id": "meta",
-      "$ref": "meta/v1.0.1",
-      "activeVersions": {
-        "1.0.1": "meta/v1.0.1"
-      }
-    },
-    {
-      "id": "kadastralegemeentes",
-      "$ref": "kadastralegemeentes/v1.2.1",
-      "activeVersions": {
-        "1.2.1": "kadastralegemeentes/v1.2.1"
-      }
-    },
-    {
-      "id": "kadastralegemeentecodes",
-      "$ref": "kadastralegemeentecodes/v1.1.1",
-      "activeVersions": {
-        "1.1.1": "kadastralegemeentecodes/v1.1.1"
-      }
-    },
-    {
-      "id": "kadastralesecties",
-      "$ref": "kadastralesecties/v1.0.1",
-      "activeVersions": {
-        "1.0.1": "kadastralesecties/v1.0.1"
-      }
-    },
-    {
-      "id": "stukdelen",
-      "$ref": "stukdelen/v1.4.1",
-      "activeVersions": {
-        "1.4.1": "stukdelen/v1.4.1"
-      }
-    },
-    {
-      "id": "aantekeningenkadastraleobjecten",
-      "$ref": "aantekeningenkadastraleobjecten/v1.3.1",
-      "activeVersions": {
-        "1.3.1": "aantekeningenkadastraleobjecten/v1.3.1"
-      }
-    },
-    {
-      "id": "aantekeningenrechten",
-      "$ref": "aantekeningenrechten/v1.3.1",
-      "activeVersions": {
-        "1.3.1": "aantekeningenrechten/v1.3.1"
-      }
-    },
-    {
-      "id": "erfpachtcanons",
-      "$ref": "erfpachtcanons/v2.0.1",
-      "activeVersions": {
-        "2.0.1": "erfpachtcanons/v2.0.1"
-      }
-    },
-    {
-      "id": "gemeentes",
-      "$ref": "gemeentes/v1.0.1",
-      "activeVersions": {
-        "1.0.1": "gemeentes/v1.0.1"
-      }
-    },
-    {
-      "id": "aardzakelijkerechten",
-      "$ref": "aardzakelijkerechten/v1.0.1",
-      "activeVersions": {
-        "1.0.1": "aardzakelijkerechten/v1.0.1"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "kadastraleobjecten",
+          "$ref": "kadastraleobjecten/v2"
+        },
+        {
+          "id": "kadastralesubjecten",
+          "$ref": "kadastralesubjecten/v1"
+        },
+        {
+          "id": "zakelijkerechten",
+          "$ref": "zakelijkerechten/v1"
+        },
+        {
+          "id": "tenaamstellingen",
+          "$ref": "tenaamstellingen/v2"
+        },
+        {
+          "id": "meta",
+          "$ref": "meta/v1"
+        },
+        {
+          "id": "kadastralegemeentes",
+          "$ref": "kadastralegemeentes/v1"
+        },
+        {
+          "id": "kadastralegemeentecodes",
+          "$ref": "kadastralegemeentecodes/v1"
+        },
+        {
+          "id": "kadastralesecties",
+          "$ref": "kadastralesecties/v1"
+        },
+        {
+          "id": "stukdelen",
+          "$ref": "stukdelen/v1"
+        },
+        {
+          "id": "aantekeningenkadastraleobjecten",
+          "$ref": "aantekeningenkadastraleobjecten/v1"
+        },
+        {
+          "id": "aantekeningenrechten",
+          "$ref": "aantekeningenrechten/v1"
+        },
+        {
+          "id": "erfpachtcanons",
+          "$ref": "erfpachtcanons/v2"
+        },
+        {
+          "id": "gemeentes",
+          "$ref": "gemeentes/v1"
+        },
+        {
+          "id": "aardzakelijkerechten",
+          "$ref": "aardzakelijkerechten/v1"
+        }
+      ]
     }
-  ]
+  }
 }

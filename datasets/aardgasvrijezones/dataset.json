@@ -4,8 +4,6 @@
   "title": "Aardgasvrije buurten en buurtinitiatieven",
   "description": "(Deels) gerealiseerde of geplande aardgasvrije buurten, en buurtinitiatieven voor aardgasvrij in Amsterdam",
   "license": "public",
-  "status": "beschikbaar",
-  "version": "0.0.1",
   "theme": [
     "Aardgasvrij",
     "Ruimte en Topografie"
@@ -19,104 +17,22 @@
     "aardgasvrij"
   ],
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "buurt",
-      "title": "(Deels) gerealiseerde of geplande aardgasvrije buurten",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "buurtNaam",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding voor de (deels) gerealiseerde of geplande aardgasvrije buurt."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Polygoon definitie van de (deels) gerealiseerde of geplande aardgasvrije buurt."
-          },
-          "buurtCode": {
-            "type": "string",
-            "description": "Code van de (deels) gerealiseerde of geplande aardgasvrije buurt.",
-            "provenance": "bu_code"
-          },
-          "buurtNaam": {
-            "type": "string",
-            "description": "Naam van de (deels) gerealiseerde of geplande aardgasvrije buurt.",
-            "provenance": "bu_naam"
-          },
-          "toelichting": {
-            "type": "string",
-            "description": "Toelichting op inhoud van de (deels) gerealiseerde of geplande aardgasvrije buurt.",
-            "provenance": "legenda"
-          },
-          "aandeelKookgas": {
-            "type": "string",
-            "description": "Aandeel van hoeveelheid kookgas die van toepassing is op de (deels) gerealiseerde of geplande aardgasvrije buurt.",
-            "provenance": "kookgas"
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "buurt",
+          "$ref": "buurt/v1"
+        },
+        {
+          "id": "buurtinitiatief",
+          "$ref": "buurtinitiatief/v1"
         }
-      }
-    },
-    {
-      "id": "buurtinitiatief",
-      "title": "Buurtinitiatieven voor een aardgasvrije buurt",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "buurtNaam",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding voor het buurtinitiatief."
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Punt definitie van voor het buurtinitiatief."
-          },
-          "buurtinitiatiefType": {
-            "type": "string",
-            "description": "Type buurtinitiatief: Dit kan zijn CityDeal-Buurt, particulier of beide.",
-            "provenance": "buurtiniti"
-          },
-          "buurtNaam": {
-            "type": "string",
-            "description": "Naam van de buurt.",
-            "provenance": "bu_naam"
-          },
-          "xCoordinaat": {
-            "type": "number",
-            "description": "X co\u00f6rdinaat van het buurtinitiatief.",
-            "provenance": "xcoord"
-          },
-          "yCoordinaat": {
-            "type": "number",
-            "description": "Y co\u00f6rdinaat van het buurtinitiatief.",
-            "provenance": "ycoord"
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "funderingen",
   "title": "Funderingen",
-  "status": "beschikbaar",
   "description": "De datasets betreffen informatie over funderingen in de ondergrond van panden.",
-  "version": "1.0.0",
   "dateCreated": "2024-11-06T00:00:00+01:00",
   "dateModified": "2024-11-06T00:00:00+01:00",
   "language": "nl",
@@ -37,14 +35,18 @@
     "funderingstype"
   ],
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "pandFunderingen",
-      "$ref": "pandFunderingen/v1.0.0",
-      "activeVersions": {
-        "0.0.1": "pandFunderingen/v0.0.1",
-        "1.0.0": "pandFunderingen/v1.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "pandFunderingen",
+          "$ref": "pandFunderingen/v1"
+        }
+      ]
     }
-  ]
+  }
 }

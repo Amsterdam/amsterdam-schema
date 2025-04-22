@@ -1,0 +1,383 @@
+{
+  "id": "personen",
+  "type": "table",
+  "version": "2.1.0",
+  "lifecycleStatus": "stable",
+  "auth": "BRP/R",
+  "reasonsNonPublic": [
+    "5.1 1d: Bevat persoonsgegevens"
+  ],
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "burgerservicenummer",
+    "required": [
+      "schema",
+      "burgerservicenummer"
+    ],
+    "display": "burgerservicenummer",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "burgerservicenummer": {
+        "type": "string",
+        "description": "Burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene bepalingen burgerservicenummer. Te valideren met de 11-proef."
+      },
+      "aNummer": {
+        "type": "string",
+        "description": "Administratienummer, bedoeld in artikel 50 van de Wet GBA"
+      },
+      "geslachtsnaam": {
+        "type": "string",
+        "description": "(geslachts)naam waarvan de eventueel aanwezige voorvoegsels en adellijke titel/predikaat zijn afgesplitst van persoon"
+      },
+      "voorvoegselGeslachtsnaam": {
+        "type": "string",
+        "description": "omschrijving van de persoonVoorvoegselGeslachtsnaam"
+      },
+      "voornamen": {
+        "type": "string",
+        "description": "voornamen van het persoon, gescheiden door spaties. Bijvoorbeeld: Pieter Jan"
+      },
+      "adellijkeTitelPredikaat": {
+        "type": "string",
+        "description": "leesbare naam van de adellijkeTitelPredikaat van het persoon"
+      },
+      "geboortePlaats": {
+        "type": "string",
+        "description": "gemeententabel op naam of een buitenlandse plaats of een plaatsbepaling, die aangeeft waar het persoon is geboren"
+      },
+      "geboorteLand": {
+        "type": "string",
+        "description": "code, opgenomen in Tabel 34, Landentabel op naam, die het land aangeeft waar het persoon is geboren"
+      },
+      "geboorteDatum": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "volledige datum die in de date definitie past. Dit element wordt alleen gevuld als de volledige datum bekend is."
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        }
+      },
+      "geslachtsaanduiding": {
+        "type": "string",
+        "description": "Mogelijke waarden: M (man), V (vrouw), O (onbekend)"
+      },
+      "vorigANummer": {
+        "type": "string",
+        "description": "Administratienummer dat eerder aan de betrokken persoon is toegekend geweest (artikel 50 van de Wet GBA)"
+      },
+      "volgendeANummer": {
+        "type": "string",
+        "description": "Administratienummer dat nadien aan de betrokken persoon is toegekend gewest (artikel 50 van de Wet GBA)."
+      },
+      "naamgebruik": {
+        "type": "string",
+        "description": "Schrijfwijze van de achternaam. Mogelijke waarden: E (eigen naam), N (eigen naam -partner), P (partner), V (partner-eigen naam)"
+      },
+      "registergemeenteAkte": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de registergemeenteAkte"
+          }
+        },
+        "relation": "brk2:kadastralegemeentecodes",
+        "description": "code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de akte in de registers van de burgerlijke stand in Nederland is opgenomen. Afgeleid uit BRK: Gemeente"
+      },
+      "aktenummer": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de aktenummer"
+          },
+          "omschrijving": {
+            "type": "string",
+            "description": "beschrijving van de aktenummer"
+          }
+        },
+        "description": "aanduiding van de akte die is opgenomen in de registers van de burgerlijke stand in Nederland. De eerste drie posities van het aktenummer dienen conform tabel 39, Tabel Akteaanduiding te zijn. De laatste vier posities bevatten een volgnum­er van de akte"
+      },
+      "gemeenteDocument": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "code van de gemeenteDocument"
+          }
+        },
+        "relation": "brk2:kadastralegemeentecodes",
+        "description": "code, opgenomen in Tabel 33, Gemeententabel op naam, die aangeeft in welke gemeente de ontlening aan of de afleiding uit het document heeft plaatsgevonden. Afgeleid uit BRK: Gemeente"
+      },
+      "datumDocument": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "datum waarop de ontlening aan of de afleiding uit het document heeft plaatsgevonden."
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        }
+      },
+      "beschrijvingDocument": {
+        "type": "string",
+        "description": "beschrijving van het Document"
+      },
+      "onderzoek": {
+        "type": "object",
+        "properties": {
+          "aanduidingGegevensInOnderzoek": {
+            "type": "string",
+            "description": "aanduiding dat in een categorie één of meer gegevens met betrekking tot de onjuistheid of de strijdigheid met de openbare orde zijn of worden onderzocht"
+          },
+          "datumIngangOnderzoek": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is gestart"
+          },
+          "datumEindeOnderzoek": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop een onderzoek inzake de onjuistheid of de stijdigheid met de openbare orde is beeindigd"
+          },
+          "onjuistStrijdigOpenbareOrde": {
+            "type": "string",
+            "format": "date",
+            "description": "gegevens over het onjuist of strijdig zijn met de openbare orde van de gegevens in de categorie"
+          }
+        }
+      },
+      "ingangsdatumGeldigheid": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop het geheel van gegevens geldig is geworden"
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        }
+      },
+      "einddatumGeldigheid": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop de geldigheid van het geheel van gegevens beeindigd is"
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        }
+      },
+      "datumOpneming": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop het geheel van gegevens daadwerkelijk in de GBA is opgenomen"
+          },
+          "jaar": {
+            "type": "integer",
+            "description": "jaar van de datum, als deze bekend is."
+          },
+          "maand": {
+            "type": "integer",
+            "description": "maand van de datum, als deze bekend is."
+          },
+          "dag": {
+            "type": "integer",
+            "description": "dag van de datum, als deze bekend is."
+          }
+        }
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "description": "einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "heeftBrpOuder1": {
+        "type": "object",
+        "properties": {
+          "burgerservicenummer": {
+            "type": "string"
+          }
+        },
+        "relation": "brp:ouders",
+        "description": "De ouder1 van persoon"
+      },
+      "heeftBrpOuder2": {
+        "type": "object",
+        "properties": {
+          "burgerservicenummer": {
+            "type": "string"
+          }
+        },
+        "relation": "brp:ouders",
+        "description": "De ouder2 van persoon"
+      },
+      "heeftBrpNationaliteiten": {
+        "type": "array",
+        "properties": {
+          "burgerservicenummer": {
+            "type": "string"
+          }
+        },
+        "relation": "brp:nationaliteiten",
+        "description": "nationaliteiten van persoon"
+      },
+      "heeftBrpHuwelijkenPartnerschappen": {
+        "type": "array",
+        "properties": {
+          "burgerservicenummer": {
+            "type": "string"
+          }
+        },
+        "relation": "brp:huwelijkenpartnerschappen",
+        "description": "huwelijkspartners /geregistreerde partnerschappen van persoon"
+      },
+      "heeftBrpOverlijden": {
+        "type": "object",
+        "properties": {
+          "burgerservicenummer": {
+            "type": "string"
+          }
+        },
+        "relation": "brp:overlijdens",
+        "description": "overlijden van een persoon"
+      },
+      "heeftBrpInschrijving": {
+        "type": "object",
+        "properties": {
+          "burgerservicenummer": {
+            "type": "string"
+          }
+        },
+        "relation": "brp:inschrijvingen",
+        "description": "inschrijving in de gemeente van persoon"
+      },
+      "heeftBrpVerblijfplaats": {
+        "type": "object",
+        "properties": {
+          "burgerservicenummer": {
+            "type": "string"
+          }
+        },
+        "relation": "brp:verblijfplaatsen",
+        "description": "verblijfplaats van persoon"
+      },
+      "heeftBrpKinderen": {
+        "type": "array",
+        "properties": {
+          "burgerservicenummer": {
+            "type": "string"
+          }
+        },
+        "relation": "brp:kinderen",
+        "description": "kinderen van persoon."
+      },
+      "heeftBrpVerblijfstitel": {
+        "type": "object",
+        "properties": {
+          "burgerservicenummer": {
+            "type": "string"
+          }
+        },
+        "relation": "brp:verblijfstitels",
+        "description": "verblijfstitel van een persoon"
+      },
+      "heeftBrpGezagsverhouding": {
+        "type": "object",
+        "properties": {
+          "burgerservicenummer": {
+            "type": "string"
+          }
+        },
+        "relation": "brp:gezagsverhoudingen",
+        "description": "gezagsverhouding van een persoon"
+      },
+      "heeftBrpReisdocumenten": {
+        "type": "array",
+        "properties": {
+          "burgerservicenummer": {
+            "type": "string"
+          }
+        },
+        "relation": "brp:reisdocumenten",
+        "description": "reisdocumenten van persoon"
+      },
+      "heeftBrpVerwijzing": {
+        "type": "object",
+        "properties": {
+          "burgerservicenummer": {
+            "type": "string"
+          }
+        },
+        "relation": "brp:verwijzingen",
+        "description": "verwijzing van een persoon"
+      },
+      "heeftBrpKiesrecht": {
+        "type": "object",
+        "properties": {
+          "burgerservicenummer": {
+            "type": "string"
+          }
+        },
+        "relation": "brp:kiesrechten",
+        "description": "kiesrecht van een persoon"
+      }
+    }
+  }
+}

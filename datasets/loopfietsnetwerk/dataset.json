@@ -5,8 +5,6 @@
   "description": "Topologisch consistent netwerk bedoeld voor het uitvoeren van ruimtelijke netwerkanalyses in het gemeentelijke domein",
   "spatialDescription": "Gemeente Amsterdam, inclusief Weesp",
   "license": "public",
-  "status": "beschikbaar",
-  "version": "0.0.1",
   "theme": [
     "Ruimte en Topografie",
     "Verkeer",
@@ -25,273 +23,26 @@
     "wegen"
   ],
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "edges",
-      "title": "Edges",
-      "description": "Aslijnen van wegen, voetpaden en oversteekjes als onderdeel van topologisch netwerk (graph)",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "identifier": [
-          "id"
-        ],
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "uniek identificerend kenmerk edge"
-          },
-          "wegklasse": {
-            "type": "string",
-            "description": "wegklasse afkomstig uit Openstreetmap, IMGEO en Amsterdam specifieke wegklassen"
-          },
-          "hoogteniveau": {
-            "type": "integer",
-            "description": "relatieve hoogteligging, maaiveld=0, zwevende delen >0 , ondergrondse delen <0"
-          },
-          "straatnaam": {
-            "type": "string",
-            "description": "onofficiele straatnaam uit Openstreetmap"
-          },
-          "indicatieVoetFiets": {
-            "type": "boolean",
-            "description": "indicatie of edge gebruikt kan worden voor modaliteit voetgangers en fietsers"
-          },
-          "indicatieBrug": {
-            "type": "boolean",
-            "description": "indicatie of de edge onderdeel is van een brug"
-          },
-          "indicatieTunnel": {
-            "type": "boolean",
-            "description": "indicatie of de edge onderdeel is van een tunnel"
-          },
-          "indicatieOvBus": {
-            "type": "boolean",
-            "description": "indicatie of de edge onderdeel is van een OV-baan voor busverkeer"
-          },
-          "indicatieSpoor": {
-            "type": "boolean",
-            "description": "indicatie of de edge onderdeel is van een spoorbaan"
-          },
-          "indicatieToegankelijkheid": {
-            "type": "boolean",
-            "description": "indicatie of de edge toegankelijk is voor voetgangers. bron: OSM"
-          },
-          "typeVeerRoute": {
-            "type": "string",
-            "description": "typering vervoer over water"
-          },
-          "minimumBreedte": {
-            "type": "number",
-            "description": "minimale afgeleide breedte uit BGT voetpad"
-          },
-          "maximumBreedte": {
-            "type": "number",
-            "description": "maximale afgeleide breedte uit BGT voetpad"
-          },
-          "gewogenGemiddeldeBreedte": {
-            "type": "number",
-            "description": "gewogen gemiddelde afgeleide breedte uit BGT voetpad. Weging is op basis van lengte"
-          },
-          "weight": {
-            "type": "number",
-            "description": "standaard gewicht, gebaseerd op de werkelijke lengte van de edge of aslijn"
-          },
-          "maximumSnelheid": {
-            "type": "number",
-            "description": "maximum snelheid voor gemotoriseerd verkeer. bron: OSM"
-          },
-          "startNode": {
-            "type": "integer",
-            "description": "startpunt van de edge, is gerelateerd aan de node",
-            "relation": "loopfietsnetwerk:nodesPoi"
-          },
-          "endNode": {
-            "type": "integer",
-            "description": "eindpunt van de edge, is gerelateerd aan de node",
-            "relation": "loopfietsnetwerk:nodesPoi"
-          },
-          "datumExtractie": {
-            "type": "string",
-            "format": "date",
-            "description": "datum creatie dataset"
-          },
-          "geometrie": {
-            "$ref": "https://geojson.org/schema/LineString.json"
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "edges",
+          "$ref": "edges/v1"
         },
-        "mainGeometry": "geometrie"
-      }
-    },
-    {
-      "id": "nodesPoi",
-      "title": "nodesPoi",
-      "description": "Alle nodes en point of interest van het netwerk",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "identifier": [
-          "nodeId"
-        ],
-        "required": [
-          "schema",
-          "nodeId"
-        ],
-        "display": "nodeId",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "nodeId": {
-            "type": "integer"
-          },
-          "poiId": {
-            "type": "string",
-            "description": "identificatie point of interest"
-          },
-          "poiType": {
-            "type": "string",
-            "description": "Typering point of interest"
-          },
-          "businesskeyPoi": {
-            "type": "string",
-            "shortname": "bkPoi",
-            "description": "Unieke business key van de point of interest"
-          },
-          "bronId": {
-            "type": "string",
-            "description": "identificatie van object uit de bron"
-          },
-          "datumExtractie": {
-            "type": "string",
-            "format": "date",
-            "description": "datum creatie dataset"
-          },
-          "geometrie": {
-            "$ref": "https://geojson.org/schema/Point.json",
-            "provenance": "geometrie"
-          }
+        {
+          "id": "nodesPoi",
+          "$ref": "nodesPoi/v1"
         },
-        "mainGeometry": "geometrie"
-      }
-    },
-    {
-      "id": "poiAdressen",
-      "title": "poiAdressen",
-      "description": "Alle hoofdadressen van adresseerbare objecten gerelateerd aan de points of interest",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "identifier": [
-          "adresseerbaarobjectIdentificatie"
-        ],
-        "required": [
-          "schema",
-          "adresseerbaarobjectIdentificatie"
-        ],
-        "display": "adresseerbaarobjectIdentificatie",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "adresseerbaarobjectIdentificatie": {
-            "type": "string",
-            "description": "unieke identificatie van de BAG verblijfsobject, ligplaats of standplaats"
-          },
-          "poiId": {
-            "type": "string",
-            "description": "unieke identificatie van de point of interest"
-          },
-          "typeAdresseerbaarObject": {
-            "type": "string",
-            "description": "typering van het adresseerbare object uit de BAG {verblijfsobject, ligplaats, standplaats}"
-          },
-          "status": {
-            "type": "string",
-            "description": "status van het adresseerbare object indien verblijfsobject {gevormd, ingebruik-niet ingemeten, in gebruik}"
-          },
-          "gebruiksdoel": {
-            "type": "string",
-            "description": "gebruiksdoel van het adresseerbare object uit de BAG"
-          },
-          "indicatieHoofdadres": {
-            "type": "boolean",
-            "description": "indicatie of het een hoofadres betreft"
-          },
-          "openbareruimteNaam": {
-            "type": "string",
-            "title": "openbareruimteNaam",
-            "shortname": "naam",
-            "description": "Officiële naam openbare ruimte conform BAG"
-          },
-          "huisnummer": {
-            "type": "integer",
-            "title": "huisnummer",
-            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering"
-          },
-          "huisletter": {
-            "type": "string",
-            "title": "huisletter",
-            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken"
-          },
-          "huisnummertoevoeging": {
-            "type": "string",
-            "title": "huisnummertoevoeging",
-            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
-          },
-          "postcode": {
-            "type": "string",
-            "title": "postcode",
-            "description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)."
-          },
-          "woonplaatsNaam": {
-            "type": "string",
-            "title": "woonplaatsNaam",
-            "description": "Officiële naam van de woonplaats"
-          },
-          "gemeenteNaam": {
-            "type": "string",
-            "title": "gemeenteNaam",
-            "description": "De naam van de gemeente (afkomstig van het Kadaster)"
-          },
-          "pandIdentificatie": {
-            "type": "string",
-            "title": "pandIdentificatie",
-            "description": "Landelijke identificerende sleutel van het pand"
-          },
-          "peilDatum": {
-            "type": "string",
-            "format": "date",
-            "description": "peildatum van de BAG gegevens"
-          },
-          "datumExtractie": {
-            "type": "string",
-            "format": "date",
-            "description": "datum creatie dataset"
-          },
-          "geometrie": {
-            "$ref": "https://geojson.org/schema/Point.json"
-          }
-        },
-        "mainGeometry": "geometrie"
-      }
+        {
+          "id": "poiAdressen",
+          "$ref": "poiAdressen/v1"
+        }
+      ]
     }
-  ]
+  }
 }

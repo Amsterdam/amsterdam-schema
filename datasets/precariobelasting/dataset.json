@@ -2,14 +2,12 @@
   "type": "dataset",
   "id": "precariobelasting",
   "title": "Precariobelasting",
-  "status": "beschikbaar",
   "theme": [
     "Belasting",
     "Ruimte en Topografie",
     "Algemene Plaatselijke Verordening"
   ],
   "description": "Precariobelasting voor terrassen, bedrijfsvaartuigen, passagiersvaartuigen en woonboten per belastinggebied, per jaar en per m2",
-  "version": "1.0.1",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "creator": "GeoTeam",
@@ -19,34 +17,30 @@
     "$ref": "publishers/DPGO"
   },
   "additionalProperties": false,
-  "tables": [
-    {
-      "id": "bedrijfsvaartuigen",
-      "$ref": "bedrijfsvaartuigen/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "bedrijfsvaartuigen/v1.0.0"
-      }
-    },
-    {
-      "id": "passagiersvaartuigen",
-      "$ref": "passagiersvaartuigen/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "passagiersvaartuigen/v1.0.0"
-      }
-    },
-    {
-      "id": "terrassen",
-      "$ref": "terrassen/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "terrassen/v1.0.0"
-      }
-    },
-    {
-      "id": "woonschepen",
-      "$ref": "woonschepen/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "woonschepen/v1.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.1",
+      "tables": [
+        {
+          "id": "bedrijfsvaartuigen",
+          "$ref": "bedrijfsvaartuigen/v1"
+        },
+        {
+          "id": "passagiersvaartuigen",
+          "$ref": "passagiersvaartuigen/v1"
+        },
+        {
+          "id": "terrassen",
+          "$ref": "terrassen/v1"
+        },
+        {
+          "id": "woonschepen",
+          "$ref": "woonschepen/v1"
+        }
+      ]
     }
-  ]
+  }
 }

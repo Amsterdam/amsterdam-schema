@@ -1,0 +1,220 @@
+{
+  "id": "parkeerEnVerbijfsRechten",
+  "type": "table",
+  "version": "0.0.1",
+  "lifecycleStatus": "stable",
+  "provenance": "Extractie van NPR data van RDW 'https://rdw-internal.data.eu.socrata.com/resource/f4he-yumf.json'",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "identifier": "verworvenRechtId",
+    "mainGeometry": "locatie",
+    "required": [
+      "schema",
+      "verworvenRechtId"
+    ],
+    "display": "verworvenRechtId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "verworvenRechtId": {
+        "type": "integer",
+        "provenance": "verw_recht_id",
+        "description": "Verworven recht Id - Uniek nummer ter identificatie van een parkeer- of verblijfsrecht."
+      },
+      "voertuigId": {
+        "type": "string",
+        "provenance": "vrtg_id_v_recht",
+        "description": "Voertuig Id - Identificatie van het voertuig waarvoor een parkeer- of verblijfsrecht is geregistreerd."
+      },
+      "voertuigRegistratieLandCode": {
+        "type": "string",
+        "provenance": "land_c_v_recht",
+        "description": "Landcode - Identificatie van het land van herkomst van het voertuig waarvoor een parkeer- of verblijfsrecht is geregistreerd. De landcode kan door de rechtverwerver intermediair (provider) aangeleverd worden wanneer een voertuig bijvoorbeeld een buitenlands kenteken heeft."
+      },
+      "gebiedsbeheerderId": {
+        "type": "integer",
+        "provenance": "geb_beh_v_recht",
+        "description": "Gebiedsbeheerdercode - Identificatie van de gebiedsbeheerder waaronder het gebied valt waarvoor een parkeer- of verblijfsrecht is geregistreerd."
+      },
+      "gebiedsbeheerderOmschrijving": {
+        "type": "string",
+        "provenance": "gebieds_beh_oms",
+        "description": "Gebiedsbeheerder - Omschrijving van de gebiedsbeheerder waaronder het gebied valt waarvoor een parkeer- of verblijfsrecht is geregistreerd."
+      },
+      "gebiedCode": {
+        "type": "string",
+        "provenance": "geb_c_v_recht",
+        "description": "Gebiedcode - Identificatie van het gebied waarvoor een parkeer- of verblijfsrecht is geregistreerd."
+      },
+      "gebiedOmschrijving": {
+        "type": "string",
+        "provenance": "gebied_oms",
+        "description": "Gebied - Omschrijving van het gebied waarvoor een parkeer- of verblijfsrecht is geregistreerd."
+      },
+      "gebruiksdoelCode": {
+        "type": "string",
+        "provenance": "gebr_doel_recht",
+        "description": "Gebruiksdoelcode - Identificatie van het gebruiksdoel dat opgegeven is bij de registratie van een parkeer- of verblijfsrecht."
+      },
+      "gebruiksdoelOmschrijving": {
+        "type": "string",
+        "provenance": "gebr_doel_oms",
+        "description": "Gebuiksdoel - Omschrijving van het gebruiksdoel dat opgegeven is bij de registratie van een parkeer- of verblijfsrecht."
+      },
+      "verkooppuntId": {
+        "type": "integer",
+        "provenance": "verk_p_v_recht",
+        "description": "Verkooppunt - Identificatie van het verkooppuntnummer waarmee een parkeer- of verblijfsrecht is geregistreerd."
+      },
+      "locatie": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "provenance": "coord_v_recht",
+        "description": "Coordinaten - De coördinaten die door de rechtverwerver intermediair (provider) opgegeven zijn voor de registratie van een parkeer- of verblijfsrecht."
+      },
+      "beginTijdUtc": {
+        "type": "string",
+        "format": "date-time",
+        "provenance": "b_tyd_v_recht",
+        "description": "Begintijd - Datum + tijd waarop een parkeer- of verblijfsrecht begint. Deze datum + tijd is in UTC-notatie vastgelegd."
+      },
+      "registratieTijd": {
+        "type": "string",
+        "format": "date-time",
+        "provenance": "reg_tyd_v_recht",
+        "description": "Registratie begintijd - Datum + tijd waarop een parkeer- of verblijfsrecht in het NPR geregistreerd is. Deze datum + tijd is in UTC-notatie vastgelegd."
+      },
+      "aangepasteBeginTijdUtc": {
+        "type": "string",
+        "format": "date-time",
+        "provenance": "b_tyd_r_aanp",
+        "description": "Aangepaste begintijd - Datum + tijd waarop een parkeer- of verblijfsrecht daadwerkelijk is gestart, en waarmee het systeem rekent. Deze kan afwijken van de begintijd. De aangepaste begintijd is bijvoorbeeld het moment dat een garage registreert wanneer de parkeerder door de slagboom rijdt. Deze datum + tijd is in UTC-notatie vastgelegd."
+      },
+      "tijdvensterBeginTijdUtc": {
+        "type": "string",
+        "provenance": "b_tyd_venster",
+        "description": "Begintijd tijdvenster - Tijdstip waarop een bepaald tijdvenster binnen een dag start. Komt altijd voor in combinatie met een eindtijd tijdvenster."
+      },
+      "eindTijdUtc": {
+        "type": "string",
+        "format": "date-time",
+        "provenance": "e_tyd_v_recht",
+        "description": "Eindtijd - Datum + tijd waarop een parkeer- of verblijfsrecht eindigt. Deze datum + tijd is in UTC-notatie vastgelegd."
+      },
+      "registratieEindTijdUtc": {
+        "type": "string",
+        "format": "date-time",
+        "provenance": "r_tyd_e_tyd_vr",
+        "description": "Registratie eindtijd - Datum + tijd waarop de eindtijd van een parkeer- of verblijfsrecht in het NPR geregistreerd is. Deze datum + tijd is in UTC-notatie vastgelegd."
+      },
+      "aangepasteEindTijdUtc": {
+        "type": "string",
+        "format": "date-time",
+        "provenance": "e_tyd_r_aanp",
+        "description": "Aangepaste eindtijd - Datum + tijd waarop een parkeer- of verblijfsrecht eindigt, zoals door het NPR berekend. Deze datum + tijd is in UTC-notatie vastgelegd."
+      },
+      "tijdvensterEindTijdUtc": {
+        "type": "string",
+        "provenance": "e_tyd_venster",
+        "description": "Eindtijd tijdvenster - Tijdstip waarop een bepaald tijdvenster binnen een dag eindigt. Komt altijd voor in combinatie met een eindtijd tijdvenster."
+      },
+      "bedrag": {
+        "type": "number",
+        "provenance": "bedr_v_recht_b",
+        "description": "Bedrag - Bedrag voor het parkeer- of verblijfsrecht in euro (inclusief BTW) dat door het NPR berekend is conform de stamgegevens die door de gebiedsbeheerder zijn opgegeven."
+      },
+      "aangeleverdBedrag": {
+        "type": "number",
+        "provenance": "bedrag_v_recht",
+        "description": "Bedrag aangeleverd - Bedrag voor het parkeer- of verblijfsrecht in euro (inclusief BTW) dat door een rechtverwerver intermediair (provider) bepaald is. Dit bedrag wordt door de rechtverwerver intermediair aangeleverd bij het registreren van het parkeer- of verblijfsrecht."
+      },
+      "herberekendBedrag": {
+        "type": "number",
+        "provenance": "bedr_v_recht_h",
+        "description": "Bedrag herberekening - Bedrag dat voor een parkeer- of verblijfsrecht in rekening wordt gebracht na een herberekening."
+      },
+      "rechtverwerverMaximumBedrag": {
+        "type": "number",
+        "provenance": "max_bedr_autor",
+        "description": "Maximumbedrag rechtverwerver - Maximumbedrag in euro (inclusief BTW) wat door de rechtverwerver is afgegeven voor een aangemeld parkeer- of verblijfsrecht."
+      },
+      "btwBedrag": {
+        "type": "number",
+        "provenance": "btw_v_recht_ber",
+        "description": "BTW - De BTW in euro over het bedrag voor een parkeer- of verblijfsrecht. Indien van toepassing."
+      },
+      "btwAangeleverdBedrag": {
+        "type": "number",
+        "provenance": "btw_v_recht",
+        "description": "BTW aangeleverd - De BTW in euro over het aangeleverde bedrag voor een parkeer- of verblijfsrecht. Indien van toepassing."
+      },
+      "btwHerberekendBedrag": {
+        "type": "number",
+        "provenance": "btw_v_recht_her",
+        "description": "BTW herberekening - De BTW in euro over het berekende bedrag voor een parkeer- of verblijfsrecht. Indien van toepassing."
+      },
+      "btwRechtverwerverMaximumBedrag": {
+        "type": "number",
+        "provenance": "btw_max_bedr",
+        "description": "BTW maximumbedrag - De BTW in euro over het maximumbedrag rechtverwerver voor een parkeer- of verblijfsrecht. Indien van toepassing."
+      },
+      "rechtverwerverCode": {
+        "type": "integer",
+        "provenance": "rechtv_v_recht",
+        "description": "Rechtverwerver intermediair code - Identificatie van de rechtverwerver intermediair (provider) die een parkeer- of verblijfsrecht heeft geregistreerd."
+      },
+      "rechtverwerverOmschrijving": {
+        "type": "string",
+        "provenance": "rechtv_int_oms",
+        "description": "Rechtverwerver intermediair - Omschrijving van de rechtverwerver intermediair die een parkeer- of verblijfsrecht heeft geregistreerd."
+      },
+      "rechtverwerverKenmerk": {
+        "type": "string",
+        "provenance": "kenm_rechtv_int",
+        "description": "Kenmerk - Omschrijving of referentie die de rechtverwerver intermediair meegeeft bij de registratie van een parkeer- of verblijfsrecht."
+      },
+      "voertuigIdentificatieType": {
+        "type": "string",
+        "provenance": "type_vrtg_ident",
+        "description": "Type voertuigidentificatie - Het type identificatie dat gebruikt wordt om het voertuig te identificeren. Bijvoorbeeld een kenteken of een gehandicaptenparkeerkaart."
+      },
+      "verrekenBatchId": {
+        "type": "integer",
+        "provenance": "ver_batch_vr",
+        "description": "Verrekenbatch Id - Identificatie van de verrekenbatch waarmee de opbrengsten van een parkeer- of verblijfsrecht zijn verrekend."
+      },
+      "verrekenBatchOmschrijving": {
+        "type": "string",
+        "provenance": "ver_batch_naam",
+        "description": "Verrekenbatch - Omschrijving van de verrekenbatch waarmee de opbrengsten van een parkeer- of verblijfsrecht zijn verrekend."
+      },
+      "herberekeningTijdUtc": {
+        "type": "string",
+        "format": "date-time",
+        "provenance": "tyd_herberek",
+        "description": "Tijdstip herberekening - Tijdstip waarop voor het laatst een herberekening heeft plaatsgevonden voor het bedrag bij een parkeer- of verblijfsrecht."
+      },
+      "berekendeParkeerduur": {
+        "type": "number",
+        "provenance": "_parkeerduur",
+        "description": "Parkeertijd - De tijdsduur in minuten tussen de begintijd en eindtijd van een parkeer- of verblijfsrecht.  (Calculated)"
+      },
+      "eindTijdIndicator": {
+        "type": "boolean",
+        "provenance": "_tijdverschil_beeindigen_recht",
+        "description": "Eindtijd indicator - Indicator die aangeeft of de rechtverwerver intermediair (provider) een eindtijd heeft aangeleverd bij de registratie van een parkeer- of verblijfsrecht.  (Calculated)"
+      },
+      "tijdVerschilEindeRecht": {
+        "type": "number",
+        "provenance": "_eindtijd_indicator",
+        "description": "Tijdverschil beëindigen recht - Tijdsverschil in minuten tussen de eindtijd en de registratie eindtijd van een parkeer- of verblijfsrecht. Bij een tijdverschil van meer dan 2 minuten is een recht te laat afgesloten  (Calculated)"
+      },
+      "tijdVerschilStartRecht": {
+        "type": "number",
+        "provenance": "_tijdverschil_starten_recht",
+        "description": "Tijdverschil starten recht - Tijdsverschil in minuten tussen de begintijd en de registratie begintijd van een parkeer- of verblijfsrecht. Bij een tijdverschil van meer dan 2 minuten is een recht te laat aangeleverd (Calculated)"
+      }
+    }
+  }
+}

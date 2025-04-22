@@ -1,0 +1,105 @@
+{
+  "id": "poiAdressen",
+  "title": "poiAdressen",
+  "description": "Alle hoofdadressen van adresseerbare objecten gerelateerd aan de points of interest",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "adresseerbaarobjectIdentificatie"
+    ],
+    "required": [
+      "schema",
+      "adresseerbaarobjectIdentificatie"
+    ],
+    "display": "adresseerbaarobjectIdentificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "adresseerbaarobjectIdentificatie": {
+        "type": "string",
+        "description": "unieke identificatie van de BAG verblijfsobject, ligplaats of standplaats"
+      },
+      "poiId": {
+        "type": "string",
+        "description": "unieke identificatie van de point of interest"
+      },
+      "typeAdresseerbaarObject": {
+        "type": "string",
+        "description": "typering van het adresseerbare object uit de BAG {verblijfsobject, ligplaats, standplaats}"
+      },
+      "status": {
+        "type": "string",
+        "description": "status van het adresseerbare object indien verblijfsobject {gevormd, ingebruik-niet ingemeten, in gebruik}"
+      },
+      "gebruiksdoel": {
+        "type": "string",
+        "description": "gebruiksdoel van het adresseerbare object uit de BAG"
+      },
+      "indicatieHoofdadres": {
+        "type": "boolean",
+        "description": "indicatie of het een hoofadres betreft"
+      },
+      "openbareruimteNaam": {
+        "type": "string",
+        "title": "openbareruimteNaam",
+        "shortname": "naam",
+        "description": "Officiële naam openbare ruimte conform BAG"
+      },
+      "huisnummer": {
+        "type": "integer",
+        "title": "huisnummer",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering"
+      },
+      "huisletter": {
+        "type": "string",
+        "title": "huisletter",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken"
+      },
+      "huisnummertoevoeging": {
+        "type": "string",
+        "title": "huisnummertoevoeging",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
+      },
+      "postcode": {
+        "type": "string",
+        "title": "postcode",
+        "description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)."
+      },
+      "woonplaatsNaam": {
+        "type": "string",
+        "title": "woonplaatsNaam",
+        "description": "Officiële naam van de woonplaats"
+      },
+      "gemeenteNaam": {
+        "type": "string",
+        "title": "gemeenteNaam",
+        "description": "De naam van de gemeente (afkomstig van het Kadaster)"
+      },
+      "pandIdentificatie": {
+        "type": "string",
+        "title": "pandIdentificatie",
+        "description": "Landelijke identificerende sleutel van het pand"
+      },
+      "peilDatum": {
+        "type": "string",
+        "format": "date",
+        "description": "peildatum van de BAG gegevens"
+      },
+      "datumExtractie": {
+        "type": "string",
+        "format": "date",
+        "description": "datum creatie dataset"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Point.json"
+      }
+    },
+    "mainGeometry": "geometrie"
+  },
+  "lifecycleStatus": "stable"
+}

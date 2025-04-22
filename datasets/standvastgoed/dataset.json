@@ -1,8 +1,6 @@
 {
   "type": "dataset",
   "id": "standvastgoed",
-  "version": "2.0.0",
-  "status": "beschikbaar",
   "auth": "OPENBAAR",
   "title": "Stand van de vastgoedgegevens",
   "description": "Stand op één bepaalde peildatum van gegevens in het vastgoed domein en (ontdubbelde) postcodetabel naar gebieden",
@@ -13,27 +11,26 @@
     "$ref": "publishers/STAT"
   },
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "gebouwen",
-      "$ref": "gebouwen/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "gebouwen/v2.0.0"
-      }
-    },
-    {
-      "id": "eigendom",
-      "$ref": "eigendom/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "eigendom/v1.0.0"
-      }
-    },
-    {
-      "id": "postcodeGebieden",
-      "$ref": "postcode_gebieden/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "postcode_gebieden/v1.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "2.0.0",
+      "tables": [
+        {
+          "id": "gebouwen",
+          "$ref": "gebouwen/v2"
+        },
+        {
+          "id": "eigendom",
+          "$ref": "eigendom/v1"
+        },
+        {
+          "id": "postcodeGebieden",
+          "$ref": "postcode_gebieden/v1"
+        }
+      ]
     }
-  ]
+  }
 }

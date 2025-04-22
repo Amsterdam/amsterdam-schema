@@ -1,0 +1,66 @@
+{
+  "id": "gebiedsGeodata",
+  "type": "table",
+  "version": "0.0.1",
+  "lifecycleStatus": "stable",
+  "temporal": {
+    "identifier": "volgnummer",
+    "dimensions": {
+      "geldigOp": [
+        "gebiedBeginDatum",
+        "gebiedEindDatum"
+      ]
+    }
+  },
+  "provenance": "Extractie van RDW, van geografische data van parkeergebieden en -faciliteiten: 'https://opendata.rdw.nl/resource/nsk3-v9n7.json', met samengesmolten geometrie",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "mainGeometry": "geometrie",
+    "identifier": [
+      "gebiedId",
+      "volgnummer"
+    ],
+    "required": [
+      "schema",
+      "volgnummer",
+      "gebiedId"
+    ],
+    "display": "gebiedId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "gebiedsbeheerderId": {
+        "type": "integer",
+        "relation": "npr:gebiedsbeheerders"
+      },
+      "gebiedId": {
+        "type": "string",
+        "provenance": "areaid",
+        "description": "Identificatiecode van een parkeergebied of - faciliteit."
+      },
+      "volgnummer": {
+        "type": "integer",
+        "provenance": "Afgeleid door ETL op basis van uniciteit gebiedId en gebiedBeginDatum"
+      },
+      "gebiedBeginDatum": {
+        "type": "string",
+        "format": "date",
+        "provenance": "startdatearea",
+        "description": "Datum vanaf wanneer een parkeergebied of -faciliteit geldig is."
+      },
+      "gebiedEindDatum": {
+        "type": "string",
+        "format": "date",
+        "provenance": "enddatearea",
+        "description": "Datum waarop een parkeergebied of -faciliteit geldig is. Veld is leeg wanneer gebied momenteel nog actief is."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Polygon.json",
+        "provenance": "areageometryastext",
+        "description": "De geometrie van een gebied."
+      }
+    }
+  }
+}

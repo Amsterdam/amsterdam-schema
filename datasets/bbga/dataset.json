@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "bbga",
   "title": "BBGA",
-  "status": "beschikbaar",
   "description": "Basisbestand Gebieden Amsterdam",
-  "version": "0.0.1",
   "crs": "EPSG:4326",
   "owner": "Gemeente Amsterdam",
   "publisher": {
@@ -13,27 +11,26 @@
   "creator": "bronhouder onbekend",
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
-  "tables": [
-    {
-      "id": "indicatorenDefinities",
-      "$ref": "indicatorenDefinities/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "indicatorenDefinities/v1.0.0"
-      }
-    },
-    {
-      "id": "kerncijfers",
-      "$ref": "kerncijfers/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "kerncijfers/v1.0.0"
-      }
-    },
-    {
-      "id": "statistieken",
-      "$ref": "statistieken/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "statistieken/v1.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "indicatorenDefinities",
+          "$ref": "indicatorenDefinities/v1"
+        },
+        {
+          "id": "kerncijfers",
+          "$ref": "kerncijfers/v1"
+        },
+        {
+          "id": "statistieken",
+          "$ref": "statistieken/v1"
+        }
+      ]
     }
-  ]
+  }
 }
