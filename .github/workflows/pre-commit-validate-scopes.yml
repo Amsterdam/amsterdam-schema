@@ -24,7 +24,7 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.9.x'
-      - uses: pre-commit/action@v2.0.3
+      - uses: pre-commit/action@v3.0.1
         if: ${{ steps.changed-scopes.outputs.SCOPE_FILES != '' }}
         with:
           extra_args: validate-scopes
