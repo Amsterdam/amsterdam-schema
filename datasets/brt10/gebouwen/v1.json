@@ -1,0 +1,142 @@
+{
+  "id": "gebouwen",
+  "title": "gebouwen",
+  "description": "Vrijstaande, overdekte en geheel of gedeeltelijk met wanden omsloten toegankelijke ruimte of door pilaren ondersteunde dakconstructie, die direct of indirect met de grond is verbonden.",
+  "type": "table",
+  "version": "1.0.4",
+  "lifecycleStatus": "stable",
+  "crs": "EPSG:28992",
+  "auth": "OPENBAAR",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": [
+      "identificatie"
+    ],
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "title": "Geo object ID",
+        "description": "De unieke identiteit van het geo-object"
+      },
+      "bronactualiteit": {
+        "type": "string",
+        "title": "Bron actualiteit datum",
+        "format": "date",
+        "description": "De actualiteit van de gebruikte bron"
+      },
+      "bronbeschrijving": {
+        "type": "string",
+        "title": "Bron beschrijving",
+        "description": "De beschrijving van de gebruikte bron"
+      },
+      "bronnauwkeurigheid": {
+        "type": "number",
+        "title": "Bron nauwkeurigheid meters",
+        "description": "De nauwkeurigheid van de gebruikte bron in meters"
+      },
+      "brontype": {
+        "type": "string",
+        "title": "Bron type",
+        "description": "Het type van de gebruikte bron"
+      },
+      "objectBeginTijd": {
+        "type": "string",
+        "title": "Object geldigheid begintijd",
+        "format": "date",
+        "description": "Tijdstip waarop het object ontstaan is"
+      },
+      "tijdstipRegistratie": {
+        "type": "string",
+        "title": "Object registratie tijdstip",
+        "format": "date",
+        "description": "Tijdstip waarop een versie van het object ontstaan is"
+      },
+      "visualisatieCode": {
+        "type": "integer",
+        "title": "Object visualisatie code",
+        "description": "Code voor het visualiseren van het object"
+      },
+      "tdnCode": {
+        "type": "integer",
+        "title": "Object TOP10vector code",
+        "description": "Code die het object in TOP10vector had"
+      },
+      "mutatietype": {
+        "type": "string",
+        "title": "Object mutatie type",
+        "description": "Het soort mutatie dat een object als laatste ondergaan heeft"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Geometrie",
+        "description": "Geometrie"
+      },
+      "naam": {
+        "type": "string",
+        "title": "Gebouw naam",
+        "description": "Naam van het gebouw"
+      },
+      "soortnaam": {
+        "type": "string",
+        "title": "Gebouw soort",
+        "description": "Nadere specificatie van het type gebouw"
+      },
+      "hoogteniveau": {
+        "type": "integer",
+        "title": "Object hoogte niveau",
+        "description": "Het hoogteniveau van het object"
+      },
+      "status": {
+        "type": "string",
+        "title": "Object status",
+        "description": "De staat waarin het object zich bevindt"
+      },
+      "fysiekVoorkomen": {
+        "type": "string",
+        "title": "Object relatieve positie",
+        "description": "De plaats waar het object zich bevindt t.o.v. andere constructies"
+      },
+      "hoogteklasse": {
+        "type": "string",
+        "title": "Bebouwing hoogte klasse",
+        "description": "De klasse van hoogte waar de bebouwing toe behoort"
+      },
+      "hoogte": {
+        "type": "number",
+        "title": "Object relatieve hoogte ligging",
+        "description": "De hoogte van het object (t.o.v. het maaiveld of t.o.v. NAP)"
+      },
+      "type": {
+        "type": "string",
+        "title": "Gebouw type",
+        "description": "Het type gebouw, het doel waarvoor de bebouwing gebruikt wordt (gaat worden / werd)"
+      },
+      "gebruiksdoel": {
+        "type": "string",
+        "title": "Gebouw gebruiksdoel omschrijving",
+        "description": "Huidig gebruiksdoel van een gebouw, conform de BAG classificatie voor panden"
+      },
+      "geometriePunt": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "title": "Punt geometrie",
+        "description": "Puntgeometrie"
+      },
+      "geometrieVlak": {
+        "$ref": "https://geojson.org/schema/Polygon.json",
+        "title": "Vlak geometrie",
+        "description": "Vlakgeometrie"
+      }
+    }
+  }
+}

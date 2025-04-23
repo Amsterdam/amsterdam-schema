@@ -8,8 +8,6 @@
   "license": "Creative Commons, Naamsvermelding",
   "homepage": "https://data.amsterdam.nl",
   "language": "nl",
-  "status": "beschikbaar",
-  "version": "2.0.0",
   "objective": "Het doel van de beschermde status is om de karakteristieke, ruimtelijke kwaliteit van een plek ook in de toekomst te handhaven. Door het beschikbaar stellen van deze gegevens kan gecontroleerd worden of een specifieke locatie binnen een beschermd gebied valt. Dit is bijvoorbeeld van belang bij de toetsing van een vergunningsplicht voor werkzaamheden die het gezicht kunnen aantasten.",
   "temporalUnit": "uren",
   "owner": "Gemeente Amsterdam",
@@ -34,79 +32,18 @@
   ],
   "hasBeginning": "2020-04-08T00:00:00+01:00",
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "beschermdestadsdorpsgezichten",
-      "type": "table",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
       "version": "2.0.0",
-      "title": "Beschermde stads- en dorpsgezichten",
-      "schema": {
-        "required": [
-          "id",
-          "schema"
-        ],
-        "display": "naam",
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "title": "Object ID",
-            "description": "Unieke identificatie van een object"
-          },
-          "naam": {
-            "type": "string",
-            "title": "Stadsdorpgezicht naam",
-            "description": "De naam van het beschermde stads- of dorpgezicht"
-          },
-          "aangewezenDoor": {
-            "type": "string",
-            "title": "Stadsdorpgezicht toekenner naam",
-            "description": "De instantie die het gebied heeft aangewezen als beschermd "
-          },
-          "status": {
-            "type": "string",
-            "title": "Stadsdorpgezicht status",
-            "description": "Nadere aanduiding van de toestand van het beschermde stads- of dorpgezicht"
-          },
-          "aanwijzingsdatum": {
-            "type": "string",
-            "title": "Stadsdorpgezicht startdatum",
-            "description": "Datum waarop het gebied is aangewezen als beschermd stads- of dorpsgezicht",
-            "format": "date"
-          },
-          "intrekkingsdatum": {
-            "type": "string",
-            "title": "Stadsdorpgezicht einddatum",
-            "description": "Datum waarop de beschermde status van het stads- of dorpsgezicht is ingetrokken",
-            "format": "date"
-          },
-          "toelichting": {
-            "type": "string",
-            "title": "Stadsdorpgezicht status toelichting",
-            "description": "Nadere toelichting op de beschermde status van het stads- of dorpsgezicht"
-          },
-          "besluitAanwijzing": {
-            "type": "string",
-            "title": "Stadsdorpgezicht besluit toelichting",
-            "description": "Informatie over aanwijzings besluit van het beschermde stads- of dorpsgezicht"
-          },
-          "extraInformatie": {
-            "type": "string",
-            "title": "Stadsdorpgezicht extra toelichting",
-            "description": "Extra informatie van het beschermde stads- of dorpsgezicht"
-          },
-          "geometry": {
-            "title": "Geometrie",
-            "description": "Geometrie van het type POLYGON van het beschermde stads- of dorpsgezicht",
-            "$ref": "https://geojson.org/schema/Polygon.json"
-          },
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          }
+      "tables": [
+        {
+          "id": "beschermdestadsdorpsgezichten",
+          "$ref": "beschermdestadsdorpsgezichten/v2"
         }
-      }
+      ]
     }
-  ]
+  }
 }

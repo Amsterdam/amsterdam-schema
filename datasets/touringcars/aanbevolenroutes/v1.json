@@ -1,0 +1,34 @@
+{
+  "id": "aanbevolenroutes",
+  "title": "Aanbevolen route touringcars",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "omschrijving",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "provenance": "lokatie"
+      },
+      "omschrijving": {
+        "type": "string",
+        "title": "Routenaam",
+        "provenance": "title"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

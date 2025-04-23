@@ -1,0 +1,69 @@
+{
+  "id": "opafstapplaats",
+  "type": "table",
+  "version": "1.0.0",
+  "provenance": "var_opafstapplaats",
+  "title": "Op- en afstapplaats",
+  "description": "Deze dataset bevat de gegevens over op- en afstaplocaties voor pleziervaart, passagiersvaart en transport over het water. De gemeente wil daarbij voldoende ruimte voor bewoners creëren, onder andere doorbeheersing van het aantal vaarbewegingen en het spreiden van plezier- en passagiersvaart.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "geometrie",
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "provenance": "var_opafstapplaats_id",
+        "description": "Uniek identificerend kenmerk van het record"
+      },
+      "volgnr": {
+        "type": "string",
+        "description": "Volgnummer van het object"
+      },
+      "tekstOnMouseover": {
+        "type": "string",
+        "description": "Volgnummer + locatiebeschrijving"
+      },
+      "kleurOpKaart": {
+        "type": "string",
+        "description": "Gewenste kleurweergave op de kaart"
+      },
+      "opEnAfstap": {
+        "type": "string",
+        "description": " Indicatie ove opstap of afstaplocatie"
+      },
+      "laadLos": {
+        "type": "string",
+        "description": " Indicatie voor laad en los doeleinden."
+      },
+      "eLaadpunt": {
+        "type": "string",
+        "description": "Indicatie electrische laadpunt voorziening."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Geometrie in RD (epsg:28992)"
+      },
+      "verwerkingsdatum": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop het object  in het systeem is geregistreerd"
+      },
+      "gbdBuurt": {
+        "type": "string",
+        "description": "Unieke identificatie van het object",
+        "relation": "gebieden:buurten",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

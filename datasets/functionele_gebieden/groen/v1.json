@@ -1,0 +1,56 @@
+{
+  "id": "groen",
+  "type": "table",
+  "version": "1.0.0",
+  "description": "Alle functionele gebieden, die onderdeel vormen van de groen hoofdstructuur",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "id",
+        "description": "Uniek identificatie van het functionele gebied"
+      },
+      "functie": {
+        "type": "string",
+        "title": "functie",
+        "description": "Functie van het functionele gebied"
+      },
+      "naam": {
+        "type": "string",
+        "title": "naam",
+        "description": "Naam van het functionele gebied"
+      },
+      "bron": {
+        "type": "string",
+        "title": "bron",
+        "description": "Bron van het functionele gebied"
+      },
+      "bronId": {
+        "type": "string",
+        "title": "bronId",
+        "description": "Unieke identificatie, zoals bekend in de bron"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "geometrie",
+        "description": "Vorm en ligging van de vestiging in het Nationale Rijksdriehoekstelsel."
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

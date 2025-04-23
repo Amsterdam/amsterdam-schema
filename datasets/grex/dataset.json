@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "grex",
   "title": "Grondexploitaties (GREX)",
-  "status": "beschikbaar",
   "description": "Grondexploitatie (GREX) projecten van de gemeente Amsterdam.",
-  "version": "1.0.0",
   "dateCreated": "2024-10-29T00:00:00+01:00",
   "dateModified": "2024-10-29T00:00:00+01:00",
   "language": "nl",
@@ -26,13 +24,18 @@
     "Grondexploitaties"
   ],
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "projecten",
-      "$ref": "projecten/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "projecten/v1.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "projecten",
+          "$ref": "projecten/v1"
+        }
+      ]
     }
-  ]
+  }
 }

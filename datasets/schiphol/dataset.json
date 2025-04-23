@@ -4,13 +4,13 @@
   "title": "Schiphol",
   "description": "Schiphol gerelateerde gegevens t.a.v. geluidzones, hoogtebeperkingradar, maatgevendetoetshoogte en vogelvrijwaringsgebied.",
   "license": "public",
-  "status": "beschikbaar",
-  "version": "0.0.1",
   "owner": "Gemeente Amsterdam",
   "auth": "OPENBAAR",
   "authorizationGrantor": "OIS",
   "creator": "bronhouder onbekend",
-  "publisher": "Datateam Stedelijke Ontwikkeling en Beheer",
+  "publisher": {
+    "$ref": "publishers/SOEB"
+  },
   "theme": [
     "schiphol"
   ],
@@ -18,188 +18,30 @@
     "schiphol"
   ],
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "geluidzones",
-      "title": "Geluidzones",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "mainGeometry": "geometrie",
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het record."
-          },
-          "geometrie": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Vlakgeometrie van de zone."
-          },
-          "type": {
-            "type": "string",
-            "description": "Typering zone."
-          },
-          "thema": {
-            "type": "string",
-            "description": "Naam van thema waaronder zone valt."
-          },
-          "themaToelichting": {
-            "type": "string",
-            "description": "Toelichting thema waaronder zone valt."
-          },
-          "themaWetOfRegelgeving": {
-            "type": "string",
-            "description": "Naam van wet of regelgeving waaronder zone valt."
-          },
-          "themaDatumLaatsteWijziging": {
-            "type": "string",
-            "description": "Datum (bijv september 2020) van wijziging van wet of regelgeving waaronder zone valt."
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "geluidzones",
+          "$ref": "geluidzones/v1"
+        },
+        {
+          "id": "hoogtebeperkingradar",
+          "$ref": "hoogtebeperkingradar/v1"
+        },
+        {
+          "id": "maatgevendetoetshoogtes",
+          "$ref": "maatgevendetoetshoogtes/v1"
+        },
+        {
+          "id": "vogelvrijwaringsgebieden",
+          "$ref": "vogelvrijwaringsgebieden/v1"
         }
-      }
-    },
-    {
-      "id": "hoogtebeperkingradar",
-      "title": "Hoogtebeperkingradar",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "mainGeometry": "geometrie",
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het record."
-          },
-          "geometrie": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Vlakgeometrie van de hoogtebeperkingradar."
-          },
-          "hoogteNap": {
-            "type": "number",
-            "unit": "meter",
-            "description": "NAP hoogte.",
-            "provenance": "h_m_nap"
-          },
-          "hoogteNapKlasse": {
-            "type": "integer",
-            "description": "Classificatie categorie t.a.v. NAP.",
-            "provenance": "hoogteklas"
-          }
-        }
-      }
-    },
-    {
-      "id": "maatgevendetoetshoogtes",
-      "title": "Maatgevendetoetshoogtes",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "mainGeometry": "geometrie",
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het record."
-          },
-          "geometrie": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Vlakgeometrie van de hoogtebeperkingradar."
-          },
-          "hoogteNap": {
-            "type": "number",
-            "unit": "meter",
-            "description": "NAP hoogte.",
-            "provenance": "h_m_nap"
-          },
-          "hoogteNapKlasse": {
-            "type": "integer",
-            "description": "Classificatie categorie t.a.v. NAP.",
-            "provenance": "hoogteklas"
-          }
-        }
-      }
-    },
-    {
-      "id": "vogelvrijwaringsgebieden",
-      "title": "Vogelvrijwaringsgebieden",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "mainGeometry": "geometrie",
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding van het record."
-          },
-          "geometrie": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json",
-            "description": "Vlakgeometrie van de zone."
-          },
-          "type": {
-            "type": "string",
-            "description": "Typering zone."
-          },
-          "thema": {
-            "type": "string",
-            "description": "Naam van thema waaronder zone valt."
-          },
-          "themaToelichting": {
-            "type": "string",
-            "description": "Toelichting thema waaronder zone valt."
-          },
-          "themaWetOfRegelgeving": {
-            "type": "string",
-            "description": "Naam van wet of regelgeving waaronder zone valt."
-          },
-          "themaDatumLaatsteWijziging": {
-            "type": "string",
-            "description": "Datum (bijv september 2020) van wijziging van wet of regelgeving waaronder zone valt."
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

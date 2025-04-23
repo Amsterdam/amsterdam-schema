@@ -2,8 +2,6 @@
   "type": "dataset",
   "id": "hr",
   "title": "handelsregister",
-  "status": "beschikbaar",
-  "version": "2.0.0",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "creator": "Kamer van Koophandel",
@@ -22,41 +20,34 @@
   "contactPoint": {
     "email": "OIS.GOB@amsterdam.nl"
   },
-  "tables": [
-    {
-      "id": "functievervullingen",
-      "$ref": "functievervullingen/v1.5.2",
-      "activeVersions": {
-        "1.5.2": "functievervullingen/v1.5.2"
-      }
-    },
-    {
-      "id": "maatschappelijkeactiviteiten",
-      "$ref": "maatschappelijkeactiviteiten/v2.7.3",
-      "activeVersions": {
-        "2.7.3": "maatschappelijkeactiviteiten/v2.7.3"
-      }
-    },
-    {
-      "id": "natuurlijkepersonen",
-      "$ref": "natuurlijkepersonen/v1.5.1",
-      "activeVersions": {
-        "1.5.1": "natuurlijkepersonen/v1.5.1"
-      }
-    },
-    {
-      "id": "nietnatuurlijkepersonen",
-      "$ref": "nietnatuurlijkepersonen/v1.5.1",
-      "activeVersions": {
-        "1.5.1": "nietnatuurlijkepersonen/v1.5.1"
-      }
-    },
-    {
-      "id": "vestigingen",
-      "$ref": "vestigingen/v2.5.3",
-      "activeVersions": {
-        "2.5.3": "vestigingen/v2.5.3"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "2.0.0",
+      "tables": [
+        {
+          "id": "functievervullingen",
+          "$ref": "functievervullingen/v1"
+        },
+        {
+          "id": "maatschappelijkeactiviteiten",
+          "$ref": "maatschappelijkeactiviteiten/v2"
+        },
+        {
+          "id": "natuurlijkepersonen",
+          "$ref": "natuurlijkepersonen/v1"
+        },
+        {
+          "id": "nietnatuurlijkepersonen",
+          "$ref": "nietnatuurlijkepersonen/v1"
+        },
+        {
+          "id": "vestigingen",
+          "$ref": "vestigingen/v2"
+        }
+      ]
     }
-  ]
+  }
 }

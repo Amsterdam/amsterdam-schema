@@ -1,0 +1,149 @@
+{
+  "id": "aantekeningenrechten",
+  "type": "table",
+  "version": "1.3.1",
+  "lifecycleStatus": "stable",
+  "auth": "BRK/RS",
+  "reasonsNonPublic": [
+    "5.1 1d: Bevat persoonsgegevens",
+    "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+  ],
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "identificatie",
+    "required": [
+      "schema",
+      "neuronId",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "neuronId": {
+        "type": "integer",
+        "title": "Bronsysteem ID",
+        "description": "Neuron ID",
+        "provenance": "id"
+      },
+      "identificatie": {
+        "type": "string",
+        "title": "Object ID",
+        "description": "De aan deze aantekening toegekende landelijk unieke aanduiding"
+      },
+      "wasIdentificatie": {
+        "type": "string",
+        "title": "ID in BRK1.0",
+        "description": "De (oude) identificatie die dit object in BRK 1.0 had"
+      },
+      "einddatumRecht": {
+        "type": "string",
+        "format": "date-time",
+        "title": "Einddatum zakelijk recht",
+        "description": "Een einddatum op een zakelijk recht (via tenaamstelling) wordt nu in een apart attribuut geleverd.Voorheen werd dit geleverd in het attribuut einddatum. Tenaamstellingen van een eindig recht worden niet automatisch beëindigd. Wel krijgt zo’n tenaamstelling de aantekening dat het recht eindig is en op een bepaalde datum zal eindigen of geëindigd is"
+      },
+      "aard": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "title": "Aard aantekening",
+        "description": "De aard van de aantekening"
+      },
+      "omschrijving": {
+        "type": "string",
+        "title": "Aantekening omschrijving",
+        "description": "Omschrijving bij de aantekening"
+      },
+      "betreftGedeelteVanPerceel": {
+        "type": "string",
+        "title": "Gedeelte perceel indicatie",
+        "description": "Er bestaan nu nog speciale aardAantekening-varianten met de toevoeging op een gedeelte van een perceel. Voorbeeld: 81. In het vervolg zal deze aard worden vervangen door de oorspronkelijke variant, in dit geval 80 ”Voorwaarden WKPB besluiten”, waarbij de indicator betreftGedeelteVanPerceel op true gezet wordt"
+      },
+      "betrokkenBrkTenaamstelling": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "volgnummer": {
+              "type": "integer"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "relation": "brk2:tenaamstellingen",
+        "title": "Betrokken tenaamstelling identificatie",
+        "description": "Identificatie van de betrokken tenaamstelling"
+      },
+      "heeftBrkBetrokkenPersoon": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "identificatie": {
+              "type": "string"
+            },
+            "beginGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "eindGeldigheid": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "relation": "brk2:kadastralesubjecten",
+        "title": "Betrokken subject identificatie",
+        "description": "Identificatie van het betrokken subject"
+      },
+      "isGebaseerdOpBrkStukdeel": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          }
+        },
+        "relation": "brk2:stukdelen",
+        "title": "Stukdeel identificatie",
+        "description": "Identificatie van het stukdeel waar de aantekening op gebaseerd is"
+      },
+      "einddatum": {
+        "type": "string",
+        "format": "date-time",
+        "title": "Object einddatum",
+        "description": "Einddatum geeft aan wanneer een bepaalde aantekening volgens het ingeschreven stuk niet langer meer rechtsgeldig is"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "format": "date-time",
+        "title": "Datum actueel tot",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "toestandsdatum": {
+        "type": "string",
+        "title": "Object toestand datum",
+        "format": "date",
+        "description": "De datum waarop de geleverde toestand van het onderliggende kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)"
+      }
+    }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "id": "containerlocatie",
+  "version": "2.1.0",
+  "lifecycleStatus": "stable",
+  "type": "table",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": "id",
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Identificerend kenmerk van de put waarin de container is geplaatst",
+        "title": "Container put ID"
+      },
+      "serienummer": {
+        "type": "string",
+        "description": "serienummer uitgegeven door de fabrikant",
+        "title": "Serienummer"
+      },
+      "status": {
+        "type": "integer",
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "description": "Status van de container, 0 - inactief, 1 - actief, 2 - gepland",
+        "title": "Container put status code"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "Geometrie van het type POINT van de containerlocatie RD (epsg:28992)",
+        "title": "Geometrie"
+      },
+      "eigenaarId": {
+        "type": "string",
+        "description": "Identificerend kenmerk eigenaar",
+        "title": "Eigenaar id"
+      },
+      "eigenaarNaam": {
+        "type": "string",
+        "description": "Naam eigenaar",
+        "title": "Eigenaar naam"
+      },
+      "datumCreatie": {
+        "type": "string",
+        "description": "Datum waarop het object is gecreëerd in container management systeem",
+        "title": "Datum registratie startdatum"
+      },
+      "datumPlaatsing": {
+        "type": "string",
+        "description": "Datum waarop het object op de locatie is geplaatst",
+        "title": "Datum plaatsing"
+      },
+      "datumOperationeel": {
+        "type": "string",
+        "description": "Datum waarop het object is operationeel gezet",
+        "title": "Datum operationeel"
+      },
+      "datumOplevering": {
+        "type": "string",
+        "description": "Datum waarop het object is opgeleleverd",
+        "title": "Datum oplevering"
+      },
+      "wijzigingsdatumDp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Datum waarop het object is gewijzigd",
+        "title": "Datumtijd aanmaak wijziging"
+      },
+      "verwijderdDp": {
+        "type": "boolean",
+        "description": "Indicatie of het object verwijderd is bij de bronhouder",
+        "title": "Geldigheid einddatumtijd"
+      },
+      "datumEindeGarantie": {
+        "type": "string",
+        "description": "Datum waarop de garantie verloopt",
+        "title": "Einde garantieperiode"
+      },
+      "indBevatContainer": {
+        "type": "boolean",
+        "description": "Indicatie dat de containerlocatie een container bevat",
+        "title": "Locatie bevat container indicatie"
+      },
+      "bagHoofdadresVerblijfsobject": {
+        "type": "string",
+        "relation": "bag:verblijfsobjecten",
+        "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
+        "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject.",
+        "title": "BAG hoofdadres verblijfsobject"
+      },
+      "gbdBuurt": {
+        "type": "string",
+        "relation": "gebieden:buurten",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+        "description": "Unieke identificatie van het object",
+        "title": "Gbd buurt"
+      },
+      "bagOpenbareruimte": {
+        "type": "string",
+        "relation": "bag:openbareruimtes",
+        "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
+        "description": "Openbare ruimte identificatie",
+        "title": "BAG openbareruimte"
+      },
+      "bagNummeraanduiding": {
+        "type": "string",
+        "relation": "bag:nummeraanduidingen",
+        "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
+        "description": "Identificatie nummeraanduiding",
+        "title": "BAG nummeraanduiding"
+      },
+      "containerlocatieTypeNaam": {
+        "type": "string",
+        "description": "Het type van de containerlocatie",
+        "title": "Containerlocatie type naam"
+      },
+      "containerlocatieIdNummer": {
+        "type": "string",
+        "description": "Definitie volgt nog",
+        "title": "Containerlocatie externe ID"
+      },
+      "containerlocatieDatumWijziging": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Datum waarop het object is gewijzigd.",
+        "title": "Datumtijd aanmaak wijziging"
+      },
+      "containerlocatieOpmerking": {
+        "type": "string",
+        "description": "Opmerking over het object.",
+        "title": "Opmerking"
+      },
+      "containerlocatieEndOfLife": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop het object het einde van zijn levenscyclus heeft bereikt.",
+        "title": "Containerlocatie levenscyclus einddatum"
+      },
+      "containerlocatieEigenaarschap": {
+        "type": "string",
+        "description": "Soort eigenaarschap",
+        "title": "Containerlocatie eigenaarschap"
+      },
+      "containerlocatieEigenaarschapOpmerking": {
+        "type": "string",
+        "description": "Beschrijving van het type eigenaarschap.",
+        "title": "Containerlocatie eigenaarschap type"
+      },
+      "containerlocatieTypeArtikelcode": {
+        "type": "string",
+        "description": "Artikelcode van het containerlocatietype.",
+        "title": "Containerlocatie type artikelcode"
+      },
+      "bronadres": {
+        "type": "string",
+        "description": "Adres van de containerlocatie zoals die in bron geregistreerd is.",
+        "title": "Adres"
+      }
+    }
+  }
+}

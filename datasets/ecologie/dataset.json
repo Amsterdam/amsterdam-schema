@@ -9,7 +9,6 @@
   "homepage": "https://data.amsterdam.nl",
   "owner": "Directie Verkeer en Openbare Ruimte, Gemeente Amsterdam",
   "spatialDescription": "Gemeente Amsterdam",
-  "version": "1.1.0",
   "title": "ecologie",
   "language": "nl",
   "dateCreated": "2025-04-10T00:00:00+01:00",
@@ -19,7 +18,6 @@
     "$ref": "publishers/BOR"
   },
   "description": "dataset met informatie over het ecologische areaal van Amsterdam",
-  "status": "beschikbaar",
   "keywords": [
     "kerngebied",
     "kerngebieden",
@@ -29,27 +27,25 @@
     "ecologisch areaal",
     "plan Biodiversiteit",
     "Groene Keten"
-    
   ],
   "crs": "EPSG:28992",
   "objective": "Het beschikbaar stellen van gegevens over het ecologisch areaal van Gemeente Amsterdam waarbinnen de ecologische kwaliteit gemonitord wordt voor het Plan Biodiversiteit",
-  "tables": [
-
-    {
-      "id": "kerngebieden",
-      "$ref": "kerngebieden/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "kerngebieden/v1.0.0",
-        "2.0.0": "kerngebieden/v2.0.0"
-      }
-    },
-    {
-      "id": "verbindingszones",
-      "$ref": "verbindingszones/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "verbindingszones/v1.0.0",
-        "2.0.0": "verbindingszones/v2.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.1.0",
+      "tables": [
+        {
+          "id": "kerngebieden",
+          "$ref": "kerngebieden/v2"
+        },
+        {
+          "id": "verbindingszones",
+          "$ref": "verbindingszones/v2"
+        }
+      ]
     }
-  ]
+  }
 }

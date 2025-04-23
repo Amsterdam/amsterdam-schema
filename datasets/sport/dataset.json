@@ -4,8 +4,6 @@
   "title": "Sport: Faciliteiten en aanbieders",
   "description": "Locaties en context ten aanzien van sportfaciliteiten en aanbieders.",
   "license": "public",
-  "status": "beschikbaar",
-  "version": "2.0.0",
   "owner": "Gemeente Amsterdam",
   "auth": "OPENBAAR",
   "authorizationGrantor": "OIS",
@@ -23,71 +21,46 @@
     "Ruimte en Topografie"
   ],
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "aanbieder",
-      "$ref": "aanbieder/v3.0.0",
-      "activeVersions": {
-        "1.0.1": "aanbieder/v1.0.1",
-        "2.0.0": "aanbieder/v2.0.0",
-        "3.0.0": "aanbieder/v3.0.0"
-      }
-    },
-    {
-      "id": "gymzaal",
-      "$ref": "gymzaal/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "gymzaal/v1.0.0",
-        "2.0.0": "gymzaal/v2.0.0"
-      }
-    },
-    {
-      "id": "hal",
-      "$ref": "hal/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "hal/v1.0.0",
-        "2.0.0": "hal/v2.0.0"
-      }
-    },
-    {
-      "id": "hardlooproute",
-      "$ref": "hardlooproute/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "hardlooproute/v1.0.0",
-        "2.0.0": "hardlooproute/v2.0.0"
-      }
-    },
-    {
-      "id": "openbaresportplek",
-      "$ref": "openbaresportplek/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "openbaresportplek/v1.0.0",
-        "2.0.0": "openbaresportplek/v2.0.0"
-      }
-    },
-    {
-      "id": "park",
-      "$ref": "park/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "park/v1.0.0",
-        "2.0.0": "park/v2.0.0"
-      }
-    },
-    {
-      "id": "veld",
-      "$ref": "veld/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "veld/v1.0.0",
-        "2.0.0": "veld/v2.0.0"
-      }
-    },
-    {
-      "id": "zwembad",
-      "$ref": "zwembad/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "zwembad/v1.0.0",
-        "2.0.0": "zwembad/v2.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "2.0.0",
+      "tables": [
+        {
+          "id": "aanbieder",
+          "$ref": "aanbieder/v3"
+        },
+        {
+          "id": "gymzaal",
+          "$ref": "gymzaal/v2"
+        },
+        {
+          "id": "hal",
+          "$ref": "hal/v2"
+        },
+        {
+          "id": "hardlooproute",
+          "$ref": "hardlooproute/v2"
+        },
+        {
+          "id": "openbaresportplek",
+          "$ref": "openbaresportplek/v2"
+        },
+        {
+          "id": "park",
+          "$ref": "park/v2"
+        },
+        {
+          "id": "veld",
+          "$ref": "veld/v2"
+        },
+        {
+          "id": "zwembad",
+          "$ref": "zwembad/v2"
+        }
+      ]
     }
-  ]
+  }
 }

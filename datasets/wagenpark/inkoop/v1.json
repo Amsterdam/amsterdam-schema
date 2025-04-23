@@ -1,0 +1,89 @@
+{
+  "id": "inkoop",
+  "type": "table",
+  "version": "1.1.1",
+  "lifecycleStatus": "stable",
+  "titel": "inkoop",
+  "description": "Deze end-point bevat de inkoop gegevens over transport- of werkmaterieel",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "id",
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "title": "Inkoop ID",
+        "type": "string",
+        "description": "Id van de bestelling"
+      },
+      "wagenparkMaterieel": {
+        "title": "Inkoop materieel ID",
+        "type": "string",
+        "relation": "wagenpark:materieel",
+        "description": "Verwijzing naar het nieuwe object dat voor het te leveren of geleverde voertuig is gecreëerd in de bronapplicatie"
+      },
+      "omschrijvingMaterieel": {
+        "title": "Inkoop materieel omschrijving",
+        "type": "string",
+        "description": "Omschrijving van het bestelde materieel"
+      },
+      "afleverdatum": {
+        "title": "Afleverdatum",
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop de betreffende bestelling door de leverancier is afgeleverd aan de gemeente"
+      },
+      "besteldatum": {
+        "title": "Besteldatum",
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop de betreffende bestelling per e-mail vanuit bronapplicatie akkoord is gegeven aan de leverancier"
+      },
+      "typeVervanging": {
+        "title": "Vervanging type",
+        "type": "string",
+        "description": "Keuze type vervanging zoals opgegeven op het betreffende bestelformulier van de bronapplicatie. De mogelijke waardes: 0 = vervangen , 1 = nieuw"
+      },
+      "typeBestelling": {
+        "title": "Bestelling type",
+        "type": "string",
+        "description": "Keuze type bestelling zoals opgegeven op het betreffende bestelformulier in de bronapplicatie. De mogelijke waardes: 0 = eigendom, 1 = lease, 2 = huur"
+      },
+      "status": {
+        "title": "Bestelling status",
+        "type": "string",
+        "enum": [
+          "-1",
+          "0",
+          "1",
+          "2",
+          "4",
+          "8",
+          "16",
+          "32",
+          "64"
+        ],
+        "description": "Bestelstatus, waarbij de volgende opties mogelijk zijn: -1=Trash, 0 = Aanvraag, 1 = Calculeren, 2 = Accorderen budgethouder aanvrager, 4 = Accorderen budgethouder functioneel beheer, 8 = Bestelling plaatsen, 16 = Bestelling is geplaatst, 32 = De bestelling is verkregen, 64 = De bestelling is geannuleerd"
+      },
+      "totaleAanschafwaarde": {
+        "title": "Totale aanschafwaarde",
+        "type": "number",
+        "multipleOf": 0.01,
+        "description": "Totale aanschafwaarde in euro's exclusief btw, inclusief standaardaccessoires, ritregistratie, tankring en bestickering volgens huisstijl"
+      },
+      "materieelNieuw": {
+        "title": "Materieel nieuw",
+        "type": "string",
+        "description": "Verwijzing naar het object dat door middel van de bestelling vervangen zal worden"
+      }
+    }
+  }
+}

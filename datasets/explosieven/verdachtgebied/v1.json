@@ -1,0 +1,74 @@
+{
+  "id": "verdachtgebied",
+  "title": "Verdachtgebied",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "kenmerk",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Geometry.json"
+      },
+      "kenmerk": {
+        "type": "string"
+      },
+      "detailType": {
+        "type": "string",
+        "provenance": "hoofdgroep"
+      },
+      "subtype": {
+        "type": "string",
+        "provenance": "subsoort"
+      },
+      "kaliber": {
+        "type": "string"
+      },
+      "aantal": {
+        "type": "string",
+        "provenance": "aantallen"
+      },
+      "verschijning": {
+        "type": "string",
+        "provenance": "verschijni"
+      },
+      "oorlogshandeling": {
+        "type": "string",
+        "provenance": "oorlogshan"
+      },
+      "afbakening": {
+        "type": "string"
+      },
+      "horizontaal": {
+        "type": "string",
+        "provenance": "horizontal"
+      },
+      "cartografie": {
+        "type": "string",
+        "provenance": "cartografi"
+      },
+      "opmerkingen": {
+        "type": "string",
+        "provenance": "opmerkinge"
+      },
+      "pdf": {
+        "type": "string",
+        "format": "uri",
+        "provenance": "hyperlink"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

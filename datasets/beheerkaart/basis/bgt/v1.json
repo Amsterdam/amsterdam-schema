@@ -1,0 +1,127 @@
+{
+  "id": "bgt",
+  "type": "table",
+  "provenance": "bkt_bgt",
+  "description": "Hulptabel beheerkaart_basis_bgt bevat de gegevens van alle BGT-objecten van geselecteerde objectklassen en wordt gebruikt om samen met hulptabel beheerkaart_basis_eigendomsrecht de hoofdtabel beheerkaart_basis_kaart te vullen.",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "provenance": "bk_bkt_bgt",
+        "description": "Business-key: unieke aanduiding per voorkomen in tabel beheerkaart_basis_bgt (bestaande uit bk_bgt_object).",
+        "type": "string"
+      },
+      "peildatumAfleiding": {
+        "description": "Meest recente actuele toestandsdatum in BRK-bron kadastraal object op moment van afleiding.",
+        "type": "string",
+        "format": "date"
+      },
+      "bgtObjectklasse": {
+        "description": "Klasse van het BGT-object.",
+        "type": "string"
+      },
+      "bkBgtObject": {
+        "description": "Unieke aanduiding van het BGT-object (samengesteld uit identificatie_lokaalid-tijdstipregistratie-lv_publicatiedatum).",
+        "type": "string"
+      },
+      "identificatieNamespace": {
+        "description": "null",
+        "type": "string"
+      },
+      "identificatieLokaalid": {
+        "description": "Uniek identificerend kenmerk voor het BGT-object dat onveranderlijk is zolang het object bestaat.",
+        "type": "string"
+      },
+      "objectbegintijd": {
+        "description": "Datum waarop het  BGT-object bij de bronhouder is ontstaan.",
+        "type": "string",
+        "format": "date"
+      },
+      "objecteindtijd": {
+        "description": "Datum waarop het BGT-object bij de bronhouder niet meer geldig is.",
+        "type": "string",
+        "format": "date"
+      },
+      "tijdstipregistratie": {
+        "description": "Tijdstip waarop deze instantie van het BGT-object is opgenomen door de bronhouder.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "eindregistratie": {
+        "description": "Eind van de periode waarop deze instantie van het BGT-object geldig is bij de bronhouder. Wanneer deze waarde niet is ingevuld is de instantie nog geldig.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "lvPublicatiedatum": {
+        "description": "Tijdstip waarop deze instantie van het BGT-object is opgenomen in de landelijke Voorziening.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "bronhouder": {
+        "description": "De bronhouderscode van het BGT-object.",
+        "type": "string"
+      },
+      "inonderzoek": {
+        "description": "Een aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende BGT-object (true/false).",
+        "type": "boolean"
+      },
+      "relatievehoogteligging": {
+        "description": "Aanduiding voor de relatieve hoogte van het BGT-object ten opzichte van het maaiveld (-2, -1, 0, 1, 2, 3).",
+        "type": "string"
+      },
+      "optalud": {
+        "description": "Bevindt het BGT-object zich op een talud (true/false)?",
+        "type": "boolean"
+      },
+      "bgtStatus": {
+        "description": "Binnen de BGT verplichte statusaanduiding gekoppeld aan de levenscyclus van het het BGT-object.",
+        "type": "string"
+      },
+      "plusStatus": {
+        "description": "Binnen de BGT niet-verplichte nadere specificatie van de statusaanduiding gekoppeld aan de levenscyclus van het het BGT-object.",
+        "type": "string"
+      },
+      "bgtFunctie": {
+        "description": "Binnen de BGT verplichte specificatie van het hoofdgebruiksdoel van het BGT-object.",
+        "type": "string"
+      },
+      "bgtFysiekvoorkomen": {
+        "description": "Classificatie binnen de BGT-objectklasse.",
+        "type": "string"
+      },
+      "plusFunctie": {
+        "description": "Binnen de BGT niet-verplichte, nadere specificatie van het hoofdgebruiksdoel van het BGT-object.",
+        "type": "string"
+      },
+      "plusFysiekvoorkomen": {
+        "description": "Binnen de BGT niet-verplichte, nadere specificatie van de classificatie binnen de BGT-objectklasse.",
+        "type": "string"
+      },
+      "bgttype": {
+        "description": "Specificatie van het soort BGT-object binnen de objectklasse.",
+        "type": "string"
+      },
+      "plustype": {
+        "description": "Binnen de BGT niet-verplichte specificatie van het soort BGT-object binnen de objectklasse.",
+        "type": "string"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Vlak-coördinaten van het BGT-object."
+      }
+    },
+    "mainGeometry": "geometrie"
+  },
+  "lifecycleStatus": "stable"
+}

@@ -1,32 +1,32 @@
 {
-    "type": "dataset",
-    "id": "water",
-    "title": "water",
-    "status": "beschikbaar",
-    "description": "Data met betrekking tot het water van Amsterdam.",
-    "version": "1.1.2",
-    "owner": "Gemeente Amsterdam",
-    "publisher": {
-      "$ref": "publishers/MOBI"
-    },
-    "crs": "EPSG:28992",
-    "creator": "Programma Varen",
-    "auth": "OPENBAAR",
-    "authorizationGrantor": "teammobiliteit.data@amsterdam.nl",
-    "tables": [
-      {
-        "id": "binnenwater",
-        "$ref": "binnenwater/v3.1.3",
-        "activeVersions": {
-          "3.1.3": "binnenwater/v3.1.3"
+  "type": "dataset",
+  "id": "water",
+  "title": "water",
+  "description": "Data met betrekking tot het water van Amsterdam.",
+  "owner": "Gemeente Amsterdam",
+  "publisher": {
+    "$ref": "publishers/MOBI"
+  },
+  "crs": "EPSG:28992",
+  "creator": "Programma Varen",
+  "auth": "OPENBAAR",
+  "authorizationGrantor": "teammobiliteit.data@amsterdam.nl",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.1.2",
+      "tables": [
+        {
+          "id": "binnenwater",
+          "$ref": "binnenwater/v3"
+        },
+        {
+          "id": "uitstootvrijeZonePleziervaart",
+          "$ref": "uitstootvrijeZonePleziervaart/v1"
         }
-      },
-      {
-        "id": "uitstootvrijeZonePleziervaart",
-        "$ref": "uitstootvrijeZonePleziervaart/v1.1.2",
-        "activeVersions": {
-          "1.1.2": "uitstootvrijeZonePleziervaart/v1.1.2"
-        }
-      }
-    ]
+      ]
+    }
   }
+}

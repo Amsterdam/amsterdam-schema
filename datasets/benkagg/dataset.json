@@ -2,8 +2,6 @@
   "type": "dataset",
   "id": "benkagg",
   "title": "benkagg",
-  "status": "beschikbaar",
-  "version": "1.0.0",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam, afdeling Basisinformatie",
   "publisher": {
@@ -13,127 +11,82 @@
   "auth": "OPENBAAR",
   "authorizationGrantor": "gebruik.basisinformatie@amsterdam.nl",
   "homepage": "https://www.amsterdam.nl/stelselpedia/bag-index",
-  "tables": [
-    {
-      "id": "adresseerbareobjecten",
-      "$ref": "adresseerbareobjecten/v1.5.0",
-      "activeVersions": {
-        "1.4.0": "adresseerbareobjecten/v1.4.0",
-        "1.5.0": "adresseerbareobjecten/v1.5.0"
-      }
-    },
-    {
-      "id": "bagpandbevatverblijfsobjecten",
-      "$ref": "bagpandbevatverblijfsobjecten/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "bagpandbevatverblijfsobjecten/v1.0.0"
-      }
-    },
-    {
-      "id": "bagpanden",
-      "$ref": "bagpanden/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "bagpanden/v1.0.0"
-      }
-    },
-    {
-      "id": "bagpandligtin",
-      "$ref": "bagpandligtin/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "bagpandligtin/v1.0.0"
-      }
-    },
-    {
-      "id": "bagzoek",
-      "$ref": "bagzoek/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "bagzoek/v1.0.0"
-      }
-    },
-    {
-      "id": "brkaantekeningenkadobjecten",
-      "$ref": "brkaantekeningenkadobjecten/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "brkaantekeningenkadobjecten/v1.0.0"
-      }
-    },
-    {
-      "id": "brkbasis",
-      "$ref": "brkbasis/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "brkbasis/v1.0.0"
-      }
-    },
-    {
-      "id": "brkbasiszondersubjecten",
-      "$ref": "brkbasiszondersubjecten/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "brkbasiszondersubjecten/v1.0.0"
-      }
-    },
-    {
-      "id": "brkbasisdataselectie",
-      "$ref": "brkbasisdataselectie/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "brkbasisdataselectie/v1.0.0"
-      }
-    },    
-    {
-      "id": "brkkadastraleobjecten",
-      "$ref": "brkkadastraleobjecten/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "brkkadastraleobjecten/v1.0.0"
-      }
-    },
-    {
-      "id": "brkkotbetrokkenbij",
-      "$ref": "brkkotbetrokkenbij/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "brkkotbetrokkenbij/v1.0.0"
-      }
-    },
-    {
-      "id": "brkkotisontstaanuit",
-      "$ref": "brkkotisontstaanuit/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "brkkotisontstaanuit/v1.0.0"
-      }
-    },
-    {
-      "id": "brksubjectcategorieen",
-      "$ref": "brksubjectcategorieen/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "brksubjectcategorieen/v1.0.0"
-      }
-    },
-    {
-      "id": "brktenaamstellingen",
-      "$ref": "brktenaamstellingen/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "brktenaamstellingen/v1.0.0"
-      }
-    },
-    {
-      "id": "brkzakelijkerechten",
-      "$ref": "brkzakelijkerechten/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "brkzakelijkerechten/v1.0.0"
-      }
-    },
-    {
-      "id": "handelsregister",
-      "$ref": "handelsregister/v4.0.0",
-      "activeVersions": {
-        "3.0.0": "handelsregister/v3.0.0",
-        "4.0.0": "handelsregister/v4.0.0"
-      }
-    },
-    {
-      "id": "handelsregisterkvk",
-      "$ref": "handelsregisterkvk/v2.1.0",
-      "activeVersions": {
-        "2.1.0": "handelsregisterkvk/v2.1.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "adresseerbareobjecten",
+          "$ref": "adresseerbareobjecten/v1"
+        },
+        {
+          "id": "bagpandbevatverblijfsobjecten",
+          "$ref": "bagpandbevatverblijfsobjecten/v1"
+        },
+        {
+          "id": "bagpanden",
+          "$ref": "bagpanden/v1"
+        },
+        {
+          "id": "bagpandligtin",
+          "$ref": "bagpandligtin/v1"
+        },
+        {
+          "id": "bagzoek",
+          "$ref": "bagzoek/v1"
+        },
+        {
+          "id": "brkaantekeningenkadobjecten",
+          "$ref": "brkaantekeningenkadobjecten/v1"
+        },
+        {
+          "id": "brkbasis",
+          "$ref": "brkbasis/v1"
+        },
+        {
+          "id": "brkbasiszondersubjecten",
+          "$ref": "brkbasiszondersubjecten/v1"
+        },
+        {
+          "id": "brkbasisdataselectie",
+          "$ref": "brkbasisdataselectie/v1"
+        },
+        {
+          "id": "brkkadastraleobjecten",
+          "$ref": "brkkadastraleobjecten/v1"
+        },
+        {
+          "id": "brkkotbetrokkenbij",
+          "$ref": "brkkotbetrokkenbij/v1"
+        },
+        {
+          "id": "brkkotisontstaanuit",
+          "$ref": "brkkotisontstaanuit/v1"
+        },
+        {
+          "id": "brksubjectcategorieen",
+          "$ref": "brksubjectcategorieen/v1"
+        },
+        {
+          "id": "brktenaamstellingen",
+          "$ref": "brktenaamstellingen/v1"
+        },
+        {
+          "id": "brkzakelijkerechten",
+          "$ref": "brkzakelijkerechten/v1"
+        },
+        {
+          "id": "handelsregister",
+          "$ref": "handelsregister/v4"
+        },
+        {
+          "id": "handelsregisterkvk",
+          "$ref": "handelsregisterkvk/v2"
+        }
+      ]
     }
-  ]
+  }
 }

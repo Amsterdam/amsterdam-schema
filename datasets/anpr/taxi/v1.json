@@ -1,0 +1,33 @@
+{
+  "id": "taxi",
+  "title": "taxi",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer"
+      },
+      "datum": {
+        "type": "string",
+        "format": "date"
+      },
+      "aantalTaxiPassages": {
+        "type": "integer",
+        "description": "aantal automatisch gedecteerde taxikentekenplaten per datum"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

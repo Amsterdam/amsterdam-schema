@@ -9,7 +9,6 @@
   "homepage": "https://data.amsterdam.nl",
   "owner": "Directie Afval en Grondstoffen, Gemeente Amsterdam",
   "spatialDescription": "Gemeente Amsterdam",
-  "version": "2.5.0",
   "title": "Afvalcontainers, putten en weeggegevens",
   "language": "nl",
   "dateCreated": "2020-01-13T00:00:00+01:00",
@@ -19,7 +18,6 @@
     "$ref": "/publishers/BOR"
   },
   "description": "Alle locaties van afvalcontainers (ondergrondse afvalcontainers, bovengrondse afvalcontainers en rolcontainers) en  betonputten van de Gemeente Amsterdam. De locaties worden dagelijks bijgewerkt en bevatten de fracties Rest, Papier, Glas en Textiel. Naast de objectinformatie zijn ook de weeggegevens beschikbaar.",
-  "status": "beschikbaar",
   "keywords": [
     "Afval",
     "Afvalcontainers",
@@ -36,163 +34,86 @@
   "crs": "EPSG:28992",
   "objective": "Het doel van deze dataset is het beschikbaar stellen van gegevens voor het ondersteunen van plaatsingsbeleid betreffende ondergrondse afvalcontainers en het ondersteunen van routeoptimalisatie voor afvalinzameling.",
   "temporalUnit": "uren",
-  "tables": [
-    {
-      "id": "container",
-      "$ref": "container/v2.2.0",
-      "activeVersions": {
-        "2.1.0": "container/v2.1.0",
-        "2.2.0": "container/v2.2.0"
-      }
-    },
-    {
-      "id": "containerlocatie",
-      "$ref": "containerlocatie/v2.1.0",
-      "activeVersions": {
-        "2.0.0": "containerlocatie/v2.0.0",
-        "2.1.0": "containerlocatie/v2.1.0"
-      }
-    },
-    {
-      "id": "cluster",
-      "$ref": "cluster/v2.2.0",
-      "activeVersions": {
-        "2.1.0": "cluster/v2.1.0",
-        "2.2.0": "cluster/v2.2.0"
-      }
-    },
-    {
-      "id": "containertype",
-      "$ref": "containertype/v2.1.0",
-      "activeVersions": {
-        "2.0.0": "containertype/v2.0.0",
-        "2.1.0": "containertype/v2.1.0"
-      }
-    },
-    {
-      "id": "weging",
-      "$ref": "weging/v2.1.0",
-      "activeVersions": {
-        "2.0.0": "weging/v2.0.0",
-        "2.1.0": "weging/v2.1.0"
-      }
-    },
-    {
-      "id": "clusterfractie",
-      "$ref": "clusterfractie/v2.1.0",
-      "activeVersions": {
-        "2.0.0": "clusterfractie/v2.0.0",
-        "2.1.0": "clusterfractie/v2.1.0"
-      }
-    },
-    {
-      "id": "planningVoertuigen",
-      "$ref": "planningvoertuigen/v2.1.0",
-      "activeVersions": {
-        "2.0.0": "planningvoertuigen/v2.0.0",
-        "2.1.0": "planningvoertuigen/v2.1.0"
-      }
-    },
-    {
-      "id": "bijplaatsingen",
-      "$ref": "bijplaatsingen/v2.6.1",
-      "activeVersions": {
-        "2.6.1": "bijplaatsingen/v2.6.1",
-        "2.6.0": "bijplaatsingen/v2.6.0",
-        "2.5.0": "bijplaatsingen/v2.5.0",
-        "2.4.0": "bijplaatsingen/v2.4.0",
-        "2.3.0": "bijplaatsingen/v2.3.0",
-        "2.2.0": "bijplaatsingen/v2.2.0",
-        "2.1.0": "bijplaatsingen/v2.1.0"
-      }
-    },
-    {
-      "id": "ticket",
-      "$ref": "ticket/v1.2.0",
-      "activeVersions": {
-        "1.1.0": "ticket/v1.1.0",
-        "1.2.0": "ticket/v1.2.0"
-      }
-    },
-    {
-      "id": "loopafstandCategorieV2",
-      "$ref": "loopafstandcategorie_v2/v2.0.1",
-      "activeVersions": {
-        "2.0.0": "loopafstandcategorie_v2/v2.0.0",
-        "2.0.1": "loopafstandcategorie_v2/v2.0.1"
-      }
-    },
-    {
-      "id": "bagObjectLoopafstandV2",
-      "$ref": "bagobjectloopafstand_v2/v2.0.2",
-      "activeVersions": {
-        "2.0.2": "bagobjectloopafstand_v2/v2.0.2",
-        "2.0.1": "bagobjectloopafstand_v2/v2.0.1",
-        "2.0.0": "bagobjectloopafstand_v2/v2.0.0"
-      }
-    },
-    {
-      "id": "adresLoopafstandV2",
-      "$ref": "adresloopafstand_v2/v2.0.2",
-      "activeVersions": {
-        "2.0.2": "adresloopafstand_v2/v2.0.2",
-        "2.0.1": "adresloopafstand_v2/v2.0.1",
-        "2.0.0": "adresloopafstand_v2/v2.0.0"
-      }
-    },
-    {
-      "id": "rolcontainer",
-      "$ref": "rolcontainer/v1.1.1",
-      "activeVersions": {
-        "1.0.0": "rolcontainer/v1.0.0",
-        "1.1.0": "rolcontainer/v1.1.0",
-        "1.1.1": "rolcontainer/v1.1.1"
-	  }
-    },
-    {
-      "id": "rolcontainerActie",
-      "$ref": "rolcontainerActie/v1.1.1",
-      "activeVersions": {
-        "1.0.0": "rolcontainerActie/v1.0.0",
-        "1.1.0": "rolcontainerActie/v1.1.0",
-        "1.1.1": "rolcontainerActie/v1.1.1"
-	  }
-    },
-    {
-      "id": "rolcontainerMelding",
-      "$ref": "rolcontainerMelding/v1.1.1",
-      "activeVersions": {
-        "1.0.0": "rolcontainerMelding/v1.0.0",
-        "1.1.0": "rolcontainerMelding/v1.1.0",
-        "1.1.1": "rolcontainerMelding/v1.1.1"
-	  }
-    },
-    {
-      "id": "rolcontainerStatus",
-      "$ref": "rolcontainerStatus/v1.0.1",
-      "activeVersions": {
-        "1.0.0": "rolcontainerStatus/v1.0.0",
-        "1.0.1": "rolcontainerStatus/v1.0.1"
-	  }
-    },
-    {
-      "id": "servicegebiedenLocatie",
-      "$ref": "servicegebiedenLocatie/v1.2.0",
-      "activeVersions": {
-        "1.0.0": "servicegebiedenLocatie/v1.0.0",
-        "1.1.0": "servicegebiedenLocatie/v1.1.0",
-        "1.2.0": "servicegebiedenLocatie/v1.2.0"
-      }
-    },
-    {
-      "id": "servicegebieden",
-      "$ref": "servicegebieden/v1.2.0",
-      "activeVersions": {
-        "1.0.0": "servicegebieden/v1.0.0",
-        "1.1.0": "servicegebieden/v1.1.0",
-        "1.2.0": "servicegebieden/v1.2.0"
-
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "2.5.0",
+      "tables": [
+        {
+          "id": "container",
+          "$ref": "container/v2"
+        },
+        {
+          "id": "containerlocatie",
+          "$ref": "containerlocatie/v2"
+        },
+        {
+          "id": "cluster",
+          "$ref": "cluster/v2"
+        },
+        {
+          "id": "containertype",
+          "$ref": "containertype/v2"
+        },
+        {
+          "id": "weging",
+          "$ref": "weging/v2"
+        },
+        {
+          "id": "clusterfractie",
+          "$ref": "clusterfractie/v2"
+        },
+        {
+          "id": "planningVoertuigen",
+          "$ref": "planningvoertuigen/v2"
+        },
+        {
+          "id": "bijplaatsingen",
+          "$ref": "bijplaatsingen/v2"
+        },
+        {
+          "id": "ticket",
+          "$ref": "ticket/v1"
+        },
+        {
+          "id": "loopafstandCategorieV2",
+          "$ref": "loopafstandcategorie_v2/v2"
+        },
+        {
+          "id": "bagObjectLoopafstandV2",
+          "$ref": "bagobjectloopafstand_v2/v2"
+        },
+        {
+          "id": "adresLoopafstandV2",
+          "$ref": "adresloopafstand_v2/v2"
+        },
+        {
+          "id": "rolcontainer",
+          "$ref": "rolcontainer/v1"
+        },
+        {
+          "id": "rolcontainerActie",
+          "$ref": "rolcontainerActie/v1"
+        },
+        {
+          "id": "rolcontainerMelding",
+          "$ref": "rolcontainerMelding/v1"
+        },
+        {
+          "id": "rolcontainerStatus",
+          "$ref": "rolcontainerStatus/v1"
+        },
+        {
+          "id": "servicegebiedenLocatie",
+          "$ref": "servicegebiedenLocatie/v1"
+        },
+        {
+          "id": "servicegebieden",
+          "$ref": "servicegebieden/v1"
+        }
+      ]
     }
-  ]
+  }
 }

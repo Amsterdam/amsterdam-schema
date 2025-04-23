@@ -1,0 +1,175 @@
+{
+  "id": "kaart",
+  "type": "table",
+  "provenance": "bkt_beheerkaart_basis",
+  "description": "Hoofdtabel beheerkaart_basis_kaart bevat de gecombineerde gegevens van alle BGT-objecten van geselecteerde BGT-objectklassen gerelateerd aan BRK-grondpercelen waarop op de peildatum een eigendomsrecht (eigendom, erfpacht en/of opstal) van de gemeente Amsterdam (inclusief Weesp) rust, dat niet zelf weer is belast door een ander zakelijk recht, ofwel dat wel is belast door een ander zakelijk recht, maar in dat laatste geval alleen door het recht van erfpacht en/of opstal.",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "provenance": "bk_bkt_beheerkaart_basis",
+        "description": "Business-key: unieke aanduiding per voorkomen in tabel beheerkaart_basis_kaart (bestaande uit bk_bgt_object).",
+        "type": "string"
+      },
+      "peildatumAfleiding": {
+        "description": "Meest recente actuele toestandsdatum in BRK-bron kadastraal object op moment van afleiding.",
+        "type": "string",
+        "format": "date"
+      },
+      "bgtObjectklasse": {
+        "description": "Klasse van het BGT-object.",
+        "type": "string"
+      },
+      "bkBgtObject": {
+        "description": "Unieke aanduiding van het BGT-object (samengesteld uit identificatie_lokaalid-tijdstipregistratie-lv_publicatiedatum).",
+        "type": "string"
+      },
+      "identificatieNamespace": {
+        "description": "null",
+        "type": "string"
+      },
+      "identificatieLokaalid": {
+        "description": "Uniek identificerend kenmerk voor het BGT-object dat onveranderlijk is zolang het object bestaat.",
+        "type": "string"
+      },
+      "objectbegintijd": {
+        "description": "Datum waar op het BGT-object bij de bronhouder is ontstaan.",
+        "type": "string",
+        "format": "date"
+      },
+      "objecteindtijd": {
+        "description": "Datum waarop het BGT-object bij de bronhouder niet meer geldig is.",
+        "type": "string",
+        "format": "date"
+      },
+      "tijdstipregistratie": {
+        "description": "Tijdstip waarop deze instantie van het BGT-object is opgenomen door de bronhouder.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "eindregistratie": {
+        "description": "Eind van de periode waarop deze instantie van het BGT-object geldig is bij de bronhouder. Wanneer deze waarde niet is ingevuld is de instantie nog geldig.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "lvPublicatiedatum": {
+        "description": "Tijdstip waarop deze instantie van het BGT-object is opgenomen in de landelijke Voorziening.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "bronhouder": {
+        "description": "De bronhouderscode van het BGT-object.",
+        "type": "string"
+      },
+      "inonderzoek": {
+        "description": "Een aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende BGT-object (true/false).",
+        "type": "boolean"
+      },
+      "relatievehoogteligging": {
+        "description": "Aanduiding voor de relatieve hoogte van het BGT-object ten opzichte van het maaiveld (-2, -1, 0, 1, 2, 3).",
+        "type": "string"
+      },
+      "optalud": {
+        "description": "Bevindt het BGT-object zich op een talud (true/false)?",
+        "type": "boolean"
+      },
+      "bgtStatus": {
+        "description": "Binnen de BGT verplichte statusaanduiding gekoppeld aan de levenscyclus van het het BGT-object.",
+        "type": "string"
+      },
+      "plusStatus": {
+        "description": "Binnen de BGT niet-verplichte nadere specificatie van de statusaanduiding gekoppeld aan de levenscyclus van het het BGT-object.",
+        "type": "string"
+      },
+      "bgtFunctie": {
+        "description": "Binnen de BGT verplichte specificatie van het hoofdgebruiksdoel van het BGT-object.",
+        "type": "string"
+      },
+      "bgtFysiekvoorkomen": {
+        "description": "Classificatie binnen de BGT-objectklasse.",
+        "type": "string"
+      },
+      "plusFunctie": {
+        "description": "Binnen de BGT niet-verplichte, nadere specificatie van het hoofdgebruiksdoel van het BGT-object.",
+        "type": "string"
+      },
+      "plusFysiekvoorkomen": {
+        "description": "Binnen de BGT niet-verplichte, nadere specificatie van de classificatie binnen de BGT-objectklasse.",
+        "type": "string"
+      },
+      "bgttype": {
+        "description": "Specificatie van het soort BGT-object binnen de objectklasse.",
+        "type": "string"
+      },
+      "plustype": {
+        "description": "Binnen de BGT niet-verplichte specificatie van het soort BGT-object binnen de objectklasse.",
+        "type": "string"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Vlak-coördinaten van het BGT-object."
+      },
+      "aggOppIntersectie": {
+        "description": "Totaal oppervlak van het deel van dit BGT-object dat overlapt met BRK-kadastraalobjecten waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
+        "type": "number"
+      },
+      "aggFractie": {
+        "description": "Totale fractie van het deel van dit BGT-object dat overlapt met BRK-kadastraalobjecten waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
+        "type": "number"
+      },
+      "aggAantalPercelen": {
+        "description": "Totaal aantal met dit BGT-object overlappende BRK-kadastraalobjecten waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
+        "type": "integer"
+      },
+      "aggGerelateerdePercelen": {
+        "description": "Alle identificaties van de met dit BGT-object overlappende BRK-kadastraalobjecten waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
+        "type": "string"
+      },
+      "aggGrootstePerceel": {
+        "description": "Identificatie van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
+        "type": "string"
+      },
+      "aggAardZakelijkRechtCode": {
+        "description": "Aard zakelijk recht (code) van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
+        "type": "string"
+      },
+      "aggAardZakelijkRechtOmschr": {
+        "description": "Aard zakelijk recht (omschrijving) van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
+        "type": "string"
+      },
+      "aggIndicatieBelastRecht": {
+        "description": "Is het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht (eigendom, erfpacht, erfpacht-en-opstal of opstal) heeft, belast door een ander eigendomsrecht (erfpacht, erfpacht-en-opstal of opstal)?",
+        "type": "boolean"
+      },
+      "aggBelastDoorZrtCode": {
+        "description": "Belastend aard zakelijk recht (code) op het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
+        "type": "string"
+      },
+      "aggBelastDoorZrtOmschr": {
+        "description": "Belastend aard zakelijk recht (omschrijving) op het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
+        "type": "string"
+      },
+      "aggIndBetrokkenBijSplitsing": {
+        "description": "Is het eigendomsrecht van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft, betrokken bij splitsing (true/false)?",
+        "type": "boolean"
+      },
+      "kaartUrl": {
+        "description": "Kaart-URL van de vlakgeometrie van het met de grootste fractie met dit BGT-object overlappende BRK-kadastraalobject waarop gemeente Amsterdam een (niet of beperkt belast) eigendomsrecht heeft.",
+        "type": "string"
+      }
+    },
+    "mainGeometry": "geometrie"
+  },
+  "lifecycleStatus": "stable"
+}

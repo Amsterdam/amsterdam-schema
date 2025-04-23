@@ -1,0 +1,36 @@
+{
+  "id": "tunnelsGevaarlijkeStoffen",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "type": "table",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "title",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Point.json"
+      },
+      "id": {
+        "type": "integer"
+      },
+      "title": {
+        "type": "string"
+      },
+      "categorie": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string"
+      }
+    }
+  }
+}

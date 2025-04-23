@@ -13,15 +13,13 @@
   "owner": "Gemeente Amsterdam, Interne Dienstverlening",
   "dateModified": "2021-01-27T00:00:00+01:00",
   "spatialDescription": "Gemeente Amsterdam",
-  "version": "3.1.1", 
   "title": "Wagenpark",
   "language": "nl",
   "dateCreated": "2021-01-27T00:00:00+01:00",
   "license": "Creative Commons, Naamsvermelding",
   "hasBeginning": "2002-10-31T00:00:00+01:00",
   "accrualPeriodicity": "dagelijks",
-  "description": "De dataset Wagenparkbeheer bevat stam- en procesgegevens over het Amsterdamse wagenpark (voertuigen en bijbehorend materieel), inclusief gegevens over het onderhoud daarvan. De dataset bestaat uit RDW-plichtige objecten met een kentekennummer (veelal voertuigen) en niet-RDW-plichtige objecten met een eigen Amsterdams identificatienummer (overig materieel). De kenmerken van de objecten zijn gegroepeerd in 6 deeldatasets: materieel (basisgegevens en indien van toepassing ook brandstof- en verbruiksgegevens), financi\u00ebn (financi\u00eble en verzekeringsgegevens), vergunning (vergunning- en ontheffingsgegevens), RDW (gegevens die voortkomen uit het kentekenregister van het Rijksdienst voor Wegverkeer), aeng_kenmerk (kenmerken die speciaal voor Afval&Grondstoffen zijn toegevoegd) en onderhoud (procesgegevens met betrekking tot zowel gepland als ongepland onderhoud en reparaties)",
-  "status": "beschikbaar",
+  "description": "De dataset Wagenparkbeheer bevat stam- en procesgegevens over het Amsterdamse wagenpark (voertuigen en bijbehorend materieel), inclusief gegevens over het onderhoud daarvan. De dataset bestaat uit RDW-plichtige objecten met een kentekennummer (veelal voertuigen) en niet-RDW-plichtige objecten met een eigen Amsterdams identificatienummer (overig materieel). De kenmerken van de objecten zijn gegroepeerd in 6 deeldatasets: materieel (basisgegevens en indien van toepassing ook brandstof- en verbruiksgegevens), financiën (financiële en verzekeringsgegevens), vergunning (vergunning- en ontheffingsgegevens), RDW (gegevens die voortkomen uit het kentekenregister van het Rijksdienst voor Wegverkeer), aeng_kenmerk (kenmerken die speciaal voor Afval&Grondstoffen zijn toegevoegd) en onderhoud (procesgegevens met betrekking tot zowel gepland als ongepland onderhoud en reparaties)",
   "keywords": [
     "wagenpark",
     "voertuig",
@@ -40,90 +38,50 @@
   "publisher": {
     "$ref": "publishers/BOR"
   },
-  "tables": [
-    {  
-    "id": "materieel",
-      "$ref": "materieel/v3.1.0",
-      "activeVersions": {
-        "1.0.0": "materieel/v1.0.0",
-        "1.1.0": "materieel/v1.1.0",
-        "1.2.0": "materieel/v1.2.0",
-        "2.0.0": "materieel/v2.0.0",
-        "3.0.0": "materieel/v3.0.0",
-        "3.1.0": "materieel/v3.1.0"
-      }
-    },
-    {
-      "id": "vergunning",
-      "$ref": "vergunning/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "vergunning/v1.0.0",
-        "1.1.0": "vergunning/v1.1.0",
-        "2.0.0": "vergunning/v2.0.0"
-      }
-    },
-    {
-      "id": "rdwKenmerk",
-      "$ref": "rdw_kenmerk/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "rdw_kenmerk/v1.0.0",
-        "1.1.0": "rdw_kenmerk/v1.1.0",
-        "2.0.0": "rdw_kenmerk/v2.0.0"
-      }
-    },
-    {
-      "id": "aengKenmerk",
-      "$ref": "aeng_kenmerk/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "aeng_kenmerk/v1.0.0",
-        "1.1.0": "aeng_kenmerk/v1.1.0",
-        "2.0.0": "aeng_kenmerk/v2.0.0"
-      }
-    },
-    {
-      "id": "onderhoud",
-      "$ref": "onderhoud/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "onderhoud/v1.0.0",
-        "1.1.0": "onderhoud/v1.1.0",
-        "2.0.0": "onderhoud/v2.0.0"
-      }
-    },
-    {
-      "id": "financien",
-      "$ref": "financien/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "financien/v1.0.0",
-        "1.1.0": "financien/v1.1.0",
-        "2.0.0": "financien/v2.0.0"
-      }
-    },
-    {
-      "id": "inkoop",
-      "$ref": "inkoop/v1.1.1",
-      "activeVersions": {
-        "1.0.0": "inkoop/v1.0.0",
-        "1.1.0": "inkoop/v1.1.0",
-        "1.1.1": "inkoop/v1.1.1"
-      }
-    },
-    {
-      "id": "verkoop",
-      "$ref": "verkoop/v1.1.1",
-      "activeVersions": {
-        "1.0.0": "verkoop/v1.0.0",
-        "1.1.0": "verkoop/v1.1.0",
-        "1.1.1": "verkoop/v1.1.1"
-
-      }
-    },
-    {
-      "id": "servicecontract",
-      "$ref": "servicecontract/v1.1.0",
-      "activeVersions": {
-        "1.0.0": "servicecontract/v1.0.0",
-        "1.1.0": "servicecontract/v1.1.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "3.1.1",
+      "tables": [
+        {
+          "id": "materieel",
+          "$ref": "materieel/v3"
+        },
+        {
+          "id": "vergunning",
+          "$ref": "vergunning/v2"
+        },
+        {
+          "id": "rdwKenmerk",
+          "$ref": "rdw_kenmerk/v2"
+        },
+        {
+          "id": "aengKenmerk",
+          "$ref": "aeng_kenmerk/v2"
+        },
+        {
+          "id": "onderhoud",
+          "$ref": "onderhoud/v2"
+        },
+        {
+          "id": "financien",
+          "$ref": "financien/v2"
+        },
+        {
+          "id": "inkoop",
+          "$ref": "inkoop/v1"
+        },
+        {
+          "id": "verkoop",
+          "$ref": "verkoop/v1"
+        },
+        {
+          "id": "servicecontract",
+          "$ref": "servicecontract/v1"
+        }
+      ]
     }
-  ]
+  }
 }

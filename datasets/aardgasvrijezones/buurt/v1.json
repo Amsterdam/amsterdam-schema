@@ -1,0 +1,50 @@
+{
+  "id": "buurt",
+  "title": "(Deels) gerealiseerde of geplande aardgasvrije buurten",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "buurtNaam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding voor de (deels) gerealiseerde of geplande aardgasvrije buurt."
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Polygoon definitie van de (deels) gerealiseerde of geplande aardgasvrije buurt."
+      },
+      "buurtCode": {
+        "type": "string",
+        "description": "Code van de (deels) gerealiseerde of geplande aardgasvrije buurt.",
+        "provenance": "bu_code"
+      },
+      "buurtNaam": {
+        "type": "string",
+        "description": "Naam van de (deels) gerealiseerde of geplande aardgasvrije buurt.",
+        "provenance": "bu_naam"
+      },
+      "toelichting": {
+        "type": "string",
+        "description": "Toelichting op inhoud van de (deels) gerealiseerde of geplande aardgasvrije buurt.",
+        "provenance": "legenda"
+      },
+      "aandeelKookgas": {
+        "type": "string",
+        "description": "Aandeel van hoeveelheid kookgas die van toepassing is op de (deels) gerealiseerde of geplande aardgasvrije buurt.",
+        "provenance": "kookgas"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

@@ -1,7 +1,6 @@
 {
   "type": "dataset",
   "id": "dataverkennerBevatverblijfsobjecten",
-  "status": "beschikbaar",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "publisher": {
@@ -9,80 +8,20 @@
   },
   "creator": "Basisinformatie",
   "auth": "OPENBAAR",
-  "version": "0.0.1",
   "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
   "description": "De Basisregistratie | Toegewijde weergaven BAG en BRK bevat informatie nodig voor implementatie op het Data Verkenner platform.",
-  "tables": [
-    {
-      "type": "table",
-      "id": "bevatverblijfsobjecten",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
       "version": "0.0.1",
-      "auth": "OPENBAAR",
-      "derivedFrom": [
-        "bag:verblijfsobjecten_ligt_in_panden"
-      ],
-      "temporal": {
-        "identifier": "verblijfsobjectenVolgnummer",
-        "dimensions": {
-          "geldigOp": [
-            "beginGeldigheid",
-            "eindGeldigheid"
-          ]
+      "tables": [
+        {
+          "id": "bevatverblijfsobjecten",
+          "$ref": "bevatverblijfsobjecten/v1"
         }
-      },
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "identifier": [
-            "verblijfsobjectenIdentificatie",
-            "verblijfsobjectenVolgnummer"
-        ],
-        "display": "verblijfsobjectenIdentificatie",
-        "required": [
-          "schema",
-          "verblijfsobjectenIdentificatie"
-        ],
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "verblijfsobjectenId": {
-            "type": "string",
-            "description": "Landelijke identificerende sleutel."
-          },
-          "verblijfsobjectenIdentificatie": {
-            "type": "string",
-            "description": "Landelijke identificerende sleutel."
-          },
-          "verblijfsobjectenVolgnummer": {
-            "type": "integer",
-            "description": "Volgnummer van de nummeraanduiding in de administratie van de bronhouder."
-          },
-          "ligtInPandenId": {
-            "type": "string",
-            "description": "Landelijke identificerende sleutel."
-          },
-          "ligtInPandenIdentificatie": {
-            "type": "string",
-            "description": "Landelijke identificerende sleutel."
-          },
-          "ligtInPandenVolgnummer": {
-            "type": "integer",
-            "description": "Volgnummer van de nummeraanduiding in de administratie van de bronhouder."
-          },
-          "beginGeldigheid": {
-            "type": "string",
-            "format": "date-time",
-            "description": "De datum waarop de nummeraanduiding geldig is geworden."
-          },
-          "eindGeldigheid": {
-            "type": "string",
-            "format": "date-time",
-            "description": "De datum waarop de nummeraanduiding niet meer geldig is."
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

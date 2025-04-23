@@ -1,0 +1,102 @@
+{
+  "id": "plantopografie",
+  "title": "plantopografie",
+  "description": "Ruimtelijk object dat wel gepland is, maar nog niet in uitvoering is; meestal een groot infrastructureel object.",
+  "type": "table",
+  "version": "1.0.4",
+  "lifecycleStatus": "stable",
+  "crs": "EPSG:28992",
+  "auth": "OPENBAAR",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": [
+      "identificatie"
+    ],
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "title": "Geo object ID",
+        "description": "De unieke identiteit van het geo-object"
+      },
+      "bronactualiteit": {
+        "type": "string",
+        "title": "Bron actualiteit datum",
+        "format": "date",
+        "description": "De actualiteit van de gebruikte bron"
+      },
+      "bronbeschrijving": {
+        "type": "string",
+        "title": "Bron beschrijving",
+        "description": "De beschrijving van de gebruikte bron"
+      },
+      "bronnauwkeurigheid": {
+        "type": "number",
+        "title": "Bron nauwkeurigheid meters",
+        "description": "De nauwkeurigheid van de gebruikte bron in meters"
+      },
+      "brontype": {
+        "type": "string",
+        "title": "Bron type",
+        "description": "Het type van de gebruikte bron"
+      },
+      "objectBeginTijd": {
+        "type": "string",
+        "title": "Object geldigheid begintijd",
+        "format": "date",
+        "description": "Tijdstip waarop het object ontstaan is"
+      },
+      "tijdstipRegistratie": {
+        "type": "string",
+        "title": "Object registratie tijdstip",
+        "format": "date",
+        "description": "Tijdstip waarop een versie van het object ontstaan is"
+      },
+      "visualisatieCode": {
+        "type": "integer",
+        "title": "Object visualisatie code",
+        "description": "Code voor het visualiseren van het object"
+      },
+      "tdnCode": {
+        "type": "integer",
+        "title": "Object TOP10vector code",
+        "description": "Code die het object in TOP10vector had"
+      },
+      "mutatietype": {
+        "type": "string",
+        "title": "Object mutatie type",
+        "description": "Het soort mutatie dat een object als laatste ondergaan heeft"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Geometrie",
+        "description": "Geometrie"
+      },
+      "naam": {
+        "type": "string",
+        "title": "Plantopografie naam",
+        "description": "De naam van het plan of van het geplande object"
+      },
+      "type": {
+        "type": "string",
+        "title": "Plantopografie type",
+        "description": "Het soort plantopografie object"
+      },
+      "geometrieVlak": {
+        "$ref": "https://geojson.org/schema/Polygon.json",
+        "title": "Vlak geometrie",
+        "description": "Vlakgeometrie"
+      }
+    }
+  }
+}

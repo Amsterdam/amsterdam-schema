@@ -1,0 +1,63 @@
+{
+  "id": "evenementen",
+  "title": "Evenementen in Amsterdam",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "omschrijving",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding voor het evenement."
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Polygoon definitie van het evenement."
+      },
+      "titel": {
+        "type": "string",
+        "description": "Naam van het evenement"
+      },
+      "omschrijving": {
+        "type": "string",
+        "description": "Omschrijving van het evenement."
+      },
+      "startdatum": {
+        "type": "string",
+        "format": "date",
+        "description": "Startdatum van het evenement."
+      },
+      "einddatum": {
+        "type": "string",
+        "format": "date",
+        "description": "Einddatum van het evenement."
+      },
+      "starttijd": {
+        "type": "string",
+        "format": "time",
+        "description": "Starttijd van het evenement."
+      },
+      "eindtijd": {
+        "type": "string",
+        "format": "time",
+        "description": "Eindtijd van het evenement."
+      },
+      "url": {
+        "type": "string",
+        "format": "uri",
+        "description": "URL naar een webpagina voor meer informatie."
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

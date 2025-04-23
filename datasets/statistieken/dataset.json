@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "statistieken",
   "title": "statistieken",
-  "status": "beschikbaar",
   "description": "Gepubliceerde statistieken conform generiek model",
-  "version": "0.0.2",
   "owner": "Gemeente Amsterdam",
   "publisher": {
     "$ref": "publishers/STAT"
@@ -13,274 +11,26 @@
   "creator": "Onderzoek en Statistiek",
   "auth": "OPENBAAR",
   "authorizationGrantor": "basisstatistiek.ois@amsterdam.nl",
-  "tables": [
-    {
-      "id": "indicatoren",
-      "type": "table",
-      "version": "1.0.0",
-      "description": "Alle indicatoren (variabelen) en hun metadata",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "identifier": [
-          "id"
-        ],
-        "required": [
-          "schema",
-          "id",
-          "naam",
-          "label",
-          "definitie",
-          "thema"
-        ],
-        "display": "naam",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "title": "id",
-            "description": "Unieke identificatie van de indicator"
-          },
-          "naam": {
-            "type": "string",
-            "title": "naam",
-            "description": "Unieke naam van de indicator"
-          },
-          "label": {
-            "type": "string",
-            "title": "label",
-            "description": "Beknopte label van de indicator t.b.v. weergave"
-          },
-          "labelUk": {
-            "type": "string",
-            "title": "labelUk",
-            "description": "Beknopte label van de indicator in het Brits-Engels t.b.v. weergave"
-          },
-          "definitie": {
-            "type": "string",
-            "title": "definitie",
-            "description": "Definitie, die ten grondslag ligt van de indicator"
-          },
-          "definitieUk": {
-            "type": "string",
-            "title": "definitieUk",
-            "description": "Definitie in het Brits-Engels, die ten grondslag ligt van de indicator"
-          },
-          "beschrijving": {
-            "type": "string",
-            "title": "beschrijving",
-            "description": "Beschrijving en overige informatie over de indicator"
-          },
-          "berekening": {
-            "type": "string",
-            "title": "berekening",
-            "description": "Rekenformule, die is gebruikt om de waarde van de indicator te berekenen"
-          },
-          "bron": {
-            "type": "string",
-            "title": "bron",
-            "description": "Herkomst van de indicator en bijhorende definitie"
-          },
-          "thema": {
-            "type": "string",
-            "title": "thema",
-            "description": "Thematische indeling waaronder de indicator valt"
-          },
-          "eenheid": {
-            "type": "string",
-            "title": "eenheid",
-            "description": "Eenheid waarin de indicator wordt uitgedrukt"
-          },
-          "symbool": {
-            "type": "string",
-            "title": "symbool",
-            "description": "Symbool, behorende bij de eenheid"
-          },
-          "decimalen": {
-            "type": "integer",
-            "title": "decimalen",
-            "description": "Aantal decimalen, waarin de waarde van de indicator moet worden gepubliceerd"
-          },
-          "dimensieNaam": {
-            "type": "string",
-            "title": "dimensieNaam",
-            "description": "Naam van de dimensie, waartoe de indicator behoort"
-          },
-          "dimensieCode": {
-            "type": "string",
-            "title": "dimensieCode",
-            "description": "Code van de dimensie, waartoe de dimensie behoort"
-          },
-          "dimensieBeschrijving": {
-            "type": "string",
-            "title": "dimensieBeschrijving",
-            "description": "Beschrijving van de dimensie, waartoe de dimensie behoort"
-          },
-          "extraAttributen": {
-            "type": "object",
-            "format": "json",
-            "title": "extraAttributen",
-            "description": "Vrij veld om aanvullende attributen met hun waarde op te slaan, die nodig kunnen zijn voor verdere visualisatie"
-          },
-          "parent": {
-            "type": "string",
-            "title": "parent",
-            "description": "Naam van een indicator, waartoe de indicator behoort"
-          },
-          "verantwoordelijke": {
-            "type": "string",
-            "title": "verantwoordelijke",
-            "description": "Naam van het team binnen de organisatie, dat verantwoordelijk is voor de indicator"
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.2",
+      "tables": [
+        {
+          "id": "indicatoren",
+          "$ref": "indicatoren/v1"
+        },
+        {
+          "id": "cijfers",
+          "$ref": "cijfers/v1"
+        },
+        {
+          "id": "toepassingen",
+          "$ref": "toepassingen/v1"
         }
-      }
-    },
-    {
-      "id": "cijfers",
-      "type": "table",
-      "version": "1.0.0",
-      "description": "Alle cijfers, gerelateerd aan de bijhorende indicatoren en dimensies",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "identifier": [
-          "id"
-        ],
-        "required": [
-          "schema",
-          "id",
-          "ruimtelijkeDimensieType",
-          "ruimtelijkeDimensieCode",
-          "ruimtelijkeDimensieNaam",
-          "temporeleDimensieType",
-          "begindatum",
-          "einddatum",
-          "indicator",
-          "waarde"
-        ],
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "title": "id",
-            "description": "Unieke identificatie van het cijfer i.c.m. de bijhorende indicator en dimensies"
-          },
-          "ruimtelijkeDimensieType": {
-            "type": "string",
-            "title": "ruimtelijkeDimensieType",
-            "description": "Type ruimtelijke indeling"
-          },
-          "ruimtelijkeDimensieDatum": {
-            "type": "string",
-            "format": "date",
-            "title": "ruimtelijkeDimensieDatum",
-            "description": "Datum waarop de ruimtelijke indeling van kracht is geworden"
-          },
-          "ruimtelijkeDimensieCode": {
-            "type": "string",
-            "title": "ruimtelijkeDimensieCode",
-            "description": "Unieke code van de ruimtelijke indeling binnen hetzelfde type en datum"
-          },
-          "ruimtelijkeDimensieNaam": {
-            "type": "string",
-            "title": "ruimtelijkeDimensieNaam",
-            "description": "Unieke naam van de ruimtelijke indeling binnen hetzelfde type en datum"
-          },
-          "temporeleDimensieType": {
-            "type": "string",
-            "title": "temporeleDimensieType",
-            "description": "Type van de tijddimensie. Dit kan een vaste peildatum zijn of een periode"
-          },
-          "begindatum": {
-            "type": "string",
-            "format": "date-time",
-            "title": "begindatum",
-            "description": "Begindatum waarop de tijddimensie is begonnen"
-          },
-          "einddatum": {
-            "type": "string",
-            "format": "date-time",
-            "title": "einddatum",
-            "description": "Einddatum waarop de tijddimensie is geëindigd"
-          },
-          "indicator": {
-            "type": "string",
-            "title": "indicator",
-            "description": "Naam van de indicator waarop het cijfer betrekking heeft"
-          },
-          "waarde": {
-            "type": "number",
-            "title": "waarde",
-            "description": "Waarde van het cijfer met het aantal decimalen, zoals vastgelegd bij de indicator"
-          }
-        }
-      }
-    },
-    {
-      "id": "toepassingen",
-      "type": "table",
-      "version": "1.0.0",
-      "description": "Alle cijfers, gerelateerd aan de bijhorende indicatoren en dimensies",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "identifier": [
-          "id"
-        ],
-        "required": [
-          "schema",
-          "id",
-          "naam",
-          "versie",
-          "ruimtelijkeDimensie",
-          "temporeleDimensie",
-          "indicator"
-        ],
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "title": "id",
-            "description": "Unieke identificatie"
-          },
-          "naam": {
-            "type": "string",
-            "title": "naam",
-            "description": "Naam van de toepassing"
-          },
-          "versie": {
-            "type": "string",
-            "title": "versie",
-            "description": "Versie van de toepassing"
-          },
-          "ruimtelijkeDimensie": {
-            "type": "string",
-            "title": "ruimtelijkeDimensie",
-            "description": "Ruimtelijke indeling"
-          },
-          "temporeleDimensie": {
-            "type": "string",
-            "title": "temporeleDimensie",
-            "description": "Type van de tijddimensie. Dit kan een vaste peildatum zijn of een periode"
-          },
-          "indicator": {
-            "type": "string",
-            "title": "indicator",
-            "description": "Naam van de indicator"
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

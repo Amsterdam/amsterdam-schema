@@ -1,0 +1,36 @@
+{
+  "id": "royalcanin",
+  "type": "table",
+  "version": "0.0.1",
+  "title": "RoyalCanin",
+  "description": "Table 2 most simple test.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Some id."
+      },
+      "date": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Some timestamp in UTC."
+      },
+      "comment": {
+        "type": "string",
+        "description": "Comment field."
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

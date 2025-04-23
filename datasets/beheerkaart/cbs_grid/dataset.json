@@ -2,285 +2,31 @@
   "type": "dataset",
   "id": "beheerkaartCbsGrid",
   "title": "beheerkaart cbs grid",
-  "status": "beschikbaar",
   "description": "Gegevens t.a.v. de lokale hoeveelheid te beheren publieke ruimte op basis van de beheerkaart publieke ruimte en landelijk (BKT-)CBS-grid (vlakken 100x100m2 of 10x10m2).",
-  "version": "0.0.1",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "creator": "bronhouder onbekend",
-  "publisher": "Datateam Stedelijke Ontwikkeling en Beheer",
+  "publisher": {
+    "$ref": "publishers/SOEB"
+  },
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
-  "tables": [
-    {
-      "id": "raster_100",
-      "type": "table",
-      "provenance": "bkt_beheerkaart_cbs_grid_raster_100",
-      "description": "Tabel met CBS-grid-raster (vlakken 100x100m2) en te beheren percentages publieke ruimte (totaal>=10%) op basis van de beheerkaart publieke ruimte.",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
       "version": "0.0.1",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "mainGeometry": "cbsGeometrie100",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "provenance": "bk_cbs_grid_100_asd",
-            "type": "string",
-            "description": "Business-key: unieke aanduiding record (BKT-CBS-grid-100-vlak)."
-          },
-          "bkCbsGrid100Asd": {
-            "type": "string",
-            "description": "Business-key: unieke aanduiding record (BKT-CBS-grid-100-vlak)."
-          },
-          "rasterActief": {
-            "type": "boolean",
-            "description": "Indicatie of het BKT-CBS-grid-100-vlak als actief wordt aangemerkt door Stadswerken / Apptimize."
-          },
-          "cbsGeometrie100": {
-            "$ref": "https://geojson.org/schema/Polygon.json",
-            "description": "Vlak-co\u00f6rdinaten van het BKT-CBS-grid-100-vlak."
-          },
-          "gemeentenaam": {
-            "type": "string",
-            "description": "Naam van gemeente die overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "buurtnaam": {
-            "type": "string",
-            "description": "Naam van buurt die overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "buurtcode": {
-            "type": "string",
-            "description": "Code van buurt die overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "dominantbuurt": {
-            "type": "string",
-            "description": "Naam van dominante buurt die overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "dominantbuurtcode": {
-            "type": "string",
-            "description": "Code van dominante buurt die overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "wijknaam": {
-            "type": "string",
-            "description": "Naam van wijk die overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "wijkcode": {
-            "type": "string",
-            "description": "Code van wijk die overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "dominantwijk": {
-            "type": "string",
-            "description": "Naam van dominante wijk die overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "dominantwijkcode": {
-            "type": "string",
-            "description": "Code van dominante wijk die overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "stadsdeelnaam": {
-            "type": "string",
-            "description": "Naam van stadsdeel dat overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "stadsdeelcode": {
-            "type": "string",
-            "description": "Code van stadsdeel dat overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "dominantstadsdeel": {
-            "type": "string",
-            "description": "Naam van dominant stadsdeel dat overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "dominantstadsdeelcode": {
-            "type": "string",
-            "description": "Code van dominant stadsdeel dat overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "ggwGebiedNaam": {
-            "type": "string",
-            "description": "Naam van gebiedsgerichtwerken-gebied dat overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "ggwGebiedCode": {
-            "type": "string",
-            "description": "Code van gebiedsgerichtwerken-gebied dat overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "dominantGgwGebied": {
-            "type": "string",
-            "description": "Naam van dominant gebiedsgerichtwerken-gebied dat overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "dominantGgwGebiedcode": {
-            "type": "string",
-            "description": "Code van dominant gebiedsgerichtwerken-gebied dat overlapt met het BKT-CBS-grid-100-vlak."
-          },
-          "percentageBlauw": {
-            "type": "number",
-            "minimum": 0,
-            "description": "Percentage kleur blauw (bgt_waterdeel) binnen het BKT-CBS-grid-100-vlak."
-          },
-          "percentageGrijs": {
-            "type": "number",
-            "minimum": 0,
-            "description": "Percentage kleur grijs (bgt_wegdeel, bgt_ondersteunend_wegdeel) binnen het BKT-CBS-grid-100-vlak."
-          },
-          "percentageGroen": {
-            "type": "number",
-            "minimum": 0,
-            "description": "Percentage kleur groen (bgt_begroeid_terrein) binnen het BKT-CBS-grid-100-vlak."
-          },
-          "percentageOverig": {
-            "type": "number",
-            "minimum": 0,
-            "description": "Percentage overig (overige bgt_objectklassen) binnen het BKT-CBS-grid-100-vlak."
-          },
-          "percentagePubliekeRuimte": {
-            "type": "number",
-            "minimum": 0,
-            "description": "Totaal percentage publieke ruimte (>=10%) binnen het BKT-CBS-grid-100-vlak."
-          }
+      "tables": [
+        {
+          "id": "raster_100",
+          "$ref": "raster_100/v1"
+        },
+        {
+          "id": "raster_10",
+          "$ref": "raster_10/v1"
         }
-      }
-    },
-    {
-      "id": "raster_10",
-      "type": "table",
-      "provenance": "bkt_beheerkaart_cbs_grid_raster_10",
-      "description": "Tabel met BKT-CBS-grid-raster (vlakken 10x10m2) en te beheren percentages publieke ruimte (totaal>=1%) op basis van de beheerkaart publieke ruimte.",
-      "version": "0.0.1",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "mainGeometry": "cbsGeometrie10",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "provenance": "bk_cbs_grid_10_asd",
-            "type": "string",
-            "description": "Business-key: unieke aanduiding record (BKT-CBS-grid-10-vlak)."
-          },
-          "bkCbsGrid10Asd": {
-            "type": "string",
-            "description": "Business-key: unieke aanduiding record (BKT-CBS-grid-10-vlak)."
-          },
-          "bkCbsGrid100Asd": {
-            "type": "string",
-            "description": "Verwijzing naar omvattend BKT-CBS-grid-100-vlak."
-          },
-          "rasterActief": {
-            "type": "boolean",
-            "description": "Indicatie of omvattend BKT-CBS-grid-100-vlak als actief wordt aangemerkt door Stadswerken / Apptimize."
-          },
-          "cbsGeometrie10": {
-            "$ref": "https://geojson.org/schema/Polygon.json",
-            "description": "Vlak-co\u00f6rdinaten van het BKT-CBS-grid-10-vlak."
-          },
-          "gemeentenaam": {
-            "type": "string",
-            "description": "Naam van gemeente die overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "buurtnaam": {
-            "type": "string",
-            "description": "Naam van buurt die overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "buurtcode": {
-            "type": "string",
-            "description": "Code van buurt die overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "dominantbuurt": {
-            "type": "string",
-            "description": "Naam van dominante buurt die overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "dominantbuurtcode": {
-            "type": "string",
-            "description": "Code van dominante buurt die overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "wijknaam": {
-            "type": "string",
-            "description": "Naam van wijk die overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "wijkcode": {
-            "type": "string",
-            "description": "Code van wijk die overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "dominantwijk": {
-            "type": "string",
-            "description": "Naam van dominante wijk die overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "dominantwijkcode": {
-            "type": "string",
-            "description": "Code van dominante wijk die overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "stadsdeelnaam": {
-            "type": "string",
-            "description": "Naam van stadsdeel dat overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "stadsdeelcode": {
-            "type": "string",
-            "description": "Code van stadsdeel dat overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "dominantstadsdeel": {
-            "type": "string",
-            "description": "Naam van dominant stadsdeel dat overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "dominantstadsdeelcode": {
-            "type": "string",
-            "description": "Code van dominant stadsdeel dat overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "ggwGebiedNaam": {
-            "type": "string",
-            "description": "Naam van gebiedsgerichtwerken-gebied dat overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "ggwGebiedCode": {
-            "type": "string",
-            "description": "Code van gebiedsgerichtwerken-gebied dat overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "dominantGgwGebied": {
-            "type": "string",
-            "description": "Naam van dominant gebiedsgerichtwerken-gebied dat overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "dominantGgwGebiedcode": {
-            "type": "string",
-            "description": "Code van dominant gebiedsgerichtwerken-gebied dat overlapt met het BKT-CBS-grid-10-vlak."
-          },
-          "percentageBlauw": {
-            "type": "number",
-            "minimum": 0,
-            "description": "Percentage kleur blauw (bgt_waterdeel) binnen het BKT-CBS-grid-10-vlak."
-          },
-          "percentageGrijs": {
-            "type": "number",
-            "minimum": 0,
-            "description": "Percentage kleur grijs (bgt_wegdeel, bgt_ondersteunend_wegdeel) binnen het BKT-CBS-grid-10-vlak."
-          },
-          "percentageGroen": {
-            "type": "number",
-            "minimum": 0,
-            "description": "Percentage kleur groen (bgt_begroeid_terrein) binnen het BKT-CBS-grid-10-vlak."
-          },
-          "percentageOverig": {
-            "type": "number",
-            "minimum": 0,
-            "description": "Percentage overig (overige bgt_objectklassen) binnen het BKT-CBS-grid-10-vlak."
-          },
-          "percentagePubliekeRuimte": {
-            "type": "number",
-            "minimum": 0,
-            "description": "Totaal percentage publieke ruimte (>=1%) binnen het BKT-CBS-grid-10-vlak."
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

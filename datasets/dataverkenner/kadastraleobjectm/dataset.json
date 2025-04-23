@@ -1,7 +1,6 @@
 {
   "type": "dataset",
   "id": "dataverkennerKadastraleobjectm",
-  "status": "beschikbaar",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "publisher": {
@@ -9,175 +8,20 @@
   },
   "creator": "Basisinformatie",
   "auth": "OPENBAAR",
-  "version": "0.0.1",
   "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
   "description": "De Basisregistratie | Toegewijde weergaven BAG en BRK bevat informatie nodig voor implementatie op het Data Verkenner platform.",
-  "tables": [
-    {
-      "type": "table",
-      "id": "kadastraleobject",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
       "version": "0.0.1",
-      "crs": "EPSG:28992",
-      "derivedFrom": [
-        "brk2:kadastralegemeentes"
-      ],
-      "temporal": {
-        "identifier": "volgnummer",
-        "dimensions": {
-          "geldigOp": [
-            "beginGeldigheid",
-            "eindGeldigheid"
-          ]
+      "tables": [
+        {
+          "id": "kadastraleobject",
+          "$ref": "kadastraleobject/v1"
         }
-      },
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "mainGeometry": "geometrie",
-        "identifier": [
-          "identificatie",
-          "volgnummer"
-        ],
-        "required": [
-          "schema",
-          "neuronId",
-          "identificatie",
-          "volgnummer"
-        ],
-        "display": "identificatie",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "neuronId": {
-            "type": "string",
-            "description": "Neuron ID"
-          },
-          "volgnummer": {
-            "type": "integer",
-            "description": "Uniek volgnummer van de toestand van het object."
-          },
-          "identificatie": {
-            "type": "string",
-            "description": "De unieke aanduiding van een Kadastraal object."
-          },
-          "kadastraleAanduiding": {
-            "type": "string",
-            "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
-          },
-          "aangeduidDoorBrkKadastralegemeentecodeId": {
-            "type": "string",
-            "description": "De kadastrale gemeentecode. Het eerste deel van de kadastrale aanduiding. Bijvoorbeeld: ASD01, STN02"
-          },
-          "aangeduidDoorBrkKadastralesectieId": {
-            "type": "string",
-            "description": "De kadastrale sectie, het tweede gedeelte van de aanduiding van een kadastraal object."
-          },
-          "aangeduidDoorBrkKadastralegemeenteId": {
-            "type": "string",
-            "description": "De kadastrale gemeente, het eerste gedeelte van de aanduiding van een kadastraal object."
-          },
-          "aangeduidDoorBrkGemeenteId": {
-            "type": "string",
-            "description": "De officiële vastgestelde gemeentecode."
-          },
-          "aangeduidDoorBrkGemeente": {
-            "type": "string",
-            "description": "De officiële vastgestelde gemeentenaam."
-          },
-          "indexletter": {
-            "type": "string",
-            "description": "Letter Kadastraal object, dit geeft een indicatie voor het type object. G Grond perceel. A Appartementsrecht"
-          },
-          "indexnummer": {
-            "type": "integer",
-            "description": "Volgnummer van het Appartementsrecht"
-          },
-          "soortCultuurOnbebouwdOmschrijving": {
-            "auth": "BRK/RS",
-            "type": "string",
-            "description": "De soort cultuur onbebouwd is een aanduiding voor de aard van de meest significante cultuur van het onbebouwde deel van het kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl Dit kenmerk is in beginsel afgeleid van de notariële akte, maar kan worden bijgesteld op grond van een verzoek van de eigenaar (of een schriftelijk gevolmachtigde namens de eigenaar)per brief, fax of e-mailbericht. Dit kan afwijken van: het feitelijk gebruik in de WOZ; gebruiksdoel in de BAG; SBI-code in het HR. code",
-            "reasonsNonPublic": [
-              "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-            ]
-          },
-          "soortCultuurBebouwdOmschrijving": {
-            "auth": "BRK/RS",
-            "type": "string",
-            "description": "De soort cultuur bebouwd van een bebouwd kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl (Kadaster-on-line; KOL). Dit kenmerk is afgeleid van wat degene die een notariële akte laat inschrijven, heeft verklaard (artikel 87, eerste lid, onder a, van de Kadasterregeling 1994). Dit kan afwijken van:soort objectcode in de WOZ;gebruiksdoel in de BAG;SBI-code in het HR",
-            "reasonsNonPublic": [
-              "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-            ]
-          },
-          "koopsom": {
-            "auth": "BRK/RS",
-            "type": "number",
-            "multipleOf": 0.01,
-            "description": "Het in een ter inschrijving aangeboden stuk vermelde bedrag, waarvoor 1 of meer onroerende zaken zijn verkregen.",
-            "reasonsNonPublic": [
-              "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-            ]
-          },
-          "koopjaar": {
-            "auth": "BRK/RS",
-            "type": "string",
-            "description": "Transactiejaar van de aankoop",
-            "reasonsNonPublic": [
-              "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-            ]
-          },
-          "indicatieMeerObjecten": {
-            "type": "string",
-            "description": "Indicatie dat de koopsom betrekking heeft op meer dan 1 kadastraal object"
-          },
-        "soortGrootteOmschrijving": {
-            "type": "string",
-            "description": "Aanduiding van soort grootte"
-          },
-          "toestandsdatum": {
-            "type": "string",
-            "format": "date",
-            "description": "De datum waarop de geleverde toestand van het kadatraal object is ontstaan in de Basisregistratie Kadaster. (normaal gesproken maximaal 2 weken later t.o.v. tijdstip inschrijving)"
-          },
-          "inOnderzoek": {
-            "type": "string",
-            "description": "Als dit veld is gevuld geeft dit de omschrijving waarom dit gegeven in onderzoek staat (art. 7n en 7r Kadasterwet)."
-          },
-          "indicatieVoorlopigeKadastraleGrens": {
-            "type": "string",
-            "description": "Indicatie of de geometrie (kadastrale grens) voorlopig is of niet."
-          },
-          "grootte": {
-            "type": "number",
-            "multipleOf": 0.01,
-            "description": "De grootte van een kadastraal object is de oppervlakte van het kadastrale perceel. Dit kan bij een deelperceel een geschatte grootte zijn."
-          },
-          "perceelnummer": {
-            "type": "integer",
-            "description": "Een numerieke aanduiding van het kadastrale perceel per sectie, deel van de kadastrale aanduiding van de onroerende zaak."
-          },
-          "heeftEenRelatieMetBagVerblijfsobjectIdentificaties": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Relatie naar verblijfsobject(en)"
-          },
-          "beginGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "eindGeldigheid": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "geometrie": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Geometrie van het kadastrale object"
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

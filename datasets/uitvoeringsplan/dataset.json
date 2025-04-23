@@ -9,7 +9,6 @@
   "homepage": "https://data.amsterdam.nl",
   "owner": "Gemeente Amsterdam, Directie Verkeer en Openbare ruimte, Afdeling Stedelijk beheer",
   "spatialDescription": "Gemeente Amsterdam",
-  "version": "1.2.0",
   "title": "uitvoeringsplan",
   "language": "nl",
   "dateCreated": "2024-05-15T00:00:00+01:00",
@@ -19,15 +18,19 @@
     "$ref": "/publishers/BOR"
   },
   "description": "Uitvoeringsplannen afdeling Stedelijk beheer met betrekking tot de openbare ruimte",
-  "status": "beschikbaar",
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "uitvoeringsplan",
-      "$ref": "uitvoeringsplan/v3.0.0",
-      "activeVersions": {
-        "3.0.0": "uitvoeringsplan/v3.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.2.0",
+      "tables": [
+        {
+          "id": "uitvoeringsplan",
+          "$ref": "uitvoeringsplan/v3"
+        }
+      ]
     }
-  ]
+  }
 }

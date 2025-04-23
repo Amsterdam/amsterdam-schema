@@ -1,0 +1,111 @@
+{
+  "id": "waterdelen",
+  "title": "waterdelen",
+  "description": "Kleinste functioneel onafhankelijk stukje water met gelijkblijvende homogene eigenschappen en relaties dat er binnen een water wordt onderscheiden.",
+  "type": "table",
+  "version": "1.0.1",
+  "lifecycleStatus": "stable",
+  "crs": "EPSG:28992",
+  "auth": "OPENBAAR",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": [
+      "identificatie"
+    ],
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "title": "Geo object ID",
+        "description": "De unieke identiteit van het geo-object."
+      },
+      "bronactualiteit": {
+        "type": "string",
+        "title": "Bron actualiteit datum",
+        "format": "date",
+        "description": "De actualiteit van de gebruikte bron."
+      },
+      "bronbeschrijving": {
+        "type": "string",
+        "title": "Bron beschrijving",
+        "description": "De beschrijving van de gebruikte bron."
+      },
+      "brontype": {
+        "type": "string",
+        "title": "Bron type",
+        "description": "Het type van de gebruikte bron."
+      },
+      "objectBeginTijd": {
+        "type": "string",
+        "title": "Object geldigheid begintijd",
+        "format": "date",
+        "description": "Tijdstip waarop het object ontstaan is."
+      },
+      "visualisatieCode": {
+        "type": "integer",
+        "title": "Object visualisatie code",
+        "description": "Code voor het visualiseren van het object."
+      },
+      "tdnCode": {
+        "type": "integer",
+        "title": "Object TOP10vector code",
+        "description": "Code die het object in TOP10vector had."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Geometrie",
+        "description": "geometrie"
+      },
+      "naamNl": {
+        "type": "string",
+        "title": "Water Nederlandse naam",
+        "description": "De Nederlandse naam van het water."
+      },
+      "naamFries": {
+        "type": "string",
+        "title": "Water Friese naam",
+        "description": "De Friese naam van het water."
+      },
+      "type": {
+        "type": "string",
+        "title": "Water type",
+        "description": "Het type water."
+      },
+      "breedteklasse": {
+        "type": "string",
+        "title": "Water breedte klasse code",
+        "description": "De breedte van het water ingedeeld in klassen."
+      },
+      "fysiekVoorkomen": {
+        "type": "string",
+        "title": "Object relatieve positie",
+        "description": "De plaats waar het object zich bevindt t.o.v. andere constructies."
+      },
+      "hoogteniveau": {
+        "type": "integer",
+        "title": "Object hoogteniveau",
+        "description": "Het hoogteniveau van het object"
+      },
+      "geometrieVlak": {
+        "$ref": "https://geojson.org/schema/Polygon.json",
+        "title": "Vlak geometrie",
+        "description": "vlakgeometrie"
+      },
+      "geometrieLijn": {
+        "$ref": "https://geojson.org/schema/LineString.json",
+        "title": "Lijn geometrie",
+        "description": "lijngeometrie"
+      }
+    }
+  }
+}

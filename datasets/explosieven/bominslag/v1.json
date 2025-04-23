@@ -1,0 +1,68 @@
+{
+  "id": "bominslag",
+  "title": "Bominslag",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "kenmerk",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "provenance": "geometrie"
+      },
+      "kenmerk": {
+        "type": "string"
+      },
+      "detailType": {
+        "type": "string",
+        "provenance": "soort_hand"
+      },
+      "datumInslag": {
+        "type": "string",
+        "format": "date",
+        "provenance": "datum"
+      },
+      "datum": {
+        "type": "string",
+        "format": "date",
+        "provenance": "datum1"
+      },
+      "bron": {
+        "type": "string",
+        "provenance": "bron1"
+      },
+      "intekening": {
+        "type": "string"
+      },
+      "nauwkeurig": {
+        "type": "string"
+      },
+      "opmerkingen": {
+        "type": "string",
+        "provenance": "opmerkinge"
+      },
+      "oorlogsinc": {
+        "type": "string"
+      },
+      "pdf": {
+        "type": "string",
+        "format": "uri",
+        "provenance": "hyperlink"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

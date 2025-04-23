@@ -1,0 +1,99 @@
+{
+  "id": "lijnvormigeObstakels",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "title": "Lijnvormige obstakels",
+  "description": "-",
+  "auth": "OPENBAAR",
+  "status": "beschikbaar",
+  "creator": "Ingenieursbureau Team WGM",
+  "publisher": "Datateam Stedelijke Ontwikkeling en Beheer",
+  "authorizationGrantor": "datateamSOB@amsterdam.nl",
+  "owner": "Gemeente Amsterdam",
+  "theme": [
+    "ondergrondse infrastructuur",
+    "Ruimte en Topografie"
+  ],
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke aanduiding record."
+      },
+      "categorie": {
+        "type": "string",
+        "description": "Lijnvormige objecten die geleid kunnen hebben tot het voorkomen van ondergrondse obstakels of bodemverontreiniging."
+      },
+      "beschrijving": {
+        "type": "string",
+        "description": "Korte beschrijving van het betreffende object."
+      },
+      "opmerking": {
+        "type": "string",
+        "description": "Context, bevindingen en/of achtergrond van het object."
+      },
+      "vanMinimaalJaar": {
+        "type": "integer",
+        "minimum": 1100,
+        "exclusiveMaximum": 2150,
+        "description": "Het oprichtingsjaar van het object, of een benadering van het oprichtingsjaar."
+      },
+      "vanMaximaalJaar": {
+        "type": "integer",
+        "minimum": 1100,
+        "exclusiveMaximum": 2150,
+        "description": "Het oudste voorkomen van het object die door historisch onderzoek is gevonden. Het werkelijke oprichtingsjaar ligt hiervoor."
+      },
+      "totMinimaalJaar": {
+        "type": "integer",
+        "minimum": 1100,
+        "exclusiveMaximum": 2150,
+        "description": "Het jongste voorkomen van het object die door historisch onderzoek is gevonden. Het werkelijke eindjaar is thans onbekend.."
+      },
+      "totMaximaalJaar": {
+        "type": "integer",
+        "minimum": 1100,
+        "exclusiveMaximum": 2150,
+        "description": "Het eindjaar van het object, of het jaar waarop het object niet meer is waargenomen."
+      },
+      "bron1": {
+        "type": "string",
+        "description": "Bronvermelding"
+      },
+      "bron2": {
+        "type": "string",
+        "description": "Hyperlink naar bron."
+      },
+      "bron3": {
+        "type": "string",
+        "description": "Hyperlink naar bron."
+      },
+      "bron4": {
+        "type": "string",
+        "description": "Hyperlink naar bron."
+      },
+      "bewerkingsdatumGeometrie": {
+        "type": "string",
+        "format": "date",
+        "description": "Aanmaak- of bewerkingsdatum van geometrie."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Geometrie in RD (epsg:28992) van locatie onderzoek."
+      }
+    }
+  }
+}

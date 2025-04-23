@@ -4,8 +4,6 @@
   "title": "Bulkdata",
   "description": "Bestanden met gegevens uit andere datasets voor bulkafname.",
   "license": "public",
-  "status": "beschikbaar",
-  "version": "1.0.0",
   "theme": [],
   "publisher": {
     "$ref": "publishers/DADI"
@@ -17,87 +15,26 @@
   "keywords": [
     "Bulk data, geopackages"
   ],
-  "tables": [
-    {
-      "id": "geopackage",
-      "title": "GeoPackages",
-      "description": "Openbare datasets in OGC GeoPackage formaat",
-      "type": "table",
-      "dataclass": "blob",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
       "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "display": "id",
-        "required": [
-          "schema",
-          "id"
-        ],
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "id": {
-            "type": "string",
-            "description": "identifier"
-          }
+      "tables": [
+        {
+          "id": "geopackage",
+          "$ref": "geopackage/v1"
+        },
+        {
+          "id": "jsonlines",
+          "$ref": "jsonlines/v1"
+        },
+        {
+          "id": "csv",
+          "$ref": "csv/v1"
         }
-      }
-    },
-    {
-      "id": "jsonlines",
-      "title": "Jsonlines",
-      "description": "Openbare datasets in jsonlines formaat",
-      "type": "table",
-      "dataclass": "blob",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "display": "id",
-        "required": [
-          "schema",
-          "id"
-        ],
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "id": {
-            "type": "string",
-            "description": "identifier"
-          }
-        }
-      }
-    },
-    {
-      "id": "csv",
-      "title": "CSV",
-      "description": "Openbare datasets in csv formaat",
-      "type": "table",
-      "dataclass": "blob",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "display": "id",
-        "required": [
-          "schema",
-          "id"
-        ],
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "id": {
-            "type": "string",
-            "description": "identifier"
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

@@ -1,0 +1,244 @@
+{
+  "id": "container",
+  "version": "2.2.0",
+  "lifecycleStatus": "stable",
+  "type": "table",
+  "title": "Onder- en bovengronds afvalcontainers",
+  "description": "Bevat een overzicht van alle onder- en bovengronds afvalcontainers in Gemeente Amsterdam",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": "id",
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke aanduiding objecttype",
+        "title": "Object ID"
+      },
+      "idNummer": {
+        "type": "string",
+        "description": "Identificatie dat door de fabrikant aan het object is gegeven",
+        "title": "Object externe ID"
+      },
+      "serienummer": {
+        "type": "string",
+        "description": "serienummer uitgegeven door de fabrikant",
+        "title": "Serienummer"
+      },
+      "cluster": {
+        "type": "string",
+        "relation": "huishoudelijkafval:cluster",
+        "description": "Uniek identificerend kenmerk van cluster waaraan de container is gerelateerd",
+        "title": "Cluster ID"
+      },
+      "eigenaarId": {
+        "type": "string",
+        "description": "Identificerend kenmerk eigenaar",
+        "title": "Eigenaar ID"
+      },
+      "eigenaarNaam": {
+        "type": "string",
+        "description": "Naam eigenaar",
+        "title": "Eigenaar naam"
+      },
+      "status": {
+        "type": "integer",
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "description": "Status van de container,0 - inactief, 1 - actief, 2 - gepland",
+        "title": "Container status code"
+      },
+      "fractieCode": {
+        "type": "string",
+        "enum": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "9"
+        ],
+        "description": "Type afvalfractie code waarvoor de container is bedoeld: 1 - Rest, 2 - Glas, 3 - Papier, 4 - Plastic, 5 - Textiel, 6 - GFT, 9 - Brood",
+        "title": "Afvalfractie soort code"
+      },
+      "fractieOmschrijving": {
+        "type": "string",
+        "description": "Container fractieomschrijving zoals door leverancier is geleverd.",
+        "title": "Afvalfractie soort naam"
+      },
+      "datumCreatie": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop het object is gecreëerd in container management systeem",
+        "title": "Datum registratie startdatum"
+      },
+      "datumPlaatsing": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop het object op de locatie is geplaatst",
+        "title": "Datum plaatsing"
+      },
+      "datumOperationeel": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum dat de container operationeel is voor het aanbieden van afval",
+        "title": "Datum operationeel"
+      },
+      "datumAflopenGarantie": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop de garantie verloopt",
+        "title": "Einde garantieperiode"
+      },
+      "datumOplevering": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop het object is geleverd",
+        "title": "Datum oplevering"
+      },
+      "wijzigingsdatumDp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Datum waarop het object is gewijzigd",
+        "title": "Datumtijd aanmaak wijziging"
+      },
+      "verwijderdDp": {
+        "type": "boolean",
+        "description": "Indicatie of het object verwijderd is bij de bronhouder",
+        "title": "Geldigheid einddatumtijd"
+      },
+      "geadopteerdInd": {
+        "type": "boolean",
+        "description": "indicatie of het object door een bewoner geadopteerd is",
+        "title": "Object geadopteerd indicatie"
+      },
+      "locatie": {
+        "type": "string",
+        "relation": "huishoudelijkafval:containerlocatie",
+        "description": "Identificerend kenmerk van de put waarin de container is geplaatst",
+        "title": "Container locatie"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "Geometrie van het type POINT van de container RD (epsg:28992)",
+        "title": "Geometrie"
+      },
+      "type": {
+        "type": "string",
+        "relation": "huishoudelijkafval:containertype",
+        "description": "Identificerend kenmerk van het containertype",
+        "title": "Container type code"
+      },
+      "bagHoofdadresVerblijfsobject": {
+        "type": "string",
+        "relation": "bag:verblijfsobjecten",
+        "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
+        "description": "Een identificatiecode van een verblijfsobject is een authentiek gegeven en een unieke aanduiding van het verblijfsobject.",
+        "title": "BAG hoofdadres verblijfsobject"
+      },
+      "gbdBuurt": {
+        "type": "string",
+        "relation": "gebieden:buurten",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+        "description": "Unieke identificatie van het object",
+        "title": "Gebied buurt"
+      },
+      "bagOpenbareruimte": {
+        "type": "string",
+        "relation": "bag:openbareruimtes",
+        "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
+        "description": "Openbare ruimte identificatie",
+        "title": "BAG openbareruimte"
+      },
+      "bagNummeraanduiding": {
+        "type": "string",
+        "relation": "bag:nummeraanduidingen",
+        "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
+        "description": "Identificatie nummeraanduiding",
+        "title": "BAG nummeraanduiding"
+      },
+      "containerRalKleurNaam": {
+        "type": "string",
+        "description": "De naam van de ralkleur",
+        "title": "Container RAL kleur naam"
+      },
+      "containerRalKleurCode": {
+        "type": "string",
+        "description": "De internationale ralkleurcode.",
+        "title": "Container RAL kleur code"
+      },
+      "containerRalKleurHexcode": {
+        "type": "string",
+        "description": "De hexcode van de ralkleur.",
+        "title": "Container RAL hex kleur code"
+      },
+      "containerChipNummber": {
+        "type": "string",
+        "description": "Het identificatienummer van de chip die registreert wanneer de container wordt geleegd.",
+        "title": "Container chip nummer"
+      },
+      "containerUnitCardLezerId": {
+        "type": "string",
+        "description": "Het identificatienummer van de kaartlezer.",
+        "title": "Container unit card lezer id"
+      },
+      "containerKleur": {
+        "type": "string",
+        "description": "De naam van de kleur",
+        "title": "Container kleur"
+      },
+      "containerMark": {
+        "type": "integer",
+        "description": "Definitie volgt nog",
+        "title": "Container mark"
+      },
+      "containerDatumVervanging": {
+        "type": "string",
+        "format": "date",
+        "description": "De datum waarop de container wordt vervangen.",
+        "title": "Container datum vervanging"
+      },
+      "containerDatumWijziging": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Datum waarop de container is gewijzigd.",
+        "title": "Container datum wijziging"
+      },
+      "containerEndOfLife": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop het object het einde van zijn levenscyclus heeft bereikt.",
+        "title": "Container levenscyclus einddatum"
+      },
+      "containerEigenaarschap": {
+        "type": "string",
+        "description": "De soort eigenaarschap van het object.",
+        "title": "Container eigenaarschap type"
+      },
+      "containerEigenaarschapOpmerking": {
+        "type": "string",
+        "description": "Beschrijving van  het type eigenaarschap.",
+        "title": "Container eigenaarschap opmerking"
+      },
+      "containerOpmerking": {
+        "type": "string",
+        "description": "Opmerking over het object door de betrokken medewerker.",
+        "title": "Opmerking"
+      }
+    }
+  }
+}

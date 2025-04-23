@@ -1,79 +1,26 @@
 {
   "type": "dataset",
   "id": "dataverkennerIsontstaanuit",
-  "status": "beschikbaar",
   "owner": "Gemeente Amsterdam",
   "publisher": {
     "$ref": "publishers/BENK"
   },
   "creator": "Basisinformatie",
   "auth": "OPENBAAR",
-  "version": "0.0.1",
   "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
   "description": "De Basisregistratie | Toegewijde weergaven BAG en BRK bevat informatie nodig voor implementatie op het Data Verkenner platform.",
-  "tables": [
-    {
-      "type": "table",
-      "id": "isontstaanuit",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
       "version": "0.0.1",
-      "derivedFrom": [
-        "brk2:kadastraleobjecten",
-        "brk2:kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject"
-      ],
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "identifier": [
-          "identificatie",
-          "volgnummer"
-        ],
-        "required": [
-          "schema",
-          "neuronId",
-          "identificatie",
-          "volgnummer"
-        ],
-    
-        "display": "identificatie",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "identificatie": {
-            "type": "string",
-            "description": "De unieke aanduiding van een Kadastraal object."
-          },
-          "volgnummer": {
-            "type": "integer",
-            "description": "Uniek volgnummer van de toestand van het object."
-          },
-          "kadastraleAanduiding": {
-            "type": "string",
-            "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
-          },
-          "neuronId": {
-            "type": "integer",
-            "description": "Neuron ID"
-          },
-          "isOntstaanUitKadastraalobjectenId": {
-            "type": "string",
-            "description": "Id van onderliggende percelen. Dit veld is alléén gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
-          },
-          "isOntstaanUitKadastraalobjectenIdentificatie": {
-            "type": "string",
-            "description": "Identificatie van onderliggende percelen. Dit veld is alléén gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
-          },
-          "isOntstaanUitKadastraalobjectenVolgnummer": {
-            "type": "integer",
-            "description": "Volgnummer van onderliggende percelen. Dit veld is alléén gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
-          },
-          "isOntstaanUitKadastraleAanduiding": {
-            "type": "string",
-            "description": "De unieke aanduiding van  onderliggende percelen. Dit veld is alléén gevuld wanneer het beschreven kadastrale object een A-perceel betreft."
-          }
+      "tables": [
+        {
+          "id": "isontstaanuit",
+          "$ref": "isontstaanuit/v1"
         }
-      }
+      ]
     }
-  ]
+  }
 }

@@ -1,0 +1,49 @@
+{
+  "id": "rollagen",
+  "type": "table",
+  "version": "1.1.1",
+  "lifecycleStatus": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "identificatie",
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "title": "Rollaag ID",
+        "description": "Unieke identificatie van de rollaag"
+      },
+      "isGemetenVanBouwblok": {
+        "type": "object",
+        "title": "Rollaag is gemeten van bouwblok",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "relation": "gebieden:bouwblokken",
+        "description": "Het bouwblok waarvan de rollaag is gemeten"
+      }
+    }
+  }
+}

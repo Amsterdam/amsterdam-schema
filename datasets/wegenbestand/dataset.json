@@ -10,7 +10,6 @@
   "owner": "Gemeente Amsterdam, Afdeling Kennis en Kaders, Team Onderzoek en Kennis",
   "dateModified": "2022-02-09T00:00:00+01:00",
   "spatialDescription": "Gemeente Amsterdam",
-  "version": "1.0.0",
   "default_version": "1.0.0",
   "title": "Wegenbestand gemeente Amsterdam",
   "language": "nl",
@@ -23,7 +22,6 @@
     "$ref": "publishers/MOBI"
   },
   "description": "Informatie over de status van wegen op het gebied van beleidsmatige status, wettelijke snelheid en andere beperkingen",
-  "status": "beschikbaar",
   "keywords": [
     "bereikbaarheid",
     "routes",
@@ -35,20 +33,22 @@
   ],
   "crs": "EPSG:28992",
   "objective": "Publiceren van de hoofdroutes voor vrachtverkeer met gevaarlijkestoffen of valt onder de categorie zwaar verkeer voor de doelgroep.",
-  "tables": [
-    {
-      "id": "routesGevaarlijkeStoffen",
-      "$ref": "routesGevaarlijkeStoffen/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "routesGevaarlijkeStoffen/v1.0.0"
-      }
-    },
-    {
-      "id": "tunnelsGevaarlijkeStoffen",
-      "$ref": "tunnelsGevaarlijkeStoffen/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "tunnelsGevaarlijkeStoffen/v1.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "routesGevaarlijkeStoffen",
+          "$ref": "routesGevaarlijkeStoffen/v1"
+        },
+        {
+          "id": "tunnelsGevaarlijkeStoffen",
+          "$ref": "tunnelsGevaarlijkeStoffen/v1"
+        }
+      ]
     }
-  ]
+  }
 }

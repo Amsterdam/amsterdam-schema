@@ -13,14 +13,12 @@
   "owner": "Waternet",
   "dateModified": "2021-01-01T00:00:00+01:00",
   "spatialDescription": "De stad Amsterdam",
-  "version": "1.0.0",
   "title": "Brandkranen",
   "language": "nl",
   "dateCreated": "2021-01-01T00:00:00+01:00",
   "license": "Creative Commons, Naamsvermelding",
   "accrualPeriodicity": "eenmalig",
   "description": "Deze dataset bevat de  brandkranen in de openbare ruimte.",
-  "status": "beschikbaar",
   "keywords": [
     "brandweer",
     "brandkranen"
@@ -32,14 +30,18 @@
   "publisher": {
     "$ref": "/publishers/BOR"
   },
-  "tables": [
-    {
-      "id": "brandkranen",
-      "$ref": "brandkranen/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "brandkranen/v1.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "brandkranen",
+          "$ref": "brandkranen/v1"
+        }
+      ]
     }
-    ]
   }
-  
+}

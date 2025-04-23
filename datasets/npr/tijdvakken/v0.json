@@ -1,0 +1,81 @@
+{
+  "id": "tijdvakken",
+  "type": "table",
+  "version": "0.0.1",
+  "lifecycleStatus": "stable",
+  "provenance": "Extractie van RDW, van de tijdvakken per weekdag waarin een bepaalde parkeerregeling van toepassing is: 'https://opendata.rdw.nl/resource/yefi-qfiq.json'",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "identifier": "regelingId",
+    "required": [
+      "schema",
+      "regelingId",
+      "tijdvakWeekdag",
+      "tijdvakBeginDatumtijd",
+      "tijdvakEindDatumtijd"
+    ],
+    "display": "regelingId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "gebiedsbeheerderId": {
+        "type": "integer",
+        "relation": "npr:gebiedsbeheerders"
+      },
+      "regelingId": {
+        "type": "string",
+        "provenance": "regulationid",
+        "description": "Identificatiecode van het gebied waarbinnen een bepaalde regeling geldt."
+      },
+      "tijdvakBeginDatumtijd": {
+        "type": "string",
+        "format": "date-time",
+        "provenance": "startdatetimeframe",
+        "description": "Datumtijd vanaf wanneer een tijdvak geldig is."
+      },
+      "tijdvakEindDatumtijd": {
+        "type": "string",
+        "format": "date-time",
+        "provenance": "enddatetimeframe",
+        "description": "Datumtijd tot wanneer een tijdvak geldig is."
+      },
+      "tijdvakWeekdag": {
+        "type": "string",
+        "provenance": "daytimeframe",
+        "description": "Naam van een bepaalde dag voor een gebiedsbeheerder. Dit zijn de weekdagen maandag tot en met zondag, en de namen van de speciale dagen."
+      },
+      "beginTijdTijdvak": {
+        "type": "string",
+        "provenance": "starttimetimeframe",
+        "description": "Tijdstip (uumm) waarop een bepaald tijdvak begint."
+      },
+      "eindTijdTijdvak": {
+        "type": "string",
+        "provenance": "endtimetimeframe",
+        "description": "Tijdstip (uumm) waarop het tijdvak eindigt. Voor aansluitende tijdvakken op dezelfde dag is eindTijdTijdvak van het eerste tijdvak gelijk aan beginTijdTijdvak van het tweede."
+      },
+      "rechtverwervingIsMogelijk": {
+        "type": "string",
+        "provenance": "claimrightpossible",
+        "description": "Indicatie of het mogelijk is binnen dit tijdvak een recht te verwerven of niet. J: in dit tijdvak is het wel mogelijk rechten te verwerven, N: in dit tijdvak is het niet mogelijk rechten te verwerven."
+      },
+      "tariefCode": {
+        "type": "string",
+        "provenance": "farecalculationcode",
+        "description": "Verwijzing naar het tarief, indien voor een recht in een tijdvak een tarief verschuldigd is. Kan alleen van toepassing zijn als rechtverwervingIsMogelijk gelijk is aan J."
+      },
+      "maximumDuurRechtverwerving": {
+        "type": "integer",
+        "provenance": "maxdurationright",
+        "description": "De maximale tijdsduur waarvoor, in een gebied dat valt onder de betreffende regeling, in dit betreffende tijdvak een recht kan worden verworven (minuten)."
+      },
+      "minimumDuurTussenRechtverwerving": {
+        "type": "integer",
+        "provenance": "minparkinginterruption",
+        "description": "De minimale tijdsduur in minuten tussen twee rechten in hetzelfde gebied voor hetzelfde voertuig die geldt bij dit tijdvak."
+      }
+    }
+  }
+}

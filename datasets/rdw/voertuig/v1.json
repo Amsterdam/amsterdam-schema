@@ -1,0 +1,109 @@
+{
+  "id": "voertuig",
+  "title": "Voertuig",
+  "description": "Contextuele informatie over een voertuig op basis van het kenteken. RDW is de bronhouder.",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id",
+      "kenteken"
+    ],
+    "display": "kenteken",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke identifictie record."
+      },
+      "kenteken": {
+        "type": "string",
+        "description": "Een nummer (letter- en cijfercombinatie) van een voertuig (exemplaar), aangebracht op een of meer op dat voertuig bevestigde kentekenplaten, en op een bijbehorend (papieren) kentekenbewijs."
+      },
+      "datumEersteToelating": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum van toelating."
+      },
+      "inrichting": {
+        "type": "string",
+        "description": "Omschrijving van de uitvoeringsvorm van de inrichting van een voertuig."
+      },
+      "lengte": {
+        "type": "integer",
+        "description": "Lengte van voertuig"
+      },
+      "massaRijklaar": {
+        "type": "integer",
+        "description": "De massa van het voertuig in bedrijfsklare (en onbeladen) toestand, inclusief koelvloeistof, smeermiddelen, brandstof (90% gevuld), reservewiel voor zover gemonteerd door de fabrikant, eventueel gereedschap en de bestuurder."
+      },
+      "maximumMassaSamenstelling": {
+        "type": "integer",
+        "description": "Het lege gewicht plus het laadvermogen"
+      },
+      "toegestaneMaximumMassaVoertuig": {
+        "type": "integer",
+        "description": "Limiet massa. Is gelijk aan of lager dan de technische maximum massa."
+      },
+      "voertuigsoort": {
+        "type": "string",
+        "description": "Type voertuig."
+      },
+      "carrosserie": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "typeCarrosserieEuropeseOmschrijving": {
+              "type": "string",
+              "description": "Europese omschrijving van het type carrosserie."
+            }
+          }
+        }
+      },
+      "assen": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "aantalAssen": {
+              "type": "integer",
+              "description": "Aantal assen aanwezig."
+            },
+            "asNummer": {
+              "type": "integer",
+              "description": "Nummer van individuele as."
+            },
+            "technischToegestaneMaximumAslast": {
+              "type": "integer",
+              "description": "Limiet last voor een as. Kan per as verschillen."
+            }
+          }
+        }
+      },
+      "brandstof": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "brandstofOmschrijving": {
+              "type": "string",
+              "description": "Soort brandstof dat wordt gebruikt door voertuig."
+            },
+            "emissiecodeOmschrijving": {
+              "type": "string",
+              "description": "De emissieklasse is een cijfer waarmee wordt aangegeven hoe schoon het voertuig is. Hoe hoger het cijfer, hoe schoner het voertuig."
+            }
+          }
+        }
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

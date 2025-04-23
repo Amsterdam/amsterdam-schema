@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "bouwstroompunten",
   "title": "Bouwstroompunten",
-  "status": "beschikbaar",
   "description": "Informatie over bouwstroompunten",
-  "version": "1.0.0",
   "crs": "EPSG:28992",
   "dateCreated": "2020-07-01T00:00:00+01:00",
   "dateModified": "2022-02-23T00:00:00+01:00",
@@ -23,13 +21,18 @@
   "publisher": {
     "$ref": "/publishers/BOR"
   },
-  "tables": [
-    {
-      "id": "bouwstroompunten",
-      "$ref": "bouwstroompunten/v1.1.1",
-      "activeVersions": {
-        "1.1.1": "bouwstroompunten/v1.1.1"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "bouwstroompunten",
+          "$ref": "bouwstroompunten/v1"
+        }
+      ]
     }
-  ]
+  }
 }

@@ -10,7 +10,6 @@
   "owner": "Gemeente Amsterdam, bereikbaarheidsthermometer Amsterdam",
   "dateModified": "2022-02-09T00:00:00+01:00",
   "spatialDescription": "Gemeente Amsterdam",
-  "version": "1.0.0",
   "default_version": "1.0.0",
   "title": "Wegenbestand gemeente Amsterdam",
   "language": "nl",
@@ -19,7 +18,6 @@
   "hasBeginning": "2022-02-09T00:00:00+01:00",
   "accrualPeriodicity": "dagelijks",
   "description": "Wegen die al dan niet vallen onder zwaar verkeer zones waarvoor mogelijk ontheffing moet worden aangevraagd.",
-  "status": "beschikbaar",
   "keywords": [
     "bereikbaarheid",
     "routes",
@@ -35,27 +33,26 @@
   "publisher": {
     "$ref": "publishers/DGEN"
   },
-  "tables": [
-    {
-      "id": "binnen",
-      "$ref": "binnen/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "binnen/v1.0.0"
-      }
-    },
-    {
-      "id": "buiten",
-      "$ref": "buiten/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "buiten/v1.0.0"
-      }
-    },
-    {
-      "id": "breedOpgezetteWegen",
-      "$ref": "breedOpgezetteWegen/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "breedOpgezetteWegen/v1.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "binnen",
+          "$ref": "binnen/v1"
+        },
+        {
+          "id": "buiten",
+          "$ref": "buiten/v1"
+        },
+        {
+          "id": "breedOpgezetteWegen",
+          "$ref": "breedOpgezetteWegen/v1"
+        }
+      ]
     }
-  ]
+  }
 }
