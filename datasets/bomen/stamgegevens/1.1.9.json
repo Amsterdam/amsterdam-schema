@@ -1,0 +1,758 @@
+{
+    "id": "stamgegevens",
+    "type": "table",
+    "version": "1.1.9",
+    "title": "stamgegevens van bomen",
+    "description": "bevat de actuele stamgegevens van de bomen in beheer van gemeente Amsterdam. In Amsterdam staan ongeveer 1 miljoen bomen. Deze staan in tuinen, (sport)parken, begraafplaatsen en op straat. De gemeente beheert zo’n 300.000 bomen. Het beheer bestaat uit goede zorg voor bomen. Dat betekent op tijd snoeien en regelmatig controleren op ziektes en onveilige situaties.",
+    "identifier": "id",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "additionalProperties": false,
+      "mainGeometry": "geometrie",
+      "required": [
+        "schema",
+        "id"
+      ],
+      "display": "id",
+      "properties": {
+        "schema": {
+          "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+        },
+        "id": {
+          "type": "integer",
+          "title": "ID",
+          "description": "Unieke aanduiding van record"
+        },
+        "gbdBuurt": {
+          "type": "string",
+          "title": "Buurt ID",
+          "relation": "gebieden:buurten",
+          "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+          "description": "Unieke identificatie van een buurt"
+        },
+        "geometrie": {
+          "$ref": "https://geojson.org/schema/Point.json",
+          "title": "Geometrie",
+          "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992). bevat punt-geometrie."
+        },
+        "actueleOpkroonhoogte": {
+          "type": "string",
+          "title": "Boom takvrij actuele hoogte",
+          "description": "De actuele hoogte van de boom in centimeters vanaf de grond tot aan de eerste tak",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "typeBeheerder": {
+          "title": "Beheerder type",
+          "type": "string",
+          "description": "Aanduiding van een publiekrechtelijke instantie of (rechts)persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT).",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "typeBeheerderPlus": {
+          "title": "Beheerder type plus",
+          "type": "string",
+          "description": "Nadere aanduiding van de beheerder van het beheerobject."
+        },
+        "beheergebied": {
+          "title": "Beheergebied ID",
+          "type": "string",
+          "description": "Aanduiding van het beheergebied waarbinnen het beheerobject ligt. Indeling in beheergebieden is organisatiespecifiek.",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "beoogdeOpkroonhoogte": {
+          "title": "Boom takvrij beoogde hoogte",
+          "type": "string",
+          "description": "De beoogde hoogte van de boom in centimeters vanaf de grond tot aan de eerste tak",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "boombeeld": {
+          "title": "Boombeeld omschrijving",
+          "type": "string",
+          "description": "Onderhoudssituatie van de boom.",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "boomhoogteklasseActueel": {
+          "title": "Boomhoogte klasse code",
+          "type": "string",
+          "description": "Aanduiding van de boomhoogte in meters ingedeeld in vaste klassen.",
+          "enum": [
+            "a. tot 6 m.",
+            "b. 6 tot 9 m.",
+            "c. 9 tot 12 m.",
+            "d. 12 tot 15 m.",
+            "e. 15 tot 18 m.",
+            "f. 18 tot 24 m.",
+            "g. 24 m. en hoger",
+            "p. Niet te beoordelen",
+            "q. Niet van toepassing",
+            "r. Niet van toepassing (te vellen boom)",
+            "ZZ_Vervallen 12 tot 18 m.",
+            "ZZ_Vervallen 6 tot 12 m."
+          ]
+        },
+        "conditiescore": {
+          "title": "Beheerobject conditie score",
+          "type": "string",
+          "description": "Maat voor het vastleggen van de conditie van een beheerobject op basis van 6 scores.",
+          "enum": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "Onbekend"
+          ],
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "controlefrequentie": {
+          "title": "Beheerobject controle frequentie",
+          "type": "string",
+          "description": "Aanduiding van de frequentie van de controle van het beheerobject.",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "conversieid": {
+          "title": "Beheerobject oud ID",
+          "type": "string",
+          "description": "Uniek kenmerk van een beheerobject uit een oude beheerindeling.",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "typeEigenaar": {
+          "title": "Eigenaar type",
+          "type": "string",
+          "description": "Aanduiding van een(rechts)persoon die het meest omvattend recht op een beheerobject of een zaak heeft .",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "typeEigenaarPlus": {
+          "title": "Eigenaar type plus",
+          "type": "string",
+          "description": "Nadere aanduiding van de eigenaar van het beheerobject."
+        },
+        "bgttype": {
+          "title": "Object type",
+          "type": "string",
+          "description": "Nadere specificatie van het soort object.",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "gemeente": {
+          "title": "Gemeente naam",
+          "type": "string",
+          "description": "De officieel vastgestelde gemeentenaam",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "guid": {
+          "title": "IMBOR object ID",
+          "type": "string",
+          "description": "Uniek nummer van het IMBOR-object",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "idOudebeheerindeling": {
+          "title": "Beheerobject Geovisia ID",
+          "type": "string",
+          "description": "Uniek kenmerk van een beheerobject uit een oude Geovisia beheerindeling",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "jaarVanAanleg": {
+          "title": "Beheerobject plaatsing jaar",
+          "type": "integer",
+          "description": "Jaar waarin het beheerobject is geplaatst"
+        },
+        "jaarVolgendeInspectie": {
+          "title": "Beheerobject plaatsing jaar volgens inspectie",
+          "type": "integer",
+          "description": "Jaar waarin het beheerobject is geplaatst volgens de inspectie.",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "omgevingsrisicoklasse": {
+          "title": "Beheerobject omgeving risico klasse code",
+          "type": "string",
+          "description": "Aanduiding van het omgevingsrisico van het beheerobject.",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "openbareRuimte": {
+          "title": "Openbare ruimte naam",
+          "type": "string",
+          "description": "Officiële naam openbare ruimte",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "snoeifase": {
+          "title": "Vegetatieobject snoeifase omschrijving",
+          "type": "string",
+          "description": "Omschrijving van de snoeifase van de een vegetatieobject",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "snoeifrequentie": {
+          "title": "Vegetatieobject snoei frequentie",
+          "type": "string",
+          "description": "Aanduiding voor het aantal keren dat een vegetatieobject gesnoeid moet worden",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "soortnaam": {
+          "title": "Natuurobject soort naam",
+          "type": "string",
+          "description": "Aanduiding voor de soortnaam van het natuurobject die binnen het beheerobject voorkomen"
+        },
+        "stamdiameterklasse": {
+          "title": "Boomstam diameter klasse code",
+          "type": "string",
+          "description": "Aanduiding van de diameter van de stam in diameterklassen.",
+          "enum": [
+            "0,1 tot 0,2 m.",
+            "0,2 tot 0,3 m.",
+            "0,3 tot 0,5 m.",
+            "0,5 tot 1 m.",
+            "1,0 tot 1,5 m.",
+            "1,5 m. en groter",
+            "Onbekend"
+          ]
+        },
+        "standplaats": {
+          "title": "Beheerobject standplaats",
+          "type": "string",
+          "description": "De fysieke locatie waar het beheerobject is geplaatst",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "standplaatsGedetailleerd": {
+          "title": "Beheerobject standplaats gedetailleerd",
+          "type": "string",
+          "description": "Nadere meer gedetailleerde specificatie waar het beheerobject staat"
+        },
+        "takvrijeStam": {
+          "title": "Boom takvrij benodigde hoogte",
+          "type": "string",
+          "description": "De benodigde takvrije stam in het eindbeeld, gemeten vanaf maaiveld tot aan de onderste gesteltak.",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "typeObject": {
+          "title": "Beheerobject status",
+          "type": "string",
+          "description": "Nadere aanduiding van de toestand van een beheerobject.",
+          "enum": [
+            "Boom niet vrij uitgroeiend",
+            "Boomstam-algemeen",
+            "Boom vrij uitgroeiend",
+            "Fruitboom",
+            "Gekandelaberde boom",
+            "Knotboom",
+            "Leiboom",
+            "Stobbe",
+            "Vormboom"
+          ]
+        },
+        "typeSoortnaam": {
+          "title": "Beheerobject latijnse naam",
+          "type": "string",
+          "description": "De volledige latijnse benaming van een beheerobject"
+        },
+        "vrijeDoorrijhoogte": {
+          "title": "Minimale vrije doorgang hoogte",
+          "type": "string",
+          "description": "De benodigde vrije ruimte tussen de weg of het fietspad en de onderkant van de boomkroon of van een bouwwerk boven de weg, zoals een viaduct of tunnel.",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "vrijeDoorrijhoogtePrimair": {
+          "title": "Minimale vrije doorgang hoogte primair",
+          "type": "string",
+          "description": "De benodigde vrije ruimte tussen de weg en de onderkant van de boomkroon of van een bouwwerk boven de weg, zoals een viaduct of tunnel",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "vrijeDoorrijhoogteSecundair": {
+          "title": "Minimale vrije doorgang hoogte secundair",
+          "type": "string",
+          "description": "De benodigde vrije ruimte tussen het fietspad en de onderkant van de boomkroon of van een bouwwerk boven het fietspad, zoals een viaduct of tunnel",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+		"GroeiplaatsBoomID": {
+          "title": "ID boomgroeiplaats",
+          "type": "integer",
+          "description": "ID boomgroeiplaats"
+        }
+        "beschermingsstatusGedetailleerd": {
+          "title": "Beheerobject beschermingsstatus gedetailleerd",
+          "type": "string",
+          "description": "Details bij speciale status van de boom",
+          "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "beschermingsstatus": {
+          "title": "Beheerobject beschermingsstatus",
+          "type": "string",
+          "description": "Speciale status van de boom",
+	  "enum": [
+	  "Geen beschermingsstatus",
+	  "Monumentale boom",
+	  "Bijzondere boom"
+	]
+        },
+        "mutatieDatum": {
+          "type": "string",
+          "title": "Datum mutatie",
+          "format": "date-time",
+          "description": "Datum waarop laatste mutatie heeft plaatsgevonden"
+        },
+        "soortnaamKort": {
+          "title": "Beheerobject wetenschappelijke naam",
+          "type": "string",
+          "description": "Wetenschappelijk naam, afkomstig uit referentietabel",
+          "enum": [
+            "Abelia",
+            "Abies",
+            "Acer",
+            "Aesculus",
+            "Ailanthus",
+            "Alangium",
+            "Albizia",
+            "Alnus",
+            "Amelanchier",
+            "Amerlanchier",
+            "Aralia",
+            "Araucaria",
+            "Arbutus",
+            "Asimina",
+            "Aucuba",
+            "Berberis",
+            "Betula",
+            "Broussonetia",
+            "Buddleja",
+            "Buxus",
+            "Calocedrus",
+            "Caragana",
+            "Carpinus",
+            "Carya",
+            "Castanea",
+            "Catalpa",
+            "Ceanothus",
+            "Cedrus",
+            "Celtis",
+            "Cephalotaxus",
+            "Cercidiphyllum",
+            "Cercis",
+            "Chaenomeles",
+            "Chamaecyparis",
+            "Chimonanthus",
+            "Chionanthus",
+            "Chitalpa",
+            "Choisya",
+            "Cladrastis",
+            "Clerodendrum",
+            "Clethra",
+            "Cornus",
+            "Corylopsis",
+            "Corylus",
+            "Cotinus",
+            "Cotoneaster",
+            "Crataegus",
+            "Crataemespilus",
+            "Cryptomeria",
+            "Cudrania",
+            "Cunninghamia",
+            "Cupressocyparis",
+            "Cupressus",
+            "Cyclocarya",
+            "Cydonia",
+            "Davidia",
+            "Diervilla",
+            "Diospyros",
+            "Dipelta",
+            "Disanthus",
+            "Edgeworthia",
+            "Elaeagnus",
+            "Eleutherococcus",
+            "Emmenopterys",
+            "Eriobotrya",
+            "Escallonia",
+            "Eucommia",
+            "Euonymus",
+            "Euptelea",
+            "Exochorda",
+            "Fagus",
+            "Ficus",
+            "Firmiana",
+            "Fothergilla",
+            "Frangula",
+            "Fraxinus",
+            "Ginkgo",
+            "Gleditsia",
+            "Glyptostrobus",
+            "Gymnocladus",
+            "Halesia",
+            "Hamamelis",
+            "Heptacodium",
+            "Hibiscus",
+            "Hippophae",
+            "Hydrangea",
+            "Idesia",
+            "Ilex",
+            "Itea",
+            "Juglans",
+            "Juniperus",
+            "Kalopanax",
+            "Koelreuteria",
+            "Kolkwitzia",
+            "Laburnum",
+            "Lagerstroemia",
+            "Larix",
+            "Lespedeza",
+            "Leucothoe",
+            "Leycesteria",
+            "Ligustrum",
+            "Liquidambar",
+            "Liriodendron",
+            "Lonicera",
+            "Maackia",
+            "Maddenia",
+            "Magnolia",
+            "Mahonia",
+            "Malus",
+            "Meliosma",
+            "Mespilus",
+            "Metasequoia",
+            "Morus",
+            "Nandina",
+            "Nothofagus",
+            "NULL",
+            "Nyssa",
+            "Oemleria",
+            "Olea",
+            "Onbekend",
+            "Osmanthus",
+            "Ostrya",
+            "Oxydendrum",
+            "Parrotia",
+            "Parrotiopsis",
+            "Paulownia",
+            "Phellodendron",
+            "Philadelphus",
+            "Photinia",
+            "Physocarpus",
+            "Picea",
+            "Picrasma",
+            "Pinus",
+            "Planera",
+            "Platanus",
+            "Platycladus",
+            "Podocarpus",
+            "Poncirus",
+            "Populus",
+            "Prunus",
+            "Prunus┬ádomestica",
+            "Pseudolarix",
+            "Pseudopanax",
+            "Pseudotsuga",
+            "Ptelea",
+            "Pterocarya",
+            "Pterostyrax",
+            "Pyrus",
+            "Quercus",
+            "Rhamnus",
+            "Rhododendron",
+            "Rhus",
+            "Robinia",
+            "Rosa",
+            "Salix",
+            "Sambucus",
+            "Sarcococca",
+            "Sassafras",
+            "Sciadopitys",
+            "Sequoia",
+            "Sequoiadendron",
+            "Skimmia",
+            "Sorbus",
+            "Staphylea",
+            "Stewartia",
+            "Storax",
+            "Styphnolobium",
+            "Styrax",
+            "Sycoparrotia",
+            "Symplocos",
+            "Syringa",
+            "Tamarix",
+            "Taxodium",
+            "Taxus",
+            "Tetracentron",
+            "Tetradium",
+            "Thuja",
+            "Thujopsis",
+            "Tilia",
+            "Toona",
+            "Torreya",
+            "Trachycarpus",
+            "Tsuga",
+            "Ulmus",
+            "Viburnum",
+            "Weigela",
+            "Zanthoxylum",
+            "Zelkova",
+            "Ziziphus"
+          ]
+        },
+        "soortnaamTop": {
+          "title": "Beheerobject Nederlandse naam",
+          "type": "string",
+          "description": "Nederlandse soortnaam uit referentietabel",
+          "enum": [
+            "Abelia",
+            "Abies",
+            "Esdoorn(Acer)",
+            "Paardenkastanje(Aesculus)",
+            "Ailanthus",
+            "Alangium",
+            "Albizia",
+            "Els(Alnus)",
+            "Amelanchier",
+            "Amerlanchier",
+            "Aralia",
+            "Araucaria",
+            "Arbutus",
+            "Asimina",
+            "Aucuba",
+            "Berberis",
+            "Berk(Betula)",
+            "Broussonetia",
+            "Buddleja",
+            "Buxus",
+            "Calocedrus",
+            "Caragana",
+            "Haagbeuk(Carpinus)",
+            "Carya",
+            "Castanea",
+            "Catalpa",
+            "Ceanothus",
+            "Cedrus",
+            "Celtis",
+            "Cephalotaxus",
+            "Cercidiphyllum",
+            "Cercis",
+            "Chaenomeles",
+            "Chamaecyparis",
+            "Chimonanthus",
+            "Chionanthus",
+            "Chitalpa",
+            "Choisya",
+            "Cladrastis",
+            "Clerodendrum",
+            "Clethra",
+            "Cornus",
+            "Corylopsis",
+            "Corylus",
+            "Cotinus",
+            "Cotoneaster",
+            "Meidoorn(Crataegus)",
+            "Crataemespilus",
+            "Cryptomeria",
+            "Cudrania",
+            "Cunninghamia",
+            "Cupressocyparis",
+            "Cupressus",
+            "Cyclocarya",
+            "Cydonia",
+            "Davidia",
+            "Diervilla",
+            "Diospyros",
+            "Dipelta",
+            "Disanthus",
+            "Edgeworthia",
+            "Elaeagnus",
+            "Eleutherococcus",
+            "Emmenopterys",
+            "Eriobotrya",
+            "Escallonia",
+            "Eucommia",
+            "Euonymus",
+            "Euptelea",
+            "Exochorda",
+            "Beuk(Fagus)",
+            "Ficus",
+            "Firmiana",
+            "Fothergilla",
+            "Frangula",
+            "Es(Fraxinus)",
+            "Japansenotenboom(Ginkgo)",
+            "Valsechristusdoorn(Gleditsiatriacanthos)",
+            "Gleditsia",
+            "Glyptostrobus",
+            "Gymnocladus",
+            "Halesia",
+            "Hamamelis",
+            "Heptacodium",
+            "Hibiscus",
+            "Hippophae",
+            "Hydrangea",
+            "Idesia",
+            "Hulst(Ilex)",
+            "Itea",
+            "Juglans",
+            "Juniperus",
+            "Kalopanax",
+            "Koelreuteria",
+            "Kolkwitzia",
+            "Laburnum",
+            "Lagerstroemia",
+            "Larix",
+            "Lespedeza",
+            "Leucothoe",
+            "Leycesteria",
+            "Ligustrum",
+            "Amberboom(Liquidambar)",
+            "Liriodendron",
+            "Lonicera",
+            "Maackia",
+            "Maddenia",
+            "Magnolia",
+            "Mahonia",
+            "Appel(Malus)",
+            "Meliosma",
+            "Mespilus",
+            "Watercypres(Metasequoia)",
+            "Metasequoia",
+            "Morus",
+            "Nandina",
+            "Nothofagus",
+            "Onbekend",
+            "Nyssa",
+            "Oemleria",
+            "Olea",
+            "Osmanthus",
+            "Ostrya",
+            "Oxydendrum",
+            "Parrotia",
+            "Parrotiopsis",
+            "Paulownia",
+            "Phellodendron",
+            "Philadelphus",
+            "Photinia",
+            "Physocarpus",
+            "Picea",
+            "Picrasma",
+            "Pinus",
+            "Planera",
+            "Plataan(Platanus)",
+            "Platycladus",
+            "Podocarpus",
+            "Poncirus",
+            "Populier(Populus)",
+            "Kers(Prunus)",
+            "Pseudolarix",
+            "Pseudopanax",
+            "Pseudotsuga",
+            "Ptelea",
+            "Vleugelnoot(Pterocarya)",
+            "Peer(Pyrus)",
+            "Eik(Quercus)",
+            "Rhamnus",
+            "Rhododendron",
+            "Rhus",
+            "Acacia(Robinia)",
+            "Rosa",
+            "Wilg(Salix)",
+            "Sambucus",
+            "Sarcococca",
+            "Sassafras",
+            "Sciadopitys",
+            "Sequoia",
+            "Sequoiadendron",
+            "Skimmia",
+            "Sorbus",
+            "Staphylea",
+            "Stewartia",
+            "Storax",
+            "Styphnolobium",
+            "Styrax",
+            "Sycoparrotia",
+            "Symplocos",
+            "Syringa",
+            "Tamarix",
+            "Taxodium",
+            "Venijnboom(Taxus)",
+            "Taxus",
+            "Tetracentron",
+            "Tetradium",
+            "Thuja",
+            "Thujopsis",
+            "Linde(Tilia)",
+            "Toona",
+            "Torreya",
+            "Trachycarpus",
+            "Tsuga",
+            "Iep(Ulmus)",
+            "Viburnum",
+            "Weigela",
+            "Zanthoxylum",
+            "Zelkova",
+            "Ziziphus"
+          ]
+        }
+      }
+    }
+  }
+  
