@@ -22,14 +22,19 @@ jobs:
           python-version: '3.10.x'
       - id: changed-datasets
         # We are only interested in changed and new (not deleted) datasets files.
-        run: echo "::set-output name=DATASET_FILES::$(git diff --name-only --diff-filter=d origin/master.. -- datasets)"
+        run: |
+          declare -a changed_paths
+          changed_paths=$(git --no-pager diff --name-only --diff-filter=d origin/master.. -- datasets)
+          echo 'changed_paths<<EOF' >> $GITHUB_OUTPUT
+          echo $changed_paths >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
         shell: bash
       - run: |
           echo "Dataset files to be validated:"
-          for ds in ${{ steps.changed-datasets.outputs.DATASET_FILES }}
+          for ds in ${{ steps.changed-datasets.outputs.changed_paths }}
           do
             echo $ds
           done
       - uses: pre-commit/action@v3.0.1
         with:
-          extra_args: validate-schema --files ${{ steps.changed-datasets.outputs.DATASET_FILES }}
+          extra_args: validate-schema --files ${{ steps.changed-datasets.outputs.changed_paths }}
