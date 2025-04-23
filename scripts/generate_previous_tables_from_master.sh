@@ -22,7 +22,7 @@ do
         echo ""
         git show origin/master:$folder_name/$previous_patch > $previous_name
         echo "Comparing to master's \"$previous_patch\":"
-        git --no-pager diff --no-index --color $previous_name $table_path || true
+        git --no-pager diff --no-index --ignore-space-change --color $previous_name $table_path || true
         echo ""
         changed_paths+=("$table_path")
         continue
@@ -33,7 +33,7 @@ do
         echo ""
         git show origin/master:$folder_name/$previous_minor > $previous_name
         echo "Comparing to master's \"$previous_minor\":"
-        git --no-pager diff --no-index --color $previous_name $table_path || true
+        git --no-pager diff --no-index --ignore-space-change --color $previous_name $table_path || true
         echo ""
         changed_paths+=("$table_path")
         continue
@@ -45,7 +45,7 @@ do
         echo ""
         git show origin/master:$folder_name/$previous_major > $previous_name
         echo "Comparing to master's \"$previous_major\":"
-        git --no-pager diff --no-index --color $previous_name $table_path || true
+        git --no-pager diff --no-index --ignore-space-change --color $previous_name $table_path || true
         echo ""
     fi
 done
