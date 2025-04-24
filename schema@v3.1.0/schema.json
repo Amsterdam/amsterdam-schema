@@ -167,26 +167,30 @@
   },
   "allOf": [
     {
-      "oneOf": [
-        {
-          "$ref": "./dataset@v3.1.0"
-        },
-        {
-          "$ref": "./dataset-version@v3.1.0"
-        },
-        {
-          "$ref": "./table@v3.1.0"
-        },
-        {
-          "$ref": "./row-meta-schema@v3.1.0"
-        },
-        {
-          "$ref": "./publisher@v3.1.0"
-        },
-        {
-          "$ref": "./scope@v3.1.0"
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "const": "dataset"
+            },
+            {
+              "const": "dataset-version"
+            },
+            {
+              "const": "table"
+            },
+            {
+              "const": "publisher"
+            },
+            {
+              "const": "scope"
+            },
+            {
+              "const": "object"
+            }
+          ]
         }
-      ]
+      }
     },
     {
       "if": {
