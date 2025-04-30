@@ -2,7 +2,7 @@
   "id": "waternetRioolknopen",
   "crs": "EPSG:7415",
   "type": "table",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "lifecycleStatus": "stable",
   "title": "Waternet Rioolnetwerk Knopen",
   "description": "Alle rioolknopen welke door Waternet beschikbaar wordt gesteld.",
@@ -19,21 +19,26 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
-    "identifier": "objectnummer",
+    "identifier": "globalid",
     "required": [
       "schema",
       "objectnummer"
     ],
     "mainGeometry": "geometrie",
-    "display": "objectnummer",
+    "display": "globalid",
     "properties": {
+      "globalid": {
+        "title": "Rioolknoop global ID",
+        "type": "string",
+        "description": "Id van de knoop. Hiermee kan een koppeling gemaakt worden met de leidingen. UUID in GIS voor het gis-object."
+      },
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
       "objectnummer": {
         "title": "Rioolknoop objectnummer",
         "type": "integer",
         "description": "Uniek objectnummer van de rioolknoop."
-      },
-      "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
       },
       "status": {
         "title": "Rioolknoop status",
@@ -85,11 +90,6 @@
         "title": "Rioolknoop symboolhoek",
         "type": "integer",
         "description": "Symboolhoek rioolknoop in graden. Rotatie om in GIS het knoop symbool op de juiste manier te roteren. Berekend ten op zichte van de bijbehorende leiding."
-      },
-      "globalid": {
-        "title": "Rioolknoop global ID",
-        "type": "string",
-        "description": "Id van de knoop. Hiermee kan een koppeling gemaakt worden met de leidingen. UUID in GIS voor het gis-object."
       },
       "nummer": {
         "title": "Rioolknoop nummer",

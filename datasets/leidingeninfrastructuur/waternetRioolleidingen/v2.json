@@ -19,21 +19,26 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
-    "identifier": "objectnummer",
+    "identifier": "globalid",
     "required": [
       "schema",
       "objectnummer"
     ],
     "mainGeometry": "geometrie",
-    "display": "objectnummer",
+    "display": "globalid",
     "properties": {
+      "globalid": {
+        "title": "Rioolleiding global ID",
+        "type": "string",
+        "description": "Global ID van de beginknoop. UUID in GIS voor het gis-object."
+      },
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
       "objectnummer": {
         "title": "Rioolleiding objectnummer",
         "type": "integer",
         "description": "Uniek objectnummer van de rioolleiding."
-      },
-      "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
       },
       "status": {
         "title": "Rioolleiding status",
@@ -115,11 +120,6 @@
         "title": "Rioolleiding toelichting",
         "type": "string",
         "description": "Toelichting van de rioolleiding."
-      },
-      "globalid": {
-        "title": "Rioolleiding global ID",
-        "type": "string",
-        "description": "Global ID van de beginknoop. UUID in GIS voor het gis-object."
       },
       "globalidBeginknoop": {
         "title": "Rioolleiding beginknoop ID",

@@ -1,0 +1,120 @@
+{
+  "id": "waternetRioolknopen",
+  "crs": "EPSG:7415",
+  "type": "table",
+  "version": "2.2.0",
+  "title": "Waternet Rioolnetwerk Knopen",
+  "description": "Alle rioolknopen welke door Waternet beschikbaar wordt gesteld.",
+  "auth": "OPENBAAR",
+  "status": "beschikbaar",
+  "creator": "Waternet",
+  "publisher": "Datateam Stedelijke Ontwikkeling en Beheer",
+  "authorizationGrantor": "datateamsr@amsterdam.nl",
+  "theme": [
+      "Waternet Rioolnetwerk"
+  ],
+  "owner": "Waternet",
+  "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "additionalProperties": false,
+      "identifier": "globalid",
+      "required": [
+          "schema",
+          "globalid"
+      ],
+      "mainGeometry": "geometrie",
+      "display": "globalid",
+      "properties": {
+        "globalid": {
+            "title": "Rioolknoop global ID",
+            "type": "string",
+            "description": "Id van de knoop. Hiermee kan een koppeling gemaakt worden met de leidingen. UUID in GIS voor het gis-object."
+        },
+          "schema": {
+              "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "objectnummer": {
+            "title": "Rioolknoop objectnummer",
+            "type": "integer",
+            "description": "Uniek objectnummer van de rioolknoop."
+        },
+          "status": {
+              "title": "Rioolknoop status",
+              "type": "string",
+              "description": "Bedrijfsstatus van de knoop. Aanduiding van het gebruik van een fysiek object.",
+              "enum": [
+                  "In Bedrijf",
+                  "In bedrijf (te vervallen)",
+                  "Vervallen"
+              ]
+          },
+          "jaarGelegd": {
+              "title": "Rioolknoop aanleg jaar",
+              "type": "integer",
+              "description": "Het jaar waarin de rioolknoop is gelegd."
+          },
+          "soort": {
+              "title": "Rioolknoop soort",
+              "type": "string",
+              "description": "Soort knoop. Identificatie wat voor soort fysiek object er de grond ligt. Bijvoorbeeld een rioolput, uitlaat, overstort, gemaal, afsluiter etc."
+          },
+          "typeKnoop": {
+              "title": "Rioolknoop type",
+              "type": "string",
+              "description": "Type knoop. Een verdere specificatie op soort knoop."
+          },
+          "subtype": {
+              "title": "Rioolknoop subtype",
+              "type": "string",
+              "description": "Subtype knoop. De laagste onderverdeling in de typering van knopen."
+          },
+          "maaiveldniveau": {
+              "title": "Maaiveld hoogte",
+              "type": "number",
+              "description": "Niveau van het maaiveld ten opzichte van NAP in meters."
+          },
+          "funderingstype": {
+              "title": "Rioolknoop funderingstype",
+              "type": "string",
+              "description": "Het type fundering onder de knoop.",
+              "enum": [
+                  "Grondverb.",
+                  "Onderheid",
+                  "Sloofconst.",
+                  "Standaard"
+              ]
+          },
+          "symboolhoek": {
+              "title": "Rioolknoop symboolhoek",
+              "type": "integer",
+              "description": "Symboolhoek rioolknoop in graden. Rotatie om in GIS het knoop symbool op de juiste manier te roteren. Berekend ten op zichte van de bijbehorende leiding."
+          },
+          "nummer": {
+              "title": "Rioolknoop nummer",
+              "type": "string",
+              "description": "Het nummer van de knoop. In gebruik bij een deel van de knoopsoorten."
+          },
+          "bemalingsgebied": {
+              "title": "Rioolknoop bemalingsgebied",
+              "type": "string",
+              "description": "Het bemalingsgebied waar de knoop in ligt."
+          },
+          "drempelniveau": {
+              "title": "Rioolknoop drempelniveau hoogte",
+              "type": "number",
+              "description": "Hoogte drempelniveau ten opzichte van NAP in meters."
+          },
+          "drempelbreedte": {
+              "title": "Rioolknoop drempelbreedte",
+              "type": "number",
+              "description": "De drempelbreedte van de wand van de overstort in millimeters."
+          },
+          "geometrie": {
+              "title": "Geometrie",
+              "$ref": "https://geojson.org/schema/Point.json",
+              "description": "Geometrie in RD (epsg:7415)"
+          }
+      }
+  }
+}
