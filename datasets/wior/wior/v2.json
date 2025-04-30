@@ -1,0 +1,73 @@
+{
+  "id": "wior",
+  "title": "Werken in de openbare ruimte",
+  "type": "table",
+  "version": "2.0.0",
+  "lifecycleStatus": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "wiorNummer",
+    "mainGeometry": "geometrie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke aanduiding van het WIOR project(aanvraag) record in bronsysteem Victor",
+        "provenance": "_instance_id"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Geometrie object van WIOR project",
+        "provenance": "geometry"
+      },
+      "wiorNummer": {
+        "type": "string",
+        "description": "Aanduiding van een WIOR project in bronsysteem Victor",
+        "provenance": "wiornummer"
+      },
+      "projectnaam": {
+        "type": "string",
+        "description": "Naam van het WIOR project.",
+        "provenance": "naamproject"
+      },
+      "beschrijving": {
+        "type": "string",
+        "description": "Beschrijving van een WIOR project"
+      },
+      "datumStartUitvoering": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum start uitvoering van de WIOR werkzaamheden.",
+        "provenance": "startdatum"
+      },
+      "datumEindeUitvoering": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum einde uitvoering van de WIOR werkzaamheden.",
+        "provenance": "einddatum"
+      },
+      "periodeGeplandeUitvoering": {
+        "type": "string",
+        "description": "Periode geplande uitvoering van de WIOR werkzaamheden.",
+        "provenance": "geplandeuitvoering"
+      },
+      "hoofdstatus": {
+        "type": "string",
+        "description": "Overkoeplende status WIOR project."
+      },
+      "typeWerkzaamheden": {
+        "type": "string",
+        "description": "Aard van de werkzaamheden van het WIOR project.",
+        "provenance": "soortwerkkeuzelijst"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "processenverbaal",
+  "title": "Processenverbaal",
+  "description": "URI en metadata processenverbaal in pdf per jaar",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer"
+      },
+      "verkiezingsjaar": {
+        "type": "integer",
+        "description": "Verkiezingsjaar waarop het procesverbaal betrekking heeft."
+      },
+      "documentnaam": {
+        "type": "string",
+        "description": "Naam van het procesverbaaldocument."
+      },
+      "volgnummer": {
+        "type": "integer",
+        "description": "Volgnummer behorende bij het procesverbaal."
+      },
+      "uri": {
+        "type": "string",
+        "format": "uri",
+        "description": "Verwijzing naar het gepubliceerde procesverbaal in .pdf formaat"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "crowdmonitor",
   "title": "crowdmonitor",
-  "status": "beschikbaar",
   "description": "Het aantal passanten per locatie, per sensor, per periode. De periode kan zijn 'uur', 'dag' of 'week' en begint op 'datumUur'",
-  "version": "0.0.1",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "creator": "bronhouder onbekend",
@@ -13,62 +11,18 @@
   },
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
-  "tables": [
-    {
-      "id": "passanten",
-      "title": "passanten",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "mainGeometry": "geometrie",
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "naamLocatie",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding voor element"
-          },
-          "sensor": {
-            "type": "string",
-            "description": "Unieke aanduiding voor sensor"
-          },
-          "periode": {
-            "type": "string",
-            "description": "Periode waarover geaggregeerd wordt. Kan zijn 'uur', 'dag' of 'week'"
-          },
-          "naamLocatie": {
-            "type": "string",
-            "provenance": "location_name",
-            "description": "Naam van locatie van de sensor"
-          },
-          "datumUur": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Start datum en tijd voor de periode"
-          },
-          "aantalPassanten": {
-            "type": "integer",
-            "description": "Aantal passanten in de periode 'periode' beginnend op 'datumUur'"
-          },
-          "gebied": {
-            "type": "string",
-            "description": "Gebied rond de sensor"
-          },
-          "geometrie": {
-            "$ref": "https://geojson.org/schema/Point.json",
-            "description": "Punt die lokatie van sensor aangeeft"
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "passanten",
+          "$ref": "passanten/v1"
         }
-      }
+      ]
     }
-  ]
+  }
 }

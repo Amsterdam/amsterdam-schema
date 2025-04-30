@@ -1,79 +1,26 @@
 {
   "type": "dataset",
   "id": "dataverkennerBetrokkenbijm",
-  "status": "beschikbaar",
   "owner": "Gemeente Amsterdam",
   "publisher": {
     "$ref": "publishers/BENK"
   },
   "creator": "Basisinformatie",
   "auth": "OPENBAAR",
-  "version": "0.0.1",
   "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
   "description": "bevat BRK-informatie nodig voor implementatie op het Data Verkenner platform.",
-  "tables": [
-    {
-      "type": "table",
-      "id": "betrokkenbij",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
       "version": "0.0.1",
-      "derivedFrom": [
-        "brk2:kadastraleobjecten",
-        "brk2:kadastraleobjecten_is_ontstaan_uit_brk_kadastraalobject"
-      ],
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "identifier": [
-          "identificatie",
-          "volgnummer"
-        ],
-        "required": [
-          "schema",
-          "neuronId",
-          "identificatie",
-          "volgnummer"
-        ],
-    
-        "display": "identificatie",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "identificatie": {
-            "type": "string",
-            "description": "De unieke aanduiding van een Kadastraal object."
-          },
-          "volgnummer": {
-            "type": "integer",
-            "description": "Uniek volgnummer van de toestand van het object."
-          },
-          "kadastraleAanduiding": {
-            "type": "string",
-            "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
-          },
-          "neuronId": {
-            "type": "integer",
-            "description": "Neuron ID"
-          },
-          "betrokkenBijKadastraleobjectenId": {
-            "type": "string",
-            "description": "Id van bovenliggende (gesplitste) A-percelen."
-          },
-          "betrokkenBijIdentificatie": {
-            "type": "string",
-            "description": "Identificatie van bovenliggende (gesplitste) A-percelen."
-          },
-          "betrokkenBijVolgnummer": {
-            "type": "integer",
-            "description": "Volgnummer van bovenliggende (gesplitste) A-percelen."
-          },
-          "betrokkenBijKadastraleAanduiding": {
-            "type": "string",
-            "description": "De unieke aanduiding van bovenliggende (gesplitste) A-percelen."
-          }
+      "tables": [
+        {
+          "id": "betrokkenbij",
+          "$ref": "betrokkenbij/v1"
         }
-      }
+      ]
     }
-  ]
+  }
 }

@@ -2,8 +2,6 @@
   "id": "asbestdaken",
   "type": "dataset",
   "title": "Asbestdaken",
-  "status": "niet_beschikbaar",
-  "version": "0.0.1",
   "crs": "EPSG:28992",
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
@@ -12,107 +10,22 @@
     "$ref": "publishers/SOEB"
   },
   "creator": "bronhouder onbekend",
-  "tables": [
-    {
-      "id": "daken",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "schema"
-        ],
-        "display": "id",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": ""
-          },
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "bouwjaar": {
-            "type": "number",
-            "description": "Bouwjaar"
-          },
-          "gebruiksdoel": {
-            "type": "string",
-            "description": "Gebruiksdoel"
-          },
-          "status": {
-            "type": "string",
-            "description": "Status"
-          },
-          "woonplaats": {
-            "type": "string",
-            "description": "Woonplaats"
-          },
-          "perceelnummer": {
-            "type": "number",
-            "description": "Perceelnummer"
-          },
-          "bestemming": {
-            "type": "string",
-            "description": "Bestemming"
-          },
-          "asbestVerdacht": {
-            "type": "boolean",
-            "description": "Asbest Verdacht"
-          },
-          "kwaliteit": {
-            "type": "string",
-            "description": "Kwaliteit"
-          },
-          "oppervlakte": {
-            "type": "number",
-            "description": "Oppervlakte",
-            "unit": "m2"
-          },
-          "kadaster": {
-            "type": "string",
-            "description": "Kadaster"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Geometrie"
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "niet_beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "daken",
+          "$ref": "daken/v1"
+        },
+        {
+          "id": "percelen",
+          "$ref": "percelen/v1"
         }
-      }
-    },
-    {
-      "id": "percelen",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "schema"
-        ],
-        "display": "id",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Identificatie"
-          },
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "perceelnummer": {
-            "type": "string",
-            "description": "Perceelnummer"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Geometrie"
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

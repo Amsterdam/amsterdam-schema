@@ -1,0 +1,111 @@
+{
+  "id": "afstanden",
+  "title": "afstanden",
+  "description": "De afstanden tussen woningen en basisscholen in Amsterdam",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "routeId"
+    ],
+    "required": [
+      "schema",
+      "routeId"
+    ],
+    "display": "routeId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "routeId": {
+        "type": "string",
+        "description": "uniek identificerend kenmerk van de route"
+      },
+      "peildatumNetwerk": {
+        "type": "string",
+        "format": "date",
+        "description": "Peildatum aanmaken netwerk"
+      },
+      "peildatumAdressen": {
+        "type": "string",
+        "format": "date",
+        "description": "Peildatum adressen"
+      },
+      "bkAdres": {
+        "type": "string",
+        "description": "uniek identificerend kenmerk van het adres binnen het loopfietsnetwerk"
+      },
+      "straatnaam": {
+        "type": "string",
+        "description": "straatnaam van het adres"
+      },
+      "huisnummer": {
+        "type": "integer",
+        "description": "huisnummer van het adres"
+      },
+      "huisletter": {
+        "type": "string",
+        "description": "huisletter van het adres"
+      },
+      "huisnummertoevoeging": {
+        "type": "string",
+        "description": "huisnummertoevoeging van het adres"
+      },
+      "postcode": {
+        "type": "string",
+        "description": "postcode van het adres"
+      },
+      "woonplaats": {
+        "type": "string",
+        "description": "woonplaats van het adres"
+      },
+      "gemeente": {
+        "type": "string",
+        "description": "gemeente van het adres"
+      },
+      "lonAdres": {
+        "type": "number",
+        "description": "longitude van het adres (wgs84)"
+      },
+      "latAdres": {
+        "type": "number",
+        "description": "latitude van het adres (wgs84)"
+      },
+      "geometrieAdres": {
+        "$ref": "https://geojson.org/schema/Point.json"
+      },
+      "buniek": {
+        "type": "string",
+        "description": "uniek identificerend kenmerk van de school"
+      },
+      "bkSchool": {
+        "type": "string",
+        "description": "uniek identificerend kenmerk van de school binnen het loopfietsnetwerk"
+      },
+      "lonSchool": {
+        "type": "number",
+        "description": "longitude van het school (wgs84)"
+      },
+      "latSchool": {
+        "type": "number",
+        "description": "latitude van het school (wgs84)"
+      },
+      "geometrieSchool": {
+        "$ref": "https://geojson.org/schema/Point.json"
+      },
+      "afstand": {
+        "type": "number",
+        "description": "afstand tussen woning en basisschool"
+      },
+      "rang": {
+        "type": "integer",
+        "description": "volgordelijkheid van afstand tussen woning en basisschool, te beginnen met kortste afstand"
+      }
+    },
+    "mainGeometry": "geometrieAdres"
+  },
+  "lifecycleStatus": "stable"
+}

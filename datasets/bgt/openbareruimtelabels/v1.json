@@ -1,0 +1,161 @@
+{
+  "id": "openbareruimtelabels",
+  "title": "openbare ruimte labels",
+  "description": "Naam en plaatsingspunten van een in de BAG geregistreerde OPENBARE RUIMTE. - Groep: _ - Code: 110",
+  "type": "table",
+  "version": "1.0.1",
+  "lifecycleStatus": "stable",
+  "crs": "EPSG:28992",
+  "auth": "OPENBAAR",
+  "temporal": {
+    "identifier": "volgnummer",
+    "dimensions": {
+      "geldigOp": [
+        "objectBegintijd",
+        "objectEindtijd"
+      ]
+    }
+  },
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": [
+      "identificatie",
+      "volgnummer"
+    ],
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "bgtType": {
+        "type": "string",
+        "title": "Openbare ruimte type",
+        "description": "De aard van de als zodanig benoemde OPENBARE RUIMTE"
+      },
+      "naam": {
+        "type": "string",
+        "title": "Openbare ruimte naam",
+        "description": "Een door het bevoegde gemeentelijke orgaan aan een OPENBARE RUIMTE toegekende benaming"
+      },
+      "hoortBijBagOpenbareruimte": {
+        "type": "object",
+        "title": "Hoort bij openbare ruimte",
+        "properties": {
+          "identificatie": {
+            "title": "Object ID",
+            "type": "string"
+          },
+          "volgnummer": {
+            "title": "Object volgnummer",
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "title": "Object registratie datumtijd",
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "title": "Object eindregistratie datumtijd",
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "bag:openbareruimtes",
+        "description": "De unieke identificatie van het object zoals is toegekend in de BAG-administratie."
+      },
+      "labelHoek": {
+        "type": "number",
+        "title": "Label hoek",
+        "description": "De rotatie van het label bij visualisatie, met de klok mee ten opzichte van de normale tekstrichting"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "title": "Geometrie",
+        "description": "Geometrie"
+      },
+      "geometriePunt": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "title": "Punt geometrie",
+        "description": "Puntgeometrie"
+      },
+      "objectBegintijd": {
+        "type": "string",
+        "title": "Object begindatum",
+        "format": "date",
+        "description": "Datum waar op het object bij de bronhouder is ontstaan"
+      },
+      "objectEindtijd": {
+        "type": "string",
+        "title": "Object einddatum",
+        "format": "date",
+        "description": "Datum waarop het object bij de bronhouder niet meer geldig is"
+      },
+      "identificatie": {
+        "type": "string",
+        "title": "Object ID",
+        "description": "Uniek identificerend kenmerk voor het object dat onveranderlijk is zolang het object bestaat"
+      },
+      "volgnummer": {
+        "type": "integer",
+        "title": "Object volgnummer",
+        "description": "Uniek volgnummer van de toestand van het object"
+      },
+      "tijdstipRegistratie": {
+        "type": "string",
+        "title": "Object registratie datumtijd",
+        "format": "date-time",
+        "description": "Tijdstip waarop deze instantie van het object is opgenomen door de bronhouder"
+      },
+      "eindRegistratie": {
+        "type": "string",
+        "title": "Object eindregistratie datumtijd",
+        "format": "date-time",
+        "description": "Eind van de periode waarop deze instantie van het object geldig is bij de bronhouder. Wanneer deze waarde niet is ingevuld is de instantie nog geldig"
+      },
+      "lvPublicatie": {
+        "type": "string",
+        "title": "Object landelijke voorziening publicatie datumtijd",
+        "format": "date-time",
+        "description": "Tijdstip waarop deze instantie van het object is opgenomen in de landelijke Voorziening"
+      },
+      "bronhouder": {
+        "type": "string",
+        "title": "Object bronhouder code",
+        "description": "De bronhouderscode van het object"
+      },
+      "inOnderzoek": {
+        "type": "string",
+        "title": "In onderzoek indicatie",
+        "description": "Een aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object ('J'/'N')"
+      },
+      "relatieveHoogteligging": {
+        "type": "integer",
+        "title": "Object relatieve hoogte ligging",
+        "description": "Aanduiding voor de relatieve hoogte van het object"
+      },
+      "bgtStatus": {
+        "type": "string",
+        "title": "Object status",
+        "description": "De status gekoppeld aan het levenscyclus van een geo-object"
+      },
+      "plusStatus": {
+        "type": "string",
+        "title": "Object plus status",
+        "description": "De status gekoppeld aan de levenscyclus van een geo-object, indien dit een uitbreiding van de populatie betreft"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "title": "Actueel tot datum",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      }
+    }
+  }
+}

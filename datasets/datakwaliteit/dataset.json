@@ -9,7 +9,6 @@
   "homepage": "https://data.amsterdam.nl",
   "owner": "Team BOR",
   "spatialDescription": "Gemeente Amsterdam",
-  "version": "1.0.0",
   "title": "Datakwaliteit",
   "language": "nl",
   "dateCreated": "2024-09-04T00:00:00+01:00",
@@ -19,57 +18,43 @@
     "$ref": "/publishers/BOR"
   },
   "description": "Dataset waarin de kwaliteit van de CMS(Container Management Systeem) data is vastgelegd.",
-  "status": "beschikbaar",
   "temporalUnit": "",
-  "tables": [
-    {
-      "id": "afwijking",
-      "$ref": "afwijking/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "afwijking/v1.0.0"
-      }
-    },
-    {
-      "id": "bronattribuut",
-      "$ref": "bronattribuut/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "bronattribuut/v1.0.0"
-      }
-    },
-    {
-      "id": "brondataset",
-      "$ref": "brondataset/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "brondataset/v1.0.0"
-      }
-    },
-    {
-      "id": "brontabel",
-      "$ref": "brontabel/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "brontabel/v1.0.0"
-      }
-    },
-    {
-      "id": "raamwerk",
-      "$ref": "raamwerk/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "raamwerk/v1.0.0"
-      }
-    },
-    {
-      "id": "regel",
-      "$ref": "regel/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "regel/v1.0.0"
-      }
-    },
-    {
-      "id": "validatie",
-      "$ref": "validatie/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "validatie/v1.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "afwijking",
+          "$ref": "afwijking/v1"
+        },
+        {
+          "id": "bronattribuut",
+          "$ref": "bronattribuut/v1"
+        },
+        {
+          "id": "brondataset",
+          "$ref": "brondataset/v1"
+        },
+        {
+          "id": "brontabel",
+          "$ref": "brontabel/v1"
+        },
+        {
+          "id": "raamwerk",
+          "$ref": "raamwerk/v1"
+        },
+        {
+          "id": "regel",
+          "$ref": "regel/v1"
+        },
+        {
+          "id": "validatie",
+          "$ref": "validatie/v1"
+        }
+      ]
     }
-  ]
+  }
 }

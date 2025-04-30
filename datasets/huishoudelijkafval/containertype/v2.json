@@ -1,0 +1,86 @@
+{
+  "id": "containertype",
+  "version": "2.1.0",
+  "lifecycleStatus": "stable",
+  "type": "table",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "id",
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "id": {
+        "type": "string",
+        "provenance": "containertype_id",
+        "description": "Unieke aanduiding objecttype",
+        "title": "Object ID"
+      },
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "naam": {
+        "type": "string",
+        "description": "Naam van het containertype",
+        "title": "Containertype naam"
+      },
+      "volumeM3": {
+        "type": "number",
+        "unit": "m3",
+        "description": "Het volume (m3) aan afval wat de container kan bevatten",
+        "title": "Volume"
+      },
+      "gewichtKg": {
+        "type": "integer",
+        "unit": "kg",
+        "description": "Het volume (m3) aan afval wat de container kan bevatten",
+        "title": "Gewicht"
+      },
+      "wijzigingsdatumDp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Datum waarop het object is gewijzigd",
+        "title": "Datumtijd aanmaak wijziging"
+      },
+      "verwijderdDp": {
+        "type": "boolean",
+        "description": "Indicatie of het object verwijderd is bij de bronhouder",
+        "title": "Geldigheid einddatumtijd"
+      },
+      "containertypeArtikelcode": {
+        "type": "string",
+        "description": "Artikelcodevan het het containertype.",
+        "title": "Containertype artikelcode"
+      },
+      "containertypeHijskraantypeNaam": {
+        "type": "string",
+        "description": "Naam van het type hijskraantype.",
+        "title": "Hijskraan type naam"
+      },
+      "containertypeHijskraanOpmerking": {
+        "type": "string",
+        "description": "Opmerking over het hijskraantype",
+        "title": "Opmerking"
+      },
+      "containertypeContainerType": {
+        "type": "string",
+        "description": "Het type van de container type",
+        "title": "Container type"
+      },
+      "containertypeCompressieContainerInd": {
+        "type": "boolean",
+        "description": "Indicatie voor aanwezigheid van compressie instrument.",
+        "title": "Compressieinstrument aanwezig indicatie"
+      },
+      "containertypeCompressiefactor": {
+        "type": "string",
+        "description": "De compressiefactor van compressie instrument",
+        "title": "Compressieinstrument compressiefactor"
+      }
+    }
+  }
+}

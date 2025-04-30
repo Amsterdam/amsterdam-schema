@@ -1,0 +1,180 @@
+{
+  "id": "mraLiander",
+  "title": "Data over Standaard Jaarverbruik (SJV) en aantal aansluitingen per postcode-range in de MRA, vanaf 2018. Nieuwe data aan het einde van de maand.",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "identifier": "id",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "title": "id",
+        "type": "string",
+        "description": "Unieke identificatie"
+      },
+      "dataDate": {
+        "title": "dataDate",
+        "type": "string",
+        "format": "date",
+        "description": "Datum van de aangeleverde data"
+      },
+      "postcodeVanaf": {
+        "title": "postcodeVanaf",
+        "type": "string",
+        "description": "Postcode vanaf (eerste postcode in postcoderange)"
+      },
+      "postcodeTotEnMet": {
+        "title": "postcodeTotEnMet",
+        "type": "string",
+        "description": "Postcode t/m (laatste postcode in postcoderange)"
+      },
+      "maand": {
+        "title": "maand",
+        "type": "integer",
+        "description": "Maand waarin voorspelling standaard jaarverbruik is gedaan"
+      },
+      "jaar": {
+        "title": "jaar",
+        "type": "integer",
+        "description": "Jaar waarin voorspelling standaard jaarverbruik is gedaan"
+      },
+      "aantalAansluitingen": {
+        "title": "aantalAansluitingen",
+        "type": "integer",
+        "description": "Aantal aansluitingen"
+      },
+      "standaardJaarverbruik": {
+        "title": "standaardJaarverbruik",
+        "type": "integer",
+        "description": "Standaard Jaarverbruik. Het standaard jaarverbruik is het verwachte jaarverbruik voor gas op een aansluiting in een jaar met gemiddelde klimaatomstandigheden (standaardjaar)."
+      },
+      "segment": {
+        "title": "segment",
+        "type": "string",
+        "description": "Liander hanteert bij het verbruik van aardgas drie gebruikersgroepen: kleinverbruikers (met een aansluiting voor minder dan 40 m3 aardgas per uur), grootverbruikers (met een aansluiting voor 40 m3 aardgas per uur of meer) en gasmiljonairs (bij een verbruik van meer dan één miljoen m3 aardgas per jaar)."
+      },
+      "insertDatetime": {
+        "title": "insertDatetime",
+        "type": "string",
+        "format": "date-time"
+      },
+      "eindgeldigheid": {
+        "title": "eindgeldigheid",
+        "type": "string",
+        "format": "date-time",
+        "description": "Selectie op eindgeldigheid is null geeft de laatst aangeleverde data."
+      },
+      "gemeentecodePcVanaf": {
+        "title": "gemeentecodePcVanaf",
+        "type": "string",
+        "description": "Gemeentecode gekoppeld op postcode vanaf"
+      },
+      "gemeentenaamPcVanaf": {
+        "title": "gemeentenaamPcVanaf",
+        "type": "string",
+        "description": "Gemeentenaam gekoppeld op postcode vanaf"
+      },
+      "gemeentecodePcTotEnMet": {
+        "title": "gemeentecodePcTotEnMet",
+        "type": "string",
+        "description": "Gemeentecode gekoppeld op postcode t/m"
+      },
+      "gemeentenaamPcTotEnMet": {
+        "title": "gemeentenaamPcTotEnMet",
+        "type": "string",
+        "description": "Gemeentenaam gekoppeld op postcode t/m"
+      },
+      "gbdBrtCodePcVanaf": {
+        "title": "gbdBrtCodePcVanaf",
+        "type": "string",
+        "description": "Buurt code gekoppeld op postcode vanaf"
+      },
+      "gbdBrtCodeCbsPcVanaf": {
+        "title": "gbdBrtCodeCbsPcVanaf",
+        "type": "string",
+        "description": "CBS buurt code gekoppeld op postcode vanaf"
+      },
+      "gbdBrtNaamPcVanaf": {
+        "title": "gbdBrtNaamPcVanaf",
+        "type": "string",
+        "description": "Buurt naam gekoppeld op postcode vanaf"
+      },
+      "gbdBrtCodePcTotEnMet": {
+        "title": "gbdBrtCodePcTotEnMet",
+        "type": "string",
+        "description": "Buurt code gekoppeld op postcode t/m"
+      },
+      "gbdBrtCodeCbsPcTotEnMet": {
+        "title": "gbdBrtCodeCbsPcTotEnMet",
+        "type": "string",
+        "description": "CBS buurt code gekoppeld op postcode t/m"
+      },
+      "gbdBrtNaamPcTotEnMet": {
+        "title": "gbdBrtNaamPcTotEnMet",
+        "type": "string",
+        "description": "Buurt naam gekoppeld op postcode t/m"
+      },
+      "gbdWijkCodePcVanaf": {
+        "title": "gbdWijkCodePcVanaf",
+        "type": "string",
+        "description": "Wijkcode gekoppeld op postcode vanaf"
+      },
+      "gbdWijkCodeCbsPcVanaf": {
+        "title": "gbdWijkCodeCbsPcVanaf",
+        "type": "string",
+        "description": "CBS Wijkcode gekoppeld op postcode vanaf"
+      },
+      "gbdWijkNaamPcVanaf": {
+        "title": "gbdWijkNaamPcVanaf",
+        "type": "string",
+        "description": "Wijknaam gekoppeld op postcode vanaf"
+      },
+      "gbdWijkCodePcTotEnMet": {
+        "title": "gbdWijkCodePcTotEnMet",
+        "type": "string",
+        "description": "Wijkcode gekoppeld op postcode t/m"
+      },
+      "gbdWijkCodeCbsPcTotEnMet": {
+        "title": "gbdWijkCodeCbsPcTotEnMet",
+        "type": "string",
+        "description": "CBS Wijkcode gekoppeld op postcode t/m"
+      },
+      "gbdWijkNaamPcTotEnMet": {
+        "title": "gbdWijkNaamPcTotEnMet",
+        "type": "string",
+        "description": "Wijknaam gekoppeld op postcode t/m"
+      },
+      "gbdSdlCodePcVanaf": {
+        "title": "gbdSdlCodePcVanaf",
+        "type": "string",
+        "description": "Stadsdeel code gekoppeld op postcode vanaf"
+      },
+      "gbdSdlNaamPcVanaf": {
+        "title": "gbdSdlNaamPcVanaf",
+        "type": "string",
+        "description": "Stadsdeel naam gekoppeld op postcode vanaf"
+      },
+      "gbdSdlCodePcTotEnMet": {
+        "title": "gbdSdlCodePcTotEnMet",
+        "type": "string",
+        "description": "Stadsdeel code gekoppeld op postcode t/m"
+      },
+      "gbdSdlNaamPcTotEnMet": {
+        "title": "gbdSdlNaamPcTotEnMet",
+        "type": "string",
+        "description": "Stadsdeel naam gekoppeld op postcode t/m"
+      }
+    }
+  }
+}

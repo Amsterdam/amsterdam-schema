@@ -1,0 +1,65 @@
+{
+  "id": "dsoPerformance",
+  "shortname": "dsoPerformance",
+  "title": "Reactietijd gegevens van alle beschikbare datasets in de DSO-API",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "auth": "FP/MDW",
+  "reasonsNonPublic": [
+    "5.1 2i: Zwaarwegend belang: het goed functioneren van de Staat, andere publiekrechtelijke lichamen of bestuursorganen"
+  ],
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "identifier": "id",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "title": "id",
+        "type": "string",
+        "description": "Id"
+      },
+      "startDateTime": {
+        "title": "Begintijd van de meting",
+        "type": "string",
+        "format": "date-time",
+        "description": "Begintijd van de responsetijd meting"
+      },
+      "endDateTime": {
+        "title": "Eindtijd van de meting",
+        "type": "string",
+        "format": "date-time",
+        "description": "Begintijd van de reponsetijd meting"
+      },
+      "endpoint": {
+        "title": "Dataset endpoint",
+        "type": "string",
+        "description": "Dataset endpoint"
+      },
+      "minResponseTime": {
+        "title": "Snelste responsetijd gemeten",
+        "type": "number",
+        "description": "Snelste responsetijd gemeten"
+      },
+      "maxResponseTime": {
+        "title": "Langste responstijd gemeten",
+        "type": "number",
+        "description": "Langste responstijd gemeten"
+      },
+      "avgResponseTime": {
+        "title": "Gemiddelde responstijd gemeten",
+        "type": "number",
+        "description": "Gemiddelde responstijd gemeten"
+      }
+    }
+  }
+}

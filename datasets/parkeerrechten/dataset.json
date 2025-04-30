@@ -2,14 +2,12 @@
   "type": "dataset",
   "id": "parkeerrechten",
   "title": "RDW parkeerrechten",
-  "status": "niet_beschikbaar",
   "theme": [
     "Parkeren",
     "Parkeerrechten",
     "Parkeer register"
   ],
   "description": "Nationaal Parkeer Register Regelingen",
-  "version": "0.0.1",
   "crs": "EPSG:4326",
   "owner": "RDW - Rijksdienst voor het Wegverkeer",
   "creator": "rdw",
@@ -23,13 +21,18 @@
   },
   "provenance": "Data van diverse bronnen bij rdw.nl",
   "additionalProperties": false,
-  "tables": [
-    {
-      "id": "parkeerEnVerbijfsRechten",
-      "$ref": "parkeerEnVerbijfsRechten/v0.0.1",
-      "activeVersions": {
-        "0.0.1": "parkeerEnVerbijfsRechten/v0.0.1"
-      }
+  "defaultVersion": "v0",
+  "versions": {
+    "v0": {
+      "status": "niet_beschikbaar",
+      "lifecycleStatus": "experimental",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "parkeerEnVerbijfsRechten",
+          "$ref": "parkeerEnVerbijfsRechten/v0"
+        }
+      ]
     }
-  ]
+  }
 }

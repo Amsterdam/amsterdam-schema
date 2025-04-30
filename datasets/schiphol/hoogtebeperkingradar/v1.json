@@ -1,0 +1,42 @@
+{
+  "id": "hoogtebeperkingradar",
+  "title": "Hoogtebeperkingradar",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "geometrie",
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van het record."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Vlakgeometrie van de hoogtebeperkingradar."
+      },
+      "hoogteNap": {
+        "type": "number",
+        "unit": "meter",
+        "description": "NAP hoogte.",
+        "provenance": "h_m_nap"
+      },
+      "hoogteNapKlasse": {
+        "type": "integer",
+        "description": "Classificatie categorie t.a.v. NAP.",
+        "provenance": "hoogteklas"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "bestelbus",
+  "title": "Bestelbus milieuzone",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "verkeerstype",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van de milieuzone."
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Polygoon definitie van de milieuzone."
+      },
+      "verkeerstype": {
+        "type": "string",
+        "description": "Typering van het verkeer waarop milieuzone van toepassing is."
+      },
+      "vanafdatum": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum van wanneer milieuzone van kracht is."
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

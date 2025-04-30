@@ -2,46 +2,38 @@
   "type": "dataset",
   "id": "meetbouten",
   "title": "meetbouten",
-  "status": "beschikbaar",
-  "version": "1.0.0",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "creator": "Directie Data",
-  "publisher": "Datateam Basis- en Kernregistraties",
+  "publisher": {
+    "$ref": "publishers/BENK"
+  },
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
-  "tables": [
-    {
-      "id": "meetbouten",
-      "$ref": "meetbouten/v1.2.1",
-      "activeVersions": {
-        "1.2.1": "meetbouten/v1.2.1",
-        "2.1.1": "meetbouten/v2.1.1"
-      }
-    },
-    {
-      "id": "metingen",
-      "$ref": "metingen/v1.0.1",
-      "activeVersions": {
-        "1.0.1": "metingen/v1.0.1",
-        "2.0.2": "metingen/v2.0.2"
-      }
-    },
-    {
-      "id": "referentiepunten",
-      "$ref": "referentiepunten/v1.2.2",
-      "activeVersions": {
-        "1.2.2": "referentiepunten/v1.2.2",
-        "2.1.2": "referentiepunten/v2.1.2"
-      }
-    },
-    {
-      "id": "rollagen",
-      "$ref": "rollagen/v1.1.1",
-      "activeVersions": {
-        "1.1.1": "rollagen/v1.1.1",
-        "2.0.1": "rollagen/v2.0.1"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "meetbouten",
+          "$ref": "meetbouten/v1"
+        },
+        {
+          "id": "metingen",
+          "$ref": "metingen/v1"
+        },
+        {
+          "id": "referentiepunten",
+          "$ref": "referentiepunten/v1"
+        },
+        {
+          "id": "rollagen",
+          "$ref": "rollagen/v1"
+        }
+      ]
     }
-  ]
+  }
 }

@@ -3,8 +3,6 @@
   "id": "brt25",
   "title": "brt 25",
   "description": "De Basisregistratie Topografie (BRT) bevat de kleinschalige topografische objecten. De BRT25 is specifiek vervaardigd voor visualisaties op schalen rond 1:25.000.",
-  "status": "beschikbaar",
-  "version": "1.0.0",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam, afdeling Basisinformatie",
   "publisher": {
@@ -23,13 +21,18 @@
     "labels",
     "plusinformatie"
   ],
-  "tables": [
-    {
-      "id": "pluslabels",
-      "$ref": "pluslabels/v1.0.1",
-      "activeVersions": {
-        "1.0.1": "pluslabels/v1.0.1"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "pluslabels",
+          "$ref": "pluslabels/v1"
+        }
+      ]
     }
-  ]
+  }
 }

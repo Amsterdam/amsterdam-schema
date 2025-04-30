@@ -3,8 +3,6 @@
   "type": "dataset",
   "title": "Vergunningen",
   "description": "Gegevens over verleende vergunningen die via het stadsloket van de gemeente Amsterdam kunnen worden aangevraagd",
-  "version": "1.0.0",
-  "status": "beschikbaar",
   "publisher": {
     "$ref": "/publishers/SVD"
   },
@@ -26,27 +24,26 @@
   ],
   "crs": "EPSG:28992",
   "temporalUnit": "",
-  "tables": [
-    {
-      "id": "bedandbreakfast",
-      "$ref": "bedAndBreakfast/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "bedAndBreakfast/v1.0.0"
-      }
-    },
-    {
-      "id": "omzetting",
-      "$ref": "omzetting/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "omzetting/v1.0.0"
-      }
-    },
-    {
-      "id": "werkEnVervoerOpStraat",
-      "$ref": "werkEnVervoerOpStraat/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "werkEnVervoerOpStraat/v2.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "bedandbreakfast",
+          "$ref": "bedAndBreakfast/v1"
+        },
+        {
+          "id": "omzetting",
+          "$ref": "omzetting/v1"
+        },
+        {
+          "id": "werkEnVervoerOpStraat",
+          "$ref": "werkEnVervoerOpStraat/v2"
+        }
+      ]
     }
-  ]
+  }
 }

@@ -1,0 +1,48 @@
+{
+  "id": "bronnen",
+  "title": "Bronnen",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "geometrie",
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke identificatie record."
+      },
+      "bronId": {
+        "type": "integer",
+        "description": "Tweede unieke identificatie record."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Vlakgeometrie van een bedrijf."
+      },
+      "naamBedrijf": {
+        "type": "string",
+        "description": "Bedrijfsnaam.",
+        "provenance": "bedrijfsnaam"
+      },
+      "hoeveelheidStof": {
+        "type": "string",
+        "description": "beschrijving stof in relevante eenheden."
+      },
+      "typeStof": {
+        "type": "string",
+        "description": "beschrijving stof type."
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

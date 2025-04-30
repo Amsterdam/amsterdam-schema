@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "belastingen",
   "title": "Belastingen",
-  "status": "beschikbaar",
   "description": "Belastinggebieden en gerelateerde tarieven.",
-  "version": "0.0.2",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "creator": "GeoTeam",
@@ -13,53 +11,18 @@
   },
   "auth": "OPENBAAR",
   "authorizationGrantor": "datateam.geo@amsterdam.nl",
-  "tables": [
-    {
-      "id": "reclame",
-      "title": "Reclamebelastingjaartarieven voor (reclame)uitingen met een totale oppervlakte van meer dan 0,25 m2 die langer dan 10 weken in een jaar zichtbaar zijn, per belastinggebied.",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "tariefgebied",
-        "mainGeometry": "geometrie",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Identificatie van gebiedstarief record."
-          },
-          "geometrie": {
-            "$ref": "https://geojson.org/schema/Polygon.json",
-            "description": "Vlakdefinitie van tariefgebied."
-          },
-          "tariefgebied": {
-            "type": "string",
-            "provenance": "tarief",
-            "description": "Tariefgebiedstypering bijvoorbeeld A, B, C."
-          },
-          "toelichtingReclamebelasting": {
-            "type": "string",
-            "format": "uri",
-            "provenance": "website",
-            "description": "Verwijzing naar gemeentelijke webpagina voor meer informatie over reclamebelasting voor ondernemers."
-          },
-          "toelichtingTarief": {
-            "type": "string",
-            "format": "uri",
-            "provenance": "tarieven",
-            "description": "Verwijzing naar gemeentelijke webpagina voor meer informatie over het tarief."
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.2",
+      "tables": [
+        {
+          "id": "reclame",
+          "$ref": "reclame/v1"
         }
-      }
+      ]
     }
-  ]
+  }
 }

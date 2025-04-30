@@ -1,7 +1,6 @@
 {
   "type": "dataset",
   "id": "dataverkennerBagzoek",
-  "status": "beschikbaar",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "publisher": {
@@ -9,125 +8,20 @@
   },
   "creator": "Basisinformatie",
   "auth": "OPENBAAR",
-  "version": "0.0.1",
   "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
   "description": "De Basisregistratie | Toegewijde weergaven BAG en BRK bevat informatie nodig voor implementatie op het Data Verkenner platform.",
-  "tables": [
-    {
-      "type": "table",
-      "id": "bagzoek",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
       "version": "0.0.1",
-      "crs": "EPSG:28992",
-      "auth": "OPENBAAR",
-      "derivedFrom": [
-        "bag:nummeraanduidingen",
-        "bag:woonplaatsen",
-        "bag:openbareruimtes",
-        "bag:verblijfsobjecten"
-      ],
-      "temporal": {
-        "identifier": "volgnummer",
-        "dimensions": {
-          "geldigOp": [
-            "beginGeldigheid",
-            "eindGeldigheid"
-          ]
+      "tables": [
+        {
+          "id": "bagzoek",
+          "$ref": "bagzoek/v1"
         }
-      },
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "mainGeometry": "verblijfsobjectGeometrie",
-        "identifier": [
-          "identificatie",
-          "volgnummer"
-        ],
-        "required": [
-          "schema",
-          "identificatie"
-        ],
-        "display": "identificatie",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "identificatie": {
-            "type": "string",
-            "description": "Landelijke identificerende sleutel."
-          },
-          "volgnummer": {
-            "type": "integer",
-            "description": "Volgnummer van de nummeraanduiding in de administratie van de bronhouder."
-          },
-          "huisnummer": {
-            "type": "integer",
-            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering."
-          },
-          "huisletter": {
-            "type": "string",
-            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken."
-          },
-          "huisnummertoevoeging": {
-            "type": "string",
-            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter."
-          },
-          "postcode": {
-            "type": "string",
-            "description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)."
-          },
-          "beginGeldigheid": {
-            "type": "string",
-            "format": "date-time",
-            "description": "De datum waarop de nummeraanduiding geldig is geworden."
-          },
-          "eindGeldigheid": {
-            "type": "string",
-            "format": "date-time",
-            "description": "De datum waarop de nummeraanduiding niet meer geldig is."
-          },
-          "typeAdres": {
-            "type": "string",
-            "description": "Hiermee wordt aangegeven of het een relatie betreft vanuit een hoofdadres. Anders is er sprake van een nevenadres (Hoofdadres, Nevenadres)."
-          },
-          "adresseertVerblijfsobjectIdentificatie": {
-            "type": "string",
-            "description": "Het verblijfsobject (landelijke identificatie) dat door de nummeraanduiding wordt aangeduid."
-          },
-          "openbareruimteTypeCode": {
-            "type": "integer",
-            "description": "De aard van de zodanig benoemde openbare ruimte (01 Weg, 02 Water, 03 Spoorbaan, 04 Terrein, 05 Kunstwerk, 06 Landschappelijk gebied, 07 Administratief gebied) code"
-          },
-          "openbareruimteIdentificatie": {
-            "type": "string",
-            "description": "Landelijke identificerende sleutel."
-          },
-          "openbareruimteNaam": {
-            "type": "string",
-            "description": "Officiële naam openbare ruimte (80 tekens)."
-          },
-          "woonplaatsIdentificatie": {
-            "type": "string",
-            "description": "Landelijke identificerende code woonplaats Amsterdam 3594 en woonplaats Weesp 3631."
-          },
-          "woonplaatsNaam": {
-            "type": "string",
-            "description": "Officiële naam woonplaats."
-          },
-          "verblijfsobjectIdentificatie": {
-            "type": "string",
-            "description": "Landelijke identificerende sleutel."
-          },
-          "verblijfsobjectVolgnummer": {
-            "type": "integer",
-            "description": "Uniek volgnummer van de toestand van het object."
-          },
-          "verblijfsobjectGeometrie": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "De locatie van het verblijfsobject in het Nationale Rijksdriehoekstelsel."
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

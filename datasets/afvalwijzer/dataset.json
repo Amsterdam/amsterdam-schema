@@ -9,7 +9,6 @@
   "homepage": "https://data.amsterdam.nl",
   "owner": "Gemeente Amsterdam, Afval en Grondstoffen",
   "spatialDescription": "Amsterdam",
-  "version": "1.1.0",
   "title": "Afvalwijzer",
   "language": "nl",
   "dateCreated": "2022-01-01T00:00:00+01:00",
@@ -20,7 +19,6 @@
     "$ref": "publishers/BOR"
   },
   "description": "Overzicht van informatie voor het aanbieden van afval per fractie per adres.",
-  "status": "beschikbaar",
   "keywords": [
     "afval",
     "restafval",
@@ -32,21 +30,22 @@
   "crs": "EPSG:28992",
   "objective": "De bewoner en ondernemer in staat te stellen om zich voor iedere fractie te informeren over de ophaaldata, -locaties en wijzes van aanbieden",
   "temporalUnit": "",
-  "tables": [
-    {
-      "id": "afvalwijzer",
-      "$ref": "afvalwijzer/v1.1.0",
-      "activeVersions": {
-        "1.1.0": "afvalwijzer/v1.1.0"
-      }
-    },
-    {
-      "id": "accAfvalwijzer",
-      "$ref": "accAfvalwijzer/v1.2.0",
-      "activeVersions": {
-        "1.1.0": "accAfvalwijzer/v1.1.0",
-        "1.2.0": "accAfvalwijzer/v1.2.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.1.0",
+      "tables": [
+        {
+          "id": "afvalwijzer",
+          "$ref": "afvalwijzer/v1"
+        },
+        {
+          "id": "accAfvalwijzer",
+          "$ref": "accAfvalwijzer/v1"
+        }
+      ]
     }
-  ]
+  }
 }

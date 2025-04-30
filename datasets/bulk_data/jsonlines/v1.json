@@ -1,0 +1,28 @@
+{
+  "id": "jsonlines",
+  "title": "Jsonlines",
+  "description": "Openbare datasets in jsonlines formaat",
+  "type": "table",
+  "dataclass": "blob",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "display": "id",
+    "required": [
+      "schema",
+      "id"
+    ],
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "identifier"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

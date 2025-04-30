@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "nieuwbouwplannen",
   "title": "Nieuwbouwplannen",
-  "status": "beschikbaar",
   "description": "Overzicht nieuwbouwplannen van de Gemeenten van Amsterdam. Onderdeel bestaat uit 3 sets met woningbouwplannen waarvan 1 set openbaar is en voor de andere 2 sets autorisatie voor moet worden aangevraagd.",
-  "version": "1.0.0",
   "dateCreated": "2023-09-27T00:00:00+01:00",
   "dateModified": "2023-09-27T00:00:00+01:00",
   "license": "Creative Commons, Naamsvermelding",
@@ -32,27 +30,26 @@
   ],
   "hasBeginning": "2023-09-27T00:00:00+01:00",
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "woningbouwplannenOpenbaar",
-      "$ref": "woningbouwplannenOpenbaar/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "woningbouwplannenOpenbaar/v1.0.0"
-      }
-    },
-    {
-      "id": "woningbouwplannenKwartaalStandaard",
-      "$ref": "woningbouwplannenKwartaalStandaard/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "woningbouwplannenKwartaalStandaard/v1.0.0"
-      }
-    },
-    {
-      "id": "woningbouwplannenKwartaalUitgebreid",
-      "$ref": "woningbouwplannenKwartaalUitgebreid/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "woningbouwplannenKwartaalUitgebreid/v1.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "woningbouwplannenOpenbaar",
+          "$ref": "woningbouwplannenOpenbaar/v1"
+        },
+        {
+          "id": "woningbouwplannenKwartaalStandaard",
+          "$ref": "woningbouwplannenKwartaalStandaard/v1"
+        },
+        {
+          "id": "woningbouwplannenKwartaalUitgebreid",
+          "$ref": "woningbouwplannenKwartaalUitgebreid/v1"
+        }
+      ]
     }
-  ]
+  }
 }

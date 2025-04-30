@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "hoofdroutes",
   "title": "Hoofdwegen",
-  "status": "beschikbaar",
   "description": "Hoofdwegen",
-  "version": "0.0.1",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "creator": "bronhouder onbekend",
@@ -13,106 +11,26 @@
   },
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
-  "tables": [
-    {
-      "id": "routesGevaarlijkeStoffen",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema"
-        ],
-        "display": "title",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiLineString.json"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "title": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "routesGevaarlijkeStoffen",
+          "$ref": "routesGevaarlijkeStoffen/v1"
+        },
+        {
+          "id": "tunnelsGevaarlijkeStoffen",
+          "$ref": "tunnelsGevaarlijkeStoffen/v1"
+        },
+        {
+          "id": "uRoutes",
+          "$ref": "uRoutes/v1"
         }
-      }
-    },
-    {
-      "id": "tunnelsGevaarlijkeStoffen",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema"
-        ],
-        "display": "title",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Point.json"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "title": {
-            "type": "string"
-          },
-          "categorie": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    {
-      "id": "uRoutes",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "schema"
-        ],
-        "display": "name",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "id": {
-            "type": "string"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/MultiLineString.json"
-          },
-          "name": {
-            "type": "string"
-          },
-          "route": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

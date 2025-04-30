@@ -1,0 +1,52 @@
+{
+  "id": "grootstedelijkeProjecten",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "required": [
+      "schema",
+      "id",
+      "geometrie"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "provenance": "geometry"
+      },
+      "naam": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string",
+        "description": "Categorie GSP, OD, PHS of PHSOD"
+      },
+      "url": {
+        "type": "string",
+        "format": "uri",
+        "description": "URL naar bekendmaking"
+      },
+      "typering": {
+        "type": "string",
+        "description": "Omschrijving type"
+      },
+      "datum": {
+        "type": "string"
+      },
+      "legenda": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "regel",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "title": "Regel",
+  "description": "Datakwaliteitsregels en namen van bijbehorende queries",
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "title": "Id",
+        "description": "Uniek identificerend kenmerk voor de datakwaliteitsregel en naam van de bijbehorende query."
+      },
+      "raamwerkId": {
+        "type": "string",
+        "title": "Raamwerk id",
+        "description": "Id van het kwaliteitskenmerk waar de datakwaliteitsregel betrekking op heeft"
+      },
+      "bronAttribuutId": {
+        "type": "string",
+        "title": "Bron attribuut id",
+        "description": "Id van het bronattribuut waar de datakwaliteitsregel betrekking op heeft."
+      },
+      "tekst": {
+        "type": "string",
+        "title": "Tekst",
+        "description": "De beschrijving van de datakwaliteitsregel."
+      },
+      "referentie": {
+        "type": "string",
+        "title": "Referentie",
+        "description": "De conditie (subselectie) waaraan de instanties (records) moeten voldoen waarvoor de datakwalteitsregel hoort te gelden."
+      }
+    }
+  }
+}

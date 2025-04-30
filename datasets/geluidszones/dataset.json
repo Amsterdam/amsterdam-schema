@@ -4,13 +4,13 @@
   "title": "geluidszones",
   "description": "Informatie over geluidszones metro, spoorwegen, industrie en schiphol",
   "license": "public",
-  "status": "beschikbaar",
-  "version": "0.0.1",
   "owner": "Gemeente Amsterdam",
   "auth": "OPENBAAR",
   "authorizationGrantor": "OIS",
   "creator": "bronhouder onbekend",
-  "publisher": "Datateam Stedelijke Ontwikkeling en Beheer",
+  "publisher": {
+    "$ref": "publishers/SOEB"
+  },
   "keywords": [
     "geluidszones",
     "metro",
@@ -19,195 +19,30 @@
     "schiphol"
   ],
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "metro",
-      "title": "Metro",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding geluidszone"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Geometrie van het type MULTIPOLYGOON gedefinieerd in Amersfoort / RD New (epsg:28992)",
-            "provenance": "geometrie"
-          },
-          "thema": {
-            "type": "string",
-            "description": "Het thema waaronder geluidzone valt"
-          },
-          "themaToelichting": {
-            "type": "string",
-            "description": "Contextuele informatie over geluidzone thema"
-          },
-          "themaWetOfRegelgeving": {
-            "type": "string",
-            "description": "De grondslag van de geluidzone"
-          },
-          "themaDatumLaatsteWijziging": {
-            "type": "string",
-            "description": "Moment van laatste wijzing geluidzone definitie"
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "metro",
+          "$ref": "metro/v1"
+        },
+        {
+          "id": "spoorwegen",
+          "$ref": "spoorwegen/v1"
+        },
+        {
+          "id": "industrie",
+          "$ref": "industrie/v1"
+        },
+        {
+          "id": "schiphol",
+          "$ref": "schiphol/v1"
         }
-      }
-    },
-    {
-      "id": "spoorwegen",
-      "title": "spoorwegen",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding geluidszone"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Geometrie van het type MULTIPOLYGOON gedefinieerd in Amersfoort / RD New (epsg:28992)",
-            "provenance": "geometrie"
-          },
-          "thema": {
-            "type": "string",
-            "description": "Het thema waaronder geluidzone valt"
-          },
-          "themaToelichting": {
-            "type": "string",
-            "description": "Contextuele informatie over geluidzone thema"
-          },
-          "themaWetOfRegelgeving": {
-            "type": "string",
-            "description": "De grondslag van de geluidzone"
-          },
-          "themaDatumLaatsteWijziging": {
-            "type": "string",
-            "description": "Moment van laatste wijzing geluidzone definitie"
-          }
-        }
-      }
-    },
-    {
-      "id": "industrie",
-      "title": "industrie",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding geluidszone"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Geometrie van het type MULTIPOLYGOON gedefinieerd in Amersfoort / RD New (epsg:28992)",
-            "provenance": "geometrie"
-          },
-          "naam": {
-            "type": "string",
-            "provenance": "naam_industrieterrein",
-            "description": "Naam van het industrieterrein"
-          },
-          "thema": {
-            "type": "string",
-            "description": "Het thema waaronder geluidzone valt"
-          },
-          "themaToelichting": {
-            "type": "string",
-            "description": "Contextuele informatie over geluidzone thema"
-          },
-          "themaWetOfRegelgeving": {
-            "type": "string",
-            "description": "De grondslag van de geluidzone"
-          },
-          "themaDatumLaatsteWijziging": {
-            "type": "string",
-            "description": "Moment van laatste wijzing geluidzone definitie"
-          }
-        }
-      }
-    },
-    {
-      "id": "schiphol",
-      "title": "schiphol",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unieke aanduiding geluidszone"
-          },
-          "geometry": {
-            "$ref": "https://geojson.org/schema/Geometry.json",
-            "description": "Geometrie van het type MULTIPOLYGOON gedefinieerd in Amersfoort / RD New (epsg:28992)",
-            "provenance": "geometrie"
-          },
-          "thema": {
-            "type": "string",
-            "description": "Het thema waaronder geluidzone valt"
-          },
-          "themaToelichting": {
-            "type": "string",
-            "description": "Contextuele informatie over geluidzone thema"
-          },
-          "themaWetOfRegelgeving": {
-            "type": "string",
-            "description": "De grondslag van de geluidzone"
-          },
-          "themaDatumLaatsteWijziging": {
-            "type": "string",
-            "description": "Moment van laatste wijzing geluidzone definitie"
-          }
-        }
-      }
+      ]
     }
-  ]
+  }
 }

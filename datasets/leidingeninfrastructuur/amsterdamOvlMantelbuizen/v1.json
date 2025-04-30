@@ -1,0 +1,92 @@
+{
+  "id": "amsterdamOvlMantelbuizen",
+  "type": "table",
+  "version": "1.2.0",
+  "lifecycleStatus": "stable",
+  "title": "Amsterdam openbare verlichting ondergrondse mantelbuizen",
+  "description": "Locaties en contextuele informatie ondergrondse mantelbuizen voor de openbare verlichting die door de Gemeente Amsterdam worden beheerd",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "Business-key: unieke aanduiding per voorkomen in tabel."
+      },
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Vlak-coördinaten van de Mantelbuis (epsg:28992)"
+      },
+      "inwinningstype": {
+        "type": "string",
+        "description": "Kwaliteit van inwinning."
+      },
+      "thema": {
+        "type": "string",
+        "description": "WIBON Thema."
+      },
+      "klasse": {
+        "type": "string",
+        "description": "WIBON Klasse."
+      },
+      "type": {
+        "type": "string",
+        "description": "WIBON Type.",
+        "provenance": "mantelbuistype"
+      },
+      "materiaal": {
+        "type": "string",
+        "description": "Materiaal van de Mantelbuis."
+      },
+      "zichtbaar": {
+        "type": "string",
+        "enum": [
+          "ja",
+          "nee"
+        ],
+        "description": "Zichtbaar (ja/nee)."
+      },
+      "diepte": {
+        "type": "number",
+        "unit": "cm",
+        "description": "Diepte in centimeters. (t.o.v. maaiveld)."
+      },
+      "nauwkeurigheidDiepte": {
+        "type": "string",
+        "description": "Nauwkeurigheid van de diepte."
+      },
+      "hoofdcategorie": {
+        "type": "string",
+        "description": "Hoofdcategorie."
+      },
+      "eigenaar": {
+        "type": "string",
+        "description": "Eigenaar van de mantelbuis."
+      },
+      "jaarVanAanleg": {
+        "type": "integer",
+        "description": "Jaar van aanleg van de mantelbuis.",
+        "provenance": "jva"
+      },
+      "diameter": {
+        "type": "string",
+        "description": "Diameter van de mantelbuis in millimeters.",
+        "provenance": "mantelbuisdiameter"
+      },
+      "lengte": {
+        "type": "number",
+        "unit": "m",
+        "description": "Lengte van de mantelbuis in meters."
+      }
+    }
+  }
+}

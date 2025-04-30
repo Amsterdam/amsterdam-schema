@@ -1,0 +1,57 @@
+{
+  "id": "spoorlijn",
+  "title": "Spoor lijnobject",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "mainGeometry": "geometrie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke aanduiding van het record.",
+        "provenance": "identificatie_lokaalid"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Lijn definitie van het object."
+      },
+      "type": {
+        "type": "string",
+        "description": "Typering van het object."
+      },
+      "relatievehoogteligging": {
+        "type": "number",
+        "description": "Getalaanduiding hoogte van het object."
+      },
+      "bron": {
+        "type": "string",
+        "enum": [
+          "gbt",
+          "kbk10",
+          "kbk50"
+        ],
+        "description": "Herkomst van het record (GBT, KBK10 of KBK50)."
+      },
+      "minzoom": {
+        "type": "integer",
+        "description": "Getalaanduiding van minimale zoomlevel."
+      },
+      "maxzoom": {
+        "type": "integer",
+        "description": "Getalaanduiding van maximale zoomlevel."
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

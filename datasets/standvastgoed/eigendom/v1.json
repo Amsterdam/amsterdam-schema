@@ -1,0 +1,72 @@
+{
+  "id": "eigendom",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "auth": "BSK/EIGENDOM",
+  "reasonsNonPublic": [
+    "5.1 1d: Bevat persoonsgegevens"
+  ],
+  "title": "Eigendomsverhouding, type eigenaar en grootte bezit van eigenaar per verblijfsobject per 1 januari peildatum",
+  "description": "Alleen verblijfsobjecten met status 'Verblijfsobject in gebruik','Verblijfsobject in gebruik (niet ingemeten)' of 'Verbouwing verblijfsobject'. Afgeleide gegevens uit een combinatie van bronnen: BRK, BAG, BRP, BWV, WOZ, HR en AFWC. Inclusief historie, met data vanaf 2021. Publicatie van nieuwe 1 januari stand met eigendomsverhouding gebeurt omstreeks juli.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "title": "id",
+        "description": "Unieke identificatie voor dit object op basis van adresseerbaar object identificatie en peildatum"
+      },
+      "peildatum": {
+        "type": "string",
+        "format": "date",
+        "title": "peildatum",
+        "description": "Peildatum van eigendomsverhouding"
+      },
+      "adresseerbaarobjectIdentificatie": {
+        "type": "string",
+        "title": "adresseerbaarobjectIdentificatie",
+        "shortname": "aotId",
+        "description": "Landelijke identificerende sleutel van adresseerbaar object (verblijfsobject, ligplaats, standplaats)"
+      },
+      "eigendomsverhouding": {
+        "type": "string",
+        "title": "eigendomsverhouding",
+        "description": "Eigendomsverhouding van adresseerbaar object"
+      },
+      "eigenaarBronLeidend": {
+        "type": "string",
+        "title": "eigenaarBronLeidend",
+        "description": "Leidende bron voor bepalen van de eigenaar"
+      },
+      "categorieEigenaar": {
+        "type": "string",
+        "title": "categorieEigenaar",
+        "description": "Type eigenaar in 11 categorieen"
+      },
+      "eigenaarTotaalVotBezit": {
+        "type": "integer",
+        "title": "eigenaarTotaalVotBezit",
+        "description": "Totaal aantal verblijfsobjecten in bezit van eigenaar"
+      },
+      "eigenaarWoningvoorraadVotBezit": {
+        "type": "integer",
+        "title": "eigenaarWoningvoorraadVotBezit",
+        "description": "Aantal verblijfsobjecten in de woningvoorraad in bezit van eigenaar"
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "id": "indicatoren",
+  "type": "table",
+  "version": "1.0.0",
+  "description": "Alle indicatoren (variabelen) en hun metadata",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id",
+      "naam",
+      "label",
+      "definitie",
+      "thema"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "id",
+        "description": "Unieke identificatie van de indicator"
+      },
+      "naam": {
+        "type": "string",
+        "title": "naam",
+        "description": "Unieke naam van de indicator"
+      },
+      "label": {
+        "type": "string",
+        "title": "label",
+        "description": "Beknopte label van de indicator t.b.v. weergave"
+      },
+      "labelUk": {
+        "type": "string",
+        "title": "labelUk",
+        "description": "Beknopte label van de indicator in het Brits-Engels t.b.v. weergave"
+      },
+      "definitie": {
+        "type": "string",
+        "title": "definitie",
+        "description": "Definitie, die ten grondslag ligt van de indicator"
+      },
+      "definitieUk": {
+        "type": "string",
+        "title": "definitieUk",
+        "description": "Definitie in het Brits-Engels, die ten grondslag ligt van de indicator"
+      },
+      "beschrijving": {
+        "type": "string",
+        "title": "beschrijving",
+        "description": "Beschrijving en overige informatie over de indicator"
+      },
+      "berekening": {
+        "type": "string",
+        "title": "berekening",
+        "description": "Rekenformule, die is gebruikt om de waarde van de indicator te berekenen"
+      },
+      "bron": {
+        "type": "string",
+        "title": "bron",
+        "description": "Herkomst van de indicator en bijhorende definitie"
+      },
+      "thema": {
+        "type": "string",
+        "title": "thema",
+        "description": "Thematische indeling waaronder de indicator valt"
+      },
+      "eenheid": {
+        "type": "string",
+        "title": "eenheid",
+        "description": "Eenheid waarin de indicator wordt uitgedrukt"
+      },
+      "symbool": {
+        "type": "string",
+        "title": "symbool",
+        "description": "Symbool, behorende bij de eenheid"
+      },
+      "decimalen": {
+        "type": "integer",
+        "title": "decimalen",
+        "description": "Aantal decimalen, waarin de waarde van de indicator moet worden gepubliceerd"
+      },
+      "dimensieNaam": {
+        "type": "string",
+        "title": "dimensieNaam",
+        "description": "Naam van de dimensie, waartoe de indicator behoort"
+      },
+      "dimensieCode": {
+        "type": "string",
+        "title": "dimensieCode",
+        "description": "Code van de dimensie, waartoe de dimensie behoort"
+      },
+      "dimensieBeschrijving": {
+        "type": "string",
+        "title": "dimensieBeschrijving",
+        "description": "Beschrijving van de dimensie, waartoe de dimensie behoort"
+      },
+      "extraAttributen": {
+        "type": "object",
+        "format": "json",
+        "title": "extraAttributen",
+        "description": "Vrij veld om aanvullende attributen met hun waarde op te slaan, die nodig kunnen zijn voor verdere visualisatie"
+      },
+      "parent": {
+        "type": "string",
+        "title": "parent",
+        "description": "Naam van een indicator, waartoe de indicator behoort"
+      },
+      "verantwoordelijke": {
+        "type": "string",
+        "title": "verantwoordelijke",
+        "description": "Naam van het team binnen de organisatie, dat verantwoordelijk is voor de indicator"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

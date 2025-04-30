@@ -1,0 +1,70 @@
+{
+  "id": "brontabel",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "title": "Brontabel",
+  "description": "Brontabel",
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "title": "Id",
+        "description": "Uniek identificerend kenmerk voor de tabel behorende bij de brondataset."
+      },
+      "bronDatasetId": {
+        "type": "string",
+        "title": "Bron dataset id",
+        "description": "Id van de bijbehorende brondataset."
+      },
+      "naam": {
+        "type": "string",
+        "title": "Naam",
+        "description": "Naam van de betreffende brontabel."
+      },
+      "omschrijving": {
+        "type": "string",
+        "title": "Omschrijving",
+        "description": "Omschrijving van / toelichting op de betreffende brontabel."
+      },
+      "type": {
+        "type": "integer",
+        "title": "Type",
+        "description": "Type brontabel: O = tabel met objectgegevens, R = tabel met referentie-/ domeinwaardegegevens."
+      },
+      "dataProfileringFrequentie": {
+        "type": "integer",
+        "title": "Frequentie data profiling",
+        "description": "Frequentie waarmee de dataprofilingqueries voor betreffende brontabel worden gedraaid (1=dagelijks, 2=wekelijks, 3=maandelijks, 4=kwartaal, 5  = jaarlijks)."
+      },
+      "frequentie": {
+        "type": "integer",
+        "title": "Frequentie data kwaliteit controle",
+        "description": "Indien type is 'O', frequentie waarmee de datakwaliteitqueries voor betreffende brontabel worden gedraaid (1=dagelijks, 2=wekelijks, 3=maandelijks, 4=kwartaal, 5 =jaarlijks)."
+      },
+      "status": {
+        "type": "integer",
+        "title": "Status",
+        "description": "Status van de brontabel (-1 = afgevoerd/end of life van de tabel, 0= inactief/queries worden tijdelijk niet uitgevoerd, 1 = actief/queries worden conform frequentie uitgevoerd)."
+      },
+      "datum": {
+        "type": "string",
+        "format": "date",
+        "title": "Datum",
+        "description": "Datum van de statuswijziging."
+      }
+    }
+  }
+}

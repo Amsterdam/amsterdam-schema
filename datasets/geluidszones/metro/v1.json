@@ -1,0 +1,47 @@
+{
+  "id": "metro",
+  "title": "Metro",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding geluidszone"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Geometrie van het type MULTIPOLYGOON gedefinieerd in Amersfoort / RD New (epsg:28992)",
+        "provenance": "geometrie"
+      },
+      "thema": {
+        "type": "string",
+        "description": "Het thema waaronder geluidzone valt"
+      },
+      "themaToelichting": {
+        "type": "string",
+        "description": "Contextuele informatie over geluidzone thema"
+      },
+      "themaWetOfRegelgeving": {
+        "type": "string",
+        "description": "De grondslag van de geluidzone"
+      },
+      "themaDatumLaatsteWijziging": {
+        "type": "string",
+        "description": "Moment van laatste wijzing geluidzone definitie"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

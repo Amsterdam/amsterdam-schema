@@ -4,7 +4,6 @@
   "title": "Subsidies",
   "description": "Subsidies die de Gemeente Amsterdam heeft verstrekt.",
   "license": "public",
-  "status": "beschikbaar",
   "owner": "Gemeente Amsterdam, Directie Subsidies",
   "auth": "OPENBAAR",
   "authorizationGrantor": "OIS",
@@ -12,17 +11,28 @@
   "publisher": {
     "$ref": "publishers/MOSS"
   },
-  "theme": ["Subsidies"],
-  "keywords": ["Openbaar", "Subsidies", "Subsidieregister", "WOO", "Wet Open Overheid"],
-  "tables": [
-    {
-      "id": "openbaarSubsidieregister",
-      "$ref": "openbaar_subsidieregister/v2.0.0",
-      "activeVersions": {
-        "1.0.0": "openbaar_subsidieregister/v1.0.0",
-        "1.0.1": "openbaar_subsidieregister/v1.0.1",
-        "2.0.0": "openbaar_subsidieregister/v2.0.0"
-      }
+  "theme": [
+    "Subsidies"
+  ],
+  "keywords": [
+    "Openbaar",
+    "Subsidies",
+    "Subsidieregister",
+    "WOO",
+    "Wet Open Overheid"
+  ],
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "openbaarSubsidieregister",
+          "$ref": "openbaar_subsidieregister/v2"
+        }
+      ]
     }
-  ]
+  }
 }

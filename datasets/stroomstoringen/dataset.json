@@ -8,8 +8,6 @@
   "license": "Creative Commons, Naamsvermelding",
   "homepage": "https://data.amsterdam.nl",
   "language": "nl",
-  "status": "beschikbaar",
-  "version": "1.0.0",
   "temporalUnit": "nvt",
   "creator": "Datateam Stedelijke Ontwikkeling en Beheer",
   "publisher": {
@@ -32,13 +30,18 @@
   ],
   "hasBeginning": "2021-06-14T00:00:00+01:00",
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "stroomstoringen",
-      "$ref": "stroomstoringen/v1.1.0",
-      "activeVersions": {
-        "1.1.0": "stroomstoringen/v1.1.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "stroomstoringen",
+          "$ref": "stroomstoringen/v1"
+        }
+      ]
     }
-  ]
+  }
 }

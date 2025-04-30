@@ -1,0 +1,41 @@
+{
+  "id": "lpgafleverzuilen",
+  "title": "LPG afleverzuilen",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "geometrie",
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke identificatie record."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Polygon.json",
+        "description": "Vlakgeometrie van een bedrijf."
+      },
+      "geometriePunt": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "Puntgeometrie van een bedrijf."
+      },
+      "station": {
+        "type": "integer",
+        "relation": "risicozones:lpgtankstations",
+        "description": "Verwijzing naar entiteit LPG tankstation.",
+        "provenance": "stationnummer"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

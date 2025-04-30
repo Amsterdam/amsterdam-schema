@@ -1,7 +1,6 @@
 {
   "id": "meldingenAcc",
   "type": "dataset",
-  "version": "1.0.0",
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
   "theme": [
@@ -19,7 +18,6 @@
   "hasBeginning": "2018-01-01T00:00:00+01:00",
   "accrualPeriodicity": "dagelijks",
   "description": "SIA (Signalen Informatievoorziening Amsterdam) meldingen",
-  "status": "beschikbaar",
   "keywords": [
     "Buurt",
     "Wijk",
@@ -39,13 +37,18 @@
   "publisher": {
     "$ref": "/publishers/BOR"
   },
-  "tables": [
-    {
-      "id": "meldingen",
-      "$ref": "meldingen/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "meldingen/v2.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "meldingen",
+          "$ref": "meldingen/v2"
+        }
+      ]
     }
-  ]
+  }
 }

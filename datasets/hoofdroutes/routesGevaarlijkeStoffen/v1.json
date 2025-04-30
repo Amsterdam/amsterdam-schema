@@ -1,0 +1,32 @@
+{
+  "id": "routesGevaarlijkeStoffen",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema"
+    ],
+    "display": "title",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/MultiLineString.json"
+      },
+      "id": {
+        "type": "integer"
+      },
+      "title": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

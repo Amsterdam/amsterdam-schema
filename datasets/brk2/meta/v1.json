@@ -1,0 +1,33 @@
+{
+  "id": "meta",
+  "type": "table",
+  "version": "1.0.1",
+  "lifecycleStatus": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "id",
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "Object ID",
+        "description": "Toestand ID"
+      },
+      "kennisgevingsdatum": {
+        "type": "string",
+        "format": "date-time",
+        "title": "Kennisgeving datum",
+        "description": "Toestandsdatum, d.i. de laatste aanmaakdatum van de BRK2-berichten in de naar GOB gerepliceerde BRK2-levering"
+      }
+    }
+  }
+}

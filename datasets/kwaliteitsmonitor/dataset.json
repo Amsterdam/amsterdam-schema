@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "kwaliteitsmonitor",
   "title": "Kwaliteitsmonitor",
-  "status": "beschikbaar",
   "description": "Per verblijfsobject, ligplaats of standplaats de kenmerken van de woningvoorraad van de gemeente Amsterdam.",
-  "version": "1.1.0",
   "dateCreated": "2022-11-23T00:00:00+01:00",
   "dateModified": "2022-12-14T00:00:00+01:00",
   "license": "Creative Commons, Naamsvermelding",
@@ -33,34 +31,30 @@
     "Ligplaats",
     "VOT"
   ],
-  "tables": [
-    {
-      "id": "wonen",
-      "$ref": "wonen/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "wonen/v1.0.0"
-      }
-    },
-    {
-      "id": "wonenLigplaats",
-      "$ref": "wonenLigplaats/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "wonenLigplaats/v1.0.0"
-      }
-    },
-    {
-      "id": "wonenStandplaats",
-      "$ref": "wonenStandplaats/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "wonenStandplaats/v1.0.0"
-      }
-    },
-    {
-      "id": "wonenVerblijfsobject",
-      "$ref": "wonenVerblijfsobject/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "wonenVerblijfsobject/v1.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.1.0",
+      "tables": [
+        {
+          "id": "wonen",
+          "$ref": "wonen/v1"
+        },
+        {
+          "id": "wonenLigplaats",
+          "$ref": "wonenLigplaats/v1"
+        },
+        {
+          "id": "wonenStandplaats",
+          "$ref": "wonenStandplaats/v1"
+        },
+        {
+          "id": "wonenVerblijfsobject",
+          "$ref": "wonenVerblijfsobject/v1"
+        }
+      ]
     }
-  ]
+  }
 }

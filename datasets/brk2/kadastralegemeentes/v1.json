@@ -1,0 +1,60 @@
+{
+  "id": "kadastralegemeentes",
+  "type": "table",
+  "version": "1.2.1",
+  "lifecycleStatus": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": "identificatie",
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "title": "Kadastrale gemeente ID",
+        "description": "De unieke aanduiding van een Kadastrale gemeente"
+      },
+      "ligtInBrkGemeente": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "brk2:gemeentes",
+        "title": "Gemeente identificatie",
+        "description": "De burgerlijke gemeente waarin de kadastrale gemeente ligt"
+      },
+      "code": {
+        "type": "string",
+        "title": "Unieke code",
+        "description": "De unieke code van de kadastrale gemeente"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Geometrie",
+        "description": "Vorm en ligging van de kadastrale gemeente in het stelsel van de Rijksdriehoekmeting (RD)"
+      }
+    }
+  }
+}

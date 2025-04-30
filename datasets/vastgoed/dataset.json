@@ -10,7 +10,6 @@
   "homepage": "https://data.amsterdam.nl",
   "owner": "Directie Vastgoed, Gemeente Amsterdam",
   "spatialDescription": "Gemeente Amsterdam",
-  "version": "2.0.0",
   "title": "vastgoed",
   "language": "nl",
   "dateCreated": "2024-01-25T00:00:00+01:00",
@@ -20,19 +19,23 @@
     "$ref": "/publishers/SOEB"
   },
   "description": "Gegevens over de verhuurbare eenheden van het gemeentelijke vastgoed in volledig eigendom dan wel als een appartementsrecht.",
-  "status": "beschikbaar",
   "keywords": [
     "vastgoed"
   ],
   "crs": "EPSG:28992",
   "temporalUnit": "",
-  "tables": [
-    {
-      "id": "gemeentelijk",
-      "$ref": "gemeentelijk/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "gemeentelijk/v2.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "2.0.0",
+      "tables": [
+        {
+          "id": "gemeentelijk",
+          "$ref": "gemeentelijk/v2"
+        }
+      ]
     }
-  ]
+  }
 }

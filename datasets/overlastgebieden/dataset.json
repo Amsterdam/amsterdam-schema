@@ -10,7 +10,6 @@
   "owner": "Gemeente Amsterdam, Openbare Orde en Veiligheid Amsterdam",
   "dateModified": "2022-02-23T00:00:00+01:00",
   "spatialDescription": "Gemeente Amsterdam",
-  "version": "1.0.1",
   "default_version": "1.0.1",
   "title": "Overlastgebieden gemeente Amsterdam",
   "language": "nl",
@@ -23,132 +22,94 @@
     "$ref": "publishers/SVD"
   },
   "description": "Overlastgebieden Amsterdam.",
-  "status": "beschikbaar",
   "keywords": [
     "openbare orde en veiligheid",
     "overlastgebieden",
-	"sluitingstijden kernwallen",
-	"cameratoezicht",
-	"overlast",
-	"dealeroverlast",
+    "sluitingstijden kernwallen",
+    "cameratoezicht",
+    "overlast",
+    "dealeroverlast",
     "verboden",
-	"verbod",
-	"alcohol",
-	"alcoholverkoop",
-	"barbecue",
-	"groepsfiets",
-	"messen",
-	"rondleiding",
-	"straatartiest",
-	"blowen"
+    "verbod",
+    "alcohol",
+    "alcoholverkoop",
+    "barbecue",
+    "groepsfiets",
+    "messen",
+    "rondleiding",
+    "straatartiest",
+    "blowen"
   ],
   "crs": "EPSG:28992",
   "objective": "Publiceren van de locaties voor verboden activiteiten of gedragingen in de openbare ruimte.",
-  "tables": [
-    {
-      "id": "alcoholverkoopverbod",
-      "$ref": "alcoholverkoopverbod/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "alcoholverkoopverbod/v2.0.0"
-      }
-    },
-    {
-      "id": "sluitingstijdenkernwallen",
-      "$ref": "sluitingstijdenkernwallen/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "sluitingstijdenkernwallen/v2.0.0"
-      }
-    },
-    {
-      "id": "alcoholverbod",
-      "$ref": "alcoholverbod/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "alcoholverbod/v2.0.0"
-      }
-    },
-    {
-      "id": "algemeenoverlast",
-      "$ref": "algemeenoverlast/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "algemeenoverlast/v2.0.0"
-      }
-    },
-    {
-      "id": "barbecueverbod",
-      "$ref": "barbecueverbod/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "barbecueverbod/v2.0.0"
-      }
-    },
-    {
-      "id": "cameratoezicht",
-      "$ref": "cameratoezicht/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "cameratoezicht/v2.0.0"
-      }
-    },
-    {
-      "id": "dealeroverlast",
-      "$ref": "dealeroverlast/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "dealeroverlast/v2.0.0"
-      }
-    },
-    {
-      "id": "groepsfietsverbod",
-      "$ref": "groepsfietsverbod/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "groepsfietsverbod/v2.0.0"
-      }
-    },
-    {
-      "id": "messenverbod",
-      "$ref": "messenverbod/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "messenverbod/v2.0.0"
-      }
-    },
-    {
-      "id": "rondleidingverbod",
-      "$ref": "rondleidingverbod/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "rondleidingverbod/v2.0.0"
-      }
-    },
-    {
-      "id": "straatartiestverbod",
-      "$ref": "straatartiestverbod/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "straatartiestverbod/v2.0.0"
-      }
-    },
-    {
-      "id": "taxistandplaats",
-      "$ref": "taxistandplaats/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "taxistandplaats/v1.0.0"
-      }
-    },
-    {
-      "id": "uitgaansoverlast",
-      "$ref": "uitgaansoverlast/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "uitgaansoverlast/v1.0.0"
-      }
-    },
-    {
-      "id": "vuurwerkvrij",
-      "$ref": "vuurwerkvrij/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "vuurwerkvrij/v1.0.0"
-      }
-    },
-    {
-      "id": "blowverbodsgebied",
-      "$ref": "blowverbodsgebied/v2.0.0",
-      "activeVersions": {
-        "2.0.0": "blowverbodsgebied/v2.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.1",
+      "tables": [
+        {
+          "id": "alcoholverkoopverbod",
+          "$ref": "alcoholverkoopverbod/v2"
+        },
+        {
+          "id": "sluitingstijdenkernwallen",
+          "$ref": "sluitingstijdenkernwallen/v2"
+        },
+        {
+          "id": "alcoholverbod",
+          "$ref": "alcoholverbod/v2"
+        },
+        {
+          "id": "algemeenoverlast",
+          "$ref": "algemeenoverlast/v2"
+        },
+        {
+          "id": "barbecueverbod",
+          "$ref": "barbecueverbod/v2"
+        },
+        {
+          "id": "cameratoezicht",
+          "$ref": "cameratoezicht/v2"
+        },
+        {
+          "id": "dealeroverlast",
+          "$ref": "dealeroverlast/v2"
+        },
+        {
+          "id": "groepsfietsverbod",
+          "$ref": "groepsfietsverbod/v2"
+        },
+        {
+          "id": "messenverbod",
+          "$ref": "messenverbod/v2"
+        },
+        {
+          "id": "rondleidingverbod",
+          "$ref": "rondleidingverbod/v2"
+        },
+        {
+          "id": "straatartiestverbod",
+          "$ref": "straatartiestverbod/v2"
+        },
+        {
+          "id": "taxistandplaats",
+          "$ref": "taxistandplaats/v1"
+        },
+        {
+          "id": "uitgaansoverlast",
+          "$ref": "uitgaansoverlast/v1"
+        },
+        {
+          "id": "vuurwerkvrij",
+          "$ref": "vuurwerkvrij/v1"
+        },
+        {
+          "id": "blowverbodsgebied",
+          "$ref": "blowverbodsgebied/v2"
+        }
+      ]
     }
-  ]
+  }
 }

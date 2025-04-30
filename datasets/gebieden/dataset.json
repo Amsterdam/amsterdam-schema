@@ -2,8 +2,6 @@
   "type": "dataset",
   "id": "gebieden",
   "title": "gebieden",
-  "status": "beschikbaar",
-  "version": "1.0.0",
   "auth": "OPENBAAR",
   "authorizationGrantor": "gebruik.basisinformatie@amsterdam.nl",
   "owner": "Onderzoek, Informatie en Statistiek",
@@ -12,68 +10,46 @@
     "$ref": "/publishers/BENK"
   },
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "bouwblokken",
-      "$ref": "bouwblokken/v1.1.2",
-      "activeVersions": {
-        "1.1.2": "bouwblokken/v1.1.2",
-        "2.1.2": "bouwblokken/v2.1.2"
-      }
-    },
-    {
-      "id": "buurten",
-      "$ref": "buurten/v1.1.4",
-      "activeVersions": {
-        "1.1.4": "buurten/v1.1.4",
-        "2.1.3": "buurten/v2.1.3"
-      }
-    },
-    {
-      "id": "wijken",
-      "$ref": "wijken/v1.1.4",
-      "activeVersions": {
-        "1.1.4": "wijken/v1.1.4",
-        "2.1.3": "wijken/v2.1.3"
-      }
-    },
-    {
-      "id": "ggwgebieden",
-      "$ref": "ggwgebieden/v1.1.3",
-      "activeVersions": {
-        "1.1.3": "ggwgebieden/v1.1.3",
-        "2.1.3": "ggwgebieden/v2.1.3"
-      }
-    },
-    {
-      "id": "ggpgebieden",
-      "$ref": "ggpgebieden/v1.1.3",
-      "activeVersions": {
-        "1.1.3": "ggpgebieden/v1.1.3",
-        "2.1.2": "ggpgebieden/v2.1.2"
-      }
-    },
-    {
-      "id": "stadsdelen",
-      "$ref": "stadsdelen/v1.1.2",
-      "activeVersions": {
-        "1.1.1": "stadsdelen/v1.1.2",
-        "2.1.3": "stadsdelen/v2.1.3"
-      }
-    },
-    {
-      "id": "stedelijkgebiedprojectofbelangen",
-      "$ref": "stedelijkgebiedprojectofbelangen/v1.0.2",
-      "activeVersions": {
-        "1.0.2": "stedelijkgebiedprojectofbelangen/v1.0.2"
-      }
-    },    
-    {
-      "id": "grootstedelijkeProjecten",
-      "$ref": "grootstedelijkeprojecten/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "grootstedelijkeprojecten/v1.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "bouwblokken",
+          "$ref": "bouwblokken/v1"
+        },
+        {
+          "id": "buurten",
+          "$ref": "buurten/v1"
+        },
+        {
+          "id": "wijken",
+          "$ref": "wijken/v1"
+        },
+        {
+          "id": "ggwgebieden",
+          "$ref": "ggwgebieden/v1"
+        },
+        {
+          "id": "ggpgebieden",
+          "$ref": "ggpgebieden/v1"
+        },
+        {
+          "id": "stadsdelen",
+          "$ref": "stadsdelen/v1"
+        },
+        {
+          "id": "stedelijkgebiedprojectofbelangen",
+          "$ref": "stedelijkgebiedprojectofbelangen/v1"
+        },
+        {
+          "id": "grootstedelijkeProjecten",
+          "$ref": "grootstedelijkeprojecten/v1"
+        }
+      ]
     }
-  ]
+  }
 }

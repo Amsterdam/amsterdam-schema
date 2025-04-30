@@ -1,0 +1,57 @@
+{
+  "id": "hardlooproute",
+  "title": "Hardlooproute",
+  "type": "table",
+  "version": "2.0.0",
+  "lifecycleStatus": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van de hardlooproute.",
+        "title": "Hardlooproute ID"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/MultiLineString.json",
+        "description": "Lijngeometrie van de hardlooproute.",
+        "title": "Hardlooproute Geometrie"
+      },
+      "naam": {
+        "type": "string",
+        "description": "Naam van de hardlooproute.",
+        "provenance": "name",
+        "title": "Hardlooproute Naam"
+      },
+      "categorie": {
+        "type": "string",
+        "description": "Categorie waaronder de hardlooproute valt.",
+        "provenance": "category",
+        "title": "Hardlooproute Categorie"
+      },
+      "lengte": {
+        "type": "number",
+        "unit": "km",
+        "description": "Lengte in kilometers van de hardlooproute.",
+        "provenance": "length_km",
+        "title": "Hardlooproute Lengte"
+      },
+      "id2": {
+        "type": "string",
+        "description": "Tweede unieke aanduiding van de hardlooproute.",
+        "provenance": "fid",
+        "title": "Hardlooproute ID 2"
+      }
+    }
+  }
+}

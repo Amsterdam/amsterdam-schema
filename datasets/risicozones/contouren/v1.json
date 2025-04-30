@@ -1,0 +1,63 @@
+{
+  "id": "contouren",
+  "title": "Contouren",
+  "type": "table",
+  "version": "1.0.0",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "geometrie",
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke identificatie record."
+      },
+      "bronId": {
+        "type": "string",
+        "description": "Verwijzing naar entiteit bronnen (geen ID verwijzing kan tekst zijn)."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Vlakgeometrie van een bedrijf."
+      },
+      "naamBedrijf": {
+        "type": "string",
+        "description": "Bedrijfsnaam.",
+        "provenance": "bedrijfsnaam"
+      },
+      "typeContour": {
+        "type": "string",
+        "enum": [
+          "Invloedsgebied",
+          "Plaatsgebonden risico 10-6"
+        ],
+        "description": "Typering contour."
+      },
+      "afstandseis": {
+        "type": "string",
+        "description": "Gestelde afstand voor veiligheid."
+      },
+      "afstandseisVoldoetIndicatie": {
+        "type": "string",
+        "enum": [
+          "J",
+          "N",
+          "?",
+          "NVT"
+        ],
+        "description": "Indicatie of bedrijf voldoet aan gestelde afstand voor veiligheid.",
+        "provenance": "voldoet"
+      }
+    }
+  },
+  "lifecycleStatus": "stable"
+}

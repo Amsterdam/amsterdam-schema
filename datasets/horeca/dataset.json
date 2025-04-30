@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "horeca",
   "title": "horeca",
-  "status": "beschikbaar",
   "description": "Horeca exploitatie vergunningen",
-  "version": "0.0.1",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
   "creator": "bronhouder onbekend",
@@ -13,113 +11,18 @@
   },
   "auth": "OPENBAAR",
   "authorizationGrantor": "n.v.t.",
-  "tables": [
-    {
-      "id": "exploitatievergunning",
-      "type": "table",
-      "version": "1.0.0",
-      "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "schema",
-          "id"
-        ],
-        "display": "zaaknummer",
-        "mainGeometry": "locatie",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "zaaknummer": {
-            "type": "integer"
-          },
-          "zaaknaam": {
-            "type": "string"
-          },
-          "adres": {
-            "type": "string"
-          },
-          "zaakCategorie": {
-            "type": "string"
-          },
-          "zaakSpecificatie": {
-            "type": "string"
-          },
-          "begindatum": {
-            "type": "string",
-            "format": "date"
-          },
-          "einddatum": {
-            "type": "string",
-            "format": "date"
-          },
-          "openingstijdenZoDoVan": {
-            "type": "string"
-          },
-          "openingstijdenZoDoTot": {
-            "type": "string"
-          },
-          "openingstijdenVrZaVan": {
-            "type": "string"
-          },
-          "openingstijdenVrZaTot": {
-            "type": "string"
-          },
-          "oTijdenTerrasZoDoVan": {
-            "type": "string"
-          },
-          "oTijdenTerrasZoDoTot": {
-            "type": "string"
-          },
-          "oTijdenTerrasVrZaVan": {
-            "type": "string"
-          },
-          "oTijdenTerrasVrZaTot": {
-            "type": "string"
-          },
-          "locatie": {
-            "$ref": "https://geojson.org/schema/Point.json"
-          },
-          "terrasgeometrie": {
-            "$ref": "https://geojson.org/schema/MultiPolygon.json"
-          },
-          "postcode": {
-            "type": "string"
-          },
-          "statusVergunning": {
-            "type": "string"
-          },
-          "statusTijdelijkTerras": {
-            "type": "string"
-          },
-          "toestemmingTijdelijkTerras": {
-            "type": "string"
-          },
-          "publBesluitTijdelijkTerras": {
-            "type": "string"
-          },
-          "tijdelijkTerrasDetails": {
-            "type": "string",
-            "format": "uri",
-            "description": "URI naar terrastekening in pdf formaat."
-          },
-          "statusVerlengingTijdelijkTerras": {
-            "type": "string",
-            "provenance": "status_verleng_tijdelk_terras"
-          },
-          "verlengingTijdelijkTerrasDetails": {
-            "type": "string",
-            "format": "uri",
-            "description": "URI naar terrastekening in pdf formaat.",
-            "provenance": "verleng_tijdelk_terras_detail"
-          }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "exploitatievergunning",
+          "$ref": "exploitatievergunning/v1"
         }
-      }
+      ]
     }
-  ]
+  }
 }

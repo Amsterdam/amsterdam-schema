@@ -4,72 +4,62 @@
   "authorizationGrantor": "Directie V&OR, Gemeente Amsterdam",
   "auth": "OPENBAAR",
   "theme": [
-      "Duurzaamheid en milieu"
+    "Duurzaamheid en milieu"
   ],
   "homepage": "https://data.amsterdam.nl",
   "owner": "Directie V&OR, Gemeente Amsterdam",
   "spatialDescription": "Gemeente Amsterdam",
-  "version": "1.4.0",
   "title": "Ziekten, Plagen en Exoten Groen",
   "language": "nl",
   "dateCreated": "2023-01-01T00:00:00+01:00",
   "license": "openbaar, tenzij anders aangegeven / behoudens uitzonderingen",
   "creator": "Datateam BOR",
   "publisher": {
-      "$ref": "/publishers/BOR"
+    "$ref": "/publishers/BOR"
   },
   "description": "dataset met gegevens over ziekten, plagen en exoten in het groen in gemeente Amsterdam",
-  "status": "beschikbaar",
   "keywords": [
-      "eikenprocessierups",
-      "eikenboom",
-      "rups",
-      "groen",
-      "japanse duizendknoop",
-      "duizendknoop",
-      "JDK",
-      "Invasieve exoten",
-      "Aziatsch",
-      "Exoot"
+    "eikenprocessierups",
+    "eikenboom",
+    "rups",
+    "groen",
+    "japanse duizendknoop",
+    "duizendknoop",
+    "JDK",
+    "Invasieve exoten",
+    "Aziatsch",
+    "Exoot"
   ],
   "crs": "EPSG:28992",
   "temporalUnit": "",
-  "tables": [
-      {
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.4.0",
+      "tables": [
+        {
           "id": "japanseduizendknoopInspecties",
-          "$ref": "japanseduizendknoopInspecties/v3.0.0",
-          "activeVersions": {
-              "3.0.0": "japanseduizendknoopInspecties/v3.0.0"
-          }
-      },
-      {
+          "$ref": "japanseduizendknoopInspecties/v3"
+        },
+        {
           "id": "japanseduizendknoopMeldingen",
-          "$ref": "japanseduizendknoopMeldingen/v1.2.1",
-          "activeVersions": {
-              "1.2.1": "japanseduizendknoopMeldingen/v1.2.1"
-          }
-      },
-      {
+          "$ref": "japanseduizendknoopMeldingen/v1"
+        },
+        {
           "id": "eikenprocessierups",
-          "$ref": "eikenprocessierups/v1.0.1",
-          "activeVersions": {
-              "1.0.1": "eikenprocessierups/v1.0.1"
-          }
-      },
-      {
+          "$ref": "eikenprocessierups/v1"
+        },
+        {
           "id": "eikenprocessierupsPreventief",
-          "$ref": "eikenprocessierupsPreventief/v3.0.0",
-          "activeVersions": {
-              "3.0.0": "eikenprocessierupsPreventief/v3.0.0"
-          }
-      },
-      {
-        "id": "japanseduizendknoopPercelen",
-        "$ref": "japanseduizendknoopPercelen/v2.0.0",
-        "activeVersions": {
-            "1.0.0": "japanseduizendknoopPercelen/v1.0.0",
-			"2.0.0": "japanseduizendknoopPercelen/v2.0.0"
+          "$ref": "eikenprocessierupsPreventief/v3"
+        },
+        {
+          "id": "japanseduizendknoopPercelen",
+          "$ref": "japanseduizendknoopPercelen/v2"
         }
+      ]
     }
-  ]
+  }
 }

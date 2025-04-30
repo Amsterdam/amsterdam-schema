@@ -1,0 +1,205 @@
+{
+  "id": "veiligheidsinspecties",
+  "type": "table",
+  "version": "2.0.1",
+  "lifecycleStatus": "stable",
+  "title": "veiligheidsinspecties van bomen",
+  "description": "bevat de veiligheidsinspecties van de bomen in beheer van gemeente Amsterdam. Elke rij in de dataset is 1 inspectie van 1 boom. ",
+  "auth": "OPENBAAR",
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van record"
+      },
+      "boomId": {
+        "type": "integer",
+        "description": "de vreemde sleutel (foreignkey) voor de relatie met de stamgegevens van de bomen"
+      },
+      "guid": {
+        "type": "string",
+        "description": "Uniek nummer van het IMBOR-object (GUID)",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "actueleOpkroonhoogte": {
+        "type": "string",
+        "description": "De actuele opkroonhoogte van de boom",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "afgestorvenTakken": {
+        "type": "string",
+        "description": "Afgestorven en kwijnende takken takdiameter (≥ 4 cm en taklengte ≥ 50 cm)",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "boombeeld": {
+        "type": "string",
+        "description": "Onderhoudssituatie van de boom",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "boomconditie": {
+        "type": "string",
+        "description": "Actuele groeiontwikkeling op grond van huidige groei(kracht) en gezondheid, gebaseerd op visuele groeikenmerken",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "boominspectietype": {
+        "type": "string",
+        "description": "Type inspectie: bijvoorbeeld NTO, BVR of Ecoinspectie"
+      },
+      "boomhoogteklasseActueel": {
+        "type": "string",
+        "description": "Aanduiding van de boomhoogte in meters ingedeeld in vaste klassen",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "boomveiligheidsklasse": {
+        "type": "string",
+        "description": "Aanduiding van de veiligheid van de boom, ingedeeld in vaste klassen",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "conclusieEnAdviesOnderzoek": {
+        "type": "string",
+        "description": "Conclusie en advies van inspecteur naar aanleing van het onderzoek",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "controlePositieBoompunt": {
+        "type": "string",
+        "description": "Bijzonderheden over het boompunt op het kaartmateriaal in relatie tot de werkelijke situatie",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "idUitOudeBeheerindeling": {
+        "type": "string",
+        "description": "Uniek kenmerk van een beheerobject uit een oude beheerindeling",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "iepziekteInspectieStatus": {
+        "type": "string",
+        "description": "Toelichting status van iepziekte, bijv broedboom of verdacht",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "inspecterendeOrganisatie": {
+        "type": "string",
+        "description": "Naam van de inspecterende organisatie"
+      },
+      "inspectieDatum": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum van uitvoer van de veiligheidsinspectie"
+      },
+      "kroondiameterklasseActueel": {
+        "type": "string",
+        "description": "Actuele diameter van de kroon van de boom in meters ingedeeld in vaste klassen",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "mutatieDatum": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop laatste mutatie heeft plaatsgevonden"
+      },
+      "naderTechnischOnderzoekAanvullendOnderzoek": {
+        "type": "string",
+        "description": "Uitvoeren van een nader boomtechnisch onderzoek (in het kader van veiligheid) om de aard en omvang van de (vermoede) gebreken beter in kaart te kunnen brengen",
+        "shortname": "ntoAanvullendOnderzoek",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "objectbegintijd": {
+        "type": "string",
+        "format": "date",
+        "description": "Tijdstip waarop het object ontstaan is"
+      },
+      "revisie": {
+        "type": "integer",
+        "description": "Aantal keren dat de beheergegevens en of geometrie van beheerobject is gewijzigd",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "snoeiwijze": {
+        "type": "string",
+        "description": "Manier van snoeien die op de betreffende boom, in komende snoeibeurt, van toepassing is"
+      },
+      "stamdiameter": {
+        "type": "string",
+        "description": "Aanduiding voor de exacte diameter van de stam in cm",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "stamdiameterklasse": {
+        "type": "string",
+        "description": "Stamdiameter in cm omgerekend naar stamdiameterklasse volgens contract",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "toekomstverwachting": {
+        "type": "string",
+        "description": "Verwachte technische levensduur op grond van boomtechnische aspecten (onder andere conditie, groeiontwikkeling, ziektes, aantastingen of boomtechnische gebreken)",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "vasteBoomgegevens": {
+        "type": "string",
+        "description": "Wordt later ingevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,547 @@
+{
+  "id": "vestigingen",
+  "type": "table",
+  "version": "2.5.3",
+  "lifecycleStatus": "stable",
+  "auth": [
+    "FP/MDW",
+    "HR/R"
+  ],
+  "shortname": "ves",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "bezoekGeopunt",
+    "identifier": [
+      "vestigingsnummer"
+    ],
+    "required": [
+      "schema",
+      "vestigingsnummer"
+    ],
+    "display": "vestigingsnummer",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "vestigingsnummer": {
+        "type": "string",
+        "title": "Vestiging ID",
+        "description": "Identificatie voor de vestiging"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "title": "Actueel tot datum",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "datumAanvang": {
+        "type": "string",
+        "format": "date",
+        "title": "Vestiging aanvangsdatum",
+        "provenance": "$.datumAanvang.formatted",
+        "description": "De datum van aanvang van de Vestiging"
+      },
+      "datumEinde": {
+        "type": "string",
+        "format": "date",
+        "title": "Vestiging einddatum",
+        "provenance": "$.datumEinde.formatted",
+        "description": "De datum van beëindiging van de Vestiging"
+      },
+      "datumVoortzetting": {
+        "type": "string",
+        "format": "date",
+        "title": "Vestiging voortgezet datum",
+        "provenance": "$.datumVoortzetting.formatted",
+        "description": "Datum voortzetting van de vestiging"
+      },
+      "isCommercieleVestiging": {
+        "type": "string",
+        "title": "Vestiging soort code",
+        "description": "Geeft aan of dit een commerciële (CSV) of niet-commerciële vestiging (NCV) betreft"
+      },
+      "eersteHandelsnaam": {
+        "type": "string",
+        "title": "Vestiging eerste handelsnaam",
+        "description": "De naam (niet commerciële vestiging) of eerste handelsnaam (commerciële vestiging) van de Vestiging"
+      },
+      "communicatie": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "toegangscode": {
+              "type": "string",
+              "title": "Communicatie internationale toegangscode",
+              "description": "Internationale toegangscode van het land waarop het nummer (telefoon of fax) betrekking heeft"
+            },
+            "nummer": {
+              "type": "string",
+              "title": "Communicatie nummer",
+              "description": "Nunmer is het telefoon- of faxnummer zonder opmaak"
+            },
+            "soort": {
+              "type": "string",
+              "title": "Communicatie nummer soort",
+              "description": "Geeft aan of het communicatienummer een telefoon- of een faxnummer betreft"
+            }
+          }
+        },
+        "title": "Communicatiegegevens",
+        "description": "Communicatiegegevens van de vestiging"
+      },
+      "emailAdressen": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "emailAdres": {
+              "type": "string",
+              "title": "Email adres",
+              "description": "Het e-mailadres waarop de ondernemer gemaild kan worden"
+            }
+          }
+        },
+        "title": "Email adres",
+        "description": "Het e-mailadres waarop de ondernemer gemaild kan worden"
+      },
+      "domeinnamen": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "domeinnaam": {
+              "type": "string",
+              "title": "Domein naam",
+              "description": "Het internetadres (web site)"
+            }
+          }
+        },
+        "title": "Domein naam",
+        "description": "Het internetadres (web site)"
+      },
+      "isSamengevoegdMetVestigingen": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "vestigingsnummer": {
+              "type": "string"
+            }
+          }
+        },
+        "relation": "hr:vestigingen",
+        "title": "Vestigingen waarmee samengevoegd",
+        "description": "Dit legt de relatie van de afgesloten vestiging met de samengevoegde vestiging(en)"
+      },
+      "datumAfgesloten": {
+        "type": "string",
+        "title": "Vestiging afgesloten datum",
+        "format": "date",
+        "description": "De datum van de afgesloten vestiging"
+      },
+      "datumSamenvoeging": {
+        "type": "string",
+        "title": "Vestiging samenvoeging datum",
+        "format": "date",
+        "description": "De datum van de samenvoeging vestiging"
+      },
+      "naam": {
+        "type": "string",
+        "title": "Niet commerciële vestiging naam",
+        "description": "De naam van de niet-commerciële vestiging"
+      },
+      "verkorteNaam": {
+        "type": "string",
+        "title": "Niet commerciële vestiging verkorte naam",
+        "description": "De administratieve naam van de niet-commerciële vestiging in het handelsregister indien de naam langer is dan 45 karakters"
+      },
+      "ookGenoemd": {
+        "type": "string",
+        "title": "Niet commerciële vestiging alternatieve naam",
+        "description": "Een andere naam waaronder de vereniging stichtingen en vereniging van eigenaars ook bekend is"
+      },
+      "totaalWerkzamePersonen": {
+        "type": "integer",
+        "title": "Aantal werkzame personen",
+        "description": "Het totaal aantal werkzame personen bij de onderneming. Som van fulltime en parttime"
+      },
+      "voltijdWerkzamePersonen": {
+        "type": "integer",
+        "title": "Aantal voltijd werkzame personen",
+        "description": "Het aantal voltijd (meer dan 15 uur per week) werkzame personen bij de onderneming"
+      },
+      "deeltijdWerkzamePersonen": {
+        "type": "integer",
+        "title": "Aantal deeltijd werkzame personen",
+        "description": "Het aantal deeltijd (kleiner of gelijk aan 15 uur per week) werkzame personen bij de onderneming"
+      },
+      "hoofdVestiging": {
+        "type": "string",
+        "title": "Hoofdvestiging indicatie",
+        "description": "Indicatie of de vestiging de hoofdvestiging betreft"
+      },
+      "activiteitOmschrijving": {
+        "type": "string",
+        "title": "Vestiging activiteit omschrijving",
+        "description": "De omschrijving van de activiteiten die de vestiging uitoefent. De beschrijving bevat de nadere aanduiding van de commerciële activiteiten of de nadere aanduiding van de niet-commerciële activiteiten"
+      },
+      "importeert": {
+        "type": "string",
+        "title": "Commerciele activiteit import indicatie",
+        "description": "Indicatie of de commerciële activiteit import betreft"
+      },
+      "exporteert": {
+        "type": "string",
+        "title": "Commerciele activiteit export indicatie",
+        "description": "Indicatie of de commerciële activiteit export betreft"
+      },
+      "activiteiten": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "sbiCode": {
+              "type": "string",
+              "title": "Standaard bedrijfsindeling code",
+              "description": "De code van de SBI-code"
+            },
+            "omschrijving": {
+              "type": "string",
+              "title": "Standaard bedrijfsindeling omschrijving",
+              "description": "De omschrijving van de SBI-code"
+            },
+            "isHoofdactiviteit": {
+              "type": "string",
+              "title": "Hoofdactiviteit indicatie",
+              "description": "De indicatie die aangeeft welke van de activiteiten de hoofdactiviteit is (wordt afgeschaft)"
+            },
+            "volgorde": {
+              "type": "integer",
+              "title": "Standaard bedrijfsindeling volgorde nummer",
+              "description": "De volgorde van de (hoofd) SBIactiviteit"
+            }
+          }
+        },
+        "title": "SBI code",
+        "description": "Codering van activiteiten binnen HR volgens de standaard bedrijfsindeling (SBI) 2008"
+      },
+      "handelsnamen": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "datumAanvang": {
+              "type": "string",
+              "title": "Handelsnaam aanvangsdatum",
+              "format": "date",
+              "description": "Datum aanvang van de Handelsnaam"
+            },
+            "datumEinde": {
+              "type": "string",
+              "title": "Handelsnaam einddatum",
+              "format": "date",
+              "description": "Datum einde van de Handelsnaam"
+            },
+            "handelsnaam": {
+              "type": "string",
+              "title": "Handelsnaam",
+              "description": "Handelsnaam van de vestiging waaronder gehandeld wordt"
+            },
+            "volgorde": {
+              "type": "integer",
+              "title": "Handelsnaam volgorde",
+              "description": "Volgorde waarop de handelsnamen worden getoond bij de onderneming of Commerciele Vestiging"
+            }
+          }
+        },
+        "title": "Handelsnaam of handelsnamen",
+        "description": "Handelsnaam of Handelsnamen van de niet-commerciële of commerciële vestiging"
+      },
+      "isEenUitoefeningVan": {
+        "type": "object",
+        "properties": {
+          "kvknummer": {
+            "type": "string"
+          }
+        },
+        "relation": "hr:maatschappelijkeactiviteiten",
+        "title": "Maatschappelijke activiteit waarbij vestiging hoort",
+        "description": "Identificatie (KvK-nummer) van de Maatschappelijke Activiteit (MAC) die bij deze vestiging hoort"
+      },
+      "bezoekLocatie": {
+        "type": "object",
+        "properties": {
+          "afgeschermd": {
+            "type": "string",
+            "title": "Adres afgeschermd indicatie",
+            "description": "Geeft aan of het adres, op basis van een afschermingsverzoek, afgeschermd is of niet"
+          },
+          "toevoegingAdres": {
+            "type": "string",
+            "title": "Adres toevoeging",
+            "description": "Vrije tekst om een Locatie nader te kunnen duiden. Bijvoorbeeld bij bedrijfsverzamelgebouwen met meerdere vestigingen"
+          },
+          "volledigAdres": {
+            "type": "string",
+            "title": "Volledig adres",
+            "description": "Samengesteld adres dat wordt afgeleid van de overige adresgegevens"
+          },
+          "straatnaam": {
+            "type": "string",
+            "title": "Straat naam",
+            "description": "Officiële naam openbare ruimte (80 tekens)"
+          },
+          "huisnummer": {
+            "type": "integer",
+            "title": "Huisnummer",
+            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering"
+          },
+          "huisletter": {
+            "type": "string",
+            "title": "Huisletter",
+            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken"
+          },
+          "huisnummerToevoeging": {
+            "type": "string",
+            "title": "Huisnummertoevoeging",
+            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
+          },
+          "postcode": {
+            "type": "string",
+            "title": "Postcode",
+            "description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)"
+          },
+          "plaats": {
+            "type": "string",
+            "title": "Plaats naam",
+            "description": "Officiële naam woonplaats"
+          },
+          "straatHuisnummerBuitenland": {
+            "type": "string",
+            "title": "Buitenland straat huisnummer",
+            "description": "Het straat/huisnummer is een combinatie van de straat en het huisnummer van het buitenlandse adres"
+          },
+          "postcodePlaatsBuitenland": {
+            "type": "string",
+            "title": "Buitenland plaats postcode",
+            "description": "De postcode/woonplaats is de combinatie van een eventuele postcode en woonplaats van het buitenlandse adres"
+          },
+          "regioBuitenland": {
+            "type": "string",
+            "title": "Buitenland regio naam",
+            "description": "Regio is een deel van het land (streek, provincie, etc.) van het buitenlandse adres"
+          },
+          "landBuitenland": {
+            "type": "string",
+            "title": "Buitenland naam",
+            "description": "De naam van het land waar het adres zich bevindt"
+          }
+        },
+        "title": "Bezoeklocatie locatiegegevens",
+        "description": "De locatiegegevens van de bezoekLocatie"
+      },
+      "bezoekGeopunt": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "title": "Bezoeklocatie geometrie",
+        "description": "De geometrie van de bezoekLocatie"
+      },
+      "bezoekHeeftNummeraanduiding": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:nummeraanduidingen",
+        "title": "Nummeraanduiding van bezoeklocatie",
+        "description": "Met welk adres heeft de locatie een relatie"
+      },
+      "bezoekHeeftVerblijfsobject": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:verblijfsobjecten",
+        "title": "Verblijfsobject van bezoeklocatie",
+        "description": "Met welk verblijfsobject heeft de locatie een relatie"
+      },
+      "bezoekHeeftLigplaats": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:ligplaatsen",
+        "title": "Ligplaats van bezoeklocatie",
+        "description": "Met welke ligplaats heeft de locatie een relatie"
+      },
+      "bezoekHeeftStandplaats": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:standplaatsen",
+        "title": "Standplaats van bezoeklocatie",
+        "description": "Met welke standplaats heeft de locatie een relatie"
+      },
+      "postLocatie": {
+        "type": "object",
+        "properties": {
+          "afgeschermd": {
+            "type": "string",
+            "title": "Adres afgeschermd indicatie",
+            "description": "Geeft aan of het adres, op basis van een afschermingsverzoek, afgeschermd is of niet"
+          },
+          "toevoegingAdres": {
+            "type": "string",
+            "title": "Adres toevoeging omschrijving",
+            "description": "Vrije tekst om een Locatie nader te kunnen duiden. Bijvoorbeeld om bedrijfsverzamelgebouwen met meerdere vestigingen"
+          },
+          "volledigAdres": {
+            "type": "string",
+            "title": "Volledig adres",
+            "description": "Samengesteld adres dat wordt afgeleid van de overige adresgegevens"
+          },
+          "straatnaam": {
+            "type": "string",
+            "title": "Straat naam",
+            "description": "Officiële naam openbare ruimte (80 tekens)"
+          },
+          "huisnummer": {
+            "type": "integer",
+            "title": "Huisnummer",
+            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering"
+          },
+          "huisletter": {
+            "type": "string",
+            "title": "Huisletter",
+            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken"
+          },
+          "huisnummerToevoeging": {
+            "type": "string",
+            "title": "Huisnummer toevoeging",
+            "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
+          },
+          "postbusnummer": {
+            "type": "integer",
+            "title": "Postbus nummer",
+            "description": "Het nummer van de postbus behorende bij het binnenlandse adres"
+          },
+          "postcode": {
+            "type": "string",
+            "title": "Postcode",
+            "description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)"
+          },
+          "plaats": {
+            "type": "string",
+            "title": "Plaats naam",
+            "description": "Officiële naam woonplaats"
+          },
+          "straatHuisnummerBuitenland": {
+            "type": "string",
+            "title": "Buitenland straat huisnummer",
+            "description": "Het straat/huisnummer is een combinatie van de straat en het huisnummer van het buitenlandse adres"
+          },
+          "postcodePlaatsBuitenland": {
+            "type": "string",
+            "title": "Buitenland plaats postcode",
+            "description": "De postcode/woonplaats is de combinatie van een eventuele postcode en woonplaats van het buitenlandse adres"
+          },
+          "regioBuitenland": {
+            "type": "string",
+            "title": "Buitenland regio naam",
+            "description": "Regio is een deel van het land (streek, provincie, etc.) van het buitenlandse adres"
+          },
+          "landBuitenland": {
+            "type": "string",
+            "title": "Buitenland naam",
+            "description": "De naam van het land waar het adres zich bevindt"
+          }
+        },
+        "title": "Postlocatie locatiegegevens",
+        "description": "De locatiegegevens van de postLocatie"
+      },
+      "postGeopunt": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "title": "Bezoeklocatie geometrie",
+        "description": "De geometrie van de postlocatie"
+      },
+      "postHeeftNummeraanduiding": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:nummeraanduidingen",
+        "title": "Nummeraanduiding van postlocatie",
+        "description": "Met welk adres heeft de locatie een relatie"
+      },
+      "postHeeftVerblijfsobject": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:verblijfsobjecten",
+        "title": "Verblijfsobject van postlocatie",
+        "description": "Met welke verblijfsobject heeft de locatie een relatie"
+      },
+      "postHeeftLigplaats": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:ligplaatsen",
+        "title": "Ligplaats van postlocatie",
+        "description": "Met welke ligplaats heeft de locatie een relatie"
+      },
+      "postHeeftStandplaats": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "bag:standplaatsen",
+        "title": "Standplaats van postlocatie",
+        "description": "Met welke standplaats heeft de locatie een relatie"
+      }
+    }
+  }
+}

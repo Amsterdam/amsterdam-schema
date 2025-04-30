@@ -1,0 +1,63 @@
+{
+  "id": "brandkranen",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "titel": "Openbare brandkranen",
+  "description": "De dataset bevat de openbare brandkranen in Amsterdam.",
+  "auth": "FP/MDW",
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "title": "Object ID",
+        "type": "string",
+        "provenance": "brandkranen_id",
+        "description": "Unieke identifier van het object."
+      },
+      "adres": {
+        "title": "Adres",
+        "provenance": "brandkranen_adres",
+        "type": "string",
+        "description": "Adresgegevens (straat en huisnummmer) volgens de bron."
+      },
+      "postcode": {
+        "title": "Postcode",
+        "provenance": "brandkranen_postcode",
+        "type": "string",
+        "description": "De postcode (poscode 4) van het object volgens de bron."
+      },
+      "geometrie": {
+        "title": "Geometrie",
+        "provenance": "brandkranen_geometrie",
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "Geometrie van het type POINT van de brandkraan in Rijksdriehoeksmeting  (epsg:28992)"
+      },
+      "gbdBuurtIdentificatie": {
+        "title": "Buurt ID",
+        "type": "string",
+        "relation": "gebieden:buurten",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+        "description": "Unieke identificatie van het object (naam van het kenmerk wijzigt van ID naar Identificatie in 2019)"
+      },
+      "gbdBuurtCode": {
+        "title": "Buurt code",
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+        "description": "Unieke code (hierin zie je de Stadsdeel- en Wijkcode terug)"
+      }
+    }
+  }
+}

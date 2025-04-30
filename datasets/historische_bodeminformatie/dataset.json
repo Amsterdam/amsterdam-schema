@@ -2,9 +2,7 @@
   "type": "dataset",
   "id": "historischeBodeminformatie",
   "title": "Historische bodeminformatie",
-  "status": "beschikbaar",
   "description": "Historische activiteiten/bevindingen die zijn gedaan in/op de ondergrond",
-  "version": "1.0.0",
   "dateCreated": "2024-07-23T00:00:00+01:00",
   "dateModified": "2024-07-31T00:00:00+01:00",
   "language": "nl",
@@ -31,34 +29,30 @@
     "lijnvormige obstakels"
   ],
   "crs": "EPSG:28992",
-  "tables": [
-    {
-      "id": "onderzoeken",
-      "$ref": "onderzoeken/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "onderzoeken/v1.0.0"
-      }
-    },
-    {
-      "id": "dempingenEnOphogingen",
-      "$ref": "dempingenEnOphogingen/v1.3.0",
-      "activeVersions": {
-        "1.3.0": "dempingenEnOphogingen/v1.3.0"
-      }
-    },
-    {
-      "id": "bodemgebruikEnObstakels",
-      "$ref": "bodemgebruikEnObstakels/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "bodemgebruikEnObstakels/v1.0.0"
-      }
-    },
-    {
-      "id": "lijnvormigeObstakels",
-      "$ref": "lijnvormigeObstakels/v1.0.0",
-      "activeVersions": {
-        "1.0.0": "lijnvormigeObstakels/v1.0.0"
-      }
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "onderzoeken",
+          "$ref": "onderzoeken/v1"
+        },
+        {
+          "id": "dempingenEnOphogingen",
+          "$ref": "dempingenEnOphogingen/v1"
+        },
+        {
+          "id": "bodemgebruikEnObstakels",
+          "$ref": "bodemgebruikEnObstakels/v1"
+        },
+        {
+          "id": "lijnvormigeObstakels",
+          "$ref": "lijnvormigeObstakels/v1"
+        }
+      ]
     }
-  ]
+  }
 }
