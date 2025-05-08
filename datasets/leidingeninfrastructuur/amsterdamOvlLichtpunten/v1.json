@@ -1,8 +1,7 @@
 {
   "id": "amsterdamOvlLichtpunten",
   "type": "table",
-  "version": "1.1.0",
-  "lifecycleStatus": "stable",
+  "version": "1.1.1",
   "title": "Amsterdam openbare verlichting lichtpunten",
   "description": "Lichtpunten openbare verlichting die door de Gemeente Amsterdam worden beheerd. Een lichtpunt is een object in de openbare ruimte dat kunstmatig licht geeft op basis van een sensor of ingesteld tijdsvenster.",
   "schema": {
@@ -15,40 +14,48 @@
     ],
     "display": "id",
     "properties": {
-      "id": {
+      {
+    "id": {
         "type": "integer",
-        "description": "Business-key: unieke aanduiding lichtpunt."
-      },
-      "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+        "title": "Lichtpunt ID",
+        "description": "Unieke identificatie van een lichtpunt."
+    },
+    "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
       },
       "geometry": {
         "$ref": "https://geojson.org/schema/Point.json",
+        "title": "Geometrie",
         "description": "Punt coordinaat van het lichtpunt (epsg:28992)"
       },
-      "bereikbaar": {
+    "bereikbaar": {
         "type": "string",
-        "description": "mate van bereikbaarheid lichtmast."
-      },
-      "bouwtype": {
+        "title": "Lichtpunt bereikbaarheid",
+        "description": "Mate van bereikbaarheid van een Lichtpunt."
+    },
+    "bouwtype": {
         "type": "string",
+        "title": "Lichtmast bouwtype",
+        "description": "Nadere aanduiding van het type bouwconstructie van een Lichtpunt.",
         "enum": [
-          "grondspot",
-          "onderbouw",
-          "opbouw",
-          "overspanning",
-          "schijnwerper"
-        ],
-        "description": "type bouwconstructie lichtmast."
-      },
-      "eigenaar": {
+            "grondspot",
+            "onderbouw",
+            "opbouw",
+            "overspanning",
+            "schijnwerper"
+        ]
+    },
+    "eigenaar": {
         "type": "string",
-        "description": "naam van eigenaar van lichtmast."
-      },
-      "mastcode": {
+        "title": "Lichtpunt eigenaar",
+        "description": "Naam van de eigenaar van een lichtmast."
+    },
+    "mastcode": {
         "type": "string",
-        "description": "categorie code van een lichtmast."
-      }
+        "title": "Lichtpunt categorie code",
+        "description": "Nadere aanduiding van de categorie van een Lichtpunt."
+    }
+}
     }
   }
 }
