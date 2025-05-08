@@ -1,7 +1,7 @@
 {
   "id": "amsterdamOvlBovengrondseKabels",
   "type": "table",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "lifecycleStatus": "stable",
   "title": "Amsterdam openbare verlichting bovengrondse kabels",
   "description": "Bovengrondse kabels openbare verlichting die door de Gemeente Amsterdam worden beheerd.",
@@ -17,130 +17,154 @@
     "properties": {
       "id": {
         "type": "integer",
-        "description": "Business-key: unieke aanduiding per voorkomen in tabel."
+        "title": "Bovengrondse kabel ID",
+        "description": "Unieke identificatie van een bovengrondse kabel."
       },
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
       },
       "geometry": {
-        "$ref": "https://geojson.org/schema/MultiLineString.json",
-        "description": "Lijncoördinaten van de bovengrondse kabel (epsg:28992)"
+        "title": "Geometrie",
+        "description": "Lijncoördinaten van de bovengrondse kabel (epsg:28992).",
+        "$ref": "https://geojson.org/schema/MultiLineString.json"
       },
       "inwinningstype": {
         "type": "string",
-        "description": "Kwaliteit van inwinning."
+        "title": "Kwaliteit inwinning",
+        "description": "De kwaliteit van de inwinning."
       },
       "thema": {
         "type": "string",
-        "description": "WIBON Thema."
+        "title": "WIBON thema",
+        "description": "Thema volgens de Wet informatie-uitwisseling bovengrondse en ondergrondse netten en netwerken (WIBON) richtlijnen."
       },
       "klasse": {
         "type": "string",
-        "description": "WIBON Klasse."
+        "title": "WIBON klasse",
+        "description": "Klasse volgens de Wet informatie-uitwisseling bovengrondse en ondergrondse netten en netwerken (WIBON) richtlijnen."
       },
       "type": {
         "type": "string",
-        "description": "WIBON Type."
+        "title": "WIBON type",
+        "description": "Type volgens de Wet informatie-uitwisseling bovengrondse en ondergrondse netten en netwerken (WIBON) richtlijnen."
       },
       "zichtbaar": {
         "type": "string",
-        "description": "Zichtbaar (Ja/Nee)."
+        "title": "Kabel zichtbaarheid indicatie",
+        "description": "Indicatie die aangeeft of de kabel zichtbaar is (Ja/Nee)."
       },
       "indicatieBovenOnder": {
         "type": "string",
-        "description": "Indicatie: Boven-/ondergronds.",
-        "provenance": "bovenonder"
+        "title": "Bovengronds/ondergronds indicatie",
+        "description": "Indicatie die aangeeft of de kabel bovengronds of ondergronds is."
       },
       "diepte": {
         "type": "number",
-        "unit": "cm",
-        "description": "Diepte in centimeters (t.o.v. maaiveld)."
+        "title": "Kabel diepte",
+        "description": "De diepte van de kabel in centimeters ten opzichte van het maaiveld.",
+        "unit": "cm"
       },
       "nauwkeurigheidDiepte": {
         "type": "string",
-        "description": "Nauwkeurigheid van de diepte."
+        "title": "Diepte nauwkeurigheid",
+        "description": "De nauwkeurigheid van de diepte van de kabel."
       },
       "hoogte": {
         "type": "number",
-        "unit": "cm",
-        "description": "Hoogte in centimeters. (t.o.v. maaiveld)"
+        "title": "Kabel hoogte",
+        "description": "De hoogte van de kabel in centimeters ten opzichte van het maaiveld.",
+        "unit": "cm"
       },
       "nauwkeurigheidHoogte": {
         "type": "string",
-        "description": "Nauwkeurigheid van de hoogte."
+        "title": "Kabel hoogte nauwkeurigheid",
+        "description": "De nauwkeurigheid van de hoogte van de kabel."
       },
       "hoofdcategorie": {
         "type": "string",
-        "description": "Hoofdcategorie."
+        "title": "Bovengrondse kabel hoofdcategorie",
+        "description": "De hoofdcategorie van de bovengrondse kabel."
       },
       "eigenaar": {
         "type": "string",
-        "description": "Eigenaar van de kabel."
+        "title": "Bovengrondse kabel eigenaar",
+        "description": "Naam van de eigenaar van de bovengrondse kabel."
       },
       "jaarVanAanleg": {
         "type": "integer",
-        "description": "Jaar van aanleg van de kabel.",
-        "provenance": "jva"
+        "title": "Kabel jaar van aanleg",
+        "description": "Het jaar waarin de kabel is aangelegd."
       },
       "typeExtra": {
         "type": "string",
-        "description": "Type extra (AC/DC).",
-        "provenance": "typeextra"
+        "title": "Soort voeding",
+        "description": "Keuze 'AC' (wisselstroom) of 'DC' (gelijkstroom)."
       },
       "functie": {
         "type": "string",
-        "description": "Functie van de kabel."
+        "title": "Bovengrondse kabel functie",
+        "description": "De functie van de bovengrondse kabel."
       },
       "van": {
         "type": "string",
-        "description": "Van (locatie van de kabel)."
+        "title": "Bovengrondse kabel startlocatie",
+        "description": "De startlocatie van de bovengrondse kabel."
       },
       "tot": {
         "type": "string",
-        "description": "Tot (locatie van de kabel)."
+        "title": "Bovengrondse kabel eindlocatie",
+        "description": "De eindlocatie van de bovengrondse kabel."
       },
       "kast": {
         "type": "string",
-        "description": "Kastnummer waarop de kabel is aangesloten."
+        "title": "Kastnummer",
+        "description": "Het nummer van de kast waarop de kabel is aangesloten."
       },
       "groep": {
         "type": "string",
-        "description": "Groepsnummer binnen de kast waar de kabel op is aangesloten."
+        "title": "Groepsnummer",
+        "description": "Het nummer van de groep binnen de kast waar de kabel op is aangesloten."
       },
       "kabeltype": {
         "type": "string",
-        "description": "Kabeltype."
+        "title": "Bovengrondse kabel type",
+        "description": "Spandraad of het kabeltype, dit is het soort kabel dat is gebruikt."
       },
       "kabeldiameter": {
         "type": "string",
-        "description": "Kabeldiameter in millimeters."
+        "title": "Kabel diameter",
+        "description": "De diameter van de kabel in millimeters."
       },
       "voltage": {
         "type": "string",
-        "description": "Voltage van de kabel."
+        "title": "Kabel voltage",
+        "description": "Het voltage dat op de kabel staat."
       },
       "bouwtype": {
         "type": "string",
-        "description": "Bouwtype van de kabel."
+        "title": "Kabel bouwtype",
+        "description": "Het bouwtype van de kabel. Dit kan overspanning, onderbouw of opbouw zijn."
       },
       "bereikbaar": {
         "type": "string",
-        "description": "Bereikbaarheid van de kabel.",
-        "provenance": "bereikbaarheid"
+        "title": "Kabel bereikbaarheid",
+        "description": "Hier wordt aangegeven of een kabel boven een trambaan of boven het water hangt."
       },
       "lengte": {
         "type": "number",
-        "unit": "m",
-        "description": "Lengte van de kabel in meters."
+        "title": "Kabel lengte",
+        "description": "De lengte van de kabel in meters.",
+        "unit": "m"
       },
       "kabelzegel": {
         "type": "string",
-        "provenance": "zegel",
-        "description": "Typering zegel van de kabel."
+        "title": "Kabel zegeltype",
+        "description": "Het type zegel van de kabel."
       },
       "ovs": {
         "type": "string",
-        "description": "Overspanningsinstallatie."
+        "title": "Overspanningsinstallatie",
+        "description": "Spandraad van één mast of gevel naar een andere mast of gevel, met aan de spandraad 0 tot meerdere verlichtingsobject(en), al dan niet met voedingskabel, inclusief de ophangconstructie en voedingspunt(en)."
       }
     }
   }

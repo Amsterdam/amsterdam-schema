@@ -1,7 +1,7 @@
 {
   "id": "amsterdamOvlMantelbuizen",
   "type": "table",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "lifecycleStatus": "stable",
   "title": "Amsterdam openbare verlichting ondergrondse mantelbuizen",
   "description": "Locaties en contextuele informatie ondergrondse mantelbuizen voor de openbare verlichting die door de Gemeente Amsterdam worden beheerd",
@@ -17,75 +17,87 @@
     "properties": {
       "id": {
         "type": "integer",
-        "description": "Business-key: unieke aanduiding per voorkomen in tabel."
+        "title": "Mantelbuis ID",
+        "description": "Unieke identificatie van een mantelbuis."
       },
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
       },
       "geometry": {
         "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "title": "Geometrie",
         "description": "Vlak-coördinaten van de Mantelbuis (epsg:28992)"
       },
       "inwinningstype": {
         "type": "string",
-        "description": "Kwaliteit van inwinning."
+        "title": "Kwaliteit inwinning",
+        "description": "De kwaliteit van inwinning. Dit kan analoog zijn waarbij het is ingetekend vanaf een schets of is ingemeten met een tablet. Of tachymetrisch waarbij dit is opgemeten met een meetstok.."
       },
       "thema": {
         "type": "string",
-        "description": "WIBON Thema."
+        "title": "WIBON thema",
+        "description": "Thema volgens de Wet informatie-uitwisseling bovengrondse en ondergrondse netten en netwerken (WIBON) richtlijnen."
       },
       "klasse": {
         "type": "string",
-        "description": "WIBON Klasse."
+        "title": "WIBON klasse",
+        "description": "Klasse volgens de Wet informatie-uitwisseling bovengrondse en ondergrondse netten en netwerken (WIBON) richtlijnen."
       },
       "type": {
         "type": "string",
-        "description": "WIBON Type.",
-        "provenance": "mantelbuistype"
+        "title": "Mantelbuis type",
+        "description": "Nadere aanduiding van het type mantelbuis volgens WIBON."
       },
       "materiaal": {
         "type": "string",
-        "description": "Materiaal van de Mantelbuis."
+        "title": "Mantelbuis materiaal",
+        "description": "Het materiaal waarvan de mantelbuis is gemaakt."
       },
       "zichtbaar": {
         "type": "string",
+        "title": "Mantelbuis zichtbaarheid indicatie",
+        "description": "Aanduiding of de mantelbuis zichtbaar is (ja/nee).",
         "enum": [
           "ja",
           "nee"
-        ],
-        "description": "Zichtbaar (ja/nee)."
+        ]
       },
       "diepte": {
         "type": "number",
-        "unit": "cm",
-        "description": "Diepte in centimeters. (t.o.v. maaiveld)."
+        "title": "Mantelbuis diepte",
+        "description": "Diepte van de mantelbuis in centimeters ten opzichte van het maaiveld.",
+        "unit": "cm"
       },
       "nauwkeurigheidDiepte": {
         "type": "string",
-        "description": "Nauwkeurigheid van de diepte."
+        "title": "Diepte nauwkeurigheid",
+        "description": "Omschrijving van de nauwkeurigheid van de diepte."
       },
       "hoofdcategorie": {
         "type": "string",
-        "description": "Hoofdcategorie."
+        "title": "Mantelbuis hoofdcategorie",
+        "description": "Nadere aanduiding voor de hoofdcategorie van de mantelbuis."
       },
       "eigenaar": {
         "type": "string",
-        "description": "Eigenaar van de mantelbuis."
+        "title": "Mantelbuis eigenaar",
+        "description": "Naam van de eigenaar van de mantelbuis."
       },
       "jaarVanAanleg": {
         "type": "integer",
-        "description": "Jaar van aanleg van de mantelbuis.",
-        "provenance": "jva"
+        "title": "Mantelbuis jaar van aanleg",
+        "description": "Jaar waarin de mantelbuis is aangelegd."
       },
       "diameter": {
         "type": "string",
-        "description": "Diameter van de mantelbuis in millimeters.",
-        "provenance": "mantelbuisdiameter"
+        "title": "Mantelbuis diameter",
+        "description": "Diameter van de mantelbuis uitgedrukt in millimeters."
       },
       "lengte": {
         "type": "number",
-        "unit": "m",
-        "description": "Lengte van de mantelbuis in meters."
+        "title": "Mantelbuis lengte",
+        "description": "Lengte van de mantelbuis uitgedrukt in meters.",
+        "unit": "m"
       }
     }
   }
