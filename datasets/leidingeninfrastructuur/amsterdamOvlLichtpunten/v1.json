@@ -2,6 +2,7 @@
   "id": "amsterdamOvlLichtpunten",
   "type": "table",
   "version": "1.1.1",
+  "lifecycleStatus": "stable",
   "title": "Amsterdam openbare verlichting lichtpunten",
   "description": "Lichtpunten openbare verlichting die door de Gemeente Amsterdam worden beheerd. Een lichtpunt is een object in de openbare ruimte dat kunstmatig licht geeft op basis van een sensor of ingesteld tijdsvenster.",
   "schema": {
@@ -14,14 +15,12 @@
     ],
     "display": "id",
     "properties": {
-      {
-    "id": {
+      "id": {
         "type": "integer",
-        "title": "Lichtpunt ID",
-        "description": "Unieke identificatie van een lichtpunt."
-    },
-    "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+        "description": "Business-key: unieke aanduiding lichtpunt."
+      },
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
       },
       "geometry": {
         "$ref": "https://geojson.org/schema/Point.json",
@@ -55,7 +54,6 @@
         "title": "Lichtpunt categorie code",
         "description": "Nadere aanduiding van de categorie van een Lichtpunt."
     }
-}
     }
   }
 }
