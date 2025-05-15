@@ -186,8 +186,8 @@ def azure_blob_uploader(
 
     # There is a hard limitation of 256 items on the `delete_blobs` azure method,
     # So we need to chunk the list of blobs.
-    # for chunk in chunked((b.name for b in filtered_blobs), 256):
-    #     container_client.delete_blobs(*chunk)  # 256 items limit?
+    for chunk in chunked((b.name for b in filtered_blobs), 256):
+        container_client.delete_blobs(*chunk)  # 256 items limit?
 
     # Upload indexes
     for filename, bytes_io_obj in index_files.items():
