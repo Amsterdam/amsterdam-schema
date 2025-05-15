@@ -178,7 +178,7 @@ def azure_blob_uploader(
     filtered_blobs = []
 
     for blob in blobs:
-        # Create exception for health check file
+        # Create exception for listing file
         if blob.name not in ['listing.html']:
             filtered_blobs.append(blob)
 
