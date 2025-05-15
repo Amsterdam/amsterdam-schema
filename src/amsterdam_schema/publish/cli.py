@@ -179,7 +179,6 @@ def azure_blob_uploader(
 
     for blob in blobs:
         if blob.name not in ['listing.html', 'profiles/index']:
-            print(f"Adding { blob.name }")
             filtered_blobs.append(blob)
 
     # There is a hard limitation of 256 items on the `delete_blobs` azure method,
