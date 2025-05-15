@@ -174,9 +174,17 @@ def azure_blob_uploader(
     # First delete all blobs in the container
     container_client = blob_srv.get_container_client(container)
 
+    blobs = container_client.list_blobs()
+    filtered_blobs = []
+
+    for blob in blobs:
+        # Create exception for listing file
+        if blob.name not in ['listing.html']:
+            filtered_blobs.append(blob)
+
     # There is a hard limitation of 256 items on the `delete_blobs` azure method,
     # So we need to chunk the list of blobs.
-    for chunk in chunked((b.name for b in container_client.list_blobs()), 256):
+    for chunk in chunked((b.name for b in filtered_blobs), 256):
         container_client.delete_blobs(*chunk)  # 256 items limit?
 
     # Upload indexes
