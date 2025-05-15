@@ -180,6 +180,7 @@ def azure_blob_uploader(
     for blob in blobs:
         # Create exception for listing file
         if blob.name not in ['listing.html']:
+            print(f"Queued for removal: { blob.name }")
             filtered_blobs.append(blob)
 
     # There is a hard limitation of 256 items on the `delete_blobs` azure method,
