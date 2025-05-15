@@ -179,6 +179,7 @@ def azure_blob_uploader(
 
     for blob in blobs:
         if (blob.name != 'listing.html' and blob.name != 'profiles/index'):
+            print(f"Adding {blob.name} for deletion")
             filtered_blobs.append(blob)
         else:
             print(f"Found {blob.name}")
