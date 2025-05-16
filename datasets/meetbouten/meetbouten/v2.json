@@ -1,0 +1,166 @@
+{
+  "id": "meetbouten",
+  "type": "table",
+  "version": "2.1.1",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": "identificatie",
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.3.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "title": "Meetbout ID",
+        "description": "Unieke identificatie van de meetbout"
+      },
+      "nabijAdres": {
+        "type": "string",
+        "title": "Nabij adres omschrijving",
+        "description": "Een adres in de nabijheid van de meetbout"
+      },
+      "locatie": {
+        "type": "string",
+        "title": "Meetbout locatie omschrijving",
+        "description": "Beschrijving van de locatie van de meetbout, bijvoorbeeld 'in gemeenschappelijke muur'"
+      },
+      "status": {
+        "type": "object",
+        "title": "Meetbout status",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "Status van de meetbout (1=actueel, 2=niet te meten, 3=vervallen)"
+      },
+      "vervaldatum": {
+        "type": "string",
+        "title": "Meetbout geldigheid einddatum",
+        "format": "date",
+        "description": "Datum waarop de meetbout is komen te vervallen"
+      },
+      "datumActueelTot": {
+        "type": "string",
+        "title": "Actueel tot datum",
+        "format": "date-time",
+        "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "merk": {
+        "type": "object",
+        "title": "Meetbout merk",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "omschrijving": {
+            "type": "string"
+          }
+        },
+        "description": "Gebruikte meetbout"
+      },
+      "xCoordinaatMuurvlak": {
+        "type": "integer",
+        "title": "Muurvlak x-coördinaat",
+        "description": "De muurvlakcoördinaten (in centimeters) geven de positie aan van het peilmerk op het betreffende muurvlak. De horizontale maat (x) is de maat ten opzichte van een van de uiteinden van het muurvlak"
+      },
+      "yCoordinaatMuurvlak": {
+        "type": "integer",
+        "title": "Muurvlak y-coördinaat",
+        "description": "De muurvlakcoördinaten (in centimeters) geven de positie aan van het peilmerk op het betreffende muurvlak. De verticale maat (y) is de maat ten opzichte van het ondereinde van het muurvlak (positief) of ten opzichte van het boveneinde van het muurvlak (negatief)"
+      },
+      "windrichting": {
+        "type": "string",
+        "title": "Windrichting omschrijving",
+        "description": "De windrichting van het muurvlak is die zijde waarheen het vlak van de muur, waarin het peilmerk zich bevindt, is gericht. Is er 'Z' aangegeven, dan ligt het betreffende muurvlak op het zuiden"
+      },
+      "ligtInGebiedenBouwblok": {
+        "type": "object",
+        "title": "Meetbout ligt in bouwblok",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "gebieden:bouwblokken",
+        "description": "Het bouwblok waarbinnen de meetbout ligt"
+      },
+      "ligtInGebiedenBuurt": {
+        "type": "object",
+        "title": "Meetbout ligt in buurt",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "gebieden:buurten",
+        "description": "De buurt waarbinnen de meetbout ligt"
+      },
+      "ligtInGebiedenStadsdeel": {
+        "type": "object",
+        "title": "Meetbout ligt in stadsdeel",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "relation": "gebieden:stadsdelen",
+        "description": "Het stadsdeel waarbinnen de meetbout ligt"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "title": "Geometrie",
+        "description": "Geometrische ligging van de meetbout"
+      },
+      "publiceerbaar": {
+        "type": "boolean",
+        "title": "Publiceerbaar indicatie",
+        "description": "Indicatie die aangeeft of de informatie gepubliceerd mag worden"
+      }
+    }
+  }
+}
