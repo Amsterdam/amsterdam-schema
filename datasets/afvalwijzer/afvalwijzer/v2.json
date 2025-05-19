@@ -1,0 +1,228 @@
+{
+  "id": "afvalwijzer",
+  "type": "table",
+  "version": "2.0.0",
+  "lifecycleStatus": "stable",
+  "title": "Afvalwijzer Amsterdam",
+  "description": "Overzicht van informatie voor het aanbieden van afval per fractie per adres.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "afvalwijzerGeometrie",
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "title": "ID",
+        "description": "Unieke aanduiding van het record."
+      },
+      "straatnaam": {
+        "title": "Straatnaam",
+        "type": "string",
+        "description": "Een naam om openbare ruimten als straten, lanen, wegen en stegen mee aan te duiden."
+      },
+      "huisnummer": {
+        "title": "Huisnummer",
+        "type": "integer",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering."
+      },
+      "huisletter": {
+        "title": "Huisletter",
+        "type": "string",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken"
+      },
+      "huisnummertoevoeging": {
+        "title": "Huisnummertoevoeging",
+        "type": "string",
+        "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
+      },
+      "postcode": {
+        "title": "Postcode",
+        "type": "string",
+        "description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters"
+      },
+      "woonplaatsnaam": {
+        "title": "Woonplaats naam",
+        "type": "string",
+        "description": "Een woonplaatsnaam is de naam van een door het bevoegde gemeentelijke orgaan als zodanig aangewezen gedeelte van het gemeentelijk grondgebied"
+      },
+      "statusAdres": {
+        "title": "Status adres",
+        "type": "string",
+        "description": "De fase van de levenscyclus van een verblijfsobject, ligplaats of staanplaats waarin het betreffende object zich bevindt"
+      },
+      "gebruiksdoelWoonfunctie": {
+        "title": "Gebruiksdoel woonfunctie code",
+        "type": "boolean",
+        "description": "De aanduiding of het gebruiksdoel een woonfunctie betreft, wijkt bij de Afvalwijzer af van het BAG-gebruiksdoel. Voor de Afvalwijzer wordt het gebruiksdoel woonfunctie bepaald op basis van de indicatoren in de BAG Verblijfsobjecten en de WOZ-objecten tabel."
+      },
+      "afvalwijzerInstructie": {
+        "title": "Afval aanbod instructie omschrijving",
+        "type": "string",
+        "description": "Instructie die aangeeft hoe het afval aangeboden mag worden"
+      },
+      "afvalwijzerBasisroutetypeId": {
+        "title": "Afval basisroute type ID",
+        "type": "string",
+        "description": "De unieke identificatie van de basisroutetype afval ophalen"
+      },
+      "afvalwijzerRoutenaam": {
+        "title": "Afval ophaalroute naam",
+        "type": "string",
+        "description": "De naam van de basisroute"
+      },
+      "afvalwijzerPerXWeken": {
+        "title": "Afval basisroute interval",
+        "type": "string",
+        "description": "Het interval in weken waarmee deze basisroute ingepland moet worden."
+      },
+      "afvalwijzerBuitenzettenVanafTot": {
+        "title": "Afval buitenzetten vanaf tot",
+        "type": "string",
+        "description": "Opmerking die aangeeft wannner de afval buiten mag gezet worden"
+      },
+      "afvalwijzerBuitenzettenVanaf": {
+        "title": "Afval buitenzetten vanaf omschrijving",
+        "type": "string",
+        "description": "Opmerking die aangeeft vanaf wanneer de afval buiten mag gezet worden"
+      },
+      "afvalwijzerBuitenzettenTot": {
+        "title": "Afval buitenzetten tot omschrijving",
+        "type": "string",
+        "description": "Opmerking die aangeeft tot wanneer de afval buiten mag gezet worden"
+      },
+      "afvalwijzerAfvalkalenderOpmerking": {
+        "title": "Afval wijze aanbieden omschrijving",
+        "type": "string",
+        "description": "Aanvullende opmerking over de manier van het aanbieden van het afval"
+      },
+      "afvalwijzerAfvalkalenderFrequentie": {
+        "title": "Afval ophalen frequentie",
+        "type": "string",
+        "description": "De frequentie waarmee het afval opgehaald wordt."
+      },
+      "afvalwijzerFractieNaam": {
+        "title": "Afval fractiesoort naam",
+        "type": "string",
+        "description": "Omschrijving van het soort afval"
+      },
+      "afvalwijzerFractieCode": {
+        "title": "Afval fractiesoort code",
+        "type": "string",
+        "description": "Nadere typering van het soort afval"
+      },
+      "afvalwijzerRoutetypeNaam": {
+        "title": "Afval basisroute naam",
+        "type": "string",
+        "description": "De naam van de basisroute"
+      },
+      "afvalwijzerOphaaldagen": {
+        "title": "Afval ophaaldagen omschrijving",
+        "type": "array",
+        "description": "Omschrijving van de dagen waarop het afval wordt opgehaald"
+      },
+      "afvalwijzerAfvalkalenderMelding": {
+        "title": "Afval ophalen afwijkende dagen omschrijving",
+        "type": "string",
+        "description": "Aanvullende informatie over afwijkende ophaaldagen"
+      },
+      "afvalwijzerAfvalkalenderVan": {
+        "title": "Afval ophalen afwijkende dagen startdatum geldigheid",
+        "type": "string",
+        "format": "date-time",
+        "description": "Begindatum van de geldigheid van de aanvullende informatie over de afwijkende ophaaldagen"
+      },
+      "afvalwijzerAfvalkalenderTot": {
+        "title": "Afval ophalen afwijkende dagen einddatum geldigheid",
+        "type": "string",
+        "format": "date-time",
+        "description": "Einddatum van de geldigheid van de aanvullende informatie over de afwijkende ophaaldagen"
+      },
+      "afvalwijzerBasisroutetype": {
+        "title": "Basisroute type",
+        "type": "string",
+        "description": "Type basisroute geeft aan wat voor inzamelmethode voor een route van tepassing is. "
+      },
+      "afvalwijzerBasisroutetypeOmschrijving": {
+        "title": "Afval basisroute type omschrijving",
+        "type": "string",
+        "description": "De omschrijving van het type van de basisroute"
+      },
+      "afvalwijzerBasisroutetypeCode": {
+        "title": "Afval basisroute type code",
+        "type": "string",
+        "description": "Nadere aanduiding van het type van de afval basisroute"
+      },
+      "afvalwijzerGeometrie": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "Geometrie van het type POINT van het adres in RD stelsel (epsg:28992)"
+      },
+      "afvalwijzerInstructie2": {
+        "title": "Afval aanvullende ophaalinstructie informatie",
+        "type": "string",
+        "description": "Aanvullende afval ophaalinstructie"
+      },
+      "afvalwijzerOphaaldagen2": {
+        "title": "Afval aanvullende ophaaldagen informatie",
+        "type": "array",
+        "description": "Aanvullende informatie over de ophaaldagen"
+      },
+      "afvalwijzerWaar": {
+        "title": "Afval plaatslocatie omschrijving",
+        "type": "string",
+        "description": "Informatie over de plek waar het afval gezet mag worden."
+      },
+      "afvalwijzerBuitenzetten": {
+        "type": "string",
+        "description": "De tijdslot wanneer de afval buiten gezet mag worden",
+        "title": "De tijdstip buitenzetten"
+      },
+      "afvalwijzerButtontekst": {
+        "type": "string",
+        "description": "De instructietekst die op een knop verschijnt om het afspraakformulier te starten.",
+        "title": "Buttontekst"
+      },
+      "afvalwijzerUrl": {
+        "type": "string",
+        "description": "URL die verwijst naar externe of interne websites voor relevante informatie.",
+        "title": "Link naar aanvullende informatie"
+      },
+      "bagNummeraanduidingId": {
+        "type": "string",
+        "uri": "https://bag.basisregistraties.overheid.nl/def/bag#identificatiecode",
+        "description": "Identificatie nummeraanduiding",
+        "title": "BAG Nummeraanduiding ID"
+      },
+      "gbdBuurtId": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+        "description": "Unieke identificatie van het object",
+        "title": "Gebied buurt ID"
+      },
+      "gbdBuurtCode": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+        "description": "Unieke code (hierin zie je de Stadsdeel- en Wijkcode terug)",
+        "title": "Gebied buurt code"
+      },
+      "afvalwijzerInzamelgebiedNaam": {
+        "title": "Afval inzamelgebied naam",
+        "type": "string",
+        "description": "De naam van het inzamelgebied"
+      },
+      "afvalwijzerInzamelgebiedCode": {
+        "title": "Afval inzamelgebied code",
+        "type": "string",
+        "description": "Nadere aanduiding van het inzamelgebied"
+      }
+    }
+  }
+}
