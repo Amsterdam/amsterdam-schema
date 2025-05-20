@@ -1,8 +1,9 @@
 {
   "id": "bominslag",
   "title": "Bominslag",
+  "lifecycleStatus": "stable",
   "type": "table",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -17,52 +18,69 @@
         "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
       },
       "id": {
-        "type": "integer"
+        "type": "integer",
+        "title": "Bominslag ID",
+        "description": "Unieke identificatie van een bominslag"
       },
       "geometry": {
-        "$ref": "https://geojson.org/schema/Geometry.json",
-        "provenance": "geometrie"
+        "type": "object",
+        "title": "Bominslag geometrie",
+        "description": "Geografische gegevens van de bominslag volgens het GeoJSON-formaat",
+        "$ref": "https://geojson.org/schema/Geometry.json"
       },
       "kenmerk": {
-        "type": "string"
+        "type": "string",
+        "title": "Bominslag kenmerk omschrijving",
+        "description": "Nadere beschrijving van het kenmerk van een bominslag"
       },
       "detailType": {
         "type": "string",
-        "provenance": "soort_hand"
+        "title": "Bominslag detail type",
+        "description": "Nadere beschrijving van een specifiek type detail van een bominslag"
       },
       "datumInslag": {
         "type": "string",
         "format": "date",
-        "provenance": "datum"
+        "title": "Bominslag datum",
+        "description": "De datum van een bominslag"
       },
       "datum": {
         "type": "string",
         "format": "date",
-        "provenance": "datum1"
+        "title": "Bominslag registratiedatum",
+        "description": "Datum van de registratie van de bominslag"
       },
       "bron": {
         "type": "string",
-        "provenance": "bron1"
+        "title": "Bominslag bron gegevens",
+        "description": "Omschrijving van de oorsprong van de gegevens van een bominslag"
       },
       "intekening": {
-        "type": "string"
+        "type": "string",
+        "title": "Intekening bominslag",
+        "description": "Omschrijving van de ingetekende gegevens of locatie van de bominslag"
       },
       "nauwkeurig": {
-        "type": "string"
+        "type": "string",
+        "title": "Bominslag gegevens nauwkeurigheid",
+        "description": "Nauwkeurigheid van de gegevens van de bominslag"
       },
       "opmerkingen": {
         "type": "string",
-        "provenance": "opmerkinge"
+        "title": "Opmerkingen bominslag",
+        "description": "Extra opmerkingen bij een bominslag"
       },
       "oorlogsinc": {
-        "type": "string"
+        "type": "string",
+        "title": "Bominslag oorlogsincident omschrijving",
+        "description": "Beschrijving van het oorlogsincident dat verband houdt met een bominslag"
       },
       "pdf": {
         "type": "string",
         "format": "uri",
-        "provenance": "hyperlink"
+        "title": "Bominslag pdf ulr",
+        "description": "Een digitale link naar de PDF met meer informatie over een bominslag"
       }
     }
-  },
-  "lifecycleStatus": "stable"
+  }
 }
