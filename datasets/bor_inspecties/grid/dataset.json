@@ -1,0 +1,49 @@
+{
+  "id": "borInspectiesGrid",
+  "type": "dataset",
+  "title": "BOR inspecties grid",
+  "description": "Dataset met gegevens over de lokale hoeveelheid door V&OR te beheren publieke ruimte op basis van GISIB data over groenobjecten en verhardingen en landelijk CBS-grid (vlakken 100x100m2 of 10x10m2).",
+  "objective": "Het beschikbaar stellen van gegevens over de verdeling van te beheren publieke ruimte ter ondersteuning van de kwaliteitsinspecties door Stadswerken",
+  "owner": "Directie Verkeer en Openbare Ruimte, Gemeente Amsterdam",
+  "authorizationGrantor": "Directie Stadswerken, Gemeente Amsterdam",
+  "dateCreated": "2025-05-21T00:00:00+01:00",
+  "creator": "Datateam Beeldschoon/BOR",
+  "publisher": {
+    "$ref": "publishers/BOR"
+  },
+  "license": "openbaar, tenzij anders aangegeven / behoudens uitzonderingen",
+  "auth": "FP/MDW",
+  "reasonsNonPublic": [
+    "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+      ],
+  "theme": [
+    "Ruimte en infrastructuur"
+  ],
+  "keywords": [
+    "verhardingen",
+    "groenobjecten",
+    "inspecties",
+    "Stadswerken",
+    "beheer openbare ruimte",
+    "grid"
+  ],
+  "crs": "EPSG:28992",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "raster_100",
+          "$ref": "raster_100/v1"
+        },
+        {
+          "id": "raster_10",
+          "$ref": "raster_10/v1"
+        }
+      ]
+    }
+  }
+}
