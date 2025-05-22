@@ -1,8 +1,11 @@
 {
   "id": "verdachtgebied",
   "title": "Verdachtgebied",
+  "lifecycleStatus": "stable",
   "type": "table",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "mainGeometry": "geometry",
+  "crs": "EPSG:28992",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -16,59 +19,77 @@
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
       },
-      "id": {
-        "type": "integer"
+        "id": {
+        "type": "integer",
+        "title": "Verdacht gebied ID",
+        "description": "Unieke identificatie van een verdacht gebied"
       },
       "geometry": {
-        "$ref": "https://geojson.org/schema/Geometry.json"
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Verdacht gebied geometrie",
+        "description": "Geografische gegevens van het verdachte gebied volgens het GeoJSON-formaat"
       },
       "kenmerk": {
-        "type": "string"
+        "type": "string",
+        "title": "Verdacht gebied kenmerk omschrijving",
+        "description": "Nadere beschrijving van het kenmerk van een verdacht gebied"
       },
       "detailType": {
         "type": "string",
-        "provenance": "hoofdgroep"
+        "title": "Verdacht gebied detail type",
+        "description": "Nadere beschrijving van de hoofdgroep van een verdacht gebied"
       },
       "subtype": {
         "type": "string",
-        "provenance": "subsoort"
+        "title": "Verdacht gebied sub type",
+        "description": "Nadere beschrijving van de subsoort van een verdacht gebied"
       },
       "kaliber": {
-        "type": "string"
+        "type": "string",
+        "title": "Exposief kaliber omschrijving",
+        "description": "Nadere omschrijving van het kaliber van het explosief"
       },
       "aantal": {
         "type": "string",
-        "provenance": "aantallen"
+        "title": "Verdacht gebied aantal explosieven",
+        "description": "Aantal explosieven in een verdacht gebied"
       },
       "verschijning": {
         "type": "string",
-        "provenance": "verschijni"
+        "title": "Explosieven verschijning omschrijving",
+        "description": "Omschrijving van de verschijning van explosieven in een verdacht gebied"
       },
       "oorlogshandeling": {
         "type": "string",
-        "provenance": "oorlogshan"
+        "title": "Oorlogshandeling omschrijving",
+        "description": "Omschrijving van de oorlogshandeling die verband houdt met het verdachte gebied"
       },
       "afbakening": {
-        "type": "string"
+        "type": "string",
+        "title": "Verdacht gebied afbakening omschrijving",
+        "description": "Omschrijving van de afbakening van het verdachte gebied"
       },
       "horizontaal": {
         "type": "string",
-        "provenance": "horizontal"
+        "title": "Verdacht gebied horizontale ligging",
+        "description": "Omschrijving van de horizontale ligging van het verdachte gebied"
       },
       "cartografie": {
         "type": "string",
-        "provenance": "cartografi"
+        "title": "Verdacht gebied cartografie",
+        "description": "Omschrijving van de cartografische gegevens van het verdachte gebied"
       },
       "opmerkingen": {
         "type": "string",
-        "provenance": "opmerkinge"
+        "title": "Verdacht gebied opmerkingen",
+        "description": "Extra opmerkingen bij het verdachte gebied"
       },
       "pdf": {
         "type": "string",
         "format": "uri",
-        "provenance": "hyperlink"
+        "title": "Verdacht gebied pdf ulr",
+        "description": "Een digitale link naar de pdf met meer informatie over een verdacht gebied"
       }
     }
-  },
-  "lifecycleStatus": "stable"
+  }
 }

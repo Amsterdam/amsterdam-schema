@@ -1,8 +1,11 @@
 {
   "id": "gevrijwaardgebied",
   "title": "Gevrijwaardgebied",
+  "lifecycleStatus": "stable",
   "type": "table",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "mainGeometry": "geometry",
+  "crs": "EPSG:28992",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -17,38 +20,51 @@
         "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
       },
       "id": {
-        "type": "integer"
+        "type": "integer",
+        "title": "Gevrijwaard gebied ID",
+        "description": "Unieke identificatie van een gevrijwaard gebied"
       },
       "geometry": {
-        "$ref": "https://geojson.org/schema/Geometry.json"
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Gevrijwaard gebied geometrie",
+        "description": "Geografische gegevens van een gevrijwaard gebied volgens het GeoJSON-formaat"
       },
       "kenmerk": {
-        "type": "string"
+        "type": "string",
+        "title": "Gevrijwaard gebied kenmerk omschrijving",
+        "description": "Nadere beschrijving van het kenmerk van een gevrijwaard gebied"
       },
       "detailType": {
         "type": "string",
-        "provenance": "soort_hand"
+        "title": "Detailtype gevrijwaard gebied",
+        "description": "Nadere beschrijving van een specifiek type detail van het gevrijwaard gebied"
       },
       "bron": {
         "type": "string",
-        "provenance": "bron1"
+        "title": "Gevrijwaard gebied bron gegevens",
+        "description": "Omschrijving van de oorsprong van de gegevens van het gevrijwaard gebied"
       },
       "datum": {
         "type": "string",
         "format": "date",
-        "provenance": "datum1"
+        "title": "Gevrijwaard gebied registratiedatum",
+        "description": "Datum van de registratie of goedkeuring van het gevrijwaard gebied"
       },
       "intekening": {
-        "type": "string"
+        "type": "string",
+        "title": "Gevrijwaard gebied intekening omschrijving",
+        "description": "Omschrijving van de ingetekende gegevens of locatie van het gevrijwaard gebied"
       },
       "nauwkeurig": {
-        "type": "string"
+        "type": "string",
+        "title": "Gevrijwaard gebied gegevens nauwkeurigheid",
+        "description": "Nauwkeurigheid van de gegevens van het gevrijwaard gebied"
       },
       "opmerkingen": {
         "type": "string",
-        "provenance": "opmerkinge"
+        "title": "Gevrijwaard gebied opmerkingen",
+        "description": "Extra opmerkingen bij het gevrijwaard gebied"
       }
-    }
-  },
-  "lifecycleStatus": "stable"
+    } 
+  }
 }
