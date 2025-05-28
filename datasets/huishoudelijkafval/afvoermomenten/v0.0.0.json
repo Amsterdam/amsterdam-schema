@@ -1,0 +1,157 @@
+{
+    "id": "afvoermomenten",
+    "type": "table",
+    "version": "0.0.0",
+    "title": "Afvoermomenten",
+    "description": "Bevat gegevens over wat en hoeveel is aangeboden bij verschillende afvalwerkers",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "id",
+        "required": [
+            "id",
+            "schema"
+        ],
+        "display": "verwerker",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+            },
+            "id": {
+                "title": "Id",
+                "type": "string",
+                "description": "Unieke aanduiding van het record. Combinatie verwerker en bon nummer"
+            },
+            "verwerker": {
+                "title": "Verwerker",
+                "type": "string",
+                "description": "Naam van de verwerker"
+            },
+            "bonNummer": {
+                "title": "Bonnummer",
+                "type": "string",
+                "description": "Unieke identificatie voor de afvalverwerking van de afvalverwerker."
+            },
+            "datum": {
+                "title": "Datum",
+                "type": "string",
+                "format": "date",
+                "description": "Datum van de afvalverwerking of registratie."
+            },
+            "tijd": {
+                "title": "Tijd",
+                "type": "string",
+                "format": "time",
+                "description": "Tijdstip van de verwerking of registratie."
+            },
+            "ontvangstLocatie": {
+                "title": "Ontvangst locatie",
+                "type": "string",
+                "description": "Locatie waar het afval wordt ontvangen."
+            },
+            "afvalstroomNummer": {
+                "title": "Afval stroomnummer",
+                "type": "string",
+                "description": "Afvalstroomnummer, een unieke code voor de afvalstroom."
+            },
+            "aanbieder": {
+                "title": "Aanbieder",
+                "type": "string",
+                "description": "Naam van de afvalaanbieder (klant, bedrijf of gemeente)."
+            },
+            "aanbiederStandplaats": {
+                "title": "Standplaats aanbieder",
+                "type": "string",
+                "description": "Locatie waar het afval is opgehaald."
+            },
+            "aanbiederStandplaatsOmschrijving": {
+                "title": "Omschrijving locatie aanbieder",
+                "type": "string",
+                "description": "Beschrijving van de ophaallocatie."
+            },
+            "aanbiederAdres": {
+                "title": "Adres aanbieder",
+                "type": "string",
+                "description": "Adres van de afvalaanbieder."
+            },
+            "aanbiederPostcode": {
+                "title": "Postcode aanbieder",
+                "type": "string",
+                "description": "Postcode van de afvalaanbieder."
+            },
+            "aanbiederPlaatsnaam": {
+                "title": "Plaatsnaam aanbieder",
+                "type": "string",
+                "description": "Plaatsnaam van de afvalaanbieder."
+            },
+            "afvalSoort": {
+                "title": "Afval soort",
+                "type": "string",
+                "description": "Beschrijving van het afval of de activiteit."
+            },
+            "geaccepteerd": {
+                "title": "Geaccepteerd",
+                "type": "string",
+                "description": "Status of het afval is geaccepteerd bij de ontvangstlocatie."
+            },
+            "opmerking": {
+                "title": "Opmerking",
+                "type": "string",
+                "description": "Aanvullende informatie over de afvalverwerking."
+            },
+            "kenteken": {
+                "title": "Kenteken",
+                "type": "string",
+                "description": " Kenteken van het voertuig dat het afval vervoert."
+            },
+            "kentekenKort": {
+                "title": "Verkort kenteken",
+                "type": "string",
+                "description": "Kenteken zonder '-'. Ten behove van koppeling met wagenpark_voertuig"
+            },
+            "weegBon": {
+                "title": "Weegbon",
+                "type": "string",
+                "description": "Nummer van de weegbon van de aanbieder voor het geregistreerde gewicht."
+            },
+            "weegDatum": {
+                "title": "Weeg datum",
+                "type": "string",
+                "format": "date",
+                "description": "Datum waarop het afval is gewogen."
+            },
+            "weegTijdstip": {
+                "title": "Weeg tijdstip",
+                "type": "string",
+                "format": "time",
+                "description": "Tijdstip waarop het afval is gewogen."
+            },
+            "inweging": {
+                "title": "Inweging",
+                "type": "integer",
+                "description": "Gewicht van het voertuig inclusief lading bij binnenkomst."
+            },
+            "uitweging": {
+                "title": "Uitweging",
+                "type": "integer",
+                "description": "Gewicht van het voertuig zonder lading bij vertrek."
+            },
+            "nettoGewicht": {
+                "title": "Netto gewicht",
+                "type": "string",
+                "description": "Verschil tussen vol en leeg gewicht, oftewel het gewicht van het afval."
+            },
+            "afvalstofCode": {
+                "title": "Afvalstof code",
+                "type": "string",
+                "description": "Code die het type afvalstof identificeert."
+            },
+            "afvalstofOmschrijving": {
+                "title": "Afvalstof omschrijving",
+                "type": "string",
+                "description": "Kenteken van het voertuig dat het afval vervoert."
+            }
+        }
+    }
+}
