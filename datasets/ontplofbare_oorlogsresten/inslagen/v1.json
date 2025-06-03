@@ -1,0 +1,123 @@
+{
+  "id": "inslagen",
+  "title": "Inslagen",
+  "lifecycleStatus": "experimental",
+  "type": "table",
+  "version": "1.0.0",
+  "mainGeometry": "geometrie",
+  "crs": "EPSG:28992",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "Inslag ID",
+        "description": "Unieke identificatie van een bominslag"
+      },
+      "kenmerkGeometrie": {
+        "type": "string",
+        "title": "Inslag kenmerk geometrie",
+        "description": "Nadere beschrijving van het kenmerk van een bominslag"
+      },
+      "kenmerkOorlogshandelingen": {
+        "type": "string",
+        "title": "Inslag kenmerk omschrijving",
+        "description": "Nadere beschrijving van het kenmerk van activiteit(en) die plaatsvonden tijdens de conflictperiode waarbij munitie/explosieven zijn ingezet."
+      },
+      "datumIncident": {
+        "type": "string",
+        "format": "date",
+        "title": "Inslag registratiedatum",
+        "description": "Datum van de bominslag"
+      },
+      "soortHandeling": {
+        "type": "string",
+        "title": "Inslag soort handeling",
+        "description": "Soort handeling van een inslag"
+      },
+      "bron": {
+        "type": "string",
+        "title": "Inslag bron",
+        "description": "Omschrijving van de oorsprong van de gegevens van een bominslag"
+      },
+      "datumIntekening": {
+        "type": "string",
+        "format": "date",
+        "title": "Inslag intekening datum",
+        "description": "Datum ingetekende gegevens of locatie van de bominslag"
+      },
+      "intekening": {
+        "type": "string",
+        "title": "Inslag intekening omschrijving",
+        "description": "Omschrijving van de ingetekende gegevens of locatie van een bominslag"
+      },
+      "cartografischeOnnauwkeurigheid": {
+        "type": "string",
+        "title": "Inslag cartografische onnauwkeurigheid",
+        "description": "Nadere beschrijving van de cartografische onnauwkeurigheid van een bominslag, mogelijke geografische afwijking als gevolg van inkarteren."
+      },
+      "bovengrensDiepteliggingM": {
+        "type": "string",
+        "title": "Inslag bovengrens hoogte",
+        "description": "Hoogte van de bovengrens van een bominslag"
+      },
+      "ondergrensDiepteliggingM": {
+        "type": "string",
+        "title": "Inslag ondergrens hoogte",
+        "description": "Hoogte van de ondergrens van een bominslag"
+      },
+      "referentiepeil": {
+        "type": "string",
+        "title": "Inslag referentiepeil",
+        "description": "Referentiepeil van een bominslag"
+      },
+      "typeOntsteker": {
+        "type": "string",
+        "title": "Inslag type ontsteker",
+        "description": "Type van de ontsteker"
+      },
+      "trillingsgevoelig": {
+        "type": "string",
+        "title": "Inslag trillingsgevoeligheid",
+        "description": "Trillingsgevoelige ontsteker (ja/nee)"
+      },
+      "hyperlink": {
+       "type": "string",
+        "format": "uri",
+        "title": "PDF URL Inslag",
+        "description": "Een digitale link naar de PDF met meer informatie over een bominslag"
+      },
+      "bewerkingsdatumGeometrie": {
+        "type": "string",
+        "format": "date",
+        "title": "Inslag bewerkingsdatum",
+        "description": "Datum van de laatste bewerking van de geometrie van een bominslag"
+      },
+      "uuidGeometrie": {
+        "type": "string",
+        "title": "Inslag UUID",
+        "description": "Unieke geografische identificatie van een bominslag"
+      },
+      "opmerkingen": {
+        "type": "string",
+        "title": "Inslag opmerkingen",
+        "description": "Extra opmerkingen over een bominslag"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Inslag geometrie",
+        "description": "Geografische gegevens van een bominslag volgens het GeoJSON-formaat"
+      }
+    } 
+  }
+}

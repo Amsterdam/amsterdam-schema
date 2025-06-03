@@ -1,0 +1,51 @@
+{
+  "type": "dataset",
+  "id": "ontplofbareOorlogsresten",
+  "title": "Ontplofbare Oorlogsresten",
+  "description": "Informatie over bominslagen, gevrijwaarde gebieden, verdachte gebieden en uitgevoerde onderzoeken",
+  "license": "public",
+  "theme": [
+    "Wonen",
+    "duurzaamheid en milieu",
+    "Ruimte en Topografie"
+  ],
+  "owner": "Gemeente Amsterdam",
+  "auth": "OPENBAAR",
+  "authorizationGrantor": "datateamsob@amsterdam.nl",
+  "creator": "Datateam Stedelijke Ontwikkeling & Beheer (SO&B)",
+  "publisher": {
+    "$ref": "publishers/SOEB"
+  },
+  "keywords": [
+    "bommen",
+    "explosies",
+    "gevaar"
+  ],
+  "crs": "EPSG:28992",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "experimental",
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "gevrijwaardeGebieden",
+          "$ref": "gevrijwaardeGebieden/v1"
+        },
+        {
+          "id": "inslagen",
+          "$ref": "inslagen/v1"
+        },
+        {
+          "id": "verdachtGebieden",
+          "$ref": "verdachtGebieden/v1"
+        },
+        {
+          "id": "uitgevoerdeOnderzoeken",
+          "$ref": "uitgevoerdeOnderzoeken/v1"
+        }
+      ]
+    }
+  }
+}
