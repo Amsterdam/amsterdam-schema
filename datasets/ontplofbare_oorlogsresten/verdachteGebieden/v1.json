@@ -1,0 +1,131 @@
+{
+  "id": "verdachteGebieden",
+  "title": "Verdachte Gebieden",
+  "lifecycleStatus": "experimental",
+  "type": "table",
+  "version": "1.0.0",
+  "crs": "EPSG:28992",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "geometrie",
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "Verdacht gebied ID",
+        "description": "Unieke identificatie van een verdacht gebied"
+      },
+      "kenmerkGeometrie": {
+        "type": "string",
+        "title": "Verdacht gebied kenmerk van geometrie",
+        "description": "Nadere beschrijving van het kenmerk van een verdacht gebied"
+      },
+      "kenmerkOorlogshandelingen": {
+        "type": "string",
+        "title": "Omschrijving van de oorlogshandeling",
+        "description": "Omschrijving van de oorlogshandeling die verband houdt met het verdachte gebied"
+      },
+      "hoofdgroep": {
+        "type": "string",
+        "title": "Verdacht gebied hoofdgroep",
+        "description": "Hoofdindeling van een explosief"
+      },
+      "subsoort": {
+        "type": "string",
+        "title": "Verdacht gebied subsoort",
+        "description": "Nadere beschrijving van de subsoort van een verdacht gebied"
+      },
+      "kaliber": {
+        "type": "string",
+        "title": "Verdacht gebied kaliber",
+        "description": "Nadere omschrijving van het kaliber van het explosief"
+      },
+      "aantallen": {
+        "type": "string",
+        "title": "Aantallen explosieven verdacht gebied",
+        "description": "Verwachte aantal explosieven in een verdacht gebied"
+      },
+      "verschijning": {
+        "type": "string",
+        "title": "Verdacht gebied verschijning",
+        "description": "Omschrijving van de verschijning van explosieven in een verdacht gebied"
+      },
+      "afbakening": {
+        "type": "string",
+        "title": "Verdacht gebied afbakening",
+        "description": "Omschrijving van de afbakening van het verdachte gebied"
+      },
+      "horizontaleAfbakening": {
+        "type": "string",
+        "title": "Verdacht gebied horizontale afbakening",
+        "description": "Nadere beschrijving van de horizontale afbakening van een verdacht gebied"
+      },
+      "cartografischeOnnauwkeurigheid": {
+        "type": "string",
+        "title": "Verdacht gebied cartografische onnauwkeurigheid",
+        "description": "Nadere beschrijving van de cartografische onnauwkeurigheid van een verdacht gebied als gevolg van inkarteren"
+      },
+      "bovengrensVerdachtGebiedM": {
+        "type": "string",
+        "title": "Verdacht gebied bovengrens hoogte",
+        "description": "Hoogte van de bovengrens van een verdacht gebied"
+      },
+      "ondergrensVerdachtGebiedM": {
+        "type": "string",
+        "title": "Verdacht gebied ondergrens hoogte",
+        "description": "Hoogte van de ondergrens van een verdacht gebied"
+      },
+      "referentiepeil": {
+        "type": "string",
+        "title": "Verdacht gebied referentiepeil",
+        "description": "Hoogtereferentievlak verdacht gebied (Maaiveld/NAP)"
+      },
+      "typeOntsteker": {
+        "type": "string",
+        "title": "Verdacht gebied type ontsteker",
+        "description": "Type ontsteker van het explosief"
+      },
+      "trillingsgevoelig": {
+        "type": "string",
+        "title": "Verdacht gebied trillingsgevoeligheid",
+        "description": "Trillingsgevoelige ontsteker (ja/nee)"
+      },
+      "hyperlink": {
+       "type": "string",
+        "format": "uri",
+        "title": "PDF URL verdacht gebied",
+        "description": "Een digitale link naar de PDF met meer informatie over een verdacht gebied"
+      },
+      "bewerkingsdatumGeometrie": {
+        "type": "string",
+        "format": "date",
+        "title": "Verdacht gebied bewerkingsdatum",
+        "description": "Datum van de laatste bewerking van de geometrie van een verdacht gebied"
+      },
+      "uuidGeometrie": {
+        "type": "string",
+        "title": "Verdacht gebied UUID",
+        "description": "Unieke geografische identificatie van een verdacht gebied"
+      },
+      "opmerkingen": {
+        "type": "string",
+        "title": "Verdacht gebied opmerkingen",
+        "description": "Extra opmerkingen over een verdacht gebied"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Verdacht gebied geometrie",
+        "description": "Geografische gegevens van een verdacht gebied volgens het GeoJSON-formaat"
+      }
+    } 
+  }
+}

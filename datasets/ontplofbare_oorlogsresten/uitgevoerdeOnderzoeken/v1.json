@@ -1,0 +1,91 @@
+{
+  "id": "uitgevoerdeOnderzoeken",
+  "title": "Uitgevoerde Onderzoeken",
+  "lifecycleStatus": "experimental",
+  "type": "table",
+  "version": "1.0.0",
+  "crs": "EPSG:28992",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "geometrie",
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "Uitgevoerde onderzoek ID",
+        "description": "Unieke identificatie van een uitgevoerde onderzoek"
+      },
+      "typeOnderzoek": {
+        "type": "string",
+        "title": "Uitgevoerde onderzoek type",
+        "description": "Specifiek type rapport van het uitgevoerde onderzoek"
+      },
+      "onderzoeksgebied": {
+        "type": "string",
+        "title": "Onderzoeksgebied van het uitgevoerde onderzoek",
+        "description": "Gebied waarop het onderzoek is uitgevoerd"
+      },
+      "opdrachtnemer": {
+        "type": "string",
+        "title": "Uitgevoerde onderzoek opdrachtnemer",
+        "description": "Verantwoordelijke persoon of organisatie die het onderzoek heeft uitgevoerd"
+      },
+      "opdrachtgever": {
+        "type": "string",
+        "title": "Uitgevoerde onderzoek opdrachtgever",
+        "description": "Persoon of organisatie die opdracht heeft gegeven voor het onderzoek"
+      },
+      "verdachtgebied": {
+        "type": "string",
+        "title": "Uitgevoerde onderzoek verdacht gebied",
+        "description": "Verdachtgebied van een uitgevoerde onderzoek"
+      },
+      "datum": {
+        "type": "string",
+        "format": "date",
+        "title": "Uitgevoerde onderzoek datum",
+        "description": "Datum van een uitgevoerde onderzoek"
+      },
+      "inBezit": {
+        "type": "string",
+        "title": "In bezit van een uitgevoerde onderzoek",
+        "description": "Of het onderzoek bij de gemeente in bezit is (ja/nee)"
+      },
+      "kenmerkRapport": {
+        "type": "string",
+        "title": "Uitgevoerde onderzoek kenmerk rapport",
+        "description": "Omschrijving van het kenmerk van het uitgevoerde onderzoek"
+      },
+      "bewerkingsdatumGeometrie": {
+        "type": "string",
+        "format": "date",
+        "title": "Uitgevoerde onderzoek bewerkingsdatum",
+        "description": "Datum van de laatste bewerking van de geometrie van een uitgevoerde onderzoek"
+      },
+      "uuidGeometrie": {
+        "type": "string",
+        "title": "Uitgevoerde onderzoek UUID",
+        "description": "Unieke geografische identificatie van een uitgevoerde onderzoek"
+      },
+      "opmerkingen": {
+        "type": "string",
+        "title": "Uitgevoerde onderzoek opmerkingen",
+        "description": "Extra opmerkingen over een uitgevoerde onderzoek"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Uitgevoerde onderzoek geometrie",
+        "description": "Geografische gegevens van een uitgevoerde onderzoek volgens het GeoJSON-formaat"
+      }
+    } 
+  }
+}
