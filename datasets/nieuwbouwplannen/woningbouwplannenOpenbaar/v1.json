@@ -2,7 +2,7 @@
   "id": "woningbouwplannenOpenbaar",
   "title": "Woningbouwplannen openbaar",
   "type": "table",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "lifecycleStatus": "stable",
   "auth": "OPENBAAR",
   "schema": {
@@ -19,15 +19,15 @@
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
       },
-      "id": {
+  "id": {
     "type": "integer",
     "description": "Unieke aanduiding van nieuwbouwproject.",
-    "title": "Nieuwbouwplannen project identificatie"
+    "title": "Nieuwbouwplannen project ID"
   },
   "projectnaamAfkorting": {
     "type": "string",
     "description": "Naam van het project. Vaak gebaseerd op de benaming in Primavera, voorzover bekend aangevuld met benamingen van andere partijen zoals makelaars.",
-    "title": "Projectnaam"
+    "title": "Nieuwbouwplan projectnaam"
   },
   "buurtCode": {
     "type": "string",
@@ -87,74 +87,74 @@
   "startBouwGepland": {
     "type": "string",
     "description": "Datum waarop start bouw van het project gepland staat.",
-    "title": "Geplande start bouw datum",
+    "title": "Geplande startdatum bouw",
     "format": "date"
   },
   "startBouwGerealiseerd": {
     "type": "string",
     "description": "Datum waarop start van het project is gerealiseerd.",
-    "title": "Gerealiseerde start bouw datum",
+    "title": "Gerealiseerde startdatum bouw",
     "format": "date"
   },
   "socialeHuurZelfstPerm": {
     "type": "integer",
     "description": "Het aantal zelfstandige permanente sociale huurwoningen binnen het project.",
-    "title": "Aantal zelfstandige permanente sociale huurwoningen"
+    "title": "Zelfstandige permanente sociale huurwoningen aantal"
   },
   "middeldureHuur": {
     "type": "integer",
     "description": "Het aantal middeldure huurwoningen binnen het project.",
-    "title": "Aantal middeldure huurwoningen"
+    "title": "Middeldure huurwoningen aantal"
   },
   "socialeKoop": {
     "type": "integer",
     "description": "Het aantal sociale koopwoningen binnen het project.",
-    "title": "Aantal sociale koopwoningen"
+    "title": "Sociale koopwoningen aantal"
   },
   "vrijeSectorHuur": {
     "type": "integer",
     "description": "Het aantal vrije sector huurwoningen binnen het project.",
-    "title": "Aantal vrije sector huurwoningen"
+    "title": "Vrije sector huurwoningen aantal"
   },
   "vrijeSectorKoop": {
     "type": "integer",
     "description": "Het aantal vrije sector koopwoningen binnen het project.",
-    "title": "Aantal vrije sector koopwoningen"
+    "title": "Vrije sector koopwoningen aantal"
   },
   "vrijeSectorNb": {
     "type": "integer",
     "description": "Het aantal vrije sector woningen dat binnen het project waarvan later nog wordt bepaald of dit koop of huur wordt.",
-    "title": "Aantal vrije sector woningen onbekend huur/koop"
+    "title": "Vrije sector woningen onbekend huur/koop aantal"
   },
   "onbekend": {
     "type": "integer",
     "description": "Het aantal woningen binnen het project waarvan de segmentering onbekend is.",
-    "title": "Aantal onbekende segmentering woningen"
+    "title": "Onbekende segmentering woningen aantal"
   },
   "jongeren": {
     "type": "string",
     "description": "Het aantal jongerenwoningen binnen het project.",
-    "title": "Aantal jongerenwoningen"
+    "title": "Jongerenwoningen aantal"
   },
   "studenten": {
     "type": "string",
     "description": "Het aantal studentenwoningen binnen het project.",
-    "title": "Aantal studentenwoningen"
+    "title": "Studentenwoningen aantal"
   },
   "shOnzelfstEnOfTijdelijk": {
     "type": "string",
     "description": "Het aantal onzelfstandig en/of tijdelijke sociale huurwoningen binnen het project.",
-    "title": "Aantal onzelfstandig en/of tijdelijke sociale huurwoningen"
+    "title": "Onzelfstandig en/of tijdelijke sociale huurwoningen aantal"
   },
   "onzelfstandig": {
     "type": "string",
     "description": "Het aantal onzelfstandig woningen binnen het project.",
-    "title": "Aantal onzelfstandig woningen"
+    "title": "Onzelfstandig woningen aantal"
   },
   "tijdelijk": {
     "type": "string",
     "description": "Het aantal tijdelijke woningen binnen het project.",
-    "title": "Aantal tijdelijke woningen"
+    "title": "Tijdelijke woningen aantal"
   },
   "totaal": {
     "type": "integer",
@@ -164,16 +164,16 @@
   "totaalZelfstPerm": {
     "type": "integer",
     "description": "Het totaal aantal zelfstandige en permanente woningen binnen het project.",
-    "title": "Totaal aantal woningen zelfstandig en permanent"
+    "title": "Totaal aantal zelfstandige en permanente woningen"
   },
   "peildatum": {
     "type": "string",
     "format": "date",
     "description": "De peildatum van het bestand. Dit kan 01-01-yy, 01-04-yy, 01-07-yy of 01-10-yy zijn.",
-    "title": "Peildatum van het bestand"
+    "title": "Bestand peildatum"
   },
   "geometrie": {
-    "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)",
+    "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD).",
     "title": "Geometrie",
     "$ref": "https://geojson.org/schema/MultiPolygon.json"
   }
