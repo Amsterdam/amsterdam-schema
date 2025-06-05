@@ -1,9 +1,9 @@
 {
   "id": "raster_100",
   "type": "table",
-  "provenance": "bkt_beheerkaart_cbs_grid_raster_100",
-  "description": "Tabel met CBS-grid-raster (vlakken 100x100m2) en te beheren percentages publieke ruimte (totaal>=10%) op basis van de beheerkaart publieke ruimte.",
-  "version": "1.0.1",
+  "provenance": "bor_inspecties_raster_100",
+  "description": "Deze tabel bevat de BOR inspecties grid vlakken (100x100m2) die in totaal ≥10% oppervlak met door V&OR te beheren publieke ruimte bevatten. Dit percentage is gebaseerd op de verhardingsobjecten en groenobjecten uit GISIB.",
+  "version": "1.0.2",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -21,112 +21,112 @@
       "id": {
         "provenance": "bk_cbs_grid_100_asd",
         "type": "string",
-        "description": "Business-key: unieke aanduiding record (BKT-CBS-grid-100-vlak)."
+        "description": "Business-key: unieke aanduiding van het 100x100 vlak."
       },
       "bkCbsGrid100Asd": {
         "type": "string",
-        "description": "Business-key: unieke aanduiding record (BKT-CBS-grid-100-vlak)."
+        "description": "Business-key: unieke aanduiding van het 100x100 vlak."
       },
       "rasterActief": {
         "type": "boolean",
-        "description": "Indicatie of het BKT-CBS-grid-100-vlak als actief wordt aangemerkt door Stadswerken / Apptimize."
+        "description": "Indicatie of het 100x100 vlak als actief wordt aangemerkt door Stadswerken / Apptimize [waar/onwaar]."
       },
       "cbsGeometrie100": {
         "$ref": "https://geojson.org/schema/Polygon.json",
-        "description": "Vlak-coördinaten van het BKT-CBS-grid-100-vlak."
+        "description": "Vlak-coördinaten van het 100x100 vlak."
       },
       "gemeentenaam": {
         "type": "string",
-        "description": "Naam van gemeente die overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Naam van gemeente die overlapt met het 100x100 vlak."
       },
       "buurtnaam": {
         "type": "string",
-        "description": "Naam van buurt die overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Namen van buurten die overlappen met het 100x100 vlak."
       },
       "buurtcode": {
         "type": "string",
-        "description": "Code van buurt die overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Codes van buurten die overlappen met het 100x100 vlak."
       },
       "dominantbuurt": {
         "type": "string",
-        "description": "Naam van dominante buurt die overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Naam van buurt die het meeste te beheren oppervlak heeft binnen het 100x100 vlak."
       },
       "dominantbuurtcode": {
         "type": "string",
-        "description": "Code van dominante buurt die overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Code van buurt die het meeste te beheren oppervlak heeft binnen het 100x100 vlak."
       },
       "wijknaam": {
         "type": "string",
-        "description": "Naam van wijk die overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Namen van wijken die overlappen met het 100x100 vlak."
       },
       "wijkcode": {
         "type": "string",
-        "description": "Code van wijk die overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Codes van wijken die overlappen met het 100x100 vlak."
       },
       "dominantwijk": {
         "type": "string",
-        "description": "Naam van dominante wijk die overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Naam van wijk waarin de dominante buurt ligt volgens BAG."
       },
       "dominantwijkcode": {
         "type": "string",
-        "description": "Code van dominante wijk die overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Code van wijk waarin de dominante buurt ligt volgens BAG."
       },
       "stadsdeelnaam": {
         "type": "string",
-        "description": "Naam van stadsdeel dat overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Namen van stadsdelen die overlappen met het 100x100 vlak."
       },
       "stadsdeelcode": {
         "type": "string",
-        "description": "Code van stadsdeel dat overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Codes van stadsdelen die overlappen met het 100x100 vlak."
       },
       "dominantstadsdeel": {
         "type": "string",
-        "description": "Naam van dominant stadsdeel dat overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Naam van het stadsdeel waarin de dominante buurt ligt volgens BAG."
       },
       "dominantstadsdeelcode": {
         "type": "string",
-        "description": "Code van dominant stadsdeel dat overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Code van het stadsdeel waarin de dominante buurt ligt volgens BAG."
       },
       "ggwGebiedNaam": {
         "type": "string",
-        "description": "Naam van gebiedsgerichtwerken-gebied dat overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Namen van gebiedsgerichtwerken-gebieden die overlappen met het 100x100 vlak."
       },
       "ggwGebiedCode": {
         "type": "string",
-        "description": "Code van gebiedsgerichtwerken-gebied dat overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Codes van gebiedsgerichtwerken-gebieden die overlappen met het 100x100 vlak."
       },
       "dominantGgwGebied": {
         "type": "string",
-        "description": "Naam van dominant gebiedsgerichtwerken-gebied dat overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Code van gebiedsgerichtwerken-gebied waarin de dominante buurt ligt volgens BAG."
       },
       "dominantGgwGebiedcode": {
         "type": "string",
-        "description": "Code van dominant gebiedsgerichtwerken-gebied dat overlapt met het BKT-CBS-grid-100-vlak."
+        "description": "Code van dominant gebiedsgerichtwerken-gebied waarin de dominante buurt ligt volgens BAG."
       },
       "percentageBlauw": {
         "type": "number",
         "minimum": 0,
-        "description": "Percentage kleur blauw (bgt_waterdeel) binnen het BKT-CBS-grid-100-vlak."
+        "description": "Percentage te beheren blauw binnen het 100x100 vlak."
       },
       "percentageGrijs": {
         "type": "number",
         "minimum": 0,
-        "description": "Percentage kleur grijs (bgt_wegdeel, bgt_ondersteunend_wegdeel) binnen het BKT-CBS-grid-100-vlak."
+        "description": "Percentage te beheren grijs (verhardingsobjecten) binnen het 100x100 vlak."
       },
       "percentageGroen": {
         "type": "number",
         "minimum": 0,
-        "description": "Percentage kleur groen (bgt_begroeid_terrein) binnen het BKT-CBS-grid-100-vlak."
+        "description": "Percentage te beheren groen (groenobjecten) binnen het 100x100 vlak."
       },
       "percentageOverig": {
         "type": "number",
         "minimum": 0,
-        "description": "Percentage overig (overige bgt_objectklassen) binnen het BKT-CBS-grid-100-vlak."
+        "description": "Percentage te beheren overig binnen het 100x100 vlak."
       },
       "percentagePubliekeRuimte": {
         "type": "number",
         "minimum": 0,
-        "description": "Totaal percentage publieke ruimte (>=10%) binnen het BKT-CBS-grid-100-vlak."
+        "description": "Totaal percentage te beheren publieke ruimte binnen het individuele vlak (alleen ≥10% getoond)."
       }
     }
   },
