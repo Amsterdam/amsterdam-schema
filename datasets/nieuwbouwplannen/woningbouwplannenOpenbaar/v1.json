@@ -2,7 +2,7 @@
   "id": "woningbouwplannenOpenbaar",
   "title": "Woningbouwplannen openbaar",
   "type": "table",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "lifecycleStatus": "stable",
   "auth": "OPENBAAR",
   "schema": {
@@ -19,55 +19,55 @@
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
       },
-  "id": {
+      "id": {
     "type": "integer",
     "description": "Unieke aanduiding van nieuwbouwproject.",
-    "title": "Nieuwbouwplannen project ID"
+    "title": "Nieuwbouwplan project identificatie"
   },
   "projectnaamAfkorting": {
     "type": "string",
     "description": "Naam van het project. Vaak gebaseerd op de benaming in Primavera, voorzover bekend aangevuld met benamingen van andere partijen zoals makelaars.",
-    "title": "Nieuwbouwplan projectnaam"
+    "title": "Projectnaam"
   },
   "buurtCode": {
     "type": "string",
     "description": "Code van de buurt waar het nieuwbouwproject in ligt. Een buurt is aaneengesloten gedeelte binnen een wijk, waarvan de grenzen zo veel mogelijk gebaseerd zijn op topografische elementen.",
-    "title": "Nieuwbouwplannen buurtcode"
+    "title": "Nieuwbouwplan buurtcode"
   },
   "buurtNaam": {
     "type": "string",
     "description": "Naam van de buurt waar het nieuwbouwproject in ligt. Een buurt is aaneengesloten gedeelte binnen een wijk, waarvan de grenzen zo veel mogelijk gebaseerd zijn op topografische elementen.",
-    "title": "Nieuwbouwplannen buurtnaam"
+    "title": "Nieuwbouwplan buurtnaam"
   },
   "wijkCode": {
     "type": "string",
     "description": "Code van de wijk waar het nieuwbouwproject in ligt. Een wijk is een aaneengesloten gedeelte van het grondgebied van een gemeente, waarvan de grenzen zo veel mogelijk zijn gebaseerd op sociaal-geografische kenmerken.",
-    "title": "Nieuwbouwplannen wijkcode"
+    "title": "Nieuwbouwplan wijkcode"
   },
   "wijkNaam": {
     "type": "string",
     "description": "Naam van de wijk waar het nieuwbouwproject in ligt. Een wijk is een aaneengesloten gedeelte van het grondgebied van een gemeente, waarvan de grenzen zo veel mogelijk zijn gebaseerd op sociaal-geografische kenmerken.",
-    "title": "Nieuwbouwplannen wijknaam"
+    "title": "Nieuwbouwplan wijknaam"
   },
   "gebiedCode": {
     "type": "string",
     "description": "Code van het gebied waar het nieuwbouwproject in ligt.",
-    "title": "Nieuwbouwplannen gebiedscode"
+    "title": "Nieuwbouwplan gebiedscode"
   },
   "gebiedNaam": {
     "type": "string",
     "description": "Naam van het gebied waar het nieuwbouwproject in ligt.",
-    "title": "Nieuwbouwplannen gebiedsnaam"
+    "title": "Nieuwbouwplan gebiedsnaam"
   },
   "stadsdeelCode": {
     "type": "string",
     "description": "Code van het stadsdeel. Een stadsdeel is een door de Amsterdamse gemeenteraad vastgestelde begrenzing dat valt onder een stadsgebied- of stadsdeelbestuur.",
-    "title": "Nieuwbouwplannen stadsdeel code"
+    "title": "Nieuwbouwplan stadsdeel code"
   },
   "stadsdeelNaam": {
     "type": "string",
     "description": "Naam van het stadsdeel. Een stadsdeel is een door de Amsterdamse gemeenteraad vastgestelde begrenzing dat valt onder een stadsgebied- of stadsdeelbestuur.",
-    "title": "Nieuwbouwplannen stadsdeel naam"
+    "title": "Nieuwbouwplan stadsdeel naam"
   },
   "zelfbouw": {
     "type": "string",
@@ -87,74 +87,74 @@
   "startBouwGepland": {
     "type": "string",
     "description": "Datum waarop start bouw van het project gepland staat.",
-    "title": "Geplande startdatum bouw",
+    "title": "Geplande start bouw datum",
     "format": "date"
   },
   "startBouwGerealiseerd": {
     "type": "string",
     "description": "Datum waarop start van het project is gerealiseerd.",
-    "title": "Gerealiseerde startdatum bouw",
+    "title": "Gerealiseerde start bouw datum",
     "format": "date"
   },
   "socialeHuurZelfstPerm": {
     "type": "integer",
     "description": "Het aantal zelfstandige permanente sociale huurwoningen binnen het project.",
-    "title": "Zelfstandige permanente sociale huurwoningen aantal"
+    "title": "Aantal zelfstandige permanente sociale huurwoningen"
   },
   "middeldureHuur": {
     "type": "integer",
     "description": "Het aantal middeldure huurwoningen binnen het project.",
-    "title": "Middeldure huurwoningen aantal"
+    "title": "Aantal middeldure huurwoningen"
   },
   "socialeKoop": {
     "type": "integer",
     "description": "Het aantal sociale koopwoningen binnen het project.",
-    "title": "Sociale koopwoningen aantal"
+    "title": "Aantal sociale koopwoningen"
   },
   "vrijeSectorHuur": {
     "type": "integer",
     "description": "Het aantal vrije sector huurwoningen binnen het project.",
-    "title": "Vrije sector huurwoningen aantal"
+    "title": "Aantal vrije sector huurwoningen"
   },
   "vrijeSectorKoop": {
     "type": "integer",
     "description": "Het aantal vrije sector koopwoningen binnen het project.",
-    "title": "Vrije sector koopwoningen aantal"
+    "title": "Aantal vrije sector koopwoningen"
   },
   "vrijeSectorNb": {
     "type": "integer",
     "description": "Het aantal vrije sector woningen dat binnen het project waarvan later nog wordt bepaald of dit koop of huur wordt.",
-    "title": "Vrije sector woningen onbekend huur/koop aantal"
+    "title": "Aantal vrije sector woningen onbekend huur/koop"
   },
   "onbekend": {
     "type": "integer",
     "description": "Het aantal woningen binnen het project waarvan de segmentering onbekend is.",
-    "title": "Onbekende segmentering woningen aantal"
+    "title": "Aantal onbekende segmentering woningen"
   },
   "jongeren": {
     "type": "string",
     "description": "Het aantal jongerenwoningen binnen het project.",
-    "title": "Jongerenwoningen aantal"
+    "title": "Aantal jongerenwoningen"
   },
   "studenten": {
     "type": "string",
     "description": "Het aantal studentenwoningen binnen het project.",
-    "title": "Studentenwoningen aantal"
+    "title": "Aantal studentenwoningen"
   },
   "shOnzelfstEnOfTijdelijk": {
     "type": "string",
     "description": "Het aantal onzelfstandig en/of tijdelijke sociale huurwoningen binnen het project.",
-    "title": "Onzelfstandig en/of tijdelijke sociale huurwoningen aantal"
+    "title": "Aantal onzelfstandig en/of tijdelijke sociale huurwoningen"
   },
   "onzelfstandig": {
     "type": "string",
     "description": "Het aantal onzelfstandig woningen binnen het project.",
-    "title": "Onzelfstandig woningen aantal"
+    "title": "Aantal onzelfstandig woningen"
   },
   "tijdelijk": {
     "type": "string",
     "description": "Het aantal tijdelijke woningen binnen het project.",
-    "title": "Tijdelijke woningen aantal"
+    "title": "Aantal tijdelijke woningen"
   },
   "totaal": {
     "type": "integer",
@@ -164,16 +164,16 @@
   "totaalZelfstPerm": {
     "type": "integer",
     "description": "Het totaal aantal zelfstandige en permanente woningen binnen het project.",
-    "title": "Totaal aantal zelfstandige en permanente woningen"
+    "title": "Totaal aantal woningen zelfstandig en permanent"
   },
   "peildatum": {
     "type": "string",
     "format": "date",
     "description": "De peildatum van het bestand. Dit kan 01-01-yy, 01-04-yy, 01-07-yy of 01-10-yy zijn.",
-    "title": "Bestand peildatum"
+    "title": "Peildatum van het bestand"
   },
   "geometrie": {
-    "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD).",
+    "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)",
     "title": "Geometrie",
     "$ref": "https://geojson.org/schema/MultiPolygon.json"
   }
