@@ -1,0 +1,117 @@
+{
+  "id": "merkpeilen",
+  "type": "table",
+  "version": "1.0.2",
+  "lifecycleStatus": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": "identificatie",
+    "required": [
+      "schema",
+      "identificatie"
+    ],
+    "display": "identificatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "identificatie": {
+        "type": "string",
+        "title": "Merkpeil ID",
+        "description": "Het nummer van het merkpeil"
+      },
+      "hoogteTovNap": {
+        "type": "number",
+        "title": "Merkpeil hoogte tov NAP",
+        "description": "Geeft de hoogte ten opzichte van NAP in meters. Bij een positieve waarde ligt het merkpeil boven NAP. Bij een negatieve waarde ligt het merkpeil onder NAP"
+      },
+      "jaar": {
+        "type": "integer",
+        "title": "Waterpassing jaar",
+        "description": "Het jaar van waterpassing, behorende bij de hoogte"
+      },
+      "merkCode": {
+        "type": "string",
+        "title": "Merkpeil merk code",
+        "provenance": "$.merk.code",
+        "description": "Gebruikte merkpeil code"
+      },
+      "merkOmschrijving": {
+        "type": "string",
+        "title": "Merkpeil merk omschrijving",
+        "provenance": "$.merk.omschrijving",
+        "description": "Gebruikte merkpeil omschrijving"
+      },
+      "omschrijving": {
+        "type": "string",
+        "title": "Merkpeil object omschrijving",
+        "description": "Beschrijving van het object waarin het merkpeil zich bevindt"
+      },
+      "windrichting": {
+        "type": "string",
+        "title": "Windrichting omschrijving",
+        "description": "De windrichting van het muurvlak is die zijde waarheen het vlak van de muur, waarin het merkpeil zich bevindt, is gericht. Is er 'Z' aangegeven, dan ligt het betreffende muurvlak op het zuiden"
+      },
+      "xCoordinaatMuurvlak": {
+        "type": "number",
+        "title": "Muurvlak x-coordinaat",
+        "description": "De muurvlakcoördinaten (in centimeters) geven de positie aan van het merkpeil op het betreffende muurvlak. De horizontale maat (x) is de maat ten opzichte van een van de uiteinden van het muurvlak"
+      },
+      "yCoordinaatMuurvlak": {
+        "type": "number",
+        "title": "Muurvlak y-coordinaat",
+        "description": "De muurvlakcoördinaten (in centimeters) geven de positie aan van het merkpeil op het betreffende muurvlak. De verticale maat (y) is de maat ten opzichte van het ondereinde van het muurvlak (positief) of ten opzichte van het boveneinde van het muurvlak (negatief)"
+      },
+      "rwsNummer": {
+        "type": "string",
+        "title": "Meetbout rijkswaterstaat nummer",
+        "description": "Nummer dat Rijkswaterstaat hanteert voor een meetbout"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Geometrie",
+        "description": "Geometrische ligging van het merkpeil"
+      },
+      "statusCode": {
+        "type": "integer",
+        "title": "Merkpeil status code",
+        "provenance": "$.status.code",
+        "description": "Status van het merkpeil code"
+      },
+      "statusOmschrijving": {
+        "type": "string",
+        "title": "Merkpeil status omschrijving",
+        "provenance": "$.status.omschrijving",
+        "description": "Status van het merkpeil omschrijving"
+      },
+      "vervaldatum": {
+        "type": "string",
+        "title": "Merkpeil vervaldatum",
+        "format": "date",
+        "description": "Vervaldatum van het merkpeil"
+      },
+      "ligtInBouwblok": {
+        "type": "object",
+        "title": "Merkpeil ligt in bouwblok",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "gebieden:bouwblokken",
+        "description": "Het bouwblok waarbinnen het merkpeil ligt"
+      },
+      "publiceerbaar": {
+        "type": "boolean",
+        "title": "Publiceerbaar indicatie",
+        "description": "Publiceerbaar ja of nee"
+      }
+    }
+  }
+}
