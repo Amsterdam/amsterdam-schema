@@ -22,18 +22,22 @@
         "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
       },
       "id": {
+        "title": "ID",
         "type": "integer",
         "description": "Unieke aanduiding van record"
       },
       "veiligheidsinspectiesId": {
+        "title": "Veiligheidsinspecties ID",
         "type": "integer",
         "description": "de vreemde sleutel (foreignkey) voor de relatie met de veiligeheidsinspecties"
       },
       "boomId": {
+        "title": "Boom ID",
         "type": "integer",
         "description": "de vreemde sleutel (foreignkey) voor de relatie met de stamgegevens van de bomen"
       },
       "boomgebrekAfwijking": {
+        "title": "Boomgebrek afwijking",
         "type": "string",
         "description": "Aanvullende registratie (melding) relevante BVC-afwijkingen (nog) niet zijnde een BVC-gebrek",
         "auth": "FP/MDW",
@@ -42,6 +46,7 @@
         ]
       },
       "boomgebrekGevolg": {
+        "title": "Boomgebrek gevolg",
         "type": "string",
         "description": "Registratie welk risico (gevolg) aan BVC-gebreken is gerelateerd",
         "auth": "FP/MDW",
@@ -50,6 +55,7 @@
         ]
       },
       "boomonderdeelPlaats": {
+        "title": "boomonderdeel plaats",
         "type": "string",
         "description": "Aanduiding waar in de boom het gebrek zich bevindt",
         "auth": "FP/MDW",
@@ -58,6 +64,7 @@
         ]
       },
       "matching": {
+        "title": "Matching",
         "type": "string",
         "description": "Achtergrondinformatie naar aanleiding van conversie",
         "auth": "FP/MDW",
@@ -66,6 +73,7 @@
         ]
       },
       "boomgebrek": {
+        "title": "Boomgebrek",
         "type": "string",
         "description": "BVC-gerelateerde afwijkingen die binnen een periode van 3 jaar een potentieel gevaar kunnen opleveren voor de directe omgeving, worden als gebrek benoemd en geregistreerd volgens de afwijkingenlijst BVC | Handboek Bomen 2018gi",
         "enum": [
@@ -82,6 +90,7 @@
         ]
       },
       "code": {
+        "title": "Code",
         "type": "string",
         "description": "Codenummer van het object",
         "auth": "FP/MDW",
@@ -90,6 +99,7 @@
         ]
       },
       "guid": {
+        "title": "Guid",
         "type": "string",
         "description": "Uniek nummer van het IMBOR-object (GUID)",
         "auth": "FP/MDW",
@@ -98,6 +108,7 @@
         ]
       },
       "mutatieDatum": {
+        "title": "Mutatie datum",
         "type": "string",
         "format": "date",
         "description": "Datum waarop laatste mutatie heeft plaatsgevonden",
@@ -107,6 +118,7 @@
         ]
       },
       "revisie": {
+        "title": "Revisie",
         "type": "string",
         "description": "Aantal keren dat de beheergegevens en of geometrie van beheerobject is gewijzigd",
         "auth": "FP/MDW",
@@ -115,6 +127,7 @@
         ]
       },
       "objectbegintijd": {
+        "title": "Objectbegintijd",
         "type": "string",
         "format": "date",
         "description": "Tijdstip waarop het object ontstaan is"
