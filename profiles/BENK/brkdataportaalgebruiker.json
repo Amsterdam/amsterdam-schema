@@ -1,0 +1,18 @@
+{
+    "id": "brkdataportaalgebruiker",
+    "type": "profile",
+    "name": "Gebruiker BRK Dataportaal",
+    "scopes": ["BRK/RL"],
+    "datasets": {
+        "benkagg": {
+            "tables": {
+                "brkbasis": {
+                    "fields": {"permissions": "read"},
+                    "mandatoryFilterSets": [
+                        ["kadastraalobjectIdentificatie"]
+                    ]
+                }
+            }
+        }
+    }
+}
