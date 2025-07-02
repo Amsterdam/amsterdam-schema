@@ -310,13 +310,16 @@ def _bytes_io_json(fetcher: Callable) -> BytesIO:
     return BytesIO(json.dumps(fetcher()).encode())
 
 
-def fetch_profile_index() -> List[str]:
-    result = []
+def fetch_profile_index() -> Dict[str, List[str]]:
+    result = {}
     for p in Path(".").glob(PROFILES_DIR + "/**/*.json"):
         if p.stem in PROFILES_IGNORED_FILES:
             continue
-        result.append(p.stem)
-    result.sort()
+        if p.parent.stem not in result:
+            result[p.parent.stem] = [p.stem]
+        else:
+            result[p.parent.stem].append(p.stem)
+        result[p.parent.stem].sort()
     return result
 
 
