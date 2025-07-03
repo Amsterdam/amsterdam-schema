@@ -1,7 +1,7 @@
 {
   "id": "panden",
   "type": "table",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "lifecycleStatus": "stable",
   "description": "Een PAND is de kleinste bij de totstandkoming functioneel en bouwkundig-constructief zelfstandige eenheid die direct en duurzaam met de aarde is verbonden en betreedbaar en afsluitbaar is.",
   "temporal": {
@@ -42,8 +42,8 @@
       },
       "identificatie": {
         "type": "string",
-        "title": "Object ID",
-        "description": "De unieke aanduiding van een pand"
+        "title": "Pand ID",
+        "description": "Unieke identificatie van een pand"
       },
       "volgnummer": {
         "type": "integer",
@@ -53,7 +53,7 @@
       "plusvolgnummer": {
         "type": "integer",
         "title": "Object plus volgnummer",
-        "description": "extra volgnummer BAG-plus gegevens"
+        "description": "Uniek BAG-plus volgnummer van de toestand van het object"
       },
       "registratiedatum": {
         "type": "string",
@@ -69,7 +69,7 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
         "title": "Geometrie",
-        "description": "Vorm en ligging van het pand in het Nationale Rijksdriehoekstelsel"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "oorspronkelijkBouwjaar": {
         "type": "integer",
@@ -80,13 +80,13 @@
         "type": "integer",
         "provenance": "$.status.code",
         "title": "Pand status code",
-        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd."
+        "description": "De levenscyclus van een PAND waarin het betreffende pand zich bevindt. Code"
       },
       "statusOmschrijving": {
         "type": "string",
         "provenance": "$.status.omschrijving",
         "title": "Pand status omschrijving",
-        "description": "De fase van de levenscyclus van een pand, waarin het betreffende pand zich bevindt. omschrijving"
+        "description": "De fase van de levenscyclus van een PAND waarin het betreffende pand zich bevindt. Omschrijving"
       },
       "beginGeldigheid": {
         "type": "string",
@@ -151,7 +151,7 @@
         "type": "string",
         "title": "Pand ligging omschrijving",
         "provenance": "$.ligging.omschrijving",
-        "description": "Situering pand met verblijfsobject (vrijstaand, tussenwoning, etc.)"
+        "description": "Situering pand met verblijfsobjec. Omschrijving"
       },
       "typeWoonobject": {
         "type": "string",
@@ -188,17 +188,17 @@
       },
       "aantalBouwlagen": {
         "type": "integer",
-        "title": "Aantal bouwlagen pand",
+        "title": "Bouwlagen pand aantal",
         "description": "Aantal bouwlagen van een pand"
       },
       "hoogsteBouwlaag": {
         "type": "integer",
-        "title": "Hoogste bouwlaag pand",
+        "title": "Pand hoogste bouwlaag",
         "description": "Hoogste bouwlaag van een pand"
       },
       "laagsteBouwlaag": {
         "type": "integer",
-        "title": "Laagste bouwlaag pand",
+        "title": "Pand laagste bouwlaag",
         "description": "Laagste bouwlaag van een pand"
       },
       "heeftDossier": {

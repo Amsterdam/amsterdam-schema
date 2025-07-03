@@ -3,7 +3,7 @@
   "title": "openbare ruimte labels",
   "description": "Naam en plaatsingspunten van een in de BAG geregistreerde OPENBARE RUIMTE. - Groep: _ - Code: 110",
   "type": "table",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "lifecycleStatus": "stable",
   "crs": "EPSG:28992",
   "auth": "OPENBAAR",
@@ -41,15 +41,15 @@
       },
       "naam": {
         "type": "string",
-        "title": "Openbare ruimte naam",
+        "title": "Openbare ruimte naam label",
         "description": "Een door het bevoegde gemeentelijke orgaan aan een OPENBARE RUIMTE toegekende benaming"
       },
       "hoortBijBagOpenbareruimte": {
         "type": "object",
-        "title": "Hoort bij openbare ruimte",
+        "title": "Openbareruimtelabel hoort bij openbare ruimte",
         "properties": {
           "identificatie": {
-            "title": "Object ID",
+            "title": "Openbareruimtelabel hoort bij openbare ruimte",
             "type": "string"
           },
           "volgnummer": {
@@ -78,12 +78,12 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Point.json",
         "title": "Geometrie",
-        "description": "Geometrie"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "geometriePunt": {
         "$ref": "https://geojson.org/schema/Point.json",
         "title": "Punt geometrie",
-        "description": "Puntgeometrie"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "objectBegintijd": {
         "type": "string",

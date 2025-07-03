@@ -1,7 +1,7 @@
 {
   "id": "ligplaatsen",
   "type": "table",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "lifecycleStatus": "stable",
   "description": "Een LIGPLAATS is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen plaats in het water die bestemd is voor het permanent afmeren van een voor woon-, bedrijfsmatige of recreatieve doeleinden geschikt drijvend object",
   "temporal": {
@@ -34,8 +34,8 @@
       },
       "identificatie": {
         "type": "string",
-        "title": "Object ID",
-        "description": "De unieke aanduiding van een ligplaats"
+        "title": "Ligplaats ID",
+        "description": "Unieke identificatie van een ligplaats"
       },
       "volgnummer": {
         "type": "integer",
@@ -45,13 +45,13 @@
       "plusvolgnummer": {
         "type": "integer",
         "title": "Object plus volgnummer",
-        "description": "extra volgnummer BAG-plus gegevens"
+        "description": "Uniek BAG-plus volgnummer van de toestand van het object"
       },
       "registratiedatum": {
         "type": "string",
-        "title": "Object registratie",
+        "title": "Object registratiedatum",
         "format": "date-time",
-        "description": "De datum waarop de toestand van het object is geregistreerd"
+        "description": "Begin geldigheid van een bepaalde combinatie van BAG- en BAG-plus-gegevens van een BAG-object"
       },
       "geconstateerd": {
         "type": "boolean",
@@ -119,8 +119,8 @@
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
-        "title": "Ligplaats geometrie",
-        "description": "Vorm en ligging van de ligplaats in het Nationale Rijksdriehoekstelsel"
+        "title": "Geometrie",
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "gebruiksdoel": {
         "type": "array",
@@ -210,7 +210,7 @@
         "relation": "bag:dossiers",
         "provenance": "$.heeftDossier.dossier",
         "title": "Ligplaats heeft dossier",
-        "description": "Het dossier op basis waarvan het object is toegevoegd aan de registratie"
+        "description": "De brondocument(en) op basis waarvan de ligplaats is toegevoegd aan de registratie. Afgeleid van hetlandelijke BAG-kenmerk 'Documentnummer'"
       },
       "bagprocesCode": {
         "type": "integer",
