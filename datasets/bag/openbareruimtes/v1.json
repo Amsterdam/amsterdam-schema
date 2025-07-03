@@ -1,7 +1,7 @@
 {
   "id": "openbareruimtes",
   "type": "table",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "lifecycleStatus": "stable",
   "description": "Een OPENBARE RUIMTE is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen en van een naam voorziene buitenruimte die binnen één woonplaats is gelegen. Als openbare ruimte worden onder meer aangemerkt weg, water, terrein, spoorbaan en landschappelijk gebied.",
   "temporal": {
@@ -35,7 +35,7 @@
       "identificatie": {
         "type": "string",
         "title": "Openbare ruimte ID",
-        "description": "De unieke aanduiding van een openbare ruimte"
+        "description": "Unieke identificatie van een openbare ruimte"
       },
       "volgnummer": {
         "type": "integer",
@@ -45,7 +45,7 @@
       "plusvolgnummer": {
         "type": "integer",
         "title": "Object plus volgnummer",
-        "description": "extra volgnummer BAG-plus gegevens"
+        "description": "Uniek BAG-plus volgnummer van de toestand van het object"
       },
       "registratiedatum": {
         "type": "string",
@@ -67,13 +67,13 @@
         "type": "integer",
         "provenance": "$.status.code",
         "title": "Openbare ruimte status code",
-        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd"
+        "description": "De levenscyclus van een OPENBARE RUIMTE waarin de betreffende openbare ruimte zich bevindt. Code"
       },
       "statusOmschrijving": {
         "type": "string",
         "provenance": "$.status.omschrijving",
         "title": "Openbare ruimte status omschrijving",
-        "description": "De status van de levenscyclus van een openbare ruimte (Naamgeving uitgegeven, Naamgeving ingetrokken)"
+        "description": "De levenscyclus van een OPENBARE RUIMTE waarin de betreffende openbare ruimte zich bevindt. Omschrijving"
       },
       "beginGeldigheid": {
         "type": "string",
@@ -121,13 +121,13 @@
         "type": "integer",
         "provenance": "$.type.code",
         "title": "Openbare ruimte type code",
-        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd"
+        "description": "De aard van de zodanig benoemde openbare ruimte. Code"
       },
       "typeOmschrijving": {
         "type": "string",
         "provenance": "$.type.omschrijving",
         "title": "Openbare ruimte type omschrijving",
-        "description": "De aard van de zodanig benoemde openbare ruimte (Weg, Water, Spoorbaan, Terrein, Kunstwerk, Landschappelijk gebied, Administratief gebied) omschrijving"
+        "description": "De aard van de zodanig benoemde openbare ruimte. Omschrijving"
       },
       "documentdatum": {
         "type": "string",
@@ -202,8 +202,8 @@
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
-        "title": "Openbare ruimte geometrie",
-        "description": "Zie inwinregels voor geometrie openbare ruimte"
+        "title": "Geometrie",
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "datumActueelTot": {
         "type": "string",

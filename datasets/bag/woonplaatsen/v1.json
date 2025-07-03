@@ -1,7 +1,7 @@
 {
   "id": "woonplaatsen",
   "type": "table",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "lifecycleStatus": "stable",
   "description": "Een WOONPLAATS is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen en van een naam voorzien gedeelte van het grondgebied van de gemeente",
   "temporal": {
@@ -42,7 +42,7 @@
       "identificatie": {
         "type": "string",
         "title": "Woonplaats ID",
-        "description": "De unieke aanduiding van een woonplaats"
+        "description": "Unieke aanduiding van een woonplaats"
       },
       "volgnummer": {
         "type": "integer",
@@ -52,7 +52,7 @@
       "plusvolgnummer": {
         "type": "integer",
         "title": "Object plus volgnummer",
-        "description": "extra volgnummer BAG-plus gegevens"
+        "description": "Uniek BAG-plus volgnummer van de toestand van het object"
       },
       "registratiedatum": {
         "type": "string",
@@ -73,7 +73,7 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
         "title": "Geometrie",
-        "description": "Vorm en ligging woonplaats in het Nationale Rijksdriehoekstelsel"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "geconstateerd": {
         "type": "string",
@@ -132,13 +132,13 @@
         "type": "integer",
         "provenance": "$.status.code",
         "title": "Woonplaats status code",
-        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd"
+        "description": "De levenscyclus van een WOONPLAATS waarin de betreffende woonplaats zich bevindt. Code"
       },
       "statusOmschrijving": {
         "type": "string",
         "title": "Woonplaats status omschrijving",
         "provenance": "$.status.omschrijving",
-        "description": "Levenscyclus van de woonplaats, Woonplaats aangewezen, Woonplaats ingetrokken"
+        "description": "De levenscyclus van een WOONPLAATS waarin de betreffende woonplaats zich bevindt. Omschrijving"
       },
       "ligtInGemeente": {
         "type": "object",

@@ -1,7 +1,7 @@
 {
   "id": "onderzoeken",
   "type": "table",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "lifecycleStatus": "stable",
   "description": "Bronhouder zet een kenmerk, waarvan een formele terugmelding of correctieverzoek niet binnen twee werkdagen is afgehandeld, in de basisregistratie adressen en gebouwen in onderzoek.",
   "temporal": {
@@ -34,7 +34,7 @@
       "identificatie": {
         "type": "string",
         "title": "Onderzoek ID",
-        "description": "De unieke aanduiding van een nummeraanduiding"
+        "description": "Unieke identificatie van een onderzoek"
       },
       "volgnummer": {
         "type": "integer",
@@ -45,12 +45,12 @@
         "type": "string",
         "title": "Object registratiedatum",
         "format": "date-time",
-        "description": "De datum waarop de toestand van een object is geregistreerd"
+        "description": "Begin geldigheid van een bepaalde combinatie van BAG- en BAG-plus-gegevens van een BAG-object"
       },
       "objectIdentificatie": {
         "type": "string",
-        "title": "Object ID",
-        "description": "Identificerende nummer van het object dat in onderzoek is geplaatst"
+        "title": "Object ID onderzoek",
+        "description": "Unieke identificatie van het object dat in onderzoek is geplaatst"
       },
       "objecttype": {
         "type": "string",
@@ -71,13 +71,13 @@
         "type": "string",
         "title": "Onderzoek geldigheid begindatum",
         "format": "date-time",
-        "description": "De datum waarop het kenmerk of de relatie van een object bij de bronhouder in onderzoek is geplaatst"
+        "description": "De ingangsdatum waarop het kenmerk of de relatie van een object bij de bronhouder in onderzoek is geplaatst"
       },
       "eindGeldigheid": {
         "type": "string",
         "title": "Onderzoek geldigheid einddatum",
         "format": "date-time",
-        "description": "De datum waarop het onderzoek naar het kenmerk of de relatie van een object door de bronhouder is afgerond"
+        "description": "De einddatum waarop het onderzoek naar het kenmerk of de relatie van een object door de bronhouder is afgerond"
       },
       "documentdatum": {
         "type": "string",
