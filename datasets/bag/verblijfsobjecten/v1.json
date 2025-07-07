@@ -1,7 +1,7 @@
 {
   "id": "verblijfsobjecten",
   "type": "table",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "lifecycleStatus": "stable",
   "description": "Een VERBLIJFSOBJECT is de kleinste binnen één of meer panden gelegen en voor woon -, bedrijfsmatige, of recreatieve doeleinden geschikte eenheid van gebruik die ontsloten wordt via een eigen afsluitbare toegang vanaf de openbare weg, een erf of een gedeelde verkeersruimte, onderwerp kan zijn van goederenrechtelijke rechtshandelingen en in functioneel opzicht zelfstandig is",
   "temporal": {
@@ -45,7 +45,7 @@
       "plusvolgnummer": {
         "type": "integer",
         "title": "Object plus volgnummer",
-        "description": "extra volgnummer BAG-plus gegevens"
+        "description": "Uniek BAG-plus volgnummer van de toestand van het object"
       },
       "registratiedatum": {
         "type": "string",
@@ -55,7 +55,7 @@
       },
       "cbsNummer": {
         "type": "string",
-        "title": "CBS nummer",
+        "title": "Centraal Bureau voor de Statistiek nummer",
         "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd"
       },
       "indicatieWoningvoorraad": {
@@ -130,7 +130,7 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
         "title": "Geometrie",
-        "description": "De locatie van het verblijfsobject in het Nationale Rijksdriehoekstelsel"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "gebruiksdoel": {
         "type": "array",
@@ -161,13 +161,13 @@
         "type": "integer",
         "title": "Verblijfsobject status code",
         "provenance": "$.status.code",
-        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd"
+        "description": "De levenscyclus van een VERBLIJSOBJECT waarin het betreffende verblijfsobject zich bevindt. Code"
       },
       "statusOmschrijving": {
         "type": "string",
         "title": "Verblijfsobject status omschrijving",
         "provenance": "$.status.omschrijving",
-        "description": "De fase van de levenscyclus van een verblijfsobject, waarin het betreffende VERBLIJFSOBJECT zich bevindt. omschrijving"
+        "description": "De levenscyclus van een VERBLIJSOBJECT waarin het betreffende verblijfsobject zich bevindt. Omschrijving"
       },
       "ligtInPanden": {
         "type": "array",
@@ -246,29 +246,29 @@
         "type": "integer",
         "provenance": "$.gebruiksdoelWoonfunctie.code",
         "title": "Gebruiksdoel woonfunctie code",
-        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd"
+        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. Code"
       },
       "gebruiksdoelWoonfunctieOmschrijving": {
         "provenance": "$.gebruiksdoelWoonfunctie.omschrijving",
         "type": "string",
         "title": "Gebruiksdoel woonfunctie omschrijving",
-        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. omschrijving"
+        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. Omschrijving"
       },
       "gebruiksdoelGezondheidszorgfunctieCode": {
         "type": "integer",
         "title": "Gebruiksdoel gezondheidszorg code",
-        "provenance": "$.gebruiksdoelGezondheidszorgfunctie.code",
-        "description": "Dit is een vervallen kenmerk en wordt niet geactualiseerd"
+        "provenance": "$.gebruiksdoelGezondheidszorgfunctie. Code",
+        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. Code"
       },
       "gebruiksdoelGezondheidszorgfunctieOmschrijving": {
         "type": "string",
         "title": "Gebruiksdoel gezondheidszorg omschrijving",
         "provenance": "$.gebruiksdoelGezondheidszorgfunctie.omschrijving",
-        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. omschrijving"
+        "description": "Amsterdamse uitbreiding op Gebruiksdoel verblijfsobject. Omschrijving"
       },
       "aantalEenhedenComplex": {
         "type": "integer",
-        "title": "Complex aantal eenheden",
+        "title": "Complex eenheden aantal",
         "description": "Aantal eenheden complex per verblijfsobject (alléén bij een speciale  woonfunctie of gezondheidszorgfunctie; zie gebruiksdoel-plus)"
       },
       "verdiepingToegang": {
@@ -293,7 +293,7 @@
       },
       "aantalKamers": {
         "type": "integer",
-        "title": "Aantal kamers",
+        "title": "Kamers aantal",
         "description": "Geeft het aantal kamers aan binnen het verblijfsobject"
       },
       "eigendomsverhoudingCode": {

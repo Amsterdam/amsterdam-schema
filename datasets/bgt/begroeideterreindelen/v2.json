@@ -3,7 +3,7 @@
   "title": "begroeide terreindelen",
   "description": "Kleinste functioneel onafhankelijk stukje van een terrein, dat er binnen het objecttype Terrein van NEN 3610 wordt onderscheiden, met aaneengesloten vegetatie. - Groep: terrein - Code: 140",
   "type": "table",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "lifecycleStatus": "stable",
   "crs": "EPSG:28992",
   "auth": "OPENBAAR",
@@ -36,33 +36,33 @@
       },
       "bgtFysiekVoorkomen": {
         "type": "string",
-        "title": "BGT fysiek voorkomen",
+        "title": "BGT fysiek voorkomen begroeid terreindeel",
         "description": "Classificatie van het vegetatiedek, ingedeeld naar soort vegetatie"
       },
       "plusFysiekVoorkomen": {
         "type": "string",
-        "title": "IMGeo fysiek voorkomen plus",
+        "title": "BGT plus fysiek voorkomen begroeid terreindeel",
         "description": "Nadere classificatie van het vegetatiedek, ingedeeld naar soort vegetatie"
       },
       "opTalud": {
         "type": "string",
-        "title": "Op talud",
+        "title": "Op talud indicatie",
         "description": "Indicatie of het object wel of niet op een hellend vlak ligt ('J'/'N')"
       },
       "kruinlijn": {
         "$ref": "https://geojson.org/schema/LineString.json",
         "title": "Lijn geometrie",
-        "description": "Lijngeometrie"
+        "description": "Vorm en ligging van het lijnobject in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/Polygon.json",
         "title": "Geometrie",
-        "description": "Geometrie"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "geometrieVlak": {
         "$ref": "https://geojson.org/schema/Polygon.json",
         "title": "Vlak geometrie",
-        "description": "Vlakgeometrie"
+        "description": "Vorm en ligging van het vlakobject in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "objectBegintijd": {
         "type": "string",

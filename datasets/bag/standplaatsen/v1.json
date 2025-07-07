@@ -1,7 +1,7 @@
 {
   "id": "standplaatsen",
   "type": "table",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "lifecycleStatus": "stable",
   "temporal": {
     "identifier": "volgnummer",
@@ -33,8 +33,8 @@
       },
       "identificatie": {
         "type": "string",
-        "title": "Object ID",
-        "description": "De unieke aanduiding van een standplaats"
+        "title": "Standplaats ID",
+        "description": "Unieke identificatie van een standplaats"
       },
       "volgnummer": {
         "type": "integer",
@@ -44,7 +44,7 @@
       "plusvolgnummer": {
         "type": "integer",
         "title": "Object plus volgnummer",
-        "description": "extra volgnummer BAG-plus gegevens"
+        "description": "Uniek BAG-plus volgnummer van de toestand van het object"
       },
       "registratiedatum": {
         "type": "string",
@@ -119,7 +119,7 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
         "title": "Geometrie",
-        "description": "Vorm en ligging van de standplaats in het Nationale Rijksdriehoekstelsel"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "gebruiksdoel": {
         "type": "array",
