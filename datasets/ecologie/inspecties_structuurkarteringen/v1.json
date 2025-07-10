@@ -1,0 +1,584 @@
+{
+    "id": "inspectiesStructuurkarteringen",
+    "type": "table",
+    "version": "1.0.0",
+    "lifecycleStatus": "stable",
+    "title": "Inspecties structuurkarteringen",
+    "description": "Deze tabel bevat de resultaten van inspecties aan structuurkarteringen. Dit zijn bijvoorbeeld terreindelen en groenobjecten zoals poelen, moerassen, bossen, plantsoenen, gazons en oevers.",
+    "auth": "FP/MDW",
+    "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ],
+    "identifier": "id",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "id"
+      ],
+      "display": "id",
+      "properties": {
+        "schema": {
+          "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+        },
+        "id": {
+          "type": "integer",
+          "title": "ID",
+          "description": "Uniek identificerend kenmerk van een object."
+       },
+        "acceptatie": {
+          "type": "string",
+          "title": "Acceptatie",
+          "description": "ntb"
+        },
+        "begindatum": {
+          "type": "string",
+	  "format": "date", 
+	  "title": "Begindatum",
+          "description": "ntb"
+	},
+        "bloemrijkGraslandGefaseerdBeheerFase01En2": {
+          "type": "string",
+          "title": "Bloemrijk grasland Gefaseerd beheer fase 0 1 en 2",
+          "description": "ntb"
+        },
+        "bloemrijkGraslandGefaseerdBeheerFase3En4": {
+          "type": "string",
+          "title": "Bloemrijk grasland Gefaseerd beheer fase 3 en 4",
+          "description": "ntb"
+        },
+        "bloemrijkGraslandNestplekkenWildeBijen": {
+          "type": "string",
+          "title": "Bloemrijk grasland Nestplekken wilde bijen",
+          "description": "ntb"
+        },
+	"bloemrijkGraslandVerbossing": {
+          "type": "string",
+          "title": "Bloemrijk grasland Verbossing",
+          "description": "ntb"
+        },
+	"bloemrijkGraslandVerruiging": {
+          "type": "string",
+          "title": "Bloemrijk grasland Verruiging",
+          "description": "ntb"
+        },
+	"bloemrijkGraslandZonnigeEnSchaduwplekkenVoorDagvlinders": {
+          "type": "string",
+          "title": "Bloemrijk grasland Zonnige en schaduwplekken voor dagvlinders",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenBreedteMantelBreedProfiel": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Breedte mantel breed profiel",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenBreedteMantelSmalProfiel": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Breedte mantel smal profiel",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenBreedteZoomBreedProfiel": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Breedte zoom breed profiel",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenBreedteZoomSmalProfiel": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Breedte zoom smal profiel",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenDikkeDodeBomen": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Dikke dode bomen",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenDikkeLevendeBomen": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Dikke levende bomen",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenEuropeesBosInheems": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Europees Bos inheems",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenGefaseerdBeheerZoom": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Gefaseerd beheer zoom",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenGelaagdBos": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Gelaagd bos",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenGemengdBos": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Gemengd bos",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenLengteZoomMantel": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Lengte zoom mantel",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenOpenPlekken": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Open plekken",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenStoringskruiden": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Storingskruiden",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenTakkenrillen": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Takkenrillen",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenVerbossingMantel": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Verbossing mantel",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenVerbossingZoom": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Verbossing zoom",
+          "description": "ntb"
+        },
+	"bosEnBosplantsoenVerticaleStructuurMantelzoom": {
+          "type": "string",
+          "title": "Bos en Bosplantsoen Verticale structuur mantelzoom",
+          "description": "ntb"
+        },
+	"datum": {
+          "type": "string",
+	  "format": "date",
+          "title": "Datum",
+          "description": "ntb"
+        },
+	"datumToezicht": {
+          "type": "string",
+	  "format": "date",
+          "title": "Datum toezicht",
+          "description": "ntb"
+        },
+	"dynamischeNatuurMetBegrazingVariatieNatuurtypenMozaiek": {
+          "type": "string",
+          "title": "Dynamische natuur met begrazing Variatie natuurtypen mozaiek",
+          "description": "ntb"
+        },
+	"einddatum": {
+          "type": "string",
+	  "format": "date",
+          "title": "Einddatum",
+          "description": "ntb"
+        },
+	"extensiefGazonAantalBloeiendePlantensoorten": {
+          "type": "string",
+          "title": "Extensief gazon Aantal bloeiende plantensoorten",
+          "description": "ntb"
+        },
+	"extensiefGazonGefaseerdBeheerExtensiefGazon": {
+          "type": "string",
+          "title": "Extensief gazon Gefaseerd beheer extensief gazon",
+          "description": "ntb"
+        },
+	"extensiefGazonOpenStructuur": {
+          "type": "string",
+          "title": "Extensief gazon Open structuur",
+          "description": "ntb"
+        },
+	"geinspecteerd": {
+          "type": "boolean",
+          "title": "Geinspecteerd",
+          "description": "ntb"
+        },
+	"groenobjectId": {
+          "type": "string",
+          "title": "Groenobject ID",
+          "description": "ntb"
+        },
+	"importId": {
+          "type": "integer",
+          "title": "Import ID",
+          "description": "ntb"
+        },
+	"kpiTotaalscore": {
+          "type": "integer",
+          "title": "KPI Totaalscore",
+          "description": "ntb"
+        },
+	"kpiWaardering": {
+          "type": "string",
+          "title": "KPI Waardering",
+          "description": "ntb"
+        },
+	"mutatieDatum": {
+        "type": "string",
+	"description": "De datum waarop de digitale gegevens van deze inspectie voor het laatst gewijzigd zijn.",
+        "format": "date-time",
+        "title": "Mutatie datum"
+        },
+	"memoBeheerobject": {
+          "type": "string",
+          "title": "Memo beheerobject",
+          "description": "ntb"
+        },
+	"moerasDiameter": {
+          "type": "string",
+          "title": "Moeras Diameter",
+          "description": "ntb"
+        },
+	"moerasDiepteVerlanding": {
+          "type": "string",
+          "title": "Moeras Diepte verlanding",
+          "description": "ntb"
+        },
+	"moerasGefaseerdBeheerMoeras": {
+          "type": "string",
+          "title": "Moeras Gefaseerd beheer moeras",
+          "description": "ntb"
+        },
+	"moerasMoerasrand": {
+          "type": "string",
+          "title": "Moeras Moerasrand",
+          "description": "ntb"
+        },
+	"moerasOppervlakte": {
+          "type": "string",
+          "title": "Moeras Oppervlakte",
+          "description": "ntb"
+        },
+	"moerasOppervlakteWater": {
+          "type": "string",
+          "title": "Moeras Oppervlakte water",
+          "description": "ntb"
+        },
+	"moerasTotaleOppervlakteGebied": {
+          "type": "string",
+          "title": "Moeras Totale oppervlakte gebied",
+          "description": "ntb"
+        },
+	"moerasVerruiging": {
+          "type": "string",
+          "title": "Moeras Verruiging",
+          "description": "ntb"
+        },
+	"natuurtype": {
+          "type": "string",
+          "title": "Natuurtype",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverBloemrijkeOeverAantalOeverzones": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Aantal oeverzones",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverBloemrijkeOeverAantalSoortenPlanten": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Aantal soorten planten",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverBloemrijkeOeverBreedteOeverzoneBreedteFlauwTalud": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Breedte oeverzone breedte flauw talud",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverBloemrijkeOeverBreedteOeverzoneOnderwaterbanket": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Breedte oeverzone onderwaterbanket",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverBloemrijkeOeverBreedteOeverzonePlasdrasbermMetVooroever": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Breedte oeverzone plasdrasberm met vooroever",
+          "description": "ntb"
+        },
+        "natuurvriendelijkeOeverBloemrijkeOeverBreedteOeverzonePlasdrasbermZonderVooroever": {
+          "type": "string",
+	  "title": "Natuurvriendelijke oever Bloemrijke oever Breedte oeverzone plasdrasberm zonder vooroever",
+          "description": "ntb"
+	},
+        "natuurvriendelijkeOeverBloemrijkeOeverDiepteVerlandingOeverzoneGroen": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Diepte verlanding oeverzone groen",
+          "description": "ntb"
+        },
+        "natuurvriendelijkeOeverBloemrijkeOeverDiepteVerlandingOeverzoneOranje": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Diepte verlanding oeverzone oranje",
+          "description": "ntb"
+        },
+        "natuurvriendelijkeOeverBloemrijkeOeverDiepteVerlandingOeverzoneRood": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Diepte verlanding oeverzone rood",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverBloemrijkeOeverGebrekenOeverconstructie": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Gebreken oeverconstructie",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverBloemrijkeOeverGefaseerdBeheerBloemrijkeOever": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Gefaseerd beheer bloemrijke oever",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverBloemrijkeOeverHellinggraadOever": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Hellinggraad oever",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverBloemrijkeOeverKwalificerendeSoorten": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Kwalificerende soorten",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverBloemrijkeOeverOevertype": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Oevertype",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverBloemrijkeOeverVerbossing": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Verbossing",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverBloemrijkeOeverVerruiging": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Bloemrijke oever Verruiging",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverRuigeRietoeverBreedteOeverzoneBreedteFlauwTalud": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Ruige rietoever Breedte oeverzone breedte flauw talud",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverRuigeRietoeverBreedteOeverzonePlasdrasbermMetVooroever": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Ruige rietoever Breedte oeverzone plasdrasberm met vooroever",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverRuigeRietoeverBreedteOeverzonePlasdrasbermZonderVooroever": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Ruige rietoever Breedte oeverzone plasdrasberm zonder vooroever",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverRuigeRietoeverDiepteVerlandingOeverzoneGroen": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Ruige rietoever Diepte verlanding oeverzone groen",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverRuigeRietoeverDiepteVerlandingOeverzoneOranje": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Ruige rietoever Diepte verlanding oeverzone oranje",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverRuigeRietoeverDiepteVerlandingOeverzoneRood": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Ruige rietoever Diepte verlanding oeverzone rood",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverRuigeRietoeverGebrekenOeverconstructie": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Ruige rietoever Gebreken oeverconstructie",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverRuigeRietoeverGefaseerdBeheerStruweelOfRuigeRietoever": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Ruige rietoever Gefaseerd beheer struweel of ruige rietoever",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverRuigeRietoeverHellinggraadOever": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Ruige rietoever Hellinggraad oever",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverRuigeRietoeverOevertype": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Ruige rietoever Oevertype",
+          "description": "ntb"
+        },
+	"natuurvriendelijkeOeverRuigeRietoeverVerbossingRuigeRietoever": {
+          "type": "string",
+          "title": "Natuurvriendelijke oever Ruige rietoever Verbossing ruige rietoever",
+          "description": "ntb"
+        },
+	"nietTeInspecteren": {
+          "type": "boolean",
+          "title": "Niet te inspecteren",
+          "description": "ntb"
+        },
+	"norm": {
+          "type": "integer",
+          "title": "Norm",
+          "description": "ntb"
+        },
+	"revisie": {
+          "type": "integer",
+          "title": "Revisie",
+          "description": "ntb"
+        },
+	"ruigteInheemsRuigte": {
+          "type": "string",
+          "title": "Ruigte Inheems ruigte",
+          "description": "ntb"
+        },
+	"ruigteMengingRuigte": {
+          "type": "string",
+          "title": "Ruigte Menging ruigte",
+          "description": "ntb"
+        },
+	"ruigteVerbossingRuigte": {
+          "type": "string",
+          "title": "Ruigte Verbossing ruigte",
+          "description": "ntb"
+        },
+	"stadswaterAlgenEnOfKroos": {
+          "type": "string",
+          "title": "Stadswater Algen en of kroos",
+          "description": "ntb"
+        },
+	"stadswaterDiversiteitPlanten": {
+          "type": "string",
+          "title": "Stadswater Diversiteit planten",
+          "description": "ntb"
+        },
+	"stadswaterDoorzicht": {
+          "type": "string",
+          "title": "Stadswater Doorzicht",
+          "description": "ntb"
+        },
+	"stadswaterDrijfbladplanten": {
+          "type": "string",
+          "title": "Stadswater Drijfbladplanten",
+          "description": "ntb"
+        },
+	"stadswaterInvasieveExoten": {
+          "type": "string",
+          "title": "Stadswater Invasieve exoten",
+          "description": "ntb"
+        },
+	"stadswaterOndergedokenWaterplanten": {
+          "type": "string",
+          "title": "Stadswater Ondergedoken waterplanten",
+          "description": "ntb"
+        },
+	"stadswaterSchaduw": {
+          "type": "string",
+          "title": "Stadswater Schaduw",
+          "description": "ntb"
+        },
+	"stadswaterSlibdikte": {
+          "type": "string",
+          "title": "Stadswater Slibdikte",
+          "description": "ntb"
+        },
+	"stadswaterWaterdiepte": {
+          "type": "string",
+          "title": "Stadswater Waterdiepte",
+          "description": "ntb"
+        },
+	"statusInspectie": {
+          "type": "string",
+          "title": "Status Inspectie",
+          "description": "ntb"
+        },
+	"struweelGefaseerdBeheerStruweelOfRuigeRietoever": {
+          "type": "string",
+          "title": "Struweel Gefaseerd beheer struweel of ruige rietoever",
+          "description": "ntb"
+        },
+	"struweelInheemsStruweel": {
+          "type": "string",
+          "title": "Struweel Inheems struweel",
+          "description": "ntb"
+        },
+	"struweelLengteZoom": {
+          "type": "string",
+          "title": "Struweel Lengte zoom",
+          "description": "ntb"
+        },
+	"struweelMengingStruweel": {
+          "type": "string",
+          "title": "Struweel Menging struweel",
+          "description": "ntb"
+        },
+	"struweelVerbossing": {
+          "type": "string",
+          "title": "Struweel Verbossing",
+          "description": "ntb"
+        },
+	"teHerstellen": {
+          "type": "boolean",
+          "title": "Te herstellen",
+          "description": "ntb"
+        },
+	"terreindeelId": {
+          "type": "string",
+          "title": "Terreindeel ID",
+          "description": "ntb"
+        },
+	"timingInspectie": {
+          "type": "string",
+          "title": "Timing inspectie",
+          "description": "ntb"
+        },
+	"veenmosrietlandGefaseerdBeheerVeenmosrietland": {
+          "type": "string",
+          "title": "Veenmosrietland Gefaseerd beheer veenmosrietland",
+          "description": "ntb"
+        },
+	"veenmosrietlandVerbossingVeenmosrietland": {
+          "type": "string",
+          "title": "Veenmosrietland Verbossing veenmosrietland",
+          "description": "ntb"
+        },
+	"veenmosrietlandVerdrogingDiepte": {
+          "type": "string",
+          "title": "Veenmosrietland Verdroging diepte",
+          "description": "ntb"
+        },
+	"veenmosrietlandVerruigingVeenmosrietland": {
+          "type": "string",
+          "title": "Veenmosrietland Verruiging veenmosrietland",
+          "description": "ntb"
+        },
+	"waarde": {
+          "type": "string",
+          "title": "Waarde",
+          "description": "ntb"
+        },
+	"waarderingsscore": {
+          "type": "integer",
+          "title": "Waarderingsscore",
+          "description": "ntb"
+        },
+	"weidevogelgraslandGefaseerdBeheerOfBeweiding": {
+          "type": "string",
+          "title": "Weidevogelgrasland Gefaseerd beheer of beweiding",
+          "description": "ntb"
+        },
+	"weidevogelgraslandNestbescherming": {
+          "type": "string",
+          "title": "Weidevogelgrasland Nestbescherming",
+          "description": "ntb"
+        },
+	"weidevogelgraslandOpenKarakter": {
+          "type": "string",
+          "title": "Weidevogelgrasland Open karakter",
+          "description": "ntb"
+        },
+	"weidevogelgraslandSchuilplaats": {
+          "type": "string",
+          "title": "Weidevogelgrasland Schuilplaats",
+          "description": "ntb"
+        }
+      }
+    }
+  }
+  
