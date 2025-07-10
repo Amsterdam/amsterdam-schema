@@ -17,15 +17,21 @@
   "publisher": {
     "$ref": "publishers/BOR"
   },
-  "description": "Dataset met informatie over het ecologische areaal van Amsterdam.",
+  "description": "Dataset met informatie voor de ecologische monitoring van Amsterdam. Dit bevat zowel inspectiedata (faunavoorzieningen en structuurkarteringen), als de objecten die worden geinspecteerd (faunavoorzieningen, faunameubilair, faunaverblijfplaats, waterobjecten, hekken, roosters), als de gebieden (verbindingszones en kerngebieden) waar deze objecten in liggen.",
   "keywords": [
     "kerngebied",
-    "kerngebieden",
     "verbingdingszone",
-    "verbindingszones",
     "ecologie",
     "ecologisch areaal",
     "plan Biodiversiteit",
+    "inspecties", 
+    "faunavoorzieningen",
+    "structuurkarteringen",
+    "faunameubilair",
+    "faunaverblijfplaats",
+    "waterobject",
+    "hekken",
+    "roosters",
     "Groene Keten"
   ],
   "crs": "EPSG:28992",
@@ -44,6 +50,14 @@
         {
           "id": "verbindingszones",
           "$ref": "verbindingszones/v3"
+        },
+        {
+          "id": "inspectiesFaunavoorzieningen",
+          "$ref": "inspectiesFaunavoorzieningen/v1"
+        },
+        {
+          "id": "inspectiesStructuurkarteringen",
+          "$ref": "inspectiesStructuurkarteringen/v1"
         }
       ]
     }
