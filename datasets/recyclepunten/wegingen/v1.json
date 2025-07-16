@@ -1,7 +1,7 @@
 {
     "id": "wegingen",
     "type": "table",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "lifecycleStatus": "stable",
     "title": "Wegingen bij recyclepunten",
     "description": "Deze tabel bevat de gegevens van wegingen van gebracht afval bij recyclepunten. Bij binnenkomst en bij vertrek worden voertuigen met inhoud gewogen. Verder kan men zien in welke tariefgroep de weging valt en is er een indicatie van waar in de stad het afval wordt gebracht.",
@@ -22,40 +22,40 @@
         },
         "id": {
           "type": "integer",
-          "title": "Weging ID",
+          "title": "Id",
           "description": "Uniek identificerend kenmerk van deze weging."
         },
         "weegbon": {
           "type": "string",
-          "title": "Weegbon nummer",
+          "title": "Weegbon",
           "description": "Uniek nummer vanuit het registratiesysteem voor deze weging aan dit recyclepunt. Let op, hetzelfde weegbonnummer komt voor bij verschillende recyclepunten. Gebruik voor een unieke identificer 'id'."
         },
         "datumWeging": {
           "type": "string",
           "format": "date",
-	  "title": "Weging datum",
+	  "title": "Datum weging",
           "description": "Datum waarop de uitweging heeft plaatsgevonden."
 	    },
         "tijdIn": {
           "type": "string",
           "format": "time",
-          "title": "Inweging tijdstip",
+          "title": "Tijd in",
           "description": "Het tijdstip van aankomst bij het recyclepunt (de inweging)."
         },
         "tijdUit": {
           "type": "string",
           "format": "time",
-          "title": "Uitweging tijdstip",
+          "title": "Tijd uit",
           "description": "Het tijdstip van vertrek van het recyclepunt (de uitweging)."
         },
         "inweging": {
-          "type": "integer",
-          "title": "Inweging gewicht",
+          "type": "string",
+          "title": "Inweging",
           "description": "Het gewicht van het voertuig bij aankomst bij het recyclepunt, in kilogrammen."
         },
         "uitweging": {
           "type": "integer",
-          "title": "Uitweging gewicht",
+          "title": "Uitweging",
           "description": "Het gewicht van het voertuig bij vertrek van het recyclepunt, in kilogrammen."
         },
         "nettoGewicht": {
@@ -65,12 +65,12 @@
         },
         "locatieCode": {
           "type": "string",
-          "title": "Recyclepunt code",
+          "title": "Locatie code",
           "description": "De code van het recyclepunt."
         },
         "locatieNaam": {
           "type": "string",
-          "title": "Recyclepunt naam",
+          "title": "Locatie naam",
           "description": "De naam van het recyclepunt."
         },
         "tariefgroepCode": {
