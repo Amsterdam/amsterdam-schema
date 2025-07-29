@@ -1,7 +1,7 @@
 {
 	"id": "peilmerken",
 	"type": "table",
-	"version": "2.1.2",
+	"version": "2.1.3",
 	"schema": {
 		"$schema": "http://json-schema.org/draft-07/schema#",
 		"type": "object",
@@ -20,13 +20,13 @@
 			"identificatie": {
 				"type": "string",
 				"title": "Peilmerk ID",
-				"description": "Het nummer van het peilmerk"
+				"description": "Unieke identificatie van het peilmer"
 			},
 			"hoogteTovNap": {
 				"type": "number",
 				"title": "Peilmerk hoogte tov NAP",
 				"multipleOf": 0.0001,
-				"description": "Geeft de hoogte ten opzichte van NAP in meters. Bij een positieve waarde ligt het peilmerk boven NAP. Bij een negatieve waarde ligt het peilmerk onder NAP"
+				"description": "Gemeten hoogte van het peilmerk t.o.v. NAP (m)"
 			},
 			"jaar": {
 				"type": "integer",
@@ -73,7 +73,7 @@
 			"geometrie": {
 				"$ref": "https://geojson.org/schema/Point.json",
 				"title": "Geometrie",
-				"description": "Geometrische ligging van het peilmerk"
+				"description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
 			},
 			"statusCode": {
 				"type": "integer",
@@ -89,7 +89,7 @@
 			},
 			"vervaldatum": {
 				"type": "string",
-				"title": "Peilmerk vervaldatum",
+				"title": "Peilmerk geldigheid einddatum",
 				"format": "date",
 				"description": "Vervaldatum van het peilmerk"
 			},
