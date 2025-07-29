@@ -2,7 +2,7 @@
   "id": "monumenten",
   "type": "table",
   "auth": "OPENBAAR",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "lifecycleStatus": "stable",
   "description": "Een beschermd monument is een onroerend monument ofwel zaak of terrein dat beschermd is vanwege het algemeen belang wegens zijn schoonheid, betekenis voor de wetenschap of cultuurhistorische waarde",
   "schema": {
@@ -92,7 +92,7 @@
       "inOnderzoek": {
         "title": "In onderzoek indicatie",
         "type": "string",
-        "description": "Hiermee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object"
+        "description": "Een aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object ('J'/'N')"
       },
       "architectOntwerp": {
         "title": "Monument architect naam",
@@ -125,9 +125,9 @@
         "description": "De X- en Y-coordinaat die als coordinatenpaar de ligging van het monument representeert in het Rijksdriehoeksstelsel"
       },
       "geometrie": {
-        "title": "Monument geometrie",
+        "title": "Geometrie",
         "$ref": "https://geojson.org/schema/Geometry.json",
-        "description": "Ruimtelijke ligging van het monument in het Rijksdriehoeksstelsel (RD). Dit is gevuld met de contour of als deze niet gevuld is, de puntCoordinaten"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "contour": {
         "title": "Monument contour omschrijving",
@@ -146,7 +146,7 @@
       "redengevendeOmschrijvingPubliek": {
         "title": "Reden publieke omschrijving",
         "type": "string",
-        "description": "De publieke, historische omschrijvng, behorend bij het aanwijzingsbesluit"
+        "description": "De publieke, historische omschrijvng, behorend bij het besluit"
       },
       "beschrijving": {
         "title": "Monument afgeschermde beschrijving",
@@ -155,7 +155,7 @@
           "5.1 1d: Bevat persoonsgegevens"
         ],
         "type": "string",
-        "description": "Afgeschermde beschrijving van gebouwtype, bouwgeschiedenis, architectonische verschijningsvorm en of stedebouwkundige en cultuurhistorische context"
+        "description": "Afgeschermde beschrijving van het monument aan de hand van gebouwtype en bouwgeschiedenis, architectonische verschijningsvorm en cultuurhistorische context"
       },
       "beschrijvingPubliek": {
         "title": "Monument publieke beschrijving",

@@ -1,7 +1,7 @@
 {
   "id": "referentiepunten",
   "type": "table",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "lifecycleStatus": "stable",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -36,7 +36,7 @@
       "hoogteTovNap": {
         "type": "number",
         "title": "Hoogte in meters",
-        "description": "Hoogte van het referentiepunt t.o.v. NAP (m)"
+        "description": "Gemeten hoogte van het referentiepunt t.o.v. NAP "
       },
       "datum": {
         "type": "string",
@@ -87,7 +87,7 @@
       "windrichting": {
         "type": "string",
         "title": "Windrichting",
-        "description": "Windrichting"
+        "description": "De windrichting van het muurvlak is die zijde waarheen het vlak van de muur, waarin het peilmerk zich bevindt, is gericht. Is er 'Z' aangegeven, dan ligt het betreffende muurvlak op het zuiden"
       },
       "ligtInBouwblok": {
         "type": "object",
@@ -158,7 +158,7 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Point.json",
         "title": "Geometrie",
-        "description": "Geometrische ligging van de meetbout"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "isNapPeilmerk": {
         "type": "object",
@@ -174,7 +174,7 @@
       "publiceerbaar": {
         "type": "boolean",
         "title": "Publiceerbaar indicatie",
-        "description": "Publiceerbaar ja of nee"
+        "description": "Indicatie die aangeeft of de informatie gepubliceerd mag worden"
       }
     }
   }
