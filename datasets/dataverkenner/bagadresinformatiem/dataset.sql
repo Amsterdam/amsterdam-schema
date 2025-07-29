@@ -1,4 +1,4 @@
-CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_bagadresinformatiem_bagadresinformatie as
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_bagadresinformatiem_bagadresinformatie_v1 as
 select
 bag_nummeraanduidingen.id as "id",
 bag_nummeraanduidingen.identificatie as "identificatie",
