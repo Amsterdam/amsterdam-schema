@@ -1,5 +1,5 @@
-CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_betrokkenbijm_betrokkenbij as
-SELECT 
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_betrokkenbijm_betrokkenbij_v1 as
+SELECT
     kot1.id,
     kot1.identificatie,
     kot1.volgnummer,

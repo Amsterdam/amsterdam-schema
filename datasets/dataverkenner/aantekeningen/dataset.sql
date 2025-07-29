@@ -1,5 +1,5 @@
-create or replace view public.dataverkenner_aantekeningen_aantekeningen WITH (security_barrier) as
-select 
+create or replace view public.dataverkenner_aantekeningen_aantekeningen_v1 WITH (security_barrier) as
+select
 brk_2_aantekeningenkadastraleobjecten.id as "id",
 brk_2_aantekeningenkadastraleobjecten.identificatie as "identificatie",
 brk_2_aantekeningenkadastraleobjecten.volgnummer as "volgnummer",

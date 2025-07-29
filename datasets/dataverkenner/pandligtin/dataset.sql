@@ -1,5 +1,5 @@
-create or replace view public.dataverkenner_pandligtin_pandligtin WITH (security_barrier) as
-select 
+create or replace view public.dataverkenner_pandligtin_pandligtin_v1 WITH (security_barrier) as
+select
 bag_panden.id as "id",
 bag_panden.identificatie as "identificatie",
 bag_panden.volgnummer as "volgnummer",
@@ -35,10 +35,10 @@ left join gebieden_wijken on gebieden_buurten.ligt_in_wijk_id = gebieden_wijken.
 left join gebieden_stadsdelen on gebieden_wijken.ligt_in_stadsdeel_id = gebieden_stadsdelen.id
 left join gebieden_ggwgebieden on gebieden_buurten.ligt_in_ggwgebied_id = gebieden_ggwgebieden.id
 left join gebieden_bouwblokken on bag_panden.ligt_in_bouwblok_id=gebieden_bouwblokken.id
-where gebieden_bouwblokken.eind_geldigheid is null 
-and gebieden_buurten.eind_geldigheid is null 
-and gebieden_wijken.eind_geldigheid is null 
+where gebieden_bouwblokken.eind_geldigheid is null
+and gebieden_buurten.eind_geldigheid is null
+and gebieden_wijken.eind_geldigheid is null
 and gebieden_ggwgebieden.eind_geldigheid is null
-and gebieden_stadsdelen.eind_geldigheid is null 
+and gebieden_stadsdelen.eind_geldigheid is null
 and bag_panden.eind_geldigheid is null
 and bag_panden.status_omschrijving in ('Bouwaanvraag ontvangen','Bouwvergunning verleend','Bouw gestart','Pand in gebruik (niet ingemeten)','Pand in gebruik','Sloopvergunning verleend','Pand buiten gebruik','Verbouwing pand');

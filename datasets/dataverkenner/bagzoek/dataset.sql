@@ -1,4 +1,4 @@
-create or replace view public.dataverkenner_bagzoek_bagzoek WITH (security_barrier) as
+create or replace view public.dataverkenner_bagzoek_bagzoek_v1 WITH (security_barrier) as
 select
 bag_nummeraanduidingen.id as "id",
 bag_nummeraanduidingen.identificatie as "identificatie",

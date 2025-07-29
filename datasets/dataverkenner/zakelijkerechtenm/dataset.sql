@@ -1,4 +1,4 @@
-CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_zakelijkerechtenm_zakelijkerechten as
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_zakelijkerechtenm_zakelijkerechten_v1 as
 SELECT
     brk_2_zakelijkerechten.id AS "id",
     brk_2_zakelijkerechten.identificatie AS "identificatie",
@@ -10,7 +10,7 @@ SELECT
     brk_2_zakelijkerechten.vve_identificatie_betrokken_bij_id AS "vve_identificatie_betrokken_bij_id",
     brk_2_zakelijkerechten.begin_geldigheid AS "begin_geldigheid",
     brk_2_zakelijkerechten.eind_geldigheid AS "eind_geldigheid"
-FROM 
+FROM
     brk_2_zakelijkerechten
     WHERE (brk_2_zakelijkerechten.datum_actueel_tot IS NULL OR brk_2_zakelijkerechten.datum_actueel_tot > now())
 with no data;

@@ -1,5 +1,5 @@
-CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_aantekeningenm_aantekeningen as
-select 
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_aantekeningenm_aantekeningen_v1 as
+select
 brk_2_aantekeningenkadastraleobjecten.id as "id",
 brk_2_aantekeningenkadastraleobjecten.identificatie as "identificatie",
 brk_2_aantekeningenkadastraleobjecten.volgnummer as "volgnummer",

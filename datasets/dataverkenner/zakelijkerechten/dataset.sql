@@ -1,4 +1,4 @@
-create or replace view public.dataverkenner_zakelijkerechten_zakelijkerechten WITH (security_barrier) as
+create or replace view public.dataverkenner_zakelijkerechten_zakelijkerechten_v1 WITH (security_barrier) as
 SELECT
     brk_2_zakelijkerechten.id AS "id",
     brk_2_zakelijkerechten.identificatie AS "identificatie",
@@ -10,6 +10,6 @@ SELECT
     brk_2_zakelijkerechten.vve_identificatie_betrokken_bij_id AS "vve_identificatie_betrokken_bij_id",
     brk_2_zakelijkerechten.begin_geldigheid AS "begin_geldigheid",
     brk_2_zakelijkerechten.eind_geldigheid AS "eind_geldigheid"
-FROM 
+FROM
     brk_2_zakelijkerechten
     WHERE (brk_2_zakelijkerechten.datum_actueel_tot IS NULL OR brk_2_zakelijkerechten.datum_actueel_tot > now())

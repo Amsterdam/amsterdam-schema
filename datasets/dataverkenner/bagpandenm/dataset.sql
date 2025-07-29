@@ -1,4 +1,4 @@
-CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_bagpandenm_bagpanden AS WITH verblijfsobjecten AS
+CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_bagpandenm_bagpanden_v1 AS WITH verblijfsobjecten AS
   ( SELECT ligt_in_panden_id,
            array_agg(verblijfsobjecten_identificatie) AS vots
    FROM bag_verblijfsobjecten_ligt_in_panden
