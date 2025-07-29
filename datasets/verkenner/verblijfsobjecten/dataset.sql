@@ -1,4 +1,4 @@
-create or replace view public.verkenner_verblijfsobjecten_verblijfsobjecten WITH (security_barrier) as
+create or replace view public.verkenner_verblijfsobjecten_verblijfsobjecten_v1 WITH (security_barrier) as
 select
 bag_verblijfsobjecten.identificatie as "identificatie",
 bag_verblijfsobjecten.id as "id",

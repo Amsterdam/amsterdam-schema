@@ -1,5 +1,5 @@
-create or replace view public.dataverkenner_kadastraleobject_kadastraleobject WITH (security_barrier) as
-select 
+create or replace view public.dataverkenner_kadastraleobject_kadastraleobject_v1 WITH (security_barrier) as
+select
 brk_2_kadastraleobjecten.id as "id",
 brk_2_kadastraleobjecten.identificatie as "identificatie",
 brk_2_kadastraleobjecten.neuron_id as "neuron_id",

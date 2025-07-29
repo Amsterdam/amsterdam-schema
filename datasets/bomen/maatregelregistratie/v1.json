@@ -21,20 +21,24 @@
         "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
       },
       "id": {
+        "title": "ID",
         "type": "integer",
         "description": "Unieke aanduiding van record"
       },
       "boomId": {
+        "title": "Boom ID",
         "type": "integer",
         "description": "de vreemde sleutel (foreignkey) voor de relatie met de stamgegevens van de bomen"
       },
       "veiligheidsinspectiesId": {
+        "title": "Veiligheidsinspecties ID",
         "type": "integer",
         "description": "de vreemde sleutel (foreignkey) voor de relatie met de veiligheidsinspecties"
       },
       "besteksadministratie": {
+        "title": "Besteksadministratie",
         "type": "string",
-        "description": "Wordt later ingevuld",
+        "description": "Voor het vastleggen van maatregelen vanuit het bestek",
         "enum": [
           "Opdracht uitgesteld",
           "Geen besteksafwijkingen",
@@ -50,6 +54,7 @@
         ]
       },
       "boommaatregelGedetailleerd": {
+        "title": "Boommaatregel gedetailleerd",
         "type": "string",
         "description": "Detaillering op gekozen maatregel",
         "auth": "FP/MDW",
@@ -58,6 +63,7 @@
         ]
       },
       "boommaatregelBesluit": {
+        "title": "Boommaatregel besluit",
         "type": "string",
         "description": "Besluit van beheerder op voorgestelde boommaatregel",
         "auth": "FP/MDW",
@@ -66,6 +72,7 @@
         ]
       },
       "boommaatregelBesluitGedetailleerd": {
+        "title": "Boommaatregel besluit gedetailleerd",
         "type": "string",
         "description": "Detaillering op besluit van beheerder op voorgestelde boommaatregel",
         "auth": "FP/MDW",
@@ -74,10 +81,12 @@
         ]
       },
       "boommaatregel": {
+        "title": "Boommaatregel",
         "type": "string",
         "description": "Te nemen maatregel voor het wegnemen of reduceren van het veiligheidsrisico dat de boom voor de omgeving vormt"
       },
       "boommaatregelurgentie": {
+        "title": "Boommaatregel urgentie",
         "type": "string",
         "description": "Registratie benodigde urgentie voor de BVC-veiligheidsmaatregelen",
         "auth": "FP/MDW",
@@ -86,6 +95,7 @@
         ]
       },
       "boomonderdeelPlaats": {
+        "title": "Boomonderdeel plaats",
         "type": "string",
         "description": "Aanduiding waar in de boom het gebrek zich bevindt",
         "auth": "FP/MDW",
@@ -94,6 +104,7 @@
         ]
       },
       "bestekspost": {
+        "title": "Bestekspost",
         "type": "string",
         "description": "Bestekspost waartoe deze maatregel behoort",
         "auth": "FP/MDW",
@@ -102,6 +113,7 @@
         ]
       },
       "boommaatregelurgentieBesluit": {
+        "title": "Boommaatregelurgentie besluit",
         "type": "string",
         "description": "De tijd waarbinnen een boommaatregel uitgevoerd dient te worden",
         "auth": "FP/MDW",
@@ -110,25 +122,30 @@
         ]
       },
       "datumBesluit": {
+        "title": "Datum besluit",
         "type": "string",
         "format": "date",
         "description": "De datum waarop het besluit is genomen"
       },
       "datumToezicht": {
+        "title": "Datum toezicht",
         "type": "string",
         "format": "date",
         "description": "De datum waarop toezicht heeft plaatsgevonden"
       },
       "datumVoorbereiding": {
+        "title": "Datum voorbereiding",
         "type": "string",
         "format": "date",
         "description": "De datum waarop de voorbereiding is begonnen"
       },
       "deelopdrachtKap": {
+        "title": "Deelopdracht kap",
         "type": "string",
         "description": "Deelopdrachtnummer waarbinnen aannemer de werkzaamheden voor kap uitvoert"
       },
       "deelopdracht": {
+        "title": "Deelopdracht",
         "type": "string",
         "description": "Taak die slechts een deel vormt van de totale opdracht",
         "auth": "FP/MDW",
@@ -137,6 +154,7 @@
         ]
       },
       "geplandeEinddatum": {
+        "title": "Geplande einddatum",
         "type": "string",
         "format": "date",
         "description": "Geplande einddatum van maatregel",
@@ -146,6 +164,7 @@
         ]
       },
       "geplandeStartdatum": {
+        "title": "Geplande startdatum",
         "type": "string",
         "format": "date",
         "description": "Geplande startdatum van maatregel",
@@ -155,6 +174,7 @@
         ]
       },
       "identificatie": {
+        "title": "Identificatie",
         "type": "string",
         "description": "Uniek identificatienummer voor het object dat onveranderlijk is zolang het object bestaat",
         "auth": "FP/MDW",
@@ -163,31 +183,37 @@
         ]
       },
       "idUitOudeBeheerindeling": {
+        "title": "ID uit oude beheerindeling",
         "type": "string",
         "description": "Uniek kenmerk van een beheerobject uit een oude beheerindeling"
       },
       "keten": {
+        "title": "Keten",
         "type": "string",
-        "description": "Wordt later ingevuld",
+        "description": "Vanuit Geovisia bood dit object inzicht in onder welk project iets valt (keten-werkset-uitvoeringset)",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
         ]
       },
       "kaplijstBomen": {
+        "title": "Kaplijst bomen",
         "type": "string",
         "description": "Naam van de kaplijst die in opdracht is gegeven voor kap en herplant"
       },
       "maatregelDatumUitgevoerd": {
+        "title": "Maatregel datum uitgevoerd",
         "type": "string",
         "format": "date",
         "description": "Datum waarop maatregel is uitgevoerd"
       },
       "maatregelIsUitgevoerd": {
+        "title": "Maatregel is uitgevoerd",
         "type": "boolean",
         "description": "WGeeft aan of maatregel is uitgevoerd"
       },
       "opdrachtstatus": {
+        "title": "Opdrachtstatus",
         "type": "string",
         "description": "Geeft aan of maatregel al uitgevoerd is of nog in opdracht is",
         "enum": [
@@ -210,6 +236,7 @@
         ]
       },
       "termijn": {
+        "title": "Termijn",
         "type": "string",
         "description": "Geeft aan op welke termijn de maatregel opnieuw uitgevoerd moet worden",
         "auth": "FP/MDW",
@@ -218,6 +245,7 @@
         ]
       },
       "uitvoeringGereed": {
+        "title": "Uitvoering gereed",
         "type": "string",
         "description": "Geeft aan of uitvoering van de maatregel gereed is",
         "auth": "FP/MDW",
@@ -226,10 +254,12 @@
         ]
       },
       "uitvoerendeOrganisatie": {
+        "title": "Uitvoerende organisatie",
         "type": "string",
         "description": "Organisatie die de opdracht uitvoert"
       },
       "code": {
+        "title": "Code",
         "type": "string",
         "description": "Codenummer van het object",
         "auth": "FP/MDW",
@@ -238,6 +268,7 @@
         ]
       },
       "guid": {
+        "title": "Guid",
         "type": "string",
         "description": "Uniek nummer van het IMBOR-object (GUID)",
         "auth": "FP/MDW",
@@ -246,11 +277,13 @@
         ]
       },
       "mutatieDatum": {
+        "title": "Mutatie datum",
         "type": "string",
         "format": "date",
         "description": "Datum waarop laatste mutatie heeft plaatsgevonden"
       },
       "revisie": {
+        "title": "Revisie",
         "type": "integer",
         "description": "Aantal keren dat de beheergegevens en of geometrie van beheerobject is gewijzigd",
         "auth": "FP/MDW",
@@ -259,6 +292,7 @@
         ]
       },
       "objectbegintijd": {
+        "title": "Objectbegintijd",
         "type": "string",
         "format": "date",
         "description": "Tijdstip waarop het object ontstaan is"

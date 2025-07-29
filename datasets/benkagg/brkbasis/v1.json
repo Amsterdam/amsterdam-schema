@@ -1,7 +1,7 @@
 {
   "id": "brkbasis",
   "type": "table",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "lifecycleStatus": "stable",
   "crs": "EPSG:28992",
   "status": "beschikbaar",
@@ -16,7 +16,7 @@
     "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
   ],
   "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
-  "description": "BRK-tabel waar alle actueel tenaamgestelde Kadastrale Objecten gecombineerd worden met hun zakelijke rechten en tenaamstellingen.",
+  "description": "BRK-tabel waar alle actueel tenaamgestelde Kadastrale Objecten gecombineerd worden met hun zakelijke rechten en tenaamstellingen",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -53,26 +53,18 @@
       "kadastraleAanduiding": {
         "type": "string",
         "title": "Kadastraal object kadastrale aanduiding",
-        "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer."
+        "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer"
       },
       "koopsom": {
-        "auth": "BRK/RS",
         "type": "number",
         "multipleOf": 0.01,
         "title": "Koopsom",
-        "description": "Het in een ter inschrijving aangeboden stuk vermelde bedrag, waarvoor 1 of meer onroerende zaken zijn verkregen",
-        "reasonsNonPublic": [
-          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-        ]
+        "description": "Het in een ter inschrijving aangeboden stuk vermelde bedrag, waarvoor 1 of meer onroerende zaken zijn verkregen"
       },
       "koopjaar": {
-        "auth": "BRK/RS",
         "type": "string",
         "title": "Koop jaar",
-        "description": "Transactiejaar van de aankoop",
-        "reasonsNonPublic": [
-          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-        ]
+        "description": "Transactiejaar van de aankoop"
       },
       "grootte": {
         "type": "number",
@@ -116,22 +108,14 @@
         "description": "Volgnummer van het Appartementsrecht"
       },
       "cultuurBebouwd": {
-        "auth": "BRK/RS",
         "type": "string",
         "title": "Soort cultuur bebouwd",
-        "description": "De soort cultuur bebouwd van een bebouwd kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl (Kadaster-on-line; KOL). Dit kenmerk is afgeleid van wat degene die een notariële akte laat inschrijven, heeft verklaard (artikel 87, eerste lid, onder a, van de Kadasterregeling 1994). Dit kan afwijken van:soort objectcode in de WOZ;gebruiksdoel in de BAG;SBI-code in het HR",
-        "reasonsNonPublic": [
-          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-        ]
+        "description": "De soort cultuur bebouwd van een bebouwd kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl (Kadaster-on-line; KOL). Dit kenmerk is afgeleid van wat degene die een notariële akte laat inschrijven, heeft verklaard (artikel 87, eerste lid, onder a, van de Kadasterregeling 1994). Dit kan afwijken van:soort objectcode in de WOZ;gebruiksdoel in de BAG;SBI-code in het HR"
       },
       "cultuurOnbebouwd": {
-        "auth": "BRK/RS",
         "type": "string",
         "title": "Soort cultuur onbebouwd",
-        "description": "De soort cultuur onbebouwd is een aanduiding voor de aard van de meest significante cultuur van het onbebouwde deel van het kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl Dit kenmerk is in beginsel afgeleid van de notariële akte, maar kan worden bijgesteld op grond van een verzoek van de eigenaar (of een schriftelijk gevolmachtigde namens de eigenaar)per brief, fax of e-mailbericht. Dit kan afwijken van: het feitelijk gebruik in de WOZ; gebruiksdoel in de BAG; SBI-code in het HR. code",
-        "reasonsNonPublic": [
-          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-        ]
+        "description": "De soort cultuur onbebouwd is een aanduiding voor de aard van de meest significante cultuur van het onbebouwde deel van het kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl Dit kenmerk is in beginsel afgeleid van de notariële akte, maar kan worden bijgesteld op grond van een verzoek van de eigenaar (of een schriftelijk gevolmachtigde namens de eigenaar)per brief, fax of e-mailbericht. Dit kan afwijken van: het feitelijk gebruik in de WOZ; gebruiksdoel in de BAG; SBI-code in het HR. code"
       },
       "ontstaanUitKadastraleAanduiding": {
         "type": "array",
@@ -380,49 +364,29 @@
         ]
       },
       "statutaireNaam": {
-        "auth": "BRK/RS",
         "type": "string",
         "title": "Subject statutaire naam",
-        "description": "De naam van de rechtspersoon. Het betreft de naam die is opgenomen in de oprichtingsakte",
-        "reasonsNonPublic": [
-          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-        ]
+        "description": "De naam van de rechtspersoon. Het betreft de naam die is opgenomen in de oprichtingsakte"
       },
       "statutaireZetel": {
-        "auth": "BRK/RS",
         "type": "string",
         "title": "Subject statutaire naam",
-        "description": "De statutaire plaats van vestiging",
-        "reasonsNonPublic": [
-          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-        ]
+        "description": "De statutaire plaats van vestiging"
       },
       "rechtsvorm": {
-        "auth": "BRK/RS",
         "type": "string",
         "title": "Subject rechtsvorm",
-        "description": "De juridische vorm van een niet-natuurlijk persoon",
-        "reasonsNonPublic": [
-          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-        ]
+        "description": "De juridische vorm van een niet-natuurlijk persoon"
       },
       "kvkNummer": {
-        "auth": "BRK/RS",
         "type": "string",
         "title": "Subject Maatschappelijke activiteit KvK-nummer",
-        "description": "Betreft het identificerende gegeven voor de Maatschappelijke Activiteit",
-        "reasonsNonPublic": [
-          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-        ]
+        "description": "Betreft het identificerende gegeven voor de Maatschappelijke Activiteit"
       },
       "rsin": {
-        "auth": "BRK/RS",
         "type": "string",
         "title": "Subject Niet natuurlijke persoon RSIN",
-        "description": "Rechtspersonen en Samenwerkingsverbanden Informatienummer (RSIM). Het door een kamer toegekend uniek nummer voor de Niet Natuurlijk Persoon",
-        "reasonsNonPublic": [
-          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-        ]
+        "description": "Rechtspersonen en Samenwerkingsverbanden Informatienummer (RSIM). Het door een kamer toegekend uniek nummer voor de Niet Natuurlijk Persoon"
       },
       "woonadres": {
         "auth": "BRK/RSN",

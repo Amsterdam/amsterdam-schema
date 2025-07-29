@@ -35,7 +35,9 @@ SCHEMAS_SA_NAME = os.getenv("SCHEMAS_SA_NAME", "devschemassa")
 SCOPES_DIR = "scopes"
 SCOPES_IGNORED_FILES = ["index", "packages", "scopes"]
 SCOPES_UNAVAILABLE_DATASETS = ["brp_r"]
-PUBLISHABLE_PREFIXES = ("datasets", "schema@", PUBLISHERS_DIR, SCOPES_DIR)
+PROFILES_DIR = "profiles"
+PROFILES_IGNORED_FILES = ["index"]
+PUBLISHABLE_PREFIXES = ("datasets", "schema@", PUBLISHERS_DIR, SCOPES_DIR, PROFILES_DIR)
 
 
 def fetch_local_as_publishable(
@@ -179,7 +181,7 @@ def azure_blob_uploader(
 
     for blob in blobs:
         # Create exception for listing file
-        if blob.name not in ['listing.html']:
+        if blob.name not in ["listing.html"]:
             filtered_blobs.append(blob)
 
     # There is a hard limitation of 256 items on the `delete_blobs` azure method,
@@ -241,11 +243,13 @@ def main(container: str, schema_base_url: str) -> None:
         # Create the index files
         index_files = {
             "datasets/index": get_index_file_obj(schema_pub_paths, files_root),
+            "profiles/index": _bytes_io_json(fetch_profile_index),
             "publishers/index": _bytes_io_json(fetch_publisher_files),
             "scopes/index": _bytes_io_json(fetch_scope_index),
             "scopes/packages": _bytes_io_json(fetch_access_packages),
             "scopes/scopes": _bytes_io_json(fetch_scope_files),
             "datasets/index.json": get_index_file_obj(schema_pub_paths, files_root),
+            "profiles/index.json": _bytes_io_json(fetch_profile_index),
             "publishers/index.json": _bytes_io_json(fetch_publisher_files),
             "scopes/index.json": _bytes_io_json(fetch_scope_index),
             "scopes/packages.json": _bytes_io_json(fetch_access_packages),
@@ -304,6 +308,19 @@ def fetch_publisher_files() -> list[str]:
 
 def _bytes_io_json(fetcher: Callable) -> BytesIO:
     return BytesIO(json.dumps(fetcher()).encode())
+
+
+def fetch_profile_index() -> Dict[str, List[str]]:
+    result = {}
+    for p in Path(".").glob(PROFILES_DIR + "/**/*.json"):
+        if p.stem in PROFILES_IGNORED_FILES:
+            continue
+        if p.parent.stem not in result:
+            result[p.parent.stem] = [p.stem]
+        else:
+            result[p.parent.stem].append(p.stem)
+        result[p.parent.stem].sort()
+    return result
 
 
 def fetch_scope_index() -> Dict[str, List[str]]:

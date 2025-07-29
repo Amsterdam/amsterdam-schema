@@ -1,4 +1,4 @@
-create or replace view public.verkenner_adresinformatie_adresinformatie WITH (security_barrier) as
+create or replace view public.verkenner_adresinformatie_adresinformatie_v1 WITH (security_barrier) as
 select
 bag_nummeraanduidingen.id as "id",
 bag_nummeraanduidingen.identificatie as "identificatie",
@@ -209,14 +209,14 @@ gebieden_bouwblokken.eind_geldigheid as "gebieden_bouwblok_eind_geldigheid",
 gebieden_bouwblokken.geometrie as "gebieden_bouwblok_geometrie"
 from bag_nummeraanduidingen
 left join bag_openbareruimtes on bag_nummeraanduidingen.ligt_aan_openbareruimte_id = bag_openbareruimtes.id
-left join bag_woonplaatsen on bag_nummeraanduidingen.ligt_in_woonplaats_id = bag_woonplaatsen.id 
+left join bag_woonplaatsen on bag_nummeraanduidingen.ligt_in_woonplaats_id = bag_woonplaatsen.id
 left join bag_verblijfsobjecten on bag_nummeraanduidingen.adresseert_verblijfsobject_id=bag_verblijfsobjecten.id
-left join bag_ligplaatsen on bag_nummeraanduidingen.adresseert_ligplaats_id = bag_ligplaatsen.id 
-left join bag_standplaatsen on bag_nummeraanduidingen.adresseert_standplaats_identificatie = bag_standplaatsen.identificatie 
+left join bag_ligplaatsen on bag_nummeraanduidingen.adresseert_ligplaats_id = bag_ligplaatsen.id
+left join bag_standplaatsen on bag_nummeraanduidingen.adresseert_standplaats_identificatie = bag_standplaatsen.identificatie
 left join gebieden_buurten on bag_verblijfsobjecten.ligt_in_buurt_id=gebieden_buurten.id
 left join gebieden_wijken on gebieden_buurten.ligt_in_wijk_id = gebieden_wijken.id
 left join gebieden_stadsdelen on gebieden_wijken.ligt_in_stadsdeel_id = gebieden_stadsdelen.id
-left join gebieden_ggwgebieden on gebieden_stadsdelen.id = gebieden_ggwgebieden.id 
-left join bag_verblijfsobjecten_ligt_in_panden on bag_verblijfsobjecten.id = bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_id 
+left join gebieden_ggwgebieden on gebieden_stadsdelen.id = gebieden_ggwgebieden.id
+left join bag_verblijfsobjecten_ligt_in_panden on bag_verblijfsobjecten.id = bag_verblijfsobjecten_ligt_in_panden.verblijfsobjecten_id
 left join bag_panden on bag_panden.id = bag_verblijfsobjecten_ligt_in_panden.ligt_in_panden_id
 left join gebieden_bouwblokken on bag_panden.ligt_in_bouwblok_id=gebieden_bouwblokken.id;
