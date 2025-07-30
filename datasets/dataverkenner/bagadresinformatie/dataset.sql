@@ -93,7 +93,7 @@ bag_verblijfsobjecten_toegang_v1.omschrijving as "toegang_omschrijving"
 from bag_nummeraanduidingen_v1
 left join bag_openbareruimtes_v1 on bag_nummeraanduidingen_v1.ligt_aan_openbareruimte_id = bag_openbareruimtes_v1.id
 left join bag_woonplaatsen_v1 on bag_nummeraanduidingen_v1.ligt_in_woonplaats_id = bag_woonplaatsen_v1.id
-left join bag_verblijfsobjecten on bag_nummeraanduidingen_v1.adresseert_verblijfsobject_id=bag_verblijfsobjecten_v1.id
+left join bag_verblijfsobjecten_v1 on bag_nummeraanduidingen_v1.adresseert_verblijfsobject_id=bag_verblijfsobjecten_v1.id
 left join bag_ligplaatsen_v1 on bag_nummeraanduidingen_v1.adresseert_ligplaats_id = bag_ligplaatsen_v1.id
 left join bag_standplaatsen_v1 on bag_nummeraanduidingen_v1.adresseert_standplaats_id = bag_standplaatsen_v1.id
 left join bag_onderzoeken_v1 on bag_verblijfsobjecten_v1.identificatie = bag_onderzoeken_v1.object_identificatie
