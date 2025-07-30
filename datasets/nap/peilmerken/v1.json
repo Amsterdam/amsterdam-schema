@@ -1,7 +1,7 @@
 {
   "id": "peilmerken",
   "type": "table",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "lifecycleStatus": "stable",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -21,12 +21,12 @@
       "identificatie": {
         "type": "string",
         "title": "Peilmerk ID",
-        "description": "Het nummer van het peilmerk"
+        "description": "Unieke identificatie van het peilmerk"
       },
       "hoogteTovNap": {
         "type": "number",
         "title": "Peilmerk hoogte tov NAP",
-        "description": "Geeft de hoogte ten opzichte van NAP in meters. Bij een positieve waarde ligt het peilmerk boven NAP. Bij een negatieve waarde ligt het peilmerk onder NAP"
+        "description": "Gemeten hoogte van het peilmerk t.o.v. NAP (m)"
       },
       "jaar": {
         "type": "integer",
@@ -73,7 +73,7 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
         "title": "Geometrie",
-        "description": "Geometrische ligging van het peilmerk"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "statusCode": {
         "type": "integer",
@@ -85,11 +85,11 @@
         "type": "string",
         "title": "Peilmerk status omschrijving",
         "provenance": "$.status.omschrijving",
-        "description": "Status van het peilmerk omschrijving"
+        "description": "Status van het referentiepunt (1=actueel, 2=niet te meten, 3=vervallen) omschrijving"
       },
       "vervaldatum": {
         "type": "string",
-        "title": "Peilmerk vervaldatum",
+        "title": "Peilmerk geldigheid einddatum",
         "format": "date",
         "description": "Vervaldatum van het peilmerk"
       },
@@ -110,7 +110,7 @@
       "publiceerbaar": {
         "type": "boolean",
         "title": "Publiceerbaar indicatie",
-        "description": "Publiceerbaar ja of nee"
+        "description": "Indicatie die aangeeft of de informatie gepubliceerd mag worden"
       }
     }
   }

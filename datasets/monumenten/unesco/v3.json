@@ -2,7 +2,7 @@
   "id": "unesco",
   "type": "table",
   "auth": "OPENBAAR",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "lifecycleStatus": "stable",
   "description": "De Amsterdamse grachtengordel staat op de UNESCO-Werelderfgoedlijst, wat betekent dat er internationale erkenning is van het bijzondere karakter van dit deel van de historische binnenstad. Het aanwijzen van cultureel erfgoed is bedoeld om het beter te kunnen bewaren voor toekomstige generaties.",
   "schema": {
@@ -25,7 +25,7 @@
       "identificatie": {
         "title": "Object ID",
         "type": "string",
-        "description": "Unieke identificatie van het object"
+        "description": "Unieke identificatie van het Unesco gebied"
       },
       "datumActueelTot": {
         "title": "Actueel tot datum",
@@ -39,16 +39,16 @@
         "description": "De naam van het object"
       },
       "beginGeldigheid": {
-        "title": "Zone beschermde status begindatum",
+        "title": "Unesco gebied geldigheid begindatumtijd",
         "type": "string",
         "format": "date-time",
-        "description": "Datum waarop de beschermde status van de zone in werking treedt"
+        "description": "De ingangsdatum en -tijd van de geldigheid waarop de beschermde status van het Unesco gebied in werking treedt"
       },
       "eindGeldigheid": {
-        "title": "Zone beschermde status einddatum",
+        "title": "Unesco gebied geldigheid einddatumtijd",
         "type": "string",
         "format": "date-time",
-        "description": "Datum waarop de beschermde status van de zone is afgevoerd"
+        "description": "De einddatum en -tijd van de geldigheid waarop de beschermde status van het Unesco gebied is afgevoerd"
       },
       "redengevendeOmschrijving": {
         "title": "Reden publieke omschrijving",
@@ -56,9 +56,9 @@
         "description": "De publieke, historische omschrijving, behorend bij het besluit"
       },
       "geometrie": {
-        "title": "Unesco geometrie",
+        "title": "Geometrie",
         "$ref": "https://geojson.org/schema/Geometry.json",
-        "description": "Geometrische beschrijving van een object"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       }
     }
   }

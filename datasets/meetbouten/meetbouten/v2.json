@@ -1,7 +1,8 @@
 {
   "id": "meetbouten",
   "type": "table",
-  "version": "2.1.1",
+  "version": "2.1.2",
+  "lifecycleStatus": "experimental",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -49,7 +50,7 @@
         "type": "string",
         "title": "Meetbout geldigheid einddatum",
         "format": "date",
-        "description": "Datum waarop de meetbout is komen te vervallen"
+        "description": "Vervaldatum van de meetbout"
       },
       "datumActueelTot": {
         "type": "string",
@@ -154,7 +155,7 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Point.json",
         "title": "Geometrie",
-        "description": "Geometrische ligging van de meetbout"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "publiceerbaar": {
         "type": "boolean",
