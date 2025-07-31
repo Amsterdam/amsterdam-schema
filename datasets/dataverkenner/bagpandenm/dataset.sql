@@ -2,7 +2,7 @@ CREATE MATERIALIZED VIEW IF NOT EXISTS public.dataverkenner_bagpandenm_bagpanden
   ( SELECT ligt_in_panden_id,
            array_agg(verblijfsobjecten_identificatie) AS vots
    FROM bag_verblijfsobjecten_ligt_in_panden_v1
-   LEFT JOIN bag_verblijfsobjecten vot ON bag_verblijfsobjecten_ligt_in_panden_v1.verblijfsobjecten_id = vot.id
+   LEFT JOIN bag_verblijfsobjecten_v1 vot ON bag_verblijfsobjecten_ligt_in_panden_v1.verblijfsobjecten_id = vot.id
    WHERE bag_verblijfsobjecten_ligt_in_panden_v1.eind_geldigheid IS NULL
      AND vot.status_omschrijving IN ('Verblijfsobject gevormd',
                                      'Verblijfsobject in gebruik (niet ingemeten)',
