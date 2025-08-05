@@ -5,120 +5,132 @@
     "description": "Leerlingen, prognoses en gebruik in vierkante meters per schoolgebouw",
     "version": "1.0.0",
     "lifecycleStatus": "stable",
-    "schema": [
-        {
-            "title": "bk_ol_kg_kengetallen",
-            "type": "string",
-            "description": "Unieke identificatiecode van een kengetal, gebruikt binnen Databricks om een specifieke kengetal eenduidig te identificeren.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "kg_id",
-            "type": "string",
-            "description": "Unieke identificatiecode van de kengetal vanuit de bronapplicatie",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "in_id",
-            "type": "string",
-            "description": "Verwijzing naar de gekoppelde instelling.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "kg_prognose_soort",
-            "type": "string",
-            "description": "Soort prognose gekoppeld aan de kengetallen.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "kg_prognose_jaar",
-            "type": "string",
-            "description": "Prognosejaar gekoppeld aan de kengetallen.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "kg_jaar",
-            "type": "string",
-            "description": "Jaar waarop de kengetallen betrekking hebben.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "kg_maand",
-            "type": "string",
-            "description": "Maand waarop de kengetallen betrekking hebben.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "kg_prognose",
-            "type": "string",
-            "description": "Prognosewaarde gekoppeld aan de kengetallen.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "kg_gebruik_m2",
-            "type": "string",
-            "description": "Gebruiksoppervlakte in vierkante meters (m\u00b2).",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "kg_behoefte_m2",
-            "type": "string",
-            "description": "Behoefte aan oppervlakte in vierkante meters (m\u00b2).",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "kg_aantal_leerlingen",
-            "type": "string",
-            "description": "Aantal leerlingen gekoppeld aan de kengetallen.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "kg_gebruik_klokuren",
-            "type": "string",
-            "description": "Gebruiksuren in klokuren.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "kg_behoefte_klokuren",
-            "type": "string",
-            "description": "Behoefte aan klokuren.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "kg_achterstandscore",
-            "type": "string",
-            "description": "Achterstandscore gekoppeld aan de kengetallen.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "datum_export",
-            "type": "string",
-            "description": "Datum waarop de gegevens van de kengetallen zijn ge\u00ebxporteerd.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "versie",
-            "type": "string",
-            "description": "Versienummer van de kengetallen.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "m_geldig_van",
-            "type": "string",
-            "description": "Startdatum van de geldigheid van de kengetallen.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "m_geldig_tot",
-            "type": "string",
-            "description": "Einddatum van de geldigheid van de kengetallen.",
-            "scope": "Openbaar"
-        },
-        {
-            "title": "m_is_actief",
-            "type": "boolean",
-            "description": "Geeft aan of de kengetallen actief zijn (Ja/Nee).",
-            "scope": "Openbaar"
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": "false",
+        "required": [
+            "schema"
+        ],
+        "display": "ol_kg_kengetallen",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+            },
+            "bk_ol_kg_kengetallen": {
+                "title": "bk_ol_kg_kengetallen",
+                "type": "string",
+                "description": "Unieke identificatiecode van een kengetal, gebruikt binnen Databricks om een specifieke kengetal eenduidig te identificeren.",
+                "scope": "Openbaar"
+            },
+            "kg_id": {
+                "title": "kg_id",
+                "type": "string",
+                "description": "Unieke identificatiecode van de kengetal vanuit de bronapplicatie",
+                "scope": "Openbaar"
+            },
+            "in_id": {
+                "title": "in_id",
+                "type": "string",
+                "description": "Verwijzing naar de gekoppelde instelling.",
+                "scope": "Openbaar"
+            },
+            "kg_prognose_soort": {
+                "title": "kg_prognose_soort",
+                "type": "string",
+                "description": "Soort prognose gekoppeld aan de kengetallen.",
+                "scope": "Openbaar"
+            },
+            "kg_prognose_jaar": {
+                "title": "kg_prognose_jaar",
+                "type": "string",
+                "description": "Prognosejaar gekoppeld aan de kengetallen.",
+                "scope": "Openbaar"
+            },
+            "kg_jaar": {
+                "title": "kg_jaar",
+                "type": "string",
+                "description": "Jaar waarop de kengetallen betrekking hebben.",
+                "scope": "Openbaar"
+            },
+            "kg_maand": {
+                "title": "kg_maand",
+                "type": "string",
+                "description": "Maand waarop de kengetallen betrekking hebben.",
+                "scope": "Openbaar"
+            },
+            "kg_prognose": {
+                "title": "kg_prognose",
+                "type": "string",
+                "description": "Prognosewaarde gekoppeld aan de kengetallen.",
+                "scope": "Openbaar"
+            },
+            "kg_gebruik_m2": {
+                "title": "kg_gebruik_m2",
+                "type": "string",
+                "description": "Gebruiksoppervlakte in vierkante meters (m\u00b2).",
+                "scope": "Openbaar"
+            },
+            "kg_behoefte_m2": {
+                "title": "kg_behoefte_m2",
+                "type": "string",
+                "description": "Behoefte aan oppervlakte in vierkante meters (m\u00b2).",
+                "scope": "Openbaar"
+            },
+            "kg_aantal_leerlingen": {
+                "title": "kg_aantal_leerlingen",
+                "type": "string",
+                "description": "Aantal leerlingen gekoppeld aan de kengetallen.",
+                "scope": "Openbaar"
+            },
+            "kg_gebruik_klokuren": {
+                "title": "kg_gebruik_klokuren",
+                "type": "string",
+                "description": "Gebruiksuren in klokuren.",
+                "scope": "Openbaar"
+            },
+            "kg_behoefte_klokuren": {
+                "title": "kg_behoefte_klokuren",
+                "type": "string",
+                "description": "Behoefte aan klokuren.",
+                "scope": "Openbaar"
+            },
+            "kg_achterstandscore": {
+                "title": "kg_achterstandscore",
+                "type": "string",
+                "description": "Achterstandscore gekoppeld aan de kengetallen.",
+                "scope": "Openbaar"
+            },
+            "datum_export": {
+                "title": "datum_export",
+                "type": "string",
+                "description": "Datum waarop de gegevens van de kengetallen zijn ge\u00ebxporteerd.",
+                "scope": "Openbaar"
+            },
+            "versie": {
+                "title": "versie",
+                "type": "string",
+                "description": "Versienummer van de kengetallen.",
+                "scope": "Openbaar"
+            },
+            "m_geldig_van": {
+                "title": "m_geldig_van",
+                "type": "string",
+                "description": "Startdatum van de geldigheid van de kengetallen.",
+                "scope": "Openbaar"
+            },
+            "m_geldig_tot": {
+                "title": "m_geldig_tot",
+                "type": "string",
+                "description": "Einddatum van de geldigheid van de kengetallen.",
+                "scope": "Openbaar"
+            },
+            "m_is_actief": {
+                "title": "m_is_actief",
+                "type": "boolean",
+                "description": "Geeft aan of de kengetallen actief zijn (Ja/Nee).",
+                "scope": "Openbaar"
+            }
         }
-    ]
+    }
 }
