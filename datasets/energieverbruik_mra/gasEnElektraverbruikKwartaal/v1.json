@@ -1,10 +1,10 @@
 {
-  "id": "elektriciteitEnGasverbruikLiander",
+  "id": "gasEnElektraverbruikKwartaal",
   "type": "table",
   "lifecycleStatus": "stable",
-  "version": "1.0.2",
-  "title": "Elektriciteit- en gasverbruik Liander",
-  "description": "Verbruiksdata gas en elektricteit van de metropoolregio Amsterdam geleverd door Liander.",
+  "version": "1.0.0",
+  "title": "Gas- en elektriciteitsverbruik MRA kwartaal",
+  "description": "Verbruiksdata gas en elektriciteit per kwartaal van de Metropoolregio Amsterdam. Samengevoegde tabel met verbruiksdata van Liander en Stedin.",
   "status": "beschikbaar",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -25,6 +25,11 @@
         "title": "Energieverbruik ID",
         "description": "Unieke aanduiding record."
       },
+      "peildatum": {
+        "type": "integer",
+        "title": "Energieverbruik peildatum",
+        "description": "Peildatum waarop het verbruik betrekking heeft."
+      },
       "jaar": {
         "type": "integer",
         "title": "Energieverbruik jaar",
@@ -40,30 +45,25 @@
         "title": "Energieverbruik maand van jaar",
         "description": "Het jaar en de maand waarop het verbruik betrekking heeft."
       },
+      "maand": {
+        "type": "string",
+        "title": "Energieverbruik maand",
+        "description": "De maand waarop het verbruik betrekking heeft."
+      },      
       "product": {
         "type": "string",
-        "title": "Liander producttype",
+        "title": "Energieverbruik producttype",
         "description": "Het producttype: ELK = elektriciteit, GAS = gas."
       },
       "klantsegment": {
         "type": "string",
-        "title": "Liander klanttypering",
+        "title": "Klanttypering",
         "description": "Typering van de grootte van de aansluiting: KVB = kleinverbruik, GVB = grootverbruik."
-      },
-      "provincie": {
-        "type": "string",
-        "title": "Aansluiting provincie",
-        "description": "De provincie waar binnen de aansluitingen zich bevinden."
       },
       "gemeente": {
         "type": "string",
         "title": "Aansluiting gemeente",
         "description": "De gemeente waar binnen de aansluitingen zich bevinden."
-      },
-      "plaats": {
-        "type": "string",
-        "title": "Aansluiting plaats",
-        "description": "De plaats waar binnen de aansluitingen zich bevinden."
       },
       "wijkCode": {
         "type": "string",
@@ -85,21 +85,26 @@
         "title": "Aansluiting buurtnaam",
         "description": "Naam van de buurt waar binnen de aansluitingen zich bevinden."
       },
-      "levering": {
+      "standaardjaarverbruikLevering": {
         "type": "integer",
         "title": "Schatting levering per jaar",
         "description": "Schatting op basis van historische gegevens van het jaarverbruik in kWh (elektriciteit) of nm3 (gas)."
       },
-      "teruglevering": {
+      "standaardjaarverbruikTeruglevering": {
         "type": "integer",
         "title": "Schatting teruglevering per jaar",
         "description": "Schatting op basis van historische gegevens van de jaarlijkse teruglevering in kWh (elektriciteit) of nm3 (gas)."
       },
       "aantalAansluitingen": {
         "type": "integer",
-        "title": "Aantal aansluitingen Liander",
+        "title": "Energieverbruik Aantal aansluitingen",
         "description": "Het aantal afleverpunten."
-      }
+      },
+      "netbeheerder": {
+        "type": "string",
+        "title": "Energieverbruik netbeheerder",
+        "description": "Netbeheerder van de verbruiksdata."
     }
   }
+}
 }
