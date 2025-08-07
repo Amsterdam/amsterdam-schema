@@ -1,0 +1,51 @@
+{
+    "id": "kenmerken",
+    "type": "table",
+    "title": "kenmerken",
+    "description": "Kenmerken van een accomodatie",
+    "version": "1.0.0",
+    "lifecycleStatus": "stable",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "required": [
+            "schema"
+        ],
+        "display": "omschrijving",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+            },
+            "id": {
+                "type": "string",
+                "description": "Verwijzing naar de gekoppelde accommodatie."
+            },
+            "omschrijving": {
+                "type": "string",
+                "description": "Beschrijving of toelichting van de kenmerken."
+            },
+            "datumExport": {
+                "type": "string",
+                "description": "Datum waarop de gegevens van de kenmerken zijn ge\u00ebxporteerd."
+            },
+            "versie": {
+                "type": "string",
+                "description": "Versienummer van de kenmerken."
+            },
+            "mGeldigVan": {
+                "type": "string",
+                "description": "Startdatum van de geldigheid van de kenmerken.",
+                "format": "date-time"
+            },
+            "mGeldigTot": {
+                "type": "string",
+                "description": "Einddatum van de geldigheid van de kenmerken.",
+                "format": "date-time"
+            },
+            "mIsActief": {
+                "type": "boolean",
+                "description": "Geeft aan of de kenmerken actief zijn (Ja/Nee)."
+            }
+        }
+    }
+}
