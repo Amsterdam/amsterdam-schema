@@ -1,0 +1,135 @@
+{
+    "id": "olAcAccommodatie",
+    "type": "table",
+    "title": "olAcAccommodatie",
+    "description": "De fysieke eigenschappen van een schoolgebouw",
+    "version": "1.0.0",
+    "lifecycleStatus": "stable",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "required": [
+            "schema"
+        ],
+        "display": "acId",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+            },
+            "id": {
+                "type": "string",
+                "description": "Unieke identificatiecode van een accommodatie, gebruikt binnen Databricks om een specifieke accommodatie eenduidig te identificeren."
+            },
+            "acId": {
+                "type": "string",
+                "description": "Unieke identificatiecode van de accommodatie vanuit de bronapplicatie"
+            },
+            "inId": {
+                "type": "string",
+                "description": "De unieke identificatiecode van de instelling die de accommodatie gebruikt"
+            },
+            "acCode": {
+                "type": "string",
+                "description": "Code ter aanduiding van een gebouw, gebruikers voeren dit zelf in in het Onderwijsloket. NB: niet uniek"
+            },
+            "acAdresStraat": {
+                "type": "string",
+                "description": "De offici\u00eble naam van de straat waaraan de school zich bevindt, zoals Waterlooplein, Amstel etc."
+            },
+            "acAdresPostcode": {
+                "type": "string",
+                "description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)"
+            },
+            "acAdresHuisnummer": {
+                "type": "string",
+                "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering"
+            },
+            "acAdresHuisnummerToev": {
+                "type": "string",
+                "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
+            },
+            "acStadsdeel": {
+                "type": "string",
+                "description": "Het gebied binnen een gemeente dat is ingedeeld als een bestuurlijke of geografische eenheid."
+            },
+            "acWijk": {
+                "type": "string",
+                "description": "De offici\u00eble naam van de wijk waarin de school zich bevindt, zoals IJburg-West, Oude Pijp of Jordaan."
+            },
+            "acBestemming": {
+                "type": "string",
+                "description": "Het beoogde gebruik of de functie van een gebouw of terrein."
+            },
+            "acBvo": {
+                "type": "string",
+                "description": "De totale vloeroppervlakte van een gebouw, inclusief muren en andere constructiedelen."
+            },
+            "acOnderwijs": {
+                "type": "string",
+                "description": "De oppervlakte binnen een gebouw die specifiek is bedoeld voor onderwijsactiviteiten."
+            },
+            "acBouwaard": {
+                "type": "string",
+                "description": "Geeft aan of het een tijdelijk of een permanent gebouw is"
+            },
+            "acBouwjaar": {
+                "type": "string",
+                "description": " Het jaar waarin de accommodatie is gebouwd of opgeleverd"
+            },
+            "acRenovatieDatum": {
+                "type": "string",
+                "description": "De datum waarop het gebouw voor het laatst is gerenoveerd"
+            },
+            "acBouwlagen": {
+                "type": "string",
+                "description": "Het totale aantal verdiepingen of bouwlagen van een gebouw"
+            },
+            "acSchoolpleinM2": {
+                "type": "string",
+                "description": "De totale oppervlakte van het schoolplein, uitgedrukt in vierkante meters (m\u00b2)"
+            },
+            "acSpeellokalen": {
+                "type": "string",
+                "description": "De hoeveelheid speellokalen in het gebouw"
+            },
+            "acJuridischEigenaar": {
+                "type": "string",
+                "description": "De persoon, organisatie of entiteit die volgens de wet eigenaar is van een bepaald object, zoals een gebouw, terrein of ander eigendom."
+            },
+            "acEconomischClaimrecht": {
+                "type": "string",
+                "description": "Geeft aan wie het economisch claimrecht heeft, mocht de juridisch eigenaar afstand doen van het gebouw."
+            },
+            "acArchief": {
+                "type": "string",
+                "description": "Staat op 'ja' bij gearchiveerde (niet meer actieve) objecten"
+            },
+            "acArchiefDatum": {
+                "type": "string",
+                "description": "Datum waarop het object is ge\u00e4rchiveerd"
+            },
+            "datumExport": {
+                "type": "string",
+                "description": "De datum waarop de gegevens van de accomodatie zijn ge\u00ebxporteerd."
+            },
+            "versie": {
+                "type": "string",
+                "description": "Het versienummer van de accomodatie."
+            },
+            "mGeldigVan": {
+                "type": "string",
+                "description": "De einddatum van de geldigheid van de accommodatie.",
+                "format": "date-time"
+            },
+            "mGeldigTot": {
+                "type": "string",
+                "description": "De startdatum van de geldigheid van de accomodatie.",
+                "format": "date-time"
+            },
+            "mIsActief": {
+                "type": "boolean",
+                "description": "Geeft aan of de accomodatie actief is (Ja/Nee)."
+            }
+        }
+    }
+}
