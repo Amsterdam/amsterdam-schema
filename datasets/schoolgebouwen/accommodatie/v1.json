@@ -1,0 +1,127 @@
+{
+    "id": "accommodatie",
+    "type": "table",
+    "title": "accommodatie",
+    "description": "De fysieke eigenschappen van een schoolgebouw",
+    "version": "1.0.0",
+    "lifecycleStatus": "stable",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "required": [
+            "schema"
+        ],
+        "display": "id",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+            },
+            "id": {
+                "type": "string",
+                "description": "De unieke identificatiecode van de instelling die de accommodatie gebruikt"
+            },
+            "code": {
+                "type": "string",
+                "description": "Code ter aanduiding van een gebouw, gebruikers voeren dit zelf in in het Onderwijsloket. NB: niet uniek"
+            },
+            "adresStraat": {
+                "type": "string",
+                "description": "De offici\u00eble naam van de straat waaraan de school zich bevindt, zoals Waterlooplein, Amstel etc."
+            },
+            "adresPostcode": {
+                "type": "string",
+                "description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)"
+            },
+            "adresHuisnummer": {
+                "type": "string",
+                "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering"
+            },
+            "adresHuisnummerToev": {
+                "type": "string",
+                "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
+            },
+            "stadsdeel": {
+                "type": "string",
+                "description": "Het gebied binnen een gemeente dat is ingedeeld als een bestuurlijke of geografische eenheid."
+            },
+            "wijk": {
+                "type": "string",
+                "description": "De offici\u00eble naam van de wijk waarin de school zich bevindt, zoals IJburg-West, Oude Pijp of Jordaan."
+            },
+            "bestemming": {
+                "type": "string",
+                "description": "Het beoogde gebruik of de functie van een gebouw of terrein."
+            },
+            "bvo": {
+                "type": "string",
+                "description": "De totale vloeroppervlakte van een gebouw, inclusief muren en andere constructiedelen."
+            },
+            "onderwijs": {
+                "type": "string",
+                "description": "De oppervlakte binnen een gebouw die specifiek is bedoeld voor onderwijsactiviteiten."
+            },
+            "bouwaard": {
+                "type": "string",
+                "description": "Geeft aan of het een tijdelijk of een permanent gebouw is"
+            },
+            "bouwjaar": {
+                "type": "string",
+                "description": " Het jaar waarin de accommodatie is gebouwd of opgeleverd"
+            },
+            "renovatieDatum": {
+                "type": "string",
+                "description": "De datum waarop het gebouw voor het laatst is gerenoveerd"
+            },
+            "bouwlagen": {
+                "type": "string",
+                "description": "Het totale aantal verdiepingen of bouwlagen van een gebouw"
+            },
+            "schoolpleinM2": {
+                "type": "string",
+                "description": "De totale oppervlakte van het schoolplein, uitgedrukt in vierkante meters (m\u00b2)"
+            },
+            "speellokalen": {
+                "type": "string",
+                "description": "De hoeveelheid speellokalen in het gebouw"
+            },
+            "juridischEigenaar": {
+                "type": "string",
+                "description": "De persoon, organisatie of entiteit die volgens de wet eigenaar is van een bepaald object, zoals een gebouw, terrein of ander eigendom."
+            },
+            "economischClaimrecht": {
+                "type": "string",
+                "description": "Geeft aan wie het economisch claimrecht heeft, mocht de juridisch eigenaar afstand doen van het gebouw."
+            },
+            "archief": {
+                "type": "string",
+                "description": "Staat op 'ja' bij gearchiveerde (niet meer actieve) objecten"
+            },
+            "archiefDatum": {
+                "type": "string",
+                "description": "Datum waarop het object is ge\u00e4rchiveerd"
+            },
+            "datumExport": {
+                "type": "string",
+                "description": "De datum waarop de gegevens van de accomodatie zijn ge\u00ebxporteerd."
+            },
+            "versie": {
+                "type": "string",
+                "description": "Het versienummer van de accomodatie."
+            },
+            "mGeldigVan": {
+                "type": "string",
+                "description": "De einddatum van de geldigheid van de accommodatie.",
+                "format": "date-time"
+            },
+            "mGeldigTot": {
+                "type": "string",
+                "description": "De startdatum van de geldigheid van de accomodatie.",
+                "format": "date-time"
+            },
+            "mIsActief": {
+                "type": "boolean",
+                "description": "Geeft aan of de accomodatie actief is (Ja/Nee)."
+            }
+        }
+    }
+}

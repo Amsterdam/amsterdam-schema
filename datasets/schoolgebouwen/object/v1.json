@@ -1,0 +1,87 @@
+{
+    "id": "object",
+    "type": "table",
+    "title": "object",
+    "description": "Fysieke ruimtes binnen een accomodatie",
+    "version": "1.0.0",
+    "lifecycleStatus": "stable",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "required": [
+            "schema"
+        ],
+        "display": "type",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+            },
+            "id": {
+                "type": "string",
+                "description": "Verwijzing naar de gekoppelde accommodatie."
+            },
+            "code": {
+                "type": "string",
+                "description": "Code die het object identificeert."
+            },
+            "type": {
+                "type": "string",
+                "description": "Type object, bijvoorbeeld een specifieke classificatie."
+            },
+            "ruimtesoort": {
+                "type": "string",
+                "description": "Soort ruimtes binnen het object."
+            },
+            "ruimtetype": {
+                "type": "string",
+                "description": "Type ruimte binnen het object."
+            },
+            "capaciteitM2": {
+                "type": "string",
+                "description": "Capaciteit van het object in vierkante meters (m\u00b2)."
+            },
+            "capaciteitUren": {
+                "type": "string",
+                "description": "Capaciteit van het object in uren."
+            },
+            "capaciteitRuimtes": {
+                "type": "string",
+                "description": "Capaciteit van het object in aantal ruimtes."
+            },
+            "leegstandM2": {
+                "type": "string",
+                "description": "Leegstand van het object in vierkante meters (m\u00b2)."
+            },
+            "leegstandUren": {
+                "type": "string",
+                "description": "Aantal uren dat ruimtes binnen het object leegstaan."
+            },
+            "leegstandRuimtes": {
+                "type": "string",
+                "description": "Aantal ruimtes die leegstaan binnen het object."
+            },
+            "datumExport": {
+                "type": "string",
+                "description": "Datum waarop de gegevens van het object zijn ge\u00ebxporteerd."
+            },
+            "versie": {
+                "type": "string",
+                "description": "Versienummer van het object."
+            },
+            "mGeldigVan": {
+                "type": "string",
+                "description": "Startdatum van de geldigheid van het object.",
+                "format": "date-time"
+            },
+            "mGeldigTot": {
+                "type": "string",
+                "description": "Einddatum van de geldigheid van het object.",
+                "format": "date-time"
+            },
+            "mIsActief": {
+                "type": "boolean",
+                "description": "Geeft aan of het object actief is (Ja/Nee)."
+            }
+        }
+    }
+}

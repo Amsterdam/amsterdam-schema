@@ -1,0 +1,71 @@
+{
+    "id": "gebruik",
+    "type": "table",
+    "title": "gebruik",
+    "description": "Het gebruik van het schoolgebouw",
+    "version": "1.0.0",
+    "lifecycleStatus": "stable",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "required": [
+            "schema"
+        ],
+        "display": "id",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+            },
+            "id": {
+                "type": "string",
+                "description": "Verwijzing naar de gekoppelde instelling."
+            },
+            "datumBegin": {
+                "type": "string",
+                "description": "Startdatum van het gebruik."
+            },
+            "datumEind": {
+                "type": "string",
+                "description": "Einddatum van het gebruik."
+            },
+            "gebruikM2": {
+                "type": "string",
+                "description": "Gebruiksoppervlakte in vierkante meters (m\u00b2)."
+            },
+            "gebruikUren": {
+                "type": "string",
+                "description": "Aantal uren van het gebruik."
+            },
+            "gebruikRuimtes": {
+                "type": "string",
+                "description": "Aantal ruimtes dat in gebruik is."
+            },
+            "gebruik": {
+                "type": "string",
+                "description": "Beschrijving van het gebruik."
+            },
+            "datumExport": {
+                "type": "string",
+                "description": "Datum waarop de gegevens van het gebruik zijn ge\u00ebxporteerd."
+            },
+            "versie": {
+                "type": "string",
+                "description": "Versienummer van het gebruik."
+            },
+            "mGeldigVan": {
+                "type": "string",
+                "description": "Startdatum van de geldigheid van het gebruik.",
+                "format": "date-time"
+            },
+            "mGeldigTot": {
+                "type": "string",
+                "description": "Einddatum van de geldigheid van het gebruik.",
+                "format": "date-time"
+            },
+            "mIsActief": {
+                "type": "boolean",
+                "description": "Geeft aan of het gebruik actief is (Ja/Nee)."
+            }
+        }
+    }
+}
