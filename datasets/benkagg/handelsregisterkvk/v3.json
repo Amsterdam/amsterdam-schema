@@ -1,7 +1,7 @@
 {
   "id": "handelsregisterkvk",
   "type": "table",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "lifecycleStatus": "stable",
   "crs": "EPSG:28992",
   "auth": [
@@ -186,6 +186,12 @@
         "type": "string",
         "title": "Adresseerbaar object van bezoeklocatie",
         "description": "Met welk adresseerbaar object heeft de bezoeklocatie een relatie"
+      },
+      "bezoekHeeftBagPanden": {
+        "type": "array",
+        "items": {"type": "string"},
+        "title": "Bag pand(en) van verblijfsobject bezoeklocatie",
+        "description": "Met welke pand(en) heeft de bezoeklocatie een relatie via het verblijfsobject"
       },
       "postLocatieVes": {
         "type": "object",
