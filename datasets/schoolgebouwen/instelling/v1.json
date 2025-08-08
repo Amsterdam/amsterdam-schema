@@ -1,0 +1,83 @@
+ {
+    "id": "instelling",
+    "type": "table",
+    "title": "instelling",
+    "description": "De instelling die huist in het schoolgebouw",
+    "version": "1.0.0",
+    "lifecycleStatus": "stable",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "required": [
+            "schema"
+        ],
+        "display": "naam",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+            },
+            "id": {
+                "type": "string",
+                "description": "Unieke identificatiecode van een instelling, gebruikt binnen Databricks om een specifieke instelling eenduidig te identificeren."
+            },
+            "instellingId": {
+                "type": "string",
+                "description": "Verwijzing naar de  identificatiecode van de instelling vanuit de bronapplicatie"
+            },
+            "bestuurId": {
+                "type": "string",
+                "description": "Verwijzing naar de gekoppelde bestuursgegevens."
+            },
+            "brinNummerDuo": {
+                "type": "string",
+                "description": "BRIN-nummer van de instelling zoals geregistreerd bij DUO."
+            },
+            "naam": {
+                "type": "string",
+                "description": "Naam van de instelling."
+            },
+            "soort": {
+                "type": "string",
+                "description": "Soort instelling, bijvoorbeeld type onderwijsinstelling."
+            },
+            "concept": {
+                "type": "string",
+                "description": "Onderwijsconcept van de instelling, bijvoorbeeld Montessori of Dalton."
+            },
+            "denominatie": {
+                "type": "string",
+                "description": "Denominatie van de instelling, bijvoorbeeld religieuze of levensbeschouwelijke achtergrond."
+            },
+            "archief": {
+                "type": "string",
+                "description": "Geeft aan of de instelling in het archief is opgenomen."
+            },
+            "datumArchief": {
+                "type": "string",
+                "description": "Datum waarop de instelling is gearchiveerd."
+            },
+            "datumExport": {
+                "type": "string",
+                "description": "Datum waarop de gegevens van de instelling zijn ge\u00ebxporteerd."
+            },
+            "versie": {
+                "type": "string",
+                "description": "Versienummer van de instelling."
+            },
+            "mGeldigVan": {
+                "type": "string",
+                "description": "Startdatum van de geldigheid van de instelling.",
+                "format": "date-time"
+            },
+            "mGeldigTot": {
+                "type": "string",
+                "description": "Einddatum van de geldigheid van de instelling.",
+                "format": "date-time"
+            },
+            "mIsActief": {
+                "type": "boolean",
+                "description": "Geeft aan of de instelling actief is (Ja/Nee)."
+            }
+        }
+    }
+}
