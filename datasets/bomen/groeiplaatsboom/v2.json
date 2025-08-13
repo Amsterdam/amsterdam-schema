@@ -1,0 +1,263 @@
+{
+  "id": "groeiplaatsboom",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "title": "Groeiplaats bomen",
+  "description": "Tabel met gegevens ....",
+  "auth": "FP/MDW",
+  "reasonsNonPublic": [
+    "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+  ],
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "Object ID",
+        "description": "Uniek identificerend kenmerk van een object."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Geometrie",
+        "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992)."
+      },
+      "guid": {
+        "type": "string",
+        "title": "Guid",
+        "description": "Global Unique Identifier: unieke aanduiding van het object.",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "groeiplaatsGeschiktheidMedebeheer": {
+        "type": "string",
+        "title": "Groeiplaats geschiktheid medebeheer",
+        "description": "wordt later gevuld"
+      },
+      "statusGroeiplaatsLocatie": {
+        "type": "string",
+        "title": "Status groeiplaats locatie",
+        "description": "wordt later gevuld"
+      },
+      "yCoordinaat": {
+        "type": "integer",
+        "title": "y-coordinaat",
+        "description": "wordt later gevuld"
+      },
+      "xCoordinaat": {
+        "type": "integer",
+        "title": "x-coordinaat",
+        "description": "x-coordinaat"
+      },
+      "beheerder": {
+        "type": "string",
+        "title": "Beheerder",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "beheerderGedetailleerd": {
+        "type": "string",
+        "title": "Beheerder gedetailleerd",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "bewonerslocatieBeplant": {
+        "type": "boolean",
+        "title": "Bewoners locatie beplant",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "code": {
+        "type": "string",
+        "title": "Code",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "datumAanvraag": {
+        "type": "string",
+        "title": "Datum aanvraag",
+        "format": "date-time",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]      
+      },
+      "datumBeheertoetsingUitgevoerd": {
+        "type": "string",
+        "title": "Datum beheertoetsing uitgevoerd",
+        "format": "date-time",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]      
+      },
+      "datumEindbeoordelingStadsdeelUitgevoerd": {
+        "type": "string",
+        "title": "Datum eindbeoordeling stadsdeel uitgevoerd",
+        "format": "date-time",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]      
+      },
+      "datumOnderzoekKabelsEnLeidingenOnderzoekUitgevoerd": {
+        "type": "string",
+        "title": "Datum onderzoek kabels en leidingen onderzoek uitgevoerd",
+        "format": "date-time",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]      
+      },
+      "datumOntwerpCheckUitgevoerd": {
+        "type": "string",
+        "title": "Datum ontwerp check uitgevoerd",
+        "format": "date-time",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]      
+      },
+      "datumReservering": {
+        "type": "string",
+        "title": "Datum reservering",
+        "format": "date-time",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "eindbeoordelingBeheertoetsing": {
+        "type": "string",
+        "title": "Eindbeoordeling beheertoetsing",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "eindbeoordelingOntwerpCheck": {
+        "type": "string",
+        "title": "Eindbeoordeling ontwerp check",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "eindbeoordelingStadsdeel": {
+        "type": "string",
+        "title": "Eindbeoordeling stadsdeel",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "gepriktDoor": {
+        "type": "string",
+        "title": "Geprikt door",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "groeiplaatsBestemming": {
+        "type": "string",
+        "title": "Groeiplaats bestemming",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "inHerevaluatie": {
+        "type": "boolean",
+        "title": "In herevaluatie",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "kabelsEnLeidingenOnderzoek": {
+        "type": "string",
+        "title": "Kabels en leidingen onderzoek",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "ToeTePassenBoomsoort": {
+        "type": "string",
+        "title": "Toe te passen boomsoort",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "soortnaamVoorgedragen": {
+        "type": "string",
+        "title": "Soortnaam voorgedragen",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "status": {
+        "type": "string",
+        "title": "Status",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "statusPotentieelNieuweGroeiplaats": {
+        "type": "string",
+        "title": "Status potentieel nieuwe groeiplaats",
+        "description": "wordt later gevuld",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      }
+    }
+  }
+}
