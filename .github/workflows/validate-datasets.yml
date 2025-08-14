@@ -30,4 +30,4 @@ jobs:
           echo "changed_paths=$changed_paths" >> $GITHUB_OUTPUT
       - id: validate-datasets
         run: |
-          schema validate-datasets ${{steps.generate-previous-tables.outputs.changed_paths}}
+          schema validate-datasets ${{steps.generate-previous-datasets.outputs.changed_paths}}
