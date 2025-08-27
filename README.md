@@ -81,7 +81,6 @@ Version numbers are shown as '@1.0.0'
 where we follow SchemaVer for versioning.
 This will allow for a gradual evolution of capabilities.
 
-
 ## See also
 
 For more information, see (some of these pages are in Dutch):
@@ -91,89 +90,7 @@ For more information, see (some of these pages are in Dutch):
 - [Werkbestand Team Dataservices](https://observablehq.com/@bertspaan/werkbestand-team-dataservices)
 - [Amsterdam Schema Playground 🎠](https://observablehq.com/@bertspaan/amsterdam-schema-playground)
 
-# Publishing
-Publishing the schemas to the Azure Blob Storage is handled by the publish-schemas pipeline. This calls the `publish` cli command under the hood.
+# Manuals
 
-In order to publish the Amsterdam Schema from your local environment to the dev
-storage, you will need to do an install and set some environment variables.
-
-Install the Python package included in this repository:
-
-```console
-% python3.8 -m venv venv
-% pip install -U pip setuptools
-% pip install '.[tests,dev]'
-```
-
-The extra options `tests` and `dev` are not strictly necessary for publishing,
-but are handy to have installed while working on the schema definitions.
-
-You will also need to set some environment variables.
-
-```console
-export SCHEMAS_SA_NAME=[dev|test]schemassa
-export SCHEMAS_SA_KEY=$(az storage account keys list \
-    --account-name $SCHEMAS_SA_NAME | jq -r \
-    '.[] | select(.keyName == "key1") | .value');
-```
-
-Once everything has been set up, you can publish with:
-
-```console
-% publish
-```
-
-This uploads everything to the environment of your choosing and also creates
-the index files needed for other processes.
-
-Note that these environments are ephemeral, meaning that once a branch is merged
-into master, the pipelines start again and everything will be replaced.
-
-# Developing a new metaschema
-
-In order to develop a new metaschema version locally and run structural and semantic validation
-against it, we take the following steps. The `metaschema` cli command has been implemented to
-automate many of the shell commands we used. All version arguments should include the `v` prefix,
-i.e. `v3.1.0`, not `3.1.0`.
-
-You can develop against a running devserver, or against the running dso-api containers. For the
-latter, you need some extra setup, which you can put in a docker-compose.override.yml file:
-
-```yaml
-services:
-  web:
-    ports:
-      - "5678:5678"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-```
-
-*Install the package from the repository root dir*
-0) ```pip install -e .[dev]```
-
-*Create a new schema that we will develop*
-1) ```metaschema create <latest-version> <your-version>```
-
-At this point, you can start altering the schema to incorporate new functionality.
-
-*Point the references in the new schema and optionally a dataset to the devserver*
-2) ```metaschema refs local <your-version> [<dataset>] --docker --port 8001```
-The --docker flag is used when developing against a locally running DSO-API, the
-port is 8000 by default.
-
-*Generate the index expected by schematools*
-3) generate-index > datasets/index.json
-
-*Start an nginx server with the source mounted and which rewrites URIs so*
-*that it supports the URL structure expected by the schema references.*
-4) ```docker-compose up devserver``` or run the DSO containers locally.
-
-*Validate a dataset*
-5) ```schema validate --schema-url='http://localhost:8000/datasets' <some-dataset> 'http://localhost:8000/schema@<your-version>'``` or ```docker-compose exec web schema validate --schema-url='/tmp/datasets/' <dataset> 'http://host.docker.internal:8000/schema@<your-version>'```
-
-And of course; after the metaschema is finished, the references in the new metaschema and the dataset used for development
-need to be be reset to the online URL:
-6) ```metaschema refs remote <your-version>```
-
-To inspect the diff between two schema versions, use:
-```metaschema diff <version1> <version2>```
+- [Developing a metaschema](src/devdocs/Developing-a-metaschema.md)
+- [Publishing](src/devdocs/Publishing.md)
