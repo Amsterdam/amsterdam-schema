@@ -1,0 +1,92 @@
+{
+  "id": "financien",
+  "type": "table",
+  "version": "2.1.0",
+  "lifecycleStatus": "stable",
+  "titel": "financien",
+  "description": "Deze end-point bevat de gegevens over financien van transport- of werkmaterieel",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "wagenparkFinancienId",
+    "required": [
+      "wagenparkFinancienId",
+      "schema"
+    ],
+    "display": "wagenparkFinancienId",
+    "properties": {
+      "wagenparkFinancienId": {
+        "title": "Wagenpark financiën ID",
+        "type": "string",
+        "description": "Uniek identificerend kenmerk van de financien van een wagenpark."
+      },
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "wagenparkMaterieel": {
+        "title": "Wagenpark materieel ID",
+        "type": "string",
+        "relation": "wagenpark:materieel",
+        "description": "Uniek identifier voor transport- en werkmaterieel"
+      },
+      "contracteinddatum": {
+        "title": "Leasecontract einddatum",
+        "type": "string",
+        "format": "date",
+        "description": "Datum verkoop/einddatum lease"
+      },
+      "garantiedatum": {
+        "title": "Garantie einddatum",
+        "type": "string",
+        "format": "date",
+        "description": "De datum dat de garantie van het materieel ten einde komt"
+      },
+      "polisnummer": {
+        "title": "Verzekering polisnummer",
+        "type": "string",
+        "description": "Polisnummer van de verzekering"
+      },
+      "fiscaleBijtelling": {
+        "title": "Fiscale bijtelling indicatie",
+        "type": "boolean",
+        "description": "Indicatie dat aangeeft dat er sprake is van een fiscale bijtelling."
+      },
+      "verzekeringspolistype": {
+        "title": "Verzekering polis type",
+        "type": "string",
+        "description": "Nadere omschrijving van het verzekeringsproduct"
+      },
+      "kostenplaats": {
+        "title": "Afdeling kostenplaats",
+        "type": "string",
+        "description": "Kostenplaats behorende bij de afdeling"
+      },
+      "kostenplaatsAfis": {
+        "title": "Afis kostenplaats omschrijving",
+        "type": "string",
+        "description": "Kostenplaats afis"
+      },
+      "routecodefb": {
+        "title": "Factureer code",
+        "type": "string",
+        "description": "Factureer code ten behoeve van financieel beheer"
+      },
+      "eigenaarschap": {
+        "title": "Eigenaarschap type",
+        "type": "string",
+        "description": "De eigendomsstatus van het voertuig. Geeft aan of het voertuig in eigendom is, een lease- of huurvoertuig betreft, of dat het voertuig inmiddels is verkocht of afgestoten."
+      },
+      "fabrikant": {
+        "title": "Fabrikant naam",
+        "type": "string",
+        "description": "De naam van de fabrikant van het materieel. Veelal niet of met de leverende dealer gevuld."
+      },
+      "leverancier": {
+        "title": "Leverancier naam",
+        "type": "string",
+        "description": "De naam van de leverancier, welke het voertuig heeft geleverd of momenteel in onderhoud heeft."
+      }
+    }
+  }
+}
