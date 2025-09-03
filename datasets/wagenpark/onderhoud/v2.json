@@ -1,0 +1,146 @@
+{
+  "id": "onderhoud",
+  "type": "table",
+  "version": "2.1.0",
+  "lifecycleStatus": "stable",
+  "titel": "onderhoud",
+  "description": "Deze end-point bevat onderhoudgegevens van een transport- of werkmaterieel",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "wagenparkOnderhoudId",
+    "required": [
+      "wagenparkOnderhoudId",
+      "schema"
+    ],
+    "display": "wagenparkOnderhoudId",
+    "properties": {
+      "wagenparkOnderhoudId": {
+        "title": "Onderhoud ID",
+        "type": "string",
+        "description": "Uniek identificerend kenmerk van onderhoud"
+      },
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "wagenparkMaterieel": {
+        "title": "Materieel ID",
+        "type": "string",
+        "relation": "wagenpark:materieel",
+        "description": "Uniek identificerend kenmerk voor transport- en werkmaterieel"
+      },
+      "onderhoudssoortOmschrijving": {
+        "title": "Onderhoudssoort omschrijving",
+        "type": "string",
+        "description": "Dit is een korte beschrijving van de betreffende reparatieopdracht / job."
+      },
+      "werkbeschrijving": {
+        "title": "Werk beschrijving",
+        "type": "string",
+        "description": "Beschrijving van het probleem en-of van de te verrichten werkzaamheden"
+      },
+      "datumProcesstatus": {
+        "title": "Processtatus laatste update datumtijd",
+        "type": "string",
+        "format": "date-time",
+        "description": "Datum en tijdstip waarop de voertuigbeheerder of assistent fleetmanager in Ultimo heeft bevestigd dat de werkzaamheden correct volgens offerte zijn uitgevoerd"
+      },
+      "processtatus": {
+        "title": "Proces laatste status code",
+        "type": "string",
+        "enum": [
+          "-1",
+          "0",
+          "1",
+          "2",
+          "4",
+          "16",
+          "32",
+          "64",
+          "4096",
+          "8192"
+        ],
+        "description": "Laatste status waarin de proces van het onderhoud zich bevindt. -1 = Niet gedefineerd, 0 = Geen, 1 = Open, 2 = Goedgekeurd, 4 = Actief, 16 = Gereed, 32 = Gesloten, 64 = Aanvraag, 4096 = Compleet, 8192 = Uitgesteld"
+      },
+      "voortgangstatus": {
+        "title": "Onderhoud voortgang laatste status code",
+        "type": "string",
+        "description": "Laatste status waarin de voortgang van het onderhoud zich bevindt"
+      },
+      "geplandeStartdatum": {
+        "title": "Onderhoud startdatum",
+        "type": "string",
+        "format": "date-time",
+        "description": "Datum en tijdstip waarop de werkzaamheden volgens planning zullen starten"
+      },
+      "geplandeGereeddatum": {
+        "title": "Onderhoud einddatum",
+        "type": "string",
+        "format": "date-time",
+        "description": "Datum en tijdstip waarop de werkzaamheden volgens planning voltooid zullen zijn"
+      },
+      "inkooporder": {
+        "title": "Inkooporder nummer",
+        "type": "string",
+        "description": "Het ordernummer behorende bij de onderhoudwerkzaamheden"
+      },
+      "inRobContract": {
+        "title": "Reparatie onderhoud banden contract indicatie",
+        "type": "boolean",
+        "description": "Indicatie of de werkzaamheden vallen in het Reparatie Onderhoud Banden-contract"
+      },
+      "factuurbedrag": {
+        "title": "Factuurbedrag",
+        "type": "number",
+        "description": "Het factuurbedrag van de uitgevoerde werkzaamheden"
+      },
+      "leverancier": {
+        "title": "Leverancier naam",
+        "type": "string",
+        "description": "De leverancier aan welke de betreffende reparatieopdracht/job is aangeboden"
+      },
+      "kostenplaats": {
+        "title": "Afdeling kostenplaats omschrijving",
+        "type": "string",
+        "description": "Kostenplaats behorende bij de afdeling"
+      },
+      "kostenplaats_afis": {
+        "title": "Afis kostenplaats omschrijving",
+        "type": "string",
+        "description": "Kostenplaats afis"
+      },
+      "kostenplaats_afis_description": {
+        "title": "Afis kostenplaats omschrijving",
+        "type": "string",
+        "description": "Kostenplaats afis omschrijving"
+      },
+      "verwijderdDp": {
+        "title": "Object verwijderd indicatie",
+        "type": "boolean",
+        "description": "Indicatie of het object verwijderd is bij de bronhouder"
+      },
+      "prestatieGeleverdDatum": {
+        "title": "Prestatie geleverd datum",
+        "type": "string",
+        "format": "date-time",
+        "description": "De datum waarop de AFM de werkzaamheden heeft gecontroleerd en akkoord heeft gegeven"
+      },
+      "omschrijvingOnderhoudssoort": {
+        "title": "Onderhoudssoort omschrijving",
+        "type": "string",
+        "description": "Wat voor werkzaamheden zijn door de leverancier uitgevoerd?"
+      },
+      "meldtekst": {
+        "title": "Meldtekst omschrijving",
+        "type": "string",
+        "description": "De opdrachtomschrijving voor de leverancier"
+      },
+      "voertuigInzetbaar": {
+        "title": "Voertuig inzetbaar indicatie",
+        "type": "boolean",
+        "description": "De indicatie of het voertuig nog inzetbaar is"
+      }
+    }
+  }
+}
