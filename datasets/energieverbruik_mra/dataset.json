@@ -24,7 +24,7 @@
     "energieverbruik",
     "teruglevering"
   ],
-  "defaultVersion": "v3",
+  "defaultVersion": "v4",
   "versions": {
     "v1": {
       "status": "niet_beschikbaar",
@@ -56,8 +56,8 @@
         }
       ]
     },
-        "v3": {
-      "status": "beschikbaar",
+   "v3": {
+      "status": "niet_beschikbaar",
       "lifecycleStatus": "stable",
       "version": "3.0.0",
       "tables": [
@@ -68,6 +68,21 @@
         {
           "id": "gasEnElektriciteitKwartaal",
           "$ref": "gasEnElektriciteitKwartaal/v3"
+        }
+      ]
+    },
+    "v4": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "4.0.0",
+      "tables": [
+        {
+          "id": "gasEnElektriciteitMaandLiander",
+          "$ref": "gasEnElektriciteitMaandLiander/v2"
+        },
+        {
+          "id": "gasEnElektriciteitKwartaal",
+          "$ref": "gasEnElektriciteitKwartaal/v4"
         }
       ]
     }
