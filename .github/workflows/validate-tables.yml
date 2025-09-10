@@ -23,7 +23,7 @@ jobs:
           python-version: '3.13'
       - id: install-schema-tools
         run: |
-          python -m pip install --force-reinstall -v "amsterdam-schema-tools>=8.3.0"
+          python -m pip install --force-reinstall -v "amsterdam-schema-tools>=8.3.3"
       - id: generate-previous-tables
         run: |
           changed_paths=$(./scripts/generate_previous_tables_from_master.sh ${{github.head_ref || github.ref_name}} | tail -n 1)
