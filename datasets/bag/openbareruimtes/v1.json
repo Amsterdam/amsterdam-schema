@@ -1,7 +1,7 @@
 {
   "id": "openbareruimtes",
   "type": "table",
-  "version": "1.5.3",
+  "version": "1.6.0",
   "lifecycleStatus": "stable",
   "description": "Een OPENBARE RUIMTE is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen en van een naam voorziene buitenruimte die binnen één woonplaats is gelegen. Als openbare ruimte worden onder meer aangemerkt weg, water, terrein, spoorbaan en landschappelijk gebied.",
   "temporal": {
@@ -26,7 +26,7 @@
       "identificatie",
       "volgnummer"
     ],
-    "display": "naam",
+    "display": "opgemaakteNaam",
     "mainGeometry": "geometrie",
     "properties": {
       "schema": {
@@ -170,6 +170,9 @@
           "datumActueelTot": {
             "type": "string",
             "format": "date-time"
+          },
+          "naam": {
+            "type": "string"
           }
         },
         "relation": "bag:woonplaatsen",
@@ -210,6 +213,11 @@
         "format": "date-time",
         "title": "Actueel tot datum",
         "description": "Einddatum van de cyclus, eventueel in combinatie met het kenmerk Status"
+      },
+      "opgemaakteNaam": {
+        "type": "string",
+        "title": "Opgemaakte openbare ruimte naam",
+        "description": "Officiële naam openbare ruimte, buiten Amsterdam gecombineerd met de woonplaatsnaam"
       }
     }
   }
