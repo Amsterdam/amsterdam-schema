@@ -3,17 +3,17 @@
 # Running "make format" fixes most issues for you
 repos:
   - repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 25.1.0
     hooks:
       - id: black
         language_version: python3
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.5
+    rev: 1.8.6
     hooks:
       - id: bandit
         args: [--quiet]
   - repo: https://github.com/PyCQA/flake8
-    rev: 6.0.0
+    rev: 7.3.0
     hooks:
       - id: flake8
         additional_dependencies:
@@ -29,7 +29,7 @@ repos:
           - flake8-debugger
           - flake8-raise
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-json
       - id: check-merge-conflict
@@ -43,12 +43,12 @@ repos:
       - id: pretty-format-json
         args: [--autofix, --indent=2, --no-sort-keys, --no-ensure-ascii]
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.4.1
+    rev: v1.17.1
     hooks:
       - id: mypy
         language_version: python3
   - repo: https://github.com/pycqa/isort
-    rev: 5.12.0
+    rev: 6.0.1
     hooks:
       - id: isort
         args: ['--filter-files']
@@ -68,3 +68,12 @@ repos:
         args: ['https://schemas.data.amsterdam.nl/schema@v3.1.0', '--schema-url', './scopes']
         files: '^scopes/.*\.json$'
         verbose: true # so we can see against which metaschema it is valid
+  - repo: local
+    hooks:
+      - id: validate-extensions
+        name: Check json extensions
+        description: Check .json extension
+        entry: The following files do not have json or sql extension
+        files: '^(datasets|scopes|publishers|profiles)/'
+        exclude_types: [sql, json, markdown]
+        language: fail
