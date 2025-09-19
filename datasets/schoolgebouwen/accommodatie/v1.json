@@ -1,8 +1,8 @@
 {
-    "id": "instelling",
+    "id": "accommodatie",
     "type": "table",
-    "title": "instelling",
-    "description": "De instelling die huist in het schoolgebouw",
+    "title": "accommodatie",
+    "description": "De fysieke eigenschappen van een schoolgebouw",
     "version": "1.0.1",
     "lifecycleStatus": "stable",
     "schema": {
@@ -11,87 +11,152 @@
         "required": [
             "schema"
         ],
-        "display": "naam",
+        "display": "accommodatieId",
         "properties": {
             "schema": {
                 "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
             },
             "id": {
                 "type": "string",
-                "title": "Instelling databricks ID",
-                "description": "Unieke identificatiecode van een instelling, gebruikt binnen Databricks om een specifieke instelling eenduidig te identificeren."
+                "title": "Accommodatie databricks ID",
+                "description": "Unieke identificatiecode van een accommodatie, gebruikt binnen Databricks om een specifieke accommodatie eenduidig te identificeren."
+            },
+            "accommodatieId": {
+                "type": "string",
+                "title": "Accommodatie ID",
+                "description": "Unieke identificatiecode van de accommodatie vanuit de bronapplicatie"
             },
             "instellingId": {
                 "type": "string",
                 "title": "Instelling ID",
-                "description": "Verwijzing naar de  identificatiecode van de instelling vanuit de bronapplicatie"
+                "description": "De unieke identificatiecode van de instelling die de accommodatie gebruikt"
             },
-            "bestuurId": {
+            "code": {
                 "type": "string",
-                "title": "Instelling bestuur ID",
-                "description": "Verwijzing naar de gekoppelde bestuursgegevens."
+                "title": "Accommodatiecode",
+                "description": "Code ter aanduiding van een gebouw, gebruikers voeren dit zelf in in het Onderwijsloket. NB: niet uniek"
             },
-            "brinNummerDuo": {
+            "adresStraat": {
                 "type": "string",
-                "title": "Instelling brin nummer duo",
-                "description": "BRIN-nummer van de instelling zoals geregistreerd bij DUO."
+                "title": "Straatnaam",
+                "description": "De naam van de straat"
             },
-            "naam": {
+            "adresPostcode": {
                 "type": "string",
-                "title": "Instelling naam",
-                "description": "Naam van de instelling."
+                "title": "Postcode",
+                "description": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)"
             },
-            "soort": {
+            "adresHuisnummer": {
                 "type": "string",
-                "title": "Instelling soort",
-                "description": "Soort instelling, bijvoorbeeld type onderwijsinstelling."
+                "title": "Huisnummer",
+                "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken"
             },
-            "concept": {
+            "adresHuisnummerToev": {
                 "type": "string",
-                "title": "Instelling concept",
-                "description": "Onderwijsconcept van de instelling, bijvoorbeeld Montessori of Dalton."
+                "title": "Huisnummer toevoeging",
+                "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter"
             },
-            "denominatie": {
+            "stadsdeel": {
                 "type": "string",
-                "title": "Instelling denominatie",
-                "description": "Denominatie van de instelling, bijvoorbeeld religieuze of levensbeschouwelijke achtergrond."
+                "title": "Stadsdeel",
+                "description": "Het gebied binnen een gemeente dat is ingedeeld als een bestuurlijke of geografische eenheid."
+            },
+            "wijk": {
+                "type": "string",
+                "title": "Wijk",
+                "description": "De offici\u00eble naam van de wijk waarin de school zich bevindt, zoals IJburg-West, Oude Pijp of Jordaan."
+            },
+            "bestemming": {
+                "type": "string",
+                "title": "Bestemming gebouw",
+                "description": "Het beoogde gebruik of de functie van een gebouw of terrein."
+            },
+            "bvo": {
+                "type": "string",
+                "title": "Bruto Vloeroppervlak (BVO)",
+                "description": "De totale vloeroppervlakte van een gebouw, inclusief muren en andere constructiedelen."
+            },
+            "onderwijs": {
+                "type": "string",
+                "title": "Onderwijsoppervlak (m\u00b2)",
+                "description": "De oppervlakte binnen een gebouw die specifiek is bedoeld voor onderwijsactiviteiten."
+            },
+            "bouwaard": {
+                "type": "string",
+                "title": "Bouwaard",
+                "description": "Geeft aan of het een tijdelijk of een permanent gebouw is"
+            },
+            "bouwjaar": {
+                "type": "string",
+                "title": "Bouwjaar",
+                "description": "Het jaar waarin de accommodatie is gebouwd of opgeleverd"
+            },
+            "renovatieDatum": {
+                "type": "string",
+                "title": "Renovatiedatum",
+                "description": "De datum waarop het gebouw voor het laatst is gerenoveerd"
+            },
+            "bouwlagen": {
+                "type": "string",
+                "title": "Aantal Bouwlagen",
+                "description": "Het totale aantal verdiepingen of bouwlagen van een gebouw"
+            },
+            "schoolpleinM2": {
+                "type": "string",
+                "title": "Schoolpleinoppervlak (m\u00b2)",
+                "description": "De totale oppervlakte van het schoolplein, uitgedrukt in vierkante meters (m\u00b2)"
+            },
+            "speellokalen": {
+                "type": "string",
+                "title": "Speellokalen",
+                "description": "De hoeveelheid speellokalen in het gebouw"
+            },
+            "juridischEigenaar": {
+                "type": "string",
+                "title": "Juridisch Eigenaar",
+                "description": "De persoon, organisatie of entiteit die volgens de wet eigenaar is van een bepaald object, zoals een gebouw, terrein of ander eigendom."
+            },
+            "economischClaimrecht": {
+                "type": "string",
+                "title": "Economisch Claimrecht",
+                "description": "Geeft aan wie het economisch claimrecht heeft, mocht de juridisch eigenaar afstand doen van het gebouw."
             },
             "archief": {
                 "type": "string",
-                "title": "Instelling archief",
-                "description": "Geeft aan of de instelling in het archief is opgenomen."
+                "title": "Archief status",
+                "description": "Staat op 'ja' bij gearchiveerde (niet meer actieve) objecten"
             },
-            "datumArchief": {
+            "archiefDatum": {
                 "type": "string",
-                "title": "Instelling datum archief",
-                "description": "Datum waarop de instelling is gearchiveerd."
+                "title": "Object archiveringsdatum",
+                "description": "Datum waarop het object is ge\u00e4rchiveerd"
             },
             "datumExport": {
                 "type": "string",
-                "title": "Instelling exportdatum",
-                "description": "Datum waarop de gegevens van de instelling zijn ge\u00ebxporteerd."
+                "title": "Accomodatie exportdatum",
+                "description": "De datum waarop de gegevens van de accomodatie zijn ge\u00ebxporteerd."
             },
             "versie": {
                 "type": "string",
-                "title": "Instelling versie",
-                "description": "Versienummer van de instelling."
+                "title": "Accomodatie versienummer",
+                "description": "Het versienummer van de accomodatie."
             },
             "mGeldigVan": {
                 "type": "string",
-                "title": "Instelling geldig vanaf",
-                "description": "Startdatum van de geldigheid van de instelling.",
+                "title": "Accomodatie geldig vanaf",
+                "description": "De einddatum van de geldigheid van de accommodatie.",
                 "format": "date-time"
             },
             "mGeldigTot": {
                 "type": "string",
-                "title": "Instelling geldig tot",
-                "description": "Einddatum van de geldigheid van de instelling.",
+                "title": "Accomodatie geldig tot",
+                "description": "De startdatum van de geldigheid van de accomodatie.",
                 "format": "date-time"
             },
             "mIsActief": {
                 "type": "boolean",
-                "title": "Instelling actieve status",
-                "description": "Geeft aan of de instelling actief is (Ja/Nee)."
+                "title": "Acoomodatie actieve status",
+                "description": "Geeft aan of de accomodatie actief is (Ja/Nee)."
             }
         }
     }
