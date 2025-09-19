@@ -3,7 +3,7 @@
     "type": "table",
     "title": "object",
     "description": "Fysieke ruimtes binnen een accomodatie",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "lifecycleStatus": "stable",
     "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -18,76 +18,94 @@
             },
             "id": {
                 "type": "string",
+                "title": "Object databricks ID",
                 "description": "Unieke identificatiecode van een object, gebruikt binnen Databricks om een specifieke object eenduidig te identificeren."
             },
             "objectId": {
                 "type": "string",
+                "title": "Object ID",
                 "description": "Unieke identificatiecode van het object van de bronapplicatie"
             },
             "accommodatieId": {
                 "type": "string",
+                "title": "Object accommodatie ID",
                 "description": "Verwijzing naar de gekoppelde accommodatie."
             },
             "code": {
                 "type": "string",
+                "title": "Object code",
                 "description": "Code die het object identificeert."
             },
             "type": {
                 "type": "string",
+                "title": "Object type",
                 "description": "Type object, bijvoorbeeld een specifieke classificatie."
             },
             "ruimtesoort": {
                 "type": "string",
+                "title": "Object ruimtesoort",
                 "description": "Soort ruimtes binnen het object."
             },
             "ruimtetype": {
                 "type": "string",
+                "title": "Object ruimtetype",
                 "description": "Type ruimte binnen het object."
             },
             "capaciteitM2": {
                 "type": "string",
+                "title": "Object capaciteit m2",
                 "description": "Capaciteit van het object in vierkante meters (m\u00b2)."
             },
             "capaciteitUren": {
                 "type": "string",
+                "title": "Object capaciteit uren",
                 "description": "Capaciteit van het object in uren."
             },
             "capaciteitRuimtes": {
                 "type": "string",
+                "title": "Object capaciteit ruimtes",
                 "description": "Capaciteit van het object in aantal ruimtes."
             },
             "leegstandM2": {
                 "type": "string",
+                "title": "Object leegstand m2",
                 "description": "Leegstand van het object in vierkante meters (m\u00b2)."
             },
             "leegstandUren": {
                 "type": "string",
+                "title": "Object leegstand uren",
                 "description": "Aantal uren dat ruimtes binnen het object leegstaan."
             },
             "leegstandRuimtes": {
                 "type": "string",
+                "title": "Object leegstand ruimtes",
                 "description": "Aantal ruimtes die leegstaan binnen het object."
             },
             "datumExport": {
                 "type": "string",
+                "title": "Object exportdatum",
                 "description": "Datum waarop de gegevens van het object zijn ge\u00ebxporteerd."
             },
             "versie": {
                 "type": "string",
+                "title": "Object versie",
                 "description": "Versienummer van het object."
             },
             "mGeldigVan": {
                 "type": "string",
+                "title": "Object geldig vanaf",
                 "description": "Startdatum van de geldigheid van het object.",
                 "format": "date-time"
             },
             "mGeldigTot": {
                 "type": "string",
+                "title": "Object geldig tot",
                 "description": "Einddatum van de geldigheid van het object.",
                 "format": "date-time"
             },
             "mIsActief": {
                 "type": "boolean",
+                "title": "Object actieve status",
                 "description": "Geeft aan of het object actief is (Ja/Nee)."
             }
         }

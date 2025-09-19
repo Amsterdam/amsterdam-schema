@@ -1,9 +1,9 @@
-{
+ {
     "id": "kengetallen",
     "type": "table",
     "title": "kengetallen",
     "description": "Leerlingen, prognoses en gebruik in vierkante meters per schoolgebouw",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "lifecycleStatus": "stable",
     "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -18,80 +18,99 @@
             },
             "id": {
                 "type": "string",
+                "title": "Kengetal verwijzing",
                 "description": "Unieke identificatiecode van een kengetal, gebruikt binnen Databricks om een specifieke kengetal eenduidig te identificeren."
             },
             "kengetalId": {
                 "type": "string",
+                "title": "Kengetal ID",
                 "description": "Unieke identificatiecode van de kengetal vanuit de bronapplicatie"
             },
             "instellingId": {
                 "type": "string",
+                "title": "Kengetal instelling ID",
                 "description": "Verwijzing naar de gekoppelde instelling."
             },
             "prognoseSoort": {
                 "type": "string",
+                "title": "Kengetal prognose soort",
                 "description": "Soort prognose gekoppeld aan de kengetallen."
             },
             "prognoseJaar": {
                 "type": "string",
+                "title": "Kengetal prognose jaar",
                 "description": "Prognosejaar gekoppeld aan de kengetallen."
             },
             "jaar": {
                 "type": "string",
+                "title": "Kengetal jaar",
                 "description": "Jaar waarop de kengetallen betrekking hebben."
             },
             "maand": {
                 "type": "string",
+                "title": "Kengetal maand",
                 "description": "Maand waarop de kengetallen betrekking hebben."
             },
             "prognose": {
                 "type": "string",
+                "title": "Kengetal prognose",
                 "description": "Prognosewaarde gekoppeld aan de kengetallen."
             },
             "gebruikM2": {
                 "type": "string",
+                "title": "Kengetal gebruik m2",
                 "description": "Gebruiksoppervlakte in vierkante meters (m\u00b2)."
             },
             "behoefteM2": {
                 "type": "string",
+                "title": "Kengetal behoefte m2",
                 "description": "Behoefte aan oppervlakte in vierkante meters (m\u00b2)."
             },
             "aantalLeerlingen": {
                 "type": "string",
+                "title": "Kengetal aantal leerlingen",
                 "description": "Aantal leerlingen gekoppeld aan de kengetallen."
             },
             "gebruikKlokuren": {
                 "type": "string",
+                "title": "Kengetal gebruik klokuren",
                 "description": "Gebruiksuren in klokuren."
             },
             "behoefteKlokuren": {
                 "type": "string",
+                "title": "Kengetal behoefte klokuren",
                 "description": "Behoefte aan klokuren."
             },
             "achterstandscore": {
                 "type": "string",
+                "title": "Kengetal achterstandscore",
                 "description": "Achterstandscore gekoppeld aan de kengetallen."
             },
             "datumExport": {
                 "type": "string",
+                "title": "Kengetal exportdatum",
                 "description": "Datum waarop de gegevens van de kengetallen zijn ge\u00ebxporteerd."
             },
             "versie": {
                 "type": "string",
+                "title": "Kengetal versie",
                 "description": "Versienummer van de kengetallen."
             },
             "mGeldigVan": {
                 "type": "string",
+                "title": "Kengetal geldig vanaf",
                 "description": "Startdatum van de geldigheid van de kengetallen.",
                 "format": "date-time"
             },
             "mGeldigTot": {
                 "type": "string",
+                "title": "Kengetal geldig tot",
                 "description": "Einddatum van de geldigheid van de kengetallen.",
                 "format": "date-time"
             },
             "mIsActief": {
                 "type": "boolean",
+                "title": "Kengetal actieve status",
                 "description": "Geeft aan of de kengetallen actief zijn (Ja/Nee)."
             }
         }
