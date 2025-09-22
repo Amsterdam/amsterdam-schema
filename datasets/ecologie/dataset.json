@@ -36,10 +36,57 @@
   ],
   "crs": "EPSG:28992",
   "objective": "Het beschikbaar stellen van gegevens over het ecologisch areaal van Gemeente Amsterdam waarbinnen de ecologische kwaliteit gemonitord wordt voor het Plan Biodiversiteit",
-  "defaultVersion": "v1",
+  "defaultVersion": "v2",
   "versions": {
-    "v1": {
+        "v2": {
       "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "2.0.0",
+      "tables": [
+        {
+          "id": "kerngebieden",
+          "$ref": "kerngebieden/v3"
+        },
+        {
+          "id": "verbindingszones",
+          "$ref": "verbindingszones/v3"
+        },
+        {
+          "id": "inspectiesFaunavoorzieningen",
+          "$ref": "inspecties_faunavoorzieningen/v3"
+        },
+        {
+          "id": "inspectiesStructuurkarteringen",
+          "$ref": "inspecties_structuurkarteringen/v3"
+        },
+        {
+          "id": "faunameubilair",
+          "$ref": "faunameubilair/v1"
+        },
+        {
+          "id": "faunaverblijfplaatsen",
+          "$ref": "faunaverblijfplaatsen/v1"
+        },
+        {
+          "id": "faunavoorzieningen",
+          "$ref": "faunavoorzieningen/v1"
+        },
+        {
+          "id": "hekken",
+          "$ref": "hekken/v1"
+        },
+        {
+          "id": "roosters",
+          "$ref": "roosters/v1"
+        },
+        {
+          "id": "waterobjecten",
+          "$ref": "waterobjecten/v1"
+        }
+      ]
+    },
+    "v1": {
+      "status": "niet_beschikbaar",
       "lifecycleStatus": "stable",
       "version": "1.3.2",
       "tables": [
