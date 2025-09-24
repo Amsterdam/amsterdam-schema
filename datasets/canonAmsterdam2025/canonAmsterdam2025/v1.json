@@ -1,0 +1,67 @@
+{
+  "id": "canonAmsterdam2025",
+  "type": "table",
+  "title": "Canon Amsterdam 2025",
+  "description": "Een canon is een verzameling van 50 verhalen over de geschiedenis van Amsterdam die laten zien hoe keuzes uit het verleden invloed hebben op de keuzes van nu en in de toekomst.",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "auth": "OPENBAAR",
+  "license": "CC BY-NC",
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "description": "Uniek identificerend kenmerk van het object.",
+        "type": "integer",
+        "title": "Object ID"
+      },
+      "jaartal": {
+        "description": "Het jaartal van het object is gelijk aan het jaartal waarin de gebeurtenis plaatsvond.",
+        "type": "string",
+        "title": "Jaartal"
+      },
+      "titel": {
+        "description": "Titel van de afzonderlijke vensters van Canon Amsterdam",
+        "type": "string",
+        "title": "Titel van het specifieke onderdeel."
+      },
+      "locatieBeschrijving": {
+        "description": "Beschrijving van de locatie.",
+        "type": "string",
+        "title": "Beschrijving van locatie"
+      },
+        "thema": {
+        "description": "Het thema waarover het specifieke onderdeel gaat.",
+        "type": "string",
+        "title": "Thema"
+      },
+        "urlStadsarchief": {
+        "description": "Een verwijzing naar specifieke informatie op de website van het Stadsarchief van de Gemeente Amsterdam",
+        "type": "string",
+        "title": "URL stadsarchief"
+      },
+      "stadsdeelNaam": {
+        "description": "Een naam die aan een stadsdeel is toegekend in een daartoe strekkend formeel gemeentelijk besluit",
+        "type": "string",
+        "title": "Stadsdeel naam"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992).",
+        "title": "Geometrie"
+      }
+      }
+    }
+  }
