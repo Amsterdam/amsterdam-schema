@@ -1,0 +1,45 @@
+{
+  "id": "coordinaat",
+  "type": "table",
+  "title": "coordinaat",
+  "description": "Lengte- en breedtegraden van locaties van maatschappelijke voorzieningen",
+  "version": "0.0.1",
+  "lifecycleStatus": "experimental",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Een unieke numerieke code die wordt gebruikt om een specifiek geografisch gebied te identificeren binnen het systeem."
+      },
+      "latitude": {
+        "type": "string",
+        "description": "De geografische breedtegraad  van het gebied."
+      },
+      "longitude": {
+        "type": "string",
+        "description": "De geografische lengtegraad van het gebied."
+      },
+      "geometrieProjectie": {
+        "type": "string",
+        "description": "De geometrische projectie van het gebied, zoals een coördinatenstelsel."
+      },
+      "changedDate": {
+        "type": "string",
+        "description": "De datum en tijd waarop de gegevens van het geografisch gebied voor het laatst zijn aangepast in het systeem."
+      },
+      "createdDate": {
+        "type": "string",
+        "description": "De datum en tijd waarop het geografisch gebied is aangemaakt of geregistreerd in het systeem."
+      }
+    }
+  }
+}
