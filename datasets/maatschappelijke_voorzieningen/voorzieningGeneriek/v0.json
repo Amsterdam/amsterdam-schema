@@ -1,0 +1,49 @@
+{
+  "id": "voorzieningGeneriek",
+  "type": "table",
+  "title": "voorzieningGeneriek",
+  "description": "Generiekere kenmerken van maatschappelijke voorzieningen",
+  "version": "0.0.1",
+  "lifecycleStatus": "experimental",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Een unieke numerieke code die wordt gebruikt om een specifieke generieke voorziening te identificeren binnen het systeem."
+      },
+      "nummer": {
+        "type": "integer",
+        "description": "Een numerieke waarde die dient als referentienummer voor de generieke voorziening, zoals 1622"
+      },
+      "changedDate": {
+        "type": "string",
+        "description": "De datum en tijd waarop de gegevens van de generieke voorziening voor het laatst zijn aangepast in het systeem."
+      },
+      "createdDate": {
+        "type": "string",
+        "description": "De datum en tijd waarop de generieke voorziening is aangemaakt of geregistreerd in het systeem."
+      },
+      "voorzieningGeneriekPlangebied": {
+        "type": "integer",
+        "description": "Een numerieke waarde die verwijst naar het plangebied waaraan de generieke voorziening is gekoppeld."
+      },
+      "voorzieningGeneriekDeelgebied": {
+        "type": "integer",
+        "description": "Een numerieke waarde die verwijst naar het deelgebied waaraan de generieke voorziening is gekoppeld."
+      },
+      "voorzieningGeneriekStadsdeel": {
+        "type": "integer",
+        "description": "Een numerieke waarde die verwijst naar het stadsdeel waaraan de generieke voorziening is gekoppeld."
+      }
+    }
+  }
+}

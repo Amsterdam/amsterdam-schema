@@ -1,0 +1,41 @@
+{
+  "id": "eigendom",
+  "type": "table",
+  "title": "eigendom",
+  "description": "De eigenaar van de maatschappelijke voorziening",
+  "version": "0.0.1",
+  "lifecycleStatus": "experimental",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+      "schema"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Een unieke numerieke code die wordt gebruikt om een specifiek maatschappelijk eigendom te identificeren binnen het systeem."
+      },
+      "naam": {
+        "type": "string",
+        "description": "De naam van het maatschappelijk eigendom zoals geregistreerd in het systeem."
+      },
+      "actief": {
+        "type": "boolean",
+        "description": "Een aanduiding die aangeeft of het maatschappelijk eigendom momenteel actief is (ja/nee)."
+      },
+      "changedDate": {
+        "type": "string",
+        "description": "De datum en tijd waarop de gegevens van het maatschappelijk eigendom voor het laatst zijn aangepast in het systeem."
+      },
+      "createdDate": {
+        "type": "string",
+        "description": "De datum en tijd waarop het maatschappelijk eigendom is aangemaakt of geregistreerd in het systeem."
+      }
+    }
+  }
+}
