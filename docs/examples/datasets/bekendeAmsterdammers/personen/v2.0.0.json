@@ -1,0 +1,54 @@
+{
+  "id": "personen",
+  "type": "table",
+  "title": "Personen",
+  "version": "2.0.0",
+  "description": "Bekende Amsterdamse personen",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+      "id",
+      "schema",
+      "geassocieerdeLocaties"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke aanduiding persoon",
+        "maxLength": 25
+      },
+      "volledigeNaam": {
+        "type": "string",
+        "description": "Volledige naam van de persoon"
+      },
+      "beroep": {
+        "title": "Beroep",
+        "description": "Reden, dat de persoon bekend is.",
+        "type": "string",
+        "enum": [
+          "voetballer",
+          "filosoof",
+          "zanger",
+          "schilder",
+          "wiskundige",
+          "schrijver"
+        ]
+      },
+      "geassocieerdeLocaties": {
+        "shortname": "locaties",
+        "title": "Locaties geassocieerd met de Persoon",
+        "description": "Locaties geassocieerd met de persoon. \nBijvoorbeeld een voormalige woon of verblijfplaats.",
+        "type": "array",
+        "relation": "bekendeAmsterdammers:locaties",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

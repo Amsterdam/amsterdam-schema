@@ -1,0 +1,38 @@
+{
+  "id": "personen",
+  "type": "table",
+  "title": "Personen",
+  "version": "1.2.1",
+  "description": "Bekende Amsterdamse personen",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke aanduiding persoon"
+      },
+      "naam": {
+        "type": "string",
+        "description": "Volledige naam van de persoon"
+      },
+      "beroep": {
+        "title": "beroep",
+        "description": "Reden, dat de persoon bekend is.",
+        "type": "string",
+        "enum": [
+          "voetballer",
+          "filosoof"
+        ]
+      }
+    }
+  }
+}
