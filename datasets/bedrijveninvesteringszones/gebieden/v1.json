@@ -1,0 +1,63 @@
+{
+  "id": "gebieden",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "title": "Gebieden BIZ",
+  "description": "Dataset met de bedrijveninvesteringszones (BIZ) binnen de Gemeente Amsterdam.",
+  "status": "beschikbaar",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "id",
+    "mainGeometry": "geometrie",
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Regelnummer id bedrijfsinvesteringszone.",
+      },
+      "naam": {
+        "type": "string",
+        "description": "Naam van de bedrijfsinvesteringszone.",
+      },
+      "type": {
+        "type": "string",
+        "description": "Type bedrijfsinvesteringszone. Dit kan zijn: 'gebruikers', 'eigenaren' of 'gebruikers en eigenaren'.",
+      },
+      "heffingsgrondslag": {
+        "type": "string",
+        "description": "Grondslag van de heffing op de bedrijfsinvesteringszone die van toepassing is."
+      },
+      "aantal_bijdrageplichtigen": {
+        "type": "number",
+        "description": "Het aantal bijdrageplichtigen dat verplicht is een heffingstarief te betalen."
+      },
+      "heffingstarief": {
+        "type": "number",
+        "description": "Heffingstarief per jaar van de bedrijfsinvesteringszone uitgedrukt in Euro's dat betaalt dient te worden door de bijdrageplichtigen.",
+      },
+      "verordening": {
+        "type": "string",
+        "description": "Naam van de gepubliceerde verordering van de bedrijfsinvesteringszone."
+      },
+      "url_verordening": {
+        "type": "string",
+        "description": "URL van de gepubliceerde verordering van de bedrijfsinvesteringszone."
+      },      
+      "geometrie": {
+        "description": "Geometrie van het type multipolygoon in RD (EPSG:28992).",
+        "title": "Geometrie",
+        "$ref": "https://geojson.org/schema/Geometry.json"
+      }
+    }
+  }
+}
