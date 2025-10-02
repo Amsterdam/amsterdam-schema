@@ -1,35 +1,53 @@
 {
-  "type": "dataset",
   "id": "bedrijveninvesteringszones",
-  "title": "Bedrijveninvesteringszones",
-  "description": "Bedrijveninvesteringszones in Amsterdam",
-  "license": "public",
+  "type": "dataset",
+  "auth": "OPENBAAR",
   "theme": [
     "Bedrijveninvesteringszones",
+    "BIZ",
     "Ruimte en Topografie"
   ],
-  "owner": "Gemeente Amsterdam",
-  "auth": "OPENBAAR",
-  "authorizationGrantor": "OIS",
-  "creator": "bronhouder onbekend",
+  "homepage": "https://data.amsterdam.nl",
+  "owner": "Directie Economische Zaken",
+  "spatialDescription": "Gemeente Amsterdam",
+  "title": "Bedrijveninvesteringszones (BIZ)",
+  "language": "nl",
+  "dateCreated": "2025-10-01T00:00:00+01:00",
+  "license": "public",
+  "creator": "Datateam Stedelijke Ontwikkeling & Beheer",
   "publisher": {
-    "$ref": "publishers/SOEB"
+    "$ref": "/publishers/SOEB"
   },
+  "authorizationGrantor": "datateamsob@amsterdam.nl",
+  "description": "Dataset met de bedrijveninvesteringszones (BIZ) binnen de Gemeente Amsterdam.",
   "keywords": [
-    "bedrijveninvesteringszones"
+    "Bedrijveninvesteringszones",
+    "BIZ"
   ],
   "crs": "EPSG:28992",
+  "temporalUnit": "",
   "defaultVersion": "v1",
   "versions": {
     "v1": {
       "status": "beschikbaar",
       "lifecycleStatus": "stable",
-      "version": "0.0.1",
+      "version": "1.0.0",
       "tables": [
         {
           "id": "bedrijveninvesteringszones",
           "$ref": "bedrijveninvesteringszones/v1"
         }
+      ]
+    },
+    "v2": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "experimental",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "gebieden",
+          "$ref": "gebieden/v1"
+        }        
       ]
     }
   }
