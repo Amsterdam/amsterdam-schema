@@ -1,0 +1,59 @@
+{
+    "id": "fracties",
+    "type": "table",
+    "version": "1.0.0",
+    "lifecycleStatus": "stable",
+    "title": "Fracties",
+    "description": "In deze tabel staan de namen en codes van de verschillende afvalfracties die gehanteerd worden bij Afval en Grondstoffen.",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "id",
+        "required": [
+            "id",
+            "schema"
+        ],
+        "display": "naam",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+            },
+            "id": {
+                "title": "Id",
+                "type": "string",
+                "description": "Unieke aanduiding van het record. Overgenomen uit bron systeem."
+            },
+            "type": {
+                "title": "type",
+                "type": "string",
+                "description": "Fractie type"
+            },
+            "active": {
+                "title": "Actief",
+                "type": "string",
+                "description": "Geeft aan of een fractie in gebruik is."
+            },
+            "nummer": {
+                "title": "nummer",
+                "type": "string",
+                "description": "Unieke aanduiding van de fractie met een nummer."
+            },
+            "volgorde_afvalwijzer": {
+                "title": "Volgorde afvalwijzer",
+                "type": "string",
+                "description": "Weergave Volgorde van fracties in de afvalwijzer app."
+            },
+            "naam": {
+                "title": "Fractie naam",
+                "type": "string",
+                "description": "Fractie naam of omschrijving. Deze wordt ook getoond in de afvalwijzer app."
+            },
+            "code": {
+                "title": "Fractie code",
+                "type": "string",
+                "description": "Fractie code of verkorte weergave van de naam."
+            }                        
+        }
+    }
+}            
