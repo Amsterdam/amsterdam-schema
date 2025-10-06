@@ -1,0 +1,54 @@
+{
+  "id": "monitoring",
+  "type": "dataset",
+  "auth": ["FP/MDW", "FP/APPTIMIZE"],
+  "reasonsNonPublic": [
+    "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+  ],
+  "authorizationGrantor": "Directie Stadsbeheer",
+  "theme": [
+    "duurzaamheid en milieu",
+    "Ruimte en Topografie",
+    "Beheer openbare ruimte"
+  ],
+  "homepage": "https://data.amsterdam.nl",
+  "owner": "Gemeente Amsterdam, Stadsbeheer",
+  "dateModified": "2025-10-06T00:00:00+01:00",
+  "spatialDescription": "Gemeente Amsterdam",
+  "title": "Monitoring beheer openbare ruimte",
+  "language": "nl",
+  "creator": "Datateam Beeldschoon/BOR",
+  "publisher": {
+    "$ref": "publishers/BOR"
+  },
+  "hasBeginning": "2017-01-29T00:00:00+01:00",
+  "accrualPeriodicity": "maandelijks",
+  "description": "Het beheer van de openbare ruimte wordt gemonitord. Enerzijds proactief door het doen van inspecties, anderzijds door het bijhouden van meldingen en de uitvoer hiervan. In deze dataset vind je monitoringsdata zoals inspectieresultaten in de tabel 'beeldmonitorkwaliteit', inspectie grid onder 'raster_100' en 'raster_10' en het monitoren van de uitvoering naar aanleiding van meldingen in 'meldingen uitvoering'.",
+  "keywords": [
+    "inspecties",
+    "meldingen",
+    "crow",
+    "beeldmeetlat",
+    "openbare ruimte",
+    "Stadswerken",
+    "grid",
+    "raster"
+  ],
+  "crs": "EPSG:28992",
+  "objective": "Bevat data ter onderstuening van uitvoer van monitoring van de openbare ruimte binnen de gemeente Amsterdam (o.a. Weesp).",
+  "temporalUnit": "seconden",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "stable",
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "meldingen_uitvoering",
+          "$ref": "meldingen_uitvoering/v2"
+        }
+      ]
+    }
+  }
+}
