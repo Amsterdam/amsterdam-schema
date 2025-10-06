@@ -1,0 +1,79 @@
+{
+    "id": "meldingen_uitvoering",
+    "type": "table",
+    "version": "1.0.0",
+    "lifecycleStatus": "experimental",
+    "title": "Meldingen in UBOR voor de uitvoering",
+    "description": "Deze tabel bevat informatie over meldingen die in de applicatie UBOR (Uitvoering Beheer Openbare Ruimte) binnenkomen vanuit de applicatie Signalen (SIG). Bijvoorbeeld aan welk uitvoeringsteam de melding is toegewezen en op welke dag de uitvoering n.a.v. de SIGmelding is gedaan.",
+    "auth": "FP/MDW",
+    "identifier": "id",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "id"
+      ],
+      "display": "id",
+      "properties": {
+        "schema": {
+          "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+        },
+        "id": {
+          "type": "integer",
+          "title": "Id",
+          "description": "Unieke aanduiding van de melding in iAsset UBOR."
+        },
+        "sigmelding_id": {
+          "type": "string",
+          "title": "SIG melding ID",
+          "description": "Unieke aanduiding van de SIG-melding."
+        },
+        "melding_status": {
+          "type": "string",
+          "title": "Melding status",
+          "description": "Status van de SIG melding in iAsset UBOR."
+        },
+        "toewijzing_werkvoorraad": {
+          "type": "integer",
+          "title": "Toewijzing werkvoorraad",
+          "description": "Dit geeft aan aan welk team of werkvoorraad de melding is toegewezen voor de uitvoering."
+        },
+        "uitvoering_startindicatie": {
+          "type": "integer",
+          "title": "Uitvoering startindicatie",
+          "description": "Aanduiding of uitvoering is gestart naar aanleiding van de SIG-melding."
+        },
+        "uitvoering_startdatum": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Uitvoering startdatum",
+          "description": "Datum waarop de uitvoering naar aanleiding van de SIG-melding is gestart."
+        },
+        "uitvoering_einddatum": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Uitvoering einddatum",
+          "description": "Datum waarop de uitvoering naar aanleiding van de SIG-melding is afgerond."
+        },
+        "uitvoering_resultaat": {
+          "type": "string",
+          "title": "Uitvoering resultaat",
+          "description": "Omschrijving van het resultaat van de uitvoering naar aanleiding van de SIG-melding."
+        },
+         "uitvoering_toelichting": {
+          "type": "string",
+          "title": "Uitvoering toelichting",
+          "description": "Toelichting op de uitvoering naar aanleiding van de SIG-melding."
+        },
+        "directievoering_en_toezicht_afhandeling": {
+          "type": "string",
+          "title": "Directie en Toezicht afhandeling",
+          "description": "Omschrijving hoe Directievoering & Toezicht de melding heeft laten afhandelen"
+        }
+      }
+    }
+  }
+
+  
