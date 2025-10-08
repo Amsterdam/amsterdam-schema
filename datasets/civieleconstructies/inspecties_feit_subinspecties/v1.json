@@ -3,10 +3,10 @@
     "type": "table",
     "version": "1.0.0",
     "lifecycleStatus": "stable",
-    "title": "Uitgevoerde subinspecties aan civiele constructies",
-    "description": "Deze tabel bevat de gegevens van wegingen van gebracht afval bij recyclepunten. Bij binnenkomst en bij vertrek worden voertuigen met inhoud gewogen. Verder kan men zien in welke tariefgroep de weging valt en is er een indicatie van waar in de stad het afval wordt gebracht.",
-    "auth": "OPENBAAR",
-    "identifier": "id",
+    "title": "Feitentabel uitgevoerde schouwen en onderhoud aan civiele constructies",
+    "description": "Deze feitentabel bevat een identificatie, uitvoeringsdatum van onderhoud en schouwen aan civiele constructies zoals bruggen en sluizen.",
+    "auth": "FP/MDW",
+    "identifier": "subinspectie_id",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
       "type": "object",
@@ -15,78 +15,26 @@
         "schema",
         "id"
       ],
-      "display": "id",
+      "display": "subinspectie_id",
       "properties": {
         "schema": {
           "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
         },
-        "id": {
+        "subinspectie_id": {
           "type": "integer",
-          "title": "Weging ID",
-          "description": "Uniek identificerend kenmerk van deze weging."
+          "title": "Subinspectie ID",
+          "description": "Uniek identificerend kenmerk van deze schouw of onderhoud (vallen samen onder 'subinspecties'). Met deze ID kan via de tabel 'Dimensietabel kenmerken van schouwen en onderhoud aan civiele constructies' aanvullende informatie worden opgehaald voor analyse."
         },
-        "weegbon": {
-          "type": "string",
-          "title": "Weegbon nummer",
-          "description": "Uniek nummer vanuit het registratiesysteem voor deze weging aan dit recyclepunt. Let op, hetzelfde weegbonnummer komt voor bij verschillende recyclepunten. Gebruik voor een unieke identificer 'id'."
-        },
-        "datumWeging": {
-          "type": "string",
+        "datum_id": {
+		  "type": "string",
           "format": "date",
-	  "title": "Weging datum",
-          "description": "Datum waarop de uitweging heeft plaatsgevonden."
-	    },
-        "tijdIn": {
+		  "title": "datum ID"
+          "description": "Uniek identificerend kenmerk van de datum van de schouw of onderhoud. Met deze ID kan via de tabel 'Dimensietabel datum' aanvullende informatie worden opgehaald voor analyse."
+        },
+        "object_sleutel": {
           "type": "string",
-          "format": "time",
-          "title": "Inweging tijdstip",
-          "description": "Het tijdstip van aankomst bij het recyclepunt (de inweging)."
-        },
-        "tijdUit": {
-          "type": "string",
-          "format": "time",
-          "title": "Uitweging tijdstip",
-          "description": "Het tijdstip van vertrek van het recyclepunt (de uitweging)."
-        },
-        "inweging": {
-          "type": "integer",
-          "title": "Inweging gewicht",
-          "description": "Het gewicht van het voertuig bij aankomst bij het recyclepunt, in kilogrammen."
-        },
-        "uitweging": {
-          "type": "integer",
-          "title": "Uitweging gewicht",
-          "description": "Het gewicht van het voertuig bij vertrek van het recyclepunt, in kilogrammen."
-        },
-        "nettoGewicht": {
-          "type": "integer",
-          "title": "Netto gewicht",
-          "description": "Het verschil tussen de inweging en uitweging, in kilogrammen."
-        },
-        "locatieCode": {
-          "type": "string",
-          "title": "Recyclepunt code",
-          "description": "De code van het recyclepunt."
-        },
-        "locatieNaam": {
-          "type": "string",
-          "title": "Recyclepunt naam",
-          "description": "De naam van het recyclepunt."
-        },
-        "tariefgroepCode": {
-          "type": "string",
-          "title": "Tariefgroep code",
-          "description": "De code van de tariefgroep waarin deze weging valt. Dit kan zijn P voor particulier, B voor bedrijf, G voor gemeente of K voor kringloop."
-        },
-         "tariefgroepNaam": {
-          "type": "string",
-          "title": "Tariefgroep naam",
-          "description": "De naam van de tariefgroep waarin deze weging valt. Dit kan zijn particulier, bedrijf of gemeente."
-        },
-        "postcodeBezoeker": {
-          "type": "string",
-          "title": "Postcode bezoeker",
-          "description": "De 4-cijferige postcode van bezoekers. Dit geeft een indicatie van waar in de stad het gebrachte afval komt."
+          "title": "Civiele constructie ID",
+          "description": "Uniek identificeren kenmerk voor een civiele constructie. Met deze ID kan via de tabel 'Dimensietabel objectpaspoort civiele constructies' aanvullende informatie worden opgehaald voor analyse.
         }
       }
     }
