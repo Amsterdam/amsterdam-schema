@@ -1,1 +1,47 @@
+{
+    "id": "inspectiesDimSubinspectieKenmerken",
+    "type": "table",
+    "version": "1.0.0",
+    "lifecycleStatus": "stable",
+    "title": "Dimensietabel kenmerken van schouwen en onderhoud aan civiele constructies",
+    "description": "Deze dimensietabel bevat informatie over de uitgevoerde schouwen en onderhoud aan civiele constructies, zoals de naam en het overkoepelende type onderhoud.",
+    "auth": "FP/MDW",
+    "identifier": "subinspectie_id",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "id"
+      ],
+      "display": "subinspectie_id",
+      "properties": {
+        "schema": {
+          "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+        },
+        "subinspectie_id": {
+          "type": "integer",
+          "title": "Subinspectie ID",
+          "description": "Uniek identificerend kenmerk van de uitgevoerde schouw of onderhoud (vallen samen onder 'subinspecties')."
+        },
+        "subinspectie_naam": {
+		    "type": "string",
+		    "title": "Subinspectie naam"
+          "description": "Omschrijving van de uitgevoerde schouw of onderhoud."
+        },
+        "algemene_inspectie_naam": {
+		    "type": "string",
+		    "title": "Algemene inspectie naam"
+          "description": "Overkoepelende type onderhoud waar de schouw of onderhoud onder valt"
+        },
+        "algemene_inspectie_id": {
+		    "type": "string",
+		    "title": "Algemene inspectie ID"
+          "description": "Uniek identificrend kenmer van het overkoepelende type onderhoud waar de schouw of onderhoud onder valt"
+        }
+      }
+    }
+  }
 
+  
