@@ -20,115 +20,106 @@
         "schema": {
           "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
         },
-        "subinspectie_id": {
-          "type": "integer",
-          "title": "Subinspectie ID",
-          "description": "Uniek identificerend kenmerk van de uitgevoerde schouw of onderhoud (vallen samen onder 'subinspecties')."
-        },
         "objectnaam_paspoort": {
 		    "type": "string",
 		    "title": "Objectnaam"
-        "description": "Objectnaam uit het paspoort"
+            "description": "Een betekenisvolle aanduiding waaronder het object bekend is."
         },
         "objectnummer_paspoort": {
 		    "type": "string",
 		    "title": "Objectnummer"
-          "description": "Objectnummer uit het paspoort."
+            "description": "Nummer van het beheerobject, door de organisatie zelf in te delen."
         },
         "thema": {
-        "type": "integer",
-        "title": "Subinspectie ID",
-        "description": "Uniek identificerend kenmerk van de uitgevoerde schouw of onderhoud (vallen samen onder 'subinspecties')."
+            "type": "integer",
+            "title": "Thema",
+            "description": "Is een aanduiding voor een specifiek vakgebied binnen civiel openbare ruimte, zoals 'kunstwerk' of 'scheiding'."
         },
         "subthema": {
 		    "type": "string",
-		    "title": "Subinspectie naam"
-          "description": "Omschrijving van de uitgevoerde schouw of onderhoud."
+		    "title": "Subthema"
+          "description": "Specifieke objectgroepen binnen een thema, zoals "Sluizen", "Steigers", "Vaste bruggen" of "Beweegbare bruggen", afhankelijk van het type object."
         },
         "object_type": {
 		    "type": "string",
-		    "title": "Algemene inspectie naam"
-          "description": "Overkoepelende type onderhoud waar de schouw of onderhoud onder valt"
+		    "title": "Objecttype"
+            "description": "Specifieke categorienaam voor het type object, zoals “Brug”, “Kade”, “Sluis”, “Steiger”, afhankelijk van object."
         },
         "object": {
-        "type": "integer",
-        "title": "Subinspectie ID",
-        "description": "Uniek identificerend kenmerk van de uitgevoerde schouw of onderhoud (vallen samen onder 'subinspecties')."
+            "type": "integer",
+            "title": "Object",
+            "description": "Omschrijving van het specifieke object, zoals "Beweegbare brug", "Steiger" of "Schutsluis"."
         },
         "openbare_ruimte": {
 		    "type": "string",
-		    "title": "Subinspectie naam"
-          "description": "Omschrijving van de uitgevoerde schouw of onderhoud."
+		    "title": "Openbare ruimte"
+            "description": "Aanduiding van de openbare ruimte, zoals gedefinieerd in IMGeo of in de BAG, waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met grenzen openbare ruimtes of uit de Basisregistraties voor Adressen en Gebouwen (zonder begrenzing)."
         },
-        "openbare_ruimte": {
+		"stadsdeel": {
 		    "type": "string",
-		    "title": "Algemene inspectie naam"
-          "description": "Overkoepelende type onderhoud waar de schouw of onderhoud onder valt"
+		    "title": "Stadsdeel naam"
+            "description": "Deel van een stad of wijk."
         },
-        "openbare_ruimte": {
-        "type": "integer",
-        "title": "Subinspectie ID",
-        "description": "Uniek identificerend kenmerk van de uitgevoerde schouw of onderhoud (vallen samen onder 'subinspecties')."
-        },
+        "type_beheerder_plus": {
+		    "type": "string",
+		    "title": "Beheerder gedetailleerd"
+            "description": "Nadere aanduiding van de beheerder van het beheerobject."
+	    },
         "type_eigenaar": {
 		    "type": "string",
-		    "title": "Subinspectie naam"
-          "description": "Omschrijving van de uitgevoerde schouw of onderhoud."
+		    "title": "Type eigenaar"
+            "description": "(Rechts)persoon die het meest  omvattend recht op een zaak heeft. De typen eigenaren zijn conform de indeling in bronhouders (BGT)."
         },
         "hoofddraagconstructie": {
 		    "type": "string",
-		    "title": "Algemene inspectie naam"
-          "description": "Overkoepelende type onderhoud waar de schouw of onderhoud onder valt"
-        },
-          "hoofdvaarroute": {
-          "type": "integer",
-          "title": "Subinspectie ID",
-          "description": "Uniek identificerend kenmerk van de uitgevoerde schouw of onderhoud (vallen samen onder 'subinspecties')."
-        },
-        "subinspectie_naam": {
+		    "title": "Hoofddraagconstructie"
+            "description": "De constructieve onderdelen die de hoofdlast van het object dragen en zorgen voor de stabiliteit en stevigheid."
+	    },
+        "type_aandrijving": {
 		    "type": "string",
-		    "title": "Subinspectie naam"
-          "description": "Omschrijving van de uitgevoerde schouw of onderhoud."
+		    "title": "Aandrijving type"
+            "description": "De wijze waarop een object wordt aangedreven of in beweging wordt gebracht, zoals bijvoorbeeld "Electrohydraulisch" of "Mechanisch"."
+        },
+        "hoofdvaarroute": {
+            "type": "integer",
+            "title": "Hoofdvaarroute",
+            "description": "Naam van de hoofdvaarroute waarbinnen het object ligt."
         },
         "gebruiksfunctie": {
 		    "type": "string",
-		    "title": "Algemene inspectie naam"
-          "description": "Overkoepelende type onderhoud waar de schouw of onderhoud onder valt"
+		    "title": "Gebruiksfunctie"
+            "description": ""De gebruiksfunctie beschrijft waarvoor een object in de openbare ruimte bedoeld is – zoals “Fiets-voetverkeer" of "Normaal verkeer" – en bepaalt het type onderhoud, inrichting en beleid."
         },
-          "verkeersnet": {
-          "type": "integer",
-          "title": "Subinspectie ID",
-          "description": "Uniek identificerend kenmerk van de uitgevoerde schouw of onderhoud (vallen samen onder 'subinspecties')."
-        },
+        "verkeersnet": {
+            "type": "integer",
+            "title": "Verkeersnet",
+            "description": "Aanduiding of het object onderdeel is van een verkeersnet zoals "auto" of "rail"." 
+		},
         "type_monument": {
 		    "type": "string",
-		    "title": "Subinspectie naam"
-          "description": "Omschrijving van de uitgevoerde schouw of onderhoud."
-        },
-        "type_aandrijving": {
-		    "type": "string",
-		    "title": "Algemene inspectie naam"
-          "description": "Overkoepelende type onderhoud waar de schouw of onderhoud onder valt"
+		    "title": "Monument type"
+            "description": "Aanduiding of het beheerobject een monument is."
         },
         "monumentnummer": {
 		    "type": "string",
-		    "title": "Algemene inspectie ID"
-          "description": "Uniek identificrend kenmer van het overkoepelende type onderhoud waar de schouw of onderhoud onder valt"
-          },
+		    "title": "Monumentnummer"
+            "description": "Nummer van een monument, alleen van toepssing bij Rijksmonumenten."
+        },
         "perceel": {
 		    "type": "string",
-		    "title": "Subinspectie naam"
-          "description": "Omschrijving van de uitgevoerde schouw of onderhoud."
-        },
-        "latitude": {
-		    "type": "string",
-		    "title": "Algemene inspectie naam"
-          "description": "Overkoepelende type onderhoud waar de schouw of onderhoud onder valt"
+		    "title": "Perceel paspoort"
+            "description": "Het perceel is in principe gelijk aan het Stadsdeel behalve voor veel beweegbare bruggen, daar is hij 'beweegbaar'"
         },
         "longitude": {
 		    "type": "string",
-		    "title": "Algemene inspectie ID"
-          "description": "Uniek identificrend kenmer van het overkoepelende type onderhoud waar de schouw of onderhoud onder valt"
+		    "title": "Longitude"
+            "description": "Lengtegraad van de geografische positie van het object."
+		},
+        "latitude": {
+		    "type": "string",
+		    "title": "Latitude"
+            "description": "Breedtegraad van de geografische positie van het object."
+
         }
       }
     }
