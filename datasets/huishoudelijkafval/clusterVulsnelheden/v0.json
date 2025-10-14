@@ -1,0 +1,98 @@
+{
+    "id": "clusterVulsnelheden",
+    "type": "table",
+    "version": "0.0.0",
+    "lifecycleStatus": "experimental",
+    "title": "Cluster vulsnelheden",
+    "description": "In deze tabel wordt de vulsnelheid vastgelegd per fractie van een heel cluster afvalcontainers. In een cluster kunnen zich meerdere containers voor een bepaalde fractie bevinden.",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "id",
+        "required": [
+            "id",
+            "schema"
+        ],
+        "display": "huishoudelijkafvalClusterId",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+            },
+            "id": {
+                "title": "Id",
+                "type": "string",
+                "description": "Unieke aanduiding van het record."
+            },
+            "meetsysteem": {
+                "title": "Meetsysteem",
+                "type": "string",
+                "description": "Naam van meetsysteem of leverancier van brondata"
+            },
+            "siteId": {
+                "title": "Site Id",
+                "type": "string",
+                "description": "Unieke aanduiding uit het bronsysteem van de site/ cluster van afvalcontainers."
+            },
+            "huishoudelijkafvalClusterId": {
+                "title": "Huishoudelijkafval cluster Id",
+                "type": "string",
+                "description": "Verwijzing naar ID in huishoudelijkafval_cluster."
+            },
+            "huishoudeljkafvalFractiesNummer": {
+                "title": "Fractie nummer",
+                "type": "string",
+                "description": "Verwijzing naar nummer in hushoudelijkafval_fracties."				
+            },
+            "fractieNaam": {
+                "title": "Fractie naam",
+                "type": "string",
+                "description": "Fractie naam afkomstig uit het bronsysteem.",
+                "enum": ["Restafval", "Papier en karton", "Glas"]		
+            },
+            "prognoseVol": {
+                "title": "Prognose vol",
+                "type": "string",
+				"format": "date-time",
+                "description": "Voorspelde datum waarop alle containers vol zijn."
+            },
+            "vulsnelheidVolume": {
+                "title": "Vulsnelheid als volume",
+                "type": "number",
+                "description": "Gemiddelde snelheid waarmee de containers gevuld worden(liter/week)."
+            },
+            "vulsnelheidMinuten": {
+                "title": "Vulsnelheid in minuten",
+                "type": "integer",
+                "description": "Geeft aan hoelang het gemiddeld duurt om de containers te vullen van leeg naar vol, uitgedrukt in minuten."
+            },
+            "vulsnelheidDagen": {
+                "title": "Vulsnelheid in dagen",
+                "type": "integer",
+                "description": "Geeft aan hoelang het gemiddeld duurt om de containers te vullen van leeg naar vol, uitgedrukt in  dagen. Altijd naar beneden afgerond(floor) op hele dagen."
+            },
+            "datumLaatsteService": {
+                "title": "Datum laatste service",
+                "type": "string",
+				"format": "date-time",
+                "description": "Datum en tijdstip waarop laatste leging van het cluster heeft plaatsgevonden."
+            },
+            "datumMeting": {
+                "title": "Datum meting",
+                "type": "string",
+				"format": "date-time",
+                "description": "Datum en tijdstip van bepalen prognose_vol, vulsnelheid_volume, -minuten en -dagen"
+            },
+            "vulgraadMeting": {
+                "title": "Vulgraad meting",
+                "type": "string",
+                "description": "De vulgraad bij laatste meting, als percentage van het totale container volume."
+            },
+            "laatsteMeting": {
+                "title": "Laatste meting",
+                "type": "boolean",
+                "description": "Voor dit cluster/ site: true = laatst opgehaalde regel, false = eerder opgehaalde regel."
+            }                        
+        }
+    }
+}
