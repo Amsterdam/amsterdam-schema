@@ -9,12 +9,12 @@
   "publisher": {
     "$ref": "publishers/MOSS"
   },
-  "defaultVersion": "v1",
+  "defaultVersion": "v2",
   "title": "Schoolgebouwen",
   "description": "Schoolgebouwen in het beheer van de Directie Maatschappelijke voorzieningen",
   "versions": {
     "v1": {
-      "status": "beschikbaar",
+      "status": "niet_beschikbaar",
       "version": "1.0.0",
       "lifecycleStatus": "stable",
       "tables": [
@@ -37,6 +37,42 @@
     {
         "id": "kengetallen",
         "$ref": "kengetallen/v1"
+    },
+    {
+        "id": "object",
+        "$ref": "object/v1"
+    },
+    {
+        "id": "kenmerken",
+        "$ref": "kenmerken/v1"
+    }
+]
+    },
+    
+    "v2": {
+      "status": "beschikbaar",
+      "version": "2.0.0",
+      "lifecycleStatus": "stable",
+      "tables": [
+    {
+        "id": "bestuur",
+        "$ref": "bestuur/v2"
+    },
+    {
+        "id": "accommodatie",
+        "$ref": "accommodatie/v1"
+    },
+    {
+        "id": "gebruik",
+        "$ref": "gebruik/v1"
+    },
+    {
+        "id": "instelling",
+        "$ref": "instelling/v1"
+    },
+    {
+        "id": "kengetallen",
+        "$ref": "kengetallen/v2"
     },
     {
         "id": "object",
