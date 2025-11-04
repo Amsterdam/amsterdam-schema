@@ -1,0 +1,256 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://localhost:8000/row-meta-schema@v4.0.0",
+  "definitions": {
+    "rootProperty": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "auth": {
+          "$ref": "http://localhost:8000/schema@v4.0.0#/definitions/auth"
+        },
+        "reasonsNonPublic": {
+          "$ref": "http://localhost:8000/schema@v4.0.0#/definitions/reasonsNonPublic"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "$comment": {
+          "type": "string"
+        },
+        "$ref": {
+          "type": "string",
+          "format": "uri"
+        },
+        "shortname": {
+          "type": "string"
+        },
+        "items": {
+          "$ref": "#/definitions/rootProperty"
+        },
+        "maximum": {
+          "type": "number"
+        },
+        "minimum": {
+          "type": "number"
+        },
+        "exclusiveMaximum": {
+          "type": "integer"
+        },
+        "multipleOf": {
+          "type": "number"
+        },
+        "minLength": {
+          "type": "integer"
+        },
+        "maxLength": {
+          "type": "integer"
+        },
+        "contentEncoding": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[a-z][A-Za-z0-9]*$"
+          },
+          "additionalProperties": {
+            "$ref": "#/definitions/rootProperty"
+          }
+        },
+        "enum": {
+          "type": "array"
+        },
+        "format": {
+          "type": "string"
+        },
+        "faker": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
+        "provenance": {
+          "$ref": "http://localhost:8000/meta/provenance@v4.0.0#/properties/provenance"
+        },
+        "relation": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "crs": {
+          "description": "Coordinate reference system",
+          "$ref": "./schema@v4.0.0#/definitions/crs"
+        },
+        "unit": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "type"
+          ],
+          "not": {
+            "required": [
+              "crs"
+            ]
+          },
+          "properties": {
+            "type": {
+              "$ref": "http://json-schema.org/draft-07/schema#/definitions/simpleTypes"
+            }
+          }
+        },
+        {
+          "required": [
+            "$ref"
+          ],
+          "properties": {
+            "$ref": {
+              "type": "string",
+              "enum": [
+                "https://geojson.org/schema/Geometry.json",
+                "https://geojson.org/schema/MultiPolygon.json",
+                "https://geojson.org/schema/Polygon.json",
+                "https://geojson.org/schema/Point.json",
+                "https://geojson.org/schema/MultiLineString.json",
+                "https://geojson.org/schema/LineString.json",
+                "https://geojson.org/schema/MultiPoint.json"
+              ]
+            }
+          }
+        }
+      ],
+      "if": {
+        "$comment": "If type is array, then items is required.",
+        "allOf": [
+          {
+            "properties": {
+              "type": {
+                "const": "array"
+              }
+            }
+          },
+          {
+            "$comment": "$ref's were caught by this rule, so only require items if there is no $ref.",
+            "not": {
+              "required": [
+                "$ref"
+              ]
+            }
+          }
+        ]
+      },
+      "then": {
+        "required": [
+          "items"
+        ]
+      }
+    }
+  },
+  "type": "object",
+  "required": [
+    "$schema",
+    "type",
+    "properties",
+    "required",
+    "display"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "const": "http://json-schema.org/draft-07/schema#"
+    },
+    "$id": {
+      "type": "string"
+    },
+    "additionalProperties": {
+      "const": false
+    },
+    "type": {
+      "const": "object"
+    },
+    "required": {
+      "allOf": [
+        {
+          "type": "array",
+          "minItems": 1,
+          "contains": {
+            "const": "schema"
+          }
+        }
+      ]
+    },
+    "display": {
+      "type": "string"
+    },
+    "additionalRelations": {
+      "type": "object"
+    },
+    "mainGeometry": {
+      "type": "string"
+    },
+    "identifier": {
+      "type": [
+        "array",
+        "string"
+      ]
+    },
+    "properties": {
+      "type": "object",
+      "required": [
+        "schema"
+      ],
+      "propertyNames": {
+        "pattern": "^[a-z][A-Za-z0-9]*$"
+      },
+      "properties": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "$ref"
+          ],
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "$ref": {
+              "pattern": "^(https://.*/schema@v[123])(\\.[0-9]){0,2}(#/definitions/schema)"
+            }
+          }
+        }
+      },
+      "additionalProperties": {
+        "$ref": "#/definitions/rootProperty"
+      }
+    }
+  }
+}

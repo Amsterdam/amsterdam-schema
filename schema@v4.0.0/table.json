@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://localhost:8000/table@v4.0.0",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "./schema@v4.0.0#/definitions/basicProperties"
+    }
+  ],
+  "required": [
+    "schema",
+    "version",
+    "status"
+  ],
+  "properties": {
+    "type": {
+      "const": "table"
+    },
+    "dataclass": {
+      "type": "string",
+      "default": "structured",
+      "enum": [
+        "structured",
+        "blob",
+        "event"
+      ]
+    },
+    "shortname": {
+      "type": "string"
+    },
+    "derivedFrom": {
+      "description": "id en table van de dataset waarvan deze dataset is afgeleid. Zie /datasets voor de mogelijke ids.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "crs": {
+      "description": "Coordinate reference system",
+      "$ref": "./schema@v4.0.0#/definitions/crs"
+    },
+    "temporal": {
+      "type": "object",
+      "required": [
+        "identifier",
+        "dimensions"
+      ],
+      "identifier": "string",
+      "unit": "string",
+      "dimensions": {
+        "type": "object",
+        "geldigOp": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "schema": {
+      "oneOf": [
+        {
+          "$ref": "./row-meta-schema@v4.0.0"
+        },
+        {
+          "type": "object",
+          "required": [
+            "$ref"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "$ref": {
+              "type": "string",
+              "format": "uri-reference"
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "description": "de status die iets zegt over de stabiliteit van de tabel. Een tabel met de status 'under_development' kan nog wijzigen, wanneer deze 'stable' is kunnen er geen breaking changes meer in plaatsvinden.",
+      "type": "string",
+      "enum": [
+        "under_development",
+        "stable"
+      ]
+    },
+    "zoom": {
+      "type": "object",
+      "required": [
+        "min",
+        "max"
+      ],
+      "additionalProperties": false,
+      "description": "Minimum (0-29) and maximum (1-30) zoom at which the fields should be visible in MVT views.",
+      "properties": {
+        "min": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 29
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        }
+      }
+    }
+  }
+}

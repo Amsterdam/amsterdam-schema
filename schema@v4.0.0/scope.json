@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://localhost:8000/scope@v4.0.0",
+  "type": "object",
+  "required": [
+    "name",
+    "id",
+    "type",
+    "owner",
+    "accessPackages"
+  ],
+  "properties": {
+    "type": {
+      "const": "scope"
+    },
+    "name": {
+      "description": "Naam van de scope.",
+      "type": "string",
+      "minLength": 1
+    },
+    "id": {
+      "description": "ID van de scope.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32,
+      "pattern": "[A-Za-z/]"
+    },
+    "accessPackages": {
+      "description": "Object met omgevingen en hun bijbehorende Access Packages.",
+      "type": "object",
+      "properties": {
+        "production": {
+          "description": "Access Package voor de productieomgeving.",
+          "type": "string"
+        },
+        "nonProduction": {
+          "description": "Access Package voor de niet-productieomgeving.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "owner": {
+      "description": "id van het team dat de data beheert in de DataHub (doorgaans het datateam). Zie /publishers voor de mogelijke ids.",
+      "type": "object",
+      "required": [
+        "$ref"
+      ],
+      "properties": {
+        "$ref": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
