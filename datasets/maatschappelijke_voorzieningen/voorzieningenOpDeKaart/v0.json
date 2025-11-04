@@ -1,62 +1,62 @@
 {
-  "id": "voorzieningenOpDeKaart",
-  "type": "table",
-  "title": "voorzieningenOpDeKaart",
-  "description": "Een tabel met kaartgegevens van actuele Maatschappelijke Voorzieningen",
-  "version": "0.0.1",
-  "lifecycleStatus": "experimental",
-  "schema": {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "required": [
-      "schema"
-    ],
-    "display": "naam",
-    "properties": {
-      "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
-      },
-      "id": {
-        "type": "string",
-        "description": "Een uniek kenmerk voor een voorziening, zoals MV2314-1"
-      },
-      "naam": {
-        "type": "string",
-        "description": "De officiële naam van de individuele voorziening zoals geregistreerd in het systeem."
-      },
-      "domein": {
-        "type": "string",
-        "description": "De naam van het maatschappelijk domein zoals geregistreerd in het systeem."
-      },
-      "categorie": {
-        "type": "string",
-        "description": "De naam van een hoofdindelingen van categorieën voorzieningen."
-      },
-      "soort": {
-        "type": "string",
-        "description": "De naam van de categorie domein zoals geregistreerd in het systeem, zoals bijvoorbeeld \"primair onderwijs\" of \"schooltuincomplex\"."
-      },
-      "straat": {
-        "type": "string",
-        "description": "De straatnaam van een voorziening."
-      },
-      "postcode": {
-        "type": "string",
-        "description": "De postcode van een voorziening."
-      },
-      "huisnummer": {
-        "type": "string",
-        "description": "Het huisnummer van een voorziening."
-      },
-      "stadsdeel": {
-        "type": "string",
-        "description": "Het stadsdeel waar de voorziening zich in bevindt."
-      },
-      "geometry": {
-        "$ref": "https://geojson.org/schema/Point.json",
-        "description": "Puntgeometrie van de vooziening.",
-        "crs": "EPSG:28992"
-      }
+    "id": "voorzieningenOpDeKaart",
+    "type": "table",
+    "title": "voorzieningenOpDeKaart",
+    "description": "Een tabel met kaartgegevens van actuele Maatschappelijke Voorzieningen",
+    "version": "0.0.1",
+    "lifecycleStatus": "experimental",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "required": [
+            "schema"
+        ],
+        "display": "naam",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+            },
+            "id": {
+                "type": "string",
+                "description": "Een uniek kenmerk voor een voorziening, zoals MV2314-1"
+            },
+            "naam": {
+                "type": "string",
+                "description": "De officiële naam van de individuele voorziening zoals geregistreerd in het systeem."
+            },
+            "domein": {
+                "type": "string",
+                "description": "De naam van het maatschappelijk domein zoals geregistreerd in het systeem."
+            },
+            "categorie": {
+                "type": "string",
+                "description": "De naam van een hoofdindelingen van categorieën voorzieningen."
+            },
+            "soort": {
+                "type": "string",
+                "description": "De naam van de categorie domein zoals geregistreerd in het systeem, zoals bijvoorbeeld \"primair onderwijs\" of \"schooltuincomplex\"."
+            },
+            "straat": {
+                "type": "string",
+                "description": "De straatnaam van een voorziening."
+            },
+            "postcode": {
+                "type": "string",
+                "description": "De postcode van een voorziening."
+            },
+            "huisnummer": {
+                "type": "string",
+                "description": "Het huisnummer van een voorziening."
+            },
+            "stadsdeel": {
+                "type": "string",
+                "description": "Het stadsdeel waar de voorziening zich in bevindt."
+            },
+            "geometry": {
+                "$ref": "https://geojson.org/schema/Point.json",
+                "description": "Puntgeometrie van de vooziening.",
+                "crs":"EPSG:28992"
+            }
+        }
     }
-  }
 }
