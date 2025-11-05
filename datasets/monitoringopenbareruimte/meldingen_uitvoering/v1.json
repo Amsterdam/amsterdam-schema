@@ -4,13 +4,15 @@
     "version": "1.0.0",
     "lifecycleStatus": "experimental",
     "title": "Meldingen in UBOR voor de uitvoering",
-    "description": "Deze tabel bevat informatie over meldingen die in de applicatie UBOR (Uitvoering Beheer Openbare Ruimte) binnenkomen vanuit de applicatie Signalen (SIG). Bijvoorbeeld aan welk uitvoeringsteam de melding is toegewezen en op welke dag de uitvoering n.a.v. de SIGmelding is gedaan.",
+    "description": "Deze tabel bevat informatie over meldingen die in de applicatie UBOR (Uitvoering Beheer Openbare Ruimte) binnenkomen vanuit de applicatie Signalen (SIG). Alle meldingen, zowel afgerond als nog te verwerken meldingen staan in deze tabel. Één rij staat gelijk aan één melding. Per melding is informatie over o.a. aan welk uitvoeringsteam de melding is toegewezen en op welke dag de uitvoering n.a.v. de SIG-melding is gedaan. De kolom 'SIG melding ID' bevat een sleutel waarmee de relatie met de originele SIG-melding kan worden gemaakt. Let op: deze data komt uit de beheerapplicatie van Stadswerken voor het afhandelen van SIG-meldingen, het kan zijn dat de data niet gelijk loopt met de data in de applicatie Signalen.",
     "auth": "FP/MDW",
-    "identifier": "id",
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
       "type": "object",
       "additionalProperties": false,
+      "identifier": [
+          "id"
+      ],
       "required": [
         "schema",
         "id"
