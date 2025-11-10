@@ -1,7 +1,7 @@
 {
     "id": "wegingen",
     "type": "table",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "lifecycleStatus": "stable",
     "title": "Wegingen bij recyclepunten",
     "description": "Deze tabel bevat de gegevens van wegingen van gebracht afval bij recyclepunten. Bij binnenkomst en bij vertrek worden voertuigen met inhoud gewogen. Verder kan men zien in welke tariefgroep de weging valt en is er een indicatie van waar in de stad het afval wordt gebracht.",
@@ -87,6 +87,24 @@
           "type": "string",
           "title": "Postcode bezoeker",
           "description": "De 4-cijferige postcode van bezoekers. Dit geeft een indicatie van waar in de stad het gebrachte afval komt."
+        },
+        "productOmschrijving": {
+          "type": "string",
+          "title": "Product omschrijving",
+          "description": "Omschrijving van het product dat naar het recyclepunt wordt gebracht. Bijvoorbeeld 'Grofvuil', 'Asbest' of 'Elektrische apparaten'.",
+		  "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
+        },
+        "productNummer": {
+          "type": "string",
+          "title": "Product nummer",
+          "description": "Het nummer dat bij de product hoort. Iedere productomschrijving heeft ook zijn eigen nummer.",
+		  "auth": "FP/MDW",
+          "reasonsNonPublic": [
+            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+          ]
         }
       }
     }
