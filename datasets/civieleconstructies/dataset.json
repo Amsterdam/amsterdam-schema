@@ -17,14 +17,17 @@
   "publisher": {
     "$ref": "/publishers/BOR"
   },
-  "description": "Paspoort en decompositiegegevens voor de assets Civiele Constructies in beheer van gemeente Amsterdam",
+  "description": "Deze dataset bevat tabellen over civiele constructies en het onderhoud daaraan. Het gaat hier om de paspoort- en decompositiegegevens uit GISIB (het centrale asset managementsysteem van gemeente Amsterdam) voor damwanden, kademuren, beschooiingen en bruggen. Daarnaast bevatten de feiten en dimensietabellen data uit iAsset (het uitvoeringssysteem voor beheer aan civiele constructies). Deze tabellen gaan over uitgevoerde inspecties (verzamelnaam voor o.a. onderhoud, schouwen, losse opdrachten) en aanvullende informatie over de objecten en inspecties in de twee dimensietabellen. Let op, deze data komt uit het beheersysteem voor de uitvoer en kan dus afwijken van informatie uit GISIB.",
   "keywords": [
     "brug",
     "kade",
     "beschoeiing",
     "kademuur",
     "civiele constructies",
-    "infrastructuur"
+    "infrastructuur",
+    "inspecties",
+    "onderhoud",
+    "objectpaspoort"
   ],
   "crs": "EPSG:28992",
   "temporalUnit": "",
@@ -33,7 +36,7 @@
     "v1": {
       "status": "beschikbaar",
       "lifecycleStatus": "stable",
-      "version": "1.1.2",
+      "version": "1.2.2",
       "tables": [
         {
           "id": "brug",
@@ -50,6 +53,18 @@
         {
           "id": "kademuur",
           "$ref": "kademuur/v1"
+        },
+         {
+          "id": "inspectiesDimObjectpaspoort",
+          "$ref": "inspecties_dim_objectpaspoort/v1"
+        },
+        {
+          "id": "inspectiesDimSubinspectieKenmerken",
+          "$ref": "inspecties_dim_subinspectiekenmerken/v1"
+        },
+        {
+          "id": "inspectiesFeitSubinspecties",
+          "$ref": "inspecties_feit_subinspecties/v1"
         }
       ]
     }
