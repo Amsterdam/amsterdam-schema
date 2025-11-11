@@ -27,6 +27,12 @@ def create(base_version: str, target_version: str) -> None:
         shell=True,
         executable="/bin/bash",
     )  # nosec
+    # add symlink
+    subprocess.run(
+        f"ln -s ../../schema@{target_version}/ ./src/amsterdam_schema/schema@{target_version}",
+        shell=True,
+        executable="/bin/bash",
+    )  # nosec
 
 
 @metaschema.command("diff")  # type: ignore[misc]
@@ -132,6 +138,10 @@ def drop(version: str) -> None:
     Uses shutil.rmtree, as discarding git changes keeps the folders around.
     """
     shutil.rmtree(f"schema@{version}")
+    # remove symlink
+    subprocess.run(
+        f"rm ./src/amsterdam_schema/schema@{version}", shell=True, executable="/bin/bash"
+    )  # nosec
 
 
 def main() -> None:
