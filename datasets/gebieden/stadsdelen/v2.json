@@ -1,7 +1,8 @@
 {
   "id": "stadsdelen",
   "type": "table",
-  "version": "2.1.3",
+  "version": "2.1.4",
+  "lifecycleStatus": "stable",
   "description": "Door de Amsterdamse gemeenteraad vastgestelde begrenzing van een stadsdeel, ressorterend onder een stadsgebied- of stadsdeelbestuur",
   "temporal": {
     "identifier": "volgnummer",
@@ -34,7 +35,7 @@
       "identificatie": {
         "type": "string",
         "title": "Object ID",
-        "description": "Unieke identificatie van het object"
+        "description": "Uniek identificerend kenmerk voor het object dat onveranderlijk is zolang het object bestaat"
       },
       "volgnummer": {
         "type": "integer",
@@ -112,7 +113,7 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Polygon.json",
         "title": "Geometrie",
-        "description": "Geometrische beschrijving van een object"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       }
     }
   }

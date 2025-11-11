@@ -1,7 +1,7 @@
 {
   "id": "stedelijkgebiedprojectofbelangen",
   "type": "table",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "lifecycleStatus": "stable",
   "description": "Stedelijke gebieden, projecten en belangen zijn projectgebieden binnen de gemeente Amsterdam, waar de voorbereiding van bestemmingsplannen door het college van burgemeester en wethouders of de burgemeester ter hand worden genomen",
   "schema": {
@@ -23,7 +23,7 @@
       "identificatie": {
         "type": "string",
         "title": "Object ID",
-        "description": "Unieke identificatie van het object"
+        "description": "Uniek identificerend kenmerk voor het object dat onveranderlijk is zolang het object bestaat"
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/MultiPolygon.json",
@@ -69,8 +69,8 @@
       },
       "legenda": {
         "type": "string",
-        "title": "Wordt nog aangevuld",
-        "description": "Wordt nog aangevuld"
+        "title": "Object legendacategorie",
+        "description": "Categorie bedoeld als legenda-item"
       }
     }
   }
