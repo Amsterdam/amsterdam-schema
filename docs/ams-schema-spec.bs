@@ -426,6 +426,7 @@ Een  [=tabel=] mag daarnaast de volgende attributen bezitten:
     <tr><td><dfn>shortname</dfn>    <td> string <td> Verkorte unieke naam van de tabel. zie [[#naamgeving]]
     <tr><td><dfn>derivedFrom</dfn>  <td> array<td> De datasets waar deze view op gebaseerd is. e.g. `<dataset>:<tabel>`. Dit attribuut is enkel noodzakelijk wanneer de dataset een view is.
     <tr><td><dfn>auth</dfn>         <td> string | array | [[#scope-refs|scope-ref]] <td> geautoriseerde [=scope|scope(s)=]. Default: gelijk aan waarde in dataset/{{dataset/auth}}, zie [[#autorisatie]].
+    <tr><td><dfn>rowLevelAuth</dfn> <td> object <td> De row level authorisaties van toepassing op deze tabel, zie [[#row_level_auth]]
     <tr><td><dfn>reasonsNonPublic</dfn>  <td> array({{nonPubReason}})
         <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de [[Woo]].
             Verplicht wanneer de dataset openbaar is maar het {{tabel/auth}} attribuut van de tabel niet gelijk is aan "OPENBAAR". zie [[#autorisatie]]
@@ -699,6 +700,47 @@ welke zoomniveaus voor jouw tabel passend zijn.
 
 Het zoom object is niet verplicht. Indien de zoom niet wordt meegegeven, zullen de velden meegegeven worden vanaf
 niveau 15.
+
+Row Level Authorisatie {#row_level_auth}
+------------------------------------------
+Indien velden afgeschermd of getoond dienen te worden op basis van de waarde van een
+ander veld in de regel (bijvoorbeeld als iemand geheimhouding heeft aangevraagd van zijn
+of haar adres), dan kan dit met rowLevelAuth worden aangegeven.
+
+Een rowLevelAuth object heeft de volgende attributen:
+<table dfn-type="attribute" dfn-for=rowLevelAuth export class="dfn-table">
+    <tr><td><dfn>source</dfn>  <td> string <td> het bronveld op basis waarvan andere velden dienen te worden afgeschermd.
+    <tr><td><dfn>targets</dfn> <td> array (string) <td> de velden die afgeschermd dienen te worden.
+    <tr><td><dfn>authMap</dfn> <td> object <td> een mapping van waarden van het source veld ("true" en "false")
+    naar authorisatie scopes.
+</table>
+
+De namen van velden in `source` en `targets` kunnen verwijzen naar geneste velden (in objecten in het schema) middels een `.`.
+
+<div class=example>
+Voorbeeld van een rowLevelAuth object op een tabel.
+    ```json
+        "rowLevelAuth": {
+            "source": "adresAfgeschermd",
+            "targets": ["adres.straat", "adres.huisnummer", "adres.postcode", "telefoonnummer"],
+            "authMap": {
+                "true": ["BRP/ADMIN"],
+                "false": ["BRP/R"]
+            }
+        }
+    ```
+</div>
+
+In dit voorbeeld kijken we naar de waarde van `adresAfgeschermd`. Als deze waarde `false` is, dan zijn
+straat, huisnummer en postcode in het adres object (geneste items hebben een `.`), evenals het
+telefoonnummer zichtbaar voor gebruikers met BRP/R authorisatie. Als `adresAfgeschermd` echter `true`
+is, dan zal het alleen toegankelijk zijn voor iemand met BRP/ADMIN authorisatie. Voor dergelijke regels
+kan via deze weg dus een hoger authorisatieniveau worden afgedwongen.
+
+Bij het aanmaken of aanpassen van het schema wordt het volgende gevalideerd:
+- `source` zit niet in `targets`
+- `source` bestaat en heeft als type "boolean"
+- alle `targets` bestaan
 
 <!--
 ██     ██ ████████ ██       ████████
