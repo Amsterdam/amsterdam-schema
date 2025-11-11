@@ -1491,7 +1491,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version 7b3ff057a, updated Sun Nov 9 18:39:50 2025 -0800" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="1061147db9f1e82d9f034fa8c9cec1a47720c6db" name="revision">
+  <meta content="1188f7f5763b74589a1e953bdbd492681fb5b0b4" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
     p[data-fill-with="logo"] {
@@ -2457,17 +2457,18 @@ om datasets in een machineleesbaar format te beschrijven en op generieke wijze t
     <li>
      <a href="#changelog"><span class="secno">12</span> <span class="content">Changelog</span></a>
      <ol class="toc">
-      <li><a href="#lastchange"><span class="secno">12.1</span> <span class="content">[3.1.0] LifecycleStatus toegevoegd (2025-04-03)</span></a>
-      <li><a href="#20250303"><span class="secno">12.2</span> <span class="content">[3.0.0] Dataset versionering toegevoegd (2025-03-03)</span></a>
-      <li><a href="#20250204"><span class="secno">12.3</span> <span class="content">[2.4.0] Scopes documentatie toegevoegd (2025-02-04)</span></a>
-      <li><a href="#20250112"><span class="secno">12.4</span> <span class="content">[2.3.0] filterAuth attribuut toegevoegd (2025-01-12)</span></a>
-      <li><a href="#20230112"><span class="secno">12.5</span> <span class="content">[2.2.0] dataclass attribuut toegevoegd (2023-01-12)</span></a>
-      <li><a href="#20230110"><span class="secno">12.6</span> <span class="content">[2.1.5] dataclass attribuut toegevoegd (2023-01-10)</span></a>
-      <li><a href="#20221221"><span class="secno">12.7</span> <span class="content">[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</span></a>
-      <li><a href="#20220413-2"><span class="secno">12.8</span> <span class="content">[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</span></a>
-      <li><a href="#20220413-1"><span class="secno">12.9</span> <span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span></a>
-      <li><a href="#change20220323"><span class="secno">12.10</span> <span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span></a>
-      <li><a href="#change20220317"><span class="secno">12.11</span> <span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span></a>
+      <li><a href="#lastchange"><span class="secno">12.1</span> <span class="content">[3.2.0] rowLevelAuth toegevoegd (2025-11-11)</span></a>
+      <li><a href="#20250403"><span class="secno">12.2</span> <span class="content">[3.1.0] LifecycleStatus toegevoegd (2025-04-03)</span></a>
+      <li><a href="#20250303"><span class="secno">12.3</span> <span class="content">[3.0.0] Dataset versionering toegevoegd (2025-03-03)</span></a>
+      <li><a href="#20250204"><span class="secno">12.4</span> <span class="content">[2.4.0] Scopes documentatie toegevoegd (2025-02-04)</span></a>
+      <li><a href="#20250112"><span class="secno">12.5</span> <span class="content">[2.3.0] filterAuth attribuut toegevoegd (2025-01-12)</span></a>
+      <li><a href="#20230112"><span class="secno">12.6</span> <span class="content">[2.2.0] dataclass attribuut toegevoegd (2023-01-12)</span></a>
+      <li><a href="#20230110"><span class="secno">12.7</span> <span class="content">[2.1.5] dataclass attribuut toegevoegd (2023-01-10)</span></a>
+      <li><a href="#20221221"><span class="secno">12.8</span> <span class="content">[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</span></a>
+      <li><a href="#20220413-2"><span class="secno">12.9</span> <span class="content">[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</span></a>
+      <li><a href="#20220413-1"><span class="secno">12.10</span> <span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span></a>
+      <li><a href="#change20220323"><span class="secno">12.11</span> <span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span></a>
+      <li><a href="#change20220317"><span class="secno">12.12</span> <span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -2484,7 +2485,7 @@ om datasets in een machineleesbaar format te beschrijven en op generieke wijze t
    </ol>
   </nav>
   <main>
-   <p><strong class="advisement"> De meest recente aanpassing aan deze specificatie is:<br> <a href="#lastchange">§ 12.1 [3.1.0] LifecycleStatus toegevoegd (2025-04-03)</a></strong></p>
+   <p><strong class="advisement"> De meest recente aanpassing aan deze specificatie is:<br> <a href="#lastchange">§ 12.1 [3.2.0] rowLevelAuth toegevoegd (2025-11-11)</a></strong></p>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introductie</span><a class="self-link" href="#intro"></a></h2>
    <blockquote>
     <p><strong>Doelstelling</strong><br>
@@ -5060,7 +5061,18 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 
 
 
-   <h3 class="heading settled" data-level="12.1" id="lastchange"><span class="secno">12.1. </span><span class="content">[3.1.0] LifecycleStatus toegevoegd (2025-04-03)</span><a class="self-link" href="#lastchange"></a></h3>
+   <h3 class="heading settled" data-level="12.1" id="lastchange"><span class="secno">12.1. </span><span class="content">[3.2.0] rowLevelAuth toegevoegd (2025-11-11)</span><a class="self-link" href="#lastchange"></a></h3>
+   <blockquote>
+    <p><strong>Doelstelling</strong><br>
+Toevoegen van row level authorisatie aan tabel.</p>
+   </blockquote>
+   <ul>
+    <li data-md>
+     <p><a href="#tabel-optional-fields">§ 4.2 Optionele attributen</a> uitgebreid met rowLevelAuth.</p>
+    <li data-md>
+     <p><a href="#row_level_auth">§ 4.8 Row Level Authorisatie</a> toegevoegd.</p>
+   </ul>
+   <h3 class="heading settled" data-level="12.2" id="20250403"><span class="secno">12.2. </span><span class="content">[3.1.0] LifecycleStatus toegevoegd (2025-04-03)</span><a class="self-link" href="#20250403"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br>
 Toevoegen van lifecycleStatus aan versie en tabel.</p>
@@ -5075,7 +5087,7 @@ Toevoegen van lifecycleStatus aan versie en tabel.</p>
     <li data-md>
      <p><a href="#table-lifecycle-status">§ 4.6 Lifecycle</a> toegevoegd.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.2" id="20250303"><span class="secno">12.2. </span><span class="content">[3.0.0] Dataset versionering toegevoegd (2025-03-03)</span><a class="self-link" href="#20250303"></a></h3>
+   <h3 class="heading settled" data-level="12.3" id="20250303"><span class="secno">12.3. </span><span class="content">[3.0.0] Dataset versionering toegevoegd (2025-03-03)</span><a class="self-link" href="#20250303"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br>
 Toevoegen van versionering van datasets aan V3 van het Amsterdam Schema.</p>
@@ -5088,7 +5100,7 @@ Toevoegen van versionering van datasets aan V3 van het Amsterdam Schema.</p>
     <li data-md>
      <p><a href="#table-versioning">§ 4.5 Versionering</a> van tabellen aangepast naar de nieuwe situatie</p>
    </ul>
-   <h3 class="heading settled" data-level="12.3" id="20250204"><span class="secno">12.3. </span><span class="content">[2.4.0] Scopes documentatie toegevoegd (2025-02-04)</span><a class="self-link" href="#20250204"></a></h3>
+   <h3 class="heading settled" data-level="12.4" id="20250204"><span class="secno">12.4. </span><span class="content">[2.4.0] Scopes documentatie toegevoegd (2025-02-04)</span><a class="self-link" href="#20250204"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br>
 Aparte scopes objecten die de authorisatie van datasets, tabellen en velden bepalen.</p>
@@ -5099,7 +5111,7 @@ Aparte scopes objecten die de authorisatie van datasets, tabellen en velden bepa
     <li data-md>
      <p>auth velden kunnen nu verwijzen naar een of meer scope files.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.4" id="20250112"><span class="secno">12.4. </span><span class="content">[2.3.0] filterAuth attribuut toegevoegd (2025-01-12)</span><a class="self-link" href="#20250112"></a></h3>
+   <h3 class="heading settled" data-level="12.5" id="20250112"><span class="secno">12.5. </span><span class="content">[2.3.0] filterAuth attribuut toegevoegd (2025-01-12)</span><a class="self-link" href="#20250112"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br>
 Betere afscherming van velden bij speciale zoekacties.</p>
@@ -5110,7 +5122,7 @@ Betere afscherming van velden bij speciale zoekacties.</p>
     <li data-md>
      <p>De <a href="#profielen">§ 9.2 Profielen</a> zijn gedocumenteerd.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.5" id="20230112"><span class="secno">12.5. </span><span class="content">[2.2.0] dataclass attribuut toegevoegd (2023-01-12)</span><a class="self-link" href="#20230112"></a></h3>
+   <h3 class="heading settled" data-level="12.6" id="20230112"><span class="secno">12.6. </span><span class="content">[2.2.0] dataclass attribuut toegevoegd (2023-01-12)</span><a class="self-link" href="#20230112"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br>
 Uitzonderingsgronden WOO in lijn gebracht met versie van WOO die nu van kracht is.</p>
@@ -5119,7 +5131,7 @@ Uitzonderingsgronden WOO in lijn gebracht met versie van WOO die nu van kracht i
     <li data-md>
      <p>Het <code class="idl"><a data-link-type="idl" href="#dom-tabel-dataclass" id="ref-for-dom-tabel-dataclass">dataclass</a></code> attribuut is toegevoegd.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.6" id="20230110"><span class="secno">12.6. </span><span class="content">[2.1.5] dataclass attribuut toegevoegd (2023-01-10)</span><a class="self-link" href="#20230110"></a></h3>
+   <h3 class="heading settled" data-level="12.7" id="20230110"><span class="secno">12.7. </span><span class="content">[2.1.5] dataclass attribuut toegevoegd (2023-01-10)</span><a class="self-link" href="#20230110"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br>
 Beschrijving en relatering van ongestructureerde data mogelijk maken.</p>
@@ -5130,7 +5142,7 @@ Beschrijving en relatering van ongestructureerde data mogelijk maken.</p>
     <li data-md>
      <p>Verwijzing <a data-link-type="biblio" href="#biblio-woo" title="Wet open overheid">Wet Open Overheid</a> geupdate.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.7" id="20221221"><span class="secno">12.7. </span><span class="content">[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</span><a class="self-link" href="#20221221"></a></h3>
+   <h3 class="heading settled" data-level="12.8" id="20221221"><span class="secno">12.8. </span><span class="content">[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</span><a class="self-link" href="#20221221"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br>
 Publishers zijn zelfstandige objecten geworden.</p>
@@ -5141,7 +5153,7 @@ Publishers zijn zelfstandige objecten geworden.</p>
     <li data-md>
      <p>Het <a data-link-type="dfn" href="#publisher" id="ref-for-publisher③">publisher</a> object is toegevoegd.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.8" id="20220413-2"><span class="secno">12.8. </span><span class="content">[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</span><a class="self-link" href="#20220413-2"></a></h3>
+   <h3 class="heading settled" data-level="12.9" id="20220413-2"><span class="secno">12.9. </span><span class="content">[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</span><a class="self-link" href="#20220413-2"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br>
 Alle datasets zijn openbaar tenzij obv de Wet Open Overheid.
@@ -5158,7 +5170,7 @@ ingevuld worden. Voor data die niet publiek is moet de uitzonderingsgrond worden
     <li data-md>
      <p>Het veld attribuut  <code class="idl"><a data-link-type="idl" href="#dom-veld-reasonsnonpublic" id="ref-for-dom-veld-reasonsnonpublic">reasonsNonPublic</a></code> is toegevoegd.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.9" id="20220413-1"><span class="secno">12.9. </span><span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span><a class="self-link" href="#20220413-1"></a></h3>
+   <h3 class="heading settled" data-level="12.10" id="20220413-1"><span class="secno">12.10. </span><span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span><a class="self-link" href="#20220413-1"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br>
 De velden waar naar verwezen wordt in <code class="idl"><a data-link-type="idl" href="#dom-schema-identifier" id="ref-for-dom-schema-identifier③">identifier</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-schema-display" id="ref-for-dom-schema-display③">display</a></code> moeten zichtbaar zijn voor iedereen
@@ -5169,7 +5181,7 @@ die toegang heeft tot de tabel. Deze velden mogen dus geen <code class="idl"><a 
      <p>De velden waar naar verwezen wordt in de <code class="idl"><a data-link-type="idl" href="#dom-schema-identifier" id="ref-for-dom-schema-identifier④">identifier</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-schema-display" id="ref-for-dom-schema-display④">display</a></code> attributen
 mogen geen <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth⑥">auth</a></code> attribuut bevatten.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.10" id="change20220323"><span class="secno">12.10. </span><span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span><a class="self-link" href="#change20220323"></a></h3>
+   <h3 class="heading settled" data-level="12.11" id="change20220323"><span class="secno">12.11. </span><span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span><a class="self-link" href="#change20220323"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br>
 Het coordinaat referentie systeem van een dataset met geo data moet bekend zijn voor correct functioneren van
@@ -5179,7 +5191,7 @@ doelsystemen.</p>
     <li data-md>
      <p>Het <code class="idl"><a data-link-type="idl" href="#dom-dataset-crs" id="ref-for-dom-dataset-crs①">crs</a></code> veld is verplicht geworden wanneer één of meerdere tabellen een <a href="#geometry">§ 5.3.6 geometrie</a> veld bevatten.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.11" id="change20220317"><span class="secno">12.11. </span><span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span><a class="self-link" href="#change20220317"></a></h3>
+   <h3 class="heading settled" data-level="12.12" id="change20220317"><span class="secno">12.12. </span><span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span><a class="self-link" href="#change20220317"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br>
 Meerdere aanpassingen aan dataset velden voor contactgegevens.
@@ -5723,11 +5735,11 @@ let dfnPanelData = {
 "dom-contact-email": {"dfnID":"dom-contact-email","dfnText":"email","external":false,"refSections":[],"url":"#dom-contact-email"},
 "dom-contact-name": {"dfnID":"dom-contact-name","dfnText":"name","external":false,"refSections":[],"url":"#dom-contact-name"},
 "dom-dataset-accrualperiodicity": {"dfnID":"dom-dataset-accrualperiodicity","dfnText":"accrualPeriodicity","external":false,"refSections":[],"url":"#dom-dataset-accrualperiodicity"},
-"dom-dataset-auth": {"dfnID":"dom-dataset-auth","dfnText":"auth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-auth"}],"title":"2.2. Optionele attributen"},{"refs":[{"id":"ref-for-dom-dataset-auth\u2460"}],"title":"4.2. Optionele attributen"},{"refs":[{"id":"ref-for-dom-dataset-auth\u2461"},{"id":"ref-for-dom-dataset-auth\u2462"}],"title":"9.1.2. Meerdere niveau\u2019s {#auth-multiple-levels}"},{"refs":[{"id":"ref-for-dom-dataset-auth\u2463"}],"title":"12.8. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-dataset-auth"},
+"dom-dataset-auth": {"dfnID":"dom-dataset-auth","dfnText":"auth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-auth"}],"title":"2.2. Optionele attributen"},{"refs":[{"id":"ref-for-dom-dataset-auth\u2460"}],"title":"4.2. Optionele attributen"},{"refs":[{"id":"ref-for-dom-dataset-auth\u2461"},{"id":"ref-for-dom-dataset-auth\u2462"}],"title":"9.1.2. Meerdere niveau\u2019s {#auth-multiple-levels}"},{"refs":[{"id":"ref-for-dom-dataset-auth\u2463"}],"title":"12.9. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-dataset-auth"},
 "dom-dataset-authorizationgrantor": {"dfnID":"dom-dataset-authorizationgrantor","dfnText":"authorizationGrantor","external":false,"refSections":[],"url":"#dom-dataset-authorizationgrantor"},
-"dom-dataset-contactpoint": {"dfnID":"dom-dataset-contactpoint","dfnText":"contactPoint","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-contactpoint"}],"title":"12.11. [2.1.0] Dataset contact gegevens (2022-03-17)"}],"url":"#dom-dataset-contactpoint"},
-"dom-dataset-creator": {"dfnID":"dom-dataset-creator","dfnText":"creator","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-creator"}],"title":"12.11. [2.1.0] Dataset contact gegevens (2022-03-17)"}],"url":"#dom-dataset-creator"},
-"dom-dataset-crs": {"dfnID":"dom-dataset-crs","dfnText":"crs","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-crs"}],"title":"5.3.6. geometrie"},{"refs":[{"id":"ref-for-dom-dataset-crs\u2460"}],"title":"12.10. [2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)"}],"url":"#dom-dataset-crs"},
+"dom-dataset-contactpoint": {"dfnID":"dom-dataset-contactpoint","dfnText":"contactPoint","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-contactpoint"}],"title":"12.12. [2.1.0] Dataset contact gegevens (2022-03-17)"}],"url":"#dom-dataset-contactpoint"},
+"dom-dataset-creator": {"dfnID":"dom-dataset-creator","dfnText":"creator","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-creator"}],"title":"12.12. [2.1.0] Dataset contact gegevens (2022-03-17)"}],"url":"#dom-dataset-creator"},
+"dom-dataset-crs": {"dfnID":"dom-dataset-crs","dfnText":"crs","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-crs"}],"title":"5.3.6. geometrie"},{"refs":[{"id":"ref-for-dom-dataset-crs\u2460"}],"title":"12.11. [2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)"}],"url":"#dom-dataset-crs"},
 "dom-dataset-datecreated": {"dfnID":"dom-dataset-datecreated","dfnText":"dateCreated","external":false,"refSections":[],"url":"#dom-dataset-datecreated"},
 "dom-dataset-datemodified": {"dfnID":"dom-dataset-datemodified","dfnText":"dateModified","external":false,"refSections":[],"url":"#dom-dataset-datemodified"},
 "dom-dataset-defaultversion": {"dfnID":"dom-dataset-defaultversion","dfnText":"defaultVersion","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-defaultversion"}],"title":"2.6. Versionering"}],"url":"#dom-dataset-defaultversion"},
@@ -5743,8 +5755,8 @@ let dfnPanelData = {
 "dom-dataset-objective": {"dfnID":"dom-dataset-objective","dfnText":"objective","external":false,"refSections":[],"url":"#dom-dataset-objective"},
 "dom-dataset-owner": {"dfnID":"dom-dataset-owner","dfnText":"owner","external":false,"refSections":[],"url":"#dom-dataset-owner"},
 "dom-dataset-provenance": {"dfnID":"dom-dataset-provenance","dfnText":"provenance","external":false,"refSections":[],"url":"#dom-dataset-provenance"},
-"dom-dataset-publisher": {"dfnID":"dom-dataset-publisher","dfnText":"publisher","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-publisher"}],"title":"12.7. [2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)"},{"refs":[{"id":"ref-for-dom-dataset-publisher\u2460"}],"title":"12.11. [2.1.0] Dataset contact gegevens (2022-03-17)"}],"url":"#dom-dataset-publisher"},
-"dom-dataset-reasonsnonpublic": {"dfnID":"dom-dataset-reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-reasonsnonpublic"}],"title":"12.6. [2.1.5] dataclass attribuut toegevoegd (2023-01-10)"},{"refs":[{"id":"ref-for-dom-dataset-reasonsnonpublic\u2460"}],"title":"12.8. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-dataset-reasonsnonpublic"},
+"dom-dataset-publisher": {"dfnID":"dom-dataset-publisher","dfnText":"publisher","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-publisher"}],"title":"12.8. [2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)"},{"refs":[{"id":"ref-for-dom-dataset-publisher\u2460"}],"title":"12.12. [2.1.0] Dataset contact gegevens (2022-03-17)"}],"url":"#dom-dataset-publisher"},
+"dom-dataset-reasonsnonpublic": {"dfnID":"dom-dataset-reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-reasonsnonpublic"}],"title":"12.7. [2.1.5] dataclass attribuut toegevoegd (2023-01-10)"},{"refs":[{"id":"ref-for-dom-dataset-reasonsnonpublic\u2460"}],"title":"12.9. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-dataset-reasonsnonpublic"},
 "dom-dataset-spatial": {"dfnID":"dom-dataset-spatial","dfnText":"spatial","external":false,"refSections":[],"url":"#dom-dataset-spatial"},
 "dom-dataset-spatialcoordinates": {"dfnID":"dom-dataset-spatialcoordinates","dfnText":"spatialCoordinates","external":false,"refSections":[],"url":"#dom-dataset-spatialcoordinates"},
 "dom-dataset-spatialdescription": {"dfnID":"dom-dataset-spatialdescription","dfnText":"spatialDescription","external":false,"refSections":[],"url":"#dom-dataset-spatialdescription"},
@@ -5776,9 +5788,9 @@ let dfnPanelData = {
 "dom-rowlevelauth-source": {"dfnID":"dom-rowlevelauth-source","dfnText":"source","external":false,"refSections":[],"url":"#dom-rowlevelauth-source"},
 "dom-rowlevelauth-targets": {"dfnID":"dom-rowlevelauth-targets","dfnText":"targets","external":false,"refSections":[],"url":"#dom-rowlevelauth-targets"},
 "dom-schema-additionalproperties": {"dfnID":"dom-schema-additionalproperties","dfnText":"additionalProperties","external":false,"refSections":[],"url":"#dom-schema-additionalproperties"},
-"dom-schema-display": {"dfnID":"dom-schema-display","dfnText":"display","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-schema-display"}],"title":"2.6. Versionering"},{"refs":[{"id":"ref-for-dom-schema-display\u2460"}],"title":"4.3. Schema"},{"refs":[{"id":"ref-for-dom-schema-display\u2461"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-schema-display\u2462"},{"id":"ref-for-dom-schema-display\u2463"}],"title":"12.9. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)"}],"url":"#dom-schema-display"},
+"dom-schema-display": {"dfnID":"dom-schema-display","dfnText":"display","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-schema-display"}],"title":"2.6. Versionering"},{"refs":[{"id":"ref-for-dom-schema-display\u2460"}],"title":"4.3. Schema"},{"refs":[{"id":"ref-for-dom-schema-display\u2461"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-schema-display\u2462"},{"id":"ref-for-dom-schema-display\u2463"}],"title":"12.10. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)"}],"url":"#dom-schema-display"},
 "dom-schema-id": {"dfnID":"dom-schema-id","dfnText":"$id","external":false,"refSections":[],"url":"#dom-schema-id"},
-"dom-schema-identifier": {"dfnID":"dom-schema-identifier","dfnText":"identifier","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-schema-identifier"}],"title":"4.3. Schema"},{"refs":[{"id":"ref-for-dom-schema-identifier\u2460"}],"title":"4.4. Temporaliteit"},{"refs":[{"id":"ref-for-dom-schema-identifier\u2461"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-schema-identifier\u2462"},{"id":"ref-for-dom-schema-identifier\u2463"}],"title":"12.9. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)"}],"url":"#dom-schema-identifier"},
+"dom-schema-identifier": {"dfnID":"dom-schema-identifier","dfnText":"identifier","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-schema-identifier"}],"title":"4.3. Schema"},{"refs":[{"id":"ref-for-dom-schema-identifier\u2460"}],"title":"4.4. Temporaliteit"},{"refs":[{"id":"ref-for-dom-schema-identifier\u2461"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-schema-identifier\u2462"},{"id":"ref-for-dom-schema-identifier\u2463"}],"title":"12.10. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)"}],"url":"#dom-schema-identifier"},
 "dom-schema-maingeometry": {"dfnID":"dom-schema-maingeometry","dfnText":"mainGeometry","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-schema-maingeometry"},{"id":"ref-for-dom-schema-maingeometry\u2460"},{"id":"ref-for-dom-schema-maingeometry\u2461"},{"id":"ref-for-dom-schema-maingeometry\u2462"}],"title":"5.3.6. geometrie"}],"url":"#dom-schema-maingeometry"},
 "dom-schema-properties": {"dfnID":"dom-schema-properties","dfnText":"properties","external":false,"refSections":[],"url":"#dom-schema-properties"},
 "dom-schema-propertiesschema": {"dfnID":"dom-schema-propertiesschema","dfnText":"properties.schema","external":false,"refSections":[],"url":"#dom-schema-propertiesschema"},
@@ -5794,7 +5806,7 @@ let dfnPanelData = {
 "dom-scope-type": {"dfnID":"dom-scope-type","dfnText":"type","external":false,"refSections":[],"url":"#dom-scope-type"},
 "dom-tabel-auth": {"dfnID":"dom-tabel-auth","dfnText":"auth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-auth"}],"title":"4.2. Optionele attributen"},{"refs":[{"id":"ref-for-dom-tabel-auth\u2460"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-tabel-auth\u2461"}],"title":"9.1.2. Meerdere niveau\u2019s {#auth-multiple-levels}"}],"url":"#dom-tabel-auth"},
 "dom-tabel-crs": {"dfnID":"dom-tabel-crs","dfnText":"crs","external":false,"refSections":[],"url":"#dom-tabel-crs"},
-"dom-tabel-dataclass": {"dfnID":"dom-tabel-dataclass","dfnText":"dataclass","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-dataclass"}],"title":"12.5. [2.2.0] dataclass attribuut toegevoegd (2023-01-12)"}],"url":"#dom-tabel-dataclass"},
+"dom-tabel-dataclass": {"dfnID":"dom-tabel-dataclass","dfnText":"dataclass","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-dataclass"}],"title":"12.6. [2.2.0] dataclass attribuut toegevoegd (2023-01-12)"}],"url":"#dom-tabel-dataclass"},
 "dom-tabel-datecreated": {"dfnID":"dom-tabel-datecreated","dfnText":"dateCreated","external":false,"refSections":[],"url":"#dom-tabel-datecreated"},
 "dom-tabel-datemodified": {"dfnID":"dom-tabel-datemodified","dfnText":"dateModified","external":false,"refSections":[],"url":"#dom-tabel-datemodified"},
 "dom-tabel-derivedfrom": {"dfnID":"dom-tabel-derivedfrom","dfnText":"derivedFrom","external":false,"refSections":[],"url":"#dom-tabel-derivedfrom"},
@@ -5803,7 +5815,7 @@ let dfnPanelData = {
 "dom-tabel-license": {"dfnID":"dom-tabel-license","dfnText":"license","external":false,"refSections":[],"url":"#dom-tabel-license"},
 "dom-tabel-lifecyclestatus": {"dfnID":"dom-tabel-lifecyclestatus","dfnText":"lifecycleStatus","external":false,"refSections":[],"url":"#dom-tabel-lifecyclestatus"},
 "dom-tabel-provenance": {"dfnID":"dom-tabel-provenance","dfnText":"provenance","external":false,"refSections":[],"url":"#dom-tabel-provenance"},
-"dom-tabel-reasonsnonpublic": {"dfnID":"dom-tabel-reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-reasonsnonpublic"}],"title":"9.1.2. Meerdere niveau\u2019s {#auth-multiple-levels}"},{"refs":[{"id":"ref-for-dom-tabel-reasonsnonpublic\u2460"}],"title":"12.8. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-tabel-reasonsnonpublic"},
+"dom-tabel-reasonsnonpublic": {"dfnID":"dom-tabel-reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-reasonsnonpublic"}],"title":"9.1.2. Meerdere niveau\u2019s {#auth-multiple-levels}"},{"refs":[{"id":"ref-for-dom-tabel-reasonsnonpublic\u2460"}],"title":"12.9. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-tabel-reasonsnonpublic"},
 "dom-tabel-rowlevelauth": {"dfnID":"dom-tabel-rowlevelauth","dfnText":"rowLevelAuth","external":false,"refSections":[],"url":"#dom-tabel-rowlevelauth"},
 "dom-tabel-schema": {"dfnID":"dom-tabel-schema","dfnText":"schema","external":false,"refSections":[],"url":"#dom-tabel-schema"},
 "dom-tabel-shortname": {"dfnID":"dom-tabel-shortname","dfnText":"shortname","external":false,"refSections":[],"url":"#dom-tabel-shortname"},
@@ -5818,14 +5830,14 @@ let dfnPanelData = {
 "dom-temporal-identifier": {"dfnID":"dom-temporal-identifier","dfnText":"identifier","external":false,"refSections":[],"url":"#dom-temporal-identifier"},
 "dom-unit-type": {"dfnID":"dom-unit-type","dfnText":"type","external":false,"refSections":[],"url":"#dom-unit-type"},
 "dom-unit-value": {"dfnID":"dom-unit-value","dfnText":"value","external":false,"refSections":[],"url":"#dom-unit-value"},
-"dom-veld-auth": {"dfnID":"dom-veld-auth","dfnText":"auth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-auth"},{"id":"ref-for-dom-veld-auth\u2460"}],"title":"4.3. Schema"},{"refs":[{"id":"ref-for-dom-veld-auth\u2461"},{"id":"ref-for-dom-veld-auth\u2462"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-veld-auth\u2463"}],"title":"5.3.8. array"},{"refs":[{"id":"ref-for-dom-veld-auth\u2464"},{"id":"ref-for-dom-veld-auth\u2465"}],"title":"12.9. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)"}],"url":"#dom-veld-auth"},
+"dom-veld-auth": {"dfnID":"dom-veld-auth","dfnText":"auth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-auth"},{"id":"ref-for-dom-veld-auth\u2460"}],"title":"4.3. Schema"},{"refs":[{"id":"ref-for-dom-veld-auth\u2461"},{"id":"ref-for-dom-veld-auth\u2462"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-veld-auth\u2463"}],"title":"5.3.8. array"},{"refs":[{"id":"ref-for-dom-veld-auth\u2464"},{"id":"ref-for-dom-veld-auth\u2465"}],"title":"12.10. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)"}],"url":"#dom-veld-auth"},
 "dom-veld-comment": {"dfnID":"dom-veld-comment","dfnText":"$comment","external":false,"refSections":[],"url":"#dom-veld-comment"},
 "dom-veld-contentencoding": {"dfnID":"dom-veld-contentencoding","dfnText":"contentEncoding","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-contentencoding"}],"title":"5.3.4. string"}],"url":"#dom-veld-contentencoding"},
 "dom-veld-crs": {"dfnID":"dom-veld-crs","dfnText":"crs","external":false,"refSections":[],"url":"#dom-veld-crs"},
 "dom-veld-description": {"dfnID":"dom-veld-description","dfnText":"description","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-description"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-veld-description\u2460"}],"title":"5.3.8. array"}],"url":"#dom-veld-description"},
 "dom-veld-enum": {"dfnID":"dom-veld-enum","dfnText":"enum","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-enum"}],"title":"2.6. Versionering"},{"refs":[{"id":"ref-for-dom-veld-enum\u2460"},{"id":"ref-for-dom-veld-enum\u2461"}],"title":"4.5. Versionering"},{"refs":[{"id":"ref-for-dom-veld-enum\u2462"}],"title":"5.3.4. string"}],"url":"#dom-veld-enum"},
 "dom-veld-exclusivemaximum": {"dfnID":"dom-veld-exclusivemaximum","dfnText":"exclusiveMaximum","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-exclusivemaximum"},{"id":"ref-for-dom-veld-exclusivemaximum\u2460"},{"id":"ref-for-dom-veld-exclusivemaximum\u2461"}],"title":"5.3.1. integer"},{"refs":[{"id":"ref-for-dom-veld-exclusivemaximum\u2462"}],"title":"5.3.2. number"}],"url":"#dom-veld-exclusivemaximum"},
-"dom-veld-filterauth": {"dfnID":"dom-veld-filterauth","dfnText":"filterAuth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-filterauth"}],"title":"12.4. [2.3.0] filterAuth attribuut toegevoegd (2025-01-12)"}],"url":"#dom-veld-filterauth"},
+"dom-veld-filterauth": {"dfnID":"dom-veld-filterauth","dfnText":"filterAuth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-filterauth"}],"title":"12.5. [2.3.0] filterAuth attribuut toegevoegd (2025-01-12)"}],"url":"#dom-veld-filterauth"},
 "dom-veld-format": {"dfnID":"dom-veld-format","dfnText":"format","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-format"},{"id":"ref-for-dom-veld-format\u2460"}],"title":"5.3.5. tijd"}],"url":"#dom-veld-format"},
 "dom-veld-items": {"dfnID":"dom-veld-items","dfnText":"items","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-items"},{"id":"ref-for-dom-veld-items\u2460"},{"id":"ref-for-dom-veld-items\u2461"},{"id":"ref-for-dom-veld-items\u2462"},{"id":"ref-for-dom-veld-items\u2463"}],"title":"5.3.8. array"}],"url":"#dom-veld-items"},
 "dom-veld-maximum": {"dfnID":"dom-veld-maximum","dfnText":"maximum","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-maximum"}],"title":"2.6. Versionering"},{"refs":[{"id":"ref-for-dom-veld-maximum\u2460"},{"id":"ref-for-dom-veld-maximum\u2461"}],"title":"5.3.1. integer"},{"refs":[{"id":"ref-for-dom-veld-maximum\u2462"},{"id":"ref-for-dom-veld-maximum\u2463"}],"title":"5.3.2. number"}],"url":"#dom-veld-maximum"},
@@ -5835,7 +5847,7 @@ let dfnPanelData = {
 "dom-veld-multipleof": {"dfnID":"dom-veld-multipleof","dfnText":"multipleOf","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-multipleof"},{"id":"ref-for-dom-veld-multipleof\u2460"},{"id":"ref-for-dom-veld-multipleof\u2461"}],"title":"5.3.2. number"}],"url":"#dom-veld-multipleof"},
 "dom-veld-properties": {"dfnID":"dom-veld-properties","dfnText":"properties","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-properties"},{"id":"ref-for-dom-veld-properties\u2460"},{"id":"ref-for-dom-veld-properties\u2461"},{"id":"ref-for-dom-veld-properties\u2462"},{"id":"ref-for-dom-veld-properties\u2463"},{"id":"ref-for-dom-veld-properties\u2464"},{"id":"ref-for-dom-veld-properties\u2465"}],"title":"5.3.7. object"}],"url":"#dom-veld-properties"},
 "dom-veld-provenance": {"dfnID":"dom-veld-provenance","dfnText":"provenance","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-provenance"}],"title":"5.3.8. array"}],"url":"#dom-veld-provenance"},
-"dom-veld-reasonsnonpublic": {"dfnID":"dom-veld-reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-reasonsnonpublic"}],"title":"12.8. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-veld-reasonsnonpublic"},
+"dom-veld-reasonsnonpublic": {"dfnID":"dom-veld-reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-reasonsnonpublic"}],"title":"12.9. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-veld-reasonsnonpublic"},
 "dom-veld-ref": {"dfnID":"dom-veld-ref","dfnText":"$ref","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-ref"}],"title":"5.1. Verplichte attributen"}],"url":"#dom-veld-ref"},
 "dom-veld-relation": {"dfnID":"dom-veld-relation","dfnText":"relation","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-relation"}],"title":"5.3.8. array"},{"refs":[{"id":"ref-for-dom-veld-relation\u2460"},{"id":"ref-for-dom-veld-relation\u2461"}],"title":"5.4. Relaties"}],"url":"#dom-veld-relation"},
 "dom-veld-shortname": {"dfnID":"dom-veld-shortname","dfnText":"shortname","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-shortname"}],"title":"5.3.8. array"}],"url":"#dom-veld-shortname"},
@@ -5853,7 +5865,7 @@ let dfnPanelData = {
 "nouns": {"dfnID":"nouns","dfnText":"3.","external":false,"refSections":[],"url":"#nouns"},
 "plural": {"dfnID":"plural","dfnText":"5.","external":false,"refSections":[],"url":"#plural"},
 "profiel": {"dfnID":"profiel","dfnText":"profiel","external":false,"refSections":[],"url":"#profiel"},
-"publisher": {"dfnID":"publisher","dfnText":"publisher","external":false,"refSections":[{"refs":[{"id":"ref-for-publisher"},{"id":"ref-for-publisher\u2460"}],"title":"2.4. Publisherreferenties"},{"refs":[{"id":"ref-for-publisher\u2461"}],"title":"7. Publisher"},{"refs":[{"id":"ref-for-publisher\u2462"}],"title":"12.7. [2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)"}],"url":"#publisher"},
+"publisher": {"dfnID":"publisher","dfnText":"publisher","external":false,"refSections":[{"refs":[{"id":"ref-for-publisher"},{"id":"ref-for-publisher\u2460"}],"title":"2.4. Publisherreferenties"},{"refs":[{"id":"ref-for-publisher\u2461"}],"title":"7. Publisher"},{"refs":[{"id":"ref-for-publisher\u2462"}],"title":"12.8. [2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)"}],"url":"#publisher"},
 "publisherreferentie": {"dfnID":"publisherreferentie","dfnText":"publisherreferentie","external":false,"refSections":[],"url":"#publisherreferentie"},
 "reasonsnonpublic": {"dfnID":"reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[],"url":"#reasonsnonpublic"},
 "schema": {"dfnID":"schema","dfnText":"schema","external":false,"refSections":[{"refs":[{"id":"ref-for-schema"},{"id":"ref-for-schema\u2460"}],"title":"4.1. Verplichte attributen"},{"refs":[{"id":"ref-for-schema\u2461"},{"id":"ref-for-schema\u2462"}],"title":"4.3. Schema"}],"url":"#schema"},
