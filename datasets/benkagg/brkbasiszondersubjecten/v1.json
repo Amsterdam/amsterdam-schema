@@ -1,7 +1,7 @@
 {
   "id": "brkbasiszondersubjecten",
   "type": "table",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "lifecycleStatus": "stable",
   "crs": "EPSG:28992",
   "status": "beschikbaar",
@@ -52,7 +52,7 @@
         "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer"
       },
       "koopsom": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "number",
         "multipleOf": 0.01,
         "title": "Koopsom",
@@ -62,7 +62,7 @@
         ]
       },
       "koopjaar": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Koop jaar",
         "description": "Transactiejaar van de aankoop",
@@ -112,7 +112,7 @@
         "description": "Volgnummer van het Appartementsrecht"
       },
       "cultuurBebouwd": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Soort cultuur bebouwd",
         "description": "De soort cultuur bebouwd van een bebouwd kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl (Kadaster-on-line; KOL). Dit kenmerk is afgeleid van wat degene die een notariële akte laat inschrijven, heeft verklaard (artikel 87, eerste lid, onder a, van de Kadasterregeling 1994). Dit kan afwijken van:soort objectcode in de WOZ;gebruiksdoel in de BAG;SBI-code in het HR",
@@ -121,7 +121,7 @@
         ]
       },
       "cultuurOnbebouwd": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Soort cultuur onbebouwd",
         "description": "De soort cultuur onbebouwd is een aanduiding voor de aard van de meest significante cultuur van het onbebouwde deel van het kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl Dit kenmerk is in beginsel afgeleid van de notariële akte, maar kan worden bijgesteld op grond van een verzoek van de eigenaar (of een schriftelijk gevolmachtigde namens de eigenaar)per brief, fax of e-mailbericht. Dit kan afwijken van: het feitelijk gebruik in de WOZ; gebruiksdoel in de BAG; SBI-code in het HR. code",
@@ -183,7 +183,7 @@
         "description": "Relatie naar adressen"
       },
       "zakelijkrechtId": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Object ID",
         "description": "De Kadaster identificatie is een door het Kadaster toegekende landelijk unieke aanduiding aan dit zakelijk recht binnen de kadastrale registratie, inclusief volgnummer",
@@ -193,7 +193,7 @@
         ]
       },
       "zakelijkrechtIdentificatie": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Object ID",
         "description": "De Kadaster identificatie is een door het Kadaster toegekende landelijk unieke aanduiding aan dit zakelijk recht binnen de kadastrale registratie",
@@ -203,7 +203,7 @@
         ]
       },
       "aardZakelijkRecht": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Zakelijk recht aard",
         "description": "De aard van het zakelijk recht",
@@ -213,7 +213,7 @@
         ]
       },
       "zakelijkrechtInOnderzoek": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Reden waarvoor in onderzoek",
         "description": "Als dit veld is gevuld geeft dit de omschrijving waarom dit gegeven in onderzoek staat (art. 7n en 7r Kadasterwet)",
@@ -223,7 +223,7 @@
         ]
       },
       "ontstaanUitApptrechtsplitsing": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Ontstaan uit VVE appartementsrechtsplitsing",
         "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waaruit het zakelijk recht ontstaan is",
@@ -233,7 +233,7 @@
         ]
       },
       "betrokkenBijAppartementsrechtsplitsing": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Betrokken bij appartementsrechtsplitsing",
         "description": "Als deze waarde is gevuld, dan is dit recht betrokken bij een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt",
@@ -243,7 +243,7 @@
         ]
       },
       "vveIdentificatieOntstaanUit": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Ontstaan uit VVE appartementsrechtsplitsing",
         "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waaruit het zakelijk recht ontstaan is",
@@ -253,7 +253,7 @@
         ]
       },
       "vveIdentificatieBetrokkenBij": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Betrokken bij VVE appartementsrechtsplitsing",
         "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waarbij het zakelijk recht betrokken is",
@@ -263,7 +263,7 @@
         ]
       },
       "appartementsrechtsplitsingType": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Appartementsrechtsplitsing type",
         "description": "Het type appartementsrechtsplitsing. De mogelijke waarden zijn: hoofdsplitsing of ondersplitsing of splitsing afkoop erfpacht",
@@ -273,7 +273,7 @@
         ]
       },
       "tenaamstellingId": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Object ID",
         "description": "De identificatie is een unieke aanduiding aan deze tenaamstelling binnen de kadastrale registratie, inclusief volgnummer",
@@ -283,7 +283,7 @@
         ]
       },
       "tenaamstellingIdentificatie": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Object ID",
         "description": "De identificatie is een unieke aanduiding aan deze tenaamstelling binnen de kadastrale registratie",
@@ -293,7 +293,7 @@
         ]
 		},
       "aandeel": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Aandeel in Recht",
         "description": "Aandeel in Recht is het aandeel waarvoor een persoon deelneemt in het Recht",
@@ -303,7 +303,7 @@
         ]
       },
       "geldtVoor": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Gezamenlijk aandeel in Recht",
         "description": "Twee of meer personen kunnen gezamenlijk een aandeel hebben in een recht, waarbij het afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is (als gezamenlijkAandeel bekend is dan is het individuele aandeel niet bekend en omgekeerd)",
@@ -313,7 +313,7 @@
         ]
       },
       "tenaamstellingInOnderzoek": {
-        "auth": "BRK/RS",
+        "auth": ["BRK/RS", "FP/MDW"],
         "type": "string",
         "title": "Reden onderzoek",
         "description": "Wanneer gevuld, de reden waarvoor in onderzoek",
