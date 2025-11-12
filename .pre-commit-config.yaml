@@ -53,19 +53,19 @@ repos:
       - id: isort
         args: ['--filter-files']
   - repo: https://github.com/Amsterdam/schema-tools
-    rev: "v8.4.0"
+    rev: "v8.6.0"
     hooks:
       - id: validate-schema
-        args: ['https://schemas.data.amsterdam.nl/schema@v3.1.0']
+        args: ['https://schemas.data.amsterdam.nl/schema@v3.2.0']
         files: '^datasets/.*\.json$'
         verbose: true # so we can see against which metaschema it is valid
         exclude: "^schema@.+" # exclude meta schemas
       - id: validate-publishers
-        args: ['https://schemas.data.amsterdam.nl/schema@v3.1.0', '--schema-url', './publishers']
+        args: ['https://schemas.data.amsterdam.nl/schema@v3.2.0', '--schema-url', './publishers']
         files: '^publishers/.*\.json$'
         verbose: true # so we can see against which metaschema it is valid
       - id: validate-scopes
-        args: ['https://schemas.data.amsterdam.nl/schema@v3.1.0', '--schema-url', './scopes']
+        args: ['https://schemas.data.amsterdam.nl/schema@v3.2.0', '--schema-url', './scopes']
         files: '^scopes/.*\.json$'
         verbose: true # so we can see against which metaschema it is valid
   - repo: local
