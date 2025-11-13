@@ -1,7 +1,7 @@
 {
   "id": "handelsregisterkvk",
   "type": "table",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "lifecycleStatus": "stable",
   "crs": "EPSG:28992",
   "auth": [
@@ -58,8 +58,8 @@
       },
       "kvknummer": {
         "type": "string",
-        "title": "Maatschappelijke activiteit waarbij vestiging hoort",
-        "description": "Identificatie (KvK-nummer) van de Maatschappelijke Activiteit (MAC) die bij deze vestiging hoort"
+        "title": "Kamer van Koophandel nummer",
+        "description": "Het identificerende gegeven voor de Maatschappelijke Activiteit"
       },
       "typeVes": {
         "type": "string",
@@ -646,12 +646,12 @@
       "persoonRechtsvorm": {
         "type": "string",
         "title": "Persoon rechtsvorm omschrijving",
-        "description": "Rechtsvorm van de persoon, dus Natuurlijk Persoon (NPS) of Niet Natuurlijke Persoon (NNP)"
+        "description": "Rechtsvorm van de persoon"
       },
       "uitgebreideRechtsvorm": {
         "type": "string",
         "title": "Persoon uitgebreide rechtsvorm omschrijving",
-        "description": "Rechtsvorm van inschrijving Natuurlijk Persoon (NPS) of Niet Natuurlijke Persoon (NNP) aangevuld met informatie over structuur, rechtbevoegdheid etc"
+        "description": "Rechtsvorm (conform BW) van inschrijving aangevuld met informatie over structuur, rechtsbevoegdheid etcetera"
       },
       "volledigeNaam": {
         "type": "string",
@@ -671,7 +671,7 @@
       "duur": {
         "type": "integer",
         "title": "Surceance duur",
-        "description": "De duur van de periode (in maanden) waarvoor surseance van betaling geldt"
+        "description": "De duur van de periode (in maanden) waarvoor surseance van betaling geldt. Dit geldt alleen als de surceance van betaling definitief is"
       },
       "persoonFunctievervullingenFvv": {
         "type": "array",
@@ -684,7 +684,7 @@
       "rsinNnp": {
         "type": "string",
         "title": "Rechtspersoon en Samenwerkingsverband Informatienummer",
-        "description": "Rechtspersonen en Samenwerkingsverbanden Informatienummer (RSIM). Het door een kamer toegekend uniek nummer voor de Niet Natuurlijk Persoon"
+        "description": "Rechtspersonen en Samenwerkingsverbanden Informatienummer (RSIN). Het door een kamer toegekend uniek nummer voor de Niet Natuurlijk Persoon"
       },
       "datumUitschrijvingNnp": {
         "type": "string",
@@ -788,7 +788,7 @@
       "gebiedenBuurtCode": {
         "type": "string",
         "title": "Buurt code",
-        "description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode en wijkcode"
+        "description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode, wijkcode en buurtcode"
       },
       "gebiedenWijkNaam": {
         "type": "string",
@@ -797,7 +797,7 @@
       },
       "gebiedenWijkCode": {
         "type": "string",
-        "title": "Buurt code",
+        "title": "Wijk code",
         "description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode en wijkcode"
       },
       "gebiedenStadsdeelNaam": {
@@ -807,8 +807,8 @@
       },
       "gebiedenStadsdeelCode": {
         "type": "string",
-        "title": "Buurt code",
-        "description": "Volledige, samengestelde, code, bestaande uit stadsdeelcode en wijkcode"
+        "title": "Object code",
+        "description": "Volledige stadsdeelcode"
       },
       "gebiedenGgwgebiedNaam": {
         "type": "string",
@@ -827,14 +827,14 @@
       },      
       "geometrieRd": {
         "$ref": "https://geojson.org/schema/Point.json",
-        "title": "Puntgeometrie RD adresseerbaar object",
-        "description": "Puntgeometrie van het adresseerbare object in het stelsel van de Rijksdriehoeksmeting (RD)"
+        "title": "Puntgeometrie in RD",
+        "description": "Vorm en ligging van het puntobject in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "geometrieWgs84": {
         "crs": "EPSG:4326",
         "$ref": "https://geojson.org/schema/Point.json",
-        "title": "Puntgeometrie in WGS84 formaat adresseerbaar object",
-        "description": "Puntgeometrie van het adresseerbare object in WGS84 formaat (WGS84)"
+        "title": "Puntgeometrie in WGS84",
+        "description": "Vorm en ligging van het puntobject in het stelsel in WGS84 formaat (WGS84)"
       }
     }
   }
