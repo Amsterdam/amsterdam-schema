@@ -1,0 +1,76 @@
+{
+    "id": "containerVulgraden",
+    "type": "table",
+    "version": "1.0.0",
+    "lifecycleStatus": "stable",
+    "title": "Container Vulgraden",
+    "description": "Een groot aantal van de Amsterdamse ondergrondse afvalcontainers is uitgerust met sensoren om de vulgraad te meten. De vulgraad geeft aan hoe vol een container is, in percentage volume. Deze tabel geeft inzicht in het verloop van de vulgraad van afvalcontainers in de tijd. Eén rij in de tabel is één sensormeting op één bepaald tijdstip in één container.  De tabel bevat data uit meetsystemen van twee bedrijven: REEN en SIDCON. REEN-sensoren sturen elk uur een meting. De SIDCON-sensoren sturen alleen bij een klepbeweging, een meting door. Een klepbeweging is het bewegen van de klep, bijvoorbeeld wanneer een vuilniszak in de container wordt gedeponeerd. Bij SIDCON wordt maximaal 1 meting per uur in de tabel opgenomen. Afvalvolume en -gewicht worden daarna met behulp van vulgraad en containerinhoud (dus bijv papier of restafval) bij benadering bepaald. De tabel bevat 2 sleutels voor een join met andere tabellen. De attributen huishoudelijkafval_container_id en huishoudelijkafval_cluster_id verwijzen naar de id’s in huishoudelijkafval_container en -cluster. Daarmee kunnen bijvoorbeeld containerlocatie en -fractie worden opgezocht. Let op! De REEN sensor is gekoppeld aan een ondergrondse put-locatie. Als een container met sensor verplaatst naar een nieuwe put dan wordt de sensor overgezet naarn de nieuwe container van de oude put. Bij SIDCON is de sensor gekoppeld aan een container. Als dan de container verplaatst, verplaatst het sensornummer mee. Het verplaatsen van een container komt nagenoeg niet voor.", 
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": "id",
+        "required": [
+            "id",
+            "schema"
+        ],
+        "display": "huishoudelijkafvalContainerId",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+            },
+            "id": {
+                "title": "ID",
+                "type": "string",
+                "description": "Unieke aanduiding van het record."
+            },
+            "leverancierContainerId": {
+                "title": "Leverancier container ID",
+                "type": "string",
+                "description": "Verwijzing naar container ID in het meetsysteem."
+            },
+            "leverancierClusterId": {
+                "title": "Leverancier cluster ID",
+                "type": "string",
+                "description": "Verwijzing naar cluster ID in het meetsysteem."
+            },
+            "huishoudelijkafvalContainerId": {
+                "title": "Huishoudelijkafval container ID",
+                "type": "string",
+                "description": "Verwijzing naar ID in huishoudelijkafval_container."
+            },
+            "huishoudelijkafvalClusterId": {
+                "title": "Huishoudelijkafval cluster ID",
+                "type": "string",
+                "description": "Verwijzing naar ID in huishoudelijkafval_cluster."
+            },
+            "tijdstipVulgraad": {
+                "title": "Tijdstip vulgraadmeting",
+                "type": "string",
+                "format": "date-time",
+                "description": "Tijdstip van de vulgraadmeting."
+            },
+            "vulgraad": {
+                "title": "Vulgraad",
+                "type": "number",
+                "description": "Vulgraad uitgedrukt in procenten van inhoud (volume) container."
+            },
+            "berekendVolume": {
+                "title": "Berekend volume",
+                "type": "number",
+                "description": "Berekend volume van afval in de container, in liters. REEN: bepaald met REEN algoritme. SIDCON volle perscontainer: papier 20000 l., rest 25000 l."
+			},
+			"berekendGewicht": {
+                "title": "Berekend gewicht",
+                "type": "string",
+                "description": "Berekend gewicht van afval in de container, in kilogram. REEN: bepaald met REEN algoritme. SIDCON volle perscontainer: papier 500 kg., rest 1200 kg."
+            },
+            "meetsysteem": {
+                "title": "Meetsysteem",
+                "type": "string",
+                "description": "Meetsysteem van de sensor",
+				"enum": ["REEN", "SIDCON"]
+            }
+        }
+    }
+}
