@@ -737,10 +737,22 @@ telefoonnummer zichtbaar voor gebruikers met BRP/R authorisatie. Als `adresAfges
 is, dan zal het alleen toegankelijk zijn voor iemand met BRP/ADMIN authorisatie. Voor dergelijke regels
 kan via deze weg dus een hoger authorisatieniveau worden afgedwongen.
 
+De targets van een rowLevelAuth object dienen elk afzonderlijk de FEATURE/RLA scope te hebben:
+
+<div class=example>
+Voorbeeld van een target veld.
+    ```json
+        "telefoon": {
+            "type": "string",
+            "auth": ["FEATURE/RLA"]
+        }
+    ```
+</div>
+
 Bij het aanmaken of aanpassen van het schema wordt het volgende gevalideerd:
 - `source` zit niet in `targets`
 - `source` bestaat en heeft als type "boolean"
-- alle `targets` bestaan
+- alle `targets` bestaan en hebben FEATURE/RLA auth
 
 <!--
 ██     ██ ████████ ██       ████████

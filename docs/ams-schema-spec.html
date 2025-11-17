@@ -1491,7 +1491,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version 7b3ff057a, updated Sun Nov 9 18:39:50 2025 -0800" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="1188f7f5763b74589a1e953bdbd492681fb5b0b4" name="revision">
+  <meta content="306da010dca57c4828b7917e88089aea279452a0" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
     p[data-fill-with="logo"] {
@@ -2359,7 +2359,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p data-fill-with="logo"></p>
    <h1 class="no-ref p-name" id="title">Amsterdam Schema Specificatie</h1>
    <h2 class="heading no-num no-ref no-toc settled" id="profile-and-date"><span class="content">Living Standard,
-    <time class="dt-updated" datetime="2025-11-11">11 November 2025</time></span></h2>
+    <time class="dt-updated" datetime="2025-11-17">17 November 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -3480,6 +3480,17 @@ straat, huisnummer en postcode in het adres object (geneste items hebben een <co
 telefoonnummer zichtbaar voor gebruikers met BRP/R authorisatie. Als <code class="highlight">adresAfgeschermd</code> echter <code class="highlight"><c- kc>true</c-></code>
 is, dan zal het alleen toegankelijk zijn voor iemand met BRP/ADMIN authorisatie. Voor dergelijke regels
 kan via deze weg dus een hoger authorisatieniveau worden afgedwongen.</p>
+   <p>De targets van een rowLevelAuth object dienen elk afzonderlijk de FEATURE/RLA scope te hebben:</p>
+   <div class="example" id="example-ac709829">
+    <a class="self-link" href="#example-ac709829"></a>
+Voorbeeld van een target veld.
+
+<pre class="highlight language-json"><c- f>"telefoon"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+    <c- f>"auth"</c-><c- p>:</c-> <c- p>[</c-><c- u>"FEATURE/RLA"</c-><c- p>]</c->
+<c- p>}</c->
+</pre>
+   </div>
    <p>Bij het aanmaken of aanpassen van het schema wordt het volgende gevalideerd:</p>
    <ul>
     <li data-md>
@@ -3487,7 +3498,7 @@ kan via deze weg dus een hoger authorisatieniveau worden afgedwongen.</p>
     <li data-md>
      <p><code class="highlight">source</code> bestaat en heeft als type "boolean"</p>
     <li data-md>
-     <p>alle <code class="highlight">targets</code> bestaan</p>
+     <p>alle <code class="highlight">targets</code> bestaan en hebben FEATURE/RLA auth</p>
    </ul>
    <h2 class="heading settled" data-level="5" id="fields"><span class="secno">5. </span><span class="content">Veld</span><a class="self-link" href="#fields"></a></h2>
 
