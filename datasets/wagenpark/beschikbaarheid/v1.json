@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "lifecycleStatus": "experimental",
   "titel": "Beschikbaarheid",
-  "description": "Amsterdam heeft een wagenpark met daarin voertuigen van de gemeente met onder andere vuilniswagens en veegwagens. De gemeente zet deze voertuigen graag zo efficiënt mogelijk in. Deze tabel geeft inzicht in enerzijds de beschikbaarheid van een voertuig en anderzijds of deze is ingezet op een dienst. Elke rij in deze tabel beschrijft of één voertuig op één dag beschikbaar is, of hij is ingezet en hoevaak. Alle records samen geven een overzicht van het gebruik van voertuigen binnen de gemeente per dag. In deze tabel is een voertuig 'beschikbaar' wanneer deze: eigendom is van of gehuurd is door de gemeeente, niet verkocht is, een contract heeft met de gemeente op die specifieke dag, geen onderhoud in de garage is. De data loopt vanaf de dag van ingebruikname van een voertuig tot een jaar in de toekomst vanaf vandaag. De tabel bevat sleutels voor joins: wagenpark_materieel_id voor aanvullende informatie uit wagenpark_materieel, datum_sleutel voor aanvullende informatie uit dim_datum (allen in gold beschikbaar).",
+  "description": "Amsterdam heeft een wagenpark met voertuigen van de gemeente zoals bijvoorbeeld vuilniswagens en veegwagens. De gemeente zet deze voertuigen graag zo efficiënt mogelijk in. Deze tabel geeft inzicht in enerzijds de beschikbaarheid van een voertuig en anderzijds of deze is ingezet op een dienst. Elke rij in deze tabel beschrijft of één voertuig op één dag beschikbaar is, of hij is ingezet en hoevaak. Alle records samen geven een overzicht van het gebruik van voertuigen binnen de gemeente over de tijd. In deze tabel is een voertuig 'beschikbaar' wanneer deze: een geldig contract heeft met de gemeente op die specifieke dag en geen onderhoud in de garage is. De data loopt vanaf de dag van ingebruikname van een voertuig tot een jaar in de toekomst vanaf vandaag. De tabel bevat sleutels voor joins: 'wagenpark_materieel_id' voor aanvullende informatie uit wagenpark_financien (voor het type eigendom), wagenpark_materieel (voor het type voertuig), 'datum_sleutel' voor aanvullende informatie uit dim_datum (allen in databricks gold beschikbaar).",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -22,7 +22,7 @@
       "wagenparkMaterieelId": {
         "title": "Wagenpark materieel ID",
         "type": "string",
-        "description": "Uniek identificerend kenmerk voor transport- en werkmaterieel. ID bevat voorloopnullen. Sleutel voor de tabel wagenpark_materieel"
+        "description": "Uniek identificerend kenmerk voor transport- en werkmaterieel. ID bevat voorloopnullen. Sleutel voor de tabel wagenpark_materieel en wagenpark_financien."
       },
       "kenteken": {
         "title": "Materieel kenteken",
