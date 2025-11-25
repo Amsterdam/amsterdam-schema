@@ -1,7 +1,7 @@
 {
   "id": "natuurlijkepersonen",
   "type": "table",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "lifecycleStatus": "stable",
   "reasonsNonPublic": [
     "5.1 1d: Bevat persoonsgegevens",
@@ -145,6 +145,53 @@
         "type": "string",
         "title": "Surceance duur",
         "description": "De duur van de periode (in maanden) waarvoor surseance van betaling geldt. Dit geldt alleen als de surceance van betaling definitief is"
+      },
+      "beperkingInRechtshandeling": {
+        "type": "object",
+        "properties": {
+          "datumAanvang": {
+            "type": "string",
+            "description": "Datum waarop de beperkingInRechtshandeling is ingegaan"
+          },
+          "datumEinde": {
+            "type": "string",
+            "description": "Datum waarop de beperkingInRechtshandeling is opgeheven"
+          },
+          "soortCode": {
+            "type": "string",
+            "description": "Code van beperkingInRechtshandeling"
+          },
+          "soortOmschrijving": {
+            "type": "string",
+            "description": "De mogelijke waarden van de beperking in rechtshandeling"
+          },
+          "uitspraakAanvangDatum": {
+            "type": "string",
+            "description": "Datum waarop de uitspraak van de beperkingInRechtshandeling is ingegaan"
+          },
+          "uitspraakAanvangNaam": {
+            "type": "string",
+            "description": "Naam van het gerechtshof waar de uitspraak van de beperkingInRechtshandeling is gemaakt"
+          },
+          "uitspraakAanvangPlaats": {
+            "type": "string",
+            "description": "Plaats van het gerechtshof waar de uitspraak van de beperkingInRechtshandeling is gemaakt"
+          },
+          "uitspraakEindeDatum": {
+            "type": "string",
+            "description": "Datum waarop de uitspraak van de beperkingInRechtshandeling is beëindigd"
+          },
+          "uitspraakEindeNaam": {
+            "type": "string",
+            "description": "Naam van het gerechtshof waar de uitspraak van de beperkingInRechtshandeling is beëindigd"
+          },
+          "uitspraakEindePlaats": {
+            "type": "string",
+            "description": "Plaats van het gerechtshof waar de uitspraak van de beperkingInRechtshandeling is beëindigd"
+          }
+        },
+        "title": "Beperking in rechtshandeling",
+        "description": "De rechtshandeling is beperkt voor 'Provisioneel bewind', 'Onder curatele gesteld' of 'Onder bewind gesteld'"
       },
       "persoonRechtsvorm": {
         "type": "string",
