@@ -3,11 +3,12 @@
     "type": "table",
     "title": "accommodatie",
     "description": "De fysieke eigenschappen van een schoolgebouw",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "lifecycleStatus": "stable",
     "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
+        "identifier":"accommodatieId",
         "required": [
             "schema"
         ],
@@ -29,7 +30,8 @@
             "instellingId": {
                 "type": "string",
                 "title": "Instelling ID",
-                "description": "De unieke identificatiecode van de instelling die de accommodatie gebruikt"
+                "description": "De unieke identificatiecode van de instelling die de accommodatie gebruikt",
+                "relation":"schoolgebouwen:instelling"
             },
             "code": {
                 "type": "string",

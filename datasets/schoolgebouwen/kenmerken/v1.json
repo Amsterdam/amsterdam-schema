@@ -3,11 +3,12 @@
     "type": "table",
     "title": "kenmerken",
     "description": "Kenmerken van een accomodatie",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "lifecycleStatus": "stable",
     "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
+        "identifier":"kenmerkId",
         "required": [
             "schema"
         ],
@@ -29,17 +30,20 @@
             "instellingId": {
                 "type": "string",
                 "title": "Kenmerk instelling ID",
-                "description": "Verwijzing naar de gekoppelde instelling."
+                "description": "Verwijzing naar de gekoppelde instelling.",
+                "relation":"schoolgebouwen:instelling"
             },
             "bestuurId": {
                 "type": "string",
                 "title": "Kenmerk bestuur ID",
-                "description": "Verwijzing naar de gekoppelde bestuursgegevens."
+                "description": "Verwijzing naar de gekoppelde bestuursgegevens.",
+                "relation":"schoolgebouwen:bestuur"
             },
             "accommodatieId": {
                 "type": "string",
                 "title": "Kenmerk accommodatie ID",
-                "description": "Verwijzing naar de gekoppelde accommodatie."
+                "description": "Verwijzing naar de gekoppelde accommodatie.",
+                "relation":"schoolgebouwen:accommodatie"
             },
             "omschrijving": {
                 "type": "string",

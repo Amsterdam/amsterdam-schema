@@ -3,11 +3,12 @@
     "type": "table",
     "title": "instelling",
     "description": "De instelling die huist in het schoolgebouw",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "lifecycleStatus": "stable",
     "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
+        "identifier":"instellingId",
         "required": [
             "schema"
         ],
@@ -26,7 +27,8 @@
             },
             "bestuurId": {
                 "type": "string",
-                "description": "Verwijzing naar de gekoppelde bestuursgegevens."
+                "description": "Verwijzing naar de gekoppelde bestuursgegevens.",
+                "relation":"schoolgebouwen:bestuur"
             },
             "brinNummerDuo": {
                 "type": "string",
