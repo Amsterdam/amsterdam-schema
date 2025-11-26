@@ -3,11 +3,12 @@
     "type": "table",
     "title": "kengetallen",
     "description": "Leerlingen, prognoses en gebruik in vierkante meters per schoolgebouw",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "lifecycleStatus": "stable",
     "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
+        "identifier":"kengetalId",
         "required": [
             "schema"
         ],
@@ -29,7 +30,8 @@
             "instellingId": {
                 "type": "string",
                 "title": "Kengetal instelling ID",
-                "description": "Verwijzing naar de gekoppelde instelling."
+                "description": "Verwijzing naar de gekoppelde instelling.",
+                "relation":"schoolgebouwen:instelling"
             },
             "prognoseSoort": {
                 "type": "string",

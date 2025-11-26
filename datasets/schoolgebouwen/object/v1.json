@@ -3,11 +3,12 @@
     "type": "table",
     "title": "object",
     "description": "Fysieke ruimtes binnen een accomodatie",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "lifecycleStatus": "stable",
     "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
+        "identifier":"objectId",
         "required": [
             "schema"
         ],
@@ -29,7 +30,8 @@
             "accommodatieId": {
                 "type": "string",
                 "title": "Object accommodatie ID",
-                "description": "Verwijzing naar de gekoppelde accommodatie."
+                "description": "Verwijzing naar de gekoppelde accommodatie.",
+                "relation":"schoolgebouwen:accommodatie"
             },
             "code": {
                 "type": "string",
