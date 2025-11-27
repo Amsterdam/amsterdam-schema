@@ -1,7 +1,7 @@
 {
   "id": "brkkaartlaagerfpachtuitgevers",
   "type": "table",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "lifecycleStatus": "stable",
   "crs": "EPSG:28992",
   "status": "niet_beschikbaar",
@@ -19,16 +19,21 @@
     "additionalProperties": false,
     "mainGeometry": "geometrieVlak",
     "identifier": [
-      "kadastraalobjectId"
+      "id"
     ],
     "required": [
       "schema",
-      "kadastraalobjectId"
+      "id"
     ],
     "display": "kadastraalobjectId",
         "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "ID",
+        "description": "Unieke aanduiding van het record"
       },
       "kadastraalobjectId": {
         "type": "string",
