@@ -17,7 +17,7 @@
   "publisher": {
     "$ref": "publishers/BOR"
   },
-  "description": "Dataset met informatie voor de ecologische monitoring van Amsterdam. Dit bevat zowel inspectiedata (faunavoorzieningen en structuurkarteringen), als de objecten die worden geinspecteerd (faunavoorzieningen, faunameubilair, faunaverblijfplaats, waterobjecten, hekken, roosters), als de gebieden (verbindingszones en kerngebieden) waar deze objecten in liggen.",
+  "description": "De gemeente Amsterdam onderhoudt, beheert en ontwikkelt beleid voor de ecologie in de stad. Hiervoor is data nodig die afdelingsoverstijgend wordt gepubliceerd. Deze dataset bevat tabellen voor verschillende betrokken afdelingen, waaronder Groenvisie, Ruimte en Duurzaamheid, Verkeer en Openbare Ruimte, en Stadswerken. De tabellen bevatten gegevens met ecologische waarde, zoals inspectiedata (van faunavoorzieningen en structuurkarteringen), objecten (faunavoorzieningen, faunameubilair en faunaverblijfplaatsen) en de gebieden waarin deze objecten zich bevinden (verbindingszones en kerngebieden). Deze dataset biedt inzicht in de ecologische impact van herinrichtingen, onderhoud en vervanging. Daarnaast kan de ecologische kwaliteit in de stad dienen als input voor beheer en beleid. Let op: in de API van 'beheerobjecten openbare ruimte' zijn ook ecologisch relevante hekken, roosters en waterobjecten te vinden. U kunt binnen die tabellen filteren op objecten met ecologische waarde. Zie hiervoor de beschrijving bij de betreffende tabellen.",
   "keywords": [
     "kerngebied",
     "verbingdingszone",
@@ -29,16 +29,48 @@
     "structuurkarteringen",
     "faunameubilair",
     "faunaverblijfplaats",
-    "waterobject",
-    "hekken",
-    "roosters",
     "Groene Keten"
   ],
   "crs": "EPSG:28992",
   "objective": "Het beschikbaar stellen van gegevens over het ecologisch areaal van Gemeente Amsterdam waarbinnen de ecologische kwaliteit gemonitord wordt voor het Plan Biodiversiteit",
-  "defaultVersion": "v2",
+  "defaultVersion": "v3",
   "versions": {
-        "v2": {
+        "v3": {
+      "status": "beschikbaar",
+      "lifecycleStatus": "experimental",
+      "version": "3.0.0",
+      "tables": [
+        {
+          "id": "kerngebieden",
+          "$ref": "kerngebieden/v3"
+        },
+        {
+          "id": "verbindingszones",
+          "$ref": "verbindingszones/v3"
+        },
+        {
+          "id": "inspectiesFaunavoorzieningen",
+          "$ref": "inspecties_faunavoorzieningen/v3"
+        },
+        {
+          "id": "inspectiesStructuurkarteringen",
+          "$ref": "inspecties_structuurkarteringen/v3"
+        },
+        {
+          "id": "faunameubilair",
+          "$ref": "faunameubilair/v1"
+        },
+        {
+          "id": "faunaverblijfplaatsen",
+          "$ref": "faunaverblijfplaatsen/v1"
+        },
+        {
+          "id": "faunavoorzieningen",
+          "$ref": "faunavoorzieningen/v1"
+        }
+      ]
+    },
+    "v2": {
       "status": "beschikbaar",
       "lifecycleStatus": "stable",
       "version": "2.0.0",

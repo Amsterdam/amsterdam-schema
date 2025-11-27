@@ -1,0 +1,50 @@
+{
+  "id": "brkkaartlaagerfpachtuitgevers",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "crs": "EPSG:28992",
+  "status": "niet_beschikbaar",
+  "owner": "Gemeente Amsterdam",
+  "publisher": {
+    "$ref": "publishers/BENK"
+  },
+  "creator": "Basisinformatie",
+  "auth": "OPENBAAR",
+  "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
+  "description": "BRK-tabel speciaal samengesteld voor de kaartlaag erfpachtuitgevers",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrieVlak",
+    "identifier": [
+      "kadastraalobjectId"
+    ],
+    "required": [
+      "schema",
+      "kadastraalobjectId"
+    ],
+    "display": "kadastraalobjectId",
+        "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "kadastraalobjectId": {
+        "type": "string",
+        "title": "Object ID",
+        "description": "De unieke aanduiding van een Kadastraal object, inclusief volgnummer"
+      },
+      "erfpachtUitgegevenDoor": {
+        "type": "string",
+				"title": "Uitgegeven door",
+				"description": "Categorie van de erfpachtuitgever. 'Gemeente Amsterdam' of 'Overige'"
+      },
+      "geometrieVlak": {
+        "$ref": "https://geojson.org/schema/Polygon.json",
+        "title": "Vlak geometrie",
+        "description": "Vlakgeometrie van het kadastrale object in het stelsel van de Rijksdriehoeksmeting (RD)"
+      }
+    }
+  }
+}
