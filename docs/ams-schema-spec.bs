@@ -123,7 +123,7 @@ Een <dfn dfn export>dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON b
 
 Advisement: Let op: Zie [[#naamgeving]] voor de eisen waaraan {{dataset/id}} moet voldoen.
 
-Note: Als een versie van een dataset nog niet klaar is voor publicatie, zet de {{versie/status}} dan op `"niet_beschikbaar"`. Zo wordt de dataset nog niet zichtbaar in doelsystemen.
+Note: Als een versie van een dataset nog niet klaar is voor publicatie, zet de {{versie/enableAPI}} dan op `"false"`. Zo wordt de dataset nog niet zichtbaar in doelsystemen.
 
 <div class=example>
     Een minimale dataset definitie. De 'title' en 'description' velden zijn niet verplicht,
@@ -194,7 +194,7 @@ De volgende velden zijn toegestaan:
 Note: De intentie is dat alle relevante [DCAT] velden te modelleren zijn. Wanneer velden ontbreken
     die wel in de [DCAT] zijn opgenomen, zullen deze worden toegevoegd.
 
-Issue: Niet alle DCAT velden zijn gemodelleerd. Daarnaast zijn komt van sommige velden de naamgeving niet overeen met de DCAT spec.
+Issue: Niet alle DCAT velden zijn gemodelleerd. Daarnaast komt van sommige velden de naamgeving niet overeen met de DCAT spec.
 
 Issue: Sommige velden missen een beschrijving
 
@@ -260,9 +260,6 @@ Amsterdam Schema.
 
 Note: Deze manier van versioneren is geïntroduceerd in V3 van het Amsterdam schema.
 
-Note: Er kan momenteel slechts één versie van de dataset zijn met de status 'beschikbaar'. Dit dient
-overeen te komen met de waarde in {{dataset/defaultVersion}}.
-
 Een [=versie=] wordt in het schema aangeduid door middel van een {{major-version-string|major versie}} van het
 {{version-string|versienummer}} van een dataset. Iedere versie van een dataset bevat een of meerdere tabellen die
 ook geversioneerd kunnen zijn. De versienummers van een dataset gebruiken semantic versioning. Dit betekend dat de
@@ -319,13 +316,6 @@ Verplichte attributen {#version-mandatory-fields}
 -------------------------------------------------------
 Een <dfn dfn export>versie</dfn> binnen Amsterdam Schema is een JSON object met in ieder geval de volgende attributen:
 <table dfn-type="attribute" dfn-for=versie export class="dfn-table">
-    <tr><td><dfn>status</dfn>   <td> string
-        <td> Publicatiestatus van de versie van de dataset
-            <details>
-                <summary>Toegestane waarden</summary>
-                    * "beschikbaar"
-                    * "niet_beschikbaar"
-            </details>
     <tr><td><dfn>version</dfn>  <td> {{version-string}}     <td> Het versie nummer van deze versie. Zie [[#dataset-versioning]]
     <tr><td><dfn>lifecycleStatus</dfn>   <td> string
         <td> Lifecycle van de versie van de dataset. Zie [[#version-lifecycle-status]]
@@ -333,7 +323,10 @@ Een <dfn dfn export>versie</dfn> binnen Amsterdam Schema is een JSON object met 
                 <summary>Toegestane waarden</summary>
                     * "experimental"
                     * "stable"
+                    * "superseded"
             </details>
+    <tr><td><dfn>enableAPI</dfn>   <td> boolean
+        <td> Of deze versie van de dataset beschikbaar moet zijn in de DSO API.
     <tr><td><dfn>tables</dfn>             <td> object
         <td> Tabellen in deze versie van de dataset. Moet minimaal 1 element bevatten.
             <details>
@@ -352,18 +345,28 @@ Een <dfn dfn export>versie</dfn> binnen Amsterdam Schema is een JSON object met 
     <pre class="include-code">
             path: examples/datasets/bekendeAmsterdammers/dataset.json
             highlight: json
-            line-highlight: 11-40
+            line-highlight: 11-43
         </pre>
 [END]
 
+Optionele attributen {#version-optional-fields}
+--------------------------------------------------------
+Naast bovenstaande verplichte attributen mag een [=versie=] ook de volgende eigenschappen bevatten.
+<table dfn-type="attribute" dfn-for=versie export class="dfn-table">
+<tr><td><dfn>releaseDate</dfn>   <td> {{date}}
+        <td> datum waarop de versie beschikbaar gemaakt is
+<tr><td><dfn>endSupportDate</dfn>   <td> {{date}}
+        <td> Verplicht indien {{versie/lifecycleStatus}} de waarde "superseded" heeft
+</table>
 Lifecycle {#version-lifecycle-status}
 --------------------------
-Een versie van een dataset dient een lifecycleStatus te hebben. Momenteel zijn de opties hiervoor 'experimental' of
-'stable'. Deze lifecycleStatus zegt iets over de stabiliteit van een versie van een dataset. Wanneer een versie 'stable'
-is, zullen er geen breaking changes meer plaatsvinden. Een versie met de status 'experimental' is nog in ontwikkeling en
-kan tijdens deze periode nog veranderen.
-
-Note: In de toekomst zal dit veld o.a. ook gebruikt worden voor het aangeven of een versie uitgefaseerd ('deprecated') is.
+Een versie van een dataset dient een {{versie/lifecycleStatus}} te hebben. Momenteel zijn de opties hiervoor 'experimental',
+'stable' of 'superseded'. Deze {{versie/lifecycleStatus}} zegt iets over de stabiliteit van een versie van een dataset.
+Wanneer een versie 'stable' is, zullen er geen breaking changes meer plaatsvinden. Een versie met de status
+'experimental' is nog in ontwikkeling en kan tijdens deze periode nog veranderen. Wanneer een datasetversie de status
+'superseded' krijgt is deze vervangen voor een nieuwe versie en zal er in de {{versie/endSupportDate}} een datum opgenomen zijn tot
+wanneer deze versie ondersteund zal worden. In de browsable DSO API zal een melding getoond worden dat gebruikers over
+moeten stappen op een nieuwere versie.
 
 <!--
 ████████    ███    ████████  ████████ ██
@@ -493,8 +496,6 @@ Daarnaast mag een [=schema=] object de volgende attributen bezitten:
             Het veld of de velden waar hier naar verwezen wordt moeten van het type [[#data-types-string|string]] of het type [[#data-types-int|integer]] zijn.
             en mogen geen {{veld/auth}} attribuut bevatten.
 </table>
-
-Issue: Het identifier veld moet string zijn. De array optie wordt binnenkort verwijderd.
 
 [HIDELINESEXAMPLE]
     Voorbeeld van een schema.
@@ -1768,7 +1769,7 @@ Scope `"LEVEL/A"` heeft dataset level autorisatie op gebieden, scope `"LEVEL/B"`
     * Een user met scope `"LEVEL/A"` en `"LEVEL/B"` mag alle velden van tabel `bouwblokken` zien, behalve `beginGeldigheid`.
     * Een user met scope `"LEVEL/A"` en `"LEVEL/B"` en `"LEVEL/C"` mag het veld `beginGeldigheid` ook zien.
 
-    <pre highlight="json" line-highlight=5,17,39>
+    <pre highlight="json" line-highlight=5,21,43>
         {
             "type": "dataset",
             "id": "gebieden",
@@ -1777,56 +1778,62 @@ Scope `"LEVEL/A"` heeft dataset level autorisatie op gebieden, scope `"LEVEL/B"`
             "reasonsNonPublic": [
                 "5.1 1b: Gevaar voor staatsveiligheid"
             ],
-            "status": "beschikbaar",
             "crs": "EPSG:28992",
-            "tables": [
-                {
-                    "id": "bouwblokken",
-                    "mainGeometry": "geometrie",
-                    "type": "table",
-                    "version": "1.0.0",
-                    "auth": "LEVEL/B",
-                    "schema": {
-                        "$id": "https://github.com/Amsterdam/schemas/gebieden/bouwblokken.json",
-                        "$schema": "http://json-schema.org/draft-07/schema#",
-                        "type": "object",
-                        "additionalProperties": false,
-                        "identifier": ["id"],
-                        "required": ["schema", "id"],
-                        "display": "id",
-                        "properties": {
+            "versions": {
+                "v1": {
+                    "lifecycleStatus": "stable",
+                    "enableAPI": true
+                    "tables": [
+                        {
+                            "id": "bouwblokken",
+                            "mainGeometry": "geometrie",
+                            "type": "table",
+                            "version": "1.0.0",
+                            "lifecycleStatus": "stable",
+                            "auth": "LEVEL/B",
                             "schema": {
-                                "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
-                            },
-                            "id": {
-                                "type": "string",
-                                "description": "Unieke identificatie voor dit object, inclusief volgnummer"
-                            },
-                            "beginGeldigheid": {
-                                "type": "string",
-                                "format": "date",
-                                "title": "Begin geldigheid",
-                                "description": "De datum waarop het object is gecreëerd.",
-                                "auth": "LEVEL/C"
-                            },
-                            "eindGeldigheid": {
-                                "type": "string",
-                                "format": "date",
-                                "title": "Eind geldigheid",
-                                "description": "De datum waarop het object is komen te vervallen.",
-                                "provenance": "eindgeldigheid"
-                            },
-                            "ligtInBuurt": {
-                                "type": "string",
-                                "relation": "gebieden:buurten",
-                                "provenance": "ligtinbuurt",
-                                "title": "Ligt in buurt",
-                                "description": "De buurt waar het bouwblok in ligt."
+                                "$id": "https://github.com/Amsterdam/schemas/gebieden/bouwblokken.json",
+                                "$schema": "http://json-schema.org/draft-07/schema#",
+                                "type": "object",
+                                "additionalProperties": false,
+                                "identifier": ["id"],
+                                "required": ["schema", "id"],
+                                "display": "id",
+                                "properties": {
+                                    "schema": {
+                                        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "description": "Unieke identificatie voor dit object, inclusief volgnummer"
+                                    },
+                                    "beginGeldigheid": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "title": "Begin geldigheid",
+                                        "description": "De datum waarop het object is gecreëerd.",
+                                        "auth": "LEVEL/C"
+                                    },
+                                    "eindGeldigheid": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "title": "Eind geldigheid",
+                                        "description": "De datum waarop het object is komen te vervallen.",
+                                        "provenance": "eindgeldigheid"
+                                    },
+                                    "ligtInBuurt": {
+                                        "type": "string",
+                                        "relation": "gebieden:buurten",
+                                        "provenance": "ligtinbuurt",
+                                        "title": "Ligt in buurt",
+                                        "description": "De buurt waar het bouwblok in ligt."
+                                    }
+                                }
                             }
                         }
-                    }
+                    ]
                 }
-            ]
+            }
         }
     </pre>
 </div>
@@ -2103,6 +2110,9 @@ Attribuuttypen {#attr-types}
     <tr><td><dfn typedef export lt=resource-identifier|resource-identifier-type>resource-identifier</dfn>
         <td> string
         <td> Een unieke identifier in de vorm van één tot en met twaalf kleine letters.
+    <tr><td><dfn typedef export>date</dfn>
+        <td> (string)
+        <td> Een als date geformatteerde string. Conform [[json-schema-validation#rfc.section.7.3.1]].
     <tr><td><dfn typedef export>date-time</dfn>
         <td> (string)
         <td> Een als datetime geformatteerde string. Conform [[json-schema-validation#rfc.section.7.3.1]].
@@ -2150,7 +2160,7 @@ Attribuuttypen {#attr-types}
                 * "5.2 4: Zwaarwegend belang: persoonlijke beleidsopvattingen (bevat milieu-informatie)"
                 * "nader te bepalen"
         </details>
-        De laatste optie ("nader te bepalen") is niet toegestaan wanneer {{versie/status}}=`"beschikbaar"`.
+        De laatste optie ("nader te bepalen") is niet toegestaan wanneer {{versie/enableAPI}}=`"true"`.
     <tr><td><dfn typedef export lt=majorversion|major-version-string>major-version</dfn>
         <td> (string)
         <td> Version string van de vorm "v&bs<;MAJOR&bs>;"
@@ -2185,7 +2195,17 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 <!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
 <!-- Update the version number in the metadata at the top and refer to it here. -->
 
-[3.2.0] rowLevelAuth toegevoegd (2025-11-11) {#lastchange}
+[4.0.0] Status verwijderd (2025-10-23) {#lastchange}
+---------------------------------------------------
+> **Doelstelling**<br/>
+    Verwijderen van status en toevoegen van enableAPI flag.
+
+* [[#version-mandatory-fields]] status verwijderd.
+* [[#version-lifecycle-status]] toegevoegd.
+* [[#tabel-mandatory-fields]] uitgebreid met lifecycleStatus.
+* [[#table-lifecycle-status]] toegevoegd.
+
+[3.2.0] rowLevelAuth toegevoegd (2025-11-11) {#20251111}
 ---------------------------------------------------
 > **Doelstelling**<br/>
     Toevoegen van row level authorisatie aan tabel.
