@@ -1,0 +1,60 @@
+{
+  "id": "beschikbaarheid",
+  "type": "table",
+  "version": "1.0.0",
+  "lifecycleStatus": "stable",
+  "titel": "Beschikbaarheid",
+  "description": "Amsterdam heeft een wagenpark met voertuigen van de gemeente zoals bijvoorbeeld vuilniswagens en veegwagens. De gemeente zet deze voertuigen graag zo efficiënt mogelijk in. Deze tabel geeft inzicht in enerzijds de beschikbaarheid van een voertuig en anderzijds of deze is ingezet op een dienst. Elke rij in deze tabel beschrijft of één voertuig op één dag beschikbaar is, of hij is ingezet en hoevaak. Alle records samen geven een overzicht van het gebruik van voertuigen binnen de gemeente over de tijd. In deze tabel is een voertuig 'beschikbaar' wanneer deze: een geldig contract heeft met de gemeente op die specifieke dag en geen onderhoud in de garage is. De data loopt vanaf de dag van ingebruikname van een voertuig tot een jaar in de toekomst vanaf vandaag. De tabel bevat sleutels voor joins: 'wagenpark_materieel_id' voor aanvullende informatie uit wagenpark_financien (voor het type eigendom), wagenpark_materieel (voor het type voertuig), 'datum_sleutel' voor aanvullende informatie uit dim_datum (allen in databricks gold beschikbaar).",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "wagenparkMaterieelId",
+    "required": [
+      "wagenparkMaterieelId",
+      "schema"
+    ],
+    "display": "wagenparkMaterieelId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+      },
+      "wagenparkMaterieelId": {
+        "title": "Wagenpark materieel ID",
+        "type": "string",
+        "description": "Uniek identificerend kenmerk voor transport- en werkmaterieel. ID bevat voorloopnullen. Sleutel voor de tabel wagenpark_materieel en wagenpark_financien."
+      },
+      "kenteken": {
+        "title": "Materieel kenteken",
+        "type": "string",
+        "description": "Kenteken van het RDW-plichtig transportmaterieel, zonder '-' tekens."
+      },
+      "datumSleutel": {
+        "title": "Datum sleutel",
+        "type": "string",
+        "description": "Sleutel voor join met ortec_dim_nl / dim_datum_tabel."
+      },
+      "volledigeDatum": {
+        "title": "Datum uitgeschreven",
+        "type": "string",
+        "format": "date",
+        "description": "De peildatum waarvoor de beschikbaarheid en inzet van het voertuig zijn berekend in yyyy-mm-dd."
+      },
+      "beschikbaarheid": {
+        "title": "Beschikbaarheid",
+        "type": "string",
+        "description": "Geeft aan of het voertuig op deze dag beschikbaar is met 'Beschikbaar' of 'Niet Beschikbaar'."
+      },
+      "beschikbaarheidNum": {
+        "title": "Beschikbaarheid nummeriek",
+        "type": "integer",
+        "description": "Geeft aan of het voertuig op deze dag beschikbaar is met een 1 (beschikbaar) of 0 (niet beschikbaar)."
+      },
+      "aantalKeerIngezet": {
+        "title": "Aantal keer ingezet",
+        "type": "integer",
+        "description": "Geeft aan hoe vaak het voertuig deze dag is ingezet met een getal."
+      }
+    }
+  }
+}
