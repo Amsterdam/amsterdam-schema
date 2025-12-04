@@ -3,11 +3,12 @@
     "type": "table",
     "title": "gebruik",
     "description": "Het gebruik van het schoolgebouw",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "lifecycleStatus": "stable",
     "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
+        "identifier":"gebruikId",
         "required": [
             "schema"
         ],
@@ -29,12 +30,14 @@
             "objectId": {
                 "type": "string",
                 "title": "Gebruik object ID",
-                "description": "Verwijzing naar het gekoppelde object."
+                "description": "Verwijzing naar het gekoppelde object.",
+                "relation":"schoolgebouwen:object"
             },
             "instellingId": {
                 "type": "string",
                 "title": "Gebruik instelling ID",
-                "description": "Verwijzing naar de gekoppelde instelling."
+                "description": "Verwijzing naar de gekoppelde instelling.",
+                "relation":"schoolgebouwen:instelling"
             },
             "datumBegin": {
                 "type": "string",
