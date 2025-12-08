@@ -828,6 +828,7 @@ Een [=veld=] definitie mag naast het [[#veld-mandatory-fields|verplichte attribu
     <tr><td><dfn>shortname</dfn>        <td> string <td> zie [[#naamgeving]]
     <tr><td><dfn>unit</dfn>             <td> string | object <td> De eenheid van de waarden in dit veld. zie [[#units]]
     <tr><td><dfn>relation</dfn>         <td> string <td> Beschrijft relaties tussen velden. zie [[#relatering]]
+    <tr><td><dfn>isSubresource</dfn>    <td> boolean <td> Bepaalt of een relatie genest is. zie [[#subresources]]
     <tr><td><dfn>uri</dfn>              <td> {{uri-reference}} <td> Een verwijzing de definitie van de waarden in dit veld.
     <tr><td><dfn>crs</dfn>
         <td> enum(string)
@@ -1444,6 +1445,40 @@ Voor meervoudige (Many-To-Many) relaties wordt een [[#data-types-array| array]] 
         }
     </pre>
 </div>
+
+Subresources {#subresources}
+-------------------------------
+Voor relaties die als parent/child beschouwd kunnen worden - dat wil zeggen dat de onderliggende
+resource alleen betekenis heeft binnen de context van de bovenliggende resource - is het mogelijk
+om dit aan te duiden via de `isSubresource` property. Dit is alleen mogelijk bij 1-to-many relaties
+(relaties met type "array").
+
+<div class=example>
+    Voorbeeld van een relatieveld voor een meervoudige relatie als onderliggende tabel van de
+    brugtabel.
+    <pre highlight="json">
+        "heeftOnderdelen": {
+            "title": "Heeft brugonderdelen",
+            "relation": "bruggen:onderdelen",
+            "description": "De onderdelen waar de brug uit bestaat.",
+            "type": "array",
+            "isSubresource": true,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "identificatie": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    </pre>
+</div>
+
+De onderdelen zullen hierdoor ook beschikbaar worden op `/bruggen/<brug_id>/onderdelen`.
+
+NB: de relatie *moet* binnen dezelfde dataset liggen, anders is er geen sprake van dat ze alleen
+betekenis heeft binnen de context van de bovenliggende tabel.
 
 
 Eenheden {#units}
