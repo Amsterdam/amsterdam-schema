@@ -49,6 +49,9 @@
         "maxLength": {
           "type": "integer"
         },
+        "isSubresource": {
+          "type": "boolean"
+        },
         "contentEncoding": {
           "type": "string"
         },
@@ -149,31 +152,58 @@
           }
         }
       ],
-      "if": {
-        "$comment": "If type is array, then items is required.",
-        "allOf": [
-          {
+      "allOf": [
+        {
+          "if": {
+            "$comment": "If type is array, then items is required.",
+            "allOf": [
+              {
+                "properties": {
+                  "type": {
+                    "const": "array"
+                  }
+                }
+              },
+              {
+                "$comment": "$ref's were caught by this rule, so only require items if there is no $ref.",
+                "not": {
+                  "required": [
+                    "$ref"
+                  ]
+                }
+              }
+            ]
+          },
+          "then": {
+            "required": [
+              "items"
+            ]
+          }
+        },
+        {
+          "if": {
+            "$comment": "If isSubresource is true, type must be array and relation is required.",
+            "properties": {
+              "isSubresource": {
+                "const": true
+              }
+            },
+            "required": [
+              "isSubresource"
+            ]
+          },
+          "then": {
             "properties": {
               "type": {
                 "const": "array"
               }
-            }
-          },
-          {
-            "$comment": "$ref's were caught by this rule, so only require items if there is no $ref.",
-            "not": {
-              "required": [
-                "$ref"
-              ]
-            }
+            },
+            "required": [
+              "relation"
+            ]
           }
-        ]
-      },
-      "then": {
-        "required": [
-          "items"
-        ]
-      }
+        }
+      ]
     }
   },
   "type": "object",
