@@ -1,10 +1,10 @@
 {
     "id": "inspectiesFeitSubinspecties",
     "type": "table",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "lifecycleStatus": "stable",
     "title": "Feitentabel met informatie uit beheerapplicatie Stadswerken over uitgevoerde schouwen en onderhoud aan civiele constructies",
-    "description": "De gemeente Amsterdam is verantwoordelijk voor onderhoud aan civiele constructies (zoals o.a. bruggen, sluizen en steigers). Deze feitentabel bevat informatie uit de uitvoeringsapplicatie iAsset over uitgevoerde subinspecties (verzamelnaam voor o.a. onderhoud, schouwen, losse opdrachten). Het bevat een id, een datum en een id van de civiele constructie, plus ingevoerde opmerkingen door uitvoerders.  Één regel is één subinspectie op één civiele constructie op één uitvoermoment. De tabel bevat sleutels waarmee een join met de tabellen 'dim_objectpaspoort' en 'dim_subinspectiekenmerken' kan worden gelegd. Let op: niet alle beheeractiviteiten in de stad worden in deze specifieke beheerapplicatie vastgelegd, dit is dus niet alomvattend.",
+    "description": "De gemeente Amsterdam is verantwoordelijk voor onderhoud aan civiele constructies (zoals o.a. bruggen, sluizen en steigers). Deze feitentabel bevat informatie uit de uitvoeringsapplicatie iAsset over uitgevoerde subinspecties (verzamelnaam voor o.a. onderhoud, schouwen, losse opdrachten). Het bevat een id voor de inspectie, een datum waarop de inspectie is uitgevoerd, een id van de civiele constructie, de intallatie waarop de inspectie is uitgevoerd en ingevoerde opmerkingen door uitvoerders.  Één regel is één subinspectie op één installatie van één civiele constructie op één uitvoermoment. De tabel bevat sleutels waarmee een join met de tabellen 'dim_objectpaspoort' en 'dim_subinspectiekenmerken' kan worden gelegd. Let op: niet alle beheeractiviteiten in de stad worden in deze specifieke beheerapplicatie vastgelegd, dit is dus niet alomvattend.",
     "auth": "FP/MDW",
 	"reasonsNonPublic": [
 		"5.1 1c: Vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
@@ -45,6 +45,11 @@
           "type": "string",
           "title": "Inspectie opmerking",
           "description": "Opmerking van de inspecteur met bevindingen tijdens de inspectie."
+        },
+        "installatie": {
+          "type": "string",
+          "title": "Installatie",
+          "description": "De installatie is een onderdeel van een civiele constructie. Bijvoorbeeld 'sluisdeur binnen', 'ballastkist' of 'bewegingswerk'."
         }
       }
     }
