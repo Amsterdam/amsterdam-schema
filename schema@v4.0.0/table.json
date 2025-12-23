@@ -79,6 +79,17 @@
         }
       ]
     },
+    "subresources": {
+      "description": "de resources die expliciet onder deze resource vallen. Keys zijn de relaties, values de velden op de relaties die naar deze tabel verwijzen.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_]*$"
+      },
+      "propertyNames": {
+        "pattern": "^[a-z0-9_]*:[A-Za-z0-9_]*$"
+      }
+    },
     "status": {
       "description": "de status die iets zegt over de stabiliteit van de tabel. Een tabel met de status 'under_development' kan nog wijzigen, wanneer deze 'stable' is kunnen er geen breaking changes meer in plaatsvinden.",
       "type": "string",
