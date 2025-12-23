@@ -438,6 +438,7 @@ Een  [=tabel=] mag daarnaast de volgende attributen bezitten:
     <tr><td><dfn>dateModified</dfn> <td> {{date-time}} <td> Meest recente datum waarop de tabel is aangepast.
     <tr><td><dfn>license</dfn>      <td> string <td> Licentie
     <tr><td><dfn>temporal</dfn>     <td> [=temporal-object=] <td> Definieert tijdsafhankelijke geldigheid van objecten. zie [[#temporaliteit]]
+    <tr><td><dfn>subresources</dfn> <td> object <td> Resources die onder deze tabel vallen als subresource. zie [[#subresources]]
     <tr><td><dfn>crs</dfn>
         <td> enum(string)
         <td> Coordinate reference System
@@ -754,6 +755,55 @@ Bij het aanmaken of aanpassen van het schema wordt het volgende gevalideerd:
 - `source` zit niet in `targets`
 - `source` bestaat en heeft als type "boolean"
 - alle `targets` bestaan en hebben FEATURE/RLA auth
+
+
+Subresources {#subresources}
+-------------------------------
+Voor relaties die als parent/child beschouwd kunnen worden - dat wil zeggen dat de onderliggende
+resource alleen betekenis heeft binnen de context van de bovenliggende resource - is het mogelijk
+om dit aan te duiden via de `subresources` property op de table. Dit is alleen mogelijk bij
+enkelvoudige (1-to-many) relaties (zie #relatering).
+
+<div class=example>
+    Voorbeeld van een relatie veld voor een enkelvoudige relatie met de temporele tabel "stadsdelen"
+    in de dataset "gebieden".
+    <pre highlight="json">
+        "ligtInStadsdeel": {
+            "type": "object",
+            "properties": {
+                "identificatie": {
+                    "type": "string"
+                },
+                "volgnummer": {
+                    "type": "integer"
+                },
+                "beginGeldigheid": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "eindGeldigheid": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "relation": "gebieden:stadsdelen",
+            "title": "Wijk ligt in stadsdeel",
+            "description": "Het stadsdeel waar de wijk in ligt"
+        }
+    </pre>
+    Op de tabel stadsdelen kunnen dan subresources worden gedefinieerd:
+    <pre highlight="json">
+        "subresources": {
+            "gebieden:wijken": "ligtInStadsdeel"
+        }
+    </pre>
+</div>
+
+De wijken zullen hierdoor ook beschikbaar worden op `/stadsdelen/<stadsdeel_id>/wijken`.
+
+NB: de relatie *moet* binnen dezelfde dataset liggen, anders is er geen sprake van dat ze alleen
+betekenis heeft binnen de context van de bovenliggende tabel.
+
 
 <!--
 ██     ██ ████████ ██       ████████
