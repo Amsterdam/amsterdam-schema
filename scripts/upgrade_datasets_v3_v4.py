@@ -19,7 +19,7 @@ for dirpath, dirs, filenames in os.walk("datasets/"):
             continue
 
         filename = os.path.join(dirpath, filename)
-        with open(filename) as f:
+        with open(filename, encoding="utf-8") as f:
             d = json.load(f)
 
         if d.get("type") == "dataset":
@@ -45,8 +45,8 @@ for dirpath, dirs, filenames in os.walk("datasets/"):
                 d["versions"][version_number] = new_version_schema
 
             # Write changed dataset to file
-            with open(filename, "w") as f:
-                f.write(json.dumps(d, indent=2))
+            with open(filename, "w", encoding="utf-8") as f:
+                f.write(json.dumps(d, indent=2, ensure_ascii=False))
         elif d.get("type") == "table":
             key_order = list(d.keys())
             status_index = key_order.index("lifecycleStatus")
@@ -61,5 +61,5 @@ for dirpath, dirs, filenames in os.walk("datasets/"):
             ] = "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
 
             # Write changed table to file
-            with open(filename, "w") as f:
-                f.write(json.dumps(new_table_schema, indent=2))
+            with open(filename, "w", encoding="utf-8") as f:
+                f.write(json.dumps(new_table_schema, indent=2, ensure_ascii=False))

@@ -2,7 +2,7 @@
   "id": "beschikbaarheid",
   "type": "table",
   "version": "1.0.0",
-  "lifecycleStatus": "stable",
+  "status": "stable",
   "titel": "Beschikbaarheid",
   "description": "Amsterdam heeft een wagenpark met voertuigen van de gemeente zoals bijvoorbeeld vuilniswagens en veegwagens. De gemeente zet deze voertuigen graag zo efficiënt mogelijk in. Deze tabel geeft inzicht in enerzijds de beschikbaarheid van een voertuig en anderzijds of deze is ingezet op een dienst. Elke rij in deze tabel beschrijft of één voertuig op één dag beschikbaar is, of hij is ingezet en hoevaak. Alle records samen geven een overzicht van het gebruik van voertuigen binnen de gemeente over de tijd. In deze tabel is een voertuig 'beschikbaar' wanneer deze: een geldig contract heeft met de gemeente op die specifieke dag en geen onderhoud in de garage is. De data loopt vanaf de dag van ingebruikname van een voertuig tot een jaar in de toekomst vanaf vandaag. De tabel bevat sleutels voor joins: 'wagenpark_materieel_id' voor aanvullende informatie uit wagenpark_financien (voor het type eigendom), wagenpark_materieel (voor het type voertuig), 'datum_sleutel' voor aanvullende informatie uit dim_datum (allen in databricks gold beschikbaar).",
   "schema": {
@@ -17,7 +17,7 @@
     "display": "wagenparkMaterieelId",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "wagenparkMaterieelId": {
         "title": "Wagenpark materieel ID",

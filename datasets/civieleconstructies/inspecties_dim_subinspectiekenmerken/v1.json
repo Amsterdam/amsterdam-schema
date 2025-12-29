@@ -1,52 +1,50 @@
 {
-    "id": "inspectiesDimSubinspectiekenmerken",
-    "type": "table",
-    "version": "1.0.0",
-    "lifecycleStatus": "stable",
-    "title": "Dimensietabel kenmerken van beheer aan civiele constructies beheerapplicatie",
-    "description": "In Amsterdam worden civiele constructies (zoals o.a. bruggen, sluizen en steigers) onderhouden door de gemeente. Uit deze dimensietabel kun je de naam van het type uitgevoerde subinspectie halen zoals storing rapport, aansprakelijkheidsschouw, smeerwerk, schouw, opdrachten, losse bon of onderhoud.  Iedere subinspectie valt onder een ‘algemene inspectie’. Deze algemene inspectie heeft zijn eigen id en een type zoals bijv. elektrotechnisch- of werktuigbouwkundig werk. Met de algemene inspectie id kun je verschillende subinspecties die bij elkaar horen, bij elkaar zoeken. Zoals bijv. schouwen op elektrotechnische zaken waarop elektrotechnisch onderhoud volgt. Één regel komt overeen met één uitgevoerde subinspectie en dus één regel uit de feitentabel. Deze zijn te joinen op de subinspectie_id. Let op: niet alle beheeractiviteiten in de stad worden in deze specifieke beheerapplicatie vastgelegd, dit is dus niet alomvattend.",
-    "auth": "FP/MDW",
-	"reasonsNonPublic": [
-		"5.1 1c: Vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
-	],
-    "schema": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "type": "object",
-      "additionalProperties": false,
-	  "identifier": [
+  "id": "inspectiesDimSubinspectiekenmerken",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "stable",
+  "title": "Dimensietabel kenmerken van beheer aan civiele constructies beheerapplicatie",
+  "description": "In Amsterdam worden civiele constructies (zoals o.a. bruggen, sluizen en steigers) onderhouden door de gemeente. Uit deze dimensietabel kun je de naam van het type uitgevoerde subinspectie halen zoals storing rapport, aansprakelijkheidsschouw, smeerwerk, schouw, opdrachten, losse bon of onderhoud.  Iedere subinspectie valt onder een ‘algemene inspectie’. Deze algemene inspectie heeft zijn eigen id en een type zoals bijv. elektrotechnisch- of werktuigbouwkundig werk. Met de algemene inspectie id kun je verschillende subinspecties die bij elkaar horen, bij elkaar zoeken. Zoals bijv. schouwen op elektrotechnische zaken waarop elektrotechnisch onderhoud volgt. Één regel komt overeen met één uitgevoerde subinspectie en dus één regel uit de feitentabel. Deze zijn te joinen op de subinspectie_id. Let op: niet alle beheeractiviteiten in de stad worden in deze specifieke beheerapplicatie vastgelegd, dit is dus niet alomvattend.",
+  "auth": "FP/MDW",
+  "reasonsNonPublic": [
+    "5.1 1c: Vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+  ],
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
       "subinspectieId"
-      ],
-      "required": [
-        "schema",
-        "subinspectieId"
-      ],
-      "display": "subinspectieId",
-      "properties": {
-        "schema": {
-          "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-        },
-        "subinspectieId": {
-          "type": "string",
-          "title": "Subinspectie ID",
-          "description": "Uniek identificerend kenmerk van de uitgevoerde schouw of onderhoud (vallen samen onder 'subinspecties')."
-        },
-        "subinspectieNaam": {
-		    "type": "string",
-		    "title": "Subinspectie naam",
-          "description": "Omschrijving van de uitgevoerde schouw of onderhoud. Bijvoorbeeld 'W-Onderhoud'."
-        },
-        "algemeneInspectieNaam": {
-		    "type": "string",
-		    "title": "Algemene inspectie naam",
-          "description": "Overkoepelende type onderhoud waar de schouw of onderhoud onder valt. Bijvoorbeeld 'W-werk'."
-        },
-        "algemeneInspectieId": {
-		    "type": "string",
-		    "title": "Algemene inspectie ID",
-          "description": "Uniek identificerend kenmerk van een inspectie (zoals W-werk) waarbinnen de subinspectie is uitgevoerd (bijv. W-onderhoud of schoouw)."
-        }
+    ],
+    "required": [
+      "schema",
+      "subinspectieId"
+    ],
+    "display": "subinspectieId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "subinspectieId": {
+        "type": "string",
+        "title": "Subinspectie ID",
+        "description": "Uniek identificerend kenmerk van de uitgevoerde schouw of onderhoud (vallen samen onder 'subinspecties')."
+      },
+      "subinspectieNaam": {
+        "type": "string",
+        "title": "Subinspectie naam",
+        "description": "Omschrijving van de uitgevoerde schouw of onderhoud. Bijvoorbeeld 'W-Onderhoud'."
+      },
+      "algemeneInspectieNaam": {
+        "type": "string",
+        "title": "Algemene inspectie naam",
+        "description": "Overkoepelende type onderhoud waar de schouw of onderhoud onder valt. Bijvoorbeeld 'W-werk'."
+      },
+      "algemeneInspectieId": {
+        "type": "string",
+        "title": "Algemene inspectie ID",
+        "description": "Uniek identificerend kenmerk van een inspectie (zoals W-werk) waarbinnen de subinspectie is uitgevoerd (bijv. W-onderhoud of schoouw)."
       }
     }
   }
-
-  
+}
