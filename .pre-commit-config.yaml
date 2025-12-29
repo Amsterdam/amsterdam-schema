@@ -77,3 +77,11 @@ repos:
         files: '^(datasets|scopes|publishers|profiles)/'
         exclude_types: [sql, json, markdown]
         language: fail
+  - repo: local
+    hooks:
+      - id: validate-metaschema-localhost
+        name: localhost check in metaschema
+        entry: localhost
+        language: pygrep
+        types: [ text ]
+        files: '^schema@.+'
