@@ -2,7 +2,7 @@
   "id": "handelsregisterkvk",
   "type": "table",
   "version": "3.2.1",
-  "lifecycleStatus": "stable",
+  "status": "stable",
   "crs": "EPSG:28992",
   "auth": [
     "FP/MDW",
@@ -24,12 +24,12 @@
     "display": "identificatie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
         "title": "Identificatie",
-        "description":"Uniek kvk nummer of kvk nummer plus vestigingsnummer"
+        "description": "Uniek kvk nummer of kvk nummer plus vestigingsnummer"
       },
       "vestigingsnummer": {
         "type": "string",
@@ -73,7 +73,9 @@
       },
       "handelsnamenVes": {
         "type": "array",
-        "items": {"type": "string"},
+        "items": {
+          "type": "string"
+        },
         "title": "Handelsnaam of handelsnamen",
         "description": "Handelsnaam of Handelsnamen van de niet-commerciële of commerciële vestiging"
       },
@@ -89,19 +91,25 @@
       },
       "communicatieVes": {
         "type": "array",
-        "items": {"type": "string"},
+        "items": {
+          "type": "string"
+        },
         "title": "Communicatie gegevens",
         "description": "Gegevens over de communicatie van de Vestiging"
       },
       "emailAdressenVes": {
         "type": "array",
-        "items": {"type": "string"},
+        "items": {
+          "type": "string"
+        },
         "title": "Email adres",
         "description": "Het e-mailadres waarop de ondernemer gemaild kan worden"
       },
       "domeinnamenVes": {
         "type": "array",
-        "items": {"type": "string"},
+        "items": {
+          "type": "string"
+        },
         "title": "Domein naam",
         "description": "Het internetadres (website)"
       },
@@ -189,7 +197,9 @@
       },
       "bezoekHeeftBagPanden": {
         "type": "array",
-        "items": {"type": "string"},
+        "items": {
+          "type": "string"
+        },
         "title": "Bag pand(en) van verblijfsobject bezoeklocatie",
         "description": "Met welke pand(en) heeft de bezoeklocatie een relatie via het verblijfsobject"
       },
@@ -302,7 +312,9 @@
       },
       "activiteitenVes": {
         "type": "array",
-        "items": {"type": "string"},
+        "items": {
+          "type": "string"
+        },
         "title": "SBI code",
         "description": "Codering van activiteiten binnen het handelsregister volgens de standaard bedrijfsindeling (SBI) 2008"
       },
@@ -340,7 +352,9 @@
       },
       "activiteitenMac": {
         "type": "array",
-        "items": {"type": "string"},
+        "items": {
+          "type": "string"
+        },
         "title": "Sbi activiteiten",
         "description": "De SBI-activiteiten van de maatschappelijke activiteit is het totaal van alle SBI-Activiteiten die voorkomen bij de maatschappelijke activiteit behorende niet commerciële vestiging (NCV)en bij de Rechtspersoon"
       },
@@ -428,39 +442,51 @@
       },
       "handelsnamenMac": {
         "type": "array",
-        "items": {"type": "string"},
+        "items": {
+          "type": "string"
+        },
         "title": "Handelsnaam",
         "description": "Handelsnaam van de commerciële vestiging"
       },
       "wordtUitgeoefendInCommercieleVestigingen": {
         "shortname": "uitgeoefendInHrCvs",
         "type": "array",
-        "items": {"type": "string"},
+        "items": {
+          "type": "string"
+        },
         "title": "Commerciële vestiging maatschappelijke activiteit",
         "description": "Hiermee wordt vastgelegd in welke periode (datumAanvang-datumEinde) welke commerciele VES bij een onderneming behoort"
       },
       "wordtUitgeoefendInNietCommercieleVestigingen": {
         "shortname": "uitgeoefendInHrNcv",
         "type": "array",
-        "items": {"type": "string"},
+        "items": {
+          "type": "string"
+        },
         "title": "Niet commerciële vestiging maatschappelijke activiteit",
         "description": "Hiermee wordt beschreven in welke periode (datumAanvang-datumEinde) welke niet commerciele VES bij een MAC behoort"
       },
       "communicatieMac": {
         "type": "array",
-        "items": {"type": "string"},
+        "items": {
+          "type": "string"
+        },
         "title": "Communicatiegegevens",
         "description": "Communicatiegegevens van de maatschappelijke activiteit"
       },
       "emailAdressenMac": {
         "type": "array",
-        "items": {"type": "string"},
+        "items": {
+          "type": "string"
+        },
         "title": "Email adres",
         "description": "Het e-mailadres waarop de ondernemer gemaild kan worden"
       },
       "domeinnamenMac": {
         "type": "array",
-        "items": {"type": "string"},
+        "items": {
+          "type": "string"
+        },
         "title": "Domein naam",
         "description": "Het internetadres (web site)"
       },
@@ -824,7 +850,7 @@
         "type": "string",
         "title": "gemeente",
         "description": "Gemeente waarin de vestiging of maatschappelijke activiteit zijn bezoekadres heeft"
-      },      
+      },
       "geometrieRd": {
         "$ref": "https://geojson.org/schema/Point.json",
         "title": "Puntgeometrie in RD",

@@ -1,78 +1,78 @@
- {
-    "id": "kenmerken",
-    "type": "table",
-    "title": "kenmerken",
-    "description": "Kenmerken van een accomodatie",
-    "version": "1.0.1",
-    "lifecycleStatus": "stable",
-    "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "required": [
-            "schema"
-        ],
-        "display": "omschrijving",
-        "properties": {
-            "schema": {
-                "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
-            },
-            "id": {
-                "type": "string",
-                "title": "Kenmerk databricks ID",
-                "description": "Unieke identificatiecode van een kenmerk, gebruikt binnen Databricks om een specifieke kenmerk eenduidig te identificeren."
-            },
-            "kenmerkId": {
-                "type": "string",
-                "title": "Kenmerk ID",
-                "description": "Unieke identificatiecode van de kenmerk vanuit de bronapplicatie"
-            },
-            "instellingId": {
-                "type": "string",
-                "title": "Kenmerk instelling ID",
-                "description": "Verwijzing naar de gekoppelde instelling."
-            },
-            "bestuurId": {
-                "type": "string",
-                "title": "Kenmerk bestuur ID",
-                "description": "Verwijzing naar de gekoppelde bestuursgegevens."
-            },
-            "accommodatieId": {
-                "type": "string",
-                "title": "Kenmerk accommodatie ID",
-                "description": "Verwijzing naar de gekoppelde accommodatie."
-            },
-            "omschrijving": {
-                "type": "string",
-                "title": "Kenmerk omschrijving",
-                "description": "Beschrijving of toelichting van de kenmerken."
-            },
-            "datumExport": {
-                "type": "string",
-                "title": "Kenmerk exportdatum",
-                "description": "Datum waarop de gegevens van de kenmerken zijn ge\u00ebxporteerd."
-            },
-            "versie": {
-                "type": "string",
-                "title": "Kenmerk versie",
-                "description": "Versienummer van de kenmerken."
-            },
-            "mGeldigVan": {
-                "type": "string",
-                "title": "Kenmerk geldig vanaf",
-                "description": "Startdatum van de geldigheid van de kenmerken.",
-                "format": "date-time"
-            },
-            "mGeldigTot": {
-                "type": "string",
-                "title": "Kenmerk geldig tot",
-                "description": "Einddatum van de geldigheid van de kenmerken.",
-                "format": "date-time"
-            },
-            "mIsActief": {
-                "type": "boolean",
-                "title": "Kenmerk actieve status",
-                "description": "Geeft aan of de kenmerken actief zijn (Ja/Nee)."
-            }
-        }
+{
+  "id": "kenmerken",
+  "type": "table",
+  "title": "kenmerken",
+  "description": "Kenmerken van een accomodatie",
+  "version": "1.0.1",
+  "status": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+      "schema"
+    ],
+    "display": "omschrijving",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "title": "Kenmerk databricks ID",
+        "description": "Unieke identificatiecode van een kenmerk, gebruikt binnen Databricks om een specifieke kenmerk eenduidig te identificeren."
+      },
+      "kenmerkId": {
+        "type": "string",
+        "title": "Kenmerk ID",
+        "description": "Unieke identificatiecode van de kenmerk vanuit de bronapplicatie"
+      },
+      "instellingId": {
+        "type": "string",
+        "title": "Kenmerk instelling ID",
+        "description": "Verwijzing naar de gekoppelde instelling."
+      },
+      "bestuurId": {
+        "type": "string",
+        "title": "Kenmerk bestuur ID",
+        "description": "Verwijzing naar de gekoppelde bestuursgegevens."
+      },
+      "accommodatieId": {
+        "type": "string",
+        "title": "Kenmerk accommodatie ID",
+        "description": "Verwijzing naar de gekoppelde accommodatie."
+      },
+      "omschrijving": {
+        "type": "string",
+        "title": "Kenmerk omschrijving",
+        "description": "Beschrijving of toelichting van de kenmerken."
+      },
+      "datumExport": {
+        "type": "string",
+        "title": "Kenmerk exportdatum",
+        "description": "Datum waarop de gegevens van de kenmerken zijn geëxporteerd."
+      },
+      "versie": {
+        "type": "string",
+        "title": "Kenmerk versie",
+        "description": "Versienummer van de kenmerken."
+      },
+      "mGeldigVan": {
+        "type": "string",
+        "title": "Kenmerk geldig vanaf",
+        "description": "Startdatum van de geldigheid van de kenmerken.",
+        "format": "date-time"
+      },
+      "mGeldigTot": {
+        "type": "string",
+        "title": "Kenmerk geldig tot",
+        "description": "Einddatum van de geldigheid van de kenmerken.",
+        "format": "date-time"
+      },
+      "mIsActief": {
+        "type": "boolean",
+        "title": "Kenmerk actieve status",
+        "description": "Geeft aan of de kenmerken actief zijn (Ja/Nee)."
+      }
     }
+  }
 }
