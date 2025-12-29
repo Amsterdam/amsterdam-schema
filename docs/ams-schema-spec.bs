@@ -317,11 +317,11 @@ Verplichte attributen {#version-mandatory-fields}
 Een <dfn dfn export>versie</dfn> binnen Amsterdam Schema is een JSON object met in ieder geval de volgende attributen:
 <table dfn-type="attribute" dfn-for=versie export class="dfn-table">
     <tr><td><dfn>version</dfn>  <td> {{version-string}}     <td> Het versie nummer van deze versie. Zie [[#dataset-versioning]]
-    <tr><td><dfn>lifecycleStatus</dfn>   <td> string
-        <td> Lifecycle van de versie van de dataset. Zie [[#version-lifecycle-status]]
+    <tr><td><dfn>status</dfn>   <td> string
+        <td> Lifecycle van de versie van de dataset. Zie [[#version-status]]
             <details>
                 <summary>Toegestane waarden</summary>
-                    * "experimental"
+                    * "under_development"
                     * "stable"
                     * "superseded"
             </details>
@@ -356,14 +356,14 @@ Naast bovenstaande verplichte attributen mag een [=versie=] ook de volgende eige
 <tr><td><dfn>releaseDate</dfn>   <td> {{date}}
         <td> datum waarop de versie beschikbaar gemaakt is
 <tr><td><dfn>endSupportDate</dfn>   <td> {{date}}
-        <td> Verplicht indien {{versie/lifecycleStatus}} de waarde "superseded" heeft
+        <td> Verplicht indien {{versie/status}} de waarde "superseded" heeft
 </table>
-Lifecycle {#version-lifecycle-status}
+Status {#version-status}
 --------------------------
-Een versie van een dataset dient een {{versie/lifecycleStatus}} te hebben. Momenteel zijn de opties hiervoor 'experimental',
-'stable' of 'superseded'. Deze {{versie/lifecycleStatus}} zegt iets over de stabiliteit van een versie van een dataset.
+Een versie van een dataset dient een {{versie/status}} te hebben. Momenteel zijn de opties hiervoor 'under_development',
+'stable' of 'superseded'. Deze {{versie/status}} zegt iets over de stabiliteit van een versie van een dataset.
 Wanneer een versie 'stable' is, zullen er geen breaking changes meer plaatsvinden. Een versie met de status
-'experimental' is nog in ontwikkeling en kan tijdens deze periode nog veranderen. Wanneer een datasetversie de status
+'under_development' is nog in ontwikkeling en kan tijdens deze periode nog veranderen. Wanneer een datasetversie de status
 'superseded' krijgt is deze vervangen voor een nieuwe versie en zal er in de {{versie/endSupportDate}} een datum opgenomen zijn tot
 wanneer deze versie ondersteund zal worden. In de browsable DSO API zal een melding getoond worden dat gebruikers over
 moeten stappen op een nieuwere versie.
@@ -391,11 +391,11 @@ Een <dfn dfn export>tabel</dfn> binnen Amsterdam Schema is een JSON object met i
     <tr><td><dfn>id</dfn>       <td> {{id-type|identifier}} <td> Naam van de tabel. Unieke (binnen de parent dataset) identifier voor deze tabel. Moet voldoen aan [[#naamgeving]].
     <tr><td><dfn>type</dfn>     <td> {{schema-type}}        <td> Type van dit bestand, in dit geval `"table"`.
     <tr><td><dfn>version</dfn>  <td> {{version-string}}     <td> Het versie nummer van deze tabel. Zie [[#table-versioning]]
-    <tr><td><dfn>lifecycleStatus</dfn>   <td> string
-        <td> Lifecycle van de tabel. Zie [[#table-lifecycle-status]]
+    <tr><td><dfn>status</dfn>   <td> string
+        <td> Lifecycle van de tabel. Zie [[#table-status]]
             <details>
                 <summary>Toegestane waarden</summary>
-                    * "experimental"
+                    * "under_development"
                     * "stable"
             </details>
     <tr><td><dfn>schema</dfn>   <td> object
@@ -661,12 +661,12 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
     </div>
 [END]
 
-Lifecycle {#table-lifecycle-status}
+Status {#table-status}
 --------------------------
-Een tabel van een dataset dient een lifecycleStatus te hebben. Momenteel zijn de opties hiervoor 'experimental' of
-'stable'. Deze lifecycleStatus zegt iets over de stabiliteit van een tabel. Wanneer een versie 'stable'
+Een tabel van een dataset dient een status te hebben. Momenteel zijn de opties hiervoor 'under_development' of
+'stable'. Deze status zegt iets over de stabiliteit van een tabel. Wanneer een versie 'stable'
 is, zullen er geen breaking changes meer plaatsvinden. Bij de validatie van het schema wordt er gecontroleerd of een
-wijziging in een 'stable' tabel geen breaking changes bevat. Een tabel met de status 'experimental' is nog in
+wijziging in een 'stable' tabel geen breaking changes bevat. Een tabel met de status 'under_development' is nog in
 ontwikkeling en kan tijdens deze periode nog veranderen.
 
 Zoom {#zoom}
@@ -762,7 +762,7 @@ Subresources {#subresources}
 Voor relaties die als parent/child beschouwd kunnen worden - dat wil zeggen dat de onderliggende
 resource alleen betekenis heeft binnen de context van de bovenliggende resource - is het mogelijk
 om dit aan te duiden via de `subresources` property op de table. Dit is alleen mogelijk bij
-enkelvoudige (1-to-many) relaties (zie #relatering).
+enkelvoudige (1-to-many) relaties (zie [[#relatering]]).
 
 <div class=example>
     Voorbeeld van een relatie veld voor een enkelvoudige relatie met de temporele tabel "stadsdelen"
@@ -1831,7 +1831,7 @@ Scope `"LEVEL/A"` heeft dataset level autorisatie op gebieden, scope `"LEVEL/B"`
             "crs": "EPSG:28992",
             "versions": {
                 "v1": {
-                    "lifecycleStatus": "stable",
+                    "status": "stable",
                     "enableAPI": true
                     "tables": [
                         {
@@ -1839,7 +1839,7 @@ Scope `"LEVEL/A"` heeft dataset level autorisatie op gebieden, scope `"LEVEL/B"`
                             "mainGeometry": "geometrie",
                             "type": "table",
                             "version": "1.0.0",
-                            "lifecycleStatus": "stable",
+                            "status": "stable",
                             "auth": "LEVEL/B",
                             "schema": {
                                 "$id": "https://github.com/Amsterdam/schemas/gebieden/bouwblokken.json",
@@ -2245,15 +2245,17 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 <!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
 <!-- Update the version number in the metadata at the top and refer to it here. -->
 
-[4.0.0] Status verwijderd (2025-10-23) {#lastchange}
+[4.0.0] LifecycleStatus verwijderd (2025-12-29) {#lastchange}
 ---------------------------------------------------
 > **Doelstelling**<br/>
-    Verwijderen van status en toevoegen van enableAPI flag.
+    Hernoemen van lifecycleStatus en toevoegen van enableAPI flag en subresources.
 
-* [[#version-mandatory-fields]] status verwijderd.
-* [[#version-lifecycle-status]] toegevoegd.
-* [[#tabel-mandatory-fields]] uitgebreid met lifecycleStatus.
-* [[#table-lifecycle-status]] toegevoegd.
+* Dataset lifecycleStatus hernoemt naar {{versie/status}}.
+* {{versie/status}} uitgebreid met 'superseded'.
+* [[#version-mandatory-fields]] uitgebreid met {{versie/enableAPI}}.
+* [[#version-optional-fields]] uitgebreid met {{versie/endSupportDate}} en {{versie/releaseDate}}.
+* Tabel lifecycleStatus hernoemt naar {{tabel/status}}.
+* [[#tabel-optional-fields]] uitgebreid met subresources.
 
 [3.2.0] rowLevelAuth toegevoegd (2025-11-11) {#20251111}
 ---------------------------------------------------
@@ -2269,9 +2271,9 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
     Toevoegen van lifecycleStatus aan versie en tabel.
 
 * [[#version-mandatory-fields]] uitgebreid met lifecycleStatus.
-* [[#version-lifecycle-status]] toegevoegd.
+* lifecycleStatus toegevoegd.
 * [[#tabel-mandatory-fields]] uitgebreid met lifecycleStatus.
-* [[#table-lifecycle-status]] toegevoegd.
+* lifecycleStatus toegevoegd.
 
 [3.0.0] Dataset versionering toegevoegd (2025-03-03) {#20250303}
 ---------------------------------------------------
