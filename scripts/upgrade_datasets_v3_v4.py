@@ -55,6 +55,11 @@ for dirpath, dirs, filenames in os.walk("datasets/"):
             new_table_schema = {k: d.get(k) for k in key_order}
             new_table_schema.pop("lifecycleStatus", None)
 
+            # Replace schema url
+            d["schema"]["properties"]["schema"][
+                "$ref"
+            ] = "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+
             # Write changed table to file
             with open(filename, "w") as f:
                 f.write(json.dumps(new_table_schema, indent=2))
