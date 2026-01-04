@@ -1,9 +1,0 @@
-FROM nginx:1.23.4-alpine-slim
-WORKDIR /app
-COPY nginx.conf /etc/nginx/nginx.conf
-VOLUME /app
-
-RUN addgroup --system proxy
-RUN adduser --no-create-home --system proxy proxy
-
-ENTRYPOINT ["/bin/sh", "-c", "nginx -g 'daemon off;';"]
