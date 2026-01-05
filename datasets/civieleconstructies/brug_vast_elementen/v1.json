@@ -1,55 +1,55 @@
-    {
-      "id": "brugVastElementen",
-      "type": "table",
-      "version": "1.0.0",
-	  "lifecycleStatus": "experimental", 	  
-      "title": "Elementen van vaste bruggen",
-      "description": "Aanwijsbaar deel van een beheerobject dat uitsluitend op basis van de verlangde functie wordt onderscheiden en bestaat uit één of meerdere bouwdelen, bijvoorbeeld installaties, constructies of afscheiding",
+{
+  "id": "brugVastElementen",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Elementen van vaste bruggen",
+  "description": "Aanwijsbaar deel van een beheerobject dat uitsluitend op basis van de verlangde functie wordt onderscheiden en bestaat uit één of meerdere bouwdelen, bijvoorbeeld installaties, constructies of afscheiding",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "Id"
+    ],
+    "required": [
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
       "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "identifier": [
-           "Id"
-        ],		
-        "required": [
-          "schema"
-        ],
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "id": {
-            "type": "string",
-            "description": "Unieke aanduiding van het record.",
-		        "title": "ID"
-	        },
-          "brugVastId": {
-            "type": "string",
-            "description": "Verwijzing naar het ID in vaste_brug",
-            "title": "Vaste brug ID "
-          },
-          "naam": {
-            "type": "string",
-            "description": "De naam van het soort element",
-            "title": "Naam element"
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "Omschrijving van een elementsoort",
-            "title": "Omschrijving"
-          },
-		  "jaarVanAanleg": {
-            "type": "integer",
-            "description": "[Verhardingen] jaar waarin de volledige verhardingsconstructie is opgebouwd, inclusief de fundering.",
-            "title": "Jaar Van Aanleg"
-          },
-          "uitneembaar": {
-            "type": "boolean",
-            "description": "Aanduiding of een gedeelte van het object uitgenomen kan worden.",
-            "title": "Uitneembaar"
-          }
-        }
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke aanduiding van het record.",
+        "title": "ID"
+      },
+      "brugVastId": {
+        "type": "string",
+        "description": "Verwijzing naar het ID in vaste_brug",
+        "title": "Vaste brug ID "
+      },
+      "naam": {
+        "type": "string",
+        "description": "De naam van het soort element",
+        "title": "Naam element"
+      },
+      "omschrijving": {
+        "type": "string",
+        "description": "Omschrijving van een elementsoort",
+        "title": "Omschrijving"
+      },
+      "jaarVanAanleg": {
+        "type": "integer",
+        "description": "[Verhardingen] jaar waarin de volledige verhardingsconstructie is opgebouwd, inclusief de fundering.",
+        "title": "Jaar Van Aanleg"
+      },
+      "uitneembaar": {
+        "type": "boolean",
+        "description": "Aanduiding of een gedeelte van het object uitgenomen kan worden.",
+        "title": "Uitneembaar"
       }
     }
+  }
+}

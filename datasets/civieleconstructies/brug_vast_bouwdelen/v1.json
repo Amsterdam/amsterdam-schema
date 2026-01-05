@@ -1,60 +1,60 @@
-    {
-      "id": "brugVastBouwdelen",
-      "type": "table",
-      "version": "1.0.0",
-	  "lifecycleStatus": "experimental", 
-      "title": "Bouwdelen van elementen van vaste bruggen",
-      "description": "Zelfstandig en aanwijsbaar deel van een element, onderscheiden naar samenstelling of constructiewijze, bestaande uit één of meer componenten waaraan technische eigenschappen en een onderhoudshistorie kunnen worden gerelateerd, bijvoorbeeld wandafwerking, pijler of afsluitboom.",
+{
+  "id": "brugVastBouwdelen",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Bouwdelen van elementen van vaste bruggen",
+  "description": "Zelfstandig en aanwijsbaar deel van een element, onderscheiden naar samenstelling of constructiewijze, bestaande uit één of meer componenten waaraan technische eigenschappen en een onderhoudshistorie kunnen worden gerelateerd, bijvoorbeeld wandafwerking, pijler of afsluitboom.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "Id"
+    ],
+    "required": [
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
       "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "additionalProperties": false,
-        "identifier": [
-           "Id"
-        ],		        
-        "required": [
-          "schema"
-        ],
-        "display": "id",
-        "properties": {
-          "schema": {
-            "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-          },
-          "id": {
-            "type": "string",
-            "description": "Unieke aanduiding van het record.",
-		        "title": "ID"
-	        },
-          "brugVastElementenId": {
-            "type": "string",
-            "description": "Verwijzing naar het ID in vaste_brug_elementen",
-            "title": "Vaste brug elementen ID "
-          },
-          "naam": {
-            "type": "string",
-            "description": "De naam van het soort bouwdeel",
-            "title": "Naam element"
-          },
-          "omschrijving": {
-            "type": "string",
-            "description": "Omschrijving van een bouwdeelsoort",
-            "title": "Omschrijving"
-		  },			  
-          "jaarVanAanleg": {
-            "type": "integer",
-            "description": "[Verhardingen] jaar waarin de volledige verhardingsconstructie is opgebouwd, inclusief de fundering.",
-            "title": "Jaar Van Aanleg"
-          },
-          "materiaal": {
-            "type": "string",
-            "description": "Lijst met materialen waaruit het beheerobject opgebouwd is.",
-            "title": "Materiaal"
-          },
-          "uitneembaar": {
-            "type": "boolean",
-            "description": "Aanduiding of een gedeelte van het object uitgenomen kan worden.",
-            "title": "Uitneembaar"
-          }
-        }
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke aanduiding van het record.",
+        "title": "ID"
+      },
+      "brugVastElementenId": {
+        "type": "string",
+        "description": "Verwijzing naar het ID in vaste_brug_elementen",
+        "title": "Vaste brug elementen ID "
+      },
+      "naam": {
+        "type": "string",
+        "description": "De naam van het soort bouwdeel",
+        "title": "Naam element"
+      },
+      "omschrijving": {
+        "type": "string",
+        "description": "Omschrijving van een bouwdeelsoort",
+        "title": "Omschrijving"
+      },
+      "jaarVanAanleg": {
+        "type": "integer",
+        "description": "[Verhardingen] jaar waarin de volledige verhardingsconstructie is opgebouwd, inclusief de fundering.",
+        "title": "Jaar Van Aanleg"
+      },
+      "materiaal": {
+        "type": "string",
+        "description": "Lijst met materialen waaruit het beheerobject opgebouwd is.",
+        "title": "Materiaal"
+      },
+      "uitneembaar": {
+        "type": "boolean",
+        "description": "Aanduiding of een gedeelte van het object uitgenomen kan worden.",
+        "title": "Uitneembaar"
       }
     }
+  }
+}
