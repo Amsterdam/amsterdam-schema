@@ -22,12 +22,12 @@ for dirpath, _, filenames in os.walk("datasets/"):
         with open(filename) as f:
             d = json.load(f)
 
-        if d["type"] != "dataset":
+        if d.get("type") != "dataset":
             continue
 
         print(d["id"])
 
-        for table in d["tables"]:
+        for table in d["versions"][d["defaultVersion"]]["tables"]:
             if "$ref" in table:
                 with open(os.path.join(dirpath, table["$ref"] + ".json")) as f:
                     table = json.load(f)
