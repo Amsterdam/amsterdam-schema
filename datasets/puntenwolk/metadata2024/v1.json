@@ -13,7 +13,7 @@
             "file_name",
             "schema"
         ],
-        "display": "file_name",
+        "display": "id",
         "properties": {
             "schema": {
                 "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
@@ -23,7 +23,7 @@
                 "description": "Unieke identificatie van het object.",
                 "title": "Identificatie"
             },
-            "file_name": {
+            "fileName": {
                 "type": "string",
                 "description": "De naam van het verwerkte LAZ-bestand.",
                 "title": "Bestandsnaam"
@@ -38,57 +38,57 @@
                 "description": "URL naar de locatie waarin het bestand zich bevindt.",
                 "title": "Bestandslocatie"
             },
-            "file_size_mb": {
+            "fileSizeMb": {
                 "type": "number",
                 "description": "De grootte van het bestand in megabytes.",
                 "title": "Bestandsgrootte (MB)"
             },
-            "point_count": {
+            "aantalPunten": {
                 "type": "integer",
                 "description": "Het totale aantal punten in het las bestand.",
                 "title": "Aantal punten"
             },
-            "x_scale": {
+            "xScale": {
                 "type": "number",
                 "description": "De schaalfactor voor de X-coördinaat.",
                 "title": "X-schaal"
             },
-            "y_scale": {
+            "yScale": {
                 "type": "number",
                 "description": "De schaalfactor voor de Y-coördinaat.",
                 "title": "Y-schaal"
             },
-            "z_scale": {
+            "zScale": {
                 "type": "number",
                 "description": "De schaalfactor voor de Z-coördinaat.",
                 "title": "Z-schaal"
             },
-            "min_x": {
+            "minX": {
                 "type": "number",
                 "description": "De minimum X-coördinaat van de bounding box van de puntenwolk.",
                 "title": "Minimum X"
             },
-            "min_y": {
+            "minY": {
                 "type": "number",
                 "description": "De minimum Y-coördinaat van de bounding box van de puntenwolk.",
                 "title": "Minimum Y"
             },
-            "min_z": {
+            "minZ": {
                 "type": "number",
                 "description": "De minimum Z-coördinaat van de bounding box van de puntenwolk.",
                 "title": "Minimum Z"
             },
-            "max_x": {
+            "maxX": {
                 "type": "number",
                 "description": "De maximum X-coördinaat van de bounding box van de puntenwolk.",
                 "title": "Maximum X"
             },
-            "max_y": {
+            "maxY": {
                 "type": "number",
                 "description": "De maximum Y-coördinaat van de bounding box van de puntenwolk.",
                 "title": "Maximum Y"
             },
-            "max_z": {
+            "maxZ": {
                 "type": "number",
                 "description": "De maximum Z-coördinaat van de bounding box van de puntenwolk.",
                 "title": "Maximum Z"
@@ -99,22 +99,22 @@
                 "title": "Geometrie RD",
                 "$ref": "https://geojson.org/schema/Polygon.json"
             },
-            "geometrie_wgs84": {
+            "geometrieWgs84": {
                 "type": "string",
                 "description": "Geometrie van het type POLYGON, afgeleid van de coördinaten in de bestandsnaam in WGS84 (epsg:4326).",
                 "title": "Geometrie WGS84"
             },
-            "buurt_identificaties": {
+            "buurtIdentificaties": {
                 "type": "array",
                 "description": "Unieke identificatie(s) van het object",
                 "title": "Object ID's"
             },
-            "buurt_codes": {
+            "buurtCodes": {
                 "type": "array",
                 "description": "Unieke code(s) van het object",
                 "title": "Object codes"
             }, 
-            "buurt_volgnummers": {
+            "buurtVolgnummers": {
                 "type": "array",
                 "description": "Unieke volgnujmmer(s) van het object",
                 "title": "Object volgnummers"
