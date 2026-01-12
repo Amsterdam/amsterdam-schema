@@ -1,0 +1,124 @@
+{
+    "id": "metadata_2024",
+    "version": "1.0.0",
+    "type": "table",
+    "provenance": "metdadata_2024",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "mainGeometry": "geometrie",
+        "identifier": "id",
+        "required": [
+            "file_name",
+            "schema"
+        ],
+        "display": "file_name",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
+            },
+            "id": {
+                "type": "string",
+                "description": "Unieke identificatie van het object.",
+                "title": "Identificatie"
+            },
+            "file_name": {
+                "type": "string",
+                "description": "De naam van het verwerkte LAZ-bestand.",
+                "title": "Bestandsnaam"
+            },
+            "provider": {
+                "type": "string",
+                "description": "De naam van de provider (leverancier) van het LiDAR-bestand, afgeleid van de mapstructuur.",
+                "title": "Provider"
+            },
+            "url": {
+                "type": "string",
+                "description": "URL naar de locatie waarin het bestand zich bevindt.",
+                "title": "Bestandslocatie"
+            },
+            "file_size_mb": {
+                "type": "number",
+                "description": "De grootte van het bestand in megabytes.",
+                "title": "Bestandsgrootte (MB)"
+            },
+            "point_count": {
+                "type": "integer",
+                "description": "Het totale aantal punten in het las bestand.",
+                "title": "Aantal punten"
+            },
+            "x_scale": {
+                "type": "number",
+                "description": "De schaalfactor voor de X-coördinaat.",
+                "title": "X-schaal"
+            },
+            "y_scale": {
+                "type": "number",
+                "description": "De schaalfactor voor de Y-coördinaat.",
+                "title": "Y-schaal"
+            },
+            "z_scale": {
+                "type": "number",
+                "description": "De schaalfactor voor de Z-coördinaat.",
+                "title": "Z-schaal"
+            },
+            "min_x": {
+                "type": "number",
+                "description": "De minimum X-coördinaat van de bounding box van de puntenwolk.",
+                "title": "Minimum X"
+            },
+            "min_y": {
+                "type": "number",
+                "description": "De minimum Y-coördinaat van de bounding box van de puntenwolk.",
+                "title": "Minimum Y"
+            },
+            "min_z": {
+                "type": "number",
+                "description": "De minimum Z-coördinaat van de bounding box van de puntenwolk.",
+                "title": "Minimum Z"
+            },
+            "max_x": {
+                "type": "number",
+                "description": "De maximum X-coördinaat van de bounding box van de puntenwolk.",
+                "title": "Maximum X"
+            },
+            "max_y": {
+                "type": "number",
+                "description": "De maximum Y-coördinaat van de bounding box van de puntenwolk.",
+                "title": "Maximum Y"
+            },
+            "max_z": {
+                "type": "number",
+                "description": "De maximum Z-coördinaat van de bounding box van de puntenwolk.",
+                "title": "Maximum Z"
+            },
+            "geometrie": {
+                "type": "string",
+                "description": "Geometrie van het type POLYGON, afgeleid van de coördinaten in de bestandsnaam in RD (epsg:28992).",
+                "title": "Geometrie RD",
+                "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            "geometrie_wgs84": {
+                "type": "string",
+                "description": "Geometrie van het type POLYGON, afgeleid van de coördinaten in de bestandsnaam in WGS84 (epsg:4326).",
+                "title": "Geometrie WGS84"
+            },
+            "buurt_identificaties": {
+                "type": "array",
+                "description": "Unieke identificatie(s) van het object",
+                "title": "Object ID's"
+            },
+            "buurt_codes": {
+                "type": "array",
+                "description": "Unieke code(s) van het object",
+                "title": "Object codes"
+            }, 
+            "buurt_volgnummers": {
+                "type": "array",
+                "description": "Unieke volgnujmmer(s) van het object",
+                "title": "Object volgnummers"
+            }         
+        }
+    }
+}
