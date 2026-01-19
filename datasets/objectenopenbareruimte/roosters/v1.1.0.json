@@ -1,0 +1,289 @@
+{
+  "id": "roosters",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "stable",
+  "title": "Roosters",
+  "description": "",
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Identificatienummer van het object.",
+        "title": "id"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "description": "Geometrie van het object.",
+        "title": "Geometrie"
+      },
+      "geometriePunt": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "Puntgeometrie van een object, door het datateam gegenereerd. Van polygoon- of lijnobjecten wordt de centre point berekend.",
+        "title": "Geometrie punt"
+      },  
+      "aanleghoogte": {
+        "type": "number",
+        "description": "Hoogte van het beheerobject t.o.v. NAP in meters.",
+        "title": "Aanleghoogte"
+      },
+      "actueelKwaliteitsniveau": {
+        "type": "string",
+        "description": "Aanduiding van het actuele kwaliteitsniveau (na schouwen of inspecteren) conform de CROW Kwaliteitscatalogus (A+, A, B, C, D).",
+        "title": "Actueel kwaliteitsniveau"
+      },
+      "beginGarantieperiode": {
+        "type": "string",
+        "format": "date",
+        "description": "Jaar waarin de garantieperiode van het opgeleverde beheerobject begint.",
+        "title": "Begin garantieperiode"
+      },
+      "beheerafspraak": {
+        "type": "string",
+        "description": "Afspraak over het beheer van de asset gedurende de levenscyclus.",
+        "title": "Beheerafspraak"
+      },
+      "beheerder": {
+        "type": "string",
+        "description": "Een publiekrechtelijke instantie of (rechts)persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT).",
+        "title": "Beheerder"
+      },
+      "beheerderGedetailleerd": {
+        "type": "string",
+        "description": "Nadere aanduiding van de beheerder van het beheerobject.",
+        "title": "Beheerder gedetailleerd"
+      },
+      "beheergebied": {
+        "type": "string",
+        "description": "Aanduiding van het beheergebied waarbinnen het beheerobject ligt. Indeling in beheergebieden is organisatiespecifiek.",
+        "title": "Beheergebied"
+      },
+      "breedte": {
+        "type": "number",
+        "description": "Breedte van het beheerobject.",
+        "title": "Breedte"
+      },
+      "buurt": {
+        "type": "string",
+        "description": "Aanduiding van de buurt waarbinnen het beheerobject ligt (conform CBS-indeling).",
+        "title": "Buurt"
+      },
+      "conditiescore": {
+        "type": "string",
+        "description": "Maat voor het vastleggen van de conditie van een object op basis van 6 scores.",
+        "title": "Conditiescore"
+      },
+      "datumInwinning": {
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop het punt is ingewonnen.",
+        "title": "Datum inwinning"
+      },
+      "eigenaar": {
+        "type": "string",
+        "description": "(Rechts)persoon die het meest  omvattend recht op een zaak heeft . De typen eigenaren zijn conform de indeling in bronhouders (BGT).",
+        "title": "Eigenaar"
+      },
+      "eigenaarGedetailleerd": {
+        "type": "string",
+        "description": "Nadere aanduiding van de eigenaar van het beheerobject.",
+        "title": "Eigenaar gedetailleerd"
+      },
+      "eindeGarantieperiode": {
+        "type": "string",
+        "format": "date",
+        "description": "Jaar (datum) waarin de garantieperiode van het opgeleverde beheerobject eindigt.",
+        "title": "Einde garantieperiode"
+      },
+      "fundering": {
+        "type": "string",
+        "description": "Keuze uit lijst met funderingen van het beheerobject. Van toepassing bij wegobjecten en grassportvelden.",
+        "title": "Fundering"
+      },
+      "gebiedstype": {
+        "type": "string",
+        "description": "Aanduiding van het gebiedstype waarbinnen het beheerobject ligt. Conform de indeling zoals toegepast bij de CROW Benchmark Beheerprestaties.",
+        "title": "Gebiedstype"
+      },
+      "gebruiksfunctie": {
+        "type": "string",
+        "description": "Aanduiding van één of meer gebruiksfuncties van het beheerobject.",
+        "title": "Gebruiksfunctie"
+      },
+      "gemeente": {
+        "type": "string",
+        "description": "Naam van de gemeente waarbinnen het beheerobject ligt.",
+        "title": "Gemeente"
+      },
+      "gewenstKwaliteitsniveau": {
+        "type": "string",
+        "description": "Aanduiding van het gewenste kwaliteitsniveau conform de CROW Kwaliteitscatalogus (A+, A, B, C, D).",
+        "title": "Gewenst kwaliteitsniveau"
+      },
+      "guid": {
+        "type": "string",
+        "description": "Unieke identificatiecode van het object.",
+        "title": "Guid"
+      },
+      "hoogte": {
+        "type": "number",
+        "description": "Hoogte van het beheerobject in meters.",
+        "title": "Hoogte"
+      },
+      "idUitOudeBeheerindeling": {
+        "type": "string",
+        "description": "Uniek kenmerk van een beheerobject uit een oude beheerindeling.",
+        "title": "ID uit oude beheerindeling"
+      },
+      "identificatie": {
+        "type": "string",
+        "description": "Uniek identificatienummer voor het object dat onveranderlijk is zolang het object bestaat.",
+        "title": "Identificatie"
+      },
+      "jaarLaatsteConservering": {
+        "type": "integer",
+        "description": "Jaar waarin schade(s) aan het beheerobject is geconserveerd.",
+        "title": "Jaar laatste conservering"
+      },
+      "jaarUitgevoerdOnderhoud": {
+        "type": "integer",
+        "description": "Jaar waarin het onderhoud van het beheerobject is uitgevoerd.",
+        "title": "Jaar uitgevoerd onderhoud"
+      },
+      "jaarVanAanleg": {
+        "type": "integer",
+        "description": "Jaar waarin het beheerobject is aangelegd of aangeplant (kan ook voor de plaatsingsdatum gebruikt worden).",
+        "title": "Jaar van aanleg"
+      },
+      "kleur": {
+        "type": "string",
+        "description": "Kleur van het beheerobject.",
+        "title": "Kleur"
+      },
+      "lengte": {
+        "type": "number",
+        "description": "Lengte van het beheerobject.",
+        "title": "Lengte"
+      },
+      "lengteGis": {
+        "type": "number",
+        "description": "Op geometrie automatisch berekende lengte (lijn) of omtrek (vlak) in meters",
+        "title": "Lengte Gis"
+      },
+      "leverancier": {
+        "type": "string",
+        "description": "Leverancier van het beheerobject.",
+        "title": "Leverancier"
+      },
+      "ligging": {
+        "type": "string",
+        "description": "Aanduiding van de ligging van het beheerobject binnen of buiten de bebouwde kom.",
+        "title": "Ligging"
+      },
+      "locatieaanduiding": {
+        "type": "string",
+        "description": "Nadere specificatie van de locatie van het object aanvullend op de registratie van openbare ruimte en huisnummer.",
+        "title": "Locatieaanduiding"
+      },
+      "matching": {
+        "type": "string",
+        "description": "Geeft aan welke gegevens afkomstig zijn uit conversie geovisia",
+        "title": "Matching"
+      },
+      "materiaal": {
+        "type": "string",
+        "description": "Lijst met materialen waaruit het beheerobject opgebouwd is.",
+        "title": "Materiaal"
+      },
+      "model": {
+        "type": "string",
+        "description": "Naam of type van het toegepaste object.",
+        "title": "Model"
+      },
+      "mutatieDatum": {
+        "type": "string",
+        "format": "date-time",
+        "description": "",
+        "title": "Mutatie datum"
+      },
+      "objectnaam": {
+        "type": "string",
+        "description": "Naam van het beheerobject.",
+        "title": "Objectnaam"
+      },
+      "omschrijving": {
+        "type": "string",
+        "description": "",
+        "title": "Omschrijving"
+      },
+      "onderhoudsplichtige": {
+        "type": "string",
+        "description": "Organisatie die verantwoordelijk is voor het onderhoud van het beheerobject.",
+        "title": "Onderhoudsplichtige"
+      },
+      "openbareRuimte": {
+        "type": "string",
+        "description": "Aanduiding van de openbare ruimte, zoals gedefinieerd in IMGeo of in de BAG, waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met grenzen openbare ruimtes of uit de Basisregistratie Adressen en Gebouwen (zonder begrenzig).",
+        "title": "Openbare ruimte"
+      },
+      "oppervlakteGis": {
+        "type": "number",
+        "description": "Oppervlakte van het beheerobject, overname van BGT/IMGeo.",
+        "title": "Oppervlakte GIS"
+      },
+      "relatieveHoogteligging": {
+        "type": "integer",
+        "description": "Aanduiding voor de relatieve hoogte van het beheerobject.",
+        "title": "Relatieve hoogteligging"
+      },
+      "revisie": {
+        "type": "integer",
+        "description": "Identificatie van de meest recente bewerking of aanpassing van het object of de gegevens ervan.",
+        "title": "Revisie"
+      },
+      "stadsdeelOfKern": {
+        "type": "string",
+        "description": "Stadsdeel, niet te verwarren met Stadsdeel BGT-IMGeo: zie hiervoor Woonplaats. Voor de meeste gemeenten gelijk aan Woonplaats, maar kan ook functioneren als hiërarchische laag tussen de niveaus wijk en woonplaats.",
+        "title": "Stadsdeel of kern"
+      },
+      "type": {
+        "type": "string",
+        "description": "Typering van het beheerobject.",
+        "title": "Type"
+      },
+      "typeGedetailleerd": {
+        "type": "string",
+        "description": "Nadere typering van het type beheerobject.",
+        "title": "Type gedetailleerd"
+      },
+      "waterschap": {
+        "type": "string",
+        "description": "Aanduiding van het waterschap, waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met waterschapsgrenzen.",
+        "title": "Waterschap"
+      },
+      "wijk": {
+        "type": "string",
+        "description": "Aanduiding van de wijk waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met wijkgrenzen.",
+        "title": "Wijk"
+      },
+      "woonplaats": {
+        "type": "string",
+        "description": "Woonplaats, overeenkomstig met Stadsdeel of Woonplaats conform BGT-IMGeo. Lijst met domeinwaarden.",
+        "title": "Woonplaats"
+      }
+    }
+  }
+}
