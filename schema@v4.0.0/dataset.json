@@ -1,0 +1,127 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.data.amsterdam.nl/dataset@v4.0.0",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "./schema@v4.0.0#/definitions/basicProperties"
+    }
+  ],
+  "required": [
+    "defaultVersion",
+    "versions",
+    "creator",
+    "authorizationGrantor",
+    "owner",
+    "publisher",
+    "auth"
+  ],
+  "properties": {
+    "schema": {
+      "const": "dataset"
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri"
+    },
+    "language": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 3
+    },
+    "accrualPeriodicity": {
+      "type": "string"
+    },
+    "spatialDescription": {
+      "type": "string"
+    },
+    "spatialCoordinates": {
+      "$ref": "https://geojson.org/schema/Geometry.json"
+    },
+    "theme": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "publisher": {
+      "description": "id van het team dat de data publiceert in de DataHub (doorgaans het datateam). Zie /publishers voor de mogelijke ids.",
+      "type": "object",
+      "required": [
+        "$ref"
+      ],
+      "properties": {
+        "$ref": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "additionalProperties": false
+      }
+    },
+    "creator": {
+      "description": "Naam van de bronhouder.",
+      "type": "string",
+      "minLength": 1
+    },
+    "owner": {
+      "type": "string",
+      "default": "Gemeente Amsterdam",
+      "minLength": 1
+    },
+    "authorizationGrantor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hasBeginning": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "hasEnd": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "temporalUnit": {
+      "type": "string"
+    },
+    "spatial": {
+      "type": "string"
+    },
+    "legalBasis": {
+      "type": "string"
+    },
+    "contactPoint": {
+      "description": "Person and (optional) e-mail.",
+      "$ref": "./schema@v4.0.0#/definitions/contactPoint",
+      "default": {
+        "name": "datapunt",
+        "email": "datapunt@amsterdam.nl"
+      }
+    },
+    "crs": {
+      "description": "Coordinate reference system",
+      "$ref": "./schema@v4.0.0#/definitions/crs"
+    },
+    "defaultVersion": {
+      "description": "De default major versie die getoond wordt in de DSO API",
+      "$ref": "./schema@v4.0.0#/definitions/majorVersion"
+    },
+    "versions": {
+      "type": "object",
+      "minItems": 1,
+      "patternProperties": {
+        "^v(0|[1-9][0-9]*)$": {
+          "$ref": "./dataset-version@v4.0.0"
+        }
+      }
+    }
+  }
+}

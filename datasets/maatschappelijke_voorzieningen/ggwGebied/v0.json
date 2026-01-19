@@ -4,7 +4,7 @@
   "title": "ggwgebied",
   "description": "Het gebiedsgerichtwerken-gebied van de maatschappelijke voorziening",
   "version": "0.0.1",
-  "lifecycleStatus": "experimental",
+  "status": "under_development",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -14,10 +14,10 @@
     "display": "naam",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "id": {
-        "type": "integer",
+        "type": "string",
         "description": "Een unieke numerieke code die wordt gebruikt om een specifiek gebied te identificeren binnen het systeem."
       },
       "naam": {
@@ -45,7 +45,7 @@
         "description": "De datum en tijd waarop het gebied is aangemaakt of geregistreerd in het systeem."
       },
       "ggwGebiedStadsdeel": {
-        "type": "integer",
+        "type": "string",
         "description": "Een numerieke waarde die verwijst naar het stadsdeel dat is gekoppeld aan het gebied."
       }
     }

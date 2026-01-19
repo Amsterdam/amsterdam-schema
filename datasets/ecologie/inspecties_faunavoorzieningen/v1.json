@@ -1,229 +1,228 @@
 {
-    "id": "inspectiesFaunavoorzieningen",
-    "type": "table",
-    "version": "1.0.0",
-    "lifecycleStatus": "stable",
-    "title": "Inspecties faunavoorzieningen",
-    "description": "Deze tabel bevat de resultaten van inspecties aan faunavoorzieningen. Deze objecten zijn terug te vinden in de andere ecologie tabellen faunavoorzieningen, faunameubilair, faunaverblijftplaatsen en waterobjecten.",
-    "auth": "FP/MDW",
-    "reasonsNonPublic": [
-            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
-          ],
-    "identifier": "id",
-    "schema": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "schema",
-        "id"
-      ],
-      "display": "id",
-      "properties": {
-        "schema": {
-          "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-        },
-        "id": {
-          "type": "integer",
-          "title": "Id",
-          "description": "Uniek identificerend kenmerk van een object."
-        },
-        "aanwezigheidLandhabitat": {
-          "type": "boolean",
-          "title": "Aanwezigheid landhabitat",
-          "description": "ntb"
-        },
-        "aanwezigheidZwerfvuil": {
-          "type": "string",
-	        "title": "Aanwezigheid zwerfvuil",
-          "description": "ntb"
-	    },
-        "acceptatieEcomonitoring": {
-          "type": "string",
-          "title": "Acceptatie ecomonitoring",
-          "description": "ntb"
-        },
-        "afleidingAanwezig": {
-          "type": "string",
-          "title": "Afleiding aanwezig",
-          "description": "ntb"
-        },
-        "afstandTotWinterbiotoop": {
-          "type": "string",
-          "title": "Afstand tot winterbiotoop",
-          "description": "ntb"
-        },
-	"datum": {
-          "type": "string",
-	  "format": "date",
-          "title": "Datum",
-          "description": "ntb"
-        },
-	"datumToezicht": {
-          "type": "string",
-	  "format": "date",
-          "title": "Datum toezicht",
-          "description": "ntb"
-        },
-	"dikteSliblaag": {
-          "type": "string",
-          "title": "Dikte sliblaag",
-          "description": "ntb"
-    	},
-	"faunameubilairId": {
-          "type": "string",
-          "title": "Faunameubilair ID",
-          "description": "ntb"
-	},
-	"faunaverblijfplaatsId": {
-          "type": "string",
-          "title": "Faunaverblijfplaats ID",
-          "description": "ntb"
-        },
-      	"faunavoorzieningId": {
-          "type": "string",
-          "title": "Faunavoorziening ID",
-          "description": "ntb"
-        },
-      	"faunavoorzieningstype": {
-          "type": "string",
-          "title": "Faunavoorzieningstype",
-          "description": "ntb"
-        },
-      	"geleidingAanwezig": {
-          "type": "string",
-          "title": "Geleiding aanwezig",
-          "description": "ntb"
-        },
-      	"geplandeEinddatum": {
-          "type": "string",
-	  "format": "date",
-          "title": "Geplande einddatum",
-          "description": "ntb"
-        },
-      	"geplandeStartdatum": {
-          "type": "string",
-	  "format": "date",
-          "title": "Geplande startdatum",
-          "description": "ntb"
-        },
-      	"hellinggraadPoel": {
-          "type": "string",
-          "title": "Hellinggraad poel",
-          "description": "ntb"
-        },
-      	"importId": {
-          "type": "integer",
-          "title": "Import ID",
-          "description": "ntb"
-        },
-      	"inspectieTeHerstellen": {
-          "type": "boolean",
-          "title": "Inspectie te herstellen",
-          "description": "ntb"
-        },
-      	"kpiTotaalscore": {
-          "type": "integer",
-          "title": "KPI Totaalscore",
-          "description": "ntb"
-        },
-      	"kpiWaardering": {
-          "type": "string",
-          "title": "KPI Waardering",
-          "description": "ntb"
-        },
-      	"mutatieDatum": {
-          "type": "string",
-      	  "format": "date-time",
-      	  "title": "Mutatie datum",
-      	  "description": "De datum waarop de digitale gegevens van deze inspectie voor het laatst gewijzigd zijn."
-        },
-      	"mateVegetatie": {
-          "type": "string",
-          "title": "Mate vegetatie",
-          "description": "ntb"
-        },
-      	"memBeheerobject": {
-          "type": "string",
-          "title": "Memo beheerobject",
-          "description": "ntb"
-        },
-      	"nietTeInspecteren": {
-          "type": "boolean",
-          "title": "Niet te inspecteren",
-          "description": "ntb"
-        },
-      	"norm": {
-          "type": "integer",
-          "title": "Norm",
-          "description": "ntb"
-        },
-      	"oevervegetatie": {
-          "type": "string",
-          "title": "Oevervegetatie",
-          "description": "ntb"
-        },
-      	"overgroeiing": {
-          "type": "string",
-          "title": "Overgroeiing",
-          "description": "ntb"
-        },
-      	"poeldiepte": {
-          "type": "string",
-          "title": "Poeldiepte",
-          "description": "ntb"
-        },
-	      "poeldoorsnede": {
-          "type": "string",
-          "title": "Poeldoorsnede",
-          "description": "ntb"
-        },
-	      "revisie": {
-          "type": "integer",
-          "title": "Revisie",
-          "description": "ntb"
-        },
-	      "statusInspectie": {
-          "type": "string",
-          "title": "Status inspectie",
-          "description": "ntb"
-        },
-	      "technischeStaat": {
-          "type": "string",
-          "title": "Technische staat",
-          "description": "ntb"
-        },
-      	"timingInspectie": {
-          "type": "string",
-          "title": "Timing inspectie",
-          "description": "ntb"
-        },
-	      "toegankelijkheid": {
-          "type": "string",
-          "title": "Toegankelijkheid",
-          "description": "ntb"
-        },
-	      "verbossing": {
-          "type": "string",
-          "title": "Verbossing",
-          "description": "ntb"
-        },
-      	"waterAanwezig": {
-          "type": "boolean",
-          "title": "Water aanwezig",
-          "description": "ntb"
-        },
-	      "waterobjectId": {
-          "type": "string",
-          "title": "Waterobject ID",
-          "description": "ntb"
-        },
-	      "waterplantenPercentage": {
-          "type": "string",
-          "title": "Waterplanten percentage",
-          "description": "ntb"
-        }
+  "id": "inspectiesFaunavoorzieningen",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "stable",
+  "title": "Inspecties faunavoorzieningen",
+  "description": "Deze tabel bevat de resultaten van inspecties aan faunavoorzieningen. Deze objecten zijn terug te vinden in de andere ecologie tabellen faunavoorzieningen, faunameubilair, faunaverblijftplaatsen en waterobjecten.",
+  "auth": "FP/MDW",
+  "reasonsNonPublic": [
+    "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+  ],
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "Id",
+        "description": "Uniek identificerend kenmerk van een object."
+      },
+      "aanwezigheidLandhabitat": {
+        "type": "boolean",
+        "title": "Aanwezigheid landhabitat",
+        "description": "ntb"
+      },
+      "aanwezigheidZwerfvuil": {
+        "type": "string",
+        "title": "Aanwezigheid zwerfvuil",
+        "description": "ntb"
+      },
+      "acceptatieEcomonitoring": {
+        "type": "string",
+        "title": "Acceptatie ecomonitoring",
+        "description": "ntb"
+      },
+      "afleidingAanwezig": {
+        "type": "string",
+        "title": "Afleiding aanwezig",
+        "description": "ntb"
+      },
+      "afstandTotWinterbiotoop": {
+        "type": "string",
+        "title": "Afstand tot winterbiotoop",
+        "description": "ntb"
+      },
+      "datum": {
+        "type": "string",
+        "format": "date",
+        "title": "Datum",
+        "description": "ntb"
+      },
+      "datumToezicht": {
+        "type": "string",
+        "format": "date",
+        "title": "Datum toezicht",
+        "description": "ntb"
+      },
+      "dikteSliblaag": {
+        "type": "string",
+        "title": "Dikte sliblaag",
+        "description": "ntb"
+      },
+      "faunameubilairId": {
+        "type": "string",
+        "title": "Faunameubilair ID",
+        "description": "ntb"
+      },
+      "faunaverblijfplaatsId": {
+        "type": "string",
+        "title": "Faunaverblijfplaats ID",
+        "description": "ntb"
+      },
+      "faunavoorzieningId": {
+        "type": "string",
+        "title": "Faunavoorziening ID",
+        "description": "ntb"
+      },
+      "faunavoorzieningstype": {
+        "type": "string",
+        "title": "Faunavoorzieningstype",
+        "description": "ntb"
+      },
+      "geleidingAanwezig": {
+        "type": "string",
+        "title": "Geleiding aanwezig",
+        "description": "ntb"
+      },
+      "geplandeEinddatum": {
+        "type": "string",
+        "format": "date",
+        "title": "Geplande einddatum",
+        "description": "ntb"
+      },
+      "geplandeStartdatum": {
+        "type": "string",
+        "format": "date",
+        "title": "Geplande startdatum",
+        "description": "ntb"
+      },
+      "hellinggraadPoel": {
+        "type": "string",
+        "title": "Hellinggraad poel",
+        "description": "ntb"
+      },
+      "importId": {
+        "type": "integer",
+        "title": "Import ID",
+        "description": "ntb"
+      },
+      "inspectieTeHerstellen": {
+        "type": "boolean",
+        "title": "Inspectie te herstellen",
+        "description": "ntb"
+      },
+      "kpiTotaalscore": {
+        "type": "integer",
+        "title": "KPI Totaalscore",
+        "description": "ntb"
+      },
+      "kpiWaardering": {
+        "type": "string",
+        "title": "KPI Waardering",
+        "description": "ntb"
+      },
+      "mutatieDatum": {
+        "type": "string",
+        "format": "date-time",
+        "title": "Mutatie datum",
+        "description": "De datum waarop de digitale gegevens van deze inspectie voor het laatst gewijzigd zijn."
+      },
+      "mateVegetatie": {
+        "type": "string",
+        "title": "Mate vegetatie",
+        "description": "ntb"
+      },
+      "memBeheerobject": {
+        "type": "string",
+        "title": "Memo beheerobject",
+        "description": "ntb"
+      },
+      "nietTeInspecteren": {
+        "type": "boolean",
+        "title": "Niet te inspecteren",
+        "description": "ntb"
+      },
+      "norm": {
+        "type": "integer",
+        "title": "Norm",
+        "description": "ntb"
+      },
+      "oevervegetatie": {
+        "type": "string",
+        "title": "Oevervegetatie",
+        "description": "ntb"
+      },
+      "overgroeiing": {
+        "type": "string",
+        "title": "Overgroeiing",
+        "description": "ntb"
+      },
+      "poeldiepte": {
+        "type": "string",
+        "title": "Poeldiepte",
+        "description": "ntb"
+      },
+      "poeldoorsnede": {
+        "type": "string",
+        "title": "Poeldoorsnede",
+        "description": "ntb"
+      },
+      "revisie": {
+        "type": "integer",
+        "title": "Revisie",
+        "description": "ntb"
+      },
+      "statusInspectie": {
+        "type": "string",
+        "title": "Status inspectie",
+        "description": "ntb"
+      },
+      "technischeStaat": {
+        "type": "string",
+        "title": "Technische staat",
+        "description": "ntb"
+      },
+      "timingInspectie": {
+        "type": "string",
+        "title": "Timing inspectie",
+        "description": "ntb"
+      },
+      "toegankelijkheid": {
+        "type": "string",
+        "title": "Toegankelijkheid",
+        "description": "ntb"
+      },
+      "verbossing": {
+        "type": "string",
+        "title": "Verbossing",
+        "description": "ntb"
+      },
+      "waterAanwezig": {
+        "type": "boolean",
+        "title": "Water aanwezig",
+        "description": "ntb"
+      },
+      "waterobjectId": {
+        "type": "string",
+        "title": "Waterobject ID",
+        "description": "ntb"
+      },
+      "waterplantenPercentage": {
+        "type": "string",
+        "title": "Waterplanten percentage",
+        "description": "ntb"
       }
     }
   }
-  
+}

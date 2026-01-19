@@ -3,8 +3,8 @@
   "title": "onderbouwen",
   "description": "Bebouwing die zich onder het maaiveld bevindt en uitsteekt ten opzichte van bebouwing op het maaiveld, een voor mensen toegankelijk deel van een gebouw. - Groep: bouwwerk - Code: _, niet imgeo",
   "type": "table",
-  "version": "1.0.2",
-  "lifecycleStatus": "stable",
+  "version": "1.1.0",
+  "status": "stable",
   "crs": "EPSG:28992",
   "auth": "OPENBAAR",
   "schema": {
@@ -22,7 +22,7 @@
     "display": "guid",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/Polygon.json",
@@ -49,6 +49,11 @@
         "type": "integer",
         "title": "Object relatieve hoogte ligging",
         "description": "Aanduiding voor de relatieve hoogte van het object"
+      },
+      "hoortBijBagPandId": {
+        "type": "string",
+        "title": "Onderbouw hoort bij BAG pand",
+        "description": "De unieke identificatie van het object waar deze onderbouw bij hoort, zoals is toegekend in de BAG-registratie"
       }
     }
   }

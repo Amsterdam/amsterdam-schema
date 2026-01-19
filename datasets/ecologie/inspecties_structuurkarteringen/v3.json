@@ -1,601 +1,600 @@
 {
-    "id": "inspectiesStructuurkarteringen",
-    "type": "table",
-    "version": "3.0.0",
-    "lifecycleStatus": "stable",
-    "title": "Inspecties structuurkarteringen",
-    "description": "Deze tabel bevat de resultaten van inspecties aan structuurkarteringen. Dit zijn bijvoorbeeld terreindelen en groenobjecten zoals poelen, moerassen, bossen, plantsoenen, gazons en oevers.",
-    "auth": "FP/MDW",
-    "reasonsNonPublic": [
-            "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
-          ],
-    "identifier": "id",
-    "schema": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "schema",
-        "id"
-      ],
-      "display": "id",
-      "properties": {
-        "schema": {
-          "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-        },
-        "id": {
-          "type": "integer",
-          "title": "ID",
-          "description": "Uniek identificerend kenmerk van de inspectieopdracht."
-       },
-        "acceptatieEcomonitoring": {
-          "type": "string",
-          "title": "Acceptatie ecomonitoring",
-          "description": "Resultaat van de inspectie door de controleur."
-        },
-        "begindatum": {
-          "type": "string",
-	  "format": "date", 
-	  "title": "Begindatum",
-          "description": "Datum waarop een aaneengesloten periode begint."
-	},
-        "bloemrijkGraslandGefaseerdBeheerFase0En1En2": {
-          "type": "string",
-          "title": "Bloemrijk grasland Gefaseerd beheer fase 0 en 1 en 2",
-          "description": "Percentage van oppervlak fase 0, 1 of 2 grasland dat in een maaisneede niet wordt gemaaid."
-        },
-        "bloemrijkGraslandGefaseerdBeheerFase3En4": {
-          "type": "string",
-          "title": "Bloemrijk grasland Gefaseerd beheer fase 3 en 4",
-          "description": "Percentage van oppervlak dat per maaibeurt niet gemaaid is, waarbij overblijvende delen vegetatie maximaal 500 meter uit elkaar ligt."
-        },
-        "bloemrijkGraslandNestplekkenWildeBijen": {
-          "type": "string",
-          "title": "Bloemrijk grasland Nestplekken wilde bijen",
-          "description": "Aantal typen nestplekken voor wilde bijen per 100 m1."
-        },
-	"bloemrijkGraslandVerbossing": {
-          "type": "string",
-          "title": "Bloemrijk grasland Verbossing",
-          "description": "Percentage van oppervlakte grasland dat struiken en/of bomen/boomvormers bevat."
-        },
-	"bloemrijkGraslandVerruiging": {
-          "type": "string",
-          "title": "Bloemrijk grasland Verruiging",
-          "description": "Percentage van oppervlakte grasland dat (tekenen van) verruiging heeft (dominantie van soorten als brandnetel, akkerdistel, braam, riet en grassen als witbol)."
-        },
-	"bloemrijkGraslandZonnigeEnSchaduwplekkenVoorDagvlinders": {
-          "type": "string",
-          "title": "Bloemrijk grasland Zonnige en schaduwplekken voor dagvlinders",
-          "description": "Mate waarin er in of direct langs het grasland (0,5 ha) plekken zijn voor verkoeling (struweel/bomen) en opwarming (open grond)."
-        },
-	"bosEnBosplantsoenBreedteMantelBreedProfiel": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Breedte mantel breed profiel",
-          "description": "Gemiddelde breedte van de mantelvegetatie bij breed profiel."
-        },
-	"bosEnBosplantsoenBreedteMantelSmalProfiel": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Breedte mantel smal profiel",
-          "description": "Gemiddelde breedte van de mantelvegetatie; bij smal profiel."
-        },
-	"bosEnBosplantsoenBreedteZoomBreedProfiel": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Breedte zoom breed profiel",
-          "description": "Gemiddelde breedte van de zoomvegetatie."
-        },
-	"bosEnBosplantsoenBreedteZoomSmalProfiel": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Breedte zoom smal profiel",
-          "description": "Gemiddelde breedte van de zoomvegetatie."
-        },
-	"bosEnBosplantsoenDikkeDodeBomen": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Dikke dode bomen",
-          "description": "Aantal m3 dood hout dat in het bosvak ligt (buiten de veiligheidszone) in de vorm van dikke (30 cm dbh) liggende en dode stammen."
-        },
-	"bosEnBosplantsoenDikkeLevendeBomen": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Dikke levende bomen",
-          "description": "Percentage van oppervlak met minimaal 8 dikke (diameter >50 cm op borsthoogte) levende bomen per hectare."
-        },
-	"bosEnBosplantsoenEuropeesBosInheems": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Europees Bos inheems",
-          "description": "Percentage van de kroonbedekking die uit inheemse soorten bestaat."
-        },
-	"bosEnBosplantsoenGefaseerdBeheerZoom": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Gefaseerd beheer zoom",
-          "description": "Percentage van het oppervlak van de zoom waar in de winter vegetatie overblijft."
-        },
-	"bosEnBosplantsoenGelaagdBos": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Gelaagd bos",
-          "description": "Percentage van oppervlakte waar een tweede boomlaag aanwezig is van minimaal 6 meter hoog (minimale bedekking 25%) en/of een struiklaag van 1,5-6 meter hoog (minimale bedekking 25%)."
-        },
-	"bosEnBosplantsoenGemengdBos": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Gemengd bos",
-          "description": "Percentage van oppervlakte waar naast de hoofdboomsoort minimaal 20% van de kroonbedekking bestaat uit een minimaal vier andere boomsoort(en)."
-        },
-	"bosEnBosplantsoenLengteZoomMantel": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Lengte zoom mantel",
-          "description": "Percentage van de bosrandlengte waar op de zonzijde (ZO, Z en ZW) een zoom-mantelvegetatie aanwezig is."
-        },
-	"bosEnBosplantsoenOpenPlekken": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Open plekken",
-          "description": "Percentage van oppervlakte waar zich een open plek in het bos bevindt (minimaal 5 are, 25 meter doorsnede), bedekt met struweel of jonge bomen (tot maximaal 6 meter hoog)."
-        },
-	"bosEnBosplantsoenStoringskruiden": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Storingskruiden",
-          "description": "Percentage van zoom met storingskruiden (brandnetel, braam, kleefkruid, haagwinde)."
-        },
-	"bosEnBosplantsoenTakkenrillen": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Takkenrillen",
-          "description": "Vrijkomend houtig materiaal wordt in bosvak verwerkt verspreid op de bosbodem en in takkenrillen (minimaal 3 meter lang, 1 meter breed) of op takkenhopen. Aantal takkenrillen per hectare."
-        },
-	"bosEnBosplantsoenVerbossingMantel": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Verbossing mantel",
-          "description": "Percentage van het oppervlak van de mantel met bomen of boomopslag."
-        },
-	"bosEnBosplantsoenVerbossingZoom": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Verbossing zoom",
-          "description": "Percentage van het oppervlak van de zoom met struiken en/of bomen of boomopslag."
-        },
-	"bosEnBosplantsoenVerticaleStructuurMantelzoom": {
-          "type": "string",
-          "title": "Bos en Bosplantsoen Verticale structuur mantelzoom",
-          "description": "Percentage van zoom-mantel met inhammen en een golvende lijn."
-        },
-	"datum": {
-          "type": "string",
-	  "format": "date",
-          "title": "Datum",
-          "description": "Datum waarop de inspectie is uitgevoerd."
-        },
-	"datumToezicht": {
-          "type": "string",
-	  "format": "date",
-          "title": "Datum toezicht",
-          "description": "De datum waarop toezicht door beheerder heeft plaatsgevonden."
-        },
-	"dynamischeNatuurMetBegrazingVariatieNatuurtypenMozaiek": {
-          "type": "string",
-          "title": "Dynamische natuur met begrazing Variatie natuurtypen mozaiek",
-          "description": "Mate waarin de natuurtypen in de juiste verhouding voorkomen. 1 of minder beheertypen voldoen aan streefbeeld."
-        },
-	"einddatum": {
-          "type": "string",
-	  "format": "date",
-          "title": "Einddatum",
-          "description": "Datum waarop een aaneengesloten periode eindigt."
-        },
-	"extensiefGazonAantalBloeiendePlantensoorten": {
-          "type": "string",
-          "title": "Extensief gazon Aantal bloeiende plantensoorten",
-          "description": "Aantal soorten bloeiende planten, exclusief grassen."
-        },
-	"extensiefGazonGefaseerdBeheerExtensiefGazon": {
-          "type": "string",
-          "title": "Extensief gazon Gefaseerd beheer extensief gazon",
-          "description": "Percentage van oppervlakte dat minimaal één maaibeurt niet gemaaid is."
-        },
-	"extensiefGazonOpenStructuur": {
-          "type": "string",
-          "title": "Extensief gazon Open structuur",
-          "description": "Percentage van oppervlakte gazon met kalige bodem."
-        },
-	"groenobjectId": {
-          "type": "string",
-          "title": "Groenobject ID",
-          "description": "Id van het groenobject waarop de inspectie betrekking heeft."
-        },
-	"importId": {
-          "type": "integer",
-          "title": "Import ID",
-          "description": "Id uit oude beheerindeling."
-        },
-	"kpiTotaalscore": {
-          "type": "integer",
-          "title": "KPI Totaalscore",
-          "description": "Overall kwaliteitsscore van het object."
-        },
-	"kpiWaardering": {
-          "type": "string",
-          "title": "KPI Waardering",
-          "description": "Overall inspectiescore van het object."
-        },
-	"mutatieDatum": {
+  "id": "inspectiesStructuurkarteringen",
+  "type": "table",
+  "version": "3.0.0",
+  "status": "stable",
+  "title": "Inspecties structuurkarteringen",
+  "description": "Deze tabel bevat de resultaten van inspecties aan structuurkarteringen. Dit zijn bijvoorbeeld terreindelen en groenobjecten zoals poelen, moerassen, bossen, plantsoenen, gazons en oevers.",
+  "auth": "FP/MDW",
+  "reasonsNonPublic": [
+    "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+  ],
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "ID",
+        "description": "Uniek identificerend kenmerk van de inspectieopdracht."
+      },
+      "acceptatieEcomonitoring": {
         "type": "string",
-	"description": "De datum waarop de digitale gegevens van deze inspectie voor het laatst gewijzigd zijn.",
+        "title": "Acceptatie ecomonitoring",
+        "description": "Resultaat van de inspectie door de controleur."
+      },
+      "begindatum": {
+        "type": "string",
+        "format": "date",
+        "title": "Begindatum",
+        "description": "Datum waarop een aaneengesloten periode begint."
+      },
+      "bloemrijkGraslandGefaseerdBeheerFase0En1En2": {
+        "type": "string",
+        "title": "Bloemrijk grasland Gefaseerd beheer fase 0 en 1 en 2",
+        "description": "Percentage van oppervlak fase 0, 1 of 2 grasland dat in een maaisneede niet wordt gemaaid."
+      },
+      "bloemrijkGraslandGefaseerdBeheerFase3En4": {
+        "type": "string",
+        "title": "Bloemrijk grasland Gefaseerd beheer fase 3 en 4",
+        "description": "Percentage van oppervlak dat per maaibeurt niet gemaaid is, waarbij overblijvende delen vegetatie maximaal 500 meter uit elkaar ligt."
+      },
+      "bloemrijkGraslandNestplekkenWildeBijen": {
+        "type": "string",
+        "title": "Bloemrijk grasland Nestplekken wilde bijen",
+        "description": "Aantal typen nestplekken voor wilde bijen per 100 m1."
+      },
+      "bloemrijkGraslandVerbossing": {
+        "type": "string",
+        "title": "Bloemrijk grasland Verbossing",
+        "description": "Percentage van oppervlakte grasland dat struiken en/of bomen/boomvormers bevat."
+      },
+      "bloemrijkGraslandVerruiging": {
+        "type": "string",
+        "title": "Bloemrijk grasland Verruiging",
+        "description": "Percentage van oppervlakte grasland dat (tekenen van) verruiging heeft (dominantie van soorten als brandnetel, akkerdistel, braam, riet en grassen als witbol)."
+      },
+      "bloemrijkGraslandZonnigeEnSchaduwplekkenVoorDagvlinders": {
+        "type": "string",
+        "title": "Bloemrijk grasland Zonnige en schaduwplekken voor dagvlinders",
+        "description": "Mate waarin er in of direct langs het grasland (0,5 ha) plekken zijn voor verkoeling (struweel/bomen) en opwarming (open grond)."
+      },
+      "bosEnBosplantsoenBreedteMantelBreedProfiel": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Breedte mantel breed profiel",
+        "description": "Gemiddelde breedte van de mantelvegetatie bij breed profiel."
+      },
+      "bosEnBosplantsoenBreedteMantelSmalProfiel": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Breedte mantel smal profiel",
+        "description": "Gemiddelde breedte van de mantelvegetatie; bij smal profiel."
+      },
+      "bosEnBosplantsoenBreedteZoomBreedProfiel": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Breedte zoom breed profiel",
+        "description": "Gemiddelde breedte van de zoomvegetatie."
+      },
+      "bosEnBosplantsoenBreedteZoomSmalProfiel": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Breedte zoom smal profiel",
+        "description": "Gemiddelde breedte van de zoomvegetatie."
+      },
+      "bosEnBosplantsoenDikkeDodeBomen": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Dikke dode bomen",
+        "description": "Aantal m3 dood hout dat in het bosvak ligt (buiten de veiligheidszone) in de vorm van dikke (30 cm dbh) liggende en dode stammen."
+      },
+      "bosEnBosplantsoenDikkeLevendeBomen": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Dikke levende bomen",
+        "description": "Percentage van oppervlak met minimaal 8 dikke (diameter >50 cm op borsthoogte) levende bomen per hectare."
+      },
+      "bosEnBosplantsoenEuropeesBosInheems": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Europees Bos inheems",
+        "description": "Percentage van de kroonbedekking die uit inheemse soorten bestaat."
+      },
+      "bosEnBosplantsoenGefaseerdBeheerZoom": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Gefaseerd beheer zoom",
+        "description": "Percentage van het oppervlak van de zoom waar in de winter vegetatie overblijft."
+      },
+      "bosEnBosplantsoenGelaagdBos": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Gelaagd bos",
+        "description": "Percentage van oppervlakte waar een tweede boomlaag aanwezig is van minimaal 6 meter hoog (minimale bedekking 25%) en/of een struiklaag van 1,5-6 meter hoog (minimale bedekking 25%)."
+      },
+      "bosEnBosplantsoenGemengdBos": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Gemengd bos",
+        "description": "Percentage van oppervlakte waar naast de hoofdboomsoort minimaal 20% van de kroonbedekking bestaat uit een minimaal vier andere boomsoort(en)."
+      },
+      "bosEnBosplantsoenLengteZoomMantel": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Lengte zoom mantel",
+        "description": "Percentage van de bosrandlengte waar op de zonzijde (ZO, Z en ZW) een zoom-mantelvegetatie aanwezig is."
+      },
+      "bosEnBosplantsoenOpenPlekken": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Open plekken",
+        "description": "Percentage van oppervlakte waar zich een open plek in het bos bevindt (minimaal 5 are, 25 meter doorsnede), bedekt met struweel of jonge bomen (tot maximaal 6 meter hoog)."
+      },
+      "bosEnBosplantsoenStoringskruiden": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Storingskruiden",
+        "description": "Percentage van zoom met storingskruiden (brandnetel, braam, kleefkruid, haagwinde)."
+      },
+      "bosEnBosplantsoenTakkenrillen": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Takkenrillen",
+        "description": "Vrijkomend houtig materiaal wordt in bosvak verwerkt verspreid op de bosbodem en in takkenrillen (minimaal 3 meter lang, 1 meter breed) of op takkenhopen. Aantal takkenrillen per hectare."
+      },
+      "bosEnBosplantsoenVerbossingMantel": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Verbossing mantel",
+        "description": "Percentage van het oppervlak van de mantel met bomen of boomopslag."
+      },
+      "bosEnBosplantsoenVerbossingZoom": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Verbossing zoom",
+        "description": "Percentage van het oppervlak van de zoom met struiken en/of bomen of boomopslag."
+      },
+      "bosEnBosplantsoenVerticaleStructuurMantelzoom": {
+        "type": "string",
+        "title": "Bos en Bosplantsoen Verticale structuur mantelzoom",
+        "description": "Percentage van zoom-mantel met inhammen en een golvende lijn."
+      },
+      "datum": {
+        "type": "string",
+        "format": "date",
+        "title": "Datum",
+        "description": "Datum waarop de inspectie is uitgevoerd."
+      },
+      "datumToezicht": {
+        "type": "string",
+        "format": "date",
+        "title": "Datum toezicht",
+        "description": "De datum waarop toezicht door beheerder heeft plaatsgevonden."
+      },
+      "dynamischeNatuurMetBegrazingVariatieNatuurtypenMozaiek": {
+        "type": "string",
+        "title": "Dynamische natuur met begrazing Variatie natuurtypen mozaiek",
+        "description": "Mate waarin de natuurtypen in de juiste verhouding voorkomen. 1 of minder beheertypen voldoen aan streefbeeld."
+      },
+      "einddatum": {
+        "type": "string",
+        "format": "date",
+        "title": "Einddatum",
+        "description": "Datum waarop een aaneengesloten periode eindigt."
+      },
+      "extensiefGazonAantalBloeiendePlantensoorten": {
+        "type": "string",
+        "title": "Extensief gazon Aantal bloeiende plantensoorten",
+        "description": "Aantal soorten bloeiende planten, exclusief grassen."
+      },
+      "extensiefGazonGefaseerdBeheerExtensiefGazon": {
+        "type": "string",
+        "title": "Extensief gazon Gefaseerd beheer extensief gazon",
+        "description": "Percentage van oppervlakte dat minimaal één maaibeurt niet gemaaid is."
+      },
+      "extensiefGazonOpenStructuur": {
+        "type": "string",
+        "title": "Extensief gazon Open structuur",
+        "description": "Percentage van oppervlakte gazon met kalige bodem."
+      },
+      "groenobjectId": {
+        "type": "string",
+        "title": "Groenobject ID",
+        "description": "Id van het groenobject waarop de inspectie betrekking heeft."
+      },
+      "importId": {
+        "type": "integer",
+        "title": "Import ID",
+        "description": "Id uit oude beheerindeling."
+      },
+      "kpiTotaalscore": {
+        "type": "integer",
+        "title": "KPI Totaalscore",
+        "description": "Overall kwaliteitsscore van het object."
+      },
+      "kpiWaardering": {
+        "type": "string",
+        "title": "KPI Waardering",
+        "description": "Overall inspectiescore van het object."
+      },
+      "mutatieDatum": {
+        "type": "string",
+        "description": "De datum waarop de digitale gegevens van deze inspectie voor het laatst gewijzigd zijn.",
         "format": "date-time",
         "title": "Mutatie datum"
-        },
-	"memoBeheerobject": {
-          "type": "string",
-          "title": "Memo beheerobject",
-          "description": "Gedetailleerde typering van de voorziening."
-        },
-	"moerasDiameter": {
-          "type": "string",
-          "title": "Moeras Diameter",
-          "description": "Grootste diameter van het waterriet op minimaal 1 plek."
-        },
-	"moerasDiepteVerlanding": {
-          "type": "string",
-          "title": "Moeras Diepte verlanding",
-          "description": "Waterpeil in de zomer (diepte/m)."
-        },
-	"moerasGefaseerdBeheerMoeras": {
-          "type": "string",
-          "title": "Moeras Gefaseerd beheer moeras",
-          "description": "Oppervlakte riet dat minimaal één jaar niet gemaaid is (overjarig)."
-        },
-	"moerasMoerasrand": {
-          "type": "string",
-          "title": "Moeras Moerasrand",
-          "description": "Lengte van rand van riet dat grenst aan water en/of grasland."
-        },
-	"moerasOppervlakte": {
-          "type": "string",
-          "title": "Moeras Oppervlakte",
-          "description": "Oppervlakte riet dat in permanent in het water staat (minimaal -0,1 m)."
-        },
-	"moerasOppervlakteWater": {
-          "type": "string",
-          "title": "Moeras Oppervlakte water",
-          "description": "Oppervlakte water dat grenst aan moeras."
-        },
-	"moerasTotaleOppervlakteGebied": {
-          "type": "string",
-          "title": "Moeras Totale oppervlakte gebied",
-          "description": "Totale oppervlakte moeras, droog rietland en aangrenzend water en grasland."
-        },
-	"moerasVerruiging": {
-          "type": "string",
-          "title": "Moeras Verruiging",
-          "description": "Percentage van het oppervlak moeras waar struiken, bomen of boomvormers aanwezig zijn."
-        },
-	"natuurtype": {
-          "type": "string",
-          "title": "Natuurtype",
-          "description": "Omschrijving van het natuurtype waarop het beheer van het object is gebaseerd."
-        },
-	"natuurvriendelijkeOeverBloemrijkeOeverAantalOeverzones": {
-	  "shortname": "bloemrijkeOeverAantalOeverzones",
-          "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Aantal oeverzones",
-          "description": "Aanwezigheid aantal vegetatiezones."
-        },
-	"natuurvriendelijkeOeverBloemrijkeOeverAantalSoortenPlanten": {
-          "shortname": "bloemrijkeOeverAantalSoortenPlanten",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Aantal soorten planten",
-          "description": "Totaal aantal soorten planten op oever."
-        },
-	"natuurvriendelijkeOeverBloemrijkeOeverBreedteOeverzoneBreedteFlauwTalud": {
-          "shortname": "bloemrijkeOeverBreedteOeverzoneBreedteFlauwTalud",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Breedte oeverzone breedte flauw talud",
-          "description": "Breedte van de gehele oever van flauw talud (boven en onder water) tussen +15cm en -50 cm."
-        },
-	"natuurvriendelijkeOeverBloemrijkeOeverBreedteOeverzoneOnderwaterbanket": {
-          "shortname": "bloemrijkeOeverBreedteOeverzoneOnderwaterbanket",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Breedte oeverzone onderwaterbanket",
-          "description": "Onderwaterbanket tussen +15 cm en -0 cm."
-        },
-	"natuurvriendelijkeOeverBloemrijkeOeverBreedteOeverzonePlasdrasbermMetVooroever": {
-	  "shortname": "bloemrijkeOeverBreedteOeverzonePlasdrasbermMetVooroever",
-          "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Breedte oeverzone plasdrasberm met vooroever",
-          "description": "Plasberm/drasberm met vooroever of onderwaterberm tussen +15cm en - 50cm."
-        },
-        "natuurvriendelijkeOeverBloemrijkeOeverBreedteOeverzonePlasdrasbermZonderVooroever": {
-	  "shortname": "bloemrijkeOeverBreedteOeverzonePlasdrasbermZonderVooroever",
-          "type": "string",
-	  "title": "Natuurvriendelijke oever Bloemrijke oever Breedte oeverzone plasdrasberm zonder vooroever",
-          "description": "Plasberm/drasberm zonder vooroever of onderwaterberm tussen +15cm en - 50cm."
-	},
-        "natuurvriendelijkeOeverBloemrijkeOeverDiepteVerlandingOeverzoneGroen": {
-          "shortname": "bloemrijkeOeverDiepteVerlandingOeverzoneGroen",
-          "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Diepte verlanding oeverzone groen",
-          "description": "De gemiddelde waterpeil bij een draszone (met hellend talud) ligt tussen 0,1 boven en 0,1 onder de waterlijn, waarbij het gemiddelde op de waterlijn (0.0 m) ligt."
-        },
-        "natuurvriendelijkeOeverBloemrijkeOeverDiepteVerlandingOeverzoneOranje": {
-          "shortname": "bloemrijkeOeverDiepteVerlandingOeverzoneOranje",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Diepte verlanding oeverzone oranje",
-          "description": "De gemiddelde waterpeil bij een plaszone (met hellend talud) ligt tussen 0,1 m en 0,5 m, waarbij het gemiddelde op 0,3 m ligt."
-        },
-        "natuurvriendelijkeOeverBloemrijkeOeverDiepteVerlandingOeverzoneRood": {
-          "shortname": "bloemrijkeOeverDiepteVerlandingOeverzoneRood",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Diepte verlanding oeverzone rood",
-          "description": "De gemiddelde waterpeil bij de aquatische zone, of onderwaterbanket (met hellend talud) loopt in optimale situatie van 0,5 tot 1 meter onder de waterlijn, waarbij het gemiddelde op 0,7m ligt."
-        },
-	"natuurvriendelijkeOeverBloemrijkeOeverGebrekenOeverconstructie": {
-          "shortname": "bloemrijkeOeverGebrekenOeverconstructie",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Gebreken oeverconstructie",
-          "description": "Mate waarin bij de oeverconstructie sprake is van technische gebreken."
-        },
-	"natuurvriendelijkeOeverBloemrijkeOeverGefaseerdBeheerBloemrijkeOever": {
-          "shortname": "bloemrijkeOeverGefaseerdBeheerBloemrijkeOever",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Gefaseerd beheer bloemrijke oever",
-          "description": "Percentage van oppervlak dat per maaibeurt niet gemaaid is."
-        },
-	"natuurvriendelijkeOeverBloemrijkeOeverHellinggraadOever": {
-          "shortname": "bloemrijkeOeverHellinggraadOever",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Hellinggraad oever",
-          "description": "Hellinggraad van het talud."
-        },
-	"natuurvriendelijkeOeverBloemrijkeOeverKwalificerendeSoorten": {
-          "shortname": "bloemrijkeOeverKwalificerendeSoorten",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Kwalificerende soorten",
-          "description": "Totaal aantal kwalificerende soorten op oever."
-        },
-	"natuurvriendelijkeOeverBloemrijkeOeverOevertype": {
-          "shortname": "bloemrijkeOeverOevertype",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Oevertype",
-          "description": "Type oeverconstructie."
-        },
-	"natuurvriendelijkeOeverBloemrijkeOeverVerbossing": {
-          "shortname": "bloemrijkeOeverVerbossing",
-          "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Verbossing",
-          "description": "Percentage van het oppervlak van de oever waar struiken en/of bomen/ boomvormers aanwezig zijn (binnen een afstand van 5 meter ten opzichte van de waterlijn)."
-        },
-	"natuurvriendelijkeOeverBloemrijkeOeverVerruiging": {
-          "shortname": "bloemrijkeOeverVerruiging",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Bloemrijke oever Verruiging",
-          "description": "Percentage van het oppervlak van de oever waar ruigtesoorten als gewone berenklauw, haagwinde, heermoes etc voorkomt."
-        },
-	"natuurvriendelijkeOeverRuigeRietoeverBreedteOeverzoneBreedteFlauwTalud": {
-          "shortname": "ruigeRietoeverBreedteOeverzoneBreedteFlauwTalud",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Ruige rietoever Breedte oeverzone breedte flauw talud",
-          "description": "Breedte van de gehele oever van flauw talud (boven en onder water) tussen +15cm en -50 cm."
-        },
-	"natuurvriendelijkeOeverRuigeRietoeverBreedteOeverzonePlasdrasbermMetVooroever": {
-          "shortname": "ruigeRietoeverBreedteOeverzonePlasdrasbermMetVooroever",
-          "type": "string",
-          "title": "Natuurvriendelijke oever Ruige rietoever Breedte oeverzone plasdrasberm met vooroever",
-          "description": "Plasberm/drasberm met vooroever of onderwaterberm tussen +15cm en - 50cm."
-        },
-	"natuurvriendelijkeOeverRuigeRietoeverBreedteOeverzonePlasdrasbermZonderVooroever": {
-          "shortname": "ruigeRietoeverBreedteOeverzonePlasdrasbermZonderVooroever",
-          "type": "string",
-          "title": "Natuurvriendelijke oever Ruige rietoever Breedte oeverzone plasdrasberm zonder vooroever",
-          "description": "Plasberm/drasberm zonder vooroever of onderwaterberm tussen +15cm en - 50cm."
-        },
-	"natuurvriendelijkeOeverRuigeRietoeverDiepteVerlandingOeverzoneGroen": {
-          "shortname": "ruigeRietoeverDiepteVerlandingOeverzoneGroen",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Ruige rietoever Diepte verlanding oeverzone groen",
-          "description": "De gemiddelde waterpeil bij een draszone (met hellend talud) ligt tussen 0,1 boven en 0,1 onder de waterlijn, waarbij het gemiddelde op de waterlijn (0.0 m) ligt."
-        },
-	"natuurvriendelijkeOeverRuigeRietoeverDiepteVerlandingOeverzoneOranje": {
-          "shortname": "ruigeRietoeverDiepteVerlandingOeverzoneOranje",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Ruige rietoever Diepte verlanding oeverzone oranje",
-          "description": "De gemiddelde waterpeil bij een plaszone (met hellend talud) ligt tussen 0,1 m en 0,5 m, waarbij het gemiddelde op 0,3 m ligt."
-        },
-	"natuurvriendelijkeOeverRuigeRietoeverDiepteVerlandingOeverzoneRood": {
-          "shortname": "ruigeRietoeverDiepteVerlandingOeverzoneRood",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Ruige rietoever Diepte verlanding oeverzone rood",
-          "description": "De gemiddelde waterpeil bij de aquatische zone, of onderwaterbanket (met hellend talud) loopt in optimale situatie van 0,5 tot 1 meter onder de waterlijn, waarbij het gemiddelde op 0,7m ligt."
-        },
-	"natuurvriendelijkeOeverRuigeRietoeverGebrekenOeverconstructie": {
-          "shortname": "ruigeRietoeverGebrekenOeverconstructie",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Ruige rietoever Gebreken oeverconstructie",
-          "description": "Mate waarin bij de oeverconstructie sprake is van technische gebreken."
-        },
-	"natuurvriendelijkeOeverRuigeRietoeverGefaseerdBeheerStruweelOfRuigeRietoever": {
-          "shortname": "ruigeRietoeverGefaseerdBeheerStruweelOfRuigeRietoever",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Ruige rietoever Gefaseerd beheer struweel of ruige rietoever",
-          "description": "Percentage van oppervlak dat per maaibeurt niet gemaaid is."
-        },
-	"natuurvriendelijkeOeverRuigeRietoeverHellinggraadOever": {
-          "shortname": "ruigeRietoeverHellinggraadOever",
-          "type": "string",
-          "title": "Natuurvriendelijke oever Ruige rietoever Hellinggraad oever",
-          "description": "Hellinggraad van het talud."
-        },
-	"natuurvriendelijkeOeverRuigeRietoeverOevertype": {
-          "shortname": "ruigeRietoeverOevertype",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Ruige rietoever Oevertype",
-          "description": "Type oeverconstructie."
-        },
-	"natuurvriendelijkeOeverRuigeRietoeverVerbossingRuigeRietoever": {
-          "shortname": "ruigeRietoeverVerbossingRuigeRietoever",
-	  "type": "string",
-          "title": "Natuurvriendelijke oever Ruige rietoever Verbossing ruige rietoever",
-          "description": "Percentage van het oppervlak van de oever waar struiken en/of bomen/ boomvormers aanwezig zijn (binnen een afstand van 5 meter ten opzichte van de waterlijn)."
-        },
-	"nietTeInspecteren": {
-          "type": "boolean",
-          "title": "Niet te inspecteren",
-          "description": "Geeft aan dat het niet mogelijk was de voorziening te inspecteren."
-        },
-	"revisie": {
-          "type": "integer",
-          "title": "Revisie",
-          "description": "Volgnummer van de herziening."
-        },
-	"ruigteInheemsRuigte": {
-          "type": "string",
-          "title": "Ruigte Inheems ruigte",
-          "description": "Percentage van het oppervlak dat uit inheemse soorten bestaat."
-        },
-	"ruigteMengingRuigte": {
-          "type": "string",
-          "title": "Ruigte Menging ruigte",
-          "description": "Aantal soorten inheemse planten waard de ruigtevegetatie uit bestaat."
-        },
-	"ruigteVerbossingRuigte": {
-          "type": "string",
-          "title": "Ruigte Verbossing ruigte",
-          "description": "Percentage van het oppervlak waar bomen, boomopslag of struiken aanwezig is."
-        },
-	"stadswaterAlgenEnOfKroos": {
-          "type": "string",
-          "title": "Stadswater Algen en of kroos",
-          "description": "Percentage van wateroppervlak bedekt met algen en/of kroos."
-        },
-	"stadswaterDiversiteitPlanten": {
-          "type": "string",
-          "title": "Stadswater Diversiteit planten",
-          "description": "Totaal aantal  soorten waterplanten (drijfblad- plus onder water gedoken planten)."
-        },
-	"stadswaterDoorzicht": {
-          "type": "string",
-          "title": "Stadswater Doorzicht",
-          "description": "Mate van helderheid van het water."
-        },
-	"stadswaterDrijfbladplanten": {
-          "type": "string",
-          "title": "Stadswater Drijfbladplanten",
-          "description": "Aandeel van watergang met drijfbladplanten."
-        },
-	"stadswaterInvasieveExoten": {
-          "type": "string",
-          "title": "Stadswater Invasieve exoten",
-          "description": "Aanwezigheid invasieve exoten flora."
-        },
-	"stadswaterOndergedokenWaterplanten": {
-          "type": "string",
-          "title": "Stadswater Ondergedoken waterplanten",
-          "description": "Aandeel van watergang met ondergedoken planten."
-        },
-	"stadswaterSchaduw": {
-          "type": "string",
-          "title": "Stadswater Schaduw",
-          "description": "Mate van beschaduwing op de watergang."
-        },
-	"stadswaterSlibdikte": {
-          "type": "string",
-          "title": "Stadswater Slibdikte",
-          "description": "Dikte van de sliblaag op de waterbodem."
-        },
-	"stadswaterWaterdiepte": {
-          "type": "string",
-          "title": "Stadswater Waterdiepte",
-          "description": "Diepte van de waterbodem."
-        },
-	"statusInspectie": {
-          "type": "string",
-          "title": "Status Inspectie",
-          "description": "Status van de inspectieopdracht"
-        },
-	"struweelGefaseerdBeheerStruweelOfRuigeRietoever": {
-          "type": "string",
-          "title": "Struweel Gefaseerd beheer struweel of ruige rietoever",
-          "description": "Percentage van oppervlak dat niet gemaaid is."
-        },
-	"struweelInheemsStruweel": {
-          "type": "string",
-          "title": "Struweel Inheems struweel",
-          "description": "Percentage van het oppervlakte dat uit inheemse soorten bestaat."
-        },
-	"struweelLengteZoom": {
-          "type": "string",
-          "title": "Struweel Lengte zoom",
-          "description": "Percentage van struweelrand met zoomvegetatie."
-        },
-	"struweelMengingStruweel": {
-          "type": "string",
-          "title": "Struweel Menging struweel",
-          "description": "Percentage van oppervlakte waar naast de hoofdstruiksoort minimaal drie andere soorten voorkomen."
-        },
-	"struweelVerbossing": {
-          "type": "string",
-          "title": "Struweel Verbossing",
-          "description": "Percentage van het oppervlak van het struweel waar bomen of boomopslag aanwezig is."
-        },
-	"teHerstellen": {
-          "type": "boolean",
-          "title": "Te herstellen",
-          "description": "Onderde(e)l(en) van de inspectie moeten worden hersteld."
-        },
-	"terreindeelId": {
-          "type": "string",
-          "title": "Terreindeel ID",
-          "description": "Id van het terreindeel waarop de inspectie betrekking heeft."
-        },
-	"timingInspectie": {
-          "type": "string",
-          "title": "Timing inspectie",
-          "description": "Tijdstatus van het inspectiemoment; verleden, actueel, toekomst."
-        },
-	"veenmosrietlandGefaseerdBeheerVeenmosrietland": {
-          "type": "string",
-          "title": "Veenmosrietland Gefaseerd beheer veenmosrietland",
-          "description": "Percentage van oppervlak dat niet gemaaid is."
-        },
-	"veenmosrietlandVerbossingVeenmosrietland": {
-          "type": "string",
-          "title": "Veenmosrietland Verbossing veenmosrietland",
-          "description": "Percentage van het veenmosrietland dat bestaat uit bomen, boomopslag en struweel."
-        },
-	"veenmosrietlandVerdrogingDiepte": {
-          "type": "string",
-          "title": "Veenmosrietland Verdroging diepte",
-          "description": "Gemiddelde waterpeil ten opzichte van het maaiveld."
-        },
-	"veenmosrietlandVerruigingVeenmosrietland": {
-          "type": "string",
-          "title": "Veenmosrietland Verruiging veenmosrietland",
-          "description": "Percentage van oppervlakte dat (tekenen van) verruiging heeft (dominantie van soorten als brandnetel, akkerdistel, braam, riet, grassen als witbol)."
-        },
-	"waarde": {
-          "type": "string",
-          "title": "Waarde",
-          "description": "Waarde (tekst of numeriek) die op een verkeersbord ingevuld kan worden."
-        },
-	"waarderingsscore": {
-          "type": "integer",
-          "title": "Waarderingsscore",
-          "description": "Score behorende bij de waarderingen vanuit ecologische monitoring."
-        },
-	"weidevogelgraslandGefaseerdBeheerOfBeweiding": {
-          "type": "string",
-          "title": "Weidevogelgrasland Gefaseerd beheer of beweiding",
-          "description": "Er is een mozaïek van hoge en lage gras- en kruidenvegetatie (in mei is 20% van het grasland hoger dan 25 cm en 20% lager dan 25 cm)."
-        },
-	"weidevogelgraslandNestbescherming": {
-          "type": "string",
-          "title": "Weidevogelgrasland Nestbescherming",
-          "description": "Bij beweiding wordt aan nestbescherming gedaan."
-        },
-	"weidevogelgraslandOpenKarakter": {
-          "type": "string",
-          "title": "Weidevogelgrasland Open karakter",
-          "description": "Mate waarin het gebied een open karakter heeft zonder opgaande structuurelementen zoals bomen en bosjes."
-        },
-	"weidevogelgraslandSchuilplaats": {
-          "type": "string",
-          "title": "Weidevogelgrasland Schuilplaats",
-          "description": "Percentage van de slootkant met bedekking (maart-aug) van helofyten en kruiden als dekking en voedselplek."
-        }
+      },
+      "memoBeheerobject": {
+        "type": "string",
+        "title": "Memo beheerobject",
+        "description": "Gedetailleerde typering van de voorziening."
+      },
+      "moerasDiameter": {
+        "type": "string",
+        "title": "Moeras Diameter",
+        "description": "Grootste diameter van het waterriet op minimaal 1 plek."
+      },
+      "moerasDiepteVerlanding": {
+        "type": "string",
+        "title": "Moeras Diepte verlanding",
+        "description": "Waterpeil in de zomer (diepte/m)."
+      },
+      "moerasGefaseerdBeheerMoeras": {
+        "type": "string",
+        "title": "Moeras Gefaseerd beheer moeras",
+        "description": "Oppervlakte riet dat minimaal één jaar niet gemaaid is (overjarig)."
+      },
+      "moerasMoerasrand": {
+        "type": "string",
+        "title": "Moeras Moerasrand",
+        "description": "Lengte van rand van riet dat grenst aan water en/of grasland."
+      },
+      "moerasOppervlakte": {
+        "type": "string",
+        "title": "Moeras Oppervlakte",
+        "description": "Oppervlakte riet dat in permanent in het water staat (minimaal -0,1 m)."
+      },
+      "moerasOppervlakteWater": {
+        "type": "string",
+        "title": "Moeras Oppervlakte water",
+        "description": "Oppervlakte water dat grenst aan moeras."
+      },
+      "moerasTotaleOppervlakteGebied": {
+        "type": "string",
+        "title": "Moeras Totale oppervlakte gebied",
+        "description": "Totale oppervlakte moeras, droog rietland en aangrenzend water en grasland."
+      },
+      "moerasVerruiging": {
+        "type": "string",
+        "title": "Moeras Verruiging",
+        "description": "Percentage van het oppervlak moeras waar struiken, bomen of boomvormers aanwezig zijn."
+      },
+      "natuurtype": {
+        "type": "string",
+        "title": "Natuurtype",
+        "description": "Omschrijving van het natuurtype waarop het beheer van het object is gebaseerd."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverAantalOeverzones": {
+        "shortname": "bloemrijkeOeverAantalOeverzones",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Aantal oeverzones",
+        "description": "Aanwezigheid aantal vegetatiezones."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverAantalSoortenPlanten": {
+        "shortname": "bloemrijkeOeverAantalSoortenPlanten",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Aantal soorten planten",
+        "description": "Totaal aantal soorten planten op oever."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverBreedteOeverzoneBreedteFlauwTalud": {
+        "shortname": "bloemrijkeOeverBreedteOeverzoneBreedteFlauwTalud",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Breedte oeverzone breedte flauw talud",
+        "description": "Breedte van de gehele oever van flauw talud (boven en onder water) tussen +15cm en -50 cm."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverBreedteOeverzoneOnderwaterbanket": {
+        "shortname": "bloemrijkeOeverBreedteOeverzoneOnderwaterbanket",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Breedte oeverzone onderwaterbanket",
+        "description": "Onderwaterbanket tussen +15 cm en -0 cm."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverBreedteOeverzonePlasdrasbermMetVooroever": {
+        "shortname": "bloemrijkeOeverBreedteOeverzonePlasdrasbermMetVooroever",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Breedte oeverzone plasdrasberm met vooroever",
+        "description": "Plasberm/drasberm met vooroever of onderwaterberm tussen +15cm en - 50cm."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverBreedteOeverzonePlasdrasbermZonderVooroever": {
+        "shortname": "bloemrijkeOeverBreedteOeverzonePlasdrasbermZonderVooroever",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Breedte oeverzone plasdrasberm zonder vooroever",
+        "description": "Plasberm/drasberm zonder vooroever of onderwaterberm tussen +15cm en - 50cm."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverDiepteVerlandingOeverzoneGroen": {
+        "shortname": "bloemrijkeOeverDiepteVerlandingOeverzoneGroen",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Diepte verlanding oeverzone groen",
+        "description": "De gemiddelde waterpeil bij een draszone (met hellend talud) ligt tussen 0,1 boven en 0,1 onder de waterlijn, waarbij het gemiddelde op de waterlijn (0.0 m) ligt."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverDiepteVerlandingOeverzoneOranje": {
+        "shortname": "bloemrijkeOeverDiepteVerlandingOeverzoneOranje",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Diepte verlanding oeverzone oranje",
+        "description": "De gemiddelde waterpeil bij een plaszone (met hellend talud) ligt tussen 0,1 m en 0,5 m, waarbij het gemiddelde op 0,3 m ligt."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverDiepteVerlandingOeverzoneRood": {
+        "shortname": "bloemrijkeOeverDiepteVerlandingOeverzoneRood",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Diepte verlanding oeverzone rood",
+        "description": "De gemiddelde waterpeil bij de aquatische zone, of onderwaterbanket (met hellend talud) loopt in optimale situatie van 0,5 tot 1 meter onder de waterlijn, waarbij het gemiddelde op 0,7m ligt."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverGebrekenOeverconstructie": {
+        "shortname": "bloemrijkeOeverGebrekenOeverconstructie",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Gebreken oeverconstructie",
+        "description": "Mate waarin bij de oeverconstructie sprake is van technische gebreken."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverGefaseerdBeheerBloemrijkeOever": {
+        "shortname": "bloemrijkeOeverGefaseerdBeheerBloemrijkeOever",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Gefaseerd beheer bloemrijke oever",
+        "description": "Percentage van oppervlak dat per maaibeurt niet gemaaid is."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverHellinggraadOever": {
+        "shortname": "bloemrijkeOeverHellinggraadOever",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Hellinggraad oever",
+        "description": "Hellinggraad van het talud."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverKwalificerendeSoorten": {
+        "shortname": "bloemrijkeOeverKwalificerendeSoorten",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Kwalificerende soorten",
+        "description": "Totaal aantal kwalificerende soorten op oever."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverOevertype": {
+        "shortname": "bloemrijkeOeverOevertype",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Oevertype",
+        "description": "Type oeverconstructie."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverVerbossing": {
+        "shortname": "bloemrijkeOeverVerbossing",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Verbossing",
+        "description": "Percentage van het oppervlak van de oever waar struiken en/of bomen/ boomvormers aanwezig zijn (binnen een afstand van 5 meter ten opzichte van de waterlijn)."
+      },
+      "natuurvriendelijkeOeverBloemrijkeOeverVerruiging": {
+        "shortname": "bloemrijkeOeverVerruiging",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Bloemrijke oever Verruiging",
+        "description": "Percentage van het oppervlak van de oever waar ruigtesoorten als gewone berenklauw, haagwinde, heermoes etc voorkomt."
+      },
+      "natuurvriendelijkeOeverRuigeRietoeverBreedteOeverzoneBreedteFlauwTalud": {
+        "shortname": "ruigeRietoeverBreedteOeverzoneBreedteFlauwTalud",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Ruige rietoever Breedte oeverzone breedte flauw talud",
+        "description": "Breedte van de gehele oever van flauw talud (boven en onder water) tussen +15cm en -50 cm."
+      },
+      "natuurvriendelijkeOeverRuigeRietoeverBreedteOeverzonePlasdrasbermMetVooroever": {
+        "shortname": "ruigeRietoeverBreedteOeverzonePlasdrasbermMetVooroever",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Ruige rietoever Breedte oeverzone plasdrasberm met vooroever",
+        "description": "Plasberm/drasberm met vooroever of onderwaterberm tussen +15cm en - 50cm."
+      },
+      "natuurvriendelijkeOeverRuigeRietoeverBreedteOeverzonePlasdrasbermZonderVooroever": {
+        "shortname": "ruigeRietoeverBreedteOeverzonePlasdrasbermZonderVooroever",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Ruige rietoever Breedte oeverzone plasdrasberm zonder vooroever",
+        "description": "Plasberm/drasberm zonder vooroever of onderwaterberm tussen +15cm en - 50cm."
+      },
+      "natuurvriendelijkeOeverRuigeRietoeverDiepteVerlandingOeverzoneGroen": {
+        "shortname": "ruigeRietoeverDiepteVerlandingOeverzoneGroen",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Ruige rietoever Diepte verlanding oeverzone groen",
+        "description": "De gemiddelde waterpeil bij een draszone (met hellend talud) ligt tussen 0,1 boven en 0,1 onder de waterlijn, waarbij het gemiddelde op de waterlijn (0.0 m) ligt."
+      },
+      "natuurvriendelijkeOeverRuigeRietoeverDiepteVerlandingOeverzoneOranje": {
+        "shortname": "ruigeRietoeverDiepteVerlandingOeverzoneOranje",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Ruige rietoever Diepte verlanding oeverzone oranje",
+        "description": "De gemiddelde waterpeil bij een plaszone (met hellend talud) ligt tussen 0,1 m en 0,5 m, waarbij het gemiddelde op 0,3 m ligt."
+      },
+      "natuurvriendelijkeOeverRuigeRietoeverDiepteVerlandingOeverzoneRood": {
+        "shortname": "ruigeRietoeverDiepteVerlandingOeverzoneRood",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Ruige rietoever Diepte verlanding oeverzone rood",
+        "description": "De gemiddelde waterpeil bij de aquatische zone, of onderwaterbanket (met hellend talud) loopt in optimale situatie van 0,5 tot 1 meter onder de waterlijn, waarbij het gemiddelde op 0,7m ligt."
+      },
+      "natuurvriendelijkeOeverRuigeRietoeverGebrekenOeverconstructie": {
+        "shortname": "ruigeRietoeverGebrekenOeverconstructie",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Ruige rietoever Gebreken oeverconstructie",
+        "description": "Mate waarin bij de oeverconstructie sprake is van technische gebreken."
+      },
+      "natuurvriendelijkeOeverRuigeRietoeverGefaseerdBeheerStruweelOfRuigeRietoever": {
+        "shortname": "ruigeRietoeverGefaseerdBeheerStruweelOfRuigeRietoever",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Ruige rietoever Gefaseerd beheer struweel of ruige rietoever",
+        "description": "Percentage van oppervlak dat per maaibeurt niet gemaaid is."
+      },
+      "natuurvriendelijkeOeverRuigeRietoeverHellinggraadOever": {
+        "shortname": "ruigeRietoeverHellinggraadOever",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Ruige rietoever Hellinggraad oever",
+        "description": "Hellinggraad van het talud."
+      },
+      "natuurvriendelijkeOeverRuigeRietoeverOevertype": {
+        "shortname": "ruigeRietoeverOevertype",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Ruige rietoever Oevertype",
+        "description": "Type oeverconstructie."
+      },
+      "natuurvriendelijkeOeverRuigeRietoeverVerbossingRuigeRietoever": {
+        "shortname": "ruigeRietoeverVerbossingRuigeRietoever",
+        "type": "string",
+        "title": "Natuurvriendelijke oever Ruige rietoever Verbossing ruige rietoever",
+        "description": "Percentage van het oppervlak van de oever waar struiken en/of bomen/ boomvormers aanwezig zijn (binnen een afstand van 5 meter ten opzichte van de waterlijn)."
+      },
+      "nietTeInspecteren": {
+        "type": "boolean",
+        "title": "Niet te inspecteren",
+        "description": "Geeft aan dat het niet mogelijk was de voorziening te inspecteren."
+      },
+      "revisie": {
+        "type": "integer",
+        "title": "Revisie",
+        "description": "Volgnummer van de herziening."
+      },
+      "ruigteInheemsRuigte": {
+        "type": "string",
+        "title": "Ruigte Inheems ruigte",
+        "description": "Percentage van het oppervlak dat uit inheemse soorten bestaat."
+      },
+      "ruigteMengingRuigte": {
+        "type": "string",
+        "title": "Ruigte Menging ruigte",
+        "description": "Aantal soorten inheemse planten waard de ruigtevegetatie uit bestaat."
+      },
+      "ruigteVerbossingRuigte": {
+        "type": "string",
+        "title": "Ruigte Verbossing ruigte",
+        "description": "Percentage van het oppervlak waar bomen, boomopslag of struiken aanwezig is."
+      },
+      "stadswaterAlgenEnOfKroos": {
+        "type": "string",
+        "title": "Stadswater Algen en of kroos",
+        "description": "Percentage van wateroppervlak bedekt met algen en/of kroos."
+      },
+      "stadswaterDiversiteitPlanten": {
+        "type": "string",
+        "title": "Stadswater Diversiteit planten",
+        "description": "Totaal aantal  soorten waterplanten (drijfblad- plus onder water gedoken planten)."
+      },
+      "stadswaterDoorzicht": {
+        "type": "string",
+        "title": "Stadswater Doorzicht",
+        "description": "Mate van helderheid van het water."
+      },
+      "stadswaterDrijfbladplanten": {
+        "type": "string",
+        "title": "Stadswater Drijfbladplanten",
+        "description": "Aandeel van watergang met drijfbladplanten."
+      },
+      "stadswaterInvasieveExoten": {
+        "type": "string",
+        "title": "Stadswater Invasieve exoten",
+        "description": "Aanwezigheid invasieve exoten flora."
+      },
+      "stadswaterOndergedokenWaterplanten": {
+        "type": "string",
+        "title": "Stadswater Ondergedoken waterplanten",
+        "description": "Aandeel van watergang met ondergedoken planten."
+      },
+      "stadswaterSchaduw": {
+        "type": "string",
+        "title": "Stadswater Schaduw",
+        "description": "Mate van beschaduwing op de watergang."
+      },
+      "stadswaterSlibdikte": {
+        "type": "string",
+        "title": "Stadswater Slibdikte",
+        "description": "Dikte van de sliblaag op de waterbodem."
+      },
+      "stadswaterWaterdiepte": {
+        "type": "string",
+        "title": "Stadswater Waterdiepte",
+        "description": "Diepte van de waterbodem."
+      },
+      "statusInspectie": {
+        "type": "string",
+        "title": "Status Inspectie",
+        "description": "Status van de inspectieopdracht"
+      },
+      "struweelGefaseerdBeheerStruweelOfRuigeRietoever": {
+        "type": "string",
+        "title": "Struweel Gefaseerd beheer struweel of ruige rietoever",
+        "description": "Percentage van oppervlak dat niet gemaaid is."
+      },
+      "struweelInheemsStruweel": {
+        "type": "string",
+        "title": "Struweel Inheems struweel",
+        "description": "Percentage van het oppervlakte dat uit inheemse soorten bestaat."
+      },
+      "struweelLengteZoom": {
+        "type": "string",
+        "title": "Struweel Lengte zoom",
+        "description": "Percentage van struweelrand met zoomvegetatie."
+      },
+      "struweelMengingStruweel": {
+        "type": "string",
+        "title": "Struweel Menging struweel",
+        "description": "Percentage van oppervlakte waar naast de hoofdstruiksoort minimaal drie andere soorten voorkomen."
+      },
+      "struweelVerbossing": {
+        "type": "string",
+        "title": "Struweel Verbossing",
+        "description": "Percentage van het oppervlak van het struweel waar bomen of boomopslag aanwezig is."
+      },
+      "teHerstellen": {
+        "type": "boolean",
+        "title": "Te herstellen",
+        "description": "Onderde(e)l(en) van de inspectie moeten worden hersteld."
+      },
+      "terreindeelId": {
+        "type": "string",
+        "title": "Terreindeel ID",
+        "description": "Id van het terreindeel waarop de inspectie betrekking heeft."
+      },
+      "timingInspectie": {
+        "type": "string",
+        "title": "Timing inspectie",
+        "description": "Tijdstatus van het inspectiemoment; verleden, actueel, toekomst."
+      },
+      "veenmosrietlandGefaseerdBeheerVeenmosrietland": {
+        "type": "string",
+        "title": "Veenmosrietland Gefaseerd beheer veenmosrietland",
+        "description": "Percentage van oppervlak dat niet gemaaid is."
+      },
+      "veenmosrietlandVerbossingVeenmosrietland": {
+        "type": "string",
+        "title": "Veenmosrietland Verbossing veenmosrietland",
+        "description": "Percentage van het veenmosrietland dat bestaat uit bomen, boomopslag en struweel."
+      },
+      "veenmosrietlandVerdrogingDiepte": {
+        "type": "string",
+        "title": "Veenmosrietland Verdroging diepte",
+        "description": "Gemiddelde waterpeil ten opzichte van het maaiveld."
+      },
+      "veenmosrietlandVerruigingVeenmosrietland": {
+        "type": "string",
+        "title": "Veenmosrietland Verruiging veenmosrietland",
+        "description": "Percentage van oppervlakte dat (tekenen van) verruiging heeft (dominantie van soorten als brandnetel, akkerdistel, braam, riet, grassen als witbol)."
+      },
+      "waarde": {
+        "type": "string",
+        "title": "Waarde",
+        "description": "Waarde (tekst of numeriek) die op een verkeersbord ingevuld kan worden."
+      },
+      "waarderingsscore": {
+        "type": "integer",
+        "title": "Waarderingsscore",
+        "description": "Score behorende bij de waarderingen vanuit ecologische monitoring."
+      },
+      "weidevogelgraslandGefaseerdBeheerOfBeweiding": {
+        "type": "string",
+        "title": "Weidevogelgrasland Gefaseerd beheer of beweiding",
+        "description": "Er is een mozaïek van hoge en lage gras- en kruidenvegetatie (in mei is 20% van het grasland hoger dan 25 cm en 20% lager dan 25 cm)."
+      },
+      "weidevogelgraslandNestbescherming": {
+        "type": "string",
+        "title": "Weidevogelgrasland Nestbescherming",
+        "description": "Bij beweiding wordt aan nestbescherming gedaan."
+      },
+      "weidevogelgraslandOpenKarakter": {
+        "type": "string",
+        "title": "Weidevogelgrasland Open karakter",
+        "description": "Mate waarin het gebied een open karakter heeft zonder opgaande structuurelementen zoals bomen en bosjes."
+      },
+      "weidevogelgraslandSchuilplaats": {
+        "type": "string",
+        "title": "Weidevogelgrasland Schuilplaats",
+        "description": "Percentage van de slootkant met bedekking (maart-aug) van helofyten en kruiden als dekking en voedselplek."
       }
     }
   }
-  
+}

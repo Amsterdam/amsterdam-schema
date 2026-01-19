@@ -32,24 +32,32 @@
     "servicegebieden"
   ],
   "crs": "EPSG:28992",
-  "objective": "Het doel van deze dataset is het beschikbaar stellen van gegevens voor het ondersteunen van plaatsingsbeleid betreffende ondergrondse afvalcontainers en het ondersteunen van routeoptimalisatie voor afvalinzameling.",
+  "objective": "Deze dataset bevat data over huishoudelijk afval. Het gaat hierbij om de infrastructuur van  ondergrondse- en rolcontainers. Naast de objecteigenschappen, van bijvoorbeeld locatie tot containervolume, bevat de set ook gegevens over het onderhoud, de vulling, de hoeveelheid afval, bijplaatsingen enz. De dataset wordt gevuld vanuit veel verschillende bronsystemen. VConsyst voor containers, clusters, fracties en tickets(meldingen over containers). Inovim voor de rolcontainers. Kilogram voor weeggegevens afkomstig van de wagens. In afvoermomenten de hoeveelheden afval aangeboden aan afvalverwerkers. Container vulgraden en vulsnelheden is  sensordata uit containers. Het doel van deze dataset is het beschikbaar stellen van gegevens voor het ondersteunen van plaatsingsbeleid betreffende ondergrondse afvalcontainers en het ondersteunen van routeoptimalisatie voor afvalinzameling.",
   "temporalUnit": "uren",
   "defaultVersion": "v1",
   "versions": {
     "v0": {
-      "status": "niet_beschikbaar",
-      "lifecycleStatus": "experimental",
+      "status": "under_development",
+      "enableAPI": false,
       "version": "0.0.0",
       "tables": [
         {
           "id": "afvoermomenten",
           "$ref": "afvoermomenten/v0"
+        },
+        {
+          "id": "clusterVulsnelheden",
+          "$ref": "clusterVulsnelheden/v0"
+        },
+        {
+          "id": "containerVulgraden",
+          "$ref": "containerVulgraden/v0"
         }
       ]
     },
     "v1": {
-      "status": "beschikbaar",
-      "lifecycleStatus": "stable",
+      "status": "stable",
+      "enableAPI": true,
       "version": "2.5.0",
       "tables": [
         {
@@ -123,6 +131,10 @@
         {
           "id": "servicegebieden",
           "$ref": "servicegebieden/v1"
+        },
+        {
+          "id": "fracties",
+          "$ref": "fracties/v1"
         }
       ]
     }

@@ -3,8 +3,8 @@
   "title": "plantopografie",
   "description": "Ruimtelijk object dat wel gepland is, maar nog niet in uitvoering is; meestal een groot infrastructureel object.",
   "type": "table",
-  "version": "1.0.4",
-  "lifecycleStatus": "stable",
+  "version": "1.0.5",
+  "status": "stable",
   "crs": "EPSG:28992",
   "auth": "OPENBAAR",
   "schema": {
@@ -22,11 +22,11 @@
     "display": "identificatie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
-        "title": "Geo object ID",
+        "title": "Object ID",
         "description": "De unieke identiteit van het geo-object"
       },
       "bronactualiteit": {
@@ -80,7 +80,7 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
         "title": "Geometrie",
-        "description": "Geometrie"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "naam": {
         "type": "string",
@@ -95,7 +95,7 @@
       "geometrieVlak": {
         "$ref": "https://geojson.org/schema/Polygon.json",
         "title": "Vlak geometrie",
-        "description": "Vlakgeometrie"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       }
     }
   }

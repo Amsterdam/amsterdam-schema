@@ -1488,10 +1488,10 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version c67c745b1, updated Fri Jan 17 14:27:28 2025 -0800" name="generator">
+  <meta content="Bikeshed version 60c422380, updated Thu Feb 20 19:11:22 2025 -0800" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="523f5c1bfbbdf273d3cc3983f7ae535457e5ff87" name="revision">
+  <meta content="43c1703db1b099e4128a80b0bbcc8357a22d042f" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
     p[data-fill-with="logo"] {
@@ -2358,7 +2358,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Amsterdam Schema Specificatie</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2025-04-09">9 April 2025</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2025-12-29">29 December 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2401,7 +2401,8 @@ om datasets in een machineleesbaar format te beschrijven en op generieke wijze t
      <a href="#dataset-version"><span class="secno">3</span> <span class="content">Versie</span></a>
      <ol class="toc">
       <li><a href="#version-mandatory-fields"><span class="secno">3.1</span> <span class="content">Verplichte attributen</span></a>
-      <li><a href="#version-lifecycle-status"><span class="secno">3.2</span> <span class="content">Lifecycle</span></a>
+      <li><a href="#version-optional-fields"><span class="secno">3.2</span> <span class="content">Optionele attributen</span></a>
+      <li><a href="#version-status"><span class="secno">3.3</span> <span class="content">Status</span></a>
      </ol>
     <li>
      <a href="#tables"><span class="secno">4</span> <span class="content">Tabel</span></a>
@@ -2411,8 +2412,10 @@ om datasets in een machineleesbaar format te beschrijven en op generieke wijze t
       <li><a href="#tabel-schema"><span class="secno">4.3</span> <span class="content">Schema</span></a>
       <li><a href="#temporaliteit"><span class="secno">4.4</span> <span class="content">Temporaliteit</span></a>
       <li><a href="#table-versioning"><span class="secno">4.5</span> <span class="content">Versionering</span></a>
-      <li><a href="#table-lifecycle-status"><span class="secno">4.6</span> <span class="content">Lifecycle</span></a>
+      <li><a href="#table-status"><span class="secno">4.6</span> <span class="content">Status</span></a>
       <li><a href="#zoom"><span class="secno">4.7</span> <span class="content">Zoom</span></a>
+      <li><a href="#row_level_auth"><span class="secno">4.8</span> <span class="content">Row Level Authorisatie</span></a>
+      <li><a href="#subresources"><span class="secno">4.9</span> <span class="content">Subresources</span></a>
      </ol>
     <li>
      <a href="#fields"><span class="secno">5</span> <span class="content">Veld</span></a>
@@ -2455,17 +2458,19 @@ om datasets in een machineleesbaar format te beschrijven en op generieke wijze t
     <li>
      <a href="#changelog"><span class="secno">12</span> <span class="content">Changelog</span></a>
      <ol class="toc">
-      <li><a href="#lastchange"><span class="secno">12.1</span> <span class="content">[3.1.0] LifecycleStatus toegevoegd (2025-04-03)</span></a>
-      <li><a href="#20250303"><span class="secno">12.2</span> <span class="content">[3.0.0] Dataset versionering toegevoegd (2025-03-03)</span></a>
-      <li><a href="#20250204"><span class="secno">12.3</span> <span class="content">[2.4.0] Scopes documentatie toegevoegd (2025-02-04)</span></a>
-      <li><a href="#20250112"><span class="secno">12.4</span> <span class="content">[2.3.0] filterAuth attribuut toegevoegd (2025-01-12)</span></a>
-      <li><a href="#20230112"><span class="secno">12.5</span> <span class="content">[2.2.0] dataclass attribuut toegevoegd (2023-01-12)</span></a>
-      <li><a href="#20230110"><span class="secno">12.6</span> <span class="content">[2.1.5] dataclass attribuut toegevoegd (2023-01-10)</span></a>
-      <li><a href="#20221221"><span class="secno">12.7</span> <span class="content">[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</span></a>
-      <li><a href="#20220413-2"><span class="secno">12.8</span> <span class="content">[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</span></a>
-      <li><a href="#20220413-1"><span class="secno">12.9</span> <span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span></a>
-      <li><a href="#change20220323"><span class="secno">12.10</span> <span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span></a>
-      <li><a href="#change20220317"><span class="secno">12.11</span> <span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span></a>
+      <li><a href="#lastchange"><span class="secno">12.1</span> <span class="content">[4.0.0] LifecycleStatus verwijderd (2025-12-29)</span></a>
+      <li><a href="#20251111"><span class="secno">12.2</span> <span class="content">[3.2.0] rowLevelAuth toegevoegd (2025-11-11)</span></a>
+      <li><a href="#20250403"><span class="secno">12.3</span> <span class="content">[3.1.0] LifecycleStatus toegevoegd (2025-04-03)</span></a>
+      <li><a href="#20250303"><span class="secno">12.4</span> <span class="content">[3.0.0] Dataset versionering toegevoegd (2025-03-03)</span></a>
+      <li><a href="#20250204"><span class="secno">12.5</span> <span class="content">[2.4.0] Scopes documentatie toegevoegd (2025-02-04)</span></a>
+      <li><a href="#20250112"><span class="secno">12.6</span> <span class="content">[2.3.0] filterAuth attribuut toegevoegd (2025-01-12)</span></a>
+      <li><a href="#20230112"><span class="secno">12.7</span> <span class="content">[2.2.0] dataclass attribuut toegevoegd (2023-01-12)</span></a>
+      <li><a href="#20230110"><span class="secno">12.8</span> <span class="content">[2.1.5] dataclass attribuut toegevoegd (2023-01-10)</span></a>
+      <li><a href="#20221221"><span class="secno">12.9</span> <span class="content">[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</span></a>
+      <li><a href="#20220413-2"><span class="secno">12.10</span> <span class="content">[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</span></a>
+      <li><a href="#20220413-1"><span class="secno">12.11</span> <span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span></a>
+      <li><a href="#change20220323"><span class="secno">12.12</span> <span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span></a>
+      <li><a href="#change20220317"><span class="secno">12.13</span> <span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -2482,7 +2487,7 @@ om datasets in een machineleesbaar format te beschrijven en op generieke wijze t
    </ol>
   </nav>
   <main>
-   <p><strong class="advisement"> De meest recente aanpassing aan deze specificatie is:<br> <a href="#lastchange">§ 12.1 [3.1.0] LifecycleStatus toegevoegd (2025-04-03)</a></strong></p>
+   <p><strong class="advisement"> De meest recente aanpassing aan deze specificatie is:<br> <a href="#lastchange">§ 12.1 [4.0.0] LifecycleStatus verwijderd (2025-12-29)</a></strong></p>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introductie</span><a class="self-link" href="#intro"></a></h2>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Alle data van gemeente Amsterdam binnen één machine verwerkbaar universeel format beschrijven,
@@ -2533,7 +2538,7 @@ Een dataset bevat minstens één versie.</p>
     <p><strong>Dataset</strong> A collection of data, published or curated by a single agent or identifiable community.
 The notion of dataset in DCAT is broad and inclusive, with the intention of accommodating resource types arising from all communities.
 Data comes in many forms including numbers, text, pixels, imagery, sound and other multi-media, and potentially other types,
-any of which might be collected into a dataset. (From <a href="https://w3c.github.io/dxwg/dcat/#dcat-scope">Data Catalog Vocabulary (DCAT) - Version 3 § dcat-scope</a>)</p>
+any of which might be collected into a dataset. (From <a href="https://w3c.github.io/dxwg/dcat/#dcat-scope"><cite>DCAT 3</cite> § 5.1 DCAT scope</a>)</p>
    </blockquote>
    <h3 class="heading settled" data-level="2.1" id="dataset-mandatory-fields"><span class="secno">2.1. </span><span class="content">Verplichte attributen</span><a class="self-link" href="#dataset-mandatory-fields"></a></h3>
     Een <dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="dataset">dataset</dfn> binnen Amsterdam Schema bestaat uit een JSON bestand met in ieder geval de volgende velden:
@@ -2585,9 +2590,9 @@ any of which might be collected into a dataset. (From <a href="https://w3c.githu
        </details>
    </table>
    <p><strong class="advisement"> Let op: Zie <a href="#naamgeving">§ 6 Naamgeving</a> voor de eisen waaraan <code class="idl"><a data-link-type="idl" href="#dom-dataset-id" id="ref-for-dom-dataset-id">id</a></code> moet voldoen.</strong></p>
-   <p class="note" role="note"><span class="marker">Note:</span> Als een versie van een dataset nog niet klaar is voor publicatie, zet de <code class="idl"><a data-link-type="idl" href="#dom-versie-status" id="ref-for-dom-versie-status">status</a></code> dan op <code class="highlight"><c- u>"niet_beschikbaar"</c-></code>. Zo wordt de dataset nog niet zichtbaar in doelsystemen.</p>
-   <div class="example" id="example-e79330a8">
-    <a class="self-link" href="#example-e79330a8"></a> Een minimale dataset definitie. De 'title' en 'description' velden zijn niet verplicht,
+   <p class="note" role="note"><span class="marker">Note:</span> Als een versie van een dataset nog niet klaar is voor publicatie, zet de <code class="idl"><a data-link-type="idl" href="#dom-versie-enableapi" id="ref-for-dom-versie-enableapi">enableAPI</a></code> dan op <code class="highlight"><c- u>"false"</c-></code>. Zo wordt de dataset nog niet zichtbaar in doelsystemen.</p>
+   <div class="example" id="example-05c06df7">
+    <a class="self-link" href="#example-05c06df7"></a> Een minimale dataset definitie. De 'title' en 'description' velden zijn niet verplicht,
     maar het is best practice ze toe te voegen.
 <pre class="include-code highlight"><c- p>{</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"bekendeAmsterdammers"</c-><c- p>,</c->
@@ -2601,9 +2606,9 @@ any of which might be collected into a dataset. (From <a href="https://w3c.githu
   <c- f>"owner"</c-><c- p>:</c-> <c- u>"Gemeente Amsterdam"</c-><c- p>,</c->
   <c- f>"versions"</c-><c- p>:</c-> <c- p>{</c->
     <c- f>"v1"</c-><c- p>:</c-> <c- p>{</c->
-      <c- f>"status"</c-><c- p>:</c-> <c- u>"beschikbaar"</c-><c- p>,</c->
       <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c->
-      <c- f>"lifecycleStatus"</c-><c- p>:</c-> <c- u>"stable"</c-><c- p>,</c->
+      <c- f>"status"</c-><c- p>:</c-> <c- u>"stable"</c-><c- p>,</c->
+      <c- f>"enableAPI"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c->
       <c- f>"tables"</c-><c- p>:</c-> <c- p>[</c->
         <c- p>{</c->
           <c- f>"$ref"</c-><c- p>:</c-> <c- u>"personen/v1"</c-><c- p>,</c->
@@ -2735,7 +2740,7 @@ De volgende velden zijn toegestaan:
    </table>
    <p class="note" role="note"><span class="marker">Note:</span> De intentie is dat alle relevante <a data-link-type="biblio" href="#biblio-vocab-dcat-3" title="Data Catalog Vocabulary (DCAT) - Version 3">DCAT</a> velden te modelleren zijn. Wanneer velden ontbreken
     die wel in de <a data-link-type="biblio" href="#biblio-vocab-dcat-3" title="Data Catalog Vocabulary (DCAT) - Version 3">DCAT</a> zijn opgenomen, zullen deze worden toegevoegd.</p>
-   <p class="issue" id="issue-794e3780"><a class="self-link" href="#issue-794e3780"></a> Niet alle DCAT velden zijn gemodelleerd. Daarnaast zijn komt van sommige velden de naamgeving niet overeen met de DCAT spec.</p>
+   <p class="issue" id="issue-f73972c8"><a class="self-link" href="#issue-f73972c8"></a> Niet alle DCAT velden zijn gemodelleerd. Daarnaast komt van sommige velden de naamgeving niet overeen met de DCAT spec.</p>
    <p class="issue" id="issue-fe7b94ef"><a class="self-link" href="#issue-fe7b94ef"></a> Sommige velden missen een beschrijving</p>
    <h3 class="heading settled" data-level="2.3" id="table-refs"><span class="secno">2.3. </span><span class="content">Tabelreferenties</span><a class="self-link" href="#table-refs"></a></h3>
     Tabelreferenties zijn verwijzingen naar JSON-bestanden waarin een <a data-link-type="dfn" href="#tabel" id="ref-for-tabel">tabel</a> gedefinieerd wordt.
@@ -2792,8 +2797,6 @@ en er een overgangsperiode kan ontstaan waarin een oudere versie van een dataset
 afnemers overgestapt zijn op een nieuwe versie van de dataset. Zie <a href="#dataset-version">versie</a> voor de implementatie in het
 Amsterdam Schema.</p>
    <p class="note" role="note"><span class="marker">Note:</span> Deze manier van versioneren is geïntroduceerd in V3 van het Amsterdam schema.</p>
-   <p class="note" role="note"><span class="marker">Note:</span> Er kan momenteel slechts één versie van de dataset zijn met de status 'beschikbaar'. Dit dient
-overeen te komen met de waarde in <code class="idl"><a data-link-type="idl" href="#dom-dataset-defaultversion" id="ref-for-dom-dataset-defaultversion">defaultVersion</a></code>.</p>
    <p>Een <a data-link-type="dfn" href="#versie" id="ref-for-versie②">versie</a> wordt in het schema aangeduid door middel van een <code class="idl"><a data-link-type="idl" href="#typedefdef-majorversion" id="ref-for-typedefdef-majorversion①">major versie</a></code> van het <code class="idl"><a data-link-type="idl" href="#typedefdef-version" id="ref-for-typedefdef-version">versienummer</a></code> van een dataset. Iedere versie van een dataset bevat een of meerdere tabellen die
 ook geversioneerd kunnen zijn. De versienummers van een dataset gebruiken semantic versioning. Dit betekend dat de
 versienummers betekenis hebben. Zo valt met een blik op het versienummer iets te zeggen over de aard van de gedane
@@ -2852,37 +2855,29 @@ bij deze versie horen.</p>
    <table class="dfn-table">
     <tbody>
      <tr>
-      <td><dfn class="dfn-paneled idl-code" data-dfn-for="versie" data-dfn-type="attribute" data-export id="dom-versie-status"><code class="highlight">status</code></dfn>
-      <td> string
-      <td>
-        Publicatiestatus van de versie van de dataset
-       <details>
-        <summary>Toegestane waarden</summary>
-        <ul>
-         <li data-md>
-          <p>"beschikbaar"</p>
-         <li data-md>
-          <p>"niet_beschikbaar"</p>
-        </ul>
-       </details>
-     <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="versie" data-dfn-type="attribute" data-export id="dom-versie-version"><code class="highlight">version</code></dfn>
       <td> <code class="idl"><a data-link-type="idl" href="#typedefdef-version" id="ref-for-typedefdef-version①">version-string</a></code>
       <td> Het versie nummer van deze versie. Zie <a href="#dataset-versioning">§ 2.6 Versionering</a>
      <tr>
-      <td><dfn class="dfn-paneled idl-code" data-dfn-for="versie" data-dfn-type="attribute" data-export id="dom-versie-lifecyclestatus"><code class="highlight">lifecycleStatus</code></dfn>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="versie" data-dfn-type="attribute" data-export id="dom-versie-status"><code class="highlight">status</code></dfn>
       <td> string
       <td>
-        Lifecycle van de versie van de dataset. Zie <a href="#version-lifecycle-status">§ 3.2 Lifecycle</a>
+        Lifecycle van de versie van de dataset. Zie <a href="#version-status">§ 3.3 Status</a>
        <details>
         <summary>Toegestane waarden</summary>
         <ul>
          <li data-md>
-          <p>"experimental"</p>
+          <p>"under_development"</p>
          <li data-md>
           <p>"stable"</p>
+         <li data-md>
+          <p>"superseded"</p>
         </ul>
        </details>
+     <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="versie" data-dfn-type="attribute" data-export id="dom-versie-enableapi"><code class="highlight">enableAPI</code></dfn>
+      <td> boolean
+      <td> Of deze versie van de dataset beschikbaar moet zijn in de DSO API.
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="versie" data-dfn-type="attribute" data-export id="dom-versie-tables"><code class="highlight">tables</code></dfn>
       <td> object
@@ -2899,17 +2894,32 @@ Zie <a href="#table-refs">§ 2.3 Tabelreferenties</a> voor details.</p>
         </ul>
        </details>
    </table>
-   <div class="example hide-lines" id="example-e5e45cdb" onclick="this.classList.toggle(&apos;hide-lines&apos;);this.classList.toggle(&apos;unhide-lines&apos;);">
-    <a class="self-link" href="#example-e5e45cdb"></a> Voorbeeld van een dataset met twee versies en twee tabelreferenties.
+   <div class="example hide-lines" id="example-fc8caf54" onclick="this.classList.toggle(&apos;hide-lines&apos;);this.classList.toggle(&apos;unhide-lines&apos;);">
+    <a class="self-link" href="#example-fc8caf54"></a> Voorbeeld van een dataset met twee versies en twee tabelreferenties.
     <p>Een <code class="highlight">locaties</code> tabel in <code class="highlight"><c- p>.</c-><c- o>/</c->locaties<c- o>/</c->v1<c- p>.</c->json</code>.<br> En een <code class="highlight">personen</code> tabel in <code class="highlight"><c- p>.</c-><c- o>/</c->personen<c- o>/</c->v2<c- p>.</c->json</code>, waarvan ook de oudere versie <code class="highlight">v1</code> beschikbaar is.</p>
-<pre class="include-code highlight line-numbered"><span class="line-no"></span><span class="line"><c- p>{</c-></span><span class="line-no"></span><span class="line">  <c- f>"id"</c-><c- p>:</c-> <c- u>"bekendeAmsterdammers"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"type"</c-><c- p>:</c-> <c- u>"dataset"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"title"</c-><c- p>:</c-> <c- u>"Bekende Amsterdammers"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"description"</c-><c- p>:</c-> <c- u>"Bekende historische personen die in Amsterdam hebben gewoond.\n (Een voorbeeld dataset)"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"owner"</c-><c- p>:</c-> <c- u>"Gemeente Amsterdam"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"publisher"</c-><c- p>:</c-> <c- u>"myDataTeam"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"creator"</c-><c- p>:</c-> <c- u>"myBronhouder"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"auth"</c-><c- p>:</c-> <c- u>"OPENBAAR"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"authorizationGrantor"</c-><c- p>:</c-> <c- u>"myDataTeam@amsterdam.nl"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="11"></span><span class="line highlight-line">  <c- f>"versions"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="12"></span><span class="line highlight-line">    <c- f>"v1"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="13"></span><span class="line highlight-line">      <c- f>"status"</c-><c- p>:</c-> <c- u>"niet_beschikbaar"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="14"></span><span class="line highlight-line">      <c- f>"version"</c-><c- p>:</c-> <c- u>"1.3.0"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="15"></span><span class="line highlight-line">      <c- f>"lifecycleStatus"</c-><c- p>:</c-> <c- u>"stable"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="16"></span><span class="line highlight-line">      <c- f>"tables"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no highlight-line" data-line="17"></span><span class="line highlight-line">        <c- p>{</c-></span><span class="line-no highlight-line" data-line="18"></span><span class="line highlight-line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"personen/v1"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="19"></span><span class="line highlight-line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"personen"</c-></span><span class="line-no highlight-line" data-line="20"></span><span class="line highlight-line">        <c- p>},</c-></span><span class="line-no highlight-line" data-line="21"></span><span class="line highlight-line">        <c- p>{</c-></span><span class="line-no highlight-line" data-line="22"></span><span class="line highlight-line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"locaties/v1"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="23"></span><span class="line highlight-line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"locaties"</c-></span><span class="line-no highlight-line" data-line="24"></span><span class="line highlight-line">        <c- p>}</c-></span><span class="line-no highlight-line" data-line="25"></span><span class="line highlight-line">      <c- p>]</c-></span><span class="line-no highlight-line" data-line="26"></span><span class="line highlight-line">    <c- p>},</c-></span><span class="line-no highlight-line" data-line="27"></span><span class="line highlight-line">    <c- f>"v2"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="28"></span><span class="line highlight-line">      <c- f>"status"</c-><c- p>:</c-> <c- u>"beschikbaar"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="29"></span><span class="line highlight-line">      <c- f>"version"</c-><c- p>:</c-> <c- u>"2.0.1"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="30"></span><span class="line highlight-line">      <c- f>"lifecycleStatus"</c-><c- p>:</c-> <c- u>"stable"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="31"></span><span class="line highlight-line">      <c- f>"tables"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no highlight-line" data-line="32"></span><span class="line highlight-line">        <c- p>{</c-></span><span class="line-no highlight-line" data-line="33"></span><span class="line highlight-line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"personen/v2"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="34"></span><span class="line highlight-line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"personen"</c-></span><span class="line-no highlight-line" data-line="35"></span><span class="line highlight-line">        <c- p>},</c-></span><span class="line-no highlight-line" data-line="36"></span><span class="line highlight-line">        <c- p>{</c-></span><span class="line-no highlight-line" data-line="37"></span><span class="line highlight-line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"locaties/v1"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="38"></span><span class="line highlight-line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"locaties"</c-></span><span class="line-no highlight-line" data-line="39"></span><span class="line highlight-line">        <c- p>}</c-></span><span class="line-no highlight-line" data-line="40"></span><span class="line highlight-line">      <c- p>]</c-></span><span class="line-no"></span><span class="line">    <c- p>}</c-></span><span class="line-no"></span><span class="line">  <c- p>}</c-></span><span class="line-no"></span><span class="line"><c- p>}</c-></span></pre>
+<pre class="include-code highlight line-numbered"><span class="line-no"></span><span class="line"><c- p>{</c-></span><span class="line-no"></span><span class="line">  <c- f>"id"</c-><c- p>:</c-> <c- u>"bekendeAmsterdammers"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"type"</c-><c- p>:</c-> <c- u>"dataset"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"title"</c-><c- p>:</c-> <c- u>"Bekende Amsterdammers"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"description"</c-><c- p>:</c-> <c- u>"Bekende historische personen die in Amsterdam hebben gewoond.\n (Een voorbeeld dataset)"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"owner"</c-><c- p>:</c-> <c- u>"Gemeente Amsterdam"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"publisher"</c-><c- p>:</c-> <c- u>"myDataTeam"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"creator"</c-><c- p>:</c-> <c- u>"myBronhouder"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"auth"</c-><c- p>:</c-> <c- u>"OPENBAAR"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"authorizationGrantor"</c-><c- p>:</c-> <c- u>"myDataTeam@amsterdam.nl"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="11"></span><span class="line highlight-line">  <c- f>"versions"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="12"></span><span class="line highlight-line">    <c- f>"v1"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="13"></span><span class="line highlight-line">      <c- f>"version"</c-><c- p>:</c-> <c- u>"1.3.0"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="14"></span><span class="line highlight-line">      <c- f>"status"</c-><c- p>:</c-> <c- u>"superseded"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="15"></span><span class="line highlight-line">      <c- f>"endSupportDate"</c-><c- p>:</c-> <c- u>"2025-12-31"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="16"></span><span class="line highlight-line">      <c- f>"enableAPI"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="17"></span><span class="line highlight-line">      <c- f>"tables"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no highlight-line" data-line="18"></span><span class="line highlight-line">        <c- p>{</c-></span><span class="line-no highlight-line" data-line="19"></span><span class="line highlight-line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"personen/v1"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="20"></span><span class="line highlight-line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"personen"</c-></span><span class="line-no highlight-line" data-line="21"></span><span class="line highlight-line">        <c- p>},</c-></span><span class="line-no highlight-line" data-line="22"></span><span class="line highlight-line">        <c- p>{</c-></span><span class="line-no highlight-line" data-line="23"></span><span class="line highlight-line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"locaties/v1"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="24"></span><span class="line highlight-line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"locaties"</c-></span><span class="line-no highlight-line" data-line="25"></span><span class="line highlight-line">        <c- p>}</c-></span><span class="line-no highlight-line" data-line="26"></span><span class="line highlight-line">      <c- p>]</c-></span><span class="line-no highlight-line" data-line="27"></span><span class="line highlight-line">    <c- p>},</c-></span><span class="line-no highlight-line" data-line="28"></span><span class="line highlight-line">    <c- f>"v2"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="29"></span><span class="line highlight-line">      <c- f>"version"</c-><c- p>:</c-> <c- u>"2.0.1"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="30"></span><span class="line highlight-line">      <c- f>"status"</c-><c- p>:</c-> <c- u>"stable"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="31"></span><span class="line highlight-line">      <c- f>"enableAPI"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="32"></span><span class="line highlight-line">      <c- f>"tables"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no highlight-line" data-line="33"></span><span class="line highlight-line">        <c- p>{</c-></span><span class="line-no highlight-line" data-line="34"></span><span class="line highlight-line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"personen/v2"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="35"></span><span class="line highlight-line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"personen"</c-></span><span class="line-no highlight-line" data-line="36"></span><span class="line highlight-line">        <c- p>},</c-></span><span class="line-no highlight-line" data-line="37"></span><span class="line highlight-line">        <c- p>{</c-></span><span class="line-no highlight-line" data-line="38"></span><span class="line highlight-line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"locaties/v1"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="39"></span><span class="line highlight-line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"locaties"</c-></span><span class="line-no highlight-line" data-line="40"></span><span class="line highlight-line">        <c- p>}</c-></span><span class="line-no highlight-line" data-line="41"></span><span class="line highlight-line">      <c- p>]</c-></span><span class="line-no highlight-line" data-line="42"></span><span class="line highlight-line">    <c- p>}</c-></span><span class="line-no highlight-line" data-line="43"></span><span class="line highlight-line">  <c- p>}</c-></span><span class="line-no"></span><span class="line"><c- p>}</c-></span></pre>
    </div>
-   <h3 class="heading settled" data-level="3.2" id="version-lifecycle-status"><span class="secno">3.2. </span><span class="content">Lifecycle</span><a class="self-link" href="#version-lifecycle-status"></a></h3>
-    Een versie van een dataset dient een lifecycleStatus te hebben. Momenteel zijn de opties hiervoor 'experimental' of
-'stable'. Deze lifecycleStatus zegt iets over de stabiliteit van een versie van een dataset. Wanneer een versie 'stable'
-is, zullen er geen breaking changes meer plaatsvinden. Een versie met de status 'experimental' is nog in ontwikkeling en
-kan tijdens deze periode nog veranderen.
-   <p class="note" role="note"><span class="marker">Note:</span> In de toekomst zal dit veld o.a. ook gebruikt worden voor het aangeven of een versie uitgefaseerd ('deprecated') is.</p>
+   <h3 class="heading settled" data-level="3.2" id="version-optional-fields"><span class="secno">3.2. </span><span class="content">Optionele attributen</span><a class="self-link" href="#version-optional-fields"></a></h3>
+    Naast bovenstaande verplichte attributen mag een <a data-link-type="dfn" href="#versie" id="ref-for-versie④">versie</a> ook de volgende eigenschappen bevatten.
+   <table class="dfn-table">
+    <tbody>
+     <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="versie" data-dfn-type="attribute" data-export id="dom-versie-releasedate"><code class="highlight">releaseDate</code></dfn>
+      <td> <code class="idl"><a data-link-type="idl" href="#typedefdef-date" id="ref-for-typedefdef-date">date</a></code>
+      <td> datum waarop de versie beschikbaar gemaakt is
+     <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="versie" data-dfn-type="attribute" data-export id="dom-versie-endsupportdate"><code class="highlight">endSupportDate</code></dfn>
+      <td> <code class="idl"><a data-link-type="idl" href="#typedefdef-date" id="ref-for-typedefdef-date①">date</a></code>
+      <td> Verplicht indien <code class="idl"><a data-link-type="idl" href="#dom-versie-status" id="ref-for-dom-versie-status">status</a></code> de waarde "superseded" heeft
+   </table>
+   <h3 class="heading settled" data-level="3.3" id="version-status"><span class="secno">3.3. </span><span class="content">Status</span><a class="self-link" href="#version-status"></a></h3>
+    Een versie van een dataset dient een <code class="idl"><a data-link-type="idl" href="#dom-versie-status" id="ref-for-dom-versie-status①">status</a></code> te hebben. Momenteel zijn de opties hiervoor 'under_development',
+'stable' of 'superseded'. Deze <code class="idl"><a data-link-type="idl" href="#dom-versie-status" id="ref-for-dom-versie-status②">status</a></code> zegt iets over de stabiliteit van een versie van een dataset.
+Wanneer een versie 'stable' is, zullen er geen breaking changes meer plaatsvinden. Een versie met de status
+'under_development' is nog in ontwikkeling en kan tijdens deze periode nog veranderen. Wanneer een datasetversie de status
+'superseded' krijgt is deze vervangen voor een nieuwe versie en zal er in de <code class="idl"><a data-link-type="idl" href="#dom-versie-endsupportdate" id="ref-for-dom-versie-endsupportdate">endSupportDate</a></code> een datum opgenomen zijn tot
+wanneer deze versie ondersteund zal worden. In de browsable DSO API zal een melding getoond worden dat gebruikers over
+moeten stappen op een nieuwere versie.
    <h2 class="heading settled" data-level="4" id="tables"><span class="secno">4. </span><span class="content">Tabel</span><a class="self-link" href="#tables"></a></h2>
    <p>Een <a data-link-type="dfn" href="#tabel" id="ref-for-tabel⑧">tabel</a> definitie bevat het schema waaraan de er toe behorende datarijen moeten voldoen.
 Binnen het schema worden velden gedefinieerd die datarijen moeten of mogen bezitten.
@@ -2931,15 +2941,15 @@ Daarnaast kan aan een tabel meta informatie en autorisatie instellingen worden m
       <td> <code class="idl"><a data-link-type="idl" href="#typedefdef-version" id="ref-for-typedefdef-version②">version-string</a></code>
       <td> Het versie nummer van deze tabel. Zie <a href="#table-versioning">§ 4.5 Versionering</a>
      <tr>
-      <td><dfn class="dfn-paneled idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-lifecyclestatus"><code class="highlight">lifecycleStatus</code></dfn>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-status"><code class="highlight">status</code></dfn>
       <td> string
       <td>
-        Lifecycle van de tabel. Zie <a href="#table-lifecycle-status">§ 4.6 Lifecycle</a>
+        Lifecycle van de tabel. Zie <a href="#table-status">§ 4.6 Status</a>
        <details>
         <summary>Toegestane waarden</summary>
         <ul>
          <li data-md>
-          <p>"experimental"</p>
+          <p>"under_development"</p>
          <li data-md>
           <p>"stable"</p>
         </ul>
@@ -2960,10 +2970,10 @@ Daarnaast kan aan een tabel meta informatie en autorisatie instellingen worden m
        </details>
    </table>
    <p><strong class="advisement"> Let op: Zie <a href="#naamgeving">§ 6 Naamgeving</a> voor de eisen waaraan <code class="idl"><a data-link-type="idl" href="#dom-tabel-id" id="ref-for-dom-tabel-id">id</a></code> moet voldoen.</strong></p>
-   <div class="example hide-lines" id="example-78b8ea14" onclick="this.classList.toggle(&apos;hide-lines&apos;);this.classList.toggle(&apos;unhide-lines&apos;);">
-    <a class="self-link" href="#example-78b8ea14"></a> Voorbeeld van een minimale tabel definitie. De <code class="idl"><a data-link-type="idl" href="#dom-tabel-title" id="ref-for-dom-tabel-title">title</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-tabel-description" id="ref-for-dom-tabel-description">description</a></code> velden zijn niet verplicht,
+   <div class="example hide-lines" id="example-93344eca" onclick="this.classList.toggle(&apos;hide-lines&apos;);this.classList.toggle(&apos;unhide-lines&apos;);">
+    <a class="self-link" href="#example-93344eca"></a> Voorbeeld van een minimale tabel definitie. De <code class="idl"><a data-link-type="idl" href="#dom-tabel-title" id="ref-for-dom-tabel-title">title</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-tabel-description" id="ref-for-dom-tabel-description">description</a></code> velden zijn niet verplicht,
     maar het is best practice ze toe te voegen.
-<pre class="include-code highlight line-numbered"><span class="line-no highlight-line" data-line="1"></span><span class="line highlight-line"><c- p>{</c-></span><span class="line-no highlight-line" data-line="2"></span><span class="line highlight-line">  <c- f>"id"</c-><c- p>:</c-> <c- u>"personen"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="3"></span><span class="line highlight-line">  <c- f>"type"</c-><c- p>:</c-> <c- u>"table"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="4"></span><span class="line highlight-line">  <c- f>"title"</c-><c- p>:</c-> <c- u>"Personen"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="5"></span><span class="line highlight-line">  <c- f>"description"</c-><c- p>:</c-> <c- u>"Bekende Amsterdamse personen"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="6"></span><span class="line highlight-line">  <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="7"></span><span class="line highlight-line">  <c- f>"lifecycleStatus"</c-><c- p>:</c-> <c- u>"stable"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="8"></span><span class="line highlight-line">  <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">    <c- f>"$schema"</c-><c- p>:</c-> <c- u>"http://json-schema.org/draft-07/schema#"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"type"</c-><c- p>:</c-> <c- u>"object"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"required"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no"></span><span class="line">      <c- u>"id"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">      <c- u>"schema"</c-></span><span class="line-no"></span><span class="line">    <c- p>],</c-></span><span class="line-no"></span><span class="line">    <c- f>"display"</c-><c- p>:</c-> <c- u>"naam"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"properties"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">      <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://schemas.data.amsterdam.nl/schema@v3#/definitions/schema"</c-></span><span class="line-no"></span><span class="line">      <c- p>},</c-></span><span class="line-no"></span><span class="line">      <c- f>"id"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Unieke aanduiding persoon"</c-></span><span class="line-no"></span><span class="line">      <c- p>},</c-></span><span class="line-no"></span><span class="line">      <c- f>"naam"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="26"></span><span class="line highlight-line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Volledige naam van de persoon"</c-></span><span class="line-no highlight-line" data-line="27"></span><span class="line highlight-line">      <c- p>}</c-></span><span class="line-no highlight-line" data-line="28"></span><span class="line highlight-line">    <c- p>}</c-></span><span class="line-no"></span><span class="line">  <c- p>}</c-></span><span class="line-no"></span><span class="line"><c- p>}</c-></span></pre>
+<pre class="include-code highlight line-numbered"><span class="line-no highlight-line" data-line="1"></span><span class="line highlight-line"><c- p>{</c-></span><span class="line-no highlight-line" data-line="2"></span><span class="line highlight-line">  <c- f>"id"</c-><c- p>:</c-> <c- u>"personen"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="3"></span><span class="line highlight-line">  <c- f>"type"</c-><c- p>:</c-> <c- u>"table"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="4"></span><span class="line highlight-line">  <c- f>"title"</c-><c- p>:</c-> <c- u>"Personen"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="5"></span><span class="line highlight-line">  <c- f>"description"</c-><c- p>:</c-> <c- u>"Bekende Amsterdamse personen"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="6"></span><span class="line highlight-line">  <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="7"></span><span class="line highlight-line">  <c- f>"status"</c-><c- p>:</c-> <c- u>"stable"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="8"></span><span class="line highlight-line">  <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">    <c- f>"$schema"</c-><c- p>:</c-> <c- u>"http://json-schema.org/draft-07/schema#"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"type"</c-><c- p>:</c-> <c- u>"object"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"required"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no"></span><span class="line">      <c- u>"id"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">      <c- u>"schema"</c-></span><span class="line-no"></span><span class="line">    <c- p>],</c-></span><span class="line-no"></span><span class="line">    <c- f>"display"</c-><c- p>:</c-> <c- u>"naam"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"properties"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">      <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://schemas.data.amsterdam.nl/schema@v3#/definitions/schema"</c-></span><span class="line-no"></span><span class="line">      <c- p>},</c-></span><span class="line-no"></span><span class="line">      <c- f>"id"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Unieke aanduiding persoon"</c-></span><span class="line-no"></span><span class="line">      <c- p>},</c-></span><span class="line-no"></span><span class="line">      <c- f>"naam"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="26"></span><span class="line highlight-line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Volledige naam van de persoon"</c-></span><span class="line-no highlight-line" data-line="27"></span><span class="line highlight-line">      <c- p>}</c-></span><span class="line-no highlight-line" data-line="28"></span><span class="line highlight-line">    <c- p>}</c-></span><span class="line-no"></span><span class="line">  <c- p>}</c-></span><span class="line-no"></span><span class="line"><c- p>}</c-></span></pre>
    </div>
    <h3 class="heading settled" data-level="4.2" id="tabel-optional-fields"><span class="secno">4.2. </span><span class="content">Optionele attributen</span><a class="self-link" href="#tabel-optional-fields"></a></h3>
     Een <a data-link-type="dfn" href="#tabel" id="ref-for-tabel⑨">tabel</a> mag daarnaast de volgende attributen bezitten:
@@ -2990,6 +3000,10 @@ Daarnaast kan aan een tabel meta informatie en autorisatie instellingen worden m
       <td> string | array | <a href="#scope-refs">scope-ref</a>
       <td> geautoriseerde <a data-link-type="dfn" href="#scope" id="ref-for-scope③">scope(s)</a>. Default: gelijk aan waarde in dataset/<code class="idl"><a data-link-type="idl" href="#dom-dataset-auth" id="ref-for-dom-dataset-auth①">auth</a></code>, zie <a href="#autorisatie">§ 9 Autorisatie</a>.
      <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-rowlevelauth"><code class="highlight">rowLevelAuth</code></dfn>
+      <td> object
+      <td> De row level authorisaties van toepassing op deze tabel, zie <a href="#row_level_auth">§ 4.8 Row Level Authorisatie</a>
+     <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-reasonsnonpublic"><code class="highlight">reasonsNonPublic</code></dfn>
       <td> array(<code class="idl"><a data-link-type="idl" href="#typedefdef-nonpubreason" id="ref-for-typedefdef-nonpubreason①">nonPubReason</a></code>)
       <td> een of meer gronden voor het niet openbaar maken van data obv uitzonderingen in Hoofdstuk 5 van de <a data-link-type="biblio" href="#biblio-woo" title="Wet open overheid">[Woo]</a>.
@@ -3014,6 +3028,10 @@ Daarnaast kan aan een tabel meta informatie en autorisatie instellingen worden m
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-temporal"><code class="highlight">temporal</code></dfn>
       <td> <a data-link-type="dfn" href="#temporal-object" id="ref-for-temporal-object">temporal-object</a>
       <td> Definieert tijdsafhankelijke geldigheid van objecten. zie <a href="#temporaliteit">§ 4.4 Temporaliteit</a>
+     <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-subresources"><code class="highlight">subresources</code></dfn>
+      <td> object
+      <td> Resources die onder deze tabel vallen als subresource. zie <a href="#subresources">§ 4.9 Subresources</a>
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-for="tabel" data-dfn-type="attribute" data-export id="dom-tabel-crs"><code class="highlight">crs</code></dfn>
       <td> enum(string)
@@ -3110,11 +3128,10 @@ Daarnaast kan aan een tabel meta informatie en autorisatie instellingen worden m
             Het veld of de velden waar hier naar verwezen wordt moeten van het type <a href="#data-types-string">string</a> of het type <a href="#data-types-int">integer</a> zijn.
             en mogen geen <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth①">auth</a></code> attribuut bevatten.
    </table>
-   <p class="issue" id="issue-38d85a92"><a class="self-link" href="#issue-38d85a92"></a> Het identifier veld moet string zijn. De array optie wordt binnenkort verwijderd.</p>
-   <div class="example hide-lines" id="example-eb7e87cb" onclick="this.classList.toggle(&apos;hide-lines&apos;);this.classList.toggle(&apos;unhide-lines&apos;);">
-    <a class="self-link" href="#example-eb7e87cb"></a> Voorbeeld van een schema.
+   <div class="example hide-lines" id="example-323f88cd" onclick="this.classList.toggle(&apos;hide-lines&apos;);this.classList.toggle(&apos;unhide-lines&apos;);">
+    <a class="self-link" href="#example-323f88cd"></a> Voorbeeld van een schema.
     <p>Het <code class="idl"><a data-link-type="idl" href="#dom-schema-display" id="ref-for-dom-schema-display①">display</a></code> veld zorgt ervoor dat niet de "id" de maar de "naam" van een persoon als samenvattende titel wordt gebruikt.</p>
-<pre class="include-code highlight line-numbered"><span class="line-no"></span><span class="line"><c- p>{</c-></span><span class="line-no"></span><span class="line">  <c- f>"id"</c-><c- p>:</c-> <c- u>"personen"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"type"</c-><c- p>:</c-> <c- u>"table"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"title"</c-><c- p>:</c-> <c- u>"Personen"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"description"</c-><c- p>:</c-> <c- u>"Bekende Amsterdamse personen"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"lifecycleStatus"</c-><c- p>:</c-> <c- u>"stable"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="8"></span><span class="line highlight-line">  <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="9"></span><span class="line highlight-line">    <c- f>"$schema"</c-><c- p>:</c-> <c- u>"http://json-schema.org/draft-07/schema#"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="10"></span><span class="line highlight-line">    <c- f>"type"</c-><c- p>:</c-> <c- u>"object"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="11"></span><span class="line highlight-line">    <c- f>"required"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no highlight-line" data-line="12"></span><span class="line highlight-line">      <c- u>"id"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="13"></span><span class="line highlight-line">      <c- u>"schema"</c-></span><span class="line-no highlight-line" data-line="14"></span><span class="line highlight-line">    <c- p>],</c-></span><span class="line-no highlight-line" data-line="15"></span><span class="line highlight-line">    <c- f>"display"</c-><c- p>:</c-> <c- u>"naam"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="16"></span><span class="line highlight-line">    <c- f>"properties"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="17"></span><span class="line highlight-line">      <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="18"></span><span class="line highlight-line">        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://schemas.data.amsterdam.nl/schema@v3#/definitions/schema"</c-></span><span class="line-no highlight-line" data-line="19"></span><span class="line highlight-line">      <c- p>},</c-></span><span class="line-no highlight-line" data-line="20"></span><span class="line highlight-line">      <c- f>"id"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="21"></span><span class="line highlight-line">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="22"></span><span class="line highlight-line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Unieke aanduiding persoon"</c-></span><span class="line-no highlight-line" data-line="23"></span><span class="line highlight-line">      <c- p>},</c-></span><span class="line-no highlight-line" data-line="24"></span><span class="line highlight-line">      <c- f>"naam"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="25"></span><span class="line highlight-line">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="26"></span><span class="line highlight-line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Volledige naam van de persoon"</c-></span><span class="line-no"></span><span class="line">      <c- p>}</c-></span><span class="line-no"></span><span class="line">    <c- p>}</c-></span><span class="line-no"></span><span class="line">  <c- p>}</c-></span><span class="line-no"></span><span class="line"><c- p>}</c-></span></pre>
+<pre class="include-code highlight line-numbered"><span class="line-no"></span><span class="line"><c- p>{</c-></span><span class="line-no"></span><span class="line">  <c- f>"id"</c-><c- p>:</c-> <c- u>"personen"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"type"</c-><c- p>:</c-> <c- u>"table"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"title"</c-><c- p>:</c-> <c- u>"Personen"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"description"</c-><c- p>:</c-> <c- u>"Bekende Amsterdamse personen"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"status"</c-><c- p>:</c-> <c- u>"stable"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="8"></span><span class="line highlight-line">  <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="9"></span><span class="line highlight-line">    <c- f>"$schema"</c-><c- p>:</c-> <c- u>"http://json-schema.org/draft-07/schema#"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="10"></span><span class="line highlight-line">    <c- f>"type"</c-><c- p>:</c-> <c- u>"object"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="11"></span><span class="line highlight-line">    <c- f>"required"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no highlight-line" data-line="12"></span><span class="line highlight-line">      <c- u>"id"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="13"></span><span class="line highlight-line">      <c- u>"schema"</c-></span><span class="line-no highlight-line" data-line="14"></span><span class="line highlight-line">    <c- p>],</c-></span><span class="line-no highlight-line" data-line="15"></span><span class="line highlight-line">    <c- f>"display"</c-><c- p>:</c-> <c- u>"naam"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="16"></span><span class="line highlight-line">    <c- f>"properties"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="17"></span><span class="line highlight-line">      <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="18"></span><span class="line highlight-line">        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://schemas.data.amsterdam.nl/schema@v3#/definitions/schema"</c-></span><span class="line-no highlight-line" data-line="19"></span><span class="line highlight-line">      <c- p>},</c-></span><span class="line-no highlight-line" data-line="20"></span><span class="line highlight-line">      <c- f>"id"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="21"></span><span class="line highlight-line">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="22"></span><span class="line highlight-line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Unieke aanduiding persoon"</c-></span><span class="line-no highlight-line" data-line="23"></span><span class="line highlight-line">      <c- p>},</c-></span><span class="line-no highlight-line" data-line="24"></span><span class="line highlight-line">      <c- f>"naam"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="25"></span><span class="line highlight-line">        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="26"></span><span class="line highlight-line">        <c- f>"description"</c-><c- p>:</c-> <c- u>"Volledige naam van de persoon"</c-></span><span class="line-no"></span><span class="line">      <c- p>}</c-></span><span class="line-no"></span><span class="line">    <c- p>}</c-></span><span class="line-no"></span><span class="line">  <c- p>}</c-></span><span class="line-no"></span><span class="line"><c- p>}</c-></span></pre>
    </div>
    <h3 class="heading settled" data-level="4.4" id="temporaliteit"><span class="secno">4.4. </span><span class="content">Temporaliteit</span><a class="self-link" href="#temporaliteit"></a></h3>
    <p>Als een tabel objecten bevat die slechts beperkte tijd geldig zijn of waarvan over de tijd verschillende versies geldig zijn,
@@ -3205,21 +3222,21 @@ verwezen.</p>
      </div>
     </div>
    </div>
-   <div class="example hide-lines" id="example-be61beec" onclick="this.classList.toggle(&apos;hide-lines&apos;);this.classList.toggle(&apos;unhide-lines&apos;);">
-    <a class="self-link" href="#example-be61beec"></a> Om de nieuwe versie van de tabel aan de <a data-link-type="dfn" href="#dataset" id="ref-for-dataset④">dataset</a> toe te voegen, moet er een nieuwe versie aan het dataset bestand
+   <div class="example hide-lines" id="example-7350d50e" onclick="this.classList.toggle(&apos;hide-lines&apos;);this.classList.toggle(&apos;unhide-lines&apos;);">
+    <a class="self-link" href="#example-7350d50e"></a> Om de nieuwe versie van de tabel aan de <a data-link-type="dfn" href="#dataset" id="ref-for-dataset④">dataset</a> toe te voegen, moet er een nieuwe versie aan het dataset bestand
     toegevoegd worden, waarin de <a data-link-type="dfn" href="#tabelreferentie" id="ref-for-tabelreferentie①">tabelreferentie</a> in de dataset ook aangepast worden.
     De defaultVersion van de dataset is nu "v2" en de status van de juiste versie wordt aangepast naar beschikbaar.
     <p>In dit geval staat de versie "1.3.0" ook in "v1" zodat de oudere versie van de data ook beschikbaar blijft.</p>
     <div style="text-align:center;">
       <code class="highlight">personen<c- o>/</c->dataset<c- p>.</c->json</code>
-<pre class="include-code highlight line-numbered"><span class="line-no highlight-line" data-line="1"></span><span class="line highlight-line"><c- p>{</c-></span><span class="line-no"></span><span class="line">  <c- f>"id"</c-><c- p>:</c-> <c- u>"bekendeAmsterdammers"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"type"</c-><c- p>:</c-> <c- u>"dataset"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"title"</c-><c- p>:</c-> <c- u>"Bekende Amsterdammers"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"description"</c-><c- p>:</c-> <c- u>"Bekende historische personen die in Amsterdam hebben gewoond.\n (Een voorbeeld dataset)"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"owner"</c-><c- p>:</c-> <c- u>"Gemeente Amsterdam"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"publisher"</c-><c- p>:</c-> <c- u>"myDataTeam"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"creator"</c-><c- p>:</c-> <c- u>"myBronhouder"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"auth"</c-><c- p>:</c-> <c- u>"OPENBAAR"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"authorizationGrantor"</c-><c- p>:</c-> <c- u>"myDataTeam@amsterdam.nl"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"versions"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="12"></span><span class="line highlight-line">    <c- f>"v1"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="13"></span><span class="line highlight-line">      <c- f>"status"</c-><c- p>:</c-> <c- u>"niet_beschikbaar"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="14"></span><span class="line highlight-line">      <c- f>"version"</c-><c- p>:</c-> <c- u>"1.3.0"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="15"></span><span class="line highlight-line">      <c- f>"lifecycleStatus"</c-><c- p>:</c-> <c- u>"stable"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="16"></span><span class="line highlight-line">      <c- f>"tables"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no highlight-line" data-line="17"></span><span class="line highlight-line">        <c- p>{</c-></span><span class="line-no highlight-line" data-line="18"></span><span class="line highlight-line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"personen/v1"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="19"></span><span class="line highlight-line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"personen"</c-></span><span class="line-no"></span><span class="line">        <c- p>},</c-></span><span class="line-no"></span><span class="line">        <c- p>{</c-></span><span class="line-no"></span><span class="line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"locaties/v1"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"locaties"</c-></span><span class="line-no"></span><span class="line">        <c- p>}</c-></span><span class="line-no"></span><span class="line">      <c- p>]</c-></span><span class="line-no highlight-line" data-line="26"></span><span class="line highlight-line">    <c- p>},</c-></span><span class="line-no highlight-line" data-line="27"></span><span class="line highlight-line">    <c- f>"v2"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="28"></span><span class="line highlight-line">      <c- f>"status"</c-><c- p>:</c-> <c- u>"beschikbaar"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="29"></span><span class="line highlight-line">      <c- f>"version"</c-><c- p>:</c-> <c- u>"2.0.1"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="30"></span><span class="line highlight-line">      <c- f>"lifecycleStatus"</c-><c- p>:</c-> <c- u>"stable"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="31"></span><span class="line highlight-line">      <c- f>"tables"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no highlight-line" data-line="32"></span><span class="line highlight-line">        <c- p>{</c-></span><span class="line-no highlight-line" data-line="33"></span><span class="line highlight-line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"personen/v2"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"personen"</c-></span><span class="line-no"></span><span class="line">        <c- p>},</c-></span><span class="line-no"></span><span class="line">        <c- p>{</c-></span><span class="line-no"></span><span class="line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"locaties/v1"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"locaties"</c-></span><span class="line-no"></span><span class="line">        <c- p>}</c-></span><span class="line-no"></span><span class="line">      <c- p>]</c-></span><span class="line-no"></span><span class="line">    <c- p>}</c-></span><span class="line-no"></span><span class="line">  <c- p>}</c-></span><span class="line-no"></span><span class="line"><c- p>}</c-></span></pre>
+<pre class="include-code highlight line-numbered"><span class="line-no highlight-line" data-line="1"></span><span class="line highlight-line"><c- p>{</c-></span><span class="line-no"></span><span class="line">  <c- f>"id"</c-><c- p>:</c-> <c- u>"bekendeAmsterdammers"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"type"</c-><c- p>:</c-> <c- u>"dataset"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"title"</c-><c- p>:</c-> <c- u>"Bekende Amsterdammers"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"description"</c-><c- p>:</c-> <c- u>"Bekende historische personen die in Amsterdam hebben gewoond.\n (Een voorbeeld dataset)"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"owner"</c-><c- p>:</c-> <c- u>"Gemeente Amsterdam"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"publisher"</c-><c- p>:</c-> <c- u>"myDataTeam"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"creator"</c-><c- p>:</c-> <c- u>"myBronhouder"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"auth"</c-><c- p>:</c-> <c- u>"OPENBAAR"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"authorizationGrantor"</c-><c- p>:</c-> <c- u>"myDataTeam@amsterdam.nl"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">  <c- f>"versions"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="12"></span><span class="line highlight-line">    <c- f>"v1"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="13"></span><span class="line highlight-line">      <c- f>"version"</c-><c- p>:</c-> <c- u>"1.3.0"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="14"></span><span class="line highlight-line">      <c- f>"status"</c-><c- p>:</c-> <c- u>"superseded"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="15"></span><span class="line highlight-line">      <c- f>"endSupportDate"</c-><c- p>:</c-> <c- u>"2025-12-31"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="16"></span><span class="line highlight-line">      <c- f>"enableAPI"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="17"></span><span class="line highlight-line">      <c- f>"tables"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no highlight-line" data-line="18"></span><span class="line highlight-line">        <c- p>{</c-></span><span class="line-no highlight-line" data-line="19"></span><span class="line highlight-line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"personen/v1"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"personen"</c-></span><span class="line-no"></span><span class="line">        <c- p>},</c-></span><span class="line-no"></span><span class="line">        <c- p>{</c-></span><span class="line-no"></span><span class="line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"locaties/v1"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"locaties"</c-></span><span class="line-no"></span><span class="line">        <c- p>}</c-></span><span class="line-no highlight-line" data-line="26"></span><span class="line highlight-line">      <c- p>]</c-></span><span class="line-no highlight-line" data-line="27"></span><span class="line highlight-line">    <c- p>},</c-></span><span class="line-no highlight-line" data-line="28"></span><span class="line highlight-line">    <c- f>"v2"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no highlight-line" data-line="29"></span><span class="line highlight-line">      <c- f>"version"</c-><c- p>:</c-> <c- u>"2.0.1"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="30"></span><span class="line highlight-line">      <c- f>"status"</c-><c- p>:</c-> <c- u>"stable"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="31"></span><span class="line highlight-line">      <c- f>"enableAPI"</c-><c- p>:</c-> <c- kc>true</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="32"></span><span class="line highlight-line">      <c- f>"tables"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no highlight-line" data-line="33"></span><span class="line highlight-line">        <c- p>{</c-></span><span class="line-no"></span><span class="line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"personen/v2"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"personen"</c-></span><span class="line-no"></span><span class="line">        <c- p>},</c-></span><span class="line-no"></span><span class="line">        <c- p>{</c-></span><span class="line-no"></span><span class="line">          <c- f>"$ref"</c-><c- p>:</c-> <c- u>"locaties/v1"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">          <c- f>"id"</c-><c- p>:</c-> <c- u>"locaties"</c-></span><span class="line-no"></span><span class="line">        <c- p>}</c-></span><span class="line-no"></span><span class="line">      <c- p>]</c-></span><span class="line-no"></span><span class="line">    <c- p>}</c-></span><span class="line-no"></span><span class="line">  <c- p>}</c-></span><span class="line-no"></span><span class="line"><c- p>}</c-></span></pre>
     </div>
    </div>
-   <h3 class="heading settled" data-level="4.6" id="table-lifecycle-status"><span class="secno">4.6. </span><span class="content">Lifecycle</span><a class="self-link" href="#table-lifecycle-status"></a></h3>
-    Een tabel van een dataset dient een lifecycleStatus te hebben. Momenteel zijn de opties hiervoor 'experimental' of
-'stable'. Deze lifecycleStatus zegt iets over de stabiliteit van een tabel. Wanneer een versie 'stable'
+   <h3 class="heading settled" data-level="4.6" id="table-status"><span class="secno">4.6. </span><span class="content">Status</span><a class="self-link" href="#table-status"></a></h3>
+    Een tabel van een dataset dient een status te hebben. Momenteel zijn de opties hiervoor 'under_development' of
+'stable'. Deze status zegt iets over de stabiliteit van een tabel. Wanneer een versie 'stable'
 is, zullen er geen breaking changes meer plaatsvinden. Bij de validatie van het schema wordt er gecontroleerd of een
-wijziging in een 'stable' tabel geen breaking changes bevat. Een tabel met de status 'experimental' is nog in
+wijziging in een 'stable' tabel geen breaking changes bevat. Een tabel met de status 'under_development' is nog in
 ontwikkeling en kan tijdens deze periode nog veranderen.
    <h3 class="heading settled" data-level="4.7" id="zoom"><span class="secno">4.7. </span><span class="content">Zoom</span><a class="self-link" href="#zoom"></a></h3>
     Een tabel met een of meer geovelden kan via vectortiles (MVT) worden opgevraagd. Aangezien sommige tabellen
@@ -3246,6 +3263,102 @@ Een indicatie van de reikwijdte van een laag bij verschillende zoomniveaus:</p>
 welke zoomniveaus voor jouw tabel passend zijn.</p>
    <p>Het zoom object is niet verplicht. Indien de zoom niet wordt meegegeven, zullen de velden meegegeven worden vanaf
 niveau 15.</p>
+   <h3 class="heading settled" data-level="4.8" id="row_level_auth"><span class="secno">4.8. </span><span class="content">Row Level Authorisatie</span><a class="self-link" href="#row_level_auth"></a></h3>
+    Indien velden afgeschermd of getoond dienen te worden op basis van de waarde van een
+ander veld in de regel (bijvoorbeeld als iemand geheimhouding heeft aangevraagd van zijn
+of haar adres), dan kan dit met rowLevelAuth worden aangegeven.
+   <p>Een rowLevelAuth object heeft de volgende attributen:</p>
+   <table class="dfn-table">
+    <tbody>
+     <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="rowLevelAuth" data-dfn-type="attribute" data-export id="dom-rowlevelauth-source"><code class="highlight">source</code></dfn>
+      <td> string
+      <td> het bronveld op basis waarvan andere velden dienen te worden afgeschermd.
+     <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="rowLevelAuth" data-dfn-type="attribute" data-export id="dom-rowlevelauth-targets"><code class="highlight">targets</code></dfn>
+      <td> array (string)
+      <td> de velden die afgeschermd dienen te worden.
+     <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-for="rowLevelAuth" data-dfn-type="attribute" data-export id="dom-rowlevelauth-authmap"><code class="highlight">authMap</code></dfn>
+      <td> object
+      <td> een mapping van waarden van het source veld ("true" en "false")
+    naar authorisatie scopes.
+   </table>
+   <p>De namen van velden in <code class="highlight">source</code> en <code class="highlight">targets</code> kunnen verwijzen naar geneste velden (in objecten in het schema) middels een <code class="highlight"><c- p>.</c-></code>.</p>
+   <div class="example" id="example-bd8ac376">
+    <a class="self-link" href="#example-bd8ac376"></a> Voorbeeld van een rowLevelAuth object op een tabel.
+<pre class="language-json highlight"><c- f>"rowLevelAuth"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"source"</c-><c- p>:</c-> <c- u>"adresAfgeschermd"</c-><c- p>,</c->
+    <c- f>"targets"</c-><c- p>:</c-> <c- p>[</c-><c- u>"adres.straat"</c-><c- p>,</c-> <c- u>"adres.huisnummer"</c-><c- p>,</c-> <c- u>"adres.postcode"</c-><c- p>,</c-> <c- u>"telefoonnummer"</c-><c- p>],</c->
+    <c- f>"authMap"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"true"</c-><c- p>:</c-> <c- p>[</c-><c- u>"BRP/ADMIN"</c-><c- p>],</c->
+        <c- f>"false"</c-><c- p>:</c-> <c- p>[</c-><c- u>"BRP/R"</c-><c- p>]</c->
+    <c- p>}</c->
+<c- p>}</c->
+</pre>
+   </div>
+   <p>In dit voorbeeld kijken we naar de waarde van <code class="highlight">adresAfgeschermd</code>. Als deze waarde <code class="highlight"><c- kc>false</c-></code> is, dan zijn
+straat, huisnummer en postcode in het adres object (geneste items hebben een <code class="highlight"><c- p>.</c-></code>), evenals het
+telefoonnummer zichtbaar voor gebruikers met BRP/R authorisatie. Als <code class="highlight">adresAfgeschermd</code> echter <code class="highlight"><c- kc>true</c-></code> is, dan zal het alleen toegankelijk zijn voor iemand met BRP/ADMIN authorisatie. Voor dergelijke regels
+kan via deze weg dus een hoger authorisatieniveau worden afgedwongen.</p>
+   <p>De targets van een rowLevelAuth object dienen elk afzonderlijk de FEATURE/RLA scope te hebben:</p>
+   <div class="example" id="example-ac709829">
+    <a class="self-link" href="#example-ac709829"></a> Voorbeeld van een target veld.
+<pre class="language-json highlight"><c- f>"telefoon"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+    <c- f>"auth"</c-><c- p>:</c-> <c- p>[</c-><c- u>"FEATURE/RLA"</c-><c- p>]</c->
+<c- p>}</c->
+</pre>
+   </div>
+   <p>Bij het aanmaken of aanpassen van het schema wordt het volgende gevalideerd:</p>
+   <ul>
+    <li data-md>
+     <p><code class="highlight">source</code> zit niet in <code class="highlight">targets</code></p>
+    <li data-md>
+     <p><code class="highlight">source</code> bestaat en heeft als type "boolean"</p>
+    <li data-md>
+     <p>alle <code class="highlight">targets</code> bestaan en hebben FEATURE/RLA auth</p>
+   </ul>
+   <h3 class="heading settled" data-level="4.9" id="subresources"><span class="secno">4.9. </span><span class="content">Subresources</span><a class="self-link" href="#subresources"></a></h3>
+    Voor relaties die als parent/child beschouwd kunnen worden - dat wil zeggen dat de onderliggende
+resource alleen betekenis heeft binnen de context van de bovenliggende resource - is het mogelijk
+om dit aan te duiden via de <code class="highlight">subresources</code> property op de table. Dit is alleen mogelijk bij
+enkelvoudige (1-to-many) relaties (zie <a href="#relatering">§ 5.4 Relaties</a>).
+   <div class="example" id="example-27b8d14f">
+    <a class="self-link" href="#example-27b8d14f"></a> Voorbeeld van een relatie veld voor een enkelvoudige relatie met de temporele tabel "stadsdelen"
+    in de dataset "gebieden".
+<pre class="highlight"><c- f>"ligtInStadsdeel"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"type"</c-><c- p>:</c-> <c- u>"object"</c-><c- p>,</c->
+    <c- f>"properties"</c-><c- p>:</c-> <c- p>{</c->
+        <c- f>"identificatie"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c->
+        <c- p>},</c->
+        <c- f>"volgnummer"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"type"</c-><c- p>:</c-> <c- u>"integer"</c->
+        <c- p>},</c->
+        <c- f>"beginGeldigheid"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"format"</c-><c- p>:</c-> <c- u>"date-time"</c->
+        <c- p>},</c->
+        <c- f>"eindGeldigheid"</c-><c- p>:</c-> <c- p>{</c->
+            <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c->
+            <c- f>"format"</c-><c- p>:</c-> <c- u>"date-time"</c->
+        <c- p>}</c->
+    <c- p>},</c->
+    <c- f>"relation"</c-><c- p>:</c-> <c- u>"gebieden:stadsdelen"</c-><c- p>,</c->
+    <c- f>"title"</c-><c- p>:</c-> <c- u>"Wijk ligt in stadsdeel"</c-><c- p>,</c->
+    <c- f>"description"</c-><c- p>:</c-> <c- u>"Het stadsdeel waar de wijk in ligt"</c->
+<c- p>}</c->
+</pre>
+    <p>Op de tabel stadsdelen kunnen dan subresources worden gedefinieerd:</p>
+<pre class="highlight"><c- f>"subresources"</c-><c- p>:</c-> <c- p>{</c->
+    <c- f>"gebieden:wijken"</c-><c- p>:</c-> <c- u>"ligtInStadsdeel"</c->
+<c- p>}</c->
+</pre>
+   </div>
+   <p>De wijken zullen hierdoor ook beschikbaar worden op <code class="highlight"><c- sr>/stadsdelen/</c-><c- o>&lt;</c->stadsdeel_id<c- o>></c->/wijken</code>.</p>
+   <p>NB: de relatie <em>moet</em> binnen dezelfde dataset liggen, anders is er geen sprake van dat ze alleen
+betekenis heeft binnen de context van de bovenliggende tabel.</p>
    <h2 class="heading settled" data-level="5" id="fields"><span class="secno">5. </span><span class="content">Veld</span><a class="self-link" href="#fields"></a></h2>
     Een veld beschrijft een eigenschap die een rij in de tabel mag of moet (zie <code class="idl"><a data-link-type="idl" href="#dom-schema-required" id="ref-for-dom-schema-required">required</a></code>) bezitten.
 Een <a data-link-type="dfn" href="#veld" id="ref-for-veld⑨">veld</a> is een concrete JSON Schema-typedefinitie waaraan ook meta-informatie kan worden meegegeven.
@@ -4200,8 +4313,8 @@ Bij een openbare <a data-link-type="dfn" href="#dataset" id="ref-for-dataset⑦"
    <p>Op het eerste niveau waarop data niet openbaar wordt gemaakt moet een <code class="highlight"><c- u>"reasonsNonPublic"</c-></code>-attribuut bestaan.
 Dus als een dataset openbaar is, maar deze een tabel bevat waarop een <code class="idl"><a data-link-type="idl" href="#dom-tabel-auth" id="ref-for-dom-tabel-auth②">auth</a></code> attribuut met een andere waarde dan "OPENBAAR" bestaat.
 Moet in de betreffende tabel of tabellen een <code class="idl"><a data-link-type="idl" href="#dom-tabel-reasonsnonpublic" id="ref-for-dom-tabel-reasonsnonpublic">reasonsNonPublic</a></code> attribuut bestaan.</p>
-   <div class="example" id="example-ea8d592b">
-    <a class="self-link" href="#example-ea8d592b"></a> In dit voorbeeld vindt autorisatie plaats op 3 niveaus.
+   <div class="example" id="example-6cdfaed1">
+    <a class="self-link" href="#example-6cdfaed1"></a> In dit voorbeeld vindt autorisatie plaats op 3 niveaus.
 Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level autorisatie op gebieden, scope <code class="highlight"><c- u>"LEVEL/B"</c-></code> heeft tabel level autorisatie op bouwblokken en scope <code class="highlight"><c- u>"LEVEL/C"</c-></code> heeft autorisatie op veld beginGeldigheid.
     <ul>
      <li data-md>
@@ -4211,7 +4324,7 @@ Scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> heeft dataset level au
      <li data-md>
       <p>Een user met scope <code class="highlight"><c- u>"LEVEL/A"</c-></code> en <code class="highlight"><c- u>"LEVEL/B"</c-></code> en <code class="highlight"><c- u>"LEVEL/C"</c-></code> mag het veld <code class="highlight">beginGeldigheid</code> ook zien.</p>
     </ul>
-<pre class="highlight line-numbered"><span class="line-no"></span><span class="line"><c- p>{</c-></span><span class="line-no"></span><span class="line">    <c- f>"type"</c-><c- p>:</c-> <c- u>"dataset"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"id"</c-><c- p>:</c-> <c- u>"gebieden"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"title"</c-><c- p>:</c-> <c- u>"gebieden"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="5"></span><span class="line highlight-line">    <c- f>"auth"</c-><c- p>:</c-> <c- u>"LEVEL/A"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"reasonsNonPublic"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no"></span><span class="line">        <c- u>"5.1 1b: Gevaar voor staatsveiligheid"</c-></span><span class="line-no"></span><span class="line">    <c- p>],</c-></span><span class="line-no"></span><span class="line">    <c- f>"status"</c-><c- p>:</c-> <c- u>"beschikbaar"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"crs"</c-><c- p>:</c-> <c- u>"EPSG:28992"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"tables"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no"></span><span class="line">        <c- p>{</c-></span><span class="line-no"></span><span class="line">            <c- f>"id"</c-><c- p>:</c-> <c- u>"bouwblokken"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">            <c- f>"mainGeometry"</c-><c- p>:</c-> <c- u>"geometrie"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">            <c- f>"type"</c-><c- p>:</c-> <c- u>"table"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">            <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="17"></span><span class="line highlight-line">            <c- f>"auth"</c-><c- p>:</c-> <c- u>"LEVEL/B"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">            <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">                <c- f>"$id"</c-><c- p>:</c-> <c- u>"https://github.com/Amsterdam/schemas/gebieden/bouwblokken.json"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                <c- f>"$schema"</c-><c- p>:</c-> <c- u>"http://json-schema.org/draft-07/schema#"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                <c- f>"type"</c-><c- p>:</c-> <c- u>"object"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                <c- f>"additionalProperties"</c-><c- p>:</c-> <c- kc>false</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                <c- f>"identifier"</c-><c- p>:</c-> <c- p>[</c-><c- u>"id"</c-><c- p>],</c-></span><span class="line-no"></span><span class="line">                <c- f>"required"</c-><c- p>:</c-> <c- p>[</c-><c- u>"schema"</c-><c- p>,</c-> <c- u>"id"</c-><c- p>],</c-></span><span class="line-no"></span><span class="line">                <c- f>"display"</c-><c- p>:</c-> <c- u>"id"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                <c- f>"properties"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">                    <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">                        <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"</c-></span><span class="line-no"></span><span class="line">                    <c- p>},</c-></span><span class="line-no"></span><span class="line">                    <c- f>"id"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">                        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"description"</c-><c- p>:</c-> <c- u>"Unieke identificatie voor dit object, inclusief volgnummer"</c-></span><span class="line-no"></span><span class="line">                    <c- p>},</c-></span><span class="line-no"></span><span class="line">                    <c- f>"beginGeldigheid"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">                        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"format"</c-><c- p>:</c-> <c- u>"date"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"title"</c-><c- p>:</c-> <c- u>"Begin geldigheid"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"description"</c-><c- p>:</c-> <c- u>"De datum waarop het object is gecreëerd."</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="39"></span><span class="line highlight-line">                        <c- f>"auth"</c-><c- p>:</c-> <c- u>"LEVEL/C"</c-></span><span class="line-no"></span><span class="line">                    <c- p>},</c-></span><span class="line-no"></span><span class="line">                    <c- f>"eindGeldigheid"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">                        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"format"</c-><c- p>:</c-> <c- u>"date"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"title"</c-><c- p>:</c-> <c- u>"Eind geldigheid"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"description"</c-><c- p>:</c-> <c- u>"De datum waarop het object is komen te vervallen."</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"provenance"</c-><c- p>:</c-> <c- u>"eindgeldigheid"</c-></span><span class="line-no"></span><span class="line">                    <c- p>},</c-></span><span class="line-no"></span><span class="line">                    <c- f>"ligtInBuurt"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">                        <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"relation"</c-><c- p>:</c-> <c- u>"gebieden:buurten"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"provenance"</c-><c- p>:</c-> <c- u>"ligtinbuurt"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"title"</c-><c- p>:</c-> <c- u>"Ligt in buurt"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"description"</c-><c- p>:</c-> <c- u>"De buurt waar het bouwblok in ligt."</c-></span><span class="line-no"></span><span class="line">                    <c- p>}</c-></span><span class="line-no"></span><span class="line">                <c- p>}</c-></span><span class="line-no"></span><span class="line">            <c- p>}</c-></span><span class="line-no"></span><span class="line">        <c- p>}</c-></span><span class="line-no"></span><span class="line">    <c- p>]</c-></span><span class="line-no"></span><span class="line"><c- p>}</c-></span></pre>
+<pre class="highlight line-numbered"><span class="line-no"></span><span class="line"><c- p>{</c-></span><span class="line-no"></span><span class="line">    <c- f>"type"</c-><c- p>:</c-> <c- u>"dataset"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"id"</c-><c- p>:</c-> <c- u>"gebieden"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"title"</c-><c- p>:</c-> <c- u>"gebieden"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="5"></span><span class="line highlight-line">    <c- f>"auth"</c-><c- p>:</c-> <c- u>"LEVEL/A"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"reasonsNonPublic"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no"></span><span class="line">        <c- u>"5.1 1b: Gevaar voor staatsveiligheid"</c-></span><span class="line-no"></span><span class="line">    <c- p>],</c-></span><span class="line-no"></span><span class="line">    <c- f>"crs"</c-><c- p>:</c-> <c- u>"EPSG:28992"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">    <c- f>"versions"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">        <c- f>"v1"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">            <c- f>"status"</c-><c- p>:</c-> <c- u>"stable"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">            <c- f>"enableAPI"</c-><c- p>:</c-> <c- kc>true</c-></span><span class="line-no"></span><span class="line">            <c- f>"tables"</c-><c- p>:</c-> <c- p>[</c-></span><span class="line-no"></span><span class="line">                <c- p>{</c-></span><span class="line-no"></span><span class="line">                    <c- f>"id"</c-><c- p>:</c-> <c- u>"bouwblokken"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                    <c- f>"mainGeometry"</c-><c- p>:</c-> <c- u>"geometrie"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                    <c- f>"type"</c-><c- p>:</c-> <c- u>"table"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                    <c- f>"version"</c-><c- p>:</c-> <c- u>"1.0.0"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                    <c- f>"status"</c-><c- p>:</c-> <c- u>"stable"</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="21"></span><span class="line highlight-line">                    <c- f>"auth"</c-><c- p>:</c-> <c- u>"LEVEL/B"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                    <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">                        <c- f>"$id"</c-><c- p>:</c-> <c- u>"https://github.com/Amsterdam/schemas/gebieden/bouwblokken.json"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"$schema"</c-><c- p>:</c-> <c- u>"http://json-schema.org/draft-07/schema#"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"type"</c-><c- p>:</c-> <c- u>"object"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"additionalProperties"</c-><c- p>:</c-> <c- kc>false</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"identifier"</c-><c- p>:</c-> <c- p>[</c-><c- u>"id"</c-><c- p>],</c-></span><span class="line-no"></span><span class="line">                        <c- f>"required"</c-><c- p>:</c-> <c- p>[</c-><c- u>"schema"</c-><c- p>,</c-> <c- u>"id"</c-><c- p>],</c-></span><span class="line-no"></span><span class="line">                        <c- f>"display"</c-><c- p>:</c-> <c- u>"id"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                        <c- f>"properties"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">                            <c- f>"schema"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">                                <c- f>"$ref"</c-><c- p>:</c-> <c- u>"https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"</c-></span><span class="line-no"></span><span class="line">                            <c- p>},</c-></span><span class="line-no"></span><span class="line">                            <c- f>"id"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">                                <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                                <c- f>"description"</c-><c- p>:</c-> <c- u>"Unieke identificatie voor dit object, inclusief volgnummer"</c-></span><span class="line-no"></span><span class="line">                            <c- p>},</c-></span><span class="line-no"></span><span class="line">                            <c- f>"beginGeldigheid"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">                                <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                                <c- f>"format"</c-><c- p>:</c-> <c- u>"date"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                                <c- f>"title"</c-><c- p>:</c-> <c- u>"Begin geldigheid"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                                <c- f>"description"</c-><c- p>:</c-> <c- u>"De datum waarop het object is gecreëerd."</c-><c- p>,</c-></span><span class="line-no highlight-line" data-line="43"></span><span class="line highlight-line">                                <c- f>"auth"</c-><c- p>:</c-> <c- u>"LEVEL/C"</c-></span><span class="line-no"></span><span class="line">                            <c- p>},</c-></span><span class="line-no"></span><span class="line">                            <c- f>"eindGeldigheid"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">                                <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                                <c- f>"format"</c-><c- p>:</c-> <c- u>"date"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                                <c- f>"title"</c-><c- p>:</c-> <c- u>"Eind geldigheid"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                                <c- f>"description"</c-><c- p>:</c-> <c- u>"De datum waarop het object is komen te vervallen."</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                                <c- f>"provenance"</c-><c- p>:</c-> <c- u>"eindgeldigheid"</c-></span><span class="line-no"></span><span class="line">                            <c- p>},</c-></span><span class="line-no"></span><span class="line">                            <c- f>"ligtInBuurt"</c-><c- p>:</c-> <c- p>{</c-></span><span class="line-no"></span><span class="line">                                <c- f>"type"</c-><c- p>:</c-> <c- u>"string"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                                <c- f>"relation"</c-><c- p>:</c-> <c- u>"gebieden:buurten"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                                <c- f>"provenance"</c-><c- p>:</c-> <c- u>"ligtinbuurt"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                                <c- f>"title"</c-><c- p>:</c-> <c- u>"Ligt in buurt"</c-><c- p>,</c-></span><span class="line-no"></span><span class="line">                                <c- f>"description"</c-><c- p>:</c-> <c- u>"De buurt waar het bouwblok in ligt."</c-></span><span class="line-no"></span><span class="line">                            <c- p>}</c-></span><span class="line-no"></span><span class="line">                        <c- p>}</c-></span><span class="line-no"></span><span class="line">                    <c- p>}</c-></span><span class="line-no"></span><span class="line">                <c- p>}</c-></span><span class="line-no"></span><span class="line">            <c- p>]</c-></span><span class="line-no"></span><span class="line">        <c- p>}</c-></span><span class="line-no"></span><span class="line">    <c- p>}</c-></span><span class="line-no"></span><span class="line"><c- p>}</c-></span></pre>
    </div>
    <h3 class="heading settled" data-level="9.2" id="profielen"><span class="secno">9.2. </span><span class="content">Profielen</span><a class="self-link" href="#profielen"></a></h3>
    <p>Waar een <code class="highlight"><c- u>"auth"</c-></code>-attribuut de toegang ontzegt, geeft een profiel granulair toegang onder voorwaarden.
@@ -4461,6 +4574,10 @@ Het <code class="highlight">description</code> veld is bedoeld voor bijvoorbeeld
       <td> string
       <td> Een unieke identifier in de vorm van één tot en met twaalf kleine letters.
      <tr>
+      <td><dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export id="typedefdef-date"><code class="highlight">date</code></dfn>
+      <td> (string)
+      <td> Een als date geformatteerde string. Conform <a href="https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1">JSON Schema § rfc.section.7.3.1</a>.
+     <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export id="typedefdef-date-time"><code class="highlight">date<c- o>-</c->time</code></dfn>
       <td> (string)
       <td> Een als datetime geformatteerde string. Conform <a href="https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1">JSON Schema § rfc.section.7.3.1</a>.
@@ -4539,15 +4656,15 @@ Het <code class="highlight">description</code> veld is bedoeld voor bijvoorbeeld
           <p>"nader te bepalen"</p>
         </ul>
        </details>
-        De laatste optie ("nader te bepalen") is niet toegestaan wanneer <code class="idl"><a data-link-type="idl" href="#dom-versie-status" id="ref-for-dom-versie-status①">status</a></code>=<code class="highlight"><c- u>"beschikbaar"</c-></code>.
+        De laatste optie ("nader te bepalen") is niet toegestaan wanneer <code class="idl"><a data-link-type="idl" href="#dom-versie-enableapi" id="ref-for-dom-versie-enableapi①">enableAPI</a></code>=<code class="highlight"><c- u>"true"</c-></code>.
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export data-lt="majorversion|major-version-string" id="typedefdef-majorversion"><code class="highlight">major<c- o>-</c->version</code></dfn>
       <td> (string)
-      <td> Version string van de vorm "v&amp;bs&lt;;MAJOR&amp;bs>;"
+      <td> Version string van de vorm "v&lt;MAJOR>"
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export data-lt="version|version-string" id="typedefdef-version"><code class="highlight">version</code></dfn>
       <td> (string)
-      <td> Version string van de vorm "&amp;bs&lt;;MAJOR&amp;bs>;.&amp;bs&lt;;MINOR&amp;bs>;.&amp;bs&lt;;PATCH&amp;bs>;" of "&amp;bs&lt;;MAJOR&amp;bs>;.&amp;bs&lt;;MINOR&amp;bs>;" (patch nummer is optioneel)
+      <td> Version string van de vorm "&lt;MAJOR>.&lt;MINOR>.&lt;PATCH>" of "&lt;MAJOR>.&lt;MINOR>" (patch nummer is optioneel)
      <tr>
       <td><dfn class="dfn-paneled idl-code" data-dfn-type="typedef" data-export data-lt="contact|contactPoint" id="typedefdef-contact"><code class="highlight">contact</code></dfn>
       <td> (object)
@@ -4564,7 +4681,35 @@ Het <code class="highlight">description</code> veld is bedoeld voor bijvoorbeeld
     Dit is een chronologisch overzicht van aanpassingen aan de amsterdam-schema specificatie.
 Uitsluitend normatieve aanpassingen aan de specificatie worden vermeld. Aanpassingen aan voorbeelden,
 waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
-   <h3 class="heading settled" data-level="12.1" id="lastchange"><span class="secno">12.1. </span><span class="content">[3.1.0] LifecycleStatus toegevoegd (2025-04-03)</span><a class="self-link" href="#lastchange"></a></h3>
+   <h3 class="heading settled" data-level="12.1" id="lastchange"><span class="secno">12.1. </span><span class="content">[4.0.0] LifecycleStatus verwijderd (2025-12-29)</span><a class="self-link" href="#lastchange"></a></h3>
+   <blockquote>
+    <p><strong>Doelstelling</strong><br> Hernoemen van lifecycleStatus en toevoegen van enableAPI flag en subresources.</p>
+   </blockquote>
+   <ul>
+    <li data-md>
+     <p>Dataset lifecycleStatus hernoemt naar <code class="idl"><a data-link-type="idl" href="#dom-versie-status" id="ref-for-dom-versie-status③">status</a></code>.</p>
+    <li data-md>
+     <p><code class="idl"><a data-link-type="idl" href="#dom-versie-status" id="ref-for-dom-versie-status④">status</a></code> uitgebreid met 'superseded'.</p>
+    <li data-md>
+     <p><a href="#version-mandatory-fields">§ 3.1 Verplichte attributen</a> uitgebreid met <code class="idl"><a data-link-type="idl" href="#dom-versie-enableapi" id="ref-for-dom-versie-enableapi②">enableAPI</a></code>.</p>
+    <li data-md>
+     <p><a href="#version-optional-fields">§ 3.2 Optionele attributen</a> uitgebreid met <code class="idl"><a data-link-type="idl" href="#dom-versie-endsupportdate" id="ref-for-dom-versie-endsupportdate①">endSupportDate</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-versie-releasedate" id="ref-for-dom-versie-releasedate">releaseDate</a></code>.</p>
+    <li data-md>
+     <p>Tabel lifecycleStatus hernoemt naar <code class="idl"><a data-link-type="idl" href="#dom-tabel-status" id="ref-for-dom-tabel-status">status</a></code>.</p>
+    <li data-md>
+     <p><a href="#tabel-optional-fields">§ 4.2 Optionele attributen</a> uitgebreid met subresources.</p>
+   </ul>
+   <h3 class="heading settled" data-level="12.2" id="20251111"><span class="secno">12.2. </span><span class="content">[3.2.0] rowLevelAuth toegevoegd (2025-11-11)</span><a class="self-link" href="#20251111"></a></h3>
+   <blockquote>
+    <p><strong>Doelstelling</strong><br> Toevoegen van row level authorisatie aan tabel.</p>
+   </blockquote>
+   <ul>
+    <li data-md>
+     <p><a href="#tabel-optional-fields">§ 4.2 Optionele attributen</a> uitgebreid met rowLevelAuth.</p>
+    <li data-md>
+     <p><a href="#row_level_auth">§ 4.8 Row Level Authorisatie</a> toegevoegd.</p>
+   </ul>
+   <h3 class="heading settled" data-level="12.3" id="20250403"><span class="secno">12.3. </span><span class="content">[3.1.0] LifecycleStatus toegevoegd (2025-04-03)</span><a class="self-link" href="#20250403"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Toevoegen van lifecycleStatus aan versie en tabel.</p>
    </blockquote>
@@ -4572,13 +4717,13 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
     <li data-md>
      <p><a href="#version-mandatory-fields">§ 3.1 Verplichte attributen</a> uitgebreid met lifecycleStatus.</p>
     <li data-md>
-     <p><a href="#version-lifecycle-status">§ 3.2 Lifecycle</a> toegevoegd.</p>
+     <p>lifecycleStatus toegevoegd.</p>
     <li data-md>
      <p><a href="#tabel-mandatory-fields">§ 4.1 Verplichte attributen</a> uitgebreid met lifecycleStatus.</p>
     <li data-md>
-     <p><a href="#table-lifecycle-status">§ 4.6 Lifecycle</a> toegevoegd.</p>
+     <p>lifecycleStatus toegevoegd.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.2" id="20250303"><span class="secno">12.2. </span><span class="content">[3.0.0] Dataset versionering toegevoegd (2025-03-03)</span><a class="self-link" href="#20250303"></a></h3>
+   <h3 class="heading settled" data-level="12.4" id="20250303"><span class="secno">12.4. </span><span class="content">[3.0.0] Dataset versionering toegevoegd (2025-03-03)</span><a class="self-link" href="#20250303"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Toevoegen van versionering van datasets aan V3 van het Amsterdam Schema.</p>
    </blockquote>
@@ -4590,7 +4735,7 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
     <li data-md>
      <p><a href="#table-versioning">§ 4.5 Versionering</a> van tabellen aangepast naar de nieuwe situatie</p>
    </ul>
-   <h3 class="heading settled" data-level="12.3" id="20250204"><span class="secno">12.3. </span><span class="content">[2.4.0] Scopes documentatie toegevoegd (2025-02-04)</span><a class="self-link" href="#20250204"></a></h3>
+   <h3 class="heading settled" data-level="12.5" id="20250204"><span class="secno">12.5. </span><span class="content">[2.4.0] Scopes documentatie toegevoegd (2025-02-04)</span><a class="self-link" href="#20250204"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Aparte scopes objecten die de authorisatie van datasets, tabellen en velden bepalen.</p>
    </blockquote>
@@ -4600,7 +4745,7 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
     <li data-md>
      <p>auth velden kunnen nu verwijzen naar een of meer scope files.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.4" id="20250112"><span class="secno">12.4. </span><span class="content">[2.3.0] filterAuth attribuut toegevoegd (2025-01-12)</span><a class="self-link" href="#20250112"></a></h3>
+   <h3 class="heading settled" data-level="12.6" id="20250112"><span class="secno">12.6. </span><span class="content">[2.3.0] filterAuth attribuut toegevoegd (2025-01-12)</span><a class="self-link" href="#20250112"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Betere afscherming van velden bij speciale zoekacties.</p>
    </blockquote>
@@ -4610,7 +4755,7 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
     <li data-md>
      <p>De <a href="#profielen">§ 9.2 Profielen</a> zijn gedocumenteerd.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.5" id="20230112"><span class="secno">12.5. </span><span class="content">[2.2.0] dataclass attribuut toegevoegd (2023-01-12)</span><a class="self-link" href="#20230112"></a></h3>
+   <h3 class="heading settled" data-level="12.7" id="20230112"><span class="secno">12.7. </span><span class="content">[2.2.0] dataclass attribuut toegevoegd (2023-01-12)</span><a class="self-link" href="#20230112"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Uitzonderingsgronden WOO in lijn gebracht met versie van WOO die nu van kracht is.</p>
    </blockquote>
@@ -4618,7 +4763,7 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
     <li data-md>
      <p>Het <code class="idl"><a data-link-type="idl" href="#dom-tabel-dataclass" id="ref-for-dom-tabel-dataclass">dataclass</a></code> attribuut is toegevoegd.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.6" id="20230110"><span class="secno">12.6. </span><span class="content">[2.1.5] dataclass attribuut toegevoegd (2023-01-10)</span><a class="self-link" href="#20230110"></a></h3>
+   <h3 class="heading settled" data-level="12.8" id="20230110"><span class="secno">12.8. </span><span class="content">[2.1.5] dataclass attribuut toegevoegd (2023-01-10)</span><a class="self-link" href="#20230110"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Beschrijving en relatering van ongestructureerde data mogelijk maken.</p>
    </blockquote>
@@ -4628,7 +4773,7 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
     <li data-md>
      <p>Verwijzing <a data-link-type="biblio" href="#biblio-woo" title="Wet open overheid">Wet Open Overheid</a> geupdate.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.7" id="20221221"><span class="secno">12.7. </span><span class="content">[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</span><a class="self-link" href="#20221221"></a></h3>
+   <h3 class="heading settled" data-level="12.9" id="20221221"><span class="secno">12.9. </span><span class="content">[2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)</span><a class="self-link" href="#20221221"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Publishers zijn zelfstandige objecten geworden.</p>
    </blockquote>
@@ -4638,7 +4783,7 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
     <li data-md>
      <p>Het <a data-link-type="dfn" href="#publisher" id="ref-for-publisher③">publisher</a> object is toegevoegd.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.8" id="20220413-2"><span class="secno">12.8. </span><span class="content">[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</span><a class="self-link" href="#20220413-2"></a></h3>
+   <h3 class="heading settled" data-level="12.10" id="20220413-2"><span class="secno">12.10. </span><span class="content">[2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)</span><a class="self-link" href="#20220413-2"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Alle datasets zijn openbaar tenzij obv de Wet Open Overheid.
 Maar om onbedoelde openbaarmaking te voorkomen, moet dit altijd expliciet
@@ -4654,7 +4799,7 @@ ingevuld worden. Voor data die niet publiek is moet de uitzonderingsgrond worden
     <li data-md>
      <p>Het veld attribuut <code class="idl"><a data-link-type="idl" href="#dom-veld-reasonsnonpublic" id="ref-for-dom-veld-reasonsnonpublic">reasonsNonPublic</a></code> is toegevoegd.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.9" id="20220413-1"><span class="secno">12.9. </span><span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span><a class="self-link" href="#20220413-1"></a></h3>
+   <h3 class="heading settled" data-level="12.11" id="20220413-1"><span class="secno">12.11. </span><span class="content">[2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)</span><a class="self-link" href="#20220413-1"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> De velden waar naar verwezen wordt in <code class="idl"><a data-link-type="idl" href="#dom-schema-identifier" id="ref-for-dom-schema-identifier③">identifier</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-schema-display" id="ref-for-dom-schema-display③">display</a></code> moeten zichtbaar zijn voor iedereen
 die toegang heeft tot de tabel. Deze velden mogen dus geen <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth⑤">auth</a></code> bevatten.</p>
@@ -4664,7 +4809,7 @@ die toegang heeft tot de tabel. Deze velden mogen dus geen <code class="idl"><a 
      <p>De velden waar naar verwezen wordt in de <code class="idl"><a data-link-type="idl" href="#dom-schema-identifier" id="ref-for-dom-schema-identifier④">identifier</a></code> en <code class="idl"><a data-link-type="idl" href="#dom-schema-display" id="ref-for-dom-schema-display④">display</a></code> attributen
 mogen geen <code class="idl"><a data-link-type="idl" href="#dom-veld-auth" id="ref-for-dom-veld-auth⑥">auth</a></code> attribuut bevatten.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.10" id="change20220323"><span class="secno">12.10. </span><span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span><a class="self-link" href="#change20220323"></a></h3>
+   <h3 class="heading settled" data-level="12.12" id="change20220323"><span class="secno">12.12. </span><span class="content">[2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)</span><a class="self-link" href="#change20220323"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Het coordinaat referentie systeem van een dataset met geo data moet bekend zijn voor correct functioneren van
 doelsystemen.</p>
@@ -4673,7 +4818,7 @@ doelsystemen.</p>
     <li data-md>
      <p>Het <code class="idl"><a data-link-type="idl" href="#dom-dataset-crs" id="ref-for-dom-dataset-crs①">crs</a></code> veld is verplicht geworden wanneer één of meerdere tabellen een <a href="#geometry">§ 5.3.6 geometrie</a> veld bevatten.</p>
    </ul>
-   <h3 class="heading settled" data-level="12.11" id="change20220317"><span class="secno">12.11. </span><span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span><a class="self-link" href="#change20220317"></a></h3>
+   <h3 class="heading settled" data-level="12.13" id="change20220317"><span class="secno">12.13. </span><span class="content">[2.1.0] Dataset contact gegevens (2022-03-17)</span><a class="self-link" href="#change20220317"></a></h3>
    <blockquote>
     <p><strong>Doelstelling</strong><br> Meerdere aanpassingen aan dataset velden voor contactgegevens.
 Met als doel om alle teams en organisaties die een rol hebben bij het ontsluiten van een dataset
@@ -4703,6 +4848,7 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
      <li><a href="#dom-veld-auth">attribute for veld</a><span>, in § 5.2</span>
      <li><a href="#auth">definition of</a><span>, in § 9.1</span>
     </ul>
+   <li><a href="#dom-rowlevelauth-authmap">authMap</a><span>, in § 4.8</span>
    <li><a href="#dom-dataset-authorizationgrantor">authorizationGrantor</a><span>, in § 2.1</span>
    <li><a href="#camelcase">camelCase</a><span>, in § 6</span>
    <li><a href="#dom-veld-comment">$comment</a><span>, in § 5.2</span>
@@ -4726,6 +4872,7 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
    <li><a href="#dom-tabel-dataclass">dataclass</a><span>, in § 4.2</span>
    <li><a href="#dataset">dataset</a><span>, in § 2.1</span>
    <li><a href="#dom-profiel-datasets">datasets</a><span>, in § 9.3</span>
+   <li><a href="#typedefdef-date">date</a><span>, in § 11</span>
    <li>
     dateCreated
     <ul>
@@ -4751,6 +4898,8 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
    <li><a href="#dom-temporal-dimensionsgeldigop">dimensions.geldigOp</a><span>, in § 4.4</span>
    <li><a href="#dom-schema-display">display</a><span>, in § 4.3</span>
    <li><a href="#dom-contact-email">email</a><span>, in § 11</span>
+   <li><a href="#dom-versie-enableapi">enableAPI</a><span>, in § 3.1</span>
+   <li><a href="#dom-versie-endsupportdate">endSupportDate</a><span>, in § 3.2</span>
    <li><a href="#dom-veld-enum">enum</a><span>, in § 5.2</span>
    <li><a href="#dom-veld-exclusivemaximum">exclusiveMaximum</a><span>, in § 5.2</span>
    <li><a href="#dom-profiletable-fields">fields</a><span>, in § 9.3</span>
@@ -4787,12 +4936,6 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
     <ul>
      <li><a href="#dom-dataset-license">attribute for dataset</a><span>, in § 2.2.1</span>
      <li><a href="#dom-tabel-license">attribute for tabel</a><span>, in § 4.2</span>
-    </ul>
-   <li>
-    lifecycleStatus
-    <ul>
-     <li><a href="#dom-tabel-lifecyclestatus">attribute for tabel</a><span>, in § 4.1</span>
-     <li><a href="#dom-versie-lifecyclestatus">attribute for versie</a><span>, in § 3.1</span>
     </ul>
    <li><a href="#dom-schema-maingeometry">mainGeometry</a><span>, in § 4.3</span>
    <li><a href="#typedefdef-majorversion">majorversion</a><span>, in § 11</span>
@@ -4875,9 +5018,11 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
      <li><a href="#dom-veld-ref">attribute for veld</a><span>, in § 5.1</span>
     </ul>
    <li><a href="#dom-veld-relation">relation</a><span>, in § 5.2</span>
+   <li><a href="#dom-versie-releasedate">releaseDate</a><span>, in § 3.2</span>
    <li><a href="#dom-schema-required">required</a><span>, in § 4.3</span>
    <li><a href="#typedefdef-resource-identifier">resource-identifier</a><span>, in § 11</span>
    <li><a href="#typedefdef-resource-identifier">resource-identifier-type</a><span>, in § 11</span>
+   <li><a href="#dom-tabel-rowlevelauth">rowLevelAuth</a><span>, in § 4.2</span>
    <li><a href="#dom-schema-schema">$schema</a><span>, in § 4.3</span>
    <li>
     schema
@@ -4897,10 +5042,17 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
      <li><a href="#dom-tabel-shortname">attribute for tabel</a><span>, in § 4.2</span>
      <li><a href="#dom-veld-shortname">attribute for veld</a><span>, in § 5.2</span>
     </ul>
+   <li><a href="#dom-rowlevelauth-source">source</a><span>, in § 4.8</span>
    <li><a href="#dom-dataset-spatial">spatial</a><span>, in § 2.2.1</span>
    <li><a href="#dom-dataset-spatialcoordinates">spatialCoordinates</a><span>, in § 2.2.1</span>
    <li><a href="#dom-dataset-spatialdescription">spatialDescription</a><span>, in § 2.2.1</span>
-   <li><a href="#dom-versie-status">status</a><span>, in § 3.1</span>
+   <li>
+    status
+    <ul>
+     <li><a href="#dom-tabel-status">attribute for tabel</a><span>, in § 4.1</span>
+     <li><a href="#dom-versie-status">attribute for versie</a><span>, in § 3.1</span>
+    </ul>
+   <li><a href="#dom-tabel-subresources">subresources</a><span>, in § 4.2</span>
    <li><a href="#tabel">tabel</a><span>, in § 4.1</span>
    <li><a href="#tabelreferentie">tabelreferentie</a><span>, in § 2.3</span>
    <li>
@@ -4910,6 +5062,7 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
      <li><a href="#dom-versie-tables">attribute for versie</a><span>, in § 3.1</span>
     </ul>
    <li><a href="#dom-publisher-tags">tags</a><span>, in § 7.1</span>
+   <li><a href="#dom-rowlevelauth-targets">targets</a><span>, in § 4.8</span>
    <li><a href="#dom-publisher-team">team</a><span>, in § 7.1</span>
    <li>
     temporal
@@ -4999,9 +5152,8 @@ te vermelden. Zodat vragen over de dataset aan de juiste personen gericht kunnen
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
-   <div class="issue"> Niet alle DCAT velden zijn gemodelleerd. Daarnaast zijn komt van sommige velden de naamgeving niet overeen met de DCAT spec. <a class="issue-return" href="#issue-794e3780" title="Jump to section">↵</a></div>
+   <div class="issue"> Niet alle DCAT velden zijn gemodelleerd. Daarnaast komt van sommige velden de naamgeving niet overeen met de DCAT spec. <a class="issue-return" href="#issue-f73972c8" title="Jump to section">↵</a></div>
    <div class="issue"> Sommige velden missen een beschrijving <a class="issue-return" href="#issue-fe7b94ef" title="Jump to section">↵</a></div>
-   <div class="issue"> Het identifier veld moet string zijn. De array optie wordt binnenkort verwijderd. <a class="issue-return" href="#issue-38d85a92" title="Jump to section">↵</a></div>
    <div class="issue"> Het is onduidelijk of <code class="highlight">unit</code> in een array moet worden meegegeven in het items attribuut  als <code class="highlight">veld<c- p>.</c->items<c- p>.</c->unit</code> of in het hoofd object als <code class="highlight">veld<c- p>.</c->unit</code>. <a class="issue-return" href="#issue-44526bd2" title="Jump to section">↵</a></div>
   </div>
 <script>/* Boilerplate: script-dom-helper */
@@ -5210,14 +5362,14 @@ let dfnPanelData = {
 "dom-contact-email": {"dfnID":"dom-contact-email","dfnText":"email","external":false,"refSections":[],"url":"#dom-contact-email"},
 "dom-contact-name": {"dfnID":"dom-contact-name","dfnText":"name","external":false,"refSections":[],"url":"#dom-contact-name"},
 "dom-dataset-accrualperiodicity": {"dfnID":"dom-dataset-accrualperiodicity","dfnText":"accrualPeriodicity","external":false,"refSections":[],"url":"#dom-dataset-accrualperiodicity"},
-"dom-dataset-auth": {"dfnID":"dom-dataset-auth","dfnText":"auth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-auth"}],"title":"2.2. Optionele attributen"},{"refs":[{"id":"ref-for-dom-dataset-auth\u2460"}],"title":"4.2. Optionele attributen"},{"refs":[{"id":"ref-for-dom-dataset-auth\u2461"},{"id":"ref-for-dom-dataset-auth\u2462"}],"title":"9.1.2. Meerdere niveau\u2019s {#auth-multiple-levels}"},{"refs":[{"id":"ref-for-dom-dataset-auth\u2463"}],"title":"12.8. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-dataset-auth"},
+"dom-dataset-auth": {"dfnID":"dom-dataset-auth","dfnText":"auth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-auth"}],"title":"2.2. Optionele attributen"},{"refs":[{"id":"ref-for-dom-dataset-auth\u2460"}],"title":"4.2. Optionele attributen"},{"refs":[{"id":"ref-for-dom-dataset-auth\u2461"},{"id":"ref-for-dom-dataset-auth\u2462"}],"title":"9.1.2. Meerdere niveau\u2019s {#auth-multiple-levels}"},{"refs":[{"id":"ref-for-dom-dataset-auth\u2463"}],"title":"12.10. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-dataset-auth"},
 "dom-dataset-authorizationgrantor": {"dfnID":"dom-dataset-authorizationgrantor","dfnText":"authorizationGrantor","external":false,"refSections":[],"url":"#dom-dataset-authorizationgrantor"},
-"dom-dataset-contactpoint": {"dfnID":"dom-dataset-contactpoint","dfnText":"contactPoint","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-contactpoint"}],"title":"12.11. [2.1.0] Dataset contact gegevens (2022-03-17)"}],"url":"#dom-dataset-contactpoint"},
-"dom-dataset-creator": {"dfnID":"dom-dataset-creator","dfnText":"creator","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-creator"}],"title":"12.11. [2.1.0] Dataset contact gegevens (2022-03-17)"}],"url":"#dom-dataset-creator"},
-"dom-dataset-crs": {"dfnID":"dom-dataset-crs","dfnText":"crs","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-crs"}],"title":"5.3.6. geometrie"},{"refs":[{"id":"ref-for-dom-dataset-crs\u2460"}],"title":"12.10. [2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)"}],"url":"#dom-dataset-crs"},
+"dom-dataset-contactpoint": {"dfnID":"dom-dataset-contactpoint","dfnText":"contactPoint","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-contactpoint"}],"title":"12.13. [2.1.0] Dataset contact gegevens (2022-03-17)"}],"url":"#dom-dataset-contactpoint"},
+"dom-dataset-creator": {"dfnID":"dom-dataset-creator","dfnText":"creator","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-creator"}],"title":"12.13. [2.1.0] Dataset contact gegevens (2022-03-17)"}],"url":"#dom-dataset-creator"},
+"dom-dataset-crs": {"dfnID":"dom-dataset-crs","dfnText":"crs","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-crs"}],"title":"5.3.6. geometrie"},{"refs":[{"id":"ref-for-dom-dataset-crs\u2460"}],"title":"12.12. [2.1.1] Crs attribuut verplicht bij geometrie velden (2022-03-23)"}],"url":"#dom-dataset-crs"},
 "dom-dataset-datecreated": {"dfnID":"dom-dataset-datecreated","dfnText":"dateCreated","external":false,"refSections":[],"url":"#dom-dataset-datecreated"},
 "dom-dataset-datemodified": {"dfnID":"dom-dataset-datemodified","dfnText":"dateModified","external":false,"refSections":[],"url":"#dom-dataset-datemodified"},
-"dom-dataset-defaultversion": {"dfnID":"dom-dataset-defaultversion","dfnText":"defaultVersion","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-defaultversion"}],"title":"2.6. Versionering"}],"url":"#dom-dataset-defaultversion"},
+"dom-dataset-defaultversion": {"dfnID":"dom-dataset-defaultversion","dfnText":"defaultVersion","external":false,"refSections":[],"url":"#dom-dataset-defaultversion"},
 "dom-dataset-description": {"dfnID":"dom-dataset-description","dfnText":"description","external":false,"refSections":[],"url":"#dom-dataset-description"},
 "dom-dataset-hasbeginning": {"dfnID":"dom-dataset-hasbeginning","dfnText":"hasBeginning","external":false,"refSections":[],"url":"#dom-dataset-hasbeginning"},
 "dom-dataset-hasend": {"dfnID":"dom-dataset-hasend","dfnText":"hasEnd","external":false,"refSections":[],"url":"#dom-dataset-hasend"},
@@ -5230,8 +5382,8 @@ let dfnPanelData = {
 "dom-dataset-objective": {"dfnID":"dom-dataset-objective","dfnText":"objective","external":false,"refSections":[],"url":"#dom-dataset-objective"},
 "dom-dataset-owner": {"dfnID":"dom-dataset-owner","dfnText":"owner","external":false,"refSections":[],"url":"#dom-dataset-owner"},
 "dom-dataset-provenance": {"dfnID":"dom-dataset-provenance","dfnText":"provenance","external":false,"refSections":[],"url":"#dom-dataset-provenance"},
-"dom-dataset-publisher": {"dfnID":"dom-dataset-publisher","dfnText":"publisher","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-publisher"}],"title":"12.7. [2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)"},{"refs":[{"id":"ref-for-dom-dataset-publisher\u2460"}],"title":"12.11. [2.1.0] Dataset contact gegevens (2022-03-17)"}],"url":"#dom-dataset-publisher"},
-"dom-dataset-reasonsnonpublic": {"dfnID":"dom-dataset-reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-reasonsnonpublic"}],"title":"12.6. [2.1.5] dataclass attribuut toegevoegd (2023-01-10)"},{"refs":[{"id":"ref-for-dom-dataset-reasonsnonpublic\u2460"}],"title":"12.8. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-dataset-reasonsnonpublic"},
+"dom-dataset-publisher": {"dfnID":"dom-dataset-publisher","dfnText":"publisher","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-publisher"}],"title":"12.9. [2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)"},{"refs":[{"id":"ref-for-dom-dataset-publisher\u2460"}],"title":"12.13. [2.1.0] Dataset contact gegevens (2022-03-17)"}],"url":"#dom-dataset-publisher"},
+"dom-dataset-reasonsnonpublic": {"dfnID":"dom-dataset-reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-dataset-reasonsnonpublic"}],"title":"12.8. [2.1.5] dataclass attribuut toegevoegd (2023-01-10)"},{"refs":[{"id":"ref-for-dom-dataset-reasonsnonpublic\u2460"}],"title":"12.10. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-dataset-reasonsnonpublic"},
 "dom-dataset-spatial": {"dfnID":"dom-dataset-spatial","dfnText":"spatial","external":false,"refSections":[],"url":"#dom-dataset-spatial"},
 "dom-dataset-spatialcoordinates": {"dfnID":"dom-dataset-spatialcoordinates","dfnText":"spatialCoordinates","external":false,"refSections":[],"url":"#dom-dataset-spatialcoordinates"},
 "dom-dataset-spatialdescription": {"dfnID":"dom-dataset-spatialdescription","dfnText":"spatialDescription","external":false,"refSections":[],"url":"#dom-dataset-spatialdescription"},
@@ -5259,10 +5411,13 @@ let dfnPanelData = {
 "dom-publisher-tags": {"dfnID":"dom-publisher-tags","dfnText":"tags","external":false,"refSections":[],"url":"#dom-publisher-tags"},
 "dom-publisher-team": {"dfnID":"dom-publisher-team","dfnText":"team","external":false,"refSections":[],"url":"#dom-publisher-team"},
 "dom-publisher-type": {"dfnID":"dom-publisher-type","dfnText":"type","external":false,"refSections":[],"url":"#dom-publisher-type"},
+"dom-rowlevelauth-authmap": {"dfnID":"dom-rowlevelauth-authmap","dfnText":"authMap","external":false,"refSections":[],"url":"#dom-rowlevelauth-authmap"},
+"dom-rowlevelauth-source": {"dfnID":"dom-rowlevelauth-source","dfnText":"source","external":false,"refSections":[],"url":"#dom-rowlevelauth-source"},
+"dom-rowlevelauth-targets": {"dfnID":"dom-rowlevelauth-targets","dfnText":"targets","external":false,"refSections":[],"url":"#dom-rowlevelauth-targets"},
 "dom-schema-additionalproperties": {"dfnID":"dom-schema-additionalproperties","dfnText":"additionalProperties","external":false,"refSections":[],"url":"#dom-schema-additionalproperties"},
-"dom-schema-display": {"dfnID":"dom-schema-display","dfnText":"display","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-schema-display"}],"title":"2.6. Versionering"},{"refs":[{"id":"ref-for-dom-schema-display\u2460"}],"title":"4.3. Schema"},{"refs":[{"id":"ref-for-dom-schema-display\u2461"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-schema-display\u2462"},{"id":"ref-for-dom-schema-display\u2463"}],"title":"12.9. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)"}],"url":"#dom-schema-display"},
+"dom-schema-display": {"dfnID":"dom-schema-display","dfnText":"display","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-schema-display"}],"title":"2.6. Versionering"},{"refs":[{"id":"ref-for-dom-schema-display\u2460"}],"title":"4.3. Schema"},{"refs":[{"id":"ref-for-dom-schema-display\u2461"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-schema-display\u2462"},{"id":"ref-for-dom-schema-display\u2463"}],"title":"12.11. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)"}],"url":"#dom-schema-display"},
 "dom-schema-id": {"dfnID":"dom-schema-id","dfnText":"$id","external":false,"refSections":[],"url":"#dom-schema-id"},
-"dom-schema-identifier": {"dfnID":"dom-schema-identifier","dfnText":"identifier","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-schema-identifier"}],"title":"4.3. Schema"},{"refs":[{"id":"ref-for-dom-schema-identifier\u2460"}],"title":"4.4. Temporaliteit"},{"refs":[{"id":"ref-for-dom-schema-identifier\u2461"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-schema-identifier\u2462"},{"id":"ref-for-dom-schema-identifier\u2463"}],"title":"12.9. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)"}],"url":"#dom-schema-identifier"},
+"dom-schema-identifier": {"dfnID":"dom-schema-identifier","dfnText":"identifier","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-schema-identifier"}],"title":"4.3. Schema"},{"refs":[{"id":"ref-for-dom-schema-identifier\u2460"}],"title":"4.4. Temporaliteit"},{"refs":[{"id":"ref-for-dom-schema-identifier\u2461"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-schema-identifier\u2462"},{"id":"ref-for-dom-schema-identifier\u2463"}],"title":"12.11. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)"}],"url":"#dom-schema-identifier"},
 "dom-schema-maingeometry": {"dfnID":"dom-schema-maingeometry","dfnText":"mainGeometry","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-schema-maingeometry"},{"id":"ref-for-dom-schema-maingeometry\u2460"},{"id":"ref-for-dom-schema-maingeometry\u2461"},{"id":"ref-for-dom-schema-maingeometry\u2462"}],"title":"5.3.6. geometrie"}],"url":"#dom-schema-maingeometry"},
 "dom-schema-properties": {"dfnID":"dom-schema-properties","dfnText":"properties","external":false,"refSections":[],"url":"#dom-schema-properties"},
 "dom-schema-propertiesschema": {"dfnID":"dom-schema-propertiesschema","dfnText":"properties.schema","external":false,"refSections":[],"url":"#dom-schema-propertiesschema"},
@@ -5278,18 +5433,20 @@ let dfnPanelData = {
 "dom-scope-type": {"dfnID":"dom-scope-type","dfnText":"type","external":false,"refSections":[],"url":"#dom-scope-type"},
 "dom-tabel-auth": {"dfnID":"dom-tabel-auth","dfnText":"auth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-auth"}],"title":"4.2. Optionele attributen"},{"refs":[{"id":"ref-for-dom-tabel-auth\u2460"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-tabel-auth\u2461"}],"title":"9.1.2. Meerdere niveau\u2019s {#auth-multiple-levels}"}],"url":"#dom-tabel-auth"},
 "dom-tabel-crs": {"dfnID":"dom-tabel-crs","dfnText":"crs","external":false,"refSections":[],"url":"#dom-tabel-crs"},
-"dom-tabel-dataclass": {"dfnID":"dom-tabel-dataclass","dfnText":"dataclass","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-dataclass"}],"title":"12.5. [2.2.0] dataclass attribuut toegevoegd (2023-01-12)"}],"url":"#dom-tabel-dataclass"},
+"dom-tabel-dataclass": {"dfnID":"dom-tabel-dataclass","dfnText":"dataclass","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-dataclass"}],"title":"12.7. [2.2.0] dataclass attribuut toegevoegd (2023-01-12)"}],"url":"#dom-tabel-dataclass"},
 "dom-tabel-datecreated": {"dfnID":"dom-tabel-datecreated","dfnText":"dateCreated","external":false,"refSections":[],"url":"#dom-tabel-datecreated"},
 "dom-tabel-datemodified": {"dfnID":"dom-tabel-datemodified","dfnText":"dateModified","external":false,"refSections":[],"url":"#dom-tabel-datemodified"},
 "dom-tabel-derivedfrom": {"dfnID":"dom-tabel-derivedfrom","dfnText":"derivedFrom","external":false,"refSections":[],"url":"#dom-tabel-derivedfrom"},
 "dom-tabel-description": {"dfnID":"dom-tabel-description","dfnText":"description","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-description"}],"title":"4.1. Verplichte attributen"},{"refs":[{"id":"ref-for-dom-tabel-description\u2460"}],"title":"4.2. Optionele attributen"}],"url":"#dom-tabel-description"},
 "dom-tabel-id": {"dfnID":"dom-tabel-id","dfnText":"id","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-id"}],"title":"4.1. Verplichte attributen"},{"refs":[{"id":"ref-for-dom-tabel-id\u2460"}],"title":"4.2. Optionele attributen"},{"refs":[{"id":"ref-for-dom-tabel-id\u2461"}],"title":"6. Naamgeving"}],"url":"#dom-tabel-id"},
 "dom-tabel-license": {"dfnID":"dom-tabel-license","dfnText":"license","external":false,"refSections":[],"url":"#dom-tabel-license"},
-"dom-tabel-lifecyclestatus": {"dfnID":"dom-tabel-lifecyclestatus","dfnText":"lifecycleStatus","external":false,"refSections":[],"url":"#dom-tabel-lifecyclestatus"},
 "dom-tabel-provenance": {"dfnID":"dom-tabel-provenance","dfnText":"provenance","external":false,"refSections":[],"url":"#dom-tabel-provenance"},
-"dom-tabel-reasonsnonpublic": {"dfnID":"dom-tabel-reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-reasonsnonpublic"}],"title":"9.1.2. Meerdere niveau\u2019s {#auth-multiple-levels}"},{"refs":[{"id":"ref-for-dom-tabel-reasonsnonpublic\u2460"}],"title":"12.8. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-tabel-reasonsnonpublic"},
+"dom-tabel-reasonsnonpublic": {"dfnID":"dom-tabel-reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-reasonsnonpublic"}],"title":"9.1.2. Meerdere niveau\u2019s {#auth-multiple-levels}"},{"refs":[{"id":"ref-for-dom-tabel-reasonsnonpublic\u2460"}],"title":"12.10. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-tabel-reasonsnonpublic"},
+"dom-tabel-rowlevelauth": {"dfnID":"dom-tabel-rowlevelauth","dfnText":"rowLevelAuth","external":false,"refSections":[],"url":"#dom-tabel-rowlevelauth"},
 "dom-tabel-schema": {"dfnID":"dom-tabel-schema","dfnText":"schema","external":false,"refSections":[],"url":"#dom-tabel-schema"},
 "dom-tabel-shortname": {"dfnID":"dom-tabel-shortname","dfnText":"shortname","external":false,"refSections":[],"url":"#dom-tabel-shortname"},
+"dom-tabel-status": {"dfnID":"dom-tabel-status","dfnText":"status","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-status"}],"title":"12.1. [4.0.0] LifecycleStatus verwijderd (2025-12-29)"}],"url":"#dom-tabel-status"},
+"dom-tabel-subresources": {"dfnID":"dom-tabel-subresources","dfnText":"subresources","external":false,"refSections":[],"url":"#dom-tabel-subresources"},
 "dom-tabel-temporal": {"dfnID":"dom-tabel-temporal","dfnText":"temporal","external":false,"refSections":[],"url":"#dom-tabel-temporal"},
 "dom-tabel-title": {"dfnID":"dom-tabel-title","dfnText":"title","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-tabel-title"}],"title":"4.1. Verplichte attributen"},{"refs":[{"id":"ref-for-dom-tabel-title\u2460"}],"title":"4.2. Optionele attributen"}],"url":"#dom-tabel-title"},
 "dom-tabel-type": {"dfnID":"dom-tabel-type","dfnText":"type","external":false,"refSections":[],"url":"#dom-tabel-type"},
@@ -5301,14 +5458,14 @@ let dfnPanelData = {
 "dom-temporal-identifier": {"dfnID":"dom-temporal-identifier","dfnText":"identifier","external":false,"refSections":[],"url":"#dom-temporal-identifier"},
 "dom-unit-type": {"dfnID":"dom-unit-type","dfnText":"type","external":false,"refSections":[],"url":"#dom-unit-type"},
 "dom-unit-value": {"dfnID":"dom-unit-value","dfnText":"value","external":false,"refSections":[],"url":"#dom-unit-value"},
-"dom-veld-auth": {"dfnID":"dom-veld-auth","dfnText":"auth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-auth"},{"id":"ref-for-dom-veld-auth\u2460"}],"title":"4.3. Schema"},{"refs":[{"id":"ref-for-dom-veld-auth\u2461"},{"id":"ref-for-dom-veld-auth\u2462"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-veld-auth\u2463"}],"title":"5.3.8. array"},{"refs":[{"id":"ref-for-dom-veld-auth\u2464"},{"id":"ref-for-dom-veld-auth\u2465"}],"title":"12.9. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)"}],"url":"#dom-veld-auth"},
+"dom-veld-auth": {"dfnID":"dom-veld-auth","dfnText":"auth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-auth"},{"id":"ref-for-dom-veld-auth\u2460"}],"title":"4.3. Schema"},{"refs":[{"id":"ref-for-dom-veld-auth\u2461"},{"id":"ref-for-dom-veld-auth\u2462"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-veld-auth\u2463"}],"title":"5.3.8. array"},{"refs":[{"id":"ref-for-dom-veld-auth\u2464"},{"id":"ref-for-dom-veld-auth\u2465"}],"title":"12.11. [2.1.2] Auth attribuut niet toegestaan bij identifier en display velden (2022-04-13)"}],"url":"#dom-veld-auth"},
 "dom-veld-comment": {"dfnID":"dom-veld-comment","dfnText":"$comment","external":false,"refSections":[],"url":"#dom-veld-comment"},
 "dom-veld-contentencoding": {"dfnID":"dom-veld-contentencoding","dfnText":"contentEncoding","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-contentencoding"}],"title":"5.3.4. string"}],"url":"#dom-veld-contentencoding"},
 "dom-veld-crs": {"dfnID":"dom-veld-crs","dfnText":"crs","external":false,"refSections":[],"url":"#dom-veld-crs"},
 "dom-veld-description": {"dfnID":"dom-veld-description","dfnText":"description","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-description"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-dom-veld-description\u2460"}],"title":"5.3.8. array"}],"url":"#dom-veld-description"},
 "dom-veld-enum": {"dfnID":"dom-veld-enum","dfnText":"enum","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-enum"}],"title":"2.6. Versionering"},{"refs":[{"id":"ref-for-dom-veld-enum\u2460"},{"id":"ref-for-dom-veld-enum\u2461"}],"title":"4.5. Versionering"},{"refs":[{"id":"ref-for-dom-veld-enum\u2462"}],"title":"5.3.4. string"}],"url":"#dom-veld-enum"},
 "dom-veld-exclusivemaximum": {"dfnID":"dom-veld-exclusivemaximum","dfnText":"exclusiveMaximum","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-exclusivemaximum"},{"id":"ref-for-dom-veld-exclusivemaximum\u2460"},{"id":"ref-for-dom-veld-exclusivemaximum\u2461"}],"title":"5.3.1. integer"},{"refs":[{"id":"ref-for-dom-veld-exclusivemaximum\u2462"}],"title":"5.3.2. number"}],"url":"#dom-veld-exclusivemaximum"},
-"dom-veld-filterauth": {"dfnID":"dom-veld-filterauth","dfnText":"filterAuth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-filterauth"}],"title":"12.4. [2.3.0] filterAuth attribuut toegevoegd (2025-01-12)"}],"url":"#dom-veld-filterauth"},
+"dom-veld-filterauth": {"dfnID":"dom-veld-filterauth","dfnText":"filterAuth","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-filterauth"}],"title":"12.6. [2.3.0] filterAuth attribuut toegevoegd (2025-01-12)"}],"url":"#dom-veld-filterauth"},
 "dom-veld-format": {"dfnID":"dom-veld-format","dfnText":"format","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-format"},{"id":"ref-for-dom-veld-format\u2460"}],"title":"5.3.5. tijd"}],"url":"#dom-veld-format"},
 "dom-veld-items": {"dfnID":"dom-veld-items","dfnText":"items","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-items"},{"id":"ref-for-dom-veld-items\u2460"},{"id":"ref-for-dom-veld-items\u2461"},{"id":"ref-for-dom-veld-items\u2462"},{"id":"ref-for-dom-veld-items\u2463"}],"title":"5.3.8. array"}],"url":"#dom-veld-items"},
 "dom-veld-maximum": {"dfnID":"dom-veld-maximum","dfnText":"maximum","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-maximum"}],"title":"2.6. Versionering"},{"refs":[{"id":"ref-for-dom-veld-maximum\u2460"},{"id":"ref-for-dom-veld-maximum\u2461"}],"title":"5.3.1. integer"},{"refs":[{"id":"ref-for-dom-veld-maximum\u2462"},{"id":"ref-for-dom-veld-maximum\u2463"}],"title":"5.3.2. number"}],"url":"#dom-veld-maximum"},
@@ -5318,7 +5475,7 @@ let dfnPanelData = {
 "dom-veld-multipleof": {"dfnID":"dom-veld-multipleof","dfnText":"multipleOf","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-multipleof"},{"id":"ref-for-dom-veld-multipleof\u2460"},{"id":"ref-for-dom-veld-multipleof\u2461"}],"title":"5.3.2. number"}],"url":"#dom-veld-multipleof"},
 "dom-veld-properties": {"dfnID":"dom-veld-properties","dfnText":"properties","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-properties"},{"id":"ref-for-dom-veld-properties\u2460"},{"id":"ref-for-dom-veld-properties\u2461"},{"id":"ref-for-dom-veld-properties\u2462"},{"id":"ref-for-dom-veld-properties\u2463"},{"id":"ref-for-dom-veld-properties\u2464"},{"id":"ref-for-dom-veld-properties\u2465"}],"title":"5.3.7. object"}],"url":"#dom-veld-properties"},
 "dom-veld-provenance": {"dfnID":"dom-veld-provenance","dfnText":"provenance","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-provenance"}],"title":"5.3.8. array"}],"url":"#dom-veld-provenance"},
-"dom-veld-reasonsnonpublic": {"dfnID":"dom-veld-reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-reasonsnonpublic"}],"title":"12.8. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-veld-reasonsnonpublic"},
+"dom-veld-reasonsnonpublic": {"dfnID":"dom-veld-reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-reasonsnonpublic"}],"title":"12.10. [2.1.3] Auth attribuut verplicht op dataset niveau (2022-04-13)"}],"url":"#dom-veld-reasonsnonpublic"},
 "dom-veld-ref": {"dfnID":"dom-veld-ref","dfnText":"$ref","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-ref"}],"title":"5.1. Verplichte attributen"}],"url":"#dom-veld-ref"},
 "dom-veld-relation": {"dfnID":"dom-veld-relation","dfnText":"relation","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-relation"}],"title":"5.3.8. array"},{"refs":[{"id":"ref-for-dom-veld-relation\u2460"},{"id":"ref-for-dom-veld-relation\u2461"}],"title":"5.4. Relaties"}],"url":"#dom-veld-relation"},
 "dom-veld-shortname": {"dfnID":"dom-veld-shortname","dfnText":"shortname","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-shortname"}],"title":"5.3.8. array"}],"url":"#dom-veld-shortname"},
@@ -5326,8 +5483,10 @@ let dfnPanelData = {
 "dom-veld-type": {"dfnID":"dom-veld-type","dfnText":"type","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-type"}],"title":"5.1. Verplichte attributen"}],"url":"#dom-veld-type"},
 "dom-veld-unit": {"dfnID":"dom-veld-unit","dfnText":"unit","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-veld-unit"}],"title":"2.6. Versionering"},{"refs":[{"id":"ref-for-dom-veld-unit\u2460"},{"id":"ref-for-dom-veld-unit\u2461"},{"id":"ref-for-dom-veld-unit\u2462"}],"title":"5.5. Eenheden"}],"url":"#dom-veld-unit"},
 "dom-veld-uri": {"dfnID":"dom-veld-uri","dfnText":"uri","external":false,"refSections":[],"url":"#dom-veld-uri"},
-"dom-versie-lifecyclestatus": {"dfnID":"dom-versie-lifecyclestatus","dfnText":"lifecycleStatus","external":false,"refSections":[],"url":"#dom-versie-lifecyclestatus"},
-"dom-versie-status": {"dfnID":"dom-versie-status","dfnText":"status","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-versie-status"}],"title":"2.1. Verplichte attributen"},{"refs":[{"id":"ref-for-dom-versie-status\u2460"}],"title":"11. Attribuuttypen"}],"url":"#dom-versie-status"},
+"dom-versie-enableapi": {"dfnID":"dom-versie-enableapi","dfnText":"enableAPI","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-versie-enableapi"}],"title":"2.1. Verplichte attributen"},{"refs":[{"id":"ref-for-dom-versie-enableapi\u2460"}],"title":"11. Attribuuttypen"},{"refs":[{"id":"ref-for-dom-versie-enableapi\u2461"}],"title":"12.1. [4.0.0] LifecycleStatus verwijderd (2025-12-29)"}],"url":"#dom-versie-enableapi"},
+"dom-versie-endsupportdate": {"dfnID":"dom-versie-endsupportdate","dfnText":"endSupportDate","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-versie-endsupportdate"}],"title":"3.3. Status"},{"refs":[{"id":"ref-for-dom-versie-endsupportdate\u2460"}],"title":"12.1. [4.0.0] LifecycleStatus verwijderd (2025-12-29)"}],"url":"#dom-versie-endsupportdate"},
+"dom-versie-releasedate": {"dfnID":"dom-versie-releasedate","dfnText":"releaseDate","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-versie-releasedate"}],"title":"12.1. [4.0.0] LifecycleStatus verwijderd (2025-12-29)"}],"url":"#dom-versie-releasedate"},
+"dom-versie-status": {"dfnID":"dom-versie-status","dfnText":"status","external":false,"refSections":[{"refs":[{"id":"ref-for-dom-versie-status"}],"title":"3.2. Optionele attributen"},{"refs":[{"id":"ref-for-dom-versie-status\u2460"},{"id":"ref-for-dom-versie-status\u2461"}],"title":"3.3. Status"},{"refs":[{"id":"ref-for-dom-versie-status\u2462"},{"id":"ref-for-dom-versie-status\u2463"}],"title":"12.1. [4.0.0] LifecycleStatus verwijderd (2025-12-29)"}],"url":"#dom-versie-status"},
 "dom-versie-tables": {"dfnID":"dom-versie-tables","dfnText":"tables","external":false,"refSections":[],"url":"#dom-versie-tables"},
 "dom-versie-version": {"dfnID":"dom-versie-version","dfnText":"version","external":false,"refSections":[],"url":"#dom-versie-version"},
 "mandatoryfiltersets": {"dfnID":"mandatoryfiltersets","dfnText":"mandatoryFilterSets","external":false,"refSections":[{"refs":[{"id":"ref-for-mandatoryfiltersets"},{"id":"ref-for-mandatoryfiltersets\u2460"},{"id":"ref-for-mandatoryfiltersets\u2461"}],"title":"9.3.2. Toegangsregels {#access-rules}"}],"url":"#mandatoryfiltersets"},
@@ -5336,7 +5495,7 @@ let dfnPanelData = {
 "nouns": {"dfnID":"nouns","dfnText":"3.","external":false,"refSections":[],"url":"#nouns"},
 "plural": {"dfnID":"plural","dfnText":"5.","external":false,"refSections":[],"url":"#plural"},
 "profiel": {"dfnID":"profiel","dfnText":"profiel","external":false,"refSections":[],"url":"#profiel"},
-"publisher": {"dfnID":"publisher","dfnText":"publisher","external":false,"refSections":[{"refs":[{"id":"ref-for-publisher"},{"id":"ref-for-publisher\u2460"}],"title":"2.4. Publisherreferenties"},{"refs":[{"id":"ref-for-publisher\u2461"}],"title":"7. Publisher"},{"refs":[{"id":"ref-for-publisher\u2462"}],"title":"12.7. [2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)"}],"url":"#publisher"},
+"publisher": {"dfnID":"publisher","dfnText":"publisher","external":false,"refSections":[{"refs":[{"id":"ref-for-publisher"},{"id":"ref-for-publisher\u2460"}],"title":"2.4. Publisherreferenties"},{"refs":[{"id":"ref-for-publisher\u2461"}],"title":"7. Publisher"},{"refs":[{"id":"ref-for-publisher\u2462"}],"title":"12.9. [2.1.4] Publishers zijn zelfstandige objecten geworden (2022-12-21)"}],"url":"#publisher"},
 "publisherreferentie": {"dfnID":"publisherreferentie","dfnText":"publisherreferentie","external":false,"refSections":[],"url":"#publisherreferentie"},
 "reasonsnonpublic": {"dfnID":"reasonsnonpublic","dfnText":"reasonsNonPublic","external":false,"refSections":[],"url":"#reasonsnonpublic"},
 "schema": {"dfnID":"schema","dfnText":"schema","external":false,"refSections":[{"refs":[{"id":"ref-for-schema"},{"id":"ref-for-schema\u2460"}],"title":"4.1. Verplichte attributen"},{"refs":[{"id":"ref-for-schema\u2461"},{"id":"ref-for-schema\u2462"}],"title":"4.3. Schema"}],"url":"#schema"},
@@ -5346,6 +5505,7 @@ let dfnPanelData = {
 "tabelreferentie": {"dfnID":"tabelreferentie","dfnText":"tabelreferentie","external":false,"refSections":[{"refs":[{"id":"ref-for-tabelreferentie"}],"title":"2.1. Verplichte attributen"},{"refs":[{"id":"ref-for-tabelreferentie\u2460"}],"title":"4.5. Versionering"}],"url":"#tabelreferentie"},
 "temporal-object": {"dfnID":"temporal-object","dfnText":"temporal","external":false,"refSections":[{"refs":[{"id":"ref-for-temporal-object"}],"title":"4.2. Optionele attributen"},{"refs":[{"id":"ref-for-temporal-object\u2460"},{"id":"ref-for-temporal-object\u2461"}],"title":"4.4. Temporaliteit"}],"url":"#temporal-object"},
 "typedefdef-contact": {"dfnID":"typedefdef-contact","dfnText":"contact","external":false,"refSections":[{"refs":[{"id":"ref-for-typedefdef-contact"}],"title":"2.2. Optionele attributen"}],"url":"#typedefdef-contact"},
+"typedefdef-date": {"dfnID":"typedefdef-date","dfnText":"date","external":false,"refSections":[{"refs":[{"id":"ref-for-typedefdef-date"},{"id":"ref-for-typedefdef-date\u2460"}],"title":"3.2. Optionele attributen"}],"url":"#typedefdef-date"},
 "typedefdef-date-time": {"dfnID":"typedefdef-date-time","dfnText":"date-time","external":false,"refSections":[{"refs":[{"id":"ref-for-typedefdef-date-time"},{"id":"ref-for-typedefdef-date-time\u2460"},{"id":"ref-for-typedefdef-date-time\u2461"},{"id":"ref-for-typedefdef-date-time\u2462"}],"title":"2.2.1. DCAT velden"},{"refs":[{"id":"ref-for-typedefdef-date-time\u2463"},{"id":"ref-for-typedefdef-date-time\u2464"}],"title":"4.2. Optionele attributen"}],"url":"#typedefdef-date-time"},
 "typedefdef-id": {"dfnID":"typedefdef-id","dfnText":"identifier","external":false,"refSections":[{"refs":[{"id":"ref-for-typedefdef-id"}],"title":"2.1. Verplichte attributen"},{"refs":[{"id":"ref-for-typedefdef-id\u2460"}],"title":"2.3. Tabelreferenties"},{"refs":[{"id":"ref-for-typedefdef-id\u2461"}],"title":"4.1. Verplichte attributen"},{"refs":[{"id":"ref-for-typedefdef-id\u2462"}],"title":"7.1. Verplichte attributen"},{"refs":[{"id":"ref-for-typedefdef-id\u2463"}],"title":"8.1. Verplichte attributen"},{"refs":[{"id":"ref-for-typedefdef-id\u2464"}],"title":"9.3. Verplichte attributen"}],"url":"#typedefdef-id"},
 "typedefdef-majorversion": {"dfnID":"typedefdef-majorversion","dfnText":"major-version","external":false,"refSections":[{"refs":[{"id":"ref-for-typedefdef-majorversion"}],"title":"2.1. Verplichte attributen"},{"refs":[{"id":"ref-for-typedefdef-majorversion\u2460"}],"title":"2.6. Versionering"}],"url":"#typedefdef-majorversion"},
@@ -5357,7 +5517,7 @@ let dfnPanelData = {
 "typedefdef-version": {"dfnID":"typedefdef-version","dfnText":"version","external":false,"refSections":[{"refs":[{"id":"ref-for-typedefdef-version"}],"title":"2.6. Versionering"},{"refs":[{"id":"ref-for-typedefdef-version\u2460"}],"title":"3.1. Verplichte attributen"},{"refs":[{"id":"ref-for-typedefdef-version\u2461"}],"title":"4.1. Verplichte attributen"}],"url":"#typedefdef-version"},
 "unique": {"dfnID":"unique","dfnText":"4.","external":false,"refSections":[],"url":"#unique"},
 "veld": {"dfnID":"veld","dfnText":"veld","external":false,"refSections":[{"refs":[{"id":"ref-for-veld"},{"id":"ref-for-veld\u2460"},{"id":"ref-for-veld\u2461"},{"id":"ref-for-veld\u2462"},{"id":"ref-for-veld\u2463"}],"title":"2.6. Versionering"},{"refs":[{"id":"ref-for-veld\u2464"},{"id":"ref-for-veld\u2465"},{"id":"ref-for-veld\u2466"},{"id":"ref-for-veld\u2467"}],"title":"4.3. Schema"},{"refs":[{"id":"ref-for-veld\u2468"},{"id":"ref-for-veld\u2460\u24ea"}],"title":"5. Veld"},{"refs":[{"id":"ref-for-veld\u2460\u2460"},{"id":"ref-for-veld\u2460\u2461"},{"id":"ref-for-veld\u2460\u2462"}],"title":"5.2. Toegestane attributen"},{"refs":[{"id":"ref-for-veld\u2460\u2463"}],"title":"5.3.3. boolean"},{"refs":[{"id":"ref-for-veld\u2460\u2464"}],"title":"5.3.5. tijd"},{"refs":[{"id":"ref-for-veld\u2460\u2465"},{"id":"ref-for-veld\u2460\u2466"},{"id":"ref-for-veld\u2460\u2467"}],"title":"5.3.7. object"},{"refs":[{"id":"ref-for-veld\u2460\u2468"},{"id":"ref-for-veld\u2461\u24ea"},{"id":"ref-for-veld\u2461\u2460"}],"title":"5.3.8. array"},{"refs":[{"id":"ref-for-veld\u2461\u2461"}],"title":"5.4. Relaties"},{"refs":[{"id":"ref-for-veld\u2461\u2462"},{"id":"ref-for-veld\u2461\u2463"}],"title":"6. Naamgeving"},{"refs":[{"id":"ref-for-veld\u2461\u2464"}],"title":"6.1. Shortname"},{"refs":[{"id":"ref-for-veld\u2461\u2465"}],"title":"9.1. Auth-attributen"},{"refs":[{"id":"ref-for-veld\u2461\u2466"},{"id":"ref-for-veld\u2461\u2467"}],"title":"9.1.2. Meerdere niveau\u2019s {#auth-multiple-levels}"},{"refs":[{"id":"ref-for-veld\u2461\u2468"}],"title":"9.3. Verplichte attributen"},{"refs":[{"id":"ref-for-veld\u2462\u24ea"}],"title":"9.3.2. Toegangsregels {#access-rules}"},{"refs":[{"id":"ref-for-veld\u2462\u2460"},{"id":"ref-for-veld\u2462\u2461"}],"title":"10.1. Omschrijving"}],"url":"#veld"},
-"versie": {"dfnID":"versie","dfnText":"versie","external":false,"refSections":[{"refs":[{"id":"ref-for-versie"},{"id":"ref-for-versie\u2460"}],"title":"2.1. Verplichte attributen"},{"refs":[{"id":"ref-for-versie\u2461"}],"title":"2.6. Versionering"},{"refs":[{"id":"ref-for-versie\u2462"}],"title":"3. Versie"}],"url":"#versie"},
+"versie": {"dfnID":"versie","dfnText":"versie","external":false,"refSections":[{"refs":[{"id":"ref-for-versie"},{"id":"ref-for-versie\u2460"}],"title":"2.1. Verplichte attributen"},{"refs":[{"id":"ref-for-versie\u2461"}],"title":"2.6. Versionering"},{"refs":[{"id":"ref-for-versie\u2462"}],"title":"3. Versie"},{"refs":[{"id":"ref-for-versie\u2463"}],"title":"3.2. Optionele attributen"}],"url":"#versie"},
 };
 
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -5751,7 +5911,6 @@ let refsData = {
 "#dom-dataset-contactpoint": {"displayText":"contactPoint","export":true,"for_":["dataset"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"contactPoint","type":"attribute","url":"#dom-dataset-contactpoint"},
 "#dom-dataset-creator": {"displayText":"creator","export":true,"for_":["dataset"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"creator","type":"attribute","url":"#dom-dataset-creator"},
 "#dom-dataset-crs": {"displayText":"crs","export":true,"for_":["dataset"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"crs","type":"attribute","url":"#dom-dataset-crs"},
-"#dom-dataset-defaultversion": {"displayText":"defaultVersion","export":true,"for_":["dataset"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"defaultVersion","type":"attribute","url":"#dom-dataset-defaultversion"},
 "#dom-dataset-id": {"displayText":"id","export":true,"for_":["dataset"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"id","type":"attribute","url":"#dom-dataset-id"},
 "#dom-dataset-publisher": {"displayText":"publisher","export":true,"for_":["dataset"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"publisher","type":"attribute","url":"#dom-dataset-publisher"},
 "#dom-dataset-reasonsnonpublic": {"displayText":"reasonsNonPublic","export":true,"for_":["dataset"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"reasonsNonPublic","type":"attribute","url":"#dom-dataset-reasonsnonpublic"},
@@ -5764,6 +5923,7 @@ let refsData = {
 "#dom-tabel-description": {"displayText":"description","export":true,"for_":["tabel"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"description","type":"attribute","url":"#dom-tabel-description"},
 "#dom-tabel-id": {"displayText":"id","export":true,"for_":["tabel"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"id","type":"attribute","url":"#dom-tabel-id"},
 "#dom-tabel-reasonsnonpublic": {"displayText":"reasonsNonPublic","export":true,"for_":["tabel"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"reasonsNonPublic","type":"attribute","url":"#dom-tabel-reasonsnonpublic"},
+"#dom-tabel-status": {"displayText":"status","export":true,"for_":["tabel"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"status","type":"attribute","url":"#dom-tabel-status"},
 "#dom-tabel-title": {"displayText":"title","export":true,"for_":["tabel"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"title","type":"attribute","url":"#dom-tabel-title"},
 "#dom-temporal-dimensionsgeldigop": {"displayText":"dimensions.geldigOp","export":true,"for_":["temporal"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"dimensions.geldigOp","type":"attribute","url":"#dom-temporal-dimensionsgeldigop"},
 "#dom-veld-auth": {"displayText":"auth","export":true,"for_":["veld"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"auth","type":"attribute","url":"#dom-veld-auth"},
@@ -5788,6 +5948,9 @@ let refsData = {
 "#dom-veld-title": {"displayText":"title","export":true,"for_":["veld"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"title","type":"attribute","url":"#dom-veld-title"},
 "#dom-veld-type": {"displayText":"type","export":true,"for_":["veld"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"type","type":"attribute","url":"#dom-veld-type"},
 "#dom-veld-unit": {"displayText":"unit","export":true,"for_":["veld"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"unit","type":"attribute","url":"#dom-veld-unit"},
+"#dom-versie-enableapi": {"displayText":"enableAPI","export":true,"for_":["versie"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"enableAPI","type":"attribute","url":"#dom-versie-enableapi"},
+"#dom-versie-endsupportdate": {"displayText":"endSupportDate","export":true,"for_":["versie"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"endSupportDate","type":"attribute","url":"#dom-versie-endsupportdate"},
+"#dom-versie-releasedate": {"displayText":"releaseDate","export":true,"for_":["versie"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"releaseDate","type":"attribute","url":"#dom-versie-releasedate"},
 "#dom-versie-status": {"displayText":"status","export":true,"for_":["versie"],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"status","type":"attribute","url":"#dom-versie-status"},
 "#mandatoryfiltersets": {"displayText":"mandatoryfiltersets","export":true,"for_":[],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"mandatoryfiltersets","type":"dfn","url":"#mandatoryfiltersets"},
 "#noabrev": {"displayText":"noabrev","export":true,"for_":[],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"noabrev","type":"dfn","url":"#noabrev"},
@@ -5798,6 +5961,7 @@ let refsData = {
 "#tabelreferentie": {"displayText":"tabelreferentie","export":true,"for_":[],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"tabelreferentie","type":"dfn","url":"#tabelreferentie"},
 "#temporal-object": {"displayText":"temporal-object","export":true,"for_":[],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"temporal-object","type":"dfn","url":"#temporal-object"},
 "#typedefdef-contact": {"displayText":"contact","export":true,"for_":[],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"contact","type":"typedef","url":"#typedefdef-contact"},
+"#typedefdef-date": {"displayText":"date","export":true,"for_":[],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"date","type":"typedef","url":"#typedefdef-date"},
 "#typedefdef-date-time": {"displayText":"date-time","export":true,"for_":[],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"date-time","type":"typedef","url":"#typedefdef-date-time"},
 "#typedefdef-id": {"displayText":"id-type","export":true,"for_":[],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"id-type","type":"typedef","url":"#typedefdef-id"},
 "#typedefdef-majorversion": {"displayText":"major-version-string","export":true,"for_":[],"level":"2.4.0","normative":true,"shortname":"ams-schema-spec","spec":"ams-schema-spec-2.4.0","status":"local","text":"major-version-string","type":"typedef","url":"#typedefdef-majorversion"},
@@ -5890,7 +6054,12 @@ function hideRefHint(refHint) {
 function showRefHint(link) {
     if(link.classList.contains("dfn-link")) return;
     const url = link.getAttribute("href");
-    const ref = refsData[url];
+    const refHintKey = link.getAttribute("data-refhint-key");
+    let key = url;
+    if(refHintKey) {
+        key = refHintKey + "_" + url;
+    }
+    const ref = refsData[key];
     if(!ref) return;
 
     hideAllRefHints(); // Only display one at this time.

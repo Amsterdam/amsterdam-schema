@@ -1,8 +1,8 @@
 {
   "id": "monitorbeeldkwaliteit",
   "type": "table",
-  "version": "2.2.1",
-  "lifecycleStatus": "stable",
+  "version": "2.3.0",
+  "status": "stable",
   "title": "Monitorbeeldkwaliteit",
   "auth": "FP/MDW",
   "description": "Deze tabel bevat de inspecties die zijn uitgevoerd voor het dagelijkse onderhoud Beheer Openbare Ruimte. Hiervoor wordt merendeels de CROW 380 methodiek gebruikt. Enkele inspecties worden met een ander doel uitgevoerd en hanteren daarom niet de CROW 380 methodiek.",
@@ -19,7 +19,7 @@
     "display": "id",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "id": {
         "title": "Monitorbeeldkwaliteit ID",
@@ -275,6 +275,24 @@
         "title": "Gebiedsgericht werken code",
         "type": "string",
         "description": "Of­fi­ciële code van het ob­ject"
+      },
+      "locationName": {
+        "title": "Naam van de meetlocatie",
+        "type": "string",
+        "description": "Naam van de meetlocatie"
+      },
+      "inspectionTypeCategory": {
+        "title": "Categorie van de beeldmeetlat",
+        "type": "string",
+        "description": "Categorie van de beeldmeetlat"
+      },
+      "inspectionTypeThemes": {
+        "title": "Array met de thema’s van de beeldmeetlat",
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Array met de thema’s van de beeldmeetlat"
       }
     }
   }

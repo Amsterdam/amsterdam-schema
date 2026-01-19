@@ -1,8 +1,8 @@
 {
   "id": "nietnatuurlijkepersonen",
   "type": "table",
-  "version": "3.0.0",
-  "lifecycleStatus": "stable",
+  "version": "3.0.1",
+  "status": "stable",
   "shortname": "Nnp",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -18,7 +18,7 @@
     "display": "identificatie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
@@ -67,7 +67,7 @@
       "duur": {
         "type": "string",
         "title": "Surceance duur",
-        "description": "De duur van de periode waarvoor surseance van betaling geldt, in maanden wanneer geen tijdseenheid gegeven."
+        "description": "De duur van de periode (in maanden) waarvoor surseance van betaling geldt. Dit geldt alleen als de surceance van betaling definitief is"
       },
       "faillissement": {
         "type": "boolean",

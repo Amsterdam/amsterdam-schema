@@ -3,8 +3,8 @@
   "title": "hoogtes",
   "description": "Virtuele objecten met informatie over de hoogte van het terrein of de diepte van het water.",
   "type": "table",
-  "version": "1.0.4",
-  "lifecycleStatus": "stable",
+  "version": "1.0.5",
+  "status": "stable",
   "crs": "EPSG:28992",
   "auth": "OPENBAAR",
   "schema": {
@@ -22,11 +22,11 @@
     "display": "identificatie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
-        "title": "Geo object ID",
+        "title": "Object ID",
         "description": "De unieke identiteit van het geo-object"
       },
       "bronactualiteit": {
@@ -80,7 +80,7 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
         "title": "Geometrie",
-        "description": "geometrie"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "hoogte": {
         "type": "number",
@@ -100,12 +100,12 @@
       "geometriePunt": {
         "$ref": "https://geojson.org/schema/Point.json",
         "title": "Punt geometrie",
-        "description": "Puntgeometrie"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "geometrieLijn": {
         "$ref": "https://geojson.org/schema/LineString.json",
         "title": "Lijn geometrie",
-        "description": "Lijngeometrie"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       }
     }
   }

@@ -1,0 +1,373 @@
+{
+  "id": "brugVast",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Vaste bruggen",
+  "description": "Vaste verbinding voor verkeer tussen minimaal twee punten die gescheiden worden door hoofdzakelijk waterwegen en onder andere bestaat uit een hoofddraagconstructie en een rijvloer.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "objectnaam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke aanduiding van het object.",
+        "title": "Id"
+      },
+      "beheerder": {
+        "type": "string",
+        "description": "Een publiekrechtelijke instantie of (rechts)persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT).",
+        "title": "Beheerder"
+      },
+      "beheerderGedetailleerd": {
+        "type": "string",
+        "description": "Nadere aanduiding van de beheerder van het beheerobject.",
+        "title": "Beheerder Gedetailleerd"
+      },
+      "beheergebied": {
+        "type": "string",
+        "description": "Aanduiding van het beheergebied waarbinnen het beheerobject ligt. Indeling in beheergebieden is organisatiespecifiek.",
+        "title": "Beheergebied"
+      },
+      "beschermdefloraenfauna": {
+        "type": "boolean",
+        "description": "Aanduiding voor de aanwezigheid van beschermde plantensoorten en beschermde diersoorten.",
+        "title": "Beschermdefloraenfauna"
+      },
+      "bgtType": {
+        "type": "string",
+        "description": "De officiële classificatie (objecttype) van het object zoals gedefinieerd in de catalogus van de Basisregistratie Grootschalige Topografie (BGT).",
+        "title": "Bgt Type"
+      },
+      "breedte": {
+        "type": "number",
+        "description": "De gemiddelde) afmeting (breedte) van het beheerobject van de kortste dimensie in het horizontale vlak.",
+        "title": "Breedte"
+      },
+      "brughoogteBij4m": {
+        "type": "number",
+        "description": "Minimale brughoogte onderkant brug  t.o.v. NAP bij een vaartuigbreedte van 4 m in het midden van de doorvaart.",
+        "title": "Brughoogte Bij 4m"
+      },
+      "conversieid": {
+        "type": "string",
+        "description": "Uniek kenmerk van een beheerobject uit een oude beheerindeling.",
+        "title": "Conversieid"
+      },
+      "doorrijbreedte": {
+        "type": "number",
+        "description": "Doorrijbreedte van een object of van een opening van het object.",
+        "title": "Doorrijbreedte"
+      },
+      "doorrijhoogte": {
+        "type": "number",
+        "description": "Doorrijhoogte onder een object of onder een opening van het object.",
+        "title": "Doorrijhoogte"
+      },
+      "doorvaartbreedte": {
+        "type": "number",
+        "description": "Doorvaartbreedte van het object of van een opening van het object.",
+        "title": "Doorvaartbreedte"
+      },
+      "doorvaarthoogte": {
+        "type": "number",
+        "description": "Brughoogte onderkant brug in het midden van de doorvaart t.o.v. NAP",
+        "title": "Doorvaarthoogte"
+      },
+      "eigenaar": {
+        "type": "string",
+        "description": "(Rechts)persoon die het meest  omvattend recht op een zaak heeft . De typen eigenaren zijn conform de indeling in bronhouders (BGT).",
+        "title": "Eigenaar"
+      },
+      "eigenaarGedetailleerd": {
+        "type": "string",
+        "description": "Nadere aanduiding van de eigenaar van het beheerobject.",
+        "title": "Eigenaar Gedetailleerd"
+      },
+      "gebruiker": {
+        "type": "string",
+        "description": "",
+        "title": "Gebruiker"
+      },
+      "gemeente": {
+        "type": "string",
+        "description": "Naam van de gemeente waarbinnen het beheerobject ligt.",
+        "title": "Gemeente"
+      },
+      "herbeoordeeldeBelastingklasse": {
+        "type": "string",
+        "description": "Verkeersbelasting, herbeoordeelde belastingklasse (zwaarte van de voertuigen). Waarde voor het gehele beheerobject voor een risico-inschatting.",
+        "title": "Herbeoordeelde Belastingklasse"
+      },
+      "hoofdroute": {
+        "type": "string",
+        "description": "De S-route waarbinnen het object ligt.",
+        "title": "Hoofdroute"
+      },
+      "hoofdvaarroute": {
+        "type": "string",
+        "description": "De hoofdvaarroute waarbinnen het object ligt.",
+        "title": "Hoofdvaarroute"
+      },
+      "imborIdentificatie": {
+        "type": "string",
+        "description": "Uniek nummer van het IMBOR-object (GUID).",
+        "title": "Imbor Identificatie"
+      },
+      "imgeoIdentificatie": {
+        "type": "string",
+        "description": "Imgeo-identificatie is een unieke code die geometrieobjecten in de landelijke BGT/IMGeo-standaard identificeert. Dit maakt het koppelen naar BGT/IMGeo objecten mogelijk.",
+        "title": "Imgeo Identificatie"
+      },
+      "imgeoPlustype": {
+        "type": "string",
+        "description": "Specificatie van het soort overig bouwwerk, indien dit een IMGeo uitbreiding van de populatie betreft.",
+        "title": "Imgeo Plustype"
+      },
+      "jaarHerBerekening": {
+        "type": "integer",
+        "description": "Het kalenderjaar waarin de meest recente constructieve (her-)beoordeling van de brug is uitgevoerd en formeel is vastgesteld.",
+        "title": "Jaar (Her-)berekening"
+      },
+      "jaarVanAanleg": {
+        "type": "integer",
+        "description": "[Verhardingen] jaar waarin de volledige verhardingsconstructie is opgebouwd, inclusief de fundering.",
+        "title": "Jaar Van Aanleg"
+      },
+      "jaarrenovatie": {
+        "type": "integer",
+        "description": "Renovatiejaar van het beheerobject.",
+        "title": "Jaarrenovatie"
+      },
+      "jaaruitgevoerdonderhoud": {
+        "type": "integer",
+        "description": "Jaar waarin het beheerobject is aangelegd of aangeplant (kan ook voor de plaatsingsdatum gebruikt worden).",
+        "title": "Jaaruitgevoerdonderhoud"
+      },
+      "lastupdate": {
+        "type": "string",
+        "description": "De datum (en eventueel tijdstip) waarop de gegevens van dit specifieke record (de brug) voor het laatst zijn gewijzigd in de database.",
+        "title": "Lastupdate"
+      },
+      "lengte": {
+        "type": "number",
+        "description": "Lengte van het beheerobject.",
+        "title": "Lengte"
+      },
+      "maximaleasbelasting": {
+        "type": "string",
+        "description": "Maximale asbelasting van een voertuig op een overbruggingsobject.",
+        "title": "Maximaleasbelasting"
+      },
+      "maximaleoverspanning": {
+        "type": "number",
+        "description": "Maximale overspanning van een overbruggingsobject.",
+        "title": "Maximaleoverspanning"
+      },
+      "maximalevoertuigbelasting": {
+        "type": "number",
+        "description": "Het maximaal voertuiggewicht",
+        "title": "Maximalevoertuigbelasting"
+      },
+      "modaliteit": {
+        "type": "string",
+        "description": "Registratie van de modaliteiten die gebruik maken van het objecttype. Een vervoermiddel, vervoersmodaliteit of transportmiddel is een technische constructie of inrichting die vooral dient om personen of goederen te verplaatsen, veelal in het verkeer, ook",
+        "title": "Modaliteit"
+      },
+      "monument": {
+        "type": "boolean",
+        "description": "Is het beheerobject een monument of monumentaal?",
+        "title": "Monument"
+      },
+      "monumentnummer": {
+        "type": "string",
+        "description": "Nummer van een monument.",
+        "title": "Monumentnummer"
+      },
+      "objectkindid": {
+        "type": "string",
+        "description": "",
+        "title": "Objectkindid"
+      },
+      "objectnaam": {
+        "type": "string",
+        "description": "Officielenaam zoals deze door het gemeentebestuur is vastgesteld.",
+        "title": "Objectnaam"
+      },
+      "objectnummer": {
+        "type": "string",
+        "description": "Nummer van het beheerobject, door de organisatie zelf in te delen.",
+        "title": "Objectnummer"
+      },
+      "objecttypenormkosten": {
+        "type": "string",
+        "description": "Een gestandaardiseerd, vooraf vastgesteld referentiebedrag (normbedrag) dat de verwachte kosten vertegenwoordigt voor een specifieke categorie van objecten (Objecttype).",
+        "title": "Objecttypenormkosten"
+      },
+      "onbedoeldVoertuigRand": {
+        "type": "string",
+        "description": "Dit geeft aan of de randconstructie van de brug constructief is berekend op de specifieke belastingssituatie waarbij een zwaar voertuig (onbedoeld) van de rijbaan raakt en op deze rand terechtkomt.",
+        "title": "Onbedoeld Voertuig Rand"
+      },
+      "onbedoeldVoertuigVerkeersbrug": {
+        "type": "boolean",
+        "description": "Kan of mag een onbedoeld voertuig opgesteld worden op de rand van de brug?",
+        "title": "Onbedoeld Voertuig Verkeersbrug"
+      },
+      "onderhoudsplichtige": {
+        "type": "string",
+        "description": "Organisatie die verantwoordelijk is voor het onderhoud van het beheerobject.",
+        "title": "Onderhoudsplichtige"
+      },
+      "openbareruimte": {
+        "type": "string",
+        "description": "Aanduiding van de openbare ruimte, zoals gedefinieerd in IMGeo of in de BAG, waarbinnen het beheerobject ligt. \tOvername uit IMGeo-bestand met grenzen openbare ruimtes of uit de Basisregistraties voor Adressen en Gebouwen (zonder begrenzing).",
+        "title": "Openbareruimte"
+      },
+      "oppervlakte": {
+        "type": "number",
+        "description": "Oppervlakte van het  beheerobject, overname van BGT/IMGeo.",
+        "title": "Oppervlakte"
+      },
+      "oppervlakteGis": {
+        "type": "string",
+        "description": "Oppervlakte van de shape van het beheerobject.",
+        "title": "Oppervlakte Gis"
+      },
+      "origineleBelastingklasse": {
+        "type": "string",
+        "description": "Verkeersbelasting, originele belastingklasse (zwaarte van de voertuigen). Waarde voor het gehele beheerobject voor een risico-inschatting.",
+        "title": "Originele Belastingklasse"
+      },
+      "referentieperiode": {
+        "type": "string",
+        "description": "Gekozen tijdsperiode die wordt gebruikt als grondslag voor statistische waardebepaling van veranderlijke belastingen en eventueel voor buitengewone belastingen.",
+        "title": "Referentieperiode"
+      },
+      "relatievehoogteligging": {
+        "type": "string",
+        "description": "Aanduiding voor de relatieve hoogte van het beheerobject.",
+        "title": "Relatievehoogteligging"
+      },
+      "revisie": {
+        "type": "string",
+        "description": "Het revisienummer zoals het op de tekening staat (of het versienummer bij rapporten e.d.); in de praktijk meestal “1”, “2”, “3”… of “A”, “B”, “C”…",
+        "title": "Revisie"
+      },
+      "rijbaanindeling": {
+        "type": "string",
+        "description": "De rijbaanindeling beschrijft de specifieke fysieke en functionele onderverdeling van het brugdek in de dwarsrichting, waarmee de configuratie en toewijzing van ruimte voor alle verkeerssoorten wordt vastgelegd.",
+        "title": "Rijbaanindeling"
+      },
+      "status": {
+        "type": "string",
+        "description": "Status van het beheerobject in het inwinningsproces van de geometrie. Wordt gebruikt voor schets- en definitieve geometrie.",
+        "title": "Status"
+      },
+      "technischelevensduur": {
+        "type": "string",
+        "description": "Technische levensduur van het object.",
+        "title": "Technischelevensduur"
+      },
+      "theoretischeindjaar": {
+        "type": "integer",
+        "description": "Jaar dat het beheerobject aan het theoretische einde van haar levensduur is.",
+        "title": "Theoretischeindjaar"
+      },
+      "tijdstipRegistratie": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Tijdstip waarop deze versie van het informatieobject is opgenomen in de registratie.",
+        "title": "Tijdstip Registratie"
+      },
+      "toetsniveau": {
+        "type": "string",
+        "description": "Het toetsniveau beschrijft het juridische en constructieve beoordelingskader dat van toepassing is op een brug op basis van de huidige staat, de geschiedenis van onderhoud en eventuele recente werkzaamheden. Dit bepaalt aan welke normen de brug moet voldoen met betrekking tot constructieve veiligheid, functionaliteit en duurzaamheid.",
+        "title": "Toetsniveau"
+      },
+      "typeFundering": {
+        "type": "string",
+        "description": "Aanduiding voor de wijze waarop de fundering opgebouwd is en hoe een fundering losgewerkt of verwijderd kan worden.",
+        "title": "Type Fundering"
+      },
+      "typeMonument": {
+        "type": "string",
+        "description": "Type monument.",
+        "title": "Type Monument"
+      },
+      "typebrug": {
+        "type": "string",
+        "description": "Nadere typering van het type beheerobject.",
+        "title": "Typebrug"
+      },
+      "typeligging": {
+        "type": "string",
+        "description": "Aanduiding van de ligging van het beheerobject binnen of buiten de bebouwde kom.",
+        "title": "Typeligging"
+      },
+      "uitneembaar": {
+        "type": "boolean",
+        "description": "Aanduiding of een gedeelte van het object uitgenomen kan worden.",
+        "title": "Uitneembaar"
+      },
+      "validFrom": {
+        "type": "string",
+        "description": "Start van de periode waarop deze versie van het informatieobject geldig is in de werkelijkheid.",
+        "title": "Valid From"
+      },
+      "validTill": {
+        "type": "string",
+        "description": "Eind van de periode waarop deze versie van het informatieobject geldig is in de werkelijkheid. De periode is tot aan dit tijdstip. Wanneer deze informatie niet is ingevuld, is de versie nog geldig.",
+        "title": "Valid Till"
+      },
+      "verkeersbelastingNobs": {
+        "type": "string",
+        "description": "Het aantal zware voertuigen (per jaar per rijstrook; Nobs)",
+        "title": "Verkeersbelasting Nobs"
+      },
+      "verkeersnet": {
+        "type": "string",
+        "description": "Het hoofdnet(ten) waar het beheerobject in ligt.",
+        "title": "Verkeersnet"
+      },
+      "vervangingswaarde": {
+        "type": "string",
+        "description": "",
+        "title": "Vervangingswaarde"
+      },
+      "verwijderdatum": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Datum waarop de gegevens van een beheerobject verwijderd zijn, ook wel EindeGeldigheid genoemd.",
+        "title": "Verwijderdatum"
+      },
+      "waterobject": {
+        "type": "string",
+        "description": "Waterobject waar de brug over ligt.",
+        "title": "Waterobject"
+      },
+      "waterpeilwinter": {
+        "type": "string",
+        "description": "Gemiddeld waterpeil in de winter t.o.v. NAP",
+        "title": "Waterpeilwinter"
+      },
+      "wegnummer": {
+        "type": "string",
+        "description": "Aanduiding van de weg, bijvoorbeeld N3 voor een provinciale weg.",
+        "title": "Wegnummer"
+      }
+    }
+  }
+}

@@ -1,20 +1,15 @@
 {
   "id": "brkbasiszondersubjecten",
   "type": "table",
-  "version": "1.1.1",
-  "lifecycleStatus": "stable",
+  "version": "1.2.1",
+  "status": "stable",
   "crs": "EPSG:28992",
-  "status": "beschikbaar",
   "owner": "Gemeente Amsterdam",
   "publisher": {
     "$ref": "publishers/BENK"
   },
   "creator": "Basisinformatie",
-  "auth": "BRK/RS",
-  "reasonsNonPublic": [
-    "5.1 1d: Bevat persoonsgegevens",
-    "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
-  ],
+  "auth": "OPENBAAR",
   "authorizationGrantor": "OIS | gebruik.basisinformatie@amsterdam.nl",
   "description": "BRK-tabel waar alle actueel tenaamgestelde Kadastrale Objecten gecombineerd worden met hun zakelijke rechten en tenaamstellingen",
   "schema": {
@@ -33,7 +28,7 @@
     "display": "id",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "id": {
         "type": "string",
@@ -56,15 +51,29 @@
         "description": "De unieke aanduiding van een Kadastraal Object samengesteld uit gemeentecode, kadastrale sectie, perceelnummer, indexletter en indexnummer"
       },
       "koopsom": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "number",
         "multipleOf": 0.01,
         "title": "Koopsom",
-        "description": "Het in een ter inschrijving aangeboden stuk vermelde bedrag, waarvoor 1 of meer onroerende zaken zijn verkregen"
+        "description": "Het in een ter inschrijving aangeboden stuk vermelde bedrag, waarvoor 1 of meer onroerende zaken zijn verkregen",
+        "reasonsNonPublic": [
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "koopjaar": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Koop jaar",
-        "description": "Transactiejaar van de aankoop"
+        "description": "Transactiejaar van de aankoop",
+        "reasonsNonPublic": [
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "grootte": {
         "type": "number",
@@ -108,14 +117,28 @@
         "description": "Volgnummer van het Appartementsrecht"
       },
       "cultuurBebouwd": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Soort cultuur bebouwd",
-        "description": "De soort cultuur bebouwd van een bebouwd kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl (Kadaster-on-line; KOL). Dit kenmerk is afgeleid van wat degene die een notariële akte laat inschrijven, heeft verklaard (artikel 87, eerste lid, onder a, van de Kadasterregeling 1994). Dit kan afwijken van:soort objectcode in de WOZ;gebruiksdoel in de BAG;SBI-code in het HR"
+        "description": "De soort cultuur bebouwd van een bebouwd kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl (Kadaster-on-line; KOL). Dit kenmerk is afgeleid van wat degene die een notariële akte laat inschrijven, heeft verklaard (artikel 87, eerste lid, onder a, van de Kadasterregeling 1994). Dit kan afwijken van:soort objectcode in de WOZ;gebruiksdoel in de BAG;SBI-code in het HR",
+        "reasonsNonPublic": [
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "cultuurOnbebouwd": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Soort cultuur onbebouwd",
-        "description": "De soort cultuur onbebouwd is een aanduiding voor de aard van de meest significante cultuur van het onbebouwde deel van het kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl Dit kenmerk is in beginsel afgeleid van de notariële akte, maar kan worden bijgesteld op grond van een verzoek van de eigenaar (of een schriftelijk gevolmachtigde namens de eigenaar)per brief, fax of e-mailbericht. Dit kan afwijken van: het feitelijk gebruik in de WOZ; gebruiksdoel in de BAG; SBI-code in het HR. code"
+        "description": "De soort cultuur onbebouwd is een aanduiding voor de aard van de meest significante cultuur van het onbebouwde deel van het kadastraal object, weergegeven als ‘omschrijving kadastraal object’ in Mijn.kadaster.nl Dit kenmerk is in beginsel afgeleid van de notariële akte, maar kan worden bijgesteld op grond van een verzoek van de eigenaar (of een schriftelijk gevolmachtigde namens de eigenaar)per brief, fax of e-mailbericht. Dit kan afwijken van: het feitelijk gebruik in de WOZ; gebruiksdoel in de BAG; SBI-code in het HR. code",
+        "reasonsNonPublic": [
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "ontstaanUitKadastraleAanduiding": {
         "type": "array",
@@ -171,79 +194,196 @@
         "description": "Relatie naar adressen"
       },
       "zakelijkrechtId": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Object ID",
-        "description": "De Kadaster identificatie is een door het Kadaster toegekende landelijk unieke aanduiding aan dit zakelijk recht binnen de kadastrale registratie, inclusief volgnummer"
+        "description": "De Kadaster identificatie is een door het Kadaster toegekende landelijk unieke aanduiding aan dit zakelijk recht binnen de kadastrale registratie, inclusief volgnummer",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens",
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "zakelijkrechtIdentificatie": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Object ID",
-        "description": "De Kadaster identificatie is een door het Kadaster toegekende landelijk unieke aanduiding aan dit zakelijk recht binnen de kadastrale registratie"
+        "description": "De Kadaster identificatie is een door het Kadaster toegekende landelijk unieke aanduiding aan dit zakelijk recht binnen de kadastrale registratie",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens",
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "aardZakelijkRecht": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Zakelijk recht aard",
-        "description": "De aard van het zakelijk recht"
+        "description": "De aard van het zakelijk recht",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens",
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "zakelijkrechtInOnderzoek": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Reden waarvoor in onderzoek",
-        "description": "Als dit veld is gevuld geeft dit de omschrijving waarom dit gegeven in onderzoek staat (art. 7n en 7r Kadasterwet)"
+        "description": "Als dit veld is gevuld geeft dit de omschrijving waarom dit gegeven in onderzoek staat (art. 7n en 7r Kadasterwet)",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens",
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "ontstaanUitApptrechtsplitsing": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Ontstaan uit VVE appartementsrechtsplitsing",
-        "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waaruit het zakelijk recht ontstaan is"
+        "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waaruit het zakelijk recht ontstaan is",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens",
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "betrokkenBijAppartementsrechtsplitsing": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Betrokken bij appartementsrechtsplitsing",
-        "description": "Als deze waarde is gevuld, dan is dit recht betrokken bij een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt"
+        "description": "Als deze waarde is gevuld, dan is dit recht betrokken bij een appartementssplitsing, die hier met zijn identificerende kenmerk aangegeven wordt",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens",
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "vveIdentificatieOntstaanUit": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Ontstaan uit VVE appartementsrechtsplitsing",
-        "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waaruit het zakelijk recht ontstaan is"
+        "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waaruit het zakelijk recht ontstaan is",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens",
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "vveIdentificatieBetrokkenBij": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Betrokken bij VVE appartementsrechtsplitsing",
-        "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waarbij het zakelijk recht betrokken is"
+        "description": "De identificatie van de vereniging van eigenaren van de appartementsrechtssplitsing waarbij het zakelijk recht betrokken is",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens",
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "appartementsrechtsplitsingType": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Appartementsrechtsplitsing type",
-        "description": "Het type appartementsrechtsplitsing. De mogelijke waarden zijn: hoofdsplitsing of ondersplitsing of splitsing afkoop erfpacht"
+        "description": "Het type appartementsrechtsplitsing. De mogelijke waarden zijn: hoofdsplitsing of ondersplitsing of splitsing afkoop erfpacht",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens",
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "tenaamstellingId": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Object ID",
-        "description": "De identificatie is een unieke aanduiding aan deze tenaamstelling binnen de kadastrale registratie, inclusief volgnummer"
+        "description": "De identificatie is een unieke aanduiding aan deze tenaamstelling binnen de kadastrale registratie, inclusief volgnummer",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens",
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "tenaamstellingIdentificatie": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Object ID",
-        "description": "De identificatie is een unieke aanduiding aan deze tenaamstelling binnen de kadastrale registratie"
-		},
+        "description": "De identificatie is een unieke aanduiding aan deze tenaamstelling binnen de kadastrale registratie",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens",
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
+      },
       "aandeel": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Aandeel in Recht",
-        "description": "Aandeel in Recht is het aandeel waarvoor een persoon deelneemt in het Recht"
+        "description": "Aandeel in Recht is het aandeel waarvoor een persoon deelneemt in het Recht",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens",
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "geldtVoor": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Gezamenlijk aandeel in Recht",
-        "description": "Twee of meer personen kunnen gezamenlijk een aandeel hebben in een recht, waarbij het afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is (als gezamenlijkAandeel bekend is dan is het individuele aandeel niet bekend en omgekeerd)"
+        "description": "Twee of meer personen kunnen gezamenlijk een aandeel hebben in een recht, waarbij het afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is (als gezamenlijkAandeel bekend is dan is het individuele aandeel niet bekend en omgekeerd)",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens",
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
       "tenaamstellingInOnderzoek": {
+        "auth": [
+          "BRK/RS",
+          "FP/MDW"
+        ],
         "type": "string",
         "title": "Reden onderzoek",
-        "description": "Wanneer gevuld, de reden waarvoor in onderzoek"
+        "description": "Wanneer gevuld, de reden waarvoor in onderzoek",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens",
+          "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
+        ]
       },
-       "subjectCategorie": {
+      "subjectCategorie": {
         "type": "string",
         "title": "Subject categorie",
         "description": "De omschrijving van de categorie waarbinnen het kadastrale subject valt. Voor uitleg over de categorieën: https://www.amsterdam.nl/stelselpedia/brk-index/producten-brk/uitleg-kadastertabel/ onder het kopje 'Filter op Zakelijk gerechtigde'"
+      },
+      "erfpachtUitgegevenDoor": {
+        "type": "string",
+        "title": "Uitgegeven door",
+        "description": "Categorie van de erfpachtuitgever. 'Gemeente Amsterdam' of 'Overige'"
       },
       "geometriePunt": {
         "$ref": "https://geojson.org/schema/Point.json",

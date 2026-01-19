@@ -1,8 +1,8 @@
 {
   "id": "functievervullingen",
   "type": "table",
-  "version": "2.0.0",
-  "lifecycleStatus": "stable",
+  "version": "2.1.0",
+  "status": "stable",
   "shortname": "Fvv",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -18,7 +18,7 @@
     "display": "identificatie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
@@ -241,6 +241,18 @@
         "relation": "hrKvk:vestigingen",
         "title": "Functievervulling heeft vestiging",
         "description": "Functievervulling (gemachtigde) heeft vestiging"
+      },
+      "doorNatuurlijkPersoon": {
+        "type": "string",
+        "relation": "hrKvk:natuurlijkepersonen",
+        "title": "Functievervulling door natuurlijk persoon",
+        "description": "Functievervulling door natuurlijk persoon"
+      },
+      "doorNietNatuurlijkPersoon": {
+        "type": "string",
+        "relation": "hrKvk:natuurlijkepersonen",
+        "title": "Functievervulling door niet natuurlijk persoon",
+        "description": "Functievervulling door niet natuurlijk persoon"
       },
       "beperkingInGeld": {
         "type": "object",

@@ -4,7 +4,7 @@
   "title": "voorzieningGeneriek",
   "description": "Generiekere kenmerken van maatschappelijke voorzieningen",
   "version": "0.0.1",
-  "lifecycleStatus": "experimental",
+  "status": "under_development",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -14,15 +14,11 @@
     "display": "id",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "id": {
-        "type": "integer",
+        "type": "string",
         "description": "Een unieke numerieke code die wordt gebruikt om een specifieke generieke voorziening te identificeren binnen het systeem."
-      },
-      "nummer": {
-        "type": "integer",
-        "description": "Een numerieke waarde die dient als referentienummer voor de generieke voorziening, zoals 1622"
       },
       "changedDate": {
         "type": "string",
@@ -33,16 +29,28 @@
         "description": "De datum en tijd waarop de generieke voorziening is aangemaakt of geregistreerd in het systeem."
       },
       "voorzieningGeneriekPlangebied": {
-        "type": "integer",
+        "type": "string",
         "description": "Een numerieke waarde die verwijst naar het plangebied waaraan de generieke voorziening is gekoppeld."
       },
       "voorzieningGeneriekDeelgebied": {
-        "type": "integer",
+        "type": "string",
         "description": "Een numerieke waarde die verwijst naar het deelgebied waaraan de generieke voorziening is gekoppeld."
       },
       "voorzieningGeneriekStadsdeel": {
-        "type": "integer",
+        "type": "string",
         "description": "Een numerieke waarde die verwijst naar het stadsdeel waaraan de generieke voorziening is gekoppeld."
+      },
+      "kavel": {
+        "type": "string",
+        "description": "De kavel waarop de voorziening zich bevindt, zoals een perceelnummer."
+      },
+      "kavelLatitude": {
+        "type": "number",
+        "description": "De geografische breedtegraad van de kavel waarop de voorziening zich bevindt."
+      },
+      "kavelLongitude": {
+        "type": "number",
+        "description": "De geografische lengtegraad van de kavel waarop de voorziening zich bevindt."
       }
     }
   }

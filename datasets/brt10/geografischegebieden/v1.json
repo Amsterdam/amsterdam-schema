@@ -3,8 +3,8 @@
   "title": "geografische gebieden",
   "description": "Begrensd en benoemd gebied dat door een geografische eenheid beschreven wordt.",
   "type": "table",
-  "version": "1.0.4",
-  "lifecycleStatus": "stable",
+  "version": "1.0.5",
+  "status": "stable",
   "crs": "EPSG:28992",
   "auth": "OPENBAAR",
   "schema": {
@@ -22,11 +22,11 @@
     "display": "identificatie",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
-        "title": "Geo object ID",
+        "title": "Object ID",
         "description": "De unieke identiteit van het geo-object"
       },
       "bronactualiteit": {
@@ -80,17 +80,17 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
         "title": "Geometrie",
-        "description": "Geometrie"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "naamFries": {
         "type": "string",
         "title": "Gebied Friese naam",
-        "description": "De Friese naam van het gebied"
+        "description": "De Friese naam van het registratief gebied"
       },
       "naamNl": {
         "type": "string",
         "title": "Gebied Nederlandse naam",
-        "description": "De Nederlandse naam van het gebied"
+        "description": "De Nederlandse naam van het registratief gebied"
       },
       "type": {
         "type": "string",
@@ -100,7 +100,7 @@
       "geometrieVlak": {
         "$ref": "https://geojson.org/schema/MultiPolygon.json",
         "title": "Vlak geometrie",
-        "description": "Vlakgeometrie"
+        "description": "Vorm en ligging van het vlakobject in het stelsel van de Rijksdriehoekmeting (RD)"
       }
     }
   }

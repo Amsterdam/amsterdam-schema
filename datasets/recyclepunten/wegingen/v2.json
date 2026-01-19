@@ -1,95 +1,111 @@
 {
-    "id": "wegingen",
-    "type": "table",
-    "version": "2.0.0",
-    "lifecycleStatus": "stable",
-    "title": "Wegingen bij recyclepunten",
-    "description": "Deze tabel bevat de gegevens van wegingen van gebracht afval bij recyclepunten. Bij binnenkomst en bij vertrek worden voertuigen met inhoud gewogen. Verder kan men zien in welke tariefgroep de weging valt en is er een indicatie van waar in de stad het afval wordt gebracht.",
-    "auth": "OPENBAAR",
-    "identifier": "id",
-    "schema": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "schema",
-        "id"
-      ],
-      "display": "id",
-      "properties": {
-        "schema": {
-          "$ref": "https://schemas.data.amsterdam.nl/schema@v2#/definitions/schema"
-        },
-        "id": {
-          "type": "integer",
-          "title": "Weging ID",
-          "description": "Uniek identificerend kenmerk van deze weging."
-        },
-        "weegbon": {
-          "type": "string",
-          "title": "Weegbon nummer",
-          "description": "Uniek nummer vanuit het registratiesysteem voor deze weging aan dit recyclepunt. Let op, hetzelfde weegbonnummer komt voor bij verschillende recyclepunten. Gebruik voor een unieke identificer 'id'."
-        },
-        "datumWeging": {
-          "type": "string",
-          "format": "date",
-	  "title": "Weging datum",
-          "description": "Datum waarop de uitweging heeft plaatsgevonden."
-	    },
-        "tijdIn": {
-          "type": "string",
-          "format": "time",
-          "title": "Inweging tijdstip",
-          "description": "Het tijdstip van aankomst bij het recyclepunt (de inweging)."
-        },
-        "tijdUit": {
-          "type": "string",
-          "format": "time",
-          "title": "Uitweging tijdstip",
-          "description": "Het tijdstip van vertrek van het recyclepunt (de uitweging)."
-        },
-        "inweging": {
-          "type": "integer",
-          "title": "Inweging gewicht",
-          "description": "Het gewicht van het voertuig bij aankomst bij het recyclepunt, in kilogrammen."
-        },
-        "uitweging": {
-          "type": "integer",
-          "title": "Uitweging gewicht",
-          "description": "Het gewicht van het voertuig bij vertrek van het recyclepunt, in kilogrammen."
-        },
-        "nettoGewicht": {
-          "type": "integer",
-          "title": "Netto gewicht",
-          "description": "Het verschil tussen de inweging en uitweging, in kilogrammen."
-        },
-        "locatieCode": {
-          "type": "string",
-          "title": "Recyclepunt code",
-          "description": "De code van het recyclepunt."
-        },
-        "locatieNaam": {
-          "type": "string",
-          "title": "Recyclepunt naam",
-          "description": "De naam van het recyclepunt."
-        },
-        "tariefgroepCode": {
-          "type": "string",
-          "title": "Tariefgroep code",
-          "description": "De code van de tariefgroep waarin deze weging valt. Dit kan zijn P voor particulier, B voor bedrijf, G voor gemeente of K voor kringloop."
-        },
-         "tariefgroepNaam": {
-          "type": "string",
-          "title": "Tariefgroep naam",
-          "description": "De naam van de tariefgroep waarin deze weging valt. Dit kan zijn particulier, bedrijf of gemeente."
-        },
-        "postcodeBezoeker": {
-          "type": "string",
-          "title": "Postcode bezoeker",
-          "description": "De 4-cijferige postcode van bezoekers. Dit geeft een indicatie van waar in de stad het gebrachte afval komt."
-        }
+  "id": "wegingen",
+  "type": "table",
+  "version": "2.1.0",
+  "status": "stable",
+  "title": "Wegingen bij recyclepunten",
+  "description": "Deze tabel bevat de gegevens van wegingen van gebracht afval bij recyclepunten. Bij binnenkomst en bij vertrek worden voertuigen met inhoud gewogen. Verder kan men zien in welke tariefgroep de weging valt en is er een indicatie van waar in de stad het afval wordt gebracht.",
+  "auth": "OPENBAAR",
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "Weging ID",
+        "description": "Uniek identificerend kenmerk van deze weging."
+      },
+      "weegbon": {
+        "type": "string",
+        "title": "Weegbon nummer",
+        "description": "Uniek nummer vanuit het registratiesysteem voor deze weging aan dit recyclepunt. Let op, hetzelfde weegbonnummer komt voor bij verschillende recyclepunten. Gebruik voor een unieke identificer 'id'."
+      },
+      "datumWeging": {
+        "type": "string",
+        "format": "date",
+        "title": "Weging datum",
+        "description": "Datum waarop de uitweging heeft plaatsgevonden."
+      },
+      "tijdIn": {
+        "type": "string",
+        "format": "time",
+        "title": "Inweging tijdstip",
+        "description": "Het tijdstip van aankomst bij het recyclepunt (de inweging)."
+      },
+      "tijdUit": {
+        "type": "string",
+        "format": "time",
+        "title": "Uitweging tijdstip",
+        "description": "Het tijdstip van vertrek van het recyclepunt (de uitweging)."
+      },
+      "inweging": {
+        "type": "integer",
+        "title": "Inweging gewicht",
+        "description": "Het gewicht van het voertuig bij aankomst bij het recyclepunt, in kilogrammen."
+      },
+      "uitweging": {
+        "type": "integer",
+        "title": "Uitweging gewicht",
+        "description": "Het gewicht van het voertuig bij vertrek van het recyclepunt, in kilogrammen."
+      },
+      "nettoGewicht": {
+        "type": "integer",
+        "title": "Netto gewicht",
+        "description": "Het verschil tussen de inweging en uitweging, in kilogrammen."
+      },
+      "locatieCode": {
+        "type": "string",
+        "title": "Recyclepunt code",
+        "description": "De code van het recyclepunt."
+      },
+      "locatieNaam": {
+        "type": "string",
+        "title": "Recyclepunt naam",
+        "description": "De naam van het recyclepunt."
+      },
+      "tariefgroepCode": {
+        "type": "string",
+        "title": "Tariefgroep code",
+        "description": "De code van de tariefgroep waarin deze weging valt. Dit kan zijn P voor particulier, B voor bedrijf, G voor gemeente of K voor kringloop."
+      },
+      "tariefgroepNaam": {
+        "type": "string",
+        "title": "Tariefgroep naam",
+        "description": "De naam van de tariefgroep waarin deze weging valt. Dit kan zijn particulier, bedrijf of gemeente."
+      },
+      "postcodeBezoeker": {
+        "type": "string",
+        "title": "Postcode bezoeker",
+        "description": "De 4-cijferige postcode van bezoekers. Dit geeft een indicatie van waar in de stad het gebrachte afval komt."
+      },
+      "productOmschrijving": {
+        "type": "string",
+        "title": "Product omschrijving",
+        "description": "Omschrijving van het product dat naar het recyclepunt wordt gebracht. Bijvoorbeeld 'Grofvuil', 'Asbest' of 'Elektrische apparaten'.",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "productNummer": {
+        "type": "string",
+        "title": "Product nummer",
+        "description": "Het nummer dat bij het product hoort. Iedere productomschrijving heeft ook zijn eigen nummer.",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
       }
     }
   }
-
-  
+}

@@ -1,8 +1,8 @@
 {
   "id": "wijken",
   "type": "table",
-  "version": "1.1.4",
-  "lifecycleStatus": "stable",
+  "version": "1.1.5",
+  "status": "stable",
   "description": "Een aaneengesloten gedeelte van het grondgebied van een gemeente, waarvan de grenzen zo veel mogelijk zijn gebaseerd op sociaal-geografische kenmerken",
   "temporal": {
     "identifier": "volgnummer",
@@ -30,12 +30,12 @@
     "display": "naam",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v3.1.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "identificatie": {
         "type": "string",
         "title": "Object ID",
-        "description": "Unieke identificatie van het object"
+        "description": "Uniek identificerend kenmerk voor het object dat onveranderlijk is zolang het object bestaat"
       },
       "volgnummer": {
         "type": "integer",
@@ -133,7 +133,7 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Polygon.json",
         "title": "Geometrie",
-        "description": "Geometrische beschrijving van een object"
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       }
     }
   }
