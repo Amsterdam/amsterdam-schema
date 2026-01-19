@@ -1,0 +1,81 @@
+{
+    "id": "meldingenUitvoering",
+    "type": "table",
+    "version": "1.0.0",
+    "status": "under_development",
+    "title": "Meldingen in UBOR voor de uitvoering",
+    "description": "Deze tabel bevat informatie over meldingen die in de applicatie UBOR (Uitvoering Beheer Openbare Ruimte) binnenkomen vanuit de applicatie Signalen (SIG). Alle meldingen, zowel afgerond als nog te verwerken meldingen staan in deze tabel. Één rij staat gelijk aan één melding. Per melding is informatie over o.a. aan welk uitvoeringsteam de melding is toegewezen en op welke dag de uitvoering n.a.v. de SIG-melding is gedaan. De kolom 'SIG melding ID' bevat een sleutel waarmee de relatie met de originele SIG-melding kan worden gemaakt. Let op: deze data komt uit de beheerapplicatie van Stadswerken voor het afhandelen van SIG-meldingen, het kan zijn dat de data niet gelijk loopt met de data in de applicatie Signalen.",
+    "auth": "FP/MDW",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "additionalProperties": false,
+      "identifier": [
+          "id"
+      ],
+      "required": [
+        "schema",
+        "id"
+      ],
+      "display": "id",
+      "properties": {
+        "schema": {
+          "$ref": "https://schemas.data.amsterdam.nl/schema@v4#/definitions/schema"
+        },
+        "id": {
+          "type": "string",
+          "title": "Id",
+          "description": "Unieke aanduiding van de melding in iAsset UBOR."
+        },
+        "sigmeldingId": {
+          "type": "string",
+          "title": "SIG-melding ID",
+          "description": "Unieke aanduiding van de SIG-melding."
+        },
+        "meldingStatus": {
+          "type": "string",
+          "title": "Melding status",
+          "description": "Status van de SIG-melding in iAsset UBOR."
+        },
+        "toewijzingWerkvoorraad": {
+          "type": "string",
+          "title": "Toewijzing werkvoorraad",
+          "description": "Dit geeft aan aan welk team of werkvoorraad de melding is toegewezen voor de uitvoering."
+        },
+        "uitvoeringStartindicatie": {
+          "type": "boolean",
+          "title": "Uitvoering startindicatie",
+          "description": "Aanduiding of uitvoering is gestart naar aanleiding van de SIG-melding."
+        },
+        "uitvoeringStartdatum": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Uitvoering startdatum",
+          "description": "Datum waarop de uitvoering naar aanleiding van de SIG-melding is gestart."
+        },
+        "uitvoeringEinddatum": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Uitvoering einddatum",
+          "description": "Datum waarop de uitvoering naar aanleiding van de SIG-melding is afgerond."
+        },
+        "uitvoeringResultaat": {
+          "type": "string",
+          "title": "Uitvoering resultaat",
+          "description": "Omschrijving van het resultaat van de uitvoering naar aanleiding van de SIG-melding."
+        },
+         "uitvoeringToelichting": {
+          "type": "string",
+          "title": "Uitvoering toelichting",
+          "description": "Toelichting op de uitvoering naar aanleiding van de SIG-melding."
+        },
+        "directievoeringEnToezichtAfhandeling": {
+          "type": "string",
+          "title": "Directie en Toezicht afhandeling",
+          "description": "Omschrijving hoe Directievoering & Toezicht de melding heeft laten afhandelen"
+        }
+      }
+    }
+  }
+
+  
