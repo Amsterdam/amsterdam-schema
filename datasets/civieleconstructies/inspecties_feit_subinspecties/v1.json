@@ -1,9 +1,9 @@
 {
   "id": "inspectiesFeitSubinspecties",
   "type": "table",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "status": "stable",
-  "title": "Feitentabel met informatie uit beheerapplicatie Stadswerken over uitgevoerde schouwen en onderhoud aan civiele constructies",
+  "title": "Feitentabel inspecties iAsset cc.",
   "description": "De gemeente Amsterdam is verantwoordelijk voor onderhoud aan civiele constructies (zoals o.a. bruggen, sluizen en steigers). Deze feitentabel bevat informatie uit de uitvoeringsapplicatie iAsset over uitgevoerde subinspecties (verzamelnaam voor o.a. onderhoud, schouwen, losse opdrachten). Het bevat een id voor de inspectie, een datum waarop de inspectie is uitgevoerd, een id van de civiele constructie, de intallatie waarop de inspectie is uitgevoerd en ingevoerde opmerkingen door uitvoerders.  Één regel is één subinspectie op één installatie van één civiele constructie op één uitvoermoment. De tabel bevat sleutels waarmee een join met de tabellen 'dim_objectpaspoort' en 'dim_subinspectiekenmerken' kan worden gelegd. Let op: niet alle beheeractiviteiten in de stad worden in deze specifieke beheerapplicatie vastgelegd, dit is dus niet alomvattend.",
   "auth": "FP/MDW",
   "reasonsNonPublic": [
@@ -28,7 +28,7 @@
       "subinspectieId": {
         "type": "string",
         "title": "Subinspectie ID",
-        "description": "Uniek identificerend kenmerk van deze schouw of onderhoud (vallen samen onder 'subinspecties'). Met deze ID kan via de tabel 'Dimensietabel kenmerken van schouwen en onderhoud aan civiele constructies' aanvullende informatie worden opgehaald voor analyse."
+        "description": "Uniek identificerend kenmerk van deze schouw of onderhoud (vallen samen onder 'subinspecties'). Met deze ID kan via de tabel 'Dimensietabel inspectiekenmerken iAsset cc' aanvullende informatie worden opgehaald voor analyse."
       },
       "datumId": {
         "type": "string",
@@ -39,7 +39,7 @@
       "objectSleutel": {
         "type": "string",
         "title": "Object ID",
-        "description": "Uniek identificeren kenmerk voor een civiele constructie. Met deze ID kan via de tabel 'Dimensietabel objectpaspoort civiele constructies' aanvullende informatie worden opgehaald voor analyse."
+        "description": "Uniek identificeren kenmerk voor een civiele constructie. Met deze ID kan via de tabel 'Dimensietabel objectpaspoort iAsset cc' aanvullende informatie worden opgehaald voor analyse."
       },
       "opmerking": {
         "type": "string",
