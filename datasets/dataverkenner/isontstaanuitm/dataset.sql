@@ -19,3 +19,5 @@ ON  kot.id=ontstaan_uit.kadastraleobjecten_id
 WHERE kot.datum_actueel_tot IS NULL
 AND kot2.datum_actueel_tot IS NULL
 WITH NO DATA;
+
+SELECT cron.schedule('dataverkenner_pandligtinm_pandligtin_refresh', '30 9 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_isontstaanuitm_isontstaanuit_v1');

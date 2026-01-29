@@ -42,3 +42,5 @@ and gebieden_ggwgebieden_v1.eind_geldigheid is null
 and gebieden_stadsdelen_v1.eind_geldigheid is null
 and bag_panden_v1.eind_geldigheid is null
 and bag_panden_v1.status_omschrijving in ('Bouwaanvraag ontvangen','Bouwvergunning verleend','Bouw gestart','Pand in gebruik (niet ingemeten)','Pand in gebruik','Sloopvergunning verleend','Pand buiten gebruik','Verbouwing pand') with no data;
+
+SELECT cron.schedule('dataverkenner_pandligtinm_pandligtin_refresh', '30 9 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_pandligtinm_pandligtin_v1');

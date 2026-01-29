@@ -11,3 +11,5 @@ brk_2_aantekeningenkadastraleobjecten_v1.eind_geldigheid as "eind_geldigheid"
 from brk_2_aantekeningenkadastraleobjecten_v1
 WHERE datum_actueel_tot IS null
 with no data;
+
+SELECT cron.schedule('dataverkenner_aantekeningenm_aantekeningen_refresh', '40 10 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_aantekeningenm_aantekeningen_v1');
