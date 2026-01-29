@@ -14,3 +14,5 @@ FROM
     brk_2_zakelijkerechten_v1
     WHERE (brk_2_zakelijkerechten_v1.datum_actueel_tot IS NULL OR brk_2_zakelijkerechten_v1.datum_actueel_tot > now())
 with no data;
+
+SELECT cron.schedule('dataverkenner_zakelijkerechtenm_zakelijkerechten_refresh', '10 21 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_zakelijkerechtenm_zakelijkerechten_v1');

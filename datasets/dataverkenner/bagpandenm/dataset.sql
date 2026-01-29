@@ -39,3 +39,5 @@ WHERE bag_panden_v1.eind_geldigheid IS NULL
                                          'Sloopvergunning verleend',
                                          'Pand buiten gebruik',
                                          'Verbouwing pand') WITH NO DATA;
+
+SELECT cron.schedule('dataverkenner_bagpandenm_bagpanden_refresh', '20 22 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_bagpandenm_bagpanden_v1');
