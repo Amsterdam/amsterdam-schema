@@ -34,4 +34,4 @@ and bag_woonplaatsen_v1.eind_geldigheid is null
 and bag_woonplaatsen_v1.status_omschrijving = 'Woonplaats aangewezen'
 with no data;
 
-SELECT cron.schedule('dataverkenner_bagzoekm_bagzoek_refresh', '10 10 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_bagzoekm_bagzoek_v1');
+SELECT cron.schedule('dataverkenner_bagzoekm_bagzoek_refresh', '10 22 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_bagzoekm_bagzoek_v1');

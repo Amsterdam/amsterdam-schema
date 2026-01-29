@@ -17,4 +17,4 @@ AND kot1.datum_actueel_tot IS NULL
 AND kot2.datum_actueel_tot IS NULL
 WITH NO DATA;
 
-SELECT cron.schedule('dataverkenner_betrokkenbijm_betrokkenbij_refresh', '0 9 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_betrokkenbijm_betrokkenbij_v1');
+SELECT cron.schedule('dataverkenner_betrokkenbijm_betrokkenbij_refresh', '0 21 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_betrokkenbijm_betrokkenbij_v1');

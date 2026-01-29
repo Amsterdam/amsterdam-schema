@@ -21,4 +21,4 @@ WHERE (brk_2_tenaamstellingen_v2.datum_actueel_tot IS NULL or brk_2_tenaamstelli
 AND (brk_2_kadastralesubjecten_v1.datum_actueel_tot IS NULL OR brk_2_kadastralesubjecten_v1.datum_actueel_tot> now())
 with no data;
 
-SELECT cron.schedule('dataverkenner_tenaamstellingenm_tenaamstellingen_refresh', '20 9 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_tenaamstellingenm_tenaamstellingen_v1');
+SELECT cron.schedule('dataverkenner_tenaamstellingenm_tenaamstellingen_refresh', '20 21 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_tenaamstellingenm_tenaamstellingen_v1');

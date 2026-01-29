@@ -111,4 +111,4 @@ left join gebieden_bouwblokken_v1 on bag_panden_v1.ligt_in_bouwblok_id=gebieden_
 left join bag_verblijfsobjecten_gebruiksdoel_v1 on bag_nummeraanduidingen_v1.adresseert_verblijfsobject_id=bag_verblijfsobjecten_gebruiksdoel_v1.parent_id
 left join bag_verblijfsobjecten_toegang_v1 on bag_nummeraanduidingen_v1.adresseert_verblijfsobject_id=bag_verblijfsobjecten_toegang_v1.parent_id with no data;
 
-SELECT cron.schedule('dataverkenner_bagadresinformatiem_bagadresinformatie_refresh', '30 10 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_bagadresinformatiem_bagadresinformatie_v1');
+SELECT cron.schedule('dataverkenner_bagadresinformatiem_bagadresinformatie_refresh', '30 22 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_bagadresinformatiem_bagadresinformatie_v1');

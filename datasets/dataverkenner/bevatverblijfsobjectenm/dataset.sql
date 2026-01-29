@@ -19,4 +19,4 @@ and vot.status_omschrijving in ('Verblijfsobject gevormd','Verblijfsobject in ge
 and pnd.status_omschrijving in ('Bouwaanvraag ontvangen','Bouwvergunning verleend','Bouw gestart','Pand in gebruik (niet ingemeten)','Pand in gebruik','Sloopvergunning verleend','Pand buiten gebruik','Verbouwing pand')
 with no data;
 
-SELECT cron.schedule('dataverkenner_bevatverblijfsobjectenm_bevatverblijfsobjecten_refresh', '50 9 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_bevatverblijfsobjectenm_bevatverblijfsobjecten_v1');
+SELECT cron.schedule('dataverkenner_bevatverblijfsobjectenm_bevatverblijfsobjecten_refresh', '50 21 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_bevatverblijfsobjectenm_bevatverblijfsobjecten_v1');
