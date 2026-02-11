@@ -1,10 +1,10 @@
 {
   "id": "sluizen",
   "type": "table",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "status": "under_development",
   "title": "sluizen",
-  "description": "",
+  "description": "De dataset sluizen bevat informatie over sluizen die momenteel in beheer zijn van de gemeente Amsterdam. Elke rij in de tabel vertegenwoordigt één sluis, met gegevens over locatie (geometrie in RD-coördinaten), gebruiksfunctie, beheerder, technische kenmerken (zoals hoogte van sluiskolken) en verantwoordelijkheden voor bediening en onderhoud. Het totaal aantal rijen in de tabel geeft het aantal actieve sluizen weer die operationeel zijn en waarvoor beheer- en onderhoudsverantwoordelijkheden zijn toegewezen. De dataset bevat geen historische gegevens. Het veld id fungeert als unieke sleutel en kan worden gebruikt om deze dataset te koppelen aan andere datasets, zoals waterwegen of onderhoudsplanningen. Specifieke sluizen kunnen worden gefilterd op kenmerken zoals gebruiksfunctie of beheerderGedetailleerd. De dataset heeft enkele beperkingen: het bevat alleen sluizen die onder beheer van de gemeente Amsterdam vallen en sommige velden, zoals mutatiedatum, kunnen leeg zijn. De gegevens worden periodiek bijgewerkt; raadpleeg de bron voor de meest recente informatie.",
   "identifier": "id",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -22,36 +22,38 @@
       },
       "id": {
         "type": "string",
+        "title": "ID"
         "description": "Unieke aanduiding van record."
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Geometrie" 
         "description": "Aanduiding voor de geometrie van een beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992). bevat punt-geometrie."
       },
       "beheerderGedetailleerd": {
         "type": "string",
         "title": "Beheerder gedetailleerd",
-        "description": ""
+        "description": "Nadere aanduiding van de beheerder van het beheerobject"
       },
       "gebruiksfunctie": {
         "type": "string",
         "title": "Gebruiksfunctie",
-        "description": ""
+        "description": "Aanduiding van één of meer gebruiksfuncties van het beheerobject."
       },
       "hoogteSluiskolken": {
         "type": "string",
-        "title": "",
-        "description": ""
+        "title": "Hoogte sluiskolken",
+        "description": "Hoogte van de sluiskolken"
       },
       "mutatiedatum": {
         "type": "string",
-        "title": "",
+        "title": "Mutatiedatum",
         "description": ""
       },
       "typeBediening": {
         "type": "string",
-        "title": "",
-        "description": ""
+        "title": "Type bediening",
+        "description": "Categorisering van de wijze waarop het object bediend kan worden."
       },
       "begintijd": {
         "type": "string",
@@ -75,13 +77,13 @@
       },
       "bedienaar": {
         "type": "string",
-        "title": "",
-        "description": ""
+        "title": "Bedienaar",
+        "description": "Verantwoordelijke persoon voor de aansturing van de brug."
       },
       "onderhoudsplichtige": {
         "type": "string",
-        "title": "",
-        "description": ""
+        "title": "Onderhoudsplichtige",
+        "description": "Organisatie die verantwoordelijk is voor het onderhoud van het beheerobject."
       },
       "type": {
         "type": "string",
