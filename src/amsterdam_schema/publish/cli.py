@@ -23,7 +23,8 @@ from typing import Callable, Dict, Iterator, List, Tuple
 
 import click
 import in_place
-from azure.storage.blob import BlobServiceClient, ContentSettings
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient, ContentSettings4
 from more_itertools import chunked
 
 logger = logging.getLogger("__name__")
@@ -165,12 +166,13 @@ def azure_blob_uploader(
     html_content_settings = ContentSettings(content_type="text/html")
     sql_content_settings = ContentSettings(content_type="text/plain")
 
-    credential = os.getenv("SCHEMAS_SA_KEY")
-    if credential is None:
-        raise Exception("SCHEMAS_SA_KEY not set")
+    # credential = os.getenv("SCHEMAS_SA_KEY")
+    # if credential is None:
+    #     raise Exception("SCHEMAS_SA_KEY not set")
+    default_credential = DefaultAzureCredential()
 
     blob_srv = BlobServiceClient(
-        f"https://{SCHEMAS_SA_NAME}.blob.core.windows.net", credential=credential
+        f"https://{SCHEMAS_SA_NAME}.blob.core.windows.net", credential=default_credential
     )
 
     # First delete all blobs in the container
