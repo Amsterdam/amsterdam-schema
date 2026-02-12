@@ -24,7 +24,7 @@ from typing import Callable, Dict, Iterator, List, Tuple
 import click
 import in_place
 from azure.identity import DefaultAzureCredential
-from azure.storage.blob import BlobServiceClient, ContentSettings4
+from azure.storage.blob import BlobServiceClient, ContentSettings
 from more_itertools import chunked
 
 logger = logging.getLogger("__name__")
