@@ -44,5 +44,3 @@ LEFT JOIN brk_2_gemeentes_v1 ON brk_2_kadastraleobjecten_v2.aangeduid_door_brk_g
 where brk_2_kadastraleobjecten_v2.datum_actueel_tot is null
 AND brk_2_gemeentes_v1.eind_geldigheid IS NULL
 with no data;
-
-SELECT cron.schedule('dataverkenner_kadastraleobjectm_kadastraleobject_refresh', '40 21 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_kadastraleobjectm_kadastraleobject_v1');
