@@ -18,5 +18,3 @@ where bag_verblijfsobjecten_ligt_in_panden_v1.eind_geldigheid is null
 and vot.status_omschrijving in ('Verblijfsobject gevormd','Verblijfsobject in gebruik (niet ingemeten)','Verblijfsobject in gebruik','Verblijfsobject buiten gebruik','Verbouwing verblijfsobject')
 and pnd.status_omschrijving in ('Bouwaanvraag ontvangen','Bouwvergunning verleend','Bouw gestart','Pand in gebruik (niet ingemeten)','Pand in gebruik','Sloopvergunning verleend','Pand buiten gebruik','Verbouwing pand')
 with no data;
-
-SELECT cron.schedule('dataverkenner_bevatverblijfsobjectenm_bevatverblijfsobjecten_refresh', '50 21 * * *', 'REFRESH MATERIALIZED VIEW public.dataverkenner_bevatverblijfsobjectenm_bevatverblijfsobjecten_v1');
