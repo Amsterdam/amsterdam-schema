@@ -170,6 +170,8 @@ def azure_blob_uploader(
     # if credential is None:
     #     raise Exception("SCHEMAS_SA_KEY not set")
     default_credential = DefaultAzureCredential()
+    if default_credential is None:
+        raise Exception("SCHEMAS_SA_KEY not set")
 
     blob_srv = BlobServiceClient(
         f"https://{SCHEMAS_SA_NAME}.blob.core.windows.net", credential=default_credential
