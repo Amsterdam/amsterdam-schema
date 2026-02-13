@@ -166,9 +166,6 @@ def azure_blob_uploader(
     html_content_settings = ContentSettings(content_type="text/html")
     sql_content_settings = ContentSettings(content_type="text/plain")
 
-    # credential = os.getenv("SCHEMAS_SA_KEY")
-    # if credential is None:
-    #     raise Exception("SCHEMAS_SA_KEY not set")
     default_credential = DefaultAzureCredential()
     if default_credential is None:
         raise Exception("SCHEMAS_SA_KEY not set")
