@@ -166,10 +166,10 @@ def azure_blob_uploader(
     html_content_settings = ContentSettings(content_type="text/html")
     sql_content_settings = ContentSettings(content_type="text/plain")
 
-    default_credential = ClientSecretCredential(
-    tenant_id=os.environ["AZURE_TENANT_ID"],
-    client_id=os.environ["AZURE_CLIENT_ID"],
-    client_secret=os.environ["AZURE_CLIENT_SECRET"])
+    tenant_id = os.environ["AZURE_TENANT_ID"]
+    client_id = os.environ["AZURE_CLIENT_ID"]
+    client_secret = os.environ["AZURE_CLIENT_SECRET"]
+    default_credential = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
     if default_credential is None:
         raise Exception("SCHEMAS_SA_KEY not set")
 
