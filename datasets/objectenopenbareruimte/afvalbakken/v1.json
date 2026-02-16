@@ -1,0 +1,197 @@
+{
+  "id": "afvalbakken",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Afvalbakken",
+  "description": "In deze dataset staan de afvalbakken die opgesteld staan op pleinen en in de straten en parken van Amsterdam. Een rij in de tabel vertegenwoordigd een afvalbak en eigenschappen van die afvalbak. Onder andere vind je hier dimensies, inhoud, type en locatie van de bakken. De locatie is zowel administratief(nabij gelegen adres, buurt, wijk, stadsdeel etc.) als ruimtelijk(geometrie) geregistreerd.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema", 
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id" : {
+        "type": "string",
+        "description": "Unieke aanduiding van het record, overgenomen uit bron ABSweb",
+        "title": "ID"
+      },
+      "naam" : {
+        "type": "string",
+        "description": "Naam van afvalbak",
+        "title": "Naam"
+      },
+      "actief" : {
+        "type": "string",
+        "description": "Geeft aan of de afvalbak in gebruik is.",
+        "title": "In gebruik"
+      },
+      "rdx" : {
+        "type": "string",
+        "description": "X coördinaat in RD New EPSG28992",
+        "title": "X coordinaat"
+      },
+      "rdy" : {
+        "type": "string",
+        "description": "Y coördinaat in RD New EPSG28992",
+        "title": "y coordinaat"
+      },
+      "type" : {
+        "type": "string",
+        "description": "Type afvalbak",
+        "title": "Type"
+      },
+      "huisnummer" : {
+        "type": "string",
+        "description": "Huisnummer van het dichtstbijzijnde adres waar de afvalbak is geplaatst",
+        "title": "Huisnummer"
+      },
+      "postcode" : {
+        "type": "string",
+        "description": "De postcode van het dichtstbijzijnde adres waar de afvalbak is geplaatst",
+        "title": "Postcode"
+      },
+      "straatnaam" : {
+        "type": "string",
+        "description": "De straatnaam van het dichtstbijzijnde adres waar de afvalbak is geplaatst",
+        "title": "Straatnaam"
+      },
+      "bouwjaar" : {
+        "type": "string",
+        "description": "Jaar waarin de afvalbak geplaatst is",
+        "title": "Bouwjaar"
+      },
+      "levensduur" : {
+        "type": "string",
+        "description": "Het aantal jaren dat de afvalbak meegaat",
+        "title": "Levensduur"
+      },
+      "vervangjaar" : {
+        "type": "string",
+        "description": "Jaar waarin de afvalbak vervangen zou moeten worden",
+        "title": "Vervangjaar"
+      },
+      "objectgroep" : {
+        "type": "string",
+        "description": "Categorie afvalbak",
+        "title": "Objectgroep"
+      },
+      "vervangingsprijs" : {
+        "type": "string",
+        "description": "De vervangingsprijs van de afvalbak",
+        "title": "Vervangingsprijs"
+      },
+      "aanschafprijs" : {
+        "type": "string",
+        "description": "De aanschafPrijs van de afvalbak",
+        "title": "Aanschafprijs"
+      },
+      "aantal" : {
+        "type": "string",
+        "description": "Aantal afvalbakken",
+        "title": "Aantal"
+      },
+      "hoogte" : {
+        "type": "string",
+        "description": "Hoogte in cm.",
+        "title": "Hoogte"
+      },
+      "lengte" : {
+        "type": "string",
+        "description": "Lengte in cm.",
+        "title": "Lengte"
+      },
+      "breedte" : {
+        "type": "string",
+        "description": "Breedte in cm.",
+        "title": "Breedte"
+      },
+      "vervangingsprijsTotaal" : {
+        "type": "string",
+        "description": "",
+        "title": "Totale vervangingsprijs"
+      },
+      "inhoud" : {
+        "type": "string",
+        "description": "Inhoud van de afvalbak in liters",
+        "title": "Inhoud"
+      },
+      "foto" : {
+        "type": "string",
+        "description": "ABSweb URL die naar een foto van de afvalbak verwijst.",
+        "title": "Foto"
+      },
+      "beheerder" : {
+        "type": "string",
+        "description": "De beheerder van de afvalbak",
+        "title": "Beheerder"
+      },
+      "geometrie" : {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "Geometrie van het object in RD in coordinaten",
+        "title": "Geometrie"
+      },
+      "buurtId" : {
+        "type": "string",
+        "description": "Unieke identificatie van een buurt",
+        "title": "Buurt ID"
+      },
+      "buurtCode" : {
+        "type": "string",
+        "description": "Codes van buurten",
+        "title": "Buurtcode"
+      },
+      "buurtNaam" : {
+        "type": "string",
+        "description": "Namen van buurten",
+        "title": "Buurtnaam"
+      },
+      "wijkCode" : {
+        "type": "string",
+        "description": "Code van de wijk",
+        "title": "Wijkcode"
+      },
+      "wijkNaam" : {
+        "type": "string",
+        "description": "Naam van de wijk",
+        "title": "Wijknaam"
+      },
+      "ggwGebiedCode" : {
+        "type": "string",
+        "description": "Namen van gebiedsgerichtwerken-gebieden",
+        "title": "Ggw gebiedcode"
+      },
+      "ggwGebiedCode" : {
+        "type": "string",
+        "description": "Codes van gebiedsgerichtwerken-gebieden",
+        "title": "Ggw gebiednaam"
+      },
+      "stadsdeelCode" : {
+        "type": "string",
+        "description": "Code van stadsdeel",
+        "title": "Stadsdeelcode"
+      },
+      "stadsdeelNaam" : {
+        "type": "string",
+        "description": "Naam van stadsdeel",
+        "title": "Stadsdeelnaam"
+      },
+      "gemeenteNaam" : {
+        "type": "string",
+        "description": "Naam van gemeente",
+        "title": "Gemeentenaam"
+      }
+    }
+  }
+}
