@@ -6,7 +6,7 @@ import re
 import requests
 
 MARKETPLACE_URL = "https://dmpfunc002.amsterdam.nl/marketplace"
-DATASETS_FOLDER_PATH = "src/amsterdam_schema/copied_datasets/"  # copied folder to test
+DATASETS_FOLDER_PATH = "src/amsterdam_schema/datasets/"
 VERSION_PATTERN = re.compile(r"v(\d+)\.json")
 
 
@@ -19,7 +19,7 @@ def fetch_marketplace_data() -> dict[str, dict]:
             try:
                 table_id = table["as_id"]
             except KeyError:
-                continue  # gebruik table["name"]?
+                continue
 
             if table_id:
                 marketplace_map[table_id] = {}
@@ -53,7 +53,7 @@ def get_versioned_file(table: str) -> str | None:
     return os.path.join(table, vfile)
 
 
-def update_files(marketplace_map: dict, revert: bool = False) -> bool:
+def update_files(marketplace_map: dict, revert: bool = False):
     """
     Loop through schema files.
     """
@@ -76,22 +76,19 @@ def update_files(marketplace_map: dict, revert: bool = False) -> bool:
                 if not json_file_path:
                     continue
 
-                if json_file_path:
-                    if revert:
-                        remove_business_fields(json_file_path)
-                        continue
+                if json_file_path and revert:
+                    remove_business_fields(json_file_path)
+                    continue
 
-                    # Update schema files
-                    updated = update_schema_files(
-                        json_file_path,
-                        dataset,
-                        marketplace_map,
-                    )
+                # Update schema files
+                updated = update_schema_files(
+                    json_file_path,
+                    dataset,
+                    marketplace_map,
+                )
 
-                    if updated:
-                        print(f"Updated {json_file_path}")
-
-    return
+                if updated:
+                    print(f"Updated {json_file_path}")
 
 
 def update_schema_files(
@@ -157,7 +154,7 @@ def update_schema_files(
 
 def remove_business_fields(
     json_file_path: str,
-) -> bool:
+):
     """
     Removes businessTerm and businessDescription fields from schema files.
     """
@@ -166,7 +163,7 @@ def remove_business_fields(
             schema_file = json.load(f)
         except json.JSONDecodeError as e:
             print(f"Skipping invalid JSON in {json_file_path}: {e}")
-        return
+            return
 
     schema_properties = schema_file.get("schema", {}).get("properties", {})
 
@@ -182,7 +179,6 @@ def remove_business_fields(
     with open(json_file_path, "w", encoding="utf-8") as f:
         json.dump(schema_file, f, ensure_ascii=False, indent=2)
         f.write("\n")
-    return
 
 
 parser = argparse.ArgumentParser(
@@ -201,8 +197,6 @@ def main():
     args = parser.parse_args()
     marketplace_map = fetch_marketplace_data()
     update_files(marketplace_map, revert=args.revert)
-
-    return
 
 
 if __name__ == "__main__":
