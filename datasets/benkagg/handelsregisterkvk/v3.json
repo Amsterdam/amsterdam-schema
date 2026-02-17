@@ -1,7 +1,7 @@
 {
   "id": "handelsregisterkvk",
   "type": "table",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "status": "stable",
   "crs": "EPSG:28992",
   "auth": [
@@ -749,7 +749,10 @@
       },
       "bsnNps": {
         "type": "string",
-        "auth": "HR/RSN",
+        "auth": [
+          "HR/RSN",
+          "HR/IPP"
+        ],
         "title": "Burgerservicenummer",
         "description": "Het burgerservicenummer (BSN) van de Natuurlijke persoon (NPS)"
       },
@@ -770,7 +773,10 @@
       },
       "geslachtsaanduidingNps": {
         "type": "string",
-        "auth": "HR/RSN",
+        "auth": [
+          "HR/RSN",
+          "HR/IPP"
+        ],
         "title": "Natuurlijk persoon geslachtsaanduiding omschrijving",
         "description": "De geslachtsaanduiding van de {NatuurlijkPersoon} conform de standaarden van de BRP"
       },
@@ -781,13 +787,13 @@
       },
       "geboorteplaatsNps": {
         "type": "string",
-        "auth": "HR/RSN",
+        "auth": "HR/IPP",
         "title": "Natuurlijk persoon geboorteplaats",
         "description": "De plaats waar de betreffende Natuurlijk persoon is geboren"
       },
       "geboortelandNps": {
         "type": "string",
-        "auth": "HR/RSN",
+        "auth": "HR/IPP",
         "title": "Natuurlijk persoon geboorteland",
         "description": "Het land waar de Natuurlijk persoon geboren is"
       },
