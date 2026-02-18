@@ -19,38 +19,56 @@ def fetch_marketplace_data() -> dict[str, dict]:
             try:
                 table_id = table["as_id"]
             except KeyError:
+                print(f"Table {table["name"]} does not have an id.")
                 continue
 
             if table_id:
                 marketplace_map[table_id] = {}
                 for attribute in table["attributes"]:
                     for field_name, value in attribute.items():
-                        description = value["description"]
                         term = value["term"]
+                        description = value["description"]
                         if term and description:
                             marketplace_map[table_id][field_name] = {
                                 "term": term,
+                                "description": description,
+                            }
+                        elif term and not description:
+                            marketplace_map[table_id][field_name] = {
+                                "term": term,
+                            }
+                        elif description and not term:
+                            marketplace_map[table_id][field_name] = {
                                 "description": description,
                             }
 
     return marketplace_map
 
 
-def get_versioned_file(table: str) -> str | None:
-    json_files = []
+def get_versioned_file(dataset_path: str, tabledir: str):
+    """
+    Get json_file_path for the dataset's default version
+    """
+    dataset_json_path = os.path.join(dataset_path, "dataset.json")
+    default_version = None
 
-    for file in os.listdir(table):
-        match = VERSION_PATTERN.fullmatch(file)
-        if match:
-            version = int(match.group(1))
-            json_files.append((version, file))
+    if os.path.isfile(dataset_json_path):
+        with open(dataset_json_path, "r", encoding="utf-8") as f:
+            dataset_file = json.load(f)
+            default_version = dataset_file.get("defaultVersion")
 
-    if not json_files:
-        return None
+    if default_version:
+        version_filename = f"{default_version}.json"
+        versioned_path = os.path.join(tabledir, version_filename)
+        if os.path.isfile(versioned_path):
+            return versioned_path
 
-    # Get table file with the largest version
-    _, vfile = max(json_files, key=lambda x: x[0])
-    return os.path.join(table, vfile)
+    # Take only json file in tabledir if no default version is specified
+    json_files = [f for f in os.listdir(tabledir) if f.endswith(".json")]
+    if len(json_files) == 1:
+        return os.path.join(tabledir, json_files[0])
+
+    return None
 
 
 def update_files(marketplace_map: dict, revert: bool = False):
@@ -71,24 +89,29 @@ def update_files(marketplace_map: dict, revert: bool = False):
                 if not os.path.isdir(tabledir):
                     continue
 
-                json_file_path = get_versioned_file(tabledir)
+                if revert:
+                    # Loop through all JSON files in table directory
+                    for file in os.listdir(tabledir):
+                        if file.endswith(".json"):
+                            json_file_path = os.path.join(tabledir, file)
+                            remove_business_fields(json_file_path)
+                            continue
+                else:
+                    # Use the default version
+                    json_file_path = get_versioned_file(dataset_path, tabledir)
 
-                if not json_file_path:
-                    continue
+                    if not json_file_path:
+                        continue
 
-                if json_file_path and revert:
-                    remove_business_fields(json_file_path)
-                    continue
+                    # Update schema files
+                    updated = update_schema_files(
+                        json_file_path,
+                        dataset,
+                        marketplace_map,
+                    )
 
-                # Update schema files
-                updated = update_schema_files(
-                    json_file_path,
-                    dataset,
-                    marketplace_map,
-                )
-
-                if updated:
-                    print(f"Updated {json_file_path}")
+                    if updated:
+                        print(f"Updated {json_file_path}")
 
 
 def update_schema_files(
@@ -127,19 +150,13 @@ def update_schema_files(
         schema_title = data.get("title", "")
         schema_description = data.get("description", "")
 
-        if (
-            schema_title
-            and market_term
-            and schema_title.strip().lower() != market_term.strip().lower()
-        ):
+        if not schema_title or (market_term and schema_title.strip() != market_term.strip()):
             print(f"Adding businessTerm to {dataset}.{table_id}")
             schema_file["schema"]["properties"][field]["businessTerm"] = market_term
             updated = True
 
-        if (
-            schema_description
-            and market_description
-            and schema_description.strip().lower() != market_description.strip().lower()
+        if not schema_description or (
+            market_description and schema_description.strip() != market_description.strip()
         ):
             print(f"Adding businessDescription to {dataset}.{table_id}")
             schema_file["schema"]["properties"][field]["businessDescription"] = market_description
@@ -175,7 +192,6 @@ def remove_business_fields(
             del schema_file["schema"]["properties"][field]["businessDescription"]
             print(f"Business description removed from {json_file_path}")
 
-    # This still adds either a redundant new line of whitespaces to some files
     with open(json_file_path, "w", encoding="utf-8") as f:
         json.dump(schema_file, f, ensure_ascii=False, indent=2)
         f.write("\n")
