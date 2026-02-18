@@ -45,32 +45,6 @@ def fetch_marketplace_data() -> dict[str, dict]:
     return marketplace_map
 
 
-def get_versioned_file(dataset_path: str, tabledir: str):
-    """
-    Get json_file_path for the dataset's default version
-    """
-    dataset_json_path = os.path.join(dataset_path, "dataset.json")
-    default_version = None
-
-    if os.path.isfile(dataset_json_path):
-        with open(dataset_json_path, "r", encoding="utf-8") as f:
-            dataset_file = json.load(f)
-            default_version = dataset_file.get("defaultVersion")
-
-    if default_version:
-        version_filename = f"{default_version}.json"
-        versioned_path = os.path.join(tabledir, version_filename)
-        if os.path.isfile(versioned_path):
-            return versioned_path
-
-    # Take only json file in tabledir if no default version is specified
-    json_files = [f for f in os.listdir(tabledir) if f.endswith(".json")]
-    if len(json_files) == 1:
-        return os.path.join(tabledir, json_files[0])
-
-    return None
-
-
 def update_files(marketplace_map: dict, revert: bool = False):
     """
     Loop through schema files.
@@ -89,29 +63,28 @@ def update_files(marketplace_map: dict, revert: bool = False):
                 if not os.path.isdir(tabledir):
                     continue
 
-                if revert:
-                    # Loop through all JSON files in table directory
-                    for file in os.listdir(tabledir):
-                        if file.endswith(".json"):
-                            json_file_path = os.path.join(tabledir, file)
+                # Loop through all JSON files in table directory
+                for file in os.listdir(tabledir):
+                    if file.endswith(".json"):
+                        json_file_path = os.path.join(tabledir, file)
+
+                        if not json_file_path:
+                            continue
+
+                        if revert:
                             remove_business_fields(json_file_path)
                             continue
-                else:
-                    # Use the default version
-                    json_file_path = get_versioned_file(dataset_path, tabledir)
+                        else:
 
-                    if not json_file_path:
-                        continue
+                            # Update schema files
+                            updated = update_schema_files(
+                                json_file_path,
+                                dataset,
+                                marketplace_map,
+                            )
 
-                    # Update schema files
-                    updated = update_schema_files(
-                        json_file_path,
-                        dataset,
-                        marketplace_map,
-                    )
-
-                    if updated:
-                        print(f"Updated {json_file_path}")
+                            if updated:
+                                print(f"Updated {json_file_path}")
 
 
 def update_schema_files(

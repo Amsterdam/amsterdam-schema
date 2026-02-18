@@ -40,42 +40,6 @@ def file_content_with_marketplace_data() -> dict:
     }
 
 
-def test_get_default_version(tmp_path):
-    # Create dataset directory and dataset.json
-    dataset_dir = tmp_path / "dataset"
-    dataset_dir.mkdir()
-    dataset_json = dataset_dir / "dataset.json"
-    dataset_json.write_text(json.dumps({"defaultVersion": "v2"}))
-
-    # Create table directory and versioned files
-    table_dir = tmp_path / "table"
-    table_dir.mkdir()
-    (table_dir / "v1.json").write_text("{}")
-    (table_dir / "v2.json").write_text("{}")
-    (table_dir / "v3.json").write_text("{}")
-
-    result = import_marketplace_products.get_versioned_file(str(dataset_dir), str(table_dir))
-
-    assert result.endswith("v2.json")
-
-
-def test_no_default_version(tmp_path):
-    # Create dataset directory and dataset.json
-    dataset_dir = tmp_path / "dataset"
-    dataset_dir.mkdir()
-    dataset_json = dataset_dir / "dataset.json"
-    dataset_json.write_text("{}")
-
-    # Create table directory and versioned files
-    table_dir = tmp_path / "table"
-    table_dir.mkdir()
-    (table_dir / "v2.json").write_text("{}")
-
-    result = import_marketplace_products.get_versioned_file(str(dataset_dir), str(table_dir))
-
-    assert result.endswith("v2.json")
-
-
 def test_remove_business_fields(tmp_path, file_content_with_marketplace_data):
 
     file_path = tmp_path / "v1.json"
@@ -145,7 +109,6 @@ def test_update_files(tmp_path, monkeypatch, file_content):
     import_marketplace_products.update_files(marketplace_map)
 
     updated_data = json.loads(file_path.read_text())
-    print(updated_data)
     assert updated_data["schema"]["properties"]["field1"]["businessTerm"] == "New Term"
     assert updated_data["schema"]["properties"]["field1"]["businessDescription"] == "New Desc"
 
