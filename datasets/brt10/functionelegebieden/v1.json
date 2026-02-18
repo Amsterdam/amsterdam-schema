@@ -27,7 +27,9 @@
       "identificatie": {
         "type": "string",
         "title": "Geo object ID",
-        "description": "De unieke identiteit van het geo-object"
+        "description": "De unieke identiteit van het geo-object",
+        "businessTerm": "Object ID",
+        "businessDescription": "Uniek identificerend kenmerk voor het object dat onveranderlijk is zolang het object bestaat"
       },
       "bronactualiteit": {
         "type": "string",
@@ -60,7 +62,9 @@
         "type": "string",
         "title": "Object registratie tijdstip",
         "format": "date",
-        "description": "Tijdstip waarop een versie van het object ontstaan is"
+        "description": "Tijdstip waarop een versie van het object ontstaan is",
+        "businessTerm": "Object registratie datumtijd",
+        "businessDescription": "Tijdstip waarop deze instantie van het object is opgenomen door de bronhouder"
       },
       "visualisatieCode": {
         "type": "integer",
@@ -80,7 +84,8 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
         "title": "Geometrie",
-        "description": "Geometrie"
+        "description": "Geometrie",
+        "businessDescription": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "naamFries": {
         "type": "string",
@@ -110,7 +115,8 @@
       "geometrieVlak": {
         "$ref": "https://geojson.org/schema/MultiPolygon.json",
         "title": "Vlak geometrie",
-        "description": "Vlakgeometrie"
+        "description": "Vlakgeometrie",
+        "businessDescription": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       }
     }
   }

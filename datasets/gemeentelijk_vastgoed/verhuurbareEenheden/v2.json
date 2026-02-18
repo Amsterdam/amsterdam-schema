@@ -49,12 +49,14 @@
       "huisnummer": {
         "type": "integer",
         "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering.",
-        "title": "Huisnummer"
+        "title": "Huisnummer",
+        "businessDescription": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende nummering"
       },
       "huisletter": {
         "type": "string",
         "description": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken.",
-        "title": "Huisletter"
+        "title": "Huisletter",
+        "businessDescription": "Een door het bevoegde gemeentelijke orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken"
       },
       "huisnummertoevoeging": {
         "type": "string",
@@ -69,7 +71,8 @@
       "postcode": {
         "type": "string",
         "description": "Postcode van de verhuurbare eenheid uit het vastgoedbeheersysteem.",
-        "title": "Postcode"
+        "title": "Postcode",
+        "businessDescription": "De door PostNL vastgestelde code bestaande uit 4 cijfers en 2 letters (1234AB)"
       },
       "plaats": {
         "type": "string",
@@ -92,7 +95,8 @@
         "title": "Gemeentelijk vastgoed contractnummers",
         "items": {
           "type": "string"
-        }
+        },
+        "businessTerm": "Gemeentelijk vastgoed contract nummer"
       },
       "feitelijkGebruik": {
         "type": "string",
@@ -110,7 +114,8 @@
       "geometrie": {
         "description": "Geometrie van het type point in RD (EPSG:28992).",
         "title": "Geometrie",
-        "$ref": "https://geojson.org/schema/Geometry.json"
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "businessDescription": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       }
     }
   }

@@ -22,11 +22,15 @@
       },
       "identificatie": {
         "type": "string",
-        "description": "identificatie voor de Niet natuurlijk persoon."
+        "description": "identificatie voor de Niet natuurlijk persoon.",
+        "businessTerm": "Niet natuurlijk persoon ID",
+        "businessDescription": "Interne identificatie voor de Niet natuurlijk persoon (NNP)"
       },
       "rsin": {
         "type": "string",
-        "description": "samenwerkingsverbanden Informatienummer."
+        "description": "samenwerkingsverbanden Informatienummer.",
+        "businessTerm": "Rechtspersoon en Samenwerkingsverband Informatienummer",
+        "businessDescription": "Rechtspersonen en Samenwerkingsverbanden Informatienummer (RSIM). Het door een kamer toegekend uniek nummer voor de Niet Natuurlijk Persoon"
       },
       "datumUitschrijving": {
         "type": "object",
@@ -49,19 +53,27 @@
             "description": "dag van de datum, als deze bekend is."
           }
         },
-        "description": "datum dat de de niet-natuurlijk persoon is uitgeschreven. Deze wordt gebruikt bij de verhuizing naar het buitenland. De NNP is hiemee niet beëindigd."
+        "description": "datum dat de de niet-natuurlijk persoon is uitgeschreven. Deze wordt gebruikt bij de verhuizing naar het buitenland. De NNP is hiemee niet beëindigd.",
+        "businessTerm": "Uitschrijving datum",
+        "businessDescription": "De datum dat de niet-natuurlijk persoon is uitgeschreven. Deze wordt gebruikt bij de verhuizing naar het buitenland. De NNP is hiemee niet beëindigd"
       },
       "surceanceVanBetaling": {
         "type": "boolean",
-        "description": "uitstel van betaling voor organisaties met tijdelijke financiële problemen."
+        "description": "uitstel van betaling voor organisaties met tijdelijke financiële problemen.",
+        "businessTerm": "Indicatie surceance van betaling",
+        "businessDescription": "Uitstel van betaling geldt vanaf het moment dat de rechter voorlopig uitstel van betaling heeft verleend tot het moment dat de (voorlopige of definitieve) surseance van betaling eindigt"
       },
       "status": {
         "type": "string",
-        "description": "status waarin de surseance verkeert, dit kan voorlopig of definitief zijn."
+        "description": "status waarin de surseance verkeert, dit kan voorlopig of definitief zijn.",
+        "businessTerm": "Surceance status code",
+        "businessDescription": "De status waarin de surseance verkeert, dit kan voorlopig of definitief zijn"
       },
       "duur": {
         "type": "integer",
-        "description": "duur van de periode (in maanden) waarvoor surseance van betaling geldt."
+        "description": "duur van de periode (in maanden) waarvoor surseance van betaling geldt.",
+        "businessTerm": "Surceance duur",
+        "businessDescription": "De duur van de periode (in maanden) waarvoor surseance van betaling geldt. Dit geldt alleen als de surceance van betaling definitief is"
       },
       "faillisement": {
         "type": "boolean",
@@ -69,19 +81,27 @@
       },
       "naam": {
         "type": "string",
-        "description": "naam van de NNP."
+        "description": "naam van de NNP.",
+        "businessTerm": "Niet natuurlijk persoon naam",
+        "businessDescription": "De naam van de Niet Natuurlijk persoon (NNP)"
       },
       "volledigeNaam": {
         "type": "string",
-        "description": "volledige naam van de persoon (PRS)."
+        "description": "volledige naam van de persoon (PRS).",
+        "businessTerm": "Persoon volledige naam",
+        "businessDescription": "De volledige naam van de Persoon (PRS)"
       },
       "ookGenoemd": {
         "type": "string",
-        "description": "een andere naam waaronder de vereniging, stichting of vereniging van eigenaars ook bekend is."
+        "description": "een andere naam waaronder de vereniging, stichting of vereniging van eigenaars ook bekend is.",
+        "businessTerm": "Persoon alternatieve naam",
+        "businessDescription": "Een andere naam waaronder de vereniging, stichting of vereniging van eigenaars ook bekend is"
       },
       "typePersoon": {
         "type": "string",
-        "description": "type persoon (NPS) of (NNP), samenwerkingsverband, rechtspersoon of buitenlandse vennootschap."
+        "description": "type persoon (NPS) of (NNP), samenwerkingsverband, rechtspersoon of buitenlandse vennootschap.",
+        "businessTerm": "Persoon type",
+        "businessDescription": "Type persoon"
       },
       "doelrechtsvorm": {
         "type": "string",
@@ -89,19 +109,27 @@
       },
       "rechtsvorm": {
         "type": "string",
-        "description": "rechtsvorm van de NNP"
+        "description": "rechtsvorm van de NNP",
+        "businessTerm": "Niet natuurlijk persoon rechtsvorm omschrijving",
+        "businessDescription": "Rechtsvorm van de Niet natuurlijk Persoon (NNP)"
       },
       "persoonRechtsvorm": {
         "type": "string",
-        "description": "rechtsvorm van de natuurlijke- of nietnatuurlijke persoon."
+        "description": "rechtsvorm van de natuurlijke- of nietnatuurlijke persoon.",
+        "businessTerm": "Persoon rechtsvorm omschrijving",
+        "businessDescription": "Rechtsvorm van de persoon, dus Natuurlijk Persoon (NPS) of Niet Natuurlijke Persoon (NNP)"
       },
       "uitgebreideRechtsvorm": {
         "type": "string",
-        "description": "rechtsvorm van inschrijving aangevuld met informatie over structuur, rechtbevoegdeheid etc."
+        "description": "rechtsvorm van inschrijving aangevuld met informatie over structuur, rechtbevoegdeheid etc.",
+        "businessTerm": "Persoon uitgebreide rechtsvorm omschrijving",
+        "businessDescription": "Rechtsvorm van inschrijving aangevuld met informatie over structuur, rechtbevoegdheid etc"
       },
       "rol": {
         "type": "string",
-        "description": "afgeleid: de rol van de rechtspersoon (Eigenaar of Aansprakelijke)."
+        "description": "afgeleid: de rol van de rechtspersoon (Eigenaar of Aansprakelijke).",
+        "businessTerm": "Rol omschrijving",
+        "businessDescription": "De rol die een Niet Natuurlijk Persoon (NNP) vervult bij de maatschappelijke activiteit"
       },
       "datumAanvang": {
         "type": "object",
@@ -124,7 +152,9 @@
             "description": "dag van de datum, als deze bekend is."
           }
         },
-        "description": "Datum van aanvang van de (NNP)"
+        "description": "Datum van aanvang van de (NNP)",
+        "businessTerm": "Niet natuurlijke persoon aanvangsdatum",
+        "businessDescription": "Datum van aanvang van de Niet Natuurlijk Persoon (NNP)"
       },
       "datumEinde": {
         "type": "object",
@@ -147,7 +177,9 @@
             "description": "dag van de datum, als deze bekend is."
           }
         },
-        "description": "Datum van beëindiging van de NNP."
+        "description": "Datum van beëindiging van de NNP.",
+        "businessTerm": "Niet natuurlijke persoon einddatum",
+        "businessDescription": "Datum van beëindiging van de Niet Natuurlijk Persoon (NNP)"
       },
       "heeftHrFunctievervullingen": {
         "type": "array",
@@ -155,7 +187,9 @@
           "type": "string"
         },
         "relation": "hrKvk:functievervullingen",
-        "description": "een NNP heeft geen, een of meer functievervullingen (FVV)."
+        "description": "een NNP heeft geen, een of meer functievervullingen (FVV).",
+        "businessTerm": "Functievervulling die de niet natuurlijke persoon heeft",
+        "businessDescription": "Een Niet Natuurlijk Persoon (NNP) heeft geen, een of meerdere Functievervullingen (FVV)"
       }
     }
   }
