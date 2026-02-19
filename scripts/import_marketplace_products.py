@@ -123,21 +123,22 @@ def update_schema_files(
         schema_title = data.get("title", "")
         schema_description = data.get("description", "")
 
-        if not schema_title or (market_term and schema_title.strip() != market_term.strip()):
+        if market_term and ((not schema_title) or schema_title.strip() != market_term.strip()):
             print(f"Adding businessTerm to {dataset}.{table_id}")
             schema_file["schema"]["properties"][field]["businessTerm"] = market_term
             updated = True
 
-        if not schema_description or (
-            market_description and schema_description.strip() != market_description.strip()
+        if market_description and (
+            (not schema_description) or (schema_description.strip() != market_description.strip())
         ):
-            print(f"Adding businessDescription to {dataset}.{table_id}")
+            print(f"Adding businessDescription {market_description} to {dataset}.{table_id}")
             schema_file["schema"]["properties"][field]["businessDescription"] = market_description
             updated = True
 
     if updated:
         with open(json_file_path, "w", encoding="utf-8") as f:
             json.dump(schema_file, f, ensure_ascii=False, indent=2)
+            f.write("\n")
 
     return updated
 
