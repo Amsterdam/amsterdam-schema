@@ -1,7 +1,7 @@
 {
   "id": "natuurlijkepersonen",
   "type": "table",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "status": "stable",
   "reasonsNonPublic": [
     "5.1 1d: Bevat persoonsgegevens",
@@ -31,7 +31,10 @@
       },
       "bsn": {
         "type": "string",
-        "auth": "HR/RSN",
+        "auth": [
+          "HR/RSN",
+          "HR/IPP"
+        ],
         "title": "Burgerservicenummer",
         "description": "Het burgerservicenummer (BSN) van de Natuurlijke persoon (NPS)"
       },
@@ -52,7 +55,10 @@
       },
       "geslachtsaanduiding": {
         "type": "string",
-        "auth": "HR/RSN",
+        "auth": [
+          "HR/RSN",
+          "HR/IPP"
+        ],
         "title": "Natuurlijk persoon geslachtsaanduiding omschrijving",
         "description": "De geslachtsaanduiding van de {NatuurlijkPersoon} conform de standaarden van de BRP"
       },
@@ -87,13 +93,13 @@
       },
       "geboorteplaats": {
         "type": "string",
-        "auth": "HR/RSN",
+        "auth": "HR/IPP",
         "title": "Natuurlijk persoon geboorteplaats",
         "description": "De plaats waar de betreffende Natuurlijk persoon is geboren"
       },
       "geboorteland": {
         "type": "string",
-        "auth": "HR/RSN",
+        "auth": "HR/IPP",
         "title": "Natuurlijk persoon geboorteland",
         "description": "Het land waar de Natuurlijk persoon geboren is"
       },
