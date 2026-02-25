@@ -9,6 +9,7 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
+    "mainGeometry": "geometrie",
     "identifier": [
       "id"
     ],
@@ -105,6 +106,11 @@
         "type": "string",
         "description": "Naam van de gemeente waarbinnen het beheerobject ligt.",
         "title": "Gemeente"
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Polygon.json",
+        "title": "Geometrie",
+        "description": "Geometrie van de brug RD-New epsg:28992, bevat vlak-geometrie."
       },
       "herbeoordeeldeBelastingklasse": {
         "type": "string",
