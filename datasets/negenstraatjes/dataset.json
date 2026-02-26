@@ -21,7 +21,7 @@
   "reasonsNonPublic": [
     "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
   ],
-  "description": "dataset t.b.v. monitoringsdashboards van pilot afvalinzamelingsproces.",
+  "description": "Deze dataset is voor monitoringsdashboards van een pilot afvalinzamelingsproces in de 9 Straatjes. Afval wordt op afspraak opgehaald met lichte voertuigen zodat overlast en weg belasting beperkt wordt in de smalle straten.",
   "keywords": [
     "afvalinzameling",
     "9Straatjes",
@@ -33,11 +33,19 @@
     "v1": {
       "status": "stable",
       "enableAPI": true,
-      "version": "1.4.0",
+      "version": "1.5.0",
       "tables": [
         {
           "id": "afvalregistratie",
           "$ref": "afvalregistratie/v2"
+        },
+		{
+          "id": "afvalregistraties",
+          "$ref": "afvalregistraties/v1"
+        },
+		{
+          "id": "planningitems",
+          "$ref": "planningitems/v1"
         }
       ]
     }

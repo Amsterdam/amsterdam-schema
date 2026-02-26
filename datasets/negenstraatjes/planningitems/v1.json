@@ -1,0 +1,89 @@
+{
+  "id": "planningitems",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Planningitems",
+  "description": "In deze dataset staan planningitems. Een afvalophaalafspraak komt op een planning. Die planning wordt opgedeeld in planningitems. Zo wordt een afspraak voor wekelijks ophalen vastgelegd in veel planningitems. Afvalregistraties geeft inzicht hoe plannningitems zijn afgehandeld is afgehandeld. Dagelijks wordt de data uit de bron 21South opgehaald.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "planningItemId"
+    ],
+    "required": [
+      "schema",
+      "planningItemId"
+    ],
+    "display": "planningItemId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "planningItemId": {
+        "title": "Planning item ID",
+        "description": "Unieke aanduiding van het planning item in vw_planning_item in bronsysteem",
+        "type": "string"
+      },
+      "planningId": {
+        "title": "Planning ID",
+        "description": "Unieke aanduiding van een planning in vw_planning in bronsysteem",
+        "type": "string"
+      },
+      "meldingId": {
+        "title": "Melding ID",
+        "description": "unieke aanduiding van een melding in vw_meldingen in bronsysteem",
+        "type": "string"
+      },
+      "statusAfspraak": {
+        "title": "Status afspraak",
+        "description": "De status of voortgang van een afspraak",
+        "type": "string"
+      },
+      "statusAfspraakOnderdeel": {
+        "title": "Status afspraak onderdeel",
+        "description": "De status of voortgang van het onderdeel of item van een afspraak",
+        "type": "string"
+      },
+      "planningVan": {
+        "title": "Gepland van",
+        "description": "Begin van het tijdstlot waarbinnen een afspraak onderdeel moet worden afgehandeld",
+        "type": "string",
+        "format": "date-time"
+      },
+      "planningTot": {
+        "title": "Gepland tot",
+        "description": "Eind van het tijdstlot waarbinnen een afspraak onderdeel moet worden afgehandeld",
+        "type": "string",
+        "format": "date-time"
+      },
+      "planningsdatum": {
+        "title": "Planningsdatum",
+        "description": "Datum waarop dit onderdeel gepland is",
+        "type": "string",
+        "format": "date"
+      },
+      "bagNummeraanduiding": {
+        "title": "Bag nummeraanduiding",
+        "description": "Unieke aanduiding van een BAG nummeraanduiding",
+        "type": "string"
+      },
+      "procesNaam": {
+        "title": "Proces naam",
+        "description": "Naam van het proces waarmee deze afspraak is gemaakt",
+        "type": "string"
+      },
+      "procesOmschrijving": {
+        "title": "Proces omschrijving",
+        "description": "Omschrijving van het proces waarmee deze afspraak is gemaakt",
+        "type": "string"
+      },
+      "kanaalAfspraak": {
+        "title": "Afspraak kanaal",
+        "description": "Geeft aan via welke kanaal de afspraak gemaakt is",
+        "type": "string"
+      }
+    }
+  }
+}
