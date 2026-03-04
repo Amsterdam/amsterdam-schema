@@ -13,13 +13,13 @@ on:
 
 jobs:
     build:
-        name: Trigger "Publish Schema" pipeline on Azure DevOps.
+        name: Trigger "Deploy schemas (s-aks)" pipeline on Azure DevOps.
         runs-on: ubuntu-latest
         steps:
         - name: Call Azure
           uses: amsterdam/trigger-ado-pipeline@v1.1
           with:
-            pipeline-id: 812
+            pipeline-id: 5132
             organisation: CloudCompetenceCenter
             project: 'Data Diensten'
             pat-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}

@@ -22,7 +22,9 @@
       },
       "kvknummer": {
         "type": "string",
-        "description": "betreft het identificerende gegeven voor de Maatschappelijke Activiteit"
+        "description": "betreft het identificerende gegeven voor de Maatschappelijke Activiteit",
+        "businessTerm": "Kamer van Koophandel nummer",
+        "businessDescription": "Het identificerende gegeven voor de Maatschappelijke Activiteit"
       },
       "datumAanvangMaatschappelijkeActiviteit": {
         "shortname": "datumAanvangMac",
@@ -46,7 +48,9 @@
             "description": "dag van de datum, als deze bekend is."
           }
         },
-        "description": "de datum waarbij de Maatschappelijke Activiteit in de echte wereld is ontstaan."
+        "description": "de datum waarbij de Maatschappelijke Activiteit in de echte wereld is ontstaan.",
+        "businessTerm": "Maatschappelijke activiteit geldigheid aanvangsdatum",
+        "businessDescription": "De datum waarbij de Maatschappelijke Activiteit in de echte wereld is ontstaan"
       },
       "datumEindeMaatschappelijkeActiviteit": {
         "shortname": "datumEindeMac",
@@ -70,25 +74,35 @@
             "description": "dag van de datum, als deze bekend is."
           }
         },
-        "description": "de datum waarbij de Maatschappelijke Activiteit in de echte wereld is beëindigd."
+        "description": "de datum waarbij de Maatschappelijke Activiteit in de echte wereld is beëindigd.",
+        "businessTerm": "Maatschappelijke activiteit geldigheid einddatum",
+        "businessDescription": "De datum waarbij de Maatschappelijke Activiteit in de echte wereld is beëindigd"
       },
       "registratieTijdstipMaatschappelijkeActiviteit": {
         "shortname": "registratieTijdstipMac",
         "type": "string",
         "format": "date-time",
-        "description": "het tijdstip waarop de maatschappelijke activiteit bij de KvK in het handelsregister is geregistreerd. Indien het registratietijdstip om (migratie)redenen niet bekend is wordt de waarde 'vastgesteldOnbekend' opgenomen."
+        "description": "het tijdstip waarop de maatschappelijke activiteit bij de KvK in het handelsregister is geregistreerd. Indien het registratietijdstip om (migratie)redenen niet bekend is wordt de waarde 'vastgesteldOnbekend' opgenomen.",
+        "businessTerm": "Maatschappelijke activiteit registratie datumtijd",
+        "businessDescription": "Het tijdstip waarop de maatschappelijke activiteit bij de KvK in het handelsregister is geregistreerd. Indien het registratietijdstip om (migratie)redenen niet bekend is wordt de waarde 'vastgesteldOnbekend' opgenomen"
       },
       "naam": {
         "type": "string",
-        "description": "de statutaire naam of eerste handelsnaam van de inschrijving."
+        "description": "de statutaire naam of eerste handelsnaam van de inschrijving.",
+        "businessTerm": "Statutaire naam",
+        "businessDescription": "De statutaire naam of eerste handelsnaam van de inschrijving"
       },
       "nonMailing": {
         "type": "string",
-        "description": "indicatie die aangeeft of de inschrijving haar adresgegevens beschikbaar stelt voor mailing-doeleinden."
+        "description": "indicatie die aangeeft of de inschrijving haar adresgegevens beschikbaar stelt voor mailing-doeleinden.",
+        "businessTerm": "Non mailing indicatie",
+        "businessDescription": "Indicator die aangeeft of de inschrijving haar adresgegevens beschikbaar stelt voor mailing-doeleinden"
       },
       "incidenteelUitlenenArbeidskrachten": {
         "type": "string",
-        "description": "indicatie die aangeeft of de ondernemer tijdelijk arbeidskrachten ter beschikking stelt en dit niet onderdeel is van zijn 'reguliere' activiteiten."
+        "description": "indicatie die aangeeft of de ondernemer tijdelijk arbeidskrachten ter beschikking stelt en dit niet onderdeel is van zijn 'reguliere' activiteiten.",
+        "businessTerm": "Incidenteel uitlenen arbeidskrachten indicatie",
+        "businessDescription": "Indicatie die aangeeft of de ondernemer tijdelijk arbeidskrachten ter beschikking stelt en dit niet onderdeel is van zijn 'reguliere' activiteiten"
       },
       "activiteiten": {
         "type": "array",
@@ -109,7 +123,8 @@
             }
           },
           "description": "codering van activiteiten binnen HR volgens de standaard bedrijfsindeling (SBI) 2008"
-        }
+        },
+        "businessTerm": "activiteiten"
       },
       "heeftHrHoofdvestiging": {
         "type": "object",
@@ -119,7 +134,9 @@
           }
         },
         "relation": "hrKvk:vestigingen",
-        "description": "vestiging die als hoofdvestiging wordt gebruikt."
+        "description": "vestiging die als hoofdvestiging wordt gebruikt.",
+        "businessTerm": "Hoofdvestiging van maatschappelijke activiteit",
+        "businessDescription": "De vestiging die als hoofdvestiging wordt gebruikt"
       },
       "heeftAlsEigenaarHrNps": {
         "shortname": "heeftEigenaarNp",
@@ -130,7 +147,9 @@
           }
         },
         "relation": "hrKvk:natuurlijkepersonen",
-        "description": "heeft als eigenaar een natuurlijke persoon."
+        "description": "heeft als eigenaar een natuurlijke persoon.",
+        "businessTerm": "Natuurlijke persoon die eigenaar is",
+        "businessDescription": "Heeft als eigenaar een natuurlijke persoon (NPS)"
       },
       "heeftAlsEigenaarHrNnp": {
         "shortname": "heeftEigenaarNnp",
@@ -141,23 +160,33 @@
           }
         },
         "relation": "hrKvk:nietnatuurlijkepersonen",
-        "description": "heeft als eigenaar een niet natuurlijke persoon."
+        "description": "heeft als eigenaar een niet natuurlijke persoon.",
+        "businessTerm": "Niet natuurlijke persoon die eigenaar is",
+        "businessDescription": "Heeft als eigenaar een niet natuurlijke persoon (NNP)"
       },
       "onderneming": {
         "type": "boolean",
-        "description": "van onderneming (OND) is sprake indien een zelfstandig optredende eenheid waarin door arbeid of middelen worden geleverd met het oogmerk meterieel voordeel (winst)"
+        "description": "van onderneming (OND) is sprake indien een zelfstandig optredende eenheid waarin door arbeid of middelen worden geleverd met het oogmerk meterieel voordeel (winst)",
+        "businessTerm": "Maatschappelijke activiteit is wel/geen onderneming",
+        "businessDescription": "Van onderneming (OND) is sprake indien een voldoende zelfstandig optredende organisatorische eenheid van één of meer personen bestaat waarin door voldoende inbreng van arbeid of middelen, ten behoeve van derden diensten of goederen worden geleverd of werken tot stand worden gebracht met het oogmerk daarmee materieel voordeel te behalen"
       },
       "totaalWerkzamePersonen": {
         "type": "integer",
-        "description": "het totaal aantal werkzame personen bij de onderneming "
+        "description": "het totaal aantal werkzame personen bij de onderneming ",
+        "businessTerm": "Aantal werkzame personen",
+        "businessDescription": "Totaal aantal werkzame personen bij de onderneming"
       },
       "voltijdWerkzamePersonen": {
         "type": "integer",
-        "description": "het aantal voltijd (meer dan 15 uur per week) werkzame personen bij de onderneming "
+        "description": "het aantal voltijd (meer dan 15 uur per week) werkzame personen bij de onderneming ",
+        "businessTerm": "Aantal voltijd werkzame personen",
+        "businessDescription": "Aantal voltijd (meer dan 15 uur per week) werkzame personen bij de onderneming"
       },
       "deeltijdWerkzamePersonen": {
         "type": "integer",
-        "description": "het aantal deeltijd (kleiner of gelijk aan 15 uur per week) werkzame personen bij de onderneming"
+        "description": "het aantal deeltijd (kleiner of gelijk aan 15 uur per week) werkzame personen bij de onderneming",
+        "businessTerm": "Aantal deeltijd werkzame personen",
+        "businessDescription": "Aantal deeltijd (kleiner of gelijk aan 15 uur per week) werkzame personen bij de onderneming"
       },
       "datumAanvangOnderneming": {
         "type": "object",
@@ -180,7 +209,9 @@
             "description": "dag van de datum, als deze bekend is."
           }
         },
-        "description": "datum van aanvang van de Onderneming."
+        "description": "datum van aanvang van de Onderneming.",
+        "businessTerm": "Onderneming aanvangsdatum",
+        "businessDescription": "De datum van aanvang van de relatie tussen de onderneming en de commercielevestiging"
       },
       "datumEindeOnderneming": {
         "type": "object",
@@ -203,7 +234,9 @@
             "description": "dag van de datum, als deze bekend is."
           }
         },
-        "description": "datum van beeindiging van de Onderneming."
+        "description": "datum van beeindiging van de Onderneming.",
+        "businessTerm": "Onderneming einddatum",
+        "businessDescription": "De einddatum van de relatie tussen de onderneming en de commercielevestiging"
       },
       "datumOverdrachtVoortzettingOnderneming": {
         "type": "object",
@@ -226,11 +259,15 @@
             "description": "dag van de datum, als deze bekend is."
           }
         },
-        "description": "de datum waarop de Onderneming is overgedragen of voortgezet."
+        "description": "de datum waarop de Onderneming is overgedragen of voortgezet.",
+        "businessTerm": "Onderneming voortgezet overgedragen datum",
+        "businessDescription": "De datum waarop de onderneming is overgedragen of voortgezet"
       },
       "overdrachtOfVoortzettingOnderneming": {
         "type": "string",
-        "description": "indicatie of de Onderneming is voortgezet of is overgedragen. (Overdracht of Voortzetting)."
+        "description": "indicatie of de Onderneming is voortgezet of is overgedragen. (Overdracht of Voortzetting).",
+        "businessTerm": "Indicatie onderneming voortgezet of overgedragen ",
+        "businessDescription": "Indicatie of de Onderneming is voortgezet of is overgedragen. (Overdracht of Voortzetting)"
       },
       "wordtUitgeoefendInCommercieleHrVestigingen": {
         "shortname": "uitgeoefendInCvs",
@@ -252,7 +289,9 @@
           }
         },
         "relation": "hrKvk:vestigingen",
-        "description": "hiermee wordt vastgelegd in welke periode (datumAanvang-datumEinde) welke commerciele VES bij een onderneming behoort."
+        "description": "hiermee wordt vastgelegd in welke periode (datumAanvang-datumEinde) welke commerciele VES bij een onderneming behoort.",
+        "businessTerm": "Commerciële vestiging maatschappelijke activiteit",
+        "businessDescription": "Hiermee wordt vastgelegd in welke periode (datumAanvang-datumEinde) welke commerciele VES bij een onderneming behoort"
       },
       "wordtUitgeoefendInNietCommercieleHrVestigingen": {
         "shortname": "uitgeoefendInNcv",
@@ -274,7 +313,9 @@
           }
         },
         "relation": "hrKvk:vestigingen",
-        "description": "hiermee wordt beschreven in welke periode (datumAanvang-datumEinde) welke niet commerciele VES bij een MAC behoort."
+        "description": "hiermee wordt beschreven in welke periode (datumAanvang-datumEinde) welke niet commerciele VES bij een MAC behoort.",
+        "businessTerm": "Niet commerciële vestiging maatschappelijke activiteit",
+        "businessDescription": "Hiermee wordt beschreven in welke periode (datumAanvang-datumEinde) welke niet commerciele VES bij een MAC behoort"
       },
       "handelsnamen": {
         "type": "array",
@@ -301,7 +342,9 @@
             }
           },
           "description": "handelsnaam van de niet-commerciële of commerciële VES"
-        }
+        },
+        "businessTerm": "Handelsnaam",
+        "businessDescription": "Handelsnaam van de commerciële vestiging"
       },
       "communicatie": {
         "type": "array",
@@ -321,7 +364,9 @@
               "description": "geeft aan of het communicatienummer een telefoon- of een faxnummer betreft"
             }
           }
-        }
+        },
+        "businessTerm": "Communicatiegegevens",
+        "businessDescription": "Communicatiegegevens van de maatschappelijke activiteit"
       },
       "emailAdressen": {
         "type": "array",
@@ -333,7 +378,9 @@
               "description": "e-mailadres waarop de ondernemer gemaild kan worden"
             }
           }
-        }
+        },
+        "businessTerm": "Email adres",
+        "businessDescription": "Het e-mailadres waarop de ondernemer gemaild kan worden"
       },
       "domeinnamen": {
         "type": "array",
@@ -345,7 +392,9 @@
               "description": "internetadres (website)"
             }
           }
-        }
+        },
+        "businessTerm": "Domein naam",
+        "businessDescription": "Het internetadres (web site)"
       },
       "bezoekLocatie": {
         "type": "object",
@@ -403,7 +452,9 @@
             "description": "de naam van het land waar het adres zich bevindt"
           }
         },
-        "description": "de locatiegegevens van de bezoekLocatie"
+        "description": "de locatiegegevens van de bezoekLocatie",
+        "businessTerm": "Bezoeklocatie locatiegegevens",
+        "businessDescription": "De locatiegegevens van de bezoekLocatie"
       },
       "bezoekHeeftBagNummeraanduiding": {
         "type": "object",
@@ -416,7 +467,9 @@
           }
         },
         "relation": "bag:nummeraanduidingen",
-        "description": "unieke identificatie van de BAG nummeraanduiding.."
+        "description": "unieke identificatie van de BAG nummeraanduiding..",
+        "businessTerm": "Nummeraanduiding bezoeklocatie",
+        "businessDescription": "Unieke identificatie van de BAG nummeraanduiding"
       },
       "bezoekHeeftBagVerblijfsobject": {
         "type": "object",
@@ -429,7 +482,9 @@
           }
         },
         "relation": "bag:verblijfsobjecten",
-        "description": "unieke identificatie van de BAG verblijfsobject."
+        "description": "unieke identificatie van de BAG verblijfsobject.",
+        "businessTerm": "Verblijfsobject bezoeklocatie",
+        "businessDescription": "Unieke identificatie van de BAG verblijfsobject"
       },
       "bezoekHeeftBagLigplaats": {
         "type": "object",
@@ -442,7 +497,9 @@
           }
         },
         "relation": "bag:ligplaatsen",
-        "description": "unieke identificatie van de BAG ligplaats."
+        "description": "unieke identificatie van de BAG ligplaats.",
+        "businessTerm": "Ligplaats bezoeklocatie",
+        "businessDescription": "Unieke identificatie van de BAG ligplaats"
       },
       "bezoekHeeftBagStandplaats": {
         "type": "object",
@@ -455,7 +512,9 @@
           }
         },
         "relation": "bag:standplaatsen",
-        "description": "unieke identificatie van de BAG standplaats."
+        "description": "unieke identificatie van de BAG standplaats.",
+        "businessTerm": "Standplaats bezoeklocatie",
+        "businessDescription": "Unieke identificatie van de BAG standplaats"
       },
       "postLocatie": {
         "type": "object",
@@ -517,7 +576,9 @@
             "description": "de naam van het land waar het adres zich bevind"
           }
         },
-        "description": "de locatiegegevens van de postLocatie"
+        "description": "de locatiegegevens van de postLocatie",
+        "businessTerm": "Postlocatie locatiegegevens",
+        "businessDescription": "De locatiegegevens van de postLocatie"
       },
       "postHeeftBagNummeraanduiding": {
         "type": "object",
@@ -530,7 +591,9 @@
           }
         },
         "relation": "bag:nummeraanduidingen",
-        "description": "unieke identificatie van de BAG nummeraanduiding."
+        "description": "unieke identificatie van de BAG nummeraanduiding.",
+        "businessTerm": "Nummeraanduiding postlocatie",
+        "businessDescription": "Unieke identificatie van de BAG nummeraanduiding"
       },
       "postHeeftBagVerblijfsobject": {
         "type": "object",
@@ -543,7 +606,9 @@
           }
         },
         "relation": "bag:verblijfsobjecten",
-        "description": "unieke identificatie van de BAG verblijfsobject."
+        "description": "unieke identificatie van de BAG verblijfsobject.",
+        "businessTerm": "Verblijfsobject postlocatie",
+        "businessDescription": "Unieke identificatie van de BAG verblijfsobject"
       },
       "postHeeftBagLigplaats": {
         "type": "object",
@@ -556,7 +621,9 @@
           }
         },
         "relation": "bag:ligplaatsen",
-        "description": "unieke identificatie van de BAG ligplaats."
+        "description": "unieke identificatie van de BAG ligplaats.",
+        "businessTerm": "Ligplaats postlocatie",
+        "businessDescription": "Unieke identificatie van de BAG ligplaats"
       },
       "postHeeftBagStandplaats": {
         "type": "object",
@@ -569,7 +636,9 @@
           }
         },
         "relation": "bag:standplaatsen",
-        "description": "unieke identificatie van de BAG standplaats"
+        "description": "unieke identificatie van de BAG standplaats",
+        "businessTerm": "Standplaats postlocatie",
+        "businessDescription": "Unieke identificatie van de BAG standplaats"
       }
     }
   }

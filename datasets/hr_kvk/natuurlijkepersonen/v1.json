@@ -22,7 +22,9 @@
       },
       "identificatie": {
         "type": "string",
-        "description": "interne identificatie voor de natuurlijk persoon."
+        "description": "interne identificatie voor de natuurlijk persoon.",
+        "businessTerm": "Natuurlijk persoon ID",
+        "businessDescription": "Interne identificatie voor de Natuurlijke persoon (NPS)"
       },
       "bsn": {
         "type": "string",
@@ -30,15 +32,21 @@
       },
       "voorvoegselGeslachtsnaam": {
         "type": "string",
-        "description": "eventuele voorvoegsels van de naam van de NPS."
+        "description": "eventuele voorvoegsels van de naam van de NPS.",
+        "businessTerm": "Natuurlijk persoon geslachtsnaam voorvoegsel",
+        "businessDescription": "Het voorvoegsel van de geslachtsnaam van de Natuurlijk persoon"
       },
       "geslachtsnaam": {
         "type": "string",
-        "description": "geslachtsnaam van de NPS."
+        "description": "geslachtsnaam van de NPS.",
+        "businessTerm": "Natuurlijk persoon geslachtsnaam",
+        "businessDescription": "Geslachtsnaam van de Natuurlijk persoon"
       },
       "voornamen": {
         "type": "string",
-        "description": "voornaam of voornamen van de NPS."
+        "description": "voornaam of voornamen van de NPS.",
+        "businessTerm": "Natuurlijk persoon voornaam",
+        "businessDescription": "De voornaam of voornamen van de Natuurlijk persoon"
       },
       "geslachtsaanduiding": {
         "type": "string",
@@ -46,7 +54,9 @@
       },
       "volledigeNaam": {
         "type": "string",
-        "description": "volledige naam van de persoon (PRS)."
+        "description": "volledige naam van de persoon (PRS).",
+        "businessTerm": "Persoon volledige naam",
+        "businessDescription": "De volledige naam van de Natuurlijk Persoon (NPS)"
       },
       "geboortedatum": {
         "type": "object",
@@ -69,7 +79,9 @@
             "description": "dag van de datum, als deze bekend is."
           }
         },
-        "description": "geboortedatum van de NPS."
+        "description": "geboortedatum van de NPS.",
+        "businessTerm": "Natuurlijk persoon geboortedatum",
+        "businessDescription": "Geboortedatum van de Natuurlijk persoon"
       },
       "geboorteplaats": {
         "type": "string",
@@ -100,15 +112,21 @@
             "description": "dag van de datum, als deze bekend is."
           }
         },
-        "description": "overlijdensdatum van de NPS"
+        "description": "overlijdensdatum van de NPS",
+        "businessTerm": "Natuurlijk persoon overlijdensdatum",
+        "businessDescription": "De overlijdensdatum van de Natuurlijk persoon"
       },
       "schuldsanering": {
         "type": "boolean",
-        "description": "uitstel van betaling voor organisaties met tijdelijke financiële problemen."
+        "description": "uitstel van betaling voor organisaties met tijdelijke financiële problemen.",
+        "businessTerm": "Indicatie schuldsanering",
+        "businessDescription": "Zorgt ervoor dat de schuldenaar na verloop van zekere tijd bevrijd wordt van zijn schuldenlast, omdat de vorderingen van zijn schuldeisers niet langer afdwingbaar zijn. Een schuldsanering is alleen van toepassing op een natuurlijk persoon"
       },
       "surceanceVanBetaling": {
         "type": "boolean",
-        "description": "schuldsanering zorgt ervoor dat de schuldenaar na verloop van zekere tijd bevrijd wordt van zijn schuldenlast, omdat de vorderingen van zijn schuldeisers niet langer afdwingbaar zijn."
+        "description": "schuldsanering zorgt ervoor dat de schuldenaar na verloop van zekere tijd bevrijd wordt van zijn schuldenlast, omdat de vorderingen van zijn schuldeisers niet langer afdwingbaar zijn.",
+        "businessTerm": "Surceance van betaling indicatie",
+        "businessDescription": "Uitstel van betaling geldt vanaf het moment dat de rechter voorlopig uitstel van betaling heeft verleend tot het moment dat de (voorlopige of definitieve) surseance van betaling eindigt"
       },
       "faillisement": {
         "type": "boolean",
@@ -116,27 +134,39 @@
       },
       "status": {
         "type": "string",
-        "description": "status waarin de surseance verkeert, dit kan voorlopig of definitief zijn."
+        "description": "status waarin de surseance verkeert, dit kan voorlopig of definitief zijn.",
+        "businessTerm": "Surceance status code",
+        "businessDescription": "De status waarin de surseance verkeert, dit kan voorlopig of definitief zijn"
       },
       "duur": {
         "type": "integer",
-        "description": "duur van de periode (in maanden) waarvoor surseance van betaling geldt."
+        "description": "duur van de periode (in maanden) waarvoor surseance van betaling geldt.",
+        "businessTerm": "Surceance duur",
+        "businessDescription": "De duur van de periode (in maanden) waarvoor surseance van betaling geldt. Dit geldt alleen als de surceance van betaling definitief is"
       },
       "persoonRechtsvorm": {
         "type": "string",
-        "description": "rechtsvorm van de persoon."
+        "description": "rechtsvorm van de persoon.",
+        "businessTerm": "Persoon rechtsvorm omschrijving",
+        "businessDescription": "Rechtsvorm van de persoon, dus natuurlijke persoon of niet natuurlijke persoon"
       },
       "uitgebreideRechtsvorm": {
         "type": "string",
-        "description": "rechtsvorm van inschrijving aangevuld met informatie over structuur, rechtbevoegdeheid etc."
+        "description": "rechtsvorm van inschrijving aangevuld met informatie over structuur, rechtbevoegdeheid etc.",
+        "businessTerm": "Persoon rechtsvorm uitgebreide omschrijving",
+        "businessDescription": "Rechtsvorm van inschrijving aangevuld met informatie over structuur, rechtbevoegdheid etc"
       },
       "typePersoon": {
         "type": "string",
-        "description": "afgeleid veld: een natuurlijk (NPS) of niet-natuurlijk (NNP) persoon."
+        "description": "afgeleid veld: een natuurlijk (NPS) of niet-natuurlijk (NNP) persoon.",
+        "businessTerm": "Persoon type",
+        "businessDescription": "Type persoon"
       },
       "rol": {
         "type": "string",
-        "description": "afgeleid veld: de rol van de rechtspersoon (Eigenaar of Aansprakelijke)."
+        "description": "afgeleid veld: de rol van de rechtspersoon (Eigenaar of Aansprakelijke).",
+        "businessTerm": "Rol omschrijving",
+        "businessDescription": "De rol die een NPS vervult bij de maatschappelijke activiteit"
       },
       "heeftHrFunctievervullingen": {
         "type": "array",
@@ -144,7 +174,9 @@
           "type": "string"
         },
         "relation": "hrKvk:functievervullingen",
-        "description": "een NPS heeft geen, een of meer functievervullingen (FVV)."
+        "description": "een NPS heeft geen, een of meer functievervullingen (FVV).",
+        "businessTerm": "Functievervulling die de natuurlijke persoon heeft",
+        "businessDescription": "Een Natuurlijk Persoon (NPS) heeft geen, een of meerdere Functievervullingen (FVV)"
       }
     }
   }

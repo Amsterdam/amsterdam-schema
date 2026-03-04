@@ -27,18 +27,22 @@
       "identificatie": {
         "type": "string",
         "title": "Geo object ID",
-        "description": "De unieke identiteit van het geo-object"
+        "description": "De unieke identiteit van het geo-object",
+        "businessTerm": "Object ID",
+        "businessDescription": "De unieke identiteit van het geo-object."
       },
       "bronactualiteit": {
         "type": "string",
         "title": "Bron actualiteit datum",
         "format": "date",
-        "description": "De actualiteit van de gebruikte bron"
+        "description": "De actualiteit van de gebruikte bron",
+        "businessDescription": "De actualiteit van de gebruikte bron."
       },
       "bronbeschrijving": {
         "type": "string",
         "title": "Bron beschrijving",
-        "description": "De beschrijving van de gebruikte bron"
+        "description": "De beschrijving van de gebruikte bron",
+        "businessDescription": "De beschrijving van de gebruikte bron."
       },
       "bronnauwkeurigheid": {
         "type": "number",
@@ -48,13 +52,15 @@
       "brontype": {
         "type": "string",
         "title": "Bron type",
-        "description": "Het type van de gebruikte bron"
+        "description": "Het type van de gebruikte bron",
+        "businessDescription": "Het type van de gebruikte bron."
       },
       "objectBeginTijd": {
         "type": "string",
         "title": "Object geldigheid begintijd",
         "format": "date",
-        "description": "Tijdstip waarop het object ontstaan is"
+        "description": "Tijdstip waarop het object ontstaan is",
+        "businessDescription": "Tijdstip waarop het object ontstaan is."
       },
       "tijdstipRegistratie": {
         "type": "string",
@@ -65,12 +71,14 @@
       "visualisatieCode": {
         "type": "integer",
         "title": "Object visualisatie code",
-        "description": "Code voor het visualiseren van het object"
+        "description": "Code voor het visualiseren van het object",
+        "businessDescription": "Code voor het visualiseren van het object."
       },
       "tdnCode": {
         "type": "integer",
         "title": "Object TOP10vector code",
-        "description": "Code die het object in TOP10vector had"
+        "description": "Code die het object in TOP10vector had",
+        "businessDescription": "Code die het object in TOP10vector had."
       },
       "mutatietype": {
         "type": "string",
@@ -80,7 +88,8 @@
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
         "title": "Geometrie",
-        "description": "Geometrie"
+        "description": "Geometrie",
+        "businessDescription": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "naam": {
         "type": "string",
@@ -105,22 +114,26 @@
       "fysiekVoorkomen": {
         "type": "string",
         "title": "Object relatieve positie",
-        "description": "De plaats waar het object zich bevindt t.o.v. andere constructies"
+        "description": "De plaats waar het object zich bevindt t.o.v. andere constructies",
+        "businessDescription": "De plaats waar het object zich bevindt t.o.v. andere constructies."
       },
       "hoogteklasse": {
         "type": "string",
         "title": "Bebouwing hoogte klasse",
-        "description": "De klasse van hoogte waar de bebouwing toe behoort"
+        "description": "De klasse van hoogte waar de bebouwing toe behoort",
+        "businessDescription": "De klasse van hoogte waar de bebouwing toe behoort."
       },
       "hoogte": {
         "type": "number",
         "title": "Object relatieve hoogte ligging",
-        "description": "De hoogte van het object (t.o.v. het maaiveld of t.o.v. NAP)"
+        "description": "De hoogte van het object (t.o.v. het maaiveld of t.o.v. NAP)",
+        "businessDescription": "De hoogte van het object (t.o.v. het maaiveld of t.o.v. NAP)."
       },
       "type": {
         "type": "string",
         "title": "Gebouw type",
-        "description": "Het type gebouw, het doel waarvoor de bebouwing gebruikt wordt (gaat worden / werd)"
+        "description": "Het type gebouw, het doel waarvoor de bebouwing gebruikt wordt (gaat worden / werd)",
+        "businessDescription": "Het type gebouw, het doel waarvoor de bebouwing gebruikt wordt (gaat worden / werd)."
       },
       "gebruiksdoel": {
         "type": "string",
@@ -130,12 +143,14 @@
       "geometriePunt": {
         "$ref": "https://geojson.org/schema/Point.json",
         "title": "Punt geometrie",
-        "description": "Puntgeometrie"
+        "description": "Puntgeometrie",
+        "businessDescription": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "geometrieVlak": {
         "$ref": "https://geojson.org/schema/Polygon.json",
         "title": "Vlak geometrie",
-        "description": "Vlakgeometrie"
+        "description": "Vlakgeometrie",
+        "businessDescription": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
       }
     }
   }
