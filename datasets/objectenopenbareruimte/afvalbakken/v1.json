@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "status": "under_development",
   "title": "Afvalbakken",
-  "description": "In deze dataset staan de afvalbakken die opgesteld staan op pleinen en in de straten en parken van Amsterdam. Een rij in de tabel vertegenwoordigd een afvalbak en eigenschappen van die afvalbak. Onder andere vind je hier dimensies, inhoud, type en locatie van de bakken. De locatie is zowel administratief(nabij gelegen adres, buurt, wijk, stadsdeel etc.) als ruimtelijk(geometrie) geregistreerd.",
+  "description": "In deze tabel vind je de afvalbakken die opgesteld staan op pleinen, straten en in parken van Amsterdam. Éen rij in de tabel vertegenwoordigt één afvalbak en eigenschappen van die afvalbak. Let op, dit zijn dus níet de ondergrondse containers. Onder andere vind je hier afmetingen, inhoud, type en locatie van de afvalbakken. De locatie is zowel administratief (nabij gelegen adres, buurt, wijk, stadsdeel etc.) als ruimtelijk (geometrie) geregistreerd.",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -29,8 +29,8 @@
       },
       "naam": {
         "type": "string",
-        "description": "Naam van afvalbak",
-        "title": "Naam"
+        "description": "Naam van de afvalbak",
+        "title": "Naam afvalbak"
       },
       "actief": {
         "type": "string",
@@ -45,7 +45,7 @@
       "rdy": {
         "type": "string",
         "description": "Y coördinaat in RD New EPSG28992",
-        "title": "y coordinaat"
+        "title": "Y coordinaat"
       },
       "type": {
         "type": "string",
@@ -90,12 +90,12 @@
       "vervangingsprijs": {
         "type": "string",
         "description": "De vervangingsprijs van de afvalbak",
-        "title": "Vervangingsprijs"
+        "title": "Vervangingsprijs afvalbak"
       },
       "aanschafprijs": {
         "type": "string",
         "description": "De aanschafPrijs van de afvalbak",
-        "title": "Aanschafprijs"
+        "title": "Aanschafprijs afvalbak"
       },
       "aantal": {
         "type": "string",
@@ -104,22 +104,22 @@
       },
       "hoogte": {
         "type": "string",
-        "description": "Hoogte in cm.",
+        "description": "Hoogte in mm.",
         "title": "Hoogte"
       },
       "lengte": {
         "type": "string",
-        "description": "Lengte in cm.",
+        "description": "Lengte in mm.",
         "title": "Lengte"
       },
       "breedte": {
         "type": "string",
-        "description": "Breedte in cm.",
+        "description": "Breedte in mm.",
         "title": "Breedte"
       },
       "vervangingsprijsTotaal": {
         "type": "string",
-        "description": "",
+        "description": "Totala prijs die het kost om een afvalbak te vervangen.",
         "title": "Totale vervangingsprijs"
       },
       "inhoud": {
@@ -130,7 +130,9 @@
       "foto": {
         "type": "string",
         "description": "ABSweb URL die naar een foto van de afvalbak verwijst.",
-        "title": "Foto"
+        "title": "Foto",
+        "auth": ["FP/MDW", "FP/APPTIMIZE"],
+        "reasonsNonPublic": ["5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer" ]
       },
       "beheerder": {
         "type": "string",
