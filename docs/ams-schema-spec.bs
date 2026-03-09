@@ -324,6 +324,7 @@ Een <dfn dfn export>versie</dfn> binnen Amsterdam Schema is een JSON object met 
                     * "under_development"
                     * "stable"
                     * "superseded"
+                    * "deprecated" (vanaf metaschema versie 4.1.0)
             </details>
     <tr><td><dfn>enableAPI</dfn>   <td> boolean
         <td> Of deze versie van de dataset beschikbaar moet zijn in de DSO API.
@@ -354,19 +355,44 @@ Optionele attributen {#version-optional-fields}
 Naast bovenstaande verplichte attributen mag een [=versie=] ook de volgende eigenschappen bevatten.
 <table dfn-type="attribute" dfn-for=versie export class="dfn-table">
 <tr><td><dfn>releaseDate</dfn>   <td> {{date}}
-        <td> datum waarop de versie beschikbaar gemaakt is
+    <td> datum waarop de versie beschikbaar gemaakt is
 <tr><td><dfn>endSupportDate</dfn>   <td> {{date}}
-        <td> Verplicht indien {{versie/status}} de waarde "superseded" heeft
+    <td> Verplicht indien {{versie/status}} de waarde "superseded" heeft
+<tr><td><dfn>exports</dfn>   <td> array (object)
+    <td> Beschrijft de beschikbare exports voor deze versie van de dataset. Zie [[#version-exports]] voor de structuur en toelichting. Toegevoegd in metaschema v4.1.0.
 </table>
+
+
 Status {#version-status}
 --------------------------
-Een versie van een dataset dient een {{versie/status}} te hebben. Momenteel zijn de opties hiervoor 'under_development',
-'stable' of 'superseded'. Deze {{versie/status}} zegt iets over de stabiliteit van een versie van een dataset.
-Wanneer een versie 'stable' is, zullen er geen breaking changes meer plaatsvinden. Een versie met de status
-'under_development' is nog in ontwikkeling en kan tijdens deze periode nog veranderen. Wanneer een datasetversie de status
-'superseded' krijgt is deze vervangen voor een nieuwe versie en zal er in de {{versie/endSupportDate}} een datum opgenomen zijn tot
-wanneer deze versie ondersteund zal worden. In de browsable DSO API zal een melding getoond worden dat gebruikers over
-moeten stappen op een nieuwere versie.
+Een versie van een dataset dient een {{versie/status}} te hebben. Deze {{versie/status}} zegt iets over de stabiliteit van een versie van een dataset en het migratiepad voor gebruikers.
+De toegestane waarden zijn:
+
+* **under_development**: De versie is nog in ontwikkeling en kan tijdens deze periode nog veranderen. Er kunnen breaking changes plaatsvinden.
+* **stable**: De versie is stabiel. Er zullen geen breaking changes meer plaatsvinden.
+* **superseded**: De versie is vervangen door een nieuwere versie. In {{versie/endSupportDate}} wordt een datum opgenomen tot wanneer deze versie ondersteund zal worden. In de browsable DSO API wordt een melding getoond dat gebruikers moeten overstappen op een nieuwere versie.
+* **deprecated**: De versie wordt niet langer aanbevolen voor gebruik, maar kan nog tijdelijk beschikbaar zijn. De gebruiker wordt in de browsable DSO API gewaarschuwd dat deze versie op elk moment kan ophouden te bestaan.
+
+Exports {#version-exports}
+--------------------------------------------------------
+Een versie van een dataset kan een <dfn dfn export>exports</dfn> attribuut bevatten. Hiermee wordt beschreven welke exports beschikbaar dienen te zijn voor deze versie van de dataset.
+
+Het veld `exports` is een array van export-definities. Elke export-definitie bevat:
+
+* **name**: Naam van de export (bijvoorbeeld "all", "subset", "stadsdelen").
+* **tables**: De tabellen die geëxporteerd worden. Dit kan een array van tabelnamen zijn, of het speciale teken `"*"` voor alle tabellen.
+* **filetypes**: De bestandsformaten waarin de export beschikbaar is. Toegestane waarden zijn `"gpkg"`, `"geojson"`, `"csv"`, `"jsonl"`.
+* **scopes**: De toegestane scopes voor de export. Toegestane waarden zijn `"openbaar"` en `"fp/mdw"`.
+
+Alle velden zijn verplicht. Een voorbeeld van een exports-definitie:
+
+```json
+exports: [
+    { "name": "all", "tables": "*", "filetypes": ["csv", "geojson"], "scopes": ["openbaar", "fp/mdw"] },
+    { "name": "subset", "tables": ["stadsdelen", "wijken"], "filetypes": ["gpkg"], "scopes": ["openbaar"] },
+    { "name": "stadsdelen", "tables": ["stadsdelen"], "filetypes": ["gpkg", "jsonl"], "scopes": ["openbaar"] }
+]
+```
 
 <!--
 ████████    ███    ████████  ████████ ██
