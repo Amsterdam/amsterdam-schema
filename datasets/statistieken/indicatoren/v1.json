@@ -4,8 +4,9 @@
   "description": "Alle indicatoren (variabelen) en hun metadata",
   "type": "table",
   "version": "1.0.0",
+  "status": "stable",
   "schema": {
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "https://json-schema.org/draft/2020-12/json-schema-core.html",
     "type": "object",
     "additionalProperties": false,
     "identifier": [
@@ -22,7 +23,7 @@
     "display": "naam",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.1.0#/definitions/schema"
       },
       "naam": {
         "type": "string",
@@ -54,14 +55,6 @@
         "title": "beschrijving",
         "description": "Beschrijving en overige informatie over de indicator"
       },
-      "bron": {
-        "type": "array",
-        "title": "bron",
-        "description": "Herkomst van de indicator en bijhorende definitie",
-        "items": {
-          "type": "string"
-        }
-      },
       "thema": {
         "type": "array",
         "title": "thema",
@@ -76,14 +69,10 @@
         "description": "Eenheid waarin de indicator wordt uitgedrukt",
         "properties": {
           "naam": {
-            "type": "string",
-            "title": "naam",
-            "description": "Naam van eenheid"
+            "type": "string"
           },
           "symbool": {
-            "type": "string",
-            "title": "symbool",
-            "description": "Symbool van de eenheid"
+            "type": "string"
           }
         }
       },
@@ -103,21 +92,23 @@
         "description": "Status van de indicator. De indicator kan vervallen zijn en niet meer actief worden bijgehouden",
         "properties": {
           "vervallen": {
-            "type": "boolean",
-            "title": "vervallen",
-            "description": "Indicator of indicator is vervallen"
+            "type": "boolean"
           },
           "vervaldatum": {
             "type": "string",
-            "format": "date",
-            "title": "vervaldatum",
-            "description": "Datum, waarop de indicator is vervallen"
+            "format": "date"
           },
           "vervalreden": {
-            "type": "string",
-            "title": "vervalreden",
-            "description": "Reden, waarom de indicator is vervallen"
+            "type": "string"
           }
+        }
+      },
+      "bron": {
+        "type": "array",
+        "title": "bron",
+        "description": "Herkomst van de indicator en bijhorende definitie",
+        "items": {
+          "type": "string"
         }
       },
       "extraAttributen": {
@@ -127,6 +118,5 @@
         "description": "Vrij veld om aanvullende attributen met hun waarde op te slaan, die nodig kunnen zijn voor verdere visualisatie"
       }
     }
-  },
-  "status": "stable"
+  }
 }
