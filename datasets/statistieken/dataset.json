@@ -2,21 +2,22 @@
   "type": "dataset",
   "id": "statistieken",
   "title": "statistieken",
-  "description": "Gepubliceerde statistieken conform generiek model",
+  "description": "Statistieken van Onderzoek & Statistiek, gepubliceerd in een generieke model",
   "owner": "Gemeente Amsterdam",
   "publisher": {
     "$ref": "publishers/STAT"
   },
   "crs": "EPSG:28992",
   "creator": "Onderzoek en Statistiek",
+  "homepage": "https://onderzoek.amsterdam.nl",
   "auth": "OPENBAAR",
   "authorizationGrantor": "basisstatistiek.ois@amsterdam.nl",
   "defaultVersion": "v1",
   "versions": {
     "v1": {
+      "version": "1.0.0",
       "status": "stable",
       "enableAPI": true,
-      "version": "0.0.2",
       "tables": [
         {
           "id": "indicatoren",
@@ -27,10 +28,13 @@
           "$ref": "cijfers/v1"
         },
         {
-          "id": "toepassingen",
-          "$ref": "toepassingen/v1"
+          "id": "kengetallen",
+          "$ref": "kengetallen/v1"
         }
-      ]
+      ],
+    "exports": [
+      { "name": "all", "tables": "*", "filetypes": ["csv", "json"], "scopes": ["openbaar"] }
+    ]
     }
   }
 }
