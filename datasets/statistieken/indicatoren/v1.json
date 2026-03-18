@@ -1,32 +1,28 @@
 {
   "id": "indicatoren",
+  "title": "indicatoren",
+  "description": "Alle indicatoren (variabelen) en hun metadata",
   "type": "table",
   "version": "1.0.0",
-  "description": "Alle indicatoren (variabelen) en hun metadata",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
     "identifier": [
-      "id"
+      "naam"
     ],
     "required": [
       "schema",
-      "id",
       "naam",
       "label",
       "definitie",
-      "thema"
+      "thema",
+      "status"
     ],
     "display": "naam",
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
-      },
-      "id": {
-        "type": "integer",
-        "title": "id",
-        "description": "Unieke identificatie van de indicator"
       },
       "naam": {
         "type": "string",
@@ -58,66 +54,77 @@
         "title": "beschrijving",
         "description": "Beschrijving en overige informatie over de indicator"
       },
-      "berekening": {
-        "type": "string",
-        "title": "berekening",
-        "description": "Rekenformule, die is gebruikt om de waarde van de indicator te berekenen"
-      },
       "bron": {
-        "type": "string",
+        "type": "array",
         "title": "bron",
-        "description": "Herkomst van de indicator en bijhorende definitie"
+        "description": "Herkomst van de indicator en bijhorende definitie",
+        "items": {
+          "type": "string"
+        }
       },
       "thema": {
-        "type": "string",
+        "type": "array",
         "title": "thema",
-        "description": "Thematische indeling waaronder de indicator valt"
+        "description": "Thematische indeling waaronder de indicator valt",
+        "items": {
+          "type": "string"
+        }
       },
       "eenheid": {
-        "type": "string",
+        "type": "object",
         "title": "eenheid",
-        "description": "Eenheid waarin de indicator wordt uitgedrukt"
-      },
-      "symbool": {
-        "type": "string",
-        "title": "symbool",
-        "description": "Symbool, behorende bij de eenheid"
+        "description": "Eenheid waarin de indicator wordt uitgedrukt",
+        "properties": {
+          "naam": {
+            "type": "string",
+            "title": "naam",
+            "description": "Naam van eenheid"
+          },
+          "symbool": {
+            "type": "string",
+            "title": "symbool",
+            "description": "Symbool van de eenheid"
+          }
+        }
       },
       "decimalen": {
         "type": "integer",
         "title": "decimalen",
         "description": "Aantal decimalen, waarin de waarde van de indicator moet worden gepubliceerd"
       },
-      "dimensieNaam": {
-        "type": "string",
-        "title": "dimensieNaam",
-        "description": "Naam van de dimensie, waartoe de indicator behoort"
+      "privacygevoelig": {
+        "type": "boolean",
+        "title": "privacygevoelig",
+        "description": "Indicatie of indicator privacygevoelig is/kan zijn"
       },
-      "dimensieCode": {
-        "type": "string",
-        "title": "dimensieCode",
-        "description": "Code van de dimensie, waartoe de dimensie behoort"
-      },
-      "dimensieBeschrijving": {
-        "type": "string",
-        "title": "dimensieBeschrijving",
-        "description": "Beschrijving van de dimensie, waartoe de dimensie behoort"
+      "status": {
+        "type": "object",
+        "title": "status",
+        "description": "Status van de indicator. De indicator kan vervallen zijn en niet meer actief worden bijgehouden",
+        "properties": {
+          "vervallen": {
+            "type": "boolean",
+            "title": "vervallen",
+            "description": "Indicator of indicator is vervallen"
+          },
+          "vervaldatum": {
+            "type": "string",
+            "format": "date",
+            "title": "vervaldatum",
+            "description": "Datum, waarop de indicator is vervallen"
+          },
+          "vervalreden": {
+            "type": "string",
+            "title": "vervalreden",
+            "description": "Reden, waarom de indicator is vervallen"
+          }
+        }
       },
       "extraAttributen": {
         "type": "object",
         "format": "json",
         "title": "extraAttributen",
         "description": "Vrij veld om aanvullende attributen met hun waarde op te slaan, die nodig kunnen zijn voor verdere visualisatie"
-      },
-      "parent": {
-        "type": "string",
-        "title": "parent",
-        "description": "Naam van een indicator, waartoe de indicator behoort"
-      },
-      "verantwoordelijke": {
-        "type": "string",
-        "title": "verantwoordelijke",
-        "description": "Naam van het team binnen de organisatie, dat verantwoordelijk is voor de indicator"
       }
     }
   },
