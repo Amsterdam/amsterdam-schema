@@ -1,0 +1,152 @@
+{
+  "id": "wegingen",
+  "type": "table",
+  "version": "2.2.0",
+  "status": "stable",
+  "title": "Wegingen bij recyclepunten",
+  "description": "Deze tabel toont de gegevens van afvalwegingen bij recyclepunten in de gemeente Amsterdam. De wegingen zijn ingedeeld op type bezoeker: P (particulier), B (bedrijf) en G (gemeente). Elke regel vertegenwoordigt één bezoek aan een recyclepunt, met twee wegingen: één bij binnenkomst en één bij vertrek. De tabel bevat geen historische gegevens. Door alle rijen op te tellen, kan men zien hoeveel wegingen er hebben plaatsgevonden bij de recyclepunten Rozenburglaan (Oost), Seineweg (Nieuw-West), Henk Sneevlietweg (Nieuw-West) en Meerkerkdreef (Zuidoost). Daarnaast is aan de viercijferige postcode te zien uit welk deel van de stad het afval afkomstig is. Voor intern gebruik is aanvullende data beschikbaar, zoals productnummers, klantnummers, registratienummers en de volledige (zescijferige) postcode. De gegevens worden dagelijks bijgewerkt.",
+  "auth": "OPENBAAR",
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "Weging ID",
+        "description": "Uniek identificerend kenmerk van deze weging."
+      },
+      "weegbon": {
+        "type": "string",
+        "title": "Weegbon nummer",
+        "description": "Uniek nummer vanuit het registratiesysteem voor deze weging aan dit recyclepunt. Let op, hetzelfde weegbonnummer komt voor bij verschillende recyclepunten. Gebruik voor een unieke identificer 'id'."
+      },
+      "datumWeging": {
+        "type": "string",
+        "format": "date",
+        "title": "Weging datum",
+        "description": "Datum waarop de uitweging heeft plaatsgevonden."
+      },
+      "tijdIn": {
+        "type": "string",
+        "format": "time",
+        "title": "Inweging tijdstip",
+        "description": "Het tijdstip van aankomst bij het recyclepunt (de inweging)."
+      },
+      "tijdUit": {
+        "type": "string",
+        "format": "time",
+        "title": "Uitweging tijdstip",
+        "description": "Het tijdstip van vertrek van het recyclepunt (de uitweging)."
+      },
+      "inweging": {
+        "type": "integer",
+        "title": "Inweging gewicht",
+        "description": "Het gewicht van het voertuig bij aankomst bij het recyclepunt, in kilogrammen."
+      },
+      "uitweging": {
+        "type": "integer",
+        "title": "Uitweging gewicht",
+        "description": "Het gewicht van het voertuig bij vertrek van het recyclepunt, in kilogrammen."
+      },
+      "nettoGewicht": {
+        "type": "integer",
+        "title": "Netto gewicht",
+        "description": "Het verschil tussen de inweging en uitweging, in kilogrammen."
+      },
+      "locatieCode": {
+        "type": "string",
+        "title": "Recyclepunt code",
+        "description": "De code van het recyclepunt."
+      },
+      "locatieNaam": {
+        "type": "string",
+        "title": "Recyclepunt naam",
+        "description": "De naam van het recyclepunt."
+      },
+      "tariefgroepCode": {
+        "type": "string",
+        "title": "Tariefgroep code",
+        "description": "De code van de tariefgroep waarin deze weging valt. Dit kan zijn P voor particulier, B voor bedrijf, G voor gemeente of K voor kringloop."
+      },
+      "tariefgroepNaam": {
+        "type": "string",
+        "title": "Tariefgroep naam",
+        "description": "De naam van de tariefgroep waarin deze weging valt. Dit kan zijn particulier, bedrijf of gemeente."
+      },
+      "postcodeBezoeker": {
+        "type": "string",
+        "title": "Postcode-4 bezoeker",
+        "description": "De 4-cijferige postcode van bezoekers. Dit geeft een indicatie van waar in de stad het gebrachte afval komt."
+      },
+      "productOmschrijving": {
+        "type": "string",
+        "title": "Product omschrijving",
+        "description": "Omschrijving van het product dat naar het recyclepunt wordt gebracht. Bijvoorbeeld 'Grofvuil', 'Asbest' of 'Elektrische apparaten'.",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "productNummer": {
+        "type": "string",
+        "title": "Product nummer",
+        "description": "Het nummer dat bij het product hoort. Iedere productomschrijving heeft ook zijn eigen nummer.",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "postcode6Bezoeker": {
+        "type": "string",
+        "title": "Postcode-6 bezoeker",
+        "description": "De postcode van particuliere bezoekers bestaande uit 4 cijfers en 2 letters (1234AB).",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens"
+        ]
+      },
+      "klantNaam": {
+        "type": "string",
+        "title": "Klant naam",
+        "description": "Naam van de klant.",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 1c: Vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+        ]
+      },
+      "klantNummer": {
+        "type": "string",
+        "title": "Klant nummer",
+        "description": "Uniek nummer van de klant.",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 1c: Vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+        ]
+      },
+      "registratienummerUniwin": {
+        "type": "string",
+        "title": "Registratienummer Uniwin",
+        "description": "Het registratienummer van de klant binnen UniWin.",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 1c: Vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+        ]
+      },
+      "afvalstroomNummer": {
+        "type": "string",
+        "title": "Afvalstroom nummer",
+        "description": "Afvalstroomnummer, een unieke code voor de afvalstroom."
+      }
+    }
+  }
+}

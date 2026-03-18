@@ -1,4 +1,4 @@
-FROM python:3.9-bookworm
+FROM python:3.10-bookworm
 MAINTAINER datapunt@amsterdam.nl
 
 WORKDIR /app

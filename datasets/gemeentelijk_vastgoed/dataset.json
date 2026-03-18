@@ -1,0 +1,136 @@
+{
+  "id": "gemeentelijkVastgoed",
+  "type": "dataset",
+  "auth": "OPENBAAR",
+  "theme": [
+    "Gemeentelijk Vastgoed",
+    "Ruimte en Topografie"
+  ],
+  "homepage": "https://data.amsterdam.nl",
+  "owner": "Directie Gemeentelijk Vastgoed, Gemeente Amsterdam",
+  "spatialDescription": "Gemeente Amsterdam",
+  "title": "Gemeentelijk Vastgoed",
+  "language": "nl",
+  "dateCreated": "2024-12-09T00:00:00+01:00",
+  "license": "public",
+  "creator": "Datateam Stedelijke Ontwikkeling & Beheer (SO&B)",
+  "publisher": {
+    "$ref": "/publishers/SOEB"
+  },
+  "authorizationGrantor": "datateamsob@amsterdam.nl",
+  "description": "De dataset bevat gegevens van gebouwen en verhuurbare eenheden in beheer van de directie Gemeentelijk Vastgoed. Het gaat hierbij om gebouwobjecten in volledige eigendom of waar de gemeente Amsterdam een appartementsrecht heeft.",
+  "keywords": [
+    "vastgoed",
+    "gemeentelijk vastgoed",
+    "gebouwobjecten",
+    "gebouwobjecten uitgebreid",
+    "verhuurbare eenheden"
+  ],
+  "crs": "EPSG:28992",
+  "temporalUnit": "",
+  "defaultVersion": "v2",
+  "versions": {
+    "v1": {
+      "status": "stable",
+      "enableAPI": false,
+      "version": "1.0.0",
+      "exports": [
+        {
+          "name": "gebouwobjecten",
+          "filetypes": [
+            "csv",
+            "gpkg",
+            "geojson",
+            "jsonl"
+          ],
+          "scopes": [
+            "openbaar"
+          ],
+          "tables": [
+            "gebouwobjecten"
+          ]
+        },
+        {
+          "name": "gebouwobjecten_uitgebreid",
+          "filetypes": [
+            "csv",
+            "gpkg",
+            "geojson",
+            "jsonl"
+          ],
+          "scopes": [
+            "fp/mdw"
+          ],
+          "tables": [
+            "gebouwobjecten_uitgebreid"
+          ]
+        },
+        {
+          "name": "verhuurbare_eenheden",
+          "filetypes": [
+            "csv",
+            "gpkg",
+            "geojson",
+            "jsonl"
+          ],
+          "scopes": [
+            "openbaar"
+          ],
+          "tables": [
+            "verhuurbare_eenheden"
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "id": "gebouwobjecten",
+          "$ref": "gebouwobjecten/v1"
+        },
+        {
+          "id": "gebouwobjectenUitgebreid",
+          "$ref": "gebouwobjectenUitgebreid/v1"
+        },
+        {
+          "id": "verhuurbareEenheden",
+          "$ref": "verhuurbareEenheden/v1"
+        }
+      ]
+    },
+    "v2": {
+      "status": "stable",
+      "enableAPI": true,
+      "version": "2.0.0",
+      "exports": [
+        {
+          "name": "verhuurbare_eenheden",
+          "filetypes": [
+            "csv",
+            "gpkg",
+            "geojson",
+            "jsonl"
+          ],
+          "scopes": [
+            "openbaar"
+          ],
+          "tables": [
+            "verhuurbare_eenheden"
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "id": "gebouwobjecten",
+          "$ref": "gebouwobjecten/v1"
+        },
+        {
+          "id": "gebouwobjectenUitgebreid",
+          "$ref": "gebouwobjectenUitgebreid/v1"
+        },
+        {
+          "id": "verhuurbareEenheden",
+          "$ref": "verhuurbareEenheden/v2"
+        }
+      ]
+    }
+  }
+}
