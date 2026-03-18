@@ -1,0 +1,78 @@
+{
+  "id": "afvalregistraties",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Afvalregistraties",
+  "description": "In deze dataset staat informatie over afvalinzameling specifiek voor het 9 Straatjes project. Elke rij vertegenwoordigd een tijdstip waarop afval op een adres is opgehaald met daarbij het soort afval, het gewicht, aantal stuks, enz. PlanningsitemID is een sleutel naar planningsitems. Dagelijks wordt de data uit de bron 21South opgehaald.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "afvalregistratieId"
+    ],
+    "required": [
+      "schema",
+      "afvalregistratieId"
+    ],
+    "display": "afvalregistratieId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "afvalregistratieId": {
+        "title": "Afvalregistratie ID",
+        "description": "Unieke aanduiding van de afvalregistratie in vw_afvalregistratie in bronsysteem",
+        "type": "string"
+      },
+      "planningsitemId": {
+        "title": "Planningsitem ID",
+        "description": "Unieke aanduiding van het planning item in vw_planning_item in bronsysteem",
+        "type": "string"
+      },
+      "tijdstip": {
+        "title": "Tijdstip",
+        "description": "Tijdstip waarop inzameling heeft plaatsgevonden",
+        "type": "string",
+        "format": "date-time"
+      },
+      "datum": {
+        "title": "Datum",
+        "description": "Datum waarop inzameling heeft plaatsgevonden",
+        "type": "string",
+        "format": "date"
+      },
+      "aantal": {
+        "title": "Aantal",
+        "description": "Aantal stuks aangeboden afval",
+        "type": "integer"
+      },
+      "gewicht": {
+        "title": "Gewicht",
+        "description": "Gewicht aangeboden afval in kg.",
+        "type": "number"
+      },
+      "bagNummeraanduiding": {
+        "title": "Bag nummeraanduiding",
+        "description": "Unieke aanduiding van een BAG nummeraanduiding",
+        "type": "string"
+      },
+      "wagennummer": {
+        "title": "Wagennummer",
+        "description": "Nummer of naam van het inzamelvoertuig",
+        "type": "string"
+      },
+      "fractieCode": {
+        "title": "Fractie code",
+        "description": "Code van het soort/ fractie van het aangeboden afval",
+        "type": "string"
+      },
+      "fractieNaam": {
+        "title": "Fractie naam",
+        "description": "Naam van het soort/ fractie van het aangeboden afval",
+        "type": "string"
+      }
+    }
+  }
+}

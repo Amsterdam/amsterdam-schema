@@ -1,0 +1,136 @@
+{
+  "id": "metadata2024",
+  "version": "1.0.0",
+  "type": "table",
+  "status": "stable",
+  "title": "Metadata van Puntenwolk",
+  "description": "Deze tabel bevat de metadata van de dataset puntenwolk",
+  "identifier": "id",
+  "auth": "OPENBAAR",
+  "license": "CC BY-NC",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke identificatie van het object.",
+        "title": "Identificatie"
+      },
+      "fileName": {
+        "type": "string",
+        "description": "De naam van het verwerkte LAZ-bestand.",
+        "title": "Bestandsnaam"
+      },
+      "provider": {
+        "type": "string",
+        "description": "De naam van de provider (leverancier) van het LiDAR-bestand, afgeleid van de mapstructuur.",
+        "title": "Provider"
+      },
+      "url": {
+        "type": "string",
+        "description": "URL naar de locatie waarin het bestand zich bevindt.",
+        "title": "Bestandslocatie"
+      },
+      "fileSizeMb": {
+        "type": "number",
+        "description": "De grootte van het bestand in megabytes.",
+        "title": "Bestandsgrootte (MB)"
+      },
+      "aantalPunten": {
+        "type": "integer",
+        "description": "Het totale aantal punten in het las bestand.",
+        "title": "Aantal punten"
+      },
+      "xScale": {
+        "type": "number",
+        "description": "De schaalfactor voor de X-coördinaat.",
+        "title": "X-schaal"
+      },
+      "yScale": {
+        "type": "number",
+        "description": "De schaalfactor voor de Y-coördinaat.",
+        "title": "Y-schaal"
+      },
+      "zScale": {
+        "type": "number",
+        "description": "De schaalfactor voor de Z-coördinaat.",
+        "title": "Z-schaal"
+      },
+      "minX": {
+        "type": "number",
+        "description": "De minimum X-coördinaat van de bounding box van de puntenwolk.",
+        "title": "Minimum X"
+      },
+      "minY": {
+        "type": "number",
+        "description": "De minimum Y-coördinaat van de bounding box van de puntenwolk.",
+        "title": "Minimum Y"
+      },
+      "minZ": {
+        "type": "number",
+        "description": "De minimum Z-coördinaat van de bounding box van de puntenwolk.",
+        "title": "Minimum Z"
+      },
+      "maxX": {
+        "type": "number",
+        "description": "De maximum X-coördinaat van de bounding box van de puntenwolk.",
+        "title": "Maximum X"
+      },
+      "maxY": {
+        "type": "number",
+        "description": "De maximum Y-coördinaat van de bounding box van de puntenwolk.",
+        "title": "Maximum Y"
+      },
+      "maxZ": {
+        "type": "number",
+        "description": "De maximum Z-coördinaat van de bounding box van de puntenwolk.",
+        "title": "Maximum Z"
+      },
+      "geometrie": {
+        "description": "Geometrie van het type POLYGON, afgeleid van de coördinaten in de bestandsnaam in RD (epsg:28992).",
+        "title": "Geometrie RD",
+        "$ref": "https://geojson.org/schema/Polygon.json"
+      },
+      "geometrieWgs84": {
+        "type": "string",
+        "description": "Geometrie van het type POLYGON, afgeleid van de coördinaten in de bestandsnaam in WGS84 (epsg:4326).",
+        "title": "Geometrie WGS84"
+      },
+      "buurtIdentificaties": {
+        "type": "array",
+        "description": "Unieke identificatie(s) van het object",
+        "title": "Object ID's",
+        "items": {
+          "type": "string"
+        }
+      },
+      "buurtCodes": {
+        "type": "array",
+        "description": "Unieke code(s) van het object",
+        "title": "Object codes",
+        "items": {
+          "type": "string"
+        }
+      },
+      "buurtVolgnummers": {
+        "type": "array",
+        "description": "Unieke volgnujmmer(s) van het object",
+        "title": "Object volgnummers",
+        "items": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

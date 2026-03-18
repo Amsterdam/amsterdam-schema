@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.data.amsterdam.nl/dataset-version@v4.0.0",
+  "type": "object",
+  "required": [
+    "enableAPI",
+    "status",
+    "tables",
+    "version"
+  ],
+  "properties": {
+    "enableAPI": {
+      "type": "boolean"
+    },
+    "status": {
+      "description": "de status die iets zegt over de stabiliteit van de versie van een dataset. Een versie met de status 'under_development' kan nog wijzigen, wanneer deze 'stable' is kunnen er geen breaking changes meer in plaatsvinden.",
+      "type": "string",
+      "enum": [
+        "under_development",
+        "stable",
+        "superseded"
+      ]
+    },
+    "releaseDate": {
+      "description": "de datum waarop een versie van een datatset stopt gepubliceerd is.",
+      "type": "string",
+      "format": "date"
+    },
+    "endSupportDate": {
+      "description": "de datum waarop de ondersteuning voor de versie van een datatset stopt.",
+      "type": "string",
+      "format": "date"
+    },
+    "tables": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "./table@v4.0.0"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "$ref": {
+                "type": "string",
+                "format": "uri-reference"
+              },
+              "id": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "version": {
+      "$ref": "./schema@v4.0.0#/definitions/version"
+    }
+  }
+}
