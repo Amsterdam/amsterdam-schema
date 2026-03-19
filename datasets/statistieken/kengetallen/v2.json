@@ -1,0 +1,59 @@
+{
+  "id": "kengetallen",
+  "type": "table",
+  "version": "2.0.0",
+  "status": "under_development",
+  "description": "De spreidings- en centrummaten van de cijfers",
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/json-schema-core.html",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "indicator",
+      "jaartal",
+      "begindatum"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.1.0#/definitions/schema"
+      },
+      "indicator": {
+        "type": "string",
+        "title": "indicator",
+        "description": "Naam van de indicator waarop het kengetal betrekking heeft",
+        "relation": "statistieken:indicatoren"
+      },
+      "jaartal": {
+        "type": "integer",
+        "title": "jaartal",
+        "description": "Jaar waarop het kengetal betrekking heeft"
+      },
+      "begindatum": {
+        "type": "string",
+        "format": "date",
+        "title": "begindatum",
+        "description": "Begindatum waarop de tijddimensie is begonnen"
+      },
+      "gebiedstype": {
+        "type": "string",
+        "title": "gebiedstype",
+        "description": "Gebiedstype, die als bron dient voor de kengetallen"
+      },
+      "gemiddelde": {
+        "type": "number",
+        "title": "gemiddelde",
+        "description": "Berekende gemiddelde van de indicator / begindatum"
+      },
+      "standaarddeviatie": {
+        "type": "number",
+        "title": "standaarddeviatie",
+        "description": "Berekende standaarddeviatie van de indicator / begindatum"
+      }
+    }
+  }
+}
