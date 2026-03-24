@@ -1,8 +1,10 @@
 {
   "id": "cijfers",
-  "type": "table",
-  "version": "1.0.0",
+  "title": "cijfers",
   "description": "Alle cijfers, gerelateerd aan de bijhorende indicatoren en dimensies",
+  "type": "table",
+  "version": "2.0.0",
+  "status": "under_development",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -13,10 +15,10 @@
     "required": [
       "schema",
       "id",
-      "ruimtelijkeDimensieType",
-      "ruimtelijkeDimensieCode",
-      "ruimtelijkeDimensieNaam",
-      "temporeleDimensieType",
+      "gebiedstype",
+      "gebiedsdatum",
+      "gebiedscode",
+      "type",
       "begindatum",
       "einddatum",
       "indicator",
@@ -25,55 +27,61 @@
     "display": "id",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.1.0#/definitions/schema"
       },
       "id": {
         "type": "integer",
         "title": "id",
         "description": "Unieke identificatie van het cijfer i.c.m. de bijhorende indicator en dimensies"
       },
-      "ruimtelijkeDimensieType": {
+      "gebiedstype": {
         "type": "string",
-        "title": "ruimtelijkeDimensieType",
+        "title": "gebiedstype",
         "description": "Type ruimtelijke indeling"
       },
-      "ruimtelijkeDimensieDatum": {
+      "gebiedsdatum": {
         "type": "string",
         "format": "date",
-        "title": "ruimtelijkeDimensieDatum",
+        "title": "gebiedsdatum",
         "description": "Datum waarop de ruimtelijke indeling van kracht is geworden"
       },
-      "ruimtelijkeDimensieCode": {
+      "gebiedscode": {
         "type": "string",
-        "title": "ruimtelijkeDimensieCode",
+        "title": "gebiedscode",
         "description": "Unieke code van de ruimtelijke indeling binnen hetzelfde type en datum"
       },
-      "ruimtelijkeDimensieNaam": {
+      "gebiedsnaam": {
         "type": "string",
-        "title": "ruimtelijkeDimensieNaam",
+        "title": "gebiedsnaam",
         "description": "Unieke naam van de ruimtelijke indeling binnen hetzelfde type en datum"
       },
-      "temporeleDimensieType": {
+      "tijdseenheid": {
         "type": "string",
-        "title": "temporeleDimensieType",
-        "description": "Type van de tijddimensie. Dit kan een vaste peildatum zijn of een periode"
+        "title": "tijdseenheid",
+        "description": "Eenheid van de tijddimensie. Dit kan een vaste peildatum zijn of een periode"
+      },
+      "jaartal": {
+        "type": "integer",
+        "title": "jaartal",
+        "description": "Jaar waarop het cijfer betrekking heeft"
       },
       "begindatum": {
         "type": "string",
-        "format": "date-time",
+        "format": "date",
         "title": "begindatum",
         "description": "Begindatum waarop de tijddimensie is begonnen"
       },
       "einddatum": {
         "type": "string",
-        "format": "date-time",
+        "format": "date",
         "title": "einddatum",
         "description": "Einddatum waarop de tijddimensie is geëindigd"
       },
       "indicator": {
         "type": "string",
         "title": "indicator",
-        "description": "Naam van de indicator waarop het cijfer betrekking heeft"
+        "description": "Naam van de indicator waarop het cijfer betrekking heeft",
+        "relation": "statistieken:indicatoren"
       },
       "waarde": {
         "type": "number",
@@ -81,6 +89,5 @@
         "description": "Waarde van het cijfer met het aantal decimalen, zoals vastgelegd bij de indicator"
       }
     }
-  },
-  "status": "stable"
+  }
 }

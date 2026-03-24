@@ -1,32 +1,29 @@
 {
   "id": "indicatoren",
-  "type": "table",
-  "version": "1.0.0",
+  "title": "indicatoren",
   "description": "Alle indicatoren (variabelen) en hun metadata",
+  "type": "table",
+  "version": "2.0.0",
+  "status": "under_development",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
     "identifier": [
-      "id"
+      "naam"
     ],
     "required": [
       "schema",
-      "id",
       "naam",
       "label",
       "definitie",
-      "thema"
+      "thema",
+      "status"
     ],
     "display": "naam",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
-      },
-      "id": {
-        "type": "integer",
-        "title": "id",
-        "description": "Unieke identificatie van de indicator"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.1.0#/definitions/schema"
       },
       "naam": {
         "type": "string",
@@ -58,68 +55,68 @@
         "title": "beschrijving",
         "description": "Beschrijving en overige informatie over de indicator"
       },
-      "berekening": {
-        "type": "string",
-        "title": "berekening",
-        "description": "Rekenformule, die is gebruikt om de waarde van de indicator te berekenen"
-      },
-      "bron": {
-        "type": "string",
-        "title": "bron",
-        "description": "Herkomst van de indicator en bijhorende definitie"
-      },
       "thema": {
-        "type": "string",
+        "type": "array",
         "title": "thema",
-        "description": "Thematische indeling waaronder de indicator valt"
+        "description": "Thematische indeling waaronder de indicator valt",
+        "items": {
+          "type": "string"
+        }
       },
       "eenheid": {
-        "type": "string",
+        "type": "object",
         "title": "eenheid",
-        "description": "Eenheid waarin de indicator wordt uitgedrukt"
-      },
-      "symbool": {
-        "type": "string",
-        "title": "symbool",
-        "description": "Symbool, behorende bij de eenheid"
+        "description": "Eenheid waarin de indicator wordt uitgedrukt",
+        "properties": {
+          "naam": {
+            "type": "string"
+          },
+          "symbool": {
+            "type": "string"
+          }
+        }
       },
       "decimalen": {
         "type": "integer",
         "title": "decimalen",
         "description": "Aantal decimalen, waarin de waarde van de indicator moet worden gepubliceerd"
       },
-      "dimensieNaam": {
-        "type": "string",
-        "title": "dimensieNaam",
-        "description": "Naam van de dimensie, waartoe de indicator behoort"
+      "privacygevoelig": {
+        "type": "boolean",
+        "title": "privacygevoelig",
+        "description": "Indicatie of indicator privacygevoelig is/kan zijn"
       },
-      "dimensieCode": {
-        "type": "string",
-        "title": "dimensieCode",
-        "description": "Code van de dimensie, waartoe de dimensie behoort"
+      "status": {
+        "type": "object",
+        "title": "status",
+        "description": "Status van de indicator. De indicator kan vervallen zijn en niet meer actief worden bijgehouden",
+        "properties": {
+          "vervallen": {
+            "type": "boolean"
+          },
+          "vervaldatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "vervalreden": {
+            "type": "string"
+          }
+        }
       },
-      "dimensieBeschrijving": {
-        "type": "string",
-        "title": "dimensieBeschrijving",
-        "description": "Beschrijving van de dimensie, waartoe de dimensie behoort"
+      "bron": {
+        "type": "array",
+        "title": "bron",
+        "description": "Herkomst van de indicator en bijhorende definitie",
+        "items": {
+          "type": "string"
+        }
       },
       "extraAttributen": {
         "type": "object",
         "format": "json",
         "title": "extraAttributen",
         "description": "Vrij veld om aanvullende attributen met hun waarde op te slaan, die nodig kunnen zijn voor verdere visualisatie"
-      },
-      "parent": {
-        "type": "string",
-        "title": "parent",
-        "description": "Naam van een indicator, waartoe de indicator behoort"
-      },
-      "verantwoordelijke": {
-        "type": "string",
-        "title": "verantwoordelijke",
-        "description": "Naam van het team binnen de organisatie, dat verantwoordelijk is voor de indicator"
       }
     }
-  },
-  "status": "stable"
+  }
 }
