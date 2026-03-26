@@ -56,16 +56,16 @@ repos:
     rev: "v9.1.16"
     hooks:
       - id: validate-schema
-        args: ['https://schemas.data.amsterdam.nl/schema@v4.0.0']
+        args: ['https://schemas.data.amsterdam.nl/schema@v4.1.0']
         files: '^datasets/.*\.json$'
         verbose: true # so we can see against which metaschema it is valid
         exclude: "^schema@.+" # exclude meta schemas
       - id: validate-publishers
-        args: ['https://schemas.data.amsterdam.nl/schema@v4.0.0', '--schema-url', './publishers']
+        args: ['https://schemas.data.amsterdam.nl/schema@v4.1.0', '--schema-url', './publishers']
         files: '^publishers/.*\.json$'
         verbose: true # so we can see against which metaschema it is valid
       - id: validate-scopes
-        args: ['https://schemas.data.amsterdam.nl/schema@v4.0.0', '--schema-url', './scopes']
+        args: ['https://schemas.data.amsterdam.nl/schema@v4.1.0', '--schema-url', './scopes']
         files: '^scopes/.*\.json$'
         verbose: true # so we can see against which metaschema it is valid
   - repo: local
