@@ -1,7 +1,7 @@
 {
   "id": "brkbasis",
   "type": "table",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "status": "stable",
   "crs": "EPSG:28992",
   "owner": "Gemeente Amsterdam",
@@ -423,16 +423,21 @@
           "5.1 2e: Zwaarwegend belang: eerbiediging van de persoonlijke levenssfeer"
         ]
       },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Vlak geometrie",
+        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
+      },  
       "geometriePunt": {
         "$ref": "https://geojson.org/schema/Point.json",
         "title": "Punt geometrie",
-        "description": "Puntgeometrie van het kadastrale object in het stelsel van de Rijksdriehoeksmeting (RD)"
+        "description": "Vorm en ligging van het puntobject in het stelsel van de Rijksdriehoekmeting (RD)"
       },
       "geometrieVlak": {
         "$ref": "https://geojson.org/schema/Polygon.json",
         "title": "Vlak geometrie",
-        "description": "Vlakgeometrie van het kadastrale object in het stelsel van de Rijksdriehoeksmeting (RD)"
-      }
+        "description": "Vorm en ligging van het vlakobject in het stelsel van de Rijksdriehoekmeting (RD)"
+      }    
     }
   }
 }
