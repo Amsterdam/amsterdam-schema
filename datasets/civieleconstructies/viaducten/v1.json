@@ -1,1 +1,200 @@
-
+{
+  "id": "viaducten",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Viaducten",
+  "description": "De tabel viaducten bevat informatie over viaducten die in beheer zijn van de gemeente Amsterdam. Elke rij in de tabel vertegenwoordigt één viaduct met onder andere gegevens over locatie (geometrie in RD-coördinaten), beheer, route waarop deze ligt, en de constructie zelf. Het totaal aantal rijen in de tabel is gelijk aan het aantal viaducten die operationeel zijn en waarvoor beheer- en onderhoudsverantwoordelijkheden zijn toegewezen. De dataset bevat geen historische gegevens. Het veld id fungeert als uniek veld en het veld objectnummer worden gebruikt om deze dataset te koppelen aan andere datasets, zoals onderhoudsplanningen. De gegevens worden dagelijks bijgewerkt van GISIB, het centrale assetmanagementsysteem van Gemeente Amsterdam.",
+  "identifier": "id",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "objectnaam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "title": "Id",
+        "description": "Unieke aanduiding van record."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Geometry.json",
+        "title": "Geometrie", 
+        "description": "Aanduiding voor de geometrie van een beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992). bevat polygonen."
+      },            
+      "aantalDoorvaarten": {
+        "type": "integer",
+        "title": "Aantal doorvaarten",
+        "description": "nog te definiëren"
+      },
+       "aantalOverspanningen": {
+        "type": "integer",
+        "title": "Aantal overspanningen",
+        "description": "De hoeveelheid ruimtes die door een dragend constructiedeel wordenoverbrugd als onderdeel van het object."
+      },
+       "beheerafspraak": {
+        "type": "string",
+        "title": "Beheerafspraak",
+        "description": "Attribuut voor het vermelden van aanvullende afspraken over het beheer van een object of voor het vermelden van specificaties van de beheersituatie van een object."
+      },
+      "beheerder": {
+        "type": "string",
+        "title": "Beheerder",
+        "description": "Een publiekrechtelijke instantie of (rechts)persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT)."
+      },
+      "beheerderGedetailleerd": {
+        "type": "string",
+        "title": "Beheerder gedetailleerd",
+        "description": "Nadere aanduiding van de beheerder van het beheerobject"
+      },
+      "beheerdergebied": {
+        "type": "string",
+        "title": "Beheerdergebied",
+        "description": "Aanduiding van het beheergebied waarbinnen het beheerobject ligt. Indeling in beheergebieden is organisatiespecifiek."
+      },
+      "brughoogte": {
+        "type": "number",
+        "title": "Brughoogte",
+        "description": "nog te definiëren"
+      },
+      "doorrijbreedte": {
+        "type": "number",
+        "title": "Doorrijbreedte",
+        "description": "Doorrijbreedte van een object of van een opening van het object."
+      },
+      "doorrijhoogte": {
+        "type": "number",
+        "title": "Doorrijhoogte",
+        "description": "Doorrijhoogte onder een object of onder een opening van het object."
+      },
+      "doorvaartbreedte": {
+        "type": "number",
+        "title": "Doorvaartbreedte",
+        "description": "De maximale doorlaatbare breedte van de vaarwegverbinding binnen het object of van een opening van het object."
+      },
+      "doorvaarthoogte": {
+        "type": "number",
+        "title": "Doorvaarthoogte",
+        "description": "Brughoogte onderkant brug in het midden van de doorvaart t.o.v. NAP."
+      },
+      "eigenaar": {
+        "type": "string",
+        "title": "Eigenaar",
+        "description": "(Rechts)persoon die het meest omvattend recht op een zaak heeft . De typen eigenaren zijn conform de indeling in bronhouders (BGT)."
+      },
+      "fundering": {
+        "type": "string",
+        "title": "Fundering",
+        "description": "Ondersteuning van het object via de ondergrond."
+      },
+      "hoofddraagconstructie": {
+        "type": "string",
+        "title": "Hoofddraagconstructie",
+        "description": "Primaire dragende constructie van een kunstwerk dat optredende belasting opneemt. (Bron: NEN 2767-4)."
+      },
+      "hoofdroute": {
+        "type": "string",
+        "title": "Hoofdroute",
+        "description": "Naam van de hoofdroute waarbinnen het object ligt."
+      },      
+      "hoofdvaarroute": {
+        "type": "string",
+        "title": "Hoofdvaarroute",
+        "description": "Naam van de hoofdvaarroute waarbinnen het object ligt."
+      },
+      "jaarVanAanleg": {
+        "type": "integer",
+        "title": "Jaar van aanleg",
+        "description": "Jaar waarin het beheerobject is aangelegd of aangeplant (kan ook voor de plaatsingsdatum gebruikt worden)."
+      },
+      "modaliteit": {
+        "type": "string",
+        "title": "Modaliteit",
+        "description": "Verkeersdeelnemers, of vervoermiddel, die gebruik maakt van of zich voortbeweegt over het object."
+      },
+      "nenConditiescore": {
+        "type": "integer",
+        "title": "NEN Conditiescore",
+        "description": "Nog te definiëren."
+      },
+      "nenTypeBeheerobject": {
+        "type": "string",
+        "title": "NEN Type Beheerobject",
+        "description": "Registratie van de versie van NEN2767 die van toepassing is en gebruikt wordt."
+      },
+      "objectnaam": {
+        "type": "string",
+        "title": "Beheerobject naam",
+        "description": "Naam van het beheerobject."
+      },
+      "objectnummer": {
+        "type": "string",
+        "title": "Objectnummer",
+        "description": "Nummer van het beheerobject, door de organisatie zelf in te delen."
+      },
+      "objecttype": {
+        "type": "string",
+        "title": "Objecttype",
+        "description": "Aanduiding voor de registratie van concrete klassen waar vaste gegevens in de vorm van attributen beschreven worden."
+      },
+      "onderhoudsplichtige": {
+        "type": "string",
+        "title": "Onderhoudsplichtige",
+        "description": "Organisatie die verantwoordelijk is voor het onderhoud van het beheerobject."
+      },
+      "openbareRuimte": {
+        "type": "string",
+        "title": "Openbare ruimte",
+        "description": "Aanduiding van de openbare ruimte, zoals gedefinieerd in IMGeo of in de BAG, waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met grenzen openbare ruimtes of uit de Basisregistraties voor Adressen en Gebouwen (zonder begrenzing)."
+      },
+      "oppervlakte": {
+        "type": "number",
+        "title": "Oppervlakte",
+        "description": "Oppervlakte van het beheerobject, overname van BGT/IMGeo."
+      },
+      "oppervlakteGis": {
+        "type": "number",
+        "title": "Oppervlakte GIS",
+        "description": "Oppervlakte van de shape van het beheerobject."
+      },
+      "stadsdeelOfKern": {
+        "type": "string",
+        "title": "Stadsdeel of kern",
+        "description": "Naam van het stadsdeel waarbinnen het beheerobject ligt."
+      },
+      "straatnaamOudeBeheergegevens": {
+        "type": "string",
+        "title": "Straatnaam oude beheergegevens",
+        "description": "Een straatnaam of hodoniem is een naam om openbare ruimten als straten, lanen, wegen en stegen mee aan te duiden."
+      },
+      "type": {
+        "type": "string",
+        "title": "type",
+        "description": "Omschrijving van de inhoud van het informatieobject."
+      },
+      "typeGedetailleerd": {
+        "type": "string",
+        "title": "Type gedetailleerd",
+        "description": "Nadere typering van het type beheerobject."
+      },
+      "typeMonument": {
+        "type": "string",
+        "title": "Type monument",
+        "description": "Categorisering van de wijze waarop het object monumentaal is."
+      },
+      "verkeersnet": {
+        "type": "string",
+        "title": "Verkeerstnet",
+        "description": "nog te definiëren"
+      }
+    }
+  }
+}
