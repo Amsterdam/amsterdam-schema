@@ -1,7 +1,7 @@
 {
   "id": "kapenherplant",
   "type": "table",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "status": "stable",
   "title": "kap en herplant van de bomen",
   "description": "Het kappen van bomen omvat het verwijderen van bomen uit een gebied. Herplanten van bomen betekent dat nieuwe bomen op de gekapte locatie worden geplant.",
@@ -374,9 +374,6 @@
         "title": "Plantlijst bomen",
         "type": "string",
         "description": "Naam van de plantlijst (batch te planten bomen die in opdracht is gegeven door V&OR)",
-        "auth": "FP/MDW",
-        "reasonsNonPublic": [
-          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
         ]
       },
       "plantlocatie": {
@@ -536,6 +533,29 @@
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
         ]
       }
+	  "InhoudBesluitVergunningKap": {
+	  "title": "Inhoud besluit vergunning kap",
+        "type": "string",
+        "description": "Status van de aangevraagde kapvergunning.",
+		"enum": [
+          "Verleend",
+		  "Verleend met directe inwerktreding",
+		  "Geweigerd",
+		  "Ingetrokken",
+		  "Buiten behandeling gesteld"
+        ]
+	  }
+	   "TechnischOnderzoekResultaat": {
+	  "title": "Technisch onderzoek resultaat",
+        "type": "string",
+        "description": "Resultaat van het bodemonderzoek.",
+		"enum": [
+          "1 - Doorgaan",
+		  "2 - Extra actie",
+		  "3 - Aancullend onderzoek",
+		  "4 - Informatie niet beschikbaar"
+        ]
+	  }
     }
   }
 }
