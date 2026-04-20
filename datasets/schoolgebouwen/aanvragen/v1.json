@@ -1,0 +1,50 @@
+{
+  "id": "aanvragen",
+  "type": "table",
+  "title": "aanvragen",
+  "description": "Aanvragen voor onderwijshuisvesting,",
+  "version": "1.0.0",
+  "status": "under_development",
+  "auth":"OHV/OHP/Fin",
+  "reasonsNonPublic": [
+    "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+  ],
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+      "schema"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "title": "Surrogate ID aanvraag",
+        "description": "Unieke identificatiecode van een kengetal, gebruikt binnen Databricks om een specifieke kengetal eenduidig te identificeren."
+      },
+      "aanvraagId": {
+        "type": "string",
+        "title": "Business key aanvraag",
+        "description": "Business key van de aanvraag"
+      },
+      "aanvraagNummer": {
+        "type": "string",
+        "title": "Aanvraagnummer",
+        "description": "Aanvraagnummer uit de bronapplicatie"
+      },
+      "aanvraagBedrag": {
+        "type": "string",
+        "title": "Bedrag van de aanvraag",
+        "description": "Unieke identificatiecode van de kengetal vanuit de bronapplicatie"
+      },
+      "aanvraagAccommodatieId": {
+        "type": "string",
+        "title": "Acccommodatie ID van de aanvraag",
+        "description": "Unieke identificatiecode van de kengetal vanuit de bronapplicatie"
+      }
+    }
+  }
+}
