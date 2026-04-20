@@ -15,9 +15,7 @@
     "required": [
       "schema",
       "id",
-      "gebiedstype",
-      "gebiedsdatum",
-      "gebiedscode",
+      "gebied",
       "type",
       "begindatum",
       "einddatum",
@@ -34,53 +32,60 @@
         "title": "id",
         "description": "Unieke identificatie van het cijfer i.c.m. de bijhorende indicator en dimensies"
       },
-      "gebiedstype": {
-        "type": "string",
-        "title": "gebiedstype",
-        "description": "Type ruimtelijke indeling"
+      "gebied": {
+        "type": "object",
+        "title": "gebied",
+        "description": "Ruimtelijke dimensie, waarop het cijfer betrekking heeft",
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "gebiedstype",
+            "description": "Type ruimtelijke dimensie"
+          },
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "title": "gebiedsdatum",
+            "description": "Datum, waarop de ruimtelijke dimensie van kracht is geworden"
+          },
+          "code": {
+            "type": "string",
+            "title": "gebiedscode",
+            "description": "Unieke code van de ruimtelijke dimensie binnen hetzelfde type en datum"
+          },
+          "naam": {
+            "type": "string",
+            "title": "gebiedsnaam",
+            "description": "Unieke naam van de ruimtelijke dimensie binnen hetzelfde type en datum"
+          }
+        }
       },
-      "gebiedsdatum": {
+      "tijdType": {
         "type": "string",
-        "format": "date",
-        "title": "gebiedsdatum",
-        "description": "Datum waarop de ruimtelijke indeling van kracht is geworden"
-      },
-      "gebiedscode": {
-        "type": "string",
-        "title": "gebiedscode",
-        "description": "Unieke code van de ruimtelijke indeling binnen hetzelfde type en datum"
-      },
-      "gebiedsnaam": {
-        "type": "string",
-        "title": "gebiedsnaam",
-        "description": "Unieke naam van de ruimtelijke indeling binnen hetzelfde type en datum"
-      },
-      "tijdseenheid": {
-        "type": "string",
-        "title": "tijdseenheid",
-        "description": "Eenheid van de tijddimensie. Dit kan een vaste peildatum zijn of een periode"
-      },
-      "jaartal": {
-        "type": "integer",
-        "title": "jaartal",
-        "description": "Jaar waarop het cijfer betrekking heeft"
+        "title": "tijdType",
+        "description": "Type van de temporele dimensie, waarop het cijfer betrekkking heeft."
       },
       "begindatum": {
         "type": "string",
         "format": "date",
         "title": "begindatum",
-        "description": "Begindatum waarop de tijddimensie is begonnen"
+        "description": "Begindatum van de temporele dimensie, waarop het cijfer betrekking heeft"
       },
       "einddatum": {
         "type": "string",
         "format": "date",
         "title": "einddatum",
-        "description": "Einddatum waarop de tijddimensie is geëindigd"
+        "description": "Einddatum van de temporele dimensie, waarop het cijfer betrekking heeft"
+      },
+      "heeftBetrekkingOp": {
+        "type": "string",
+        "title": "heeftBetrekkingOp",
+        "description": "Jaar of periode, waarop het cijfer betrekking heeft"
       },
       "indicator": {
         "type": "string",
         "title": "indicator",
-        "description": "Naam van de indicator waarop het cijfer betrekking heeft",
+        "description": "Naam van de indicator, waarop het cijfer betrekking heeft",
         "relation": "statistieken:indicatoren"
       },
       "waarde": {
