@@ -1,6 +1,6 @@
 {
   "id": "bijplaatsingen",
-  "version": "2.7.0",
+  "version": "3.0.0",
   "status": "stable",
   "type": "table",
   "title": "Bijplaatsingen",
@@ -249,15 +249,16 @@
         "description": "De rol van de gebruiker in de applicatie.",
         "title": "Gebruiker rol omschrijving"
       },
-      "winkelgebiedsId": {
+      "winkelgebieden": {
         "type": "string",
-        "description": "Uniek winkelgebied identificatie",
-        "title": "Uniek winkelgebied identificatie"
+        "relation": "winkelgebieden:winkelgebieden",
+        "description": "Uniek winkelgebied identificatie. Verwijst naar ID van winkelgebieden.",
+        "title": "Winkelgebied ID"
       },
-      "winkelgebiedsNaam": {
+      "winkelgebiedenNaam": {
         "type": "string",
-        "description": "Naam van winkelgebied",
-        "title": "De naam van het winkelgebied"
+        "description": "Naam van winkelgebied overgenomen uit winkelgebieden tabel.",
+        "title": "Naam winkelgebied"
       }
     }
   }
