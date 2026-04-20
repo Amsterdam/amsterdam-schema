@@ -16,8 +16,32 @@
     "v1": {
       "status": "under_development",
       "enableAPI": true,
+      "enableGeosearch": true,
       "version": "1.2.0",
       "exports": [
+        {
+          "name": "compleet",
+          "filetypes": [
+            "csv",
+            "gpkg",
+            "geojson",
+            "jsonl"
+          ],
+          "scopes": [
+            "openbaar"
+          ],
+          "tables": [
+            "adresseerbareobjecten",
+            "bagpandbevatverblijfsobjecten",
+            "bagpanden",
+            "bagpandligtin",
+            "bagzoek",
+            "brkkadastraleobjecten",
+            "brkkotbetrokkenbij",
+            "brkkotisontstaanuit",
+            "brksubjectcategorieen"
+          ]
+        },
         {
           "name": "adresseerbareobjecten",
           "filetypes": [
@@ -225,7 +249,7 @@
         },
         {
           "id": "gebiedenbuurten",
-          "$ref": "gebiedenbuurten/v1"
+          "$ref": "gebiedenbuurten/v2"
         },
         {
           "id": "handelsregisterkvk",

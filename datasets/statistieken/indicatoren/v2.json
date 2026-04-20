@@ -1,0 +1,122 @@
+{
+  "id": "indicatoren",
+  "title": "indicatoren",
+  "description": "Alle indicatoren (variabelen) en hun metadata",
+  "type": "table",
+  "version": "2.0.0",
+  "status": "under_development",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "naam"
+    ],
+    "required": [
+      "schema",
+      "naam",
+      "label",
+      "definitie",
+      "thema",
+      "status"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.1.0#/definitions/schema"
+      },
+      "naam": {
+        "type": "string",
+        "title": "naam",
+        "description": "Unieke naam van de indicator"
+      },
+      "label": {
+        "type": "string",
+        "title": "label",
+        "description": "Beknopte label van de indicator t.b.v. weergave"
+      },
+      "labelUk": {
+        "type": "string",
+        "title": "labelUk",
+        "description": "Beknopte label van de indicator in het Brits-Engels t.b.v. weergave"
+      },
+      "definitie": {
+        "type": "string",
+        "title": "definitie",
+        "description": "Definitie, die ten grondslag ligt van de indicator"
+      },
+      "definitieUk": {
+        "type": "string",
+        "title": "definitieUk",
+        "description": "Definitie in het Brits-Engels, die ten grondslag ligt van de indicator"
+      },
+      "beschrijving": {
+        "type": "string",
+        "title": "beschrijving",
+        "description": "Beschrijving en overige informatie over de indicator"
+      },
+      "thema": {
+        "type": "array",
+        "title": "thema",
+        "description": "Thematische indeling waaronder de indicator valt",
+        "items": {
+          "type": "string"
+        }
+      },
+      "eenheid": {
+        "type": "object",
+        "title": "eenheid",
+        "description": "Eenheid waarin de indicator wordt uitgedrukt",
+        "properties": {
+          "naam": {
+            "type": "string"
+          },
+          "symbool": {
+            "type": "string"
+          }
+        }
+      },
+      "decimalen": {
+        "type": "integer",
+        "title": "decimalen",
+        "description": "Aantal decimalen, waarin de waarde van de indicator moet worden gepubliceerd"
+      },
+      "privacygevoelig": {
+        "type": "boolean",
+        "title": "privacygevoelig",
+        "description": "Indicatie of indicator privacygevoelig is/kan zijn"
+      },
+      "status": {
+        "type": "object",
+        "title": "status",
+        "description": "Status van de indicator. De indicator kan vervallen zijn en niet meer actief worden bijgehouden",
+        "properties": {
+          "vervallen": {
+            "type": "boolean"
+          },
+          "vervaldatum": {
+            "type": "string",
+            "format": "date"
+          },
+          "vervalreden": {
+            "type": "string"
+          }
+        }
+      },
+      "bron": {
+        "type": "array",
+        "title": "bron",
+        "description": "Herkomst van de indicator en bijhorende definitie",
+        "items": {
+          "type": "string"
+        }
+      },
+      "extraAttributen": {
+        "type": "object",
+        "format": "json",
+        "title": "extraAttributen",
+        "description": "Vrij veld om aanvullende attributen met hun waarde op te slaan, die nodig kunnen zijn voor verdere visualisatie"
+      }
+    }
+  }
+}

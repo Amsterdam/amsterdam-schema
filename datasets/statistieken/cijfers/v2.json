@@ -1,0 +1,93 @@
+{
+  "id": "cijfers",
+  "title": "cijfers",
+  "description": "Alle cijfers, gerelateerd aan de bijhorende indicatoren en dimensies",
+  "type": "table",
+  "version": "2.0.0",
+  "status": "under_development",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id",
+      "gebiedstype",
+      "gebiedsdatum",
+      "gebiedscode",
+      "type",
+      "begindatum",
+      "einddatum",
+      "indicator",
+      "waarde"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "id",
+        "description": "Unieke identificatie van het cijfer i.c.m. de bijhorende indicator en dimensies"
+      },
+      "gebiedstype": {
+        "type": "string",
+        "title": "gebiedstype",
+        "description": "Type ruimtelijke indeling"
+      },
+      "gebiedsdatum": {
+        "type": "string",
+        "format": "date",
+        "title": "gebiedsdatum",
+        "description": "Datum waarop de ruimtelijke indeling van kracht is geworden"
+      },
+      "gebiedscode": {
+        "type": "string",
+        "title": "gebiedscode",
+        "description": "Unieke code van de ruimtelijke indeling binnen hetzelfde type en datum"
+      },
+      "gebiedsnaam": {
+        "type": "string",
+        "title": "gebiedsnaam",
+        "description": "Unieke naam van de ruimtelijke indeling binnen hetzelfde type en datum"
+      },
+      "tijdseenheid": {
+        "type": "string",
+        "title": "tijdseenheid",
+        "description": "Eenheid van de tijddimensie. Dit kan een vaste peildatum zijn of een periode"
+      },
+      "jaartal": {
+        "type": "integer",
+        "title": "jaartal",
+        "description": "Jaar waarop het cijfer betrekking heeft"
+      },
+      "begindatum": {
+        "type": "string",
+        "format": "date",
+        "title": "begindatum",
+        "description": "Begindatum waarop de tijddimensie is begonnen"
+      },
+      "einddatum": {
+        "type": "string",
+        "format": "date",
+        "title": "einddatum",
+        "description": "Einddatum waarop de tijddimensie is geëindigd"
+      },
+      "indicator": {
+        "type": "string",
+        "title": "indicator",
+        "description": "Naam van de indicator waarop het cijfer betrekking heeft",
+        "relation": "statistieken:indicatoren"
+      },
+      "waarde": {
+        "type": "number",
+        "title": "waarde",
+        "description": "Waarde van het cijfer met het aantal decimalen, zoals vastgelegd bij de indicator"
+      }
+    }
+  }
+}

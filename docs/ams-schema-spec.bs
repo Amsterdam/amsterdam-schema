@@ -354,6 +354,8 @@ Optionele attributen {#version-optional-fields}
 --------------------------------------------------------
 Naast bovenstaande verplichte attributen mag een [=versie=] ook de volgende eigenschappen bevatten.
 <table dfn-type="attribute" dfn-for=versie export class="dfn-table">
+<tr><td><dfn>enableGeosearch</dfn>   <td> boolean
+    <td> Of deze versie van de dataset beschikbaar moet zijn in de geosearch API.
 <tr><td><dfn>releaseDate</dfn>   <td> {{date}}
     <td> datum waarop de versie beschikbaar gemaakt is
 <tr><td><dfn>endSupportDate</dfn>   <td> {{date}}
@@ -2271,7 +2273,22 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 <!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
 <!-- Update the version number in the metadata at the top and refer to it here. -->
 
-[4.0.0] LifecycleStatus verwijderd (2025-12-29) {#lastchange}
+[4.2.0] Selfservice Geosearch boolean toegevoegd (2026-03-30) {#lastchange}
+---------------------------------------------------
+> **Doelstelling**<br/>
+    Toevoegen van enableGeosearch flag aan het Amsterdam Schema.
+
+* [[#version-optional-fields]] uitgebreid met enableGeosearch flag.
+
+[4.1.0] Exportdefinitie toegevoegd (2026-03-09) {#20260309}
+---------------------------------------------------
+> **Doelstelling**<br/>
+    Toevoegen van exportdefinities aan het Amsterdam Schema.
+
+* [[#version-exports]] toegevoegd.
+* {{versie/status}} uitgebreid met 'deprecated'.
+
+[4.0.0] LifecycleStatus verwijderd (2025-12-29) {#20251229}
 ---------------------------------------------------
 > **Doelstelling**<br/>
     Hernoemen van lifecycleStatus en toevoegen van enableAPI flag en subresources.

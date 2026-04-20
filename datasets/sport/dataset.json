@@ -26,7 +26,21 @@
     "v1": {
       "status": "stable",
       "enableAPI": true,
-      "version": "2.0.0",
+      "enableGeosearch": true,
+      "version": "1.0.1",
+      "exports": [
+        {
+          "name": "all",
+          "tables": "*",
+          "filetypes": [
+            "csv",
+            "geojson"
+          ],
+          "scopes": [
+            "openbaar"
+          ]
+        }
+      ],
       "tables": [
         {
           "id": "aanbieder",
@@ -59,6 +73,39 @@
         {
           "id": "zwembad",
           "$ref": "zwembad/v2"
+        }
+      ]
+    },
+    "v2":{
+      "status": "under_development",
+      "enableAPI": true,
+      "enableGeosearch": true,
+      "version": "2.0.0",
+      "exports": [
+        {
+          "name": "all",
+          "tables": "*",
+          "filetypes": [
+            "csv",
+            "geojson"
+          ],
+          "scopes": [
+            "openbaar"
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "id": "aanbieders",
+          "$ref": "aanbieders/v3"
+        },
+        {
+          "id": "velden",
+          "$ref": "velden/v3"
+        },
+        {
+          "id":"speeltoestellen",
+          "$ref": "speeltoestellen/v3"
         }
       ]
     }

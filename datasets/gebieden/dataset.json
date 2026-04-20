@@ -15,8 +15,22 @@
     "v1": {
       "status": "stable",
       "enableAPI": true,
+      "enableGeosearch": true,
       "version": "1.0.0",
       "exports": [
+        {
+          "name": "compleet",
+          "filetypes": [
+            "csv",
+            "gpkg",
+            "geojson",
+            "jsonl"
+          ],
+          "scopes": [
+            "openbaar"
+          ],
+          "tables": "*"
+        },
         {
           "name": "bouwblokken",
           "filetypes": [
@@ -176,6 +190,7 @@
     "v2": {
       "status": "under_development",
       "enableAPI": false,
+      "enableGeosearch": false,
       "version": "2.0.0",
       "tables": [
         {
