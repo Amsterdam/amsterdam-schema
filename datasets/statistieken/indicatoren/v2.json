@@ -10,7 +10,7 @@
     "type": "object",
     "additionalProperties": false,
     "identifier": [
-      "naam"
+      "id"
     ],
     "required": [
       "schema",
@@ -18,12 +18,21 @@
       "label",
       "definitie",
       "thema",
-      "status"
+      "eenheid",
+      "decimalen",
+      "privacygevoelig",
+      "status",
+      "bron"
     ],
     "display": "naam",
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v4.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "id",
+        "description": "Unieke identificatie van het indicator"
       },
       "naam": {
         "type": "string",
@@ -33,9 +42,19 @@
       "label": {
         "type": "string",
         "title": "label",
-        "description": "Beknopte label van de indicator t.b.v. weergave"
+        "description": "Label van de indicator t.b.v. weergave"
       },
       "labelUk": {
+        "type": "string",
+        "title": "labelUk",
+        "description": "Label van de indicator in het Brits-Engels t.b.v. weergave"
+      },
+      "labelKort": {
+        "type": "string",
+        "title": "label",
+        "description": "Beknopte label van de indicator t.b.v. weergave"
+      },
+      "labelKortUk": {
         "type": "string",
         "title": "labelUk",
         "description": "Beknopte label van de indicator in het Brits-Engels t.b.v. weergave"
@@ -55,6 +74,11 @@
         "title": "beschrijving",
         "description": "Beschrijving en overige informatie over de indicator"
       },
+      "beschrijvingUk": {
+        "type": "string",
+        "title": "beschrijvingUk",
+        "description": "Beschrijving en overige informatie in het Brits-Engels over de indicator"
+      },
       "thema": {
         "type": "array",
         "title": "thema",
@@ -63,16 +87,28 @@
           "type": "string"
         }
       },
+      "themaUk": {
+        "type": "array",
+        "title": "thema",
+        "description": "Thematische indeling in het Brits-Engels waaronder de indicator valt",
+        "items": {
+          "type": "string"
+        }
+      },
       "eenheid": {
         "type": "object",
         "title": "eenheid",
-        "description": "Eenheid waarin de indicator wordt uitgedrukt",
+        "description": "Eenheid, waarin de indicator wordt uitgedrukt",
         "properties": {
           "naam": {
-            "type": "string"
+            "type": "string",
+            "title": "naam",
+            "description": "Naam van de eenheid"
           },
           "symbool": {
-            "type": "string"
+            "type": "string",
+            "title": "symbool",
+            "description": "Symbool van de eenheid"
           }
         }
       },
@@ -80,6 +116,24 @@
         "type": "integer",
         "title": "decimalen",
         "description": "Aantal decimalen, waarin de waarde van de indicator moet worden gepubliceerd"
+      },
+      "frequentie": {
+        "type": "string",
+        "title": "frequentie",
+        "description": "Omschrijving van de regelmaat, waarmee de cijfers van de indicator worden gepubliceerd"
+      },
+      "frequentieUk": {
+        "type": "string",
+        "title": "frequentieUk",
+        "description": "Omschrijving van de regelmaat in Brits-Engels, waarmee de cijfers van de indicator worden gepubliceerd"
+      },
+      "bron": {
+        "type": "array",
+        "title": "bron",
+        "description": "Herkomst van de indicator en bijhorende definitie",
+        "items": {
+          "type": "string"
+        }
       },
       "privacygevoelig": {
         "type": "boolean",
@@ -92,23 +146,21 @@
         "description": "Status van de indicator. De indicator kan vervallen zijn en niet meer actief worden bijgehouden",
         "properties": {
           "vervallen": {
-            "type": "boolean"
+            "type": "boolean",
+            "title": "vervallen",
+            "description": "Indicatie of de indicator niet meer wordt bijgehouden."
           },
-          "vervaldatum": {
+          "vervalDatum": {
             "type": "string",
-            "format": "date"
+            "format": "date",
+            "title": "vervaldatum",
+            "description": "Datum vanaf wanneer de indicator niet meer wordt bijgehouden."
           },
-          "vervalreden": {
-            "type": "string"
+          "vervalReden": {
+            "type": "string",
+            "title": "vervalreden",
+            "description": "Reden waarom de indicator niet meer wordt bijgehouden."
           }
-        }
-      },
-      "bron": {
-        "type": "array",
-        "title": "bron",
-        "description": "Herkomst van de indicator en bijhorende definitie",
-        "items": {
-          "type": "string"
         }
       },
       "extraAttributen": {
