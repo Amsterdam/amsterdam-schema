@@ -36,163 +36,11 @@
   "temporalUnit": "uren",
   "defaultVersion": "v2",
   "versions": {
-    "v0": {
-      "status": "under_development",
-      "enableAPI": false,
-      "enableGeosearch": false,
-      "version": "0.0.0",
-      "tables": [
-        {
-          "id": "afvoermomenten",
-          "$ref": "afvoermomenten/v0"
-        },
-        {
-          "id": "clusterVulsnelheden",
-          "$ref": "clusterVulsnelheden/v0"
-        },
-        {
-          "id": "containerVulgraden",
-          "$ref": "containerVulgraden/v0"
-        }
-      ]
-    },
-    "v1": {
-      "status": "stable",
-      "enableAPI": true,
-      "enableGeosearch": true,
-      "version": "2.5.0",
-      "exports": [
-        {
-          "name": "compleet",
-          "filetypes": [
-            "csv",
-            "gpkg",
-            "geojson",
-            "jsonl"
-          ],
-          "scopes": [
-            "openbaar"
-          ],
-          "tables": [
-            "bijplaatsingen",
-            "weging"
-          ]
-        },
-        {
-          "name": "bijplaatsingen",
-          "filetypes": [
-            "csv",
-            "gpkg",
-            "geojson",
-            "jsonl"
-          ],
-          "scopes": [
-            "openbaar"
-          ],
-          "tables": [
-            "bijplaatsingen"
-          ]
-        },
-        {
-          "name": "weging",
-          "filetypes": [
-            "csv",
-            "gpkg",
-            "geojson",
-            "jsonl"
-          ],
-          "scopes": [
-            "openbaar"
-          ],
-          "tables": [
-            "weging"
-          ]
-        }
-      ],
-      "tables": [
-        {
-          "id": "container",
-          "$ref": "container/v2"
-        },
-        {
-          "id": "containerlocatie",
-          "$ref": "containerlocatie/v2"
-        },
-        {
-          "id": "cluster",
-          "$ref": "cluster/v2"
-        },
-        {
-          "id": "containertype",
-          "$ref": "containertype/v2"
-        },
-        {
-          "id": "weging",
-          "$ref": "weging/v2"
-        },
-        {
-          "id": "clusterfractie",
-          "$ref": "clusterfractie/v2"
-        },
-        {
-          "id": "planningVoertuigen",
-          "$ref": "planningvoertuigen/v2"
-        },
-        {
-          "id": "bijplaatsingen",
-          "$ref": "bijplaatsingen/v2"
-        },
-        {
-          "id": "ticket",
-          "$ref": "ticket/v1"
-        },
-        {
-          "id": "loopafstandCategorieV2",
-          "$ref": "loopafstandcategorie_v2/v2"
-        },
-        {
-          "id": "bagObjectLoopafstandV2",
-          "$ref": "bagobjectloopafstand_v2/v2"
-        },
-        {
-          "id": "adresLoopafstandV2",
-          "$ref": "adresloopafstand_v2/v2"
-        },
-        {
-          "id": "rolcontainer",
-          "$ref": "rolcontainer/v1"
-        },
-        {
-          "id": "rolcontainerActie",
-          "$ref": "rolcontainerActie/v1"
-        },
-        {
-          "id": "rolcontainerMelding",
-          "$ref": "rolcontainerMelding/v1"
-        },
-        {
-          "id": "rolcontainerStatus",
-          "$ref": "rolcontainerStatus/v1"
-        },
-        {
-          "id": "servicegebiedenLocatie",
-          "$ref": "servicegebiedenLocatie/v1"
-        },
-        {
-          "id": "servicegebieden",
-          "$ref": "servicegebieden/v1"
-        },
-        {
-          "id": "fracties",
-          "$ref": "fracties/v1"
-        }
-      ]
-    },
     "v2": {
       "status": "stable",
       "enableAPI": true,
       "enableGeosearch": true,
-      "version": "1.0.0",
+      "version": "2.1.0",
       "exports": [
         {
           "name": "compleet",
@@ -243,6 +91,10 @@
       ],
       "tables": [
         {
+          "id": "afvoermomenten",
+          "$ref": "afvoermomenten/v1"
+        },
+        {
           "id": "container",
           "$ref": "container/v2"
         },
@@ -255,8 +107,16 @@
           "$ref": "cluster/v2"
         },
         {
+          "id": "clusterVulsnelheden",
+          "$ref": "clusterVulsnelheden/v1"
+        },
+        {
           "id": "containertype",
           "$ref": "containertype/v2"
+        },
+        {
+          "id": "containerVulgraden",
+          "$ref": "containerVulgraden/v1"
         },
         {
           "id": "weging",
