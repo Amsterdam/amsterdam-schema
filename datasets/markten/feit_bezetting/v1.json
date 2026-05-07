@@ -1,0 +1,78 @@
+{
+  "id": "feit_bezetting",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Feitentabel voor de marktbezetting",
+  "description": "Elke rij is een afvalbak.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "marktId": {
+        "title": "Markt ID",
+        "type": "string"
+      },
+      "datumId": {
+        "title": "Datum ID",
+        "type": "string"
+      },
+      "kraamhouderType": {
+        "title": "Kraamhouder type",
+        "type": "string"
+      },
+      "kraamhouderTypeOmschrijving": {
+        "title": "Kraamhouder type omschrijving",
+        "type": "string"
+      },
+      "dagvergunningAantal": {
+        "title": "Dagvergunning aantal"
+      },
+      "dagvergunningPercentage": {
+        "title": "Dagvergunning percentage",
+        "type": "number"
+      },
+      "kramenAantal": {
+        "title": "Kramen aantal"
+      },
+      "kramenPercentage": {
+        "title": "Kramen percentage",
+        "type": "number"
+      },
+      "metersAantal": {
+        "title": "Meters aantal"
+      },
+      "metersPercentage": {
+        "title": "Meters percentage",
+        "type": "number"
+      },
+      "markttotaalBezetteKramen": {
+        "title": "Markttotaal bezette kramen"
+      },
+      "marktottaalKraambezettingProcenten": {
+        "title": "Marktottaal kraambezetting procenten",
+        "type": "number"
+      },
+      "markttotaalBezetteMeters": {
+        "title": "Markttotaal bezette meters"
+      },
+      "markttotaalMeterbezttingProcenten": {
+        "title": "Markttotaal meterbeztting procenten",
+        "type": "number"
+      },
+      "markttotaalDagvergunningen": {
+        "title": "Markttotaal dagvergunningen"
+      }
+    }
+  }
+}
