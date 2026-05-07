@@ -1,1 +1,48 @@
-
+{
+  "id": "markten",
+  "type": "dataset",
+  "authorizationGrantor": "Stadswerken, Gemeente Amsterdam",
+  "auth": "FP/MDW",
+  "theme": [
+    "Groen"
+  ],
+  "homepage": "https://data.amsterdam.nl",
+  "owner": "Stadswerken, Gemeente Amsterdam",
+  "spatialDescription": "Gemeente Amsterdam",
+  "title": "markten",
+  "language": "nl",
+  "dateCreated": "2025-05-07T00:00:00+01:00",
+  "license": "openbaar, tenzij anders aangegeven / behoudens uitzonderingen",
+  "creator": "Datateam Beeldschoon/BOR",
+  "publisher": {
+    "$ref": "/publishers/BOR"
+  },
+  "description": "Dataset met informatie over markten. Het gaat hierbij om de bezetting per markt per dag en de kenmerken van individuele markten.",
+  "keywords": [
+    "markt",
+    "bezetting",
+    "kramen",
+    "meters"
+  ],
+  "crs": "EPSG:28992",
+  "temporalUnit": "",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "under_development",
+      "enableAPI": true,
+      "enableGeosearch": false,
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "dim_kenmerken",
+          "$ref": "dim_kenmerken/v1"
+        },
+        {
+          "id": "feit_bezetting",
+          "$ref": "feit_bezetting/v1"
+        }
+      ]
+	}
+  }
+}
