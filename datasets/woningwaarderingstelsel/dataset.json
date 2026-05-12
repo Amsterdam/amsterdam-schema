@@ -1,0 +1,46 @@
+{
+  "type": "dataset",
+  "id": "woningwaarderingstelsel",
+  "title": "woningwaarderingstelsel",
+  "description": "wws is het puntensysteem dat de maximale huurprijs voor sociale en middenhuur bepaald",
+  "dateCreated": "2026-05-12T00:00:00+01:00",
+  "dateModified": "2026-05-12T00:00:00+01:00",
+  "license": "Creative Commons, Naamsvermelding",
+  "language": "nl",
+  "creator": "Data Team Wonen",
+  "publisher": {
+    "$ref": "publishers/WO"
+  },
+  "accrualPeriodicity": "wekelijks",
+  "spatialDescription": "Gemeente Amsterdam",
+  "theme": [
+    "Wonen"
+  ],
+  "owner": "Directie Wonen",
+  "auth": "scopes/DADI/fp_mdw",
+  "reasonsNonPublic": [
+    "5.1 2f: Geimpliceerde woz data is niet openbaar in bulk"
+  ],
+  "authorizationGrantor": "analistwonen@amsterdam.nl",
+  "keywords": [
+    "wonen",
+    "woning",
+    "waardering",
+    "wws",
+    "verblijfsobject"
+  ],
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "under_development",
+      "enableAPI": false,
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "wws_punten_berekening",
+          "$ref": "wws_punten_berekening/v1"
+        }
+      ]
+    }
+  }
+}
