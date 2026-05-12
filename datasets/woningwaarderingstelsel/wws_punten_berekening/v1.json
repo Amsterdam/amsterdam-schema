@@ -1,0 +1,86 @@
+{
+  "id": "wws_punten_berekening",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "description": "Per verblijfsobject de kenmerken en het aantal berekende punten voor het woningwaarderingstelsel punten systeem",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "Id"
+      },
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "vot_identificatie": {
+        "type": "string",
+        "description": "Unieke key van het verblijfobject"
+      },
+      "adres": {
+        "type": "string",
+        "description": "Adres van het verblijfobject"
+      },
+      "huisnummer": {
+        "type": "integer",
+        "description": "Huisnummer van het verblijfobject"
+      },
+      "huisletter": {
+        "type": "string",
+        "description": "Huisletter van het verblijfobject"
+      },
+      "huisnummertoevoeging": {
+        "type": "string",
+        "description": "Huisnummertoevoeging van het verblijfobject"
+      },
+      "postcode": {
+        "type": "string",
+        "description": "Postcode van het verblijfobject"
+      },
+      "bouwjaar": {
+        "type": "string",
+        "description": "De aanduiding van het jaar waarin een pand oorspronkelijk als bouwkundig gereed is of wordt opgeleverd"
+      },
+      "gebruiksoppervlakte": {
+        "type": "integer",
+        "description": "De gebruiksoppervlakte van het verblijfsobject conform hetgeen in NEN 2580 is vastgelegd omtrent gebruiksoppervlakte"
+      },
+      "aantalKamers": {
+        "type": "string",
+        "description": "Geeft het aantal kamers vaan binnen het verblijfsobject"
+      },
+      "typeWoonobject": {
+        "type": "string",
+        "description": "omschrijft of het Pand géén, één of meer woningen heeft (eengezins of meergezinswoning)"
+      },
+      "energieklasse": {
+        "type": "string",
+        "description": "De letter van het energielabel (labelklasse)."
+      },
+      "wozPeiljaar": {
+        "type": "string",
+        "description": "De da­tum waar­naar de waar­de van het WOZ-ob­ject wordt be­paald"
+      },
+      "wwsTotaalMinNacap": {
+        "type": "integer",
+        "description": "Minimale totaal aantal wws punten met WOZ cap toegepast"
+      },
+      "wwsTotaalMaxNacap": {
+        "type": "string",
+        "description": "Maximale totaal aantal wws punten met WOZ cap toegepast"
+      },
+      "segment": {
+        "type": "integer",
+        "description": "In welk segment de woning valt obv het aantal punten"
+      }
+    }
+  }
+}
