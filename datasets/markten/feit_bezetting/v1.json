@@ -1,0 +1,110 @@
+{
+  "id": "feitBezetting",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Feitentabel voor de marktbezetting",
+  "description": "Deze tabel bevat de verleende dagvergunningen per markt, per dag, per kraamhouder type sinds oktober 2025 uit marktbeheerapplicatie Daalder. Elke rij biedt inzicht in het aantal verleende dagvergunningen, het aantal kramen en meters dat bij een type kraamhouders (bijv. vaste plaatshouder of loteling) hoort en de verhouding met de marktcapaciteit (dus hoeveel procent van de markt wordt bezet door een type kraamhouder). Met markt_id kan een join met de dimensietabel markten_dim_kenmerken worden gemaakt. De tabel wordt dagelijks aangevuld met nieuwe verleende dagvergunningen.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "marktId",
+      "datumId",
+      "kraamhouderTypeAfkorting"
+    ],
+    "display": "marktAfkorting",
+    "required": [
+      "schema",
+      "marktId",
+      "datumId",
+      "kraamhouderTypeAfkorting"
+    ],
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "marktId": {
+        "title": "Markt ID",
+        "description": "Uniek identificerend kenmerk voor de marktlocatie.",
+        "type": "string"
+      },
+      "marktAfkorting": {
+        "title": "Markt afkorting",
+        "description": "Afgekorte marktnaam.",
+        "type": "string"
+      },
+      "datumId": {
+        "title": "Datum ID",
+        "description": "Sleutel voor de datum waarop de marktbezetting is gemeten.",
+        "type": "string"
+      },
+      "kraamhouderTypeAfkorting": {
+        "title": "Kraamhouder type afkorting",
+        "description": "Afkorting van het type kraamhouder met een dagvergunning, kramen en/of meters op de markt.",
+        "type": "string"
+      },
+      "kraamhouderTypeNaam": {
+        "title": "Kraamhouder type naam",
+        "description": "Naam van het type kraamhouder met een dagvergunning, kramen en/of meters op de markt",
+        "type": "string"
+      },
+      "dagvergunningAantal": {
+        "title": "Dagvergunning aantal",
+        "description": "Het aantal dagvergunningen dat is verleend aan een kraamhoudertype.",
+        "type": "integer"
+      },
+      "dagvergunningPercentage": {
+        "title": "Dagvergunning percentage",
+        "description": "Het percentage dagvergunningen dat is toegekend aan kraamhoudertype t.o.v. het totaal aantal verleende dagvergunningen voor deze markt op deze dag.",
+        "type": "number"
+      },
+      "kramenAantal": {
+        "title": "Kramen aantal",
+        "description": "Het aantal kramen dat is toegekend aan een kraamhoudertype.",
+        "type": "integer"
+      },
+      "kramenPercentage": {
+        "title": "Kramen percentage",
+        "description": "Het percentage kramen dat is toegekend aan een kraamhoudertype t.o.v. het totaal aantal beschikbare kraamplekken op de markt.",
+        "type": "number"
+      },
+      "metersAantal": {
+        "title": "Meters aantal",
+        "description": "Het aantal meters dat is toegekend aan een kraamhoudertype.",
+        "type": "integer"
+      },
+      "metersPercentage": {
+        "title": "Meters percentage",
+        "description": "Het percentage meters bezet door een kraamhoudertype t.o.v. het totaal aantal beschikbare meters op de markt.",
+        "type": "number"
+      },
+      "markttotaalBezetteKramen": {
+        "title": "Markttotaal bezette kramen",
+        "description": "Het totaal aantal bezette kramen op de markt. Dit is de som van alle toegekende kramen voor alle type kraamhouders.",
+        "type": "integer"
+      },
+      "markttotaalKraambezettingPercentage": {
+        "title": "Marktottaal kraambezetting percentage",
+        "description": "Het bezettingspercentage voor kraamplekken voor de hele markt.",
+        "type": "number"
+      },
+      "markttotaalBezetteMeters": {
+        "title": "Markttotaal bezette meters",
+        "description": "Het totaal aantal bezette meters op de hele markt. Dit is de som van alle toegekende meters voor alle type kraamhouders.",
+        "type": "integer"
+      },
+      "markttotaalMeterbezettingPercentage": {
+        "title": "Markttotaal meterbezetting percentage",
+        "description": "Het bezettingspercentage voor meters voor de hele markt.",
+        "type": "number"
+      },
+      "markttotaalDagvergunningen": {
+        "title": "Markttotaal dagvergunningen",
+        "description": "Het totaal aantal dagvergunningen dat is verleend voor de hele markt.",
+        "type": "integer"
+      }
+    }
+  }
+}
