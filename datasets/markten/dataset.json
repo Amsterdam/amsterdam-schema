@@ -1,0 +1,53 @@
+{
+  "id": "markten",
+  "type": "dataset",
+  "title": "Markten in Amsterdam",
+  "description": "Deze dataset bevat tabellen over dag- en weekmarkten in Amsterdam. Zowel over markten die op vaste tijden en vaste locaties worden gehouden (zoals de Dappermarkt en Albert Cuyp markt) en markten die seizoensgebonden of eenmalig zijn (denk hierbij aan kerstbomenmarkten bijvoorbeeld). De meeste markten worden beheerd door het Marktbureau (marktbureau@amsterdam.nl) van de gemeente Amsterdam. Informatie over de markten staat in de tabel markten_dim_kenmerken. Marktkooplieden vragen een (dag)vergunning aan voor kramen en/of meters op de markt. Data over verleende vergunningen staat in de feitentabel markten_feit_bezetting. De data komt uit de applicatie Daalder, beheerd door de gemeente.",
+  "keywords": [
+    "markt",
+    "bezetting",
+    "kramen",
+    "meters"
+  ],
+  "theme": [
+    "Ruimte en Infrastructuur",
+	"Econonomie"
+  ],
+  "auth": "FP/MDW",
+  "reasonsNonPublic": [
+     "5.1 1c: Vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+  ],
+  "authorizationGrantor": "Stadswerken, Gemeente Amsterdam",
+  "homepage": "https://data.amsterdam.nl",
+  "owner": "Stadswerken, Gemeente Amsterdam",
+  "spatialDescription": "Gemeente Amsterdam",
+  "language": "nl",
+  "dateCreated": "2026-05-13T00:00:00+01:00",
+  "license": "openbaar, tenzij anders aangegeven / behoudens uitzonderingen",
+  "creator": "Datateam Beeldschoon/BOR",
+  "publisher": {
+    "$ref": "/publishers/BOR"
+  },
+
+  "crs": "EPSG:28992",
+  "temporalUnit": "",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "status": "under_development",
+      "enableAPI": false,
+      "enableGeosearch": false,
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "dimKenmerken",
+          "$ref": "dim_kenmerken/v1"
+        },
+        {
+          "id": "feitBezetting",
+          "$ref": "feit_bezetting/v1"
+        }
+      ]
+	}
+  }
+}
