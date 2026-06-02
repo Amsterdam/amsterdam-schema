@@ -1,0 +1,52 @@
+{
+  "id": "sluitenWachtlijst",
+  "title": "Mutatielijst sluiten wachtlijst",
+  "description": "Tabel met te sluiten wachtlijsten.",
+  "type": "table",
+  "version": "0.0.1",
+  "status": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema"
+    ],
+    "display": "clientTrajectusId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "string",
+        "description": "Unieke aanduiding database rij"
+      },
+      "clientTrajectusId": {
+        "type": "string",
+        "title": "Trajectus Client ID",
+        "description": "Unieke aanduiding van client in applicatie."
+      },
+      "opvanglocatie": {
+        "type": "string",
+        "title": "Opvanglocatie.",
+        "description": "Locatie van de opvang."
+      },
+      "datumStartZorg": {
+        "type": "string",
+        "title": "Datum einde zorg",
+        "format": "date",
+        "description": "Datum waarop zorg startte."
+      },
+      "zorgaanbieder": {
+        "type": "string",
+        "title": "Zorgaanbieder",
+        "description": "Naam van zorgaanbieder in traject."
+      },
+      "voorziening": {
+        "type": "string",
+        "title": "Voorziening",
+        "description": "De voorziening waarvoor de cliënt in opvang zit of voor op de wachtlijst staat."
+      }
+    }
+  }
+}
