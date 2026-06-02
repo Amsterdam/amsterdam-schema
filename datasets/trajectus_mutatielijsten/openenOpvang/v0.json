@@ -9,17 +9,19 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
+    "identifier": [
+      "clientTrajectusId",
+      "opvanglocatie"      
+    ],
     "required": [
-      "schema"
+      "schema",
+      "clientTrajectusId",
+      "opvanglocatie"
     ],
     "display": "clientTrajectusId",
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
-      },
-      "id": {
-        "type": "string",
-        "description": "Unieke aanduiding database rij"
       },
       "clientTrajectusId": {
         "type": "string",
