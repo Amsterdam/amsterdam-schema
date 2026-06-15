@@ -1,0 +1,78 @@
+{
+  "id": "dimKenmerken",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Dimensietabel kenmerken van markten",
+  "description": "Deze tabel bevat de kenmerken van markten die zijn vastgelegd in de marktbeheerapplicatie Daalder. Het gaat bijvoorbeeld om de naam, of het een dag- of weekmarkt is en de capaciteit qua kramen en/of meters. Elke rij is een markt die wordt (of werd) gehouden in Amsterdam. De tabel bevat historisering sinds oktober 2025. Als je het totaal van rijen met isActueel = 1 telt, heb je alle actieve markten in Amsterdam. Met markt_id kan een join met de feitentabel markten_feit_bezetting worden gemaakt. De tabel wordt dagelijks ververst.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "marktAfkorting",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "title": "Id",
+        "description": "Uniek identificerend kenmerk voor de marktlocatie.",
+        "type": "string"
+      },
+      "marktAfkorting": {
+        "title": "Markt afkorting",
+        "description": "Afgekorte marktnaam.",
+        "type": "string"
+      },
+      "marktNaam": {
+        "title": "Markt naam",
+        "description": "Uitgeschreven naam van de markt.",
+        "type": "string"
+      },
+      "weekOfDag": {
+        "title": "Week of dag",
+        "description": "Geeft aan of een markt een week- of dagmarkt is.",
+        "type": "string"
+      },
+      "maximaalAantalKramen": {
+        "title": "Maximaal aantal kramen",
+        "description": "Het maximaal aantal beschikbare kraamplekken op de markt.",
+        "type": "integer"
+      },
+      "maximaalAantalMeters": {
+        "title": "Maximaal aantal meters",
+        "description": "Het maximaal aantal beschikbare meters op de markt.",
+        "type": "number"
+      },
+      "stadsdeelNaam": {
+        "title": "Stadsdeel",
+        "description": "De naam van het stadsdeel.",
+        "type": "string"
+      },
+      "isActueel": {
+        "title": "Is actueel",
+        "description": "Indicatie of deze regel actueel is (1) of niet meer (0).",
+        "type": "integer"
+      },
+      "geldigVan": {
+        "title": "Geldig van",
+        "description": "Begindatum geldigheid van deze regel.",
+        "type": "string",
+        "format": "date"
+      },
+      "geldigTot": {
+        "title": "Geldig tot",
+        "description": "Einddatum geldigheid van deze regel.",
+        "type": "string",
+        "format": "date"
+      }
+    }
+  }
+}

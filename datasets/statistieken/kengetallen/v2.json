@@ -14,8 +14,10 @@
     "required": [
       "schema",
       "indicator",
-      "jaartal",
-      "begindatum"
+      "begindatum",
+      "gemiddelde",
+      "standaarddeviatie",
+      "bron"
     ],
     "display": "id",
     "properties": {
@@ -30,24 +32,19 @@
       "indicator": {
         "type": "string",
         "title": "indicator",
-        "description": "Naam van de indicator waarop het kengetal betrekking heeft",
+        "description": "Naam van de indicator, waarop het kengetal betrekking heeft",
         "relation": "statistieken:indicatoren"
-      },
-      "jaartal": {
-        "type": "integer",
-        "title": "jaartal",
-        "description": "Jaar waarop het kengetal betrekking heeft"
       },
       "begindatum": {
         "type": "string",
         "format": "date",
         "title": "begindatum",
-        "description": "Begindatum waarop de tijddimensie is begonnen"
+        "description": "Begindatum van de temporele dimensie, waarop het cijfer betrekking heeft"
       },
-      "gebiedstype": {
+      "heeftBetrekkingOp": {
         "type": "string",
-        "title": "gebiedstype",
-        "description": "Gebiedstype, die als bron dient voor de kengetallen"
+        "title": "heeftBetrekkingOp",
+        "description": "Jaar of periode, waarop het cijfer betrekking heeft"
       },
       "gemiddelde": {
         "type": "number",
@@ -58,6 +55,11 @@
         "type": "number",
         "title": "standaarddeviatie",
         "description": "Berekende standaarddeviatie van de indicator / begindatum"
+      },
+      "bron": {
+        "type": "string",
+        "title": "bron",
+        "description": "Gebiedsindeling, die als bron dient voor de berekening van de kengetallen"
       }
     }
   }

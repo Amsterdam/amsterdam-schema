@@ -1,8 +1,8 @@
 {
   "id": "brugVast",
   "type": "table",
-  "version": "1.0.0",
-  "status": "under_development",
+  "version": "1.1.0",
+  "status": "stable",
   "title": "Vaste bruggen",
   "description": "Vaste verbinding voor verkeer tussen minimaal twee punten die gescheiden worden door hoofdzakelijk waterwegen en onder andere bestaat uit een hoofddraagconstructie en een rijvloer.",
   "subresources": {
@@ -60,7 +60,7 @@
         "description": "De gemiddelde) afmeting (breedte) van het beheerobject van de kortste dimensie in het horizontale vlak.",
         "title": "Breedte"
       },
-      "brughoogteBij4m": {
+      "brughoogteBij4M": {
         "type": "number",
         "description": "Minimale brughoogte onderkant brug  t.o.v. NAP bij een vaartuigbreedte van 4 m in het midden van de doorvaart.",
         "title": "Brughoogte Bij 4m"
@@ -103,7 +103,11 @@
       "gebruiker": {
         "type": "string",
         "description": "",
-        "title": "Gebruiker"
+        "title": "Gebruiker",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 1d: Bevat persoonsgegevens"
+        ]
       },
       "gemeente": {
         "type": "string",
@@ -284,6 +288,11 @@
         "type": "string",
         "description": "Status van het beheerobject in het inwinningsproces van de geometrie. Wordt gebruikt voor schets- en definitieve geometrie.",
         "title": "Status"
+      },
+      "stadsdeel": {
+        "type": "string",
+        "description": "De naam van het stadsdeel.",
+        "title": "Gebied stadsdeel naam"
       },
       "technischelevensduur": {
         "type": "string",

@@ -1,7 +1,7 @@
 {
   "id": "onderhoud",
   "type": "table",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "status": "stable",
   "titel": "onderhoud",
   "description": "Deze end-point bevat onderhoudgegevens van een transport- of werkmaterieel",
@@ -135,6 +135,18 @@
         "title": "Voertuig inzetbaar indicatie",
         "type": "boolean",
         "description": "De indicatie of het voertuig nog inzetbaar is"
+      },
+      "servicecontract": {
+        "title": "Servicecontract ID",
+        "type": "string",
+        "relation": "wagenpark:servicecontract",
+        "description": "Verwijzende sleutel naar servicecontract"
+      },
+      "startdatumLeverancier": {
+        "title": "Startdatum leverancier",
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop de leverancier start met de werkzaamheden."
       }
     }
   }
