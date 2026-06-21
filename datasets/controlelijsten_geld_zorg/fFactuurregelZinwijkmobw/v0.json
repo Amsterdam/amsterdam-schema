@@ -1,0 +1,99 @@
+{
+    "id": "fFactuurregelZinwijkmobw",
+    "title": "F factuurregel zinwijkmobw",
+    "description": "Beschrijving voor f_factuurregel_zinwijkmobw",
+    "type": "table",
+    "version": "0.0.1",
+    "status": "stable",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+            "clientZorgnedId",
+            "factuurId"
+        ],
+        "required": [
+            "schema",
+            "clientZorgnedId",
+            "factuurId",
+            "productcategorie",
+            "voorzieningsoort",
+            "voorziening",
+            "zorgaanbieder"
+        ],
+        "display": "clientZorgnedId",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "clientZorgnedId": {
+                "type": "string",
+                "title": "Client zorgned id",
+                "description": "Beschrijving voor CLIENT_ZORGNED_ID"
+            },
+            "factuurId": {
+                "type": "string",
+                "title": "Factuur id",
+                "description": "Beschrijving voor FACTUUR_ID"
+            },
+            "productcategorie": {
+                "type": "string",
+                "title": "Productcategorie",
+                "description": "Beschrijving voor PRODUCTCATEGORIE"
+            },
+            "voorzieningsoort": {
+                "type": "string",
+                "title": "Voorzieningsoort",
+                "description": "Beschrijving voor VOORZIENINGSOORT"
+            },
+            "voorziening": {
+                "type": "string",
+                "title": "Voorziening",
+                "description": "Beschrijving voor VOORZIENING"
+            },
+            "zorgaanbieder": {
+                "type": "string",
+                "title": "Zorgaanbieder",
+                "description": "Beschrijving voor ZORGAANBIEDER"
+            },
+            "postcodeZorgaanbieder": {
+                "type": "string",
+                "title": "Postcode zorgaanbieder",
+                "description": "Beschrijving voor POSTCODE_ZORGAANBIEDER"
+            },
+            "leveringsvorm": {
+                "type": "string",
+                "title": "Leveringsvorm",
+                "description": "Beschrijving voor LEVERINGSVORM"
+            },
+            "jaarBetrekkingOp": {
+                "type": "integer",
+                "title": "Jaar betrekking op",
+                "description": "Beschrijving voor JAAR_BETREKKING_OP"
+            },
+            "datumStartFactuurregel": {
+                "type": "string",
+                "format": "date",
+                "title": "Datum start factuurregel",
+                "description": "Beschrijving voor DATUM_START_FACTUURREGEL"
+            },
+            "datumEindFactuurregel": {
+                "type": "string",
+                "format": "date",
+                "title": "Datum eind factuurregel",
+                "description": "Beschrijving voor DATUM_EIND_FACTUURREGEL"
+            },
+            "bedragGoedgekeurd": {
+                "type": "number",
+                "title": "Bedrag goedgekeurd",
+                "description": "Beschrijving voor BEDRAG_GOEDGEKEURD"
+            },
+            "datumExport": {
+                "type": "string",
+                "title": "Datum export",
+                "description": "Beschrijving voor DATUM_EXPORT"
+            }
+        }
+    }
+}
