@@ -1,0 +1,106 @@
+name: validation
+
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  pull_request:
+    paths:
+      - datasets/**
+      - publishers/**
+      - scopes/**
+      - profiles/**
+
+jobs:
+  validate-schemas:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - command: batch-validate
+            resource: datasets
+          - command: validate-publishers
+            resource: publishers
+          - command: validate-scopes
+            resource: scopes
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.14'
+      - id: install-schema-tools
+        run: |
+          python -m pip install --force-reinstall -v "amsterdam-schema-tools>=9.10.0"
+      - id: changed-files
+        # We are only interested in changed and new (not deleted) datasets files.
+        run: |
+          declare -a changed
+          changed=$(git --no-pager diff --name-only --diff-filter=d origin/master.. -- ${{ matrix.resource }})
+          echo "changed<<EOF" >> $GITHUB_OUTPUT
+          echo "$changed" >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+        shell: bash
+      - name: Run schema ${{ matrix.command }} and capture log
+        if: ${{ steps.changed-files.outputs.changed != '' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          LOG_FILE="artifacts/${{ matrix.command }}.log"
+
+          if [[ "${{ matrix.command }}" == "batch-validate" ]]; then
+            schema batch-validate https://schemas.data.amsterdam.nl/schema@v4.2.0 \
+              ${{ steps.changed-files.outputs.changed }} \
+              2> >(tee "$LOG_FILE" >&2)
+          else
+            schema ${{matrix.command}} https://schemas.data.amsterdam.nl/schema@v4.2.0 \
+              --schema-url ./${{ matrix.resource }} \
+              2> >(tee "$LOG_FILE" >&2)
+          fi
+      - name: Upload log
+        if: ${{ always() && steps.changed-files.outputs.changed != '' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ matrix.command }}-log
+          path: artifacts/${{ matrix.command }}.log
+          retention-days: 7
+
+  validate-against-previous-versions:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        resource: [tables, datasets]
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.14'
+      - id: install-schema-tools
+        run: |
+          python -m pip install --force-reinstall -v "amsterdam-schema-tools>=9.10.0"
+      - id: generate-previous-files
+        run: |
+          previous_files=$(./scripts/generate_previous_${{ matrix.resource }}_from_master.sh ${{github.head_ref || github.ref_name}} | tail -n 1)
+          echo "previous_files=$previous_files" >> $GITHUB_OUTPUT
+      - name: Run schema validate-${{ matrix.resource }}
+        if: ${{ steps.generate-previous-files.outputs.previous_files != '' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          LOG_FILE="artifacts/validate-${{ matrix.resource }}.log"
+          schema validate-${{ matrix.resource }} ${{ steps.generate-previous-files.outputs.previous_files }} 2> >(tee "$LOG_FILE" >&2)
+      - name: Upload log
+        if: ${{ always() && steps.generate-previous-files.outputs.previous_files != '' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: validate-${{ matrix.resource }}-log
+          path: artifacts/validate-${{ matrix.resource }}.log
+          retention-days: 7
