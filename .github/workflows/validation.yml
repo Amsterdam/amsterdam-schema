@@ -34,7 +34,7 @@ jobs:
           python-version: '3.14'
       - id: install-schema-tools
         run: |
-          python -m pip install --force-reinstall -v "amsterdam-schema-tools>=9.10.0"
+          python -m pip install --force-reinstall -v "amsterdam-schema-tools>=9.10.2"
       - id: changed-files
         # We are only interested in changed and new (not deleted) datasets files.
         run: |
@@ -84,7 +84,7 @@ jobs:
           python-version: '3.14'
       - id: install-schema-tools
         run: |
-          python -m pip install --force-reinstall -v "amsterdam-schema-tools>=9.10.0"
+          python -m pip install --force-reinstall -v "amsterdam-schema-tools>=9.10.1"
       - id: generate-previous-files
         run: |
           previous_files=$(./scripts/generate_previous_${{ matrix.resource }}_from_master.sh ${{github.head_ref || github.ref_name}} | tail -n 1)
@@ -188,7 +188,7 @@ jobs:
               return;
             }
 
-            const nextBody = `${commentBody}\n\n${marker}`;
+            const nextBody = `# Validation Results:\n\n${commentBody}\n\n${marker}`;
 
             if (previous) {
               await github.rest.issues.updateComment({
