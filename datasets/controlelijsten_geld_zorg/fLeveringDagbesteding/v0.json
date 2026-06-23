@@ -1,0 +1,105 @@
+{
+    "id": "fLeveringDagbesteding",
+    "title": "F levering dagbesteding",
+    "description": "Beschrijving voor f_levering_dagbesteding",
+    "type": "table",
+    "version": "0.0.1",
+    "status": "stable",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+            "clientZorgnedId",
+            "toewijzingsnummerLevering",
+            "beschiktevoorzieningId"
+        ],
+        "required": [
+            "schema",
+            "clientZorgnedId",
+            "toewijzingsnummerLevering",
+            "beschiktevoorzieningId",
+            "productcategorie",
+            "voorzieningsoort",
+            "voorziening"
+        ],
+        "display": "clientZorgnedId",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "clientZorgnedId": {
+                "type": "string",
+                "title": "Client zorgned id",
+                "description": "Beschrijving voor CLIENT_ZORGNED_ID"
+            },
+            "toewijzingsnummerLevering": {
+                "type": "string",
+                "title": "Toewijzingsnummer levering",
+                "description": "Beschrijving voor TOEWIJZINGSNUMMER_LEVERING"
+            },
+            "beschiktevoorzieningId": {
+                "type": "string",
+                "title": "Beschiktevoorziening id",
+                "description": "Beschrijving voor BESCHIKTEVOORZIENING_ID"
+            },
+            "productcategorie": {
+                "type": "string",
+                "title": "Productcategorie",
+                "description": "Beschrijving voor PRODUCTCATEGORIE"
+            },
+            "voorzieningsoort": {
+                "type": "string",
+                "title": "Voorzieningsoort",
+                "description": "Beschrijving voor VOORZIENINGSOORT"
+            },
+            "voorziening": {
+                "type": "string",
+                "title": "Voorziening",
+                "description": "Beschrijving voor VOORZIENING"
+            },
+            "zorgaanbieder": {
+                "type": "string",
+                "title": "Zorgaanbieder",
+                "description": "Beschrijving voor ZORGAANBIEDER"
+            },
+            "postcodeZorgaanbieder": {
+                "type": "string",
+                "title": "Postcode zorgaanbieder",
+                "description": "Beschrijving voor POSTCODE_ZORGAANBIEDER"
+            },
+            "productCode": {
+                "type": "string",
+                "title": "Product code",
+                "description": "Beschrijving voor PRODUCT_CODE"
+            },
+            "leveringsvorm": {
+                "type": "string",
+                "title": "Leveringsvorm",
+                "description": "Beschrijving voor LEVERINGSVORM"
+            },
+            "jaarStartZorg": {
+                "type": "integer",
+                "title": "Jaar start zorg",
+                "description": "Beschrijving voor JAAR_START_ZORG"
+            },
+            "datumStartZorg": {
+                "type": "string",
+                "format": "date",
+                "title": "Datum start zorg",
+                "description": "Beschrijving voor DATUM_START_ZORG"
+            },
+            "datumEindZorg": {
+                "type": "string",
+                "format": "date",
+                "title": "Datum eind zorg",
+                "description": "Beschrijving voor DATUM_EIND_ZORG"
+            },
+            "datumExport": {
+                "type": "string",
+                "title": "Datum export",
+                "description": "Beschrijving voor DATUM_EXPORT"
+            }
+        }
+    }
+}

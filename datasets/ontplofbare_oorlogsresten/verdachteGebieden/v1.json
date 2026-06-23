@@ -27,47 +27,47 @@
       "kenmerkGeometrie": {
         "type": "string",
         "title": "Verdacht gebied kenmerk van geometrie",
-        "description": "Nadere beschrijving van het kenmerk van een verdacht gebied"
+        "description": "Een kenmerk van de geometrie dat is bepaald in de uitvoering van het bureauonderzoek"
       },
       "kenmerkOorlogshandelingen": {
         "type": "string",
-        "title": "Omschrijving van de oorlogshandeling",
-        "description": "Omschrijving van de oorlogshandeling die verband houdt met het verdachte gebied"
+        "title": "Omschrijving van oorlogshandeling",
+        "description": "Het kenmerk van activiteit(en) die plaatsvonden tijdens de conflictperiode waarbij munitie/explosieven zijn ingezet, zoals vastgesteld in het onderzoek"
       },
       "hoofdgroep": {
         "type": "string",
         "title": "Verdacht gebied hoofdgroep",
-        "description": "Hoofdindeling van een explosief"
+        "description": "Hoofdindeling van de explosieven waarvan wordt vermoed dat ze in het gebied aanwezig zijn"
       },
       "subsoort": {
         "type": "string",
         "title": "Verdacht gebied subsoort",
-        "description": "Nadere beschrijving van de subsoort van een verdacht gebied"
+        "description": "Subsoort van de explosieven waarvan wordt vermoed dat ze in het gebied aanwezig zijn"
       },
       "kaliber": {
         "type": "string",
         "title": "Verdacht gebied kaliber",
-        "description": "Nadere omschrijving van het kaliber van het explosief"
+        "description": "Kaliber(s) van de explosieven waarvan wordt vermoed dat ze in het gebied aanwezig zijn"
       },
       "aantallen": {
-        "type": "string",
-        "title": "Aantallen explosieven verdacht gebied",
+        "type": "integer",
+        "title": "Verdacht gebied aantal explosieven",
         "description": "Verwachte aantal explosieven in een verdacht gebied"
       },
       "verschijning": {
         "type": "string",
         "title": "Verdacht gebied verschijning",
-        "description": "Omschrijving van de verschijning van explosieven in een verdacht gebied"
+        "description": "De wijze waarop de explosieven in de bodem zijn terechtgekomen"
       },
       "afbakening": {
         "type": "string",
         "title": "Verdacht gebied afbakening",
-        "description": "Omschrijving van de afbakening van het verdachte gebied"
+        "description": "De methode of bronomschrijving waarmee de geografische grenzen van het verdachte gebied zijn bepaald"
       },
       "horizontaleAfbakening": {
         "type": "string",
         "title": "Verdacht gebied horizontale afbakening",
-        "description": "Nadere beschrijving van de horizontale afbakening van een verdacht gebied"
+        "description": "Verdere omschrijving van de geografische grenzen van het verdachte gebied, gebaseerd op historisch onderzoek en het certificatieschema CS-VROO"
       },
       "cartografischeOnnauwkeurigheid": {
         "type": "string",
@@ -75,14 +75,14 @@
         "description": "Nadere beschrijving van de cartografische onnauwkeurigheid van een verdacht gebied als gevolg van inkarteren"
       },
       "bovengrensVerdachtgebiedM": {
-        "type": "string",
+        "type": "number",
         "title": "Verdacht gebied bovengrens hoogte",
-        "description": "Hoogte van de bovengrens van een verdacht gebied"
+        "description": "Hoogte van de bovengrens van een verdacht gebied in meters ten opzichte van referentiepeil"
       },
       "ondergrensVerdachtgebiedM": {
-        "type": "string",
+        "type": "number",
         "title": "Verdacht gebied ondergrens hoogte",
-        "description": "Hoogte van de ondergrens van een verdacht gebied"
+        "description": "Hoogte van de ondergrens van een verdacht gebied in meters ten opzichte van referentiepeil"
       },
       "referentiepeil": {
         "type": "string",
@@ -91,18 +91,18 @@
       },
       "typeOntsteker": {
         "type": "string",
-        "title": "Verdacht gebied type ontsteker",
+        "title": "Type ontsteker",
         "description": "Type ontsteker van het explosief"
       },
       "trillingsgevoelig": {
         "type": "string",
-        "title": "Verdacht gebied trillingsgevoeligheid",
-        "description": "Trillingsgevoelige ontsteker (ja/nee)"
+        "title": "Verdacht gebied indicatie trillingsgevoeligheid",
+        "description": "Indicatie of de mogelijk aanwezige explosieven binnen het verdachte gebied een ontsteker heeft met vertraging, waardoor het als trillingsgevoelig is aangemerkt"
       },
       "hyperlink": {
         "type": "string",
         "format": "uri",
-        "title": "PDF URL verdacht gebied",
+        "title": "Verdacht gebied pdf URL",
         "description": "Een digitale link naar de PDF met meer informatie over een verdacht gebied"
       },
       "bewerkingsdatumGeometrie": {
@@ -122,7 +122,7 @@
         "description": "Extra opmerkingen over een verdacht gebied"
       },
       "geometrie": {
-        "$ref": "https://geojson.org/schema/Geometry.json",
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
         "title": "Verdacht gebied geometrie",
         "description": "Geografische gegevens van een verdacht gebied volgens het GeoJSON-formaat"
       }

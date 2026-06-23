@@ -22,17 +22,17 @@
       "id": {
         "type": "integer",
         "title": "Gevrijwaard gebied ID",
-        "description": "Unieke identificatie van het gevrijwaard gebied"
+        "description": "Een uniek nummer dat automatisch wordt aangemaakt om elk object in de dataset te herkennen"
       },
       "kenmerkGeometrie": {
         "type": "string",
         "title": "Gevrijwaard gebied kenmerk geometrie",
-        "description": "Nadere beschrijving van het kenmerk van het gevrijwaard gebied"
+        "description": "Een kenmerk van de geometrie dat is bepaald in de uitvoering van het detectieonderzoek"
       },
       "kenmerkRapport": {
         "type": "string",
-        "title": "Gevrijwaard gebied kenmerk omschrijving",
-        "description": "Rapport met nadere beschrijving van het kenmerk van een gevrijwaard gebied"
+        "title": "Documentkenmerk rapport oplevering",
+        "description": "Kenmerk van de Proces Verbaal van Oplevering waarin het gevrijwaard gebied wordt omschreven"
       },
       "datumVrijgave": {
         "type": "string",
@@ -42,18 +42,18 @@
       },
       "intekening": {
         "type": "string",
-        "title": "Gevrijwaard gebied intekening omschrijving",
-        "description": "Omschrijving van de ingetekende gegevens of locatie van het gevrijwaard gebied"
+        "title": "Gevrijwaard gebied medium bron intekening",
+        "description": "Het medium op basis waarop de intekening van het gevrijwaard gebied is verricht"
       },
       "bovengrensGevrijwaardgebiedM": {
-        "type": "string",
+        "type": "number",
         "title": "Gevrijwaard gebied bovengrens hoogte",
-        "description": "Hoogte van de bovengrens van het gevrijwaard gebied"
+        "description": "Hoogte van de bovengrens van het gevrijwaard gebied in meters ten opzichte van referentiepeil"
       },
       "ondergrensGevrijwaardgebiedM": {
-        "type": "string",
+        "type": "number",
         "title": "Gevrijwaard gebied ondergrens hoogte",
-        "description": "Hoogte van de ondergrens van het gevrijwaard gebied"
+        "description": "Hoogte van de ondergrens van het gevrijwaard gebied in meters ten opzichte van referentiepeil"
       },
       "referentiepeil": {
         "type": "string",
@@ -63,8 +63,8 @@
       "hyperlink": {
         "type": "string",
         "format": "uri",
-        "title": "PDF URL gevrijwaard gebied",
-        "description": "Een digitale link naar de PDF met meer informatie over het gevrijwaard gebied"
+        "title": "Gevrijwaard gebied PDF URL",
+        "description": "Een link naar het Proces Verbaal van Oplevering met informatie over de vaststelling van het gevrijwaard gebied"
       },
       "bewerkingsdatumGeometrie": {
         "type": "string",
@@ -83,7 +83,7 @@
         "description": "Extra opmerkingen over het gevrijwaard gebied"
       },
       "geometrie": {
-        "$ref": "https://geojson.org/schema/Geometry.json",
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
         "title": "Gevrijwaard gebied geometrie",
         "description": "Geografische gegevens van het gevrijwaard gebied volgens het GeoJSON-formaat"
       }
