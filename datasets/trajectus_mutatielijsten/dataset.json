@@ -1,43 +1,43 @@
 {
-  "id": "trajectusMutatielijsten",
-  "type": "dataset",
-  "title": "Trajectus mutatielijsten",
-  "description": "Zorgaanbieders werken met het berichtenverkeer waardoor de gegevens in ZorgNed automatisch bijgewerkt worden met wijzigingen. In Trajectus gebeurt dit niet automatisch, waardoor medewerkers van Services dit wekelijks doen op basis van wijzigingen in ZorgNed. Met dit dataproduct leveren we 4 lijsten zodat services weet voor welke cliënten in Trajectus zij de opvang moeten sluiten, de wachtlijst moeten sluiten, de opvang moeten openen of de wachtlijstbegeleiding moeten sluiten.",
-  "publisher": {
-    "$ref": "publishers/DTJZ"
-  },
-  "creator": "Datateam Jeugd en Zorg",
-  "auth": "DTJZ/TRJML",
-  "reasonsNonPublic": [
-    "5.1 1d: Bevat persoonsgegevens"
-  ],
-  "authorizationGrantor": "Datateam Jeugd en Zorg",
-  "owner": "Gemeente Amsterdam",
-  "defaultVersion": "v0",
-  "versions": {
-    "v0": {
-      "status": "under_development",
-      "enableAPI": false,
-      "enableGeosearch": false,
-      "version": "0.0.1",
-      "tables": [
-        {
-          "id": "sluitenOpvang",
-          "$ref": "sluitenOpvang/v0"
-        },
-        {
-          "id": "sluitenWachtlijst",
-          "$ref": "sluitenWachtlijst/v0"
-        },
-        {
-          "id": "openenOpvang",
-          "$ref": "openenOpvang/v0"
-        },
-        {
-          "id": "sluitenWachtlijstbegeleiding",
-          "$ref": "sluitenWachtlijstbegeleiding/v0"
+    "id": "trajectusMutatielijsten",
+    "type": "dataset",
+    "title": "Trajectus mutatielijsten",
+    "description": "Zorgaanbieders werken met het berichtenverkeer waardoor de gegevens in ZorgNed automatisch bijgewerkt worden met wijzigingen. In Trajectus gebeurt dit niet automatisch, waardoor medewerkers van Services dit wekelijks doen op basis van wijzigingen in ZorgNed. Met dit dataproduct leveren we 4 lijsten zodat services weet voor welke cliënten in Trajectus zij de opvang moeten sluiten, de wachtlijst moeten sluiten, de opvang moeten openen of de wachtlijstbegeleiding moeten sluiten.",
+    "publisher": {
+        "$ref": "publishers/DTJZ"
+    },
+    "creator": "Datateam Jeugd en Zorg",
+    "auth": "DTJZ/TRJML",
+    "reasonsNonPublic": [
+        "5.1 1d: Bevat persoonsgegevens"
+    ],
+    "authorizationGrantor": "Datateam Jeugd en Zorg",
+    "owner": "Gemeente Amsterdam",
+    "defaultVersion": "v0",
+    "versions": {
+        "v0": {
+            "status": "under_development",
+            "enableAPI": false,
+            "enableGeosearch": false,
+            "version": "0.0.1",
+            "tables": [
+                {
+                    "id": "openenOpvang",
+                    "$ref": "openenOpvang/v0"
+                },
+                {
+                    "id": "sluitenOpvang",
+                    "$ref": "sluitenOpvang/v0"
+                },
+                {
+                    "id": "sluitenWachtlijst",
+                    "$ref": "sluitenWachtlijst/v0"
+                },
+                {
+                    "id": "sluitenWachtlijstbegeleiding",
+                    "$ref": "sluitenWachtlijstbegeleiding/v0"
+                }
+            ]
         }
-      ]
     }
-  }
 }

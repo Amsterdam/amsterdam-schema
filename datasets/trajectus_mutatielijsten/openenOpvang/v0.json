@@ -1,55 +1,63 @@
 {
-  "id": "openenOpvang",
-  "title": "Mutatielijst openen opvang",
-  "description": "Tabel met te openen opvangtrajecten.",
-  "type": "table",
-  "version": "0.0.1",
-  "status": "stable",
-  "schema": {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "additionalProperties": false,
-    "identifier": [
-      "clientTrajectusId",
-      "opvanglocatie"      
-    ],
-    "required": [
-      "schema",
-      "clientTrajectusId",
-      "opvanglocatie"
-    ],
-    "display": "clientTrajectusId",
-    "properties": {
-      "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
-      },
-      "clientTrajectusId": {
-        "type": "string",
-        "title": "Trajectus Client ID",
-        "description": "Unieke aanduiding van client in applicatie."
-      },
-      "opvanglocatie": {
-        "type": "string",
-        "title": "Opvanglocatie.",
-        "description": "Locatie van de opvang."
-      },
-      "clientTrajectusIdGeaccepteerd": {
-        "type": "string",
-        "title": "Trajectus Client ID geaccepteerd",
-        "description": "Cliëntnummer van de cliënt uit Trajectus voor wie het leegbed is geaccepteerd."
-      },
-      "datumStartLeegbedVrijVerwacht": {
-        "type": "string",
-        "title": "Datum start leegbed vrij verwacht",
-        "format": "date",
-        "description": "De datum waarop verwacht wordt dat een bed vrij komt."
-      },
-      "datumStartLeegbedVrij": {
-        "type": "string",
-        "title": "Datum start leegbed vrij",
-        "format": "date",
-        "description": "De datum waarop het bed daadwerkelijk vrij komt."
-      }
+    "id": "openenOpvang",
+    "title": "Openen opvang",
+    "description": "Beschrijving voor openen_opvang",
+    "type": "table",
+    "version": "0.1.1",
+    "status": "under_development",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+            "clientTrajectusIdGeaccepteerd",
+            "clientTrajectusIdVoorgedragen",
+            "opvanglocatie"            
+        ],
+        "required": [
+            "schema",
+            "clientTrajectusIdGeaccepteerd",
+            "clientTrajectusIdVoorgedragen",
+            "opvanglocatie"            
+        ],
+        "display": "clientTrajectusIdVoorgedragen",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "clientTrajectusIdVoorgedragen": {
+                "type": "string",
+                "title": "Client trajectus id voorgedragen",
+                "description": "Beschrijving voor CLIENT_TRAJECTUS_ID_VOORGEDRAGEN"
+            },
+            "clientTrajectusIdGeaccepteerd": {
+                "type": "string",
+                "title": "Client trajectus id geaccepteerd",
+                "description": "Beschrijving voor CLIENT_TRAJECTUS_ID_GEACCEPTEERD"
+            },
+            "opvanglocatie": {
+                "type": "string",
+                "title": "Opvanglocatie",
+                "description": "Beschrijving voor OPVANGLOCATIE"
+            },
+            "datumStartLeegbedVrijVerwacht": {
+                "type": "string",
+                "format": "date",
+                "title": "Datum start leegbed vrij verwacht",
+                "description": "Beschrijving voor DATUM_START_LEEGBED_VRIJ_VERWACHT"
+            },
+            "datumStartLeegbedVrij": {
+                "type": "string",
+                "format": "date",
+                "title": "Datum start leegbed vrij",
+                "description": "Beschrijving voor DATUM_START_LEEGBED_VRIJ"
+            },
+            "datumExportTrajectus": {
+                "type": "string",
+                "format": "date",
+                "title": "Datum export trajectus",
+                "description": "Beschrijving voor DATUM_EXPORT_TRAJECTUS"
+            }
+        }
     }
-  }
 }
