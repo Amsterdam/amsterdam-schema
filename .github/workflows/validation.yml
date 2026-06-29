@@ -47,14 +47,17 @@ jobs:
       - name: Run schema ${{ matrix.command }} and capture log
         if: ${{ steps.changed-files.outputs.changed != '' }}
         shell: bash
+        env:
+          CHANGED_FILES: ${{ steps.changed-files.outputs.changed }}
         run: |
           set -euo pipefail
           mkdir -p artifacts
           LOG_FILE="artifacts/${{ matrix.command }}.log"
 
           if [[ "${{ matrix.command }}" == "batch-validate" ]]; then
+            mapfile -t changed_files <<< "$CHANGED_FILES"
             schema batch-validate https://schemas.data.amsterdam.nl/schema@v4.2.0 \
-              ${{ steps.changed-files.outputs.changed }} \
+              "${changed_files[@]}" \
               2> >(tee "$LOG_FILE" >&2)
           else
             schema ${{matrix.command}} https://schemas.data.amsterdam.nl/schema@v4.2.0 \
