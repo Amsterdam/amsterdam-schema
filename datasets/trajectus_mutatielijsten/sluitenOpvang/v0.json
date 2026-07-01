@@ -1,60 +1,73 @@
 {
-  "id": "sluitenOpvang",
-  "title": "Mutatielijst sluiten opvang",
-  "description": "Tabel met te sluiten opvangtrajecten.",
-  "type": "table",
-  "version": "0.0.1",
-  "status": "stable",
-  "schema": {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "additionalProperties": false,
-    "identifier": [
-      "clientTrajectusId",
-      "opvanglocatie",
-      "zorgaanbieder"
-    ],
-    "required": [
-      "schema",
-      "clientTrajectusId",
-      "opvanglocatie",
-      "zorgaanbieder"
-    ],
-    "display": "clientTrajectusId",
-    "properties": {
-      "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
-      },
-      "id": {
-        "type": "string",
-        "description": "Unieke aanduiding database rij"
-      },
-      "clientTrajectusId": {
-        "type": "string",
-        "title": "Trajectus Client ID",
-        "description": "Unieke aanduiding van client in applicatie."
-      },
-      "opvanglocatie": {
-        "type": "string",
-        "title": "Opvanglocatie.",
-        "description": "Locatie van de opvang."
-      },
-      "redenEindZorg": {
-        "type": "string",
-        "title": "Reden einde zorg",
-        "description": "Reden waarom zorg eindigde."
-      },
-      "zorgaanbieder": {
-        "type": "string",
-        "title": "Zorgaanbieder",
-        "description": "Naam van zorgaanbieder in traject."
-      },
-      "datumEindZorg": {
-        "type": "string",
-        "title": "Datum einde zorg",
-        "format": "date",
-        "description": "Datum waarop zorg eindigde."
-      }
+    "id": "sluitenOpvang",
+    "title": "Sluiten opvang",
+    "description": "Beschrijving voor sluiten_opvang",
+    "type": "table",
+    "version": "0.1.1",
+    "status": "under_development",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+            "clientTrajectusId",
+            "opvanglocatie",            
+            "zorgaanbieder"
+        ],
+        "required": [
+            "schema",
+            "clientTrajectusId",
+            "opvanglocatie",
+            "zorgaanbieder"
+        ],
+        "display": "clientTrajectusId",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "clientTrajectusId": {
+                "type": "string",
+                "title": "Client trajectus id",
+                "description": "Beschrijving voor CLIENT_TRAJECTUS_ID"
+            },
+            "opvanglocatie": {
+                "type": "string",
+                "title": "Opvanglocatie",
+                "description": "Beschrijving voor OPVANGLOCATIE"
+            },
+            "redenEindZorg": {
+                "type": "string",
+                "title": "Reden eind zorg",
+                "description": "Beschrijving voor REDEN_EIND_ZORG"
+            },
+            "zorgaanbieder": {
+                "type": "string",
+                "title": "Zorgaanbieder",
+                "description": "Beschrijving voor ZORGAANBIEDER"
+            },
+            "datumEindZorg": {
+                "type": "string",
+                "format": "date-time",
+                "title": "Datum eind zorg",
+                "description": "Beschrijving voor DATUM_EIND_ZORG"
+            },
+            "productCode": {
+                "type": "string",
+                "title": "Product code",
+                "description": "Beschrijving voor PRODUCT_CODE"
+            },
+            "datumExportZorgned": {
+                "type": "string",
+                "format": "date",
+                "title": "Datum export zorgned",
+                "description": "Beschrijving voor DATUM_EXPORT_ZORGNED"
+            },
+            "datumExportTrajectus": {
+                "type": "string",
+                "format": "date",
+                "title": "Datum export trajectus",
+                "description": "Beschrijving voor DATUM_EXPORT_TRAJECTUS"
+            }
+        }
     }
-  }
 }
