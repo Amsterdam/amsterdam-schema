@@ -1,0 +1,28 @@
+name: Unity Catalog
+on:
+  pull_request:
+    # paths:
+    #   - datasets/**
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  unity-catalog:
+    runs-on: ubuntu-latest
+    environment: prod
+    env:
+      DATABRICKS_AUTH_TYPE: github-oidc
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Databricks CLI
+        uses: databricks/setup-cli@main
+
+      - name: Run Databricks CLI commands
+        run: databricks current-user me
