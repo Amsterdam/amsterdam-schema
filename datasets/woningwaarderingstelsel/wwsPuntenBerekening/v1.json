@@ -3,50 +3,47 @@
   "type": "table",
   "version": "1.0.0",
   "status": "under_development",
-  "description": "Per verblijfsobject de kenmerken en het aantal berekende punten voor het woningwaarderingstelsel punten systeem",
+  "description": "Per verblijfsobject de kenmerken en het aantal berekende punten voor het woningwaarderingstelsel punten systeem. Let op, de peildatum van de gebruikte woz waarde is nog 2024.",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
+    "identifier": "votIdentificatie",
     "additionalProperties": false,
     "required": [
       "schema",
-      "id"
+      "votIdentificatie"
     ],
-    "display": "id",
+    "display": "votIdentificatie",
     "properties": {
-      "id": {
-        "type": "integer",
-        "description": "Id"
-      },
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "votIdentificatie": {
         "type": "string",
-        "description": "Unieke key van het verblijfobject"
+        "description": "Unieke key van het verblijfsobject"
       },
       "adres": {
         "type": "string",
-        "description": "Adres van het verblijfobject"
+        "description": "Adres van het verblijfsobject"
       },
       "huisnummer": {
         "type": "integer",
-        "description": "Huisnummer van het verblijfobject"
+        "description": "Huisnummer van het verblijfsobject"
       },
       "huisletter": {
         "type": "string",
-        "description": "Huisletter van het verblijfobject"
+        "description": "Huisletter van het verblijfsobject"
       },
       "huisnummertoevoeging": {
         "type": "string",
-        "description": "Huisnummertoevoeging van het verblijfobject"
+        "description": "Huisnummertoevoeging van het verblijfsobject"
       },
       "postcode": {
         "type": "string",
-        "description": "Postcode van het verblijfobject"
+        "description": "Postcode van het verblijfsobject"
       },
       "bouwjaar": {
-        "type": "string",
+        "type": "integer",
         "description": "De aanduiding van het jaar waarin een pand oorspronkelijk als bouwkundig gereed is of wordt opgeleverd"
       },
       "gebruiksoppervlakte": {
@@ -54,8 +51,8 @@
         "description": "De gebruiksoppervlakte van het verblijfsobject conform hetgeen in NEN 2580 is vastgelegd omtrent gebruiksoppervlakte"
       },
       "aantalKamers": {
-        "type": "string",
-        "description": "Geeft het aantal kamers vaan binnen het verblijfsobject"
+        "type": "integer",
+        "description": "Geeft het aantal kamers aan binnen het verblijfsobject"
       },
       "typeWoonobject": {
         "type": "string",
@@ -67,19 +64,19 @@
       },
       "wozPeiljaar": {
         "type": "string",
-        "description": "De da­tum waar­naar de waar­de van het WOZ-ob­ject wordt be­paald"
+        "description": "De da­tum waar­op de waar­de van het WOZ-ob­ject wordt be­paald"
       },
       "wwsTotaalMinNacap": {
-        "type": "integer",
+        "type": "number",
         "description": "Minimale totaal aantal wws punten met WOZ cap toegepast"
       },
       "wwsTotaalMaxNacap": {
-        "type": "string",
+        "type": "number",
         "description": "Maximale totaal aantal wws punten met WOZ cap toegepast"
       },
       "segment": {
-        "type": "integer",
-        "description": "In welk segment de woning valt obv het aantal punten"
+        "type": "string",
+        "description": "In welk segment de woning valt op basis van het aantal wws punten"
       }
     }
   }
