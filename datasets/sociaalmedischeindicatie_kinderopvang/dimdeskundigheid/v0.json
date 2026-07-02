@@ -1,0 +1,46 @@
+{
+    "id": "dimdeskundigheid",
+    "title": "Dimdeskundigheid",
+    "description": "Beschrijving voor dimdeskundigheid",
+    "type": "table",
+    "version": "0.0.1",
+    "status": "stable",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+            "code",
+            "naam",
+            "mtaLaadDatumtijd"
+        ],
+        "required": [
+            "schema",
+            "code",
+            "naam",
+            "mtaLaadDatumtijd"
+        ],
+        "display": "code",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "code": {
+                "type": "string",
+                "title": "Code",
+                "description": "Beschrijving voor CODE"
+            },
+            "naam": {
+                "type": "string",
+                "title": "Naam",
+                "description": "Beschrijving voor NAAM"
+            },
+            "mtaLaadDatumtijd": {
+                "type": "string",
+                "format": "date-time",
+                "title": "Mta laad datumtijd",
+                "description": "Beschrijving voor MTA_LAAD_DATUMTIJD"
+            }
+        }
+    }
+}

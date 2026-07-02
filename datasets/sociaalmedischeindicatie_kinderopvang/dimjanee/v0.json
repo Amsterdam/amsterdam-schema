@@ -1,0 +1,53 @@
+{
+    "id": "dimjanee",
+    "title": "Dimjanee",
+    "description": "Beschrijving voor dimjanee",
+    "type": "table",
+    "version": "0.0.1",
+    "status": "stable",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+            "nummer",
+            "naam",
+            "waarde",
+            "mtaLaadDatumtijd"
+        ],
+        "required": [
+            "schema",
+            "nummer",
+            "naam",
+            "waarde",
+            "mtaLaadDatumtijd"
+        ],
+        "display": "nummer",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "nummer": {
+                "type": "number",
+                "title": "Nummer",
+                "description": "Beschrijving voor NUMMER"
+            },
+            "naam": {
+                "type": "string",
+                "title": "Naam",
+                "description": "Beschrijving voor NAAM"
+            },
+            "waarde": {
+                "type": "number",
+                "title": "Waarde",
+                "description": "Beschrijving voor WAARDE"
+            },
+            "mtaLaadDatumtijd": {
+                "type": "string",
+                "format": "date-time",
+                "title": "Mta laad datumtijd",
+                "description": "Beschrijving voor MTA_LAAD_DATUMTIJD"
+            }
+        }
+    }
+}
