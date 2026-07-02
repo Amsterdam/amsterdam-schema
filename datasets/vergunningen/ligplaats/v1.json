@@ -13,7 +13,7 @@
       "schema",
       "id"
     ],
-    "mainGeometry": "geometrie",
+    "mainGeometry": "puntgeometrie_epsg28992",
     "display": "id",
     "properties": {
       "schema": {
@@ -32,7 +32,7 @@
         "description": "Volgnummer dat op '1' staat als er op een locatie één ligplaats ligt. Als er op één locatie meerdere ligplaatsen liggen, zijn er corresponderende volgnummers."
       },
       "exclusieveLocatie": {
-        "type": "Boolean",
+        "type": "string",
         "description": "Boolean die aangeeft of het een ligplaats betreft die tevens een op- en afstaplocatie is."
       },
       "vergunninghouderLigplaatsvergunning": {
@@ -47,10 +47,9 @@
         "type": "string",
         "description": "Categorie waarbinnen de ligplaats valt. Mogelijke waarden: kort, middel, lang."
       },
-      "geometrie": {
-        "$ref": "https://geojson.org/schema/MultiPolygon.json",
-        "description": "Vlakgeometrie van de wijk waar de beschikbaarheidindicatie Bed & Breakfast van toepassing is.",
-        "provenance": "geo"
+      "puntgeometrie_epsg28992": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "'De coördinaten van de ligplaats in WKT, uitgedrukt in EPSG:28992. Indien er meerdere ligplaatsen op één locatie liggen, hebben deze dezelfde coördinaten."
       }
     }
   }
