@@ -1,0 +1,56 @@
+{
+  "id": "ligplaats",
+  "title": "ligplaats",
+  "description": "'Deze dataset toont op welke locaties in het Amsterdamse water er een ligplaatsvergunning vergeven is. Uit deze dataset is ook te halen om welk vergund vaartuig het gaat, en wie de vergunninghouder is.",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "mainGeometry": "geometrie",
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke sleutel van de ligplaats."
+      },
+      "locatie": {
+        "type": "string",
+        "description": "Samengesteld adres ter hoogte van de locatie van de ligplaats."
+      },
+      "volgnummerLocatie": {
+        "type": "string",
+        "description": "Volgnummer dat op '1' staat als er op een locatie één ligplaats ligt. Als er op één locatie meerdere ligplaatsen liggen, zijn er corresponderende volgnummers."
+      },
+      "exclusieveLocatie": {
+        "type": "string",
+        "description": "Boolean die aangeeft of het een ligplaats betreft die tevens een op- en afstaplocatie is."
+      },
+      "vergunninghouderLigplaatsvergunning": {
+        "type": "string",
+        "description": "Naam van de vergunninghouder."
+        },
+      "naamVergundVaartuig": {
+        "type": "string",
+        "description": "Naam van het vaartuig waarvoor een ligplaats is vergund."
+      },
+      "categorie": {
+        "type": "string",
+        "description": "Categorie waarbinnen de ligplaats valt. Mogelijke waarden: kort, middel, lang."
+      },
+      "geometrie": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "'De coördinaten van de ligplaats, uitgedrukt in EPSG:28992. Indien er meerdere ligplaatsen op één locatie liggen, hebben deze dezelfde coördinaten."
+      }
+    }
+  }
+}
