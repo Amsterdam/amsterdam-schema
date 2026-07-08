@@ -1,1 +1,75 @@
-
+{
+  "id": "sportlocaties",
+  "title": "Sportlocaties",
+  "description":"Sportlocaties in het beheer van de Gemeente Amsterdam en beschikbaar voor verhuur. Sportlocaties bevatten of meerdere sport- of gymzalen. Ze staan gelijk aan een verblijfsobject in de Basisregistratie Adressen en Gebouwen. Ze zijn ook terug te vinden in de dataset Maatschappelijk Voorzieningen."
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van de sportlocatie",
+        "title": "ID"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "Puntgeometrie van de sportlocatie.",
+        "title": "Puntgeometrie"
+      },
+      "naam": {
+        "type": "string",
+        "description": "Naam van de sportlocatie.",
+        "title": "Naam"
+      },
+      "type": {
+        "type": "string",
+        "description": "Type sportlocatie, zoals gymzalen of sporthallen.",
+        "title": "Type"
+      },
+      "postcode": {
+        "type": "string",
+        "description": "Postcode van de sportlocatie.",
+        "title": "Postcode"
+      },
+      "huisnummer": {
+        "type": "string",
+        "description": "Huisnummer van de sportlocatie.",
+        "title": "Postcode"
+      },
+      "huisletter": {
+        "type": "string",
+        "description": "Huisletter van de sportlocatie.",
+        "title": "Postcode"
+      },
+      "huisnummertoevoeging": {
+        "type": "string",
+        "description": "Huisnummertoevoeging van de sportlocatie.",
+        "title": "Postcode"
+      },
+      "nummeraanduidingId": {
+        "type": "string",
+        "description": "De nummeraanduiding van het verblijfsobject waaronder de sportlocatie in de Basisregistratie Adressen en Gebouwen bekend is",
+        "title": "Postcode",
+        "relation": "benkagg:adresseerbareobjecten"
+      },
+      "MvId": {
+        "type": "string",
+        "description": "De Maatschappelijke Voorziening ID. Sportlocaties worden als maatschappelijke voorziening geadministreerd door de Directie Maatschappelijke Voorzieningen. Directie Sport & Bos baat de sportlocaties uit.",
+        "title": "Postcode",
+        "relation": "maatschappelijke_voorzieningen:voorzieningIndividueel"
+      }
+    }
+  }
+}
