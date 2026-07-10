@@ -9,7 +9,7 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
-    "mainGeometry": "geometrie",
+    "mainGeometry": "betreftBagPand",
     "identifier": [
       "identificatie"
     ],
@@ -43,24 +43,26 @@
         "description": "Een samenvatting van de adressen van een monument. Dit kenmerk biedt de mogelijkheid om in één veld een herkenbare locatie aan te geven"
       },
       "betreftBagPand": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "identificatie": {
-              "type": "string"
-            },
-            "volgnummer": {
-              "type": "integer"
-            },
-            "beginGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "eindGeldigheid": {
-              "type": "string",
-              "format": "date-time"
-            }
+        "title": "Monument is pand indicatie",
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "title": "Object ID",
+            "type": "string"
+          },
+          "volgnummer": {
+            "title": "Object volgnummer",
+            "type": "integer"
+          },
+          "beginGeldigheid": {
+            "title": "Object geldigheid startdatum",
+            "type": "string",
+            "format": "date-time"
+          },
+          "eindGeldigheid": {
+            "title": "Object geldigheid einddatum",
+            "type": "string",
+            "format": "date-time"
           }
         },
         "relation": "bag:panden",
@@ -123,21 +125,6 @@
         "title": "Monument functie omschrijving",
         "type": "string",
         "description": "Indeling naar vorm en functie die leidend zijn geweest in het ontwerp en de realisatie van het monument. Indeling gebaseerd op CBS-categorieen"
-      },
-      "puntCoordinaten": {
-        "title": "Monument coordinaten",
-        "$ref": "https://geojson.org/schema/Point.json",
-        "description": "De X- en Y-coordinaat die als coordinatenpaar de ligging van het monument representeert in het Rijksdriehoeksstelsel"
-      },
-      "geometrie": {
-        "title": "Geometrie",
-        "$ref": "https://geojson.org/schema/Geometry.json",
-        "description": "Vorm en ligging van het object in het stelsel van de Rijksdriehoekmeting (RD)"
-      },
-      "contour": {
-        "title": "Monument contour omschrijving",
-        "$ref": "https://geojson.org/schema/MultiPolygon.json",
-        "description": "Ruimtelijke contour en ligging van het monument in het Rijksdriehoeksstelsel (RD)"
       },
       "redengevendeOmschrijving": {
         "title": "Reden afgeschermde omschrijving",
