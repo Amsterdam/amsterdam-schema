@@ -1,0 +1,75 @@
+{
+    "id": "dimleeftijd",
+    "title": "Dimleeftijd",
+    "description": "Beschrijving voor dimleeftijd",
+    "shortname": "dimLftd",
+    "type": "table",
+    "version": "0.0.1",
+    "status": "under_development",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+            "nummer",
+            "naam"
+        ],
+        "required": [
+            "schema",
+            "nummer",
+            "naam"            
+        ],
+        "display": "naam",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "nummer": {
+                "type": "string",
+                "title": "Nummer",
+                "description": "Beschrijving voor NUMMER"
+            },
+            "naam": {
+                "type": "string",
+                "title": "Naam",
+                "description": "Beschrijving voor NAAM"
+            },
+            "isjongerdan13": {
+                "type": "number",
+                "title": "Isjongerdan13",
+                "description": "Beschrijving voor ISJONGERDAN13"
+            },
+            "isjongerdan18": {
+                "type": "number",
+                "title": "Isjongerdan18",
+                "description": "Beschrijving voor ISJONGERDAN18"
+            },
+            "isjongerdan21": {
+                "type": "number",
+                "title": "Isjongerdan21",
+                "description": "Beschrijving voor ISJONGERDAN21"
+            },
+            "isjongerdan24": {
+                "type": "number",
+                "title": "Isjongerdan24",
+                "description": "Beschrijving voor ISJONGERDAN24"
+            },
+            "leeftijdcategoriecbs": {
+                "type": "string",
+                "title": "Leeftijdcategoriecbs",
+                "description": "Beschrijving voor LEEFTIJDCATEGORIECBS"
+            },
+            "leeftijdcategoriejeugd": {
+                "type": "string",
+                "title": "Leeftijdcategoriejeugd",
+                "description": "Beschrijving voor LEEFTIJDCATEGORIEJEUGD"
+            },
+            "mtaLaadDatumtijd": {
+                "type": "string",
+                "format": "date-time",
+                "title": "Mta laad datumtijd",
+                "description": "Beschrijving voor MTA_LAAD_DATUMTIJD"
+            }
+        }
+    }
+}
