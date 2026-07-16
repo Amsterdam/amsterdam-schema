@@ -25,4 +25,6 @@ jobs:
         uses: databricks/setup-cli@main
 
       - name: Run Databricks CLI commands
-        run: databricks current-user me
+        run: |
+          databricks auth describe
+          databricks current-user me
