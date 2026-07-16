@@ -2,7 +2,7 @@
   "id": "monumenten",
   "type": "table",
   "auth": "OPENBAAR",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "status": "stable",
   "description": "Een beschermd monument is een onroerend monument ofwel zaak of terrein dat beschermd is vanwege het algemeen belang wegens zijn schoonheid, betekenis voor de wetenschap of cultuurhistorische waarde",
   "schema": {
@@ -17,7 +17,7 @@
       "schema",
       "identificatie"
     ],
-    "display": "identificatie",
+    "display": "weergavenaam",
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
@@ -32,11 +32,16 @@
         "type": "integer",
         "description": "Een identificatie van het monument toegekend door het collegen van Amsterdam (M&A), Gedeputeerde Staten resp. de minister van Onderwijs, Cultuur en Wetschap"
       },
+      "weergavenaam": {
+        "title": "Monument naam weergave",
+        "type": "string",
+        "description": "Naam die weergegeven wordt. Opgebouwd uit de gevulde waarde van opeenvolgend: adressering, naam, identificatie"
+      },
       "adressering": {
         "title": "Monument adressen omschrijving",
         "type": "string",
         "description": "Een samenvatting van de adressen van een monument. Dit kenmerk biedt de mogelijkheid om in één veld een herkenbare locatie aan te geven"
-      },
+      },  
       "betreftBagPand": {
         "title": "Monument is pand indicatie",
         "type": "array",
