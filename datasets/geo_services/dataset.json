@@ -1,0 +1,46 @@
+
+{
+  "id": "geoServices",
+  "type": "dataset",
+  "title": "WMS Kaartlagen",
+  "description": "Overzicht van alle Geo-services (voorlopig WMS-kaartlagen) van Gemeente Amsterdam.",
+  "license": "Creative Commons, Attribution 4.0",
+  "owner": "Gemeente Amsterdam",
+  "creator": "Directie Digitale Voorzieningen, DE GEO-team",
+  "publisher": {
+    "$ref": "publishers/DPGO"
+  },
+  "auth": "OPENBAAR",
+  "authorizationGrantor": "datapunt@amsterdam.nl",
+  "language": "nl",
+  "accrualPeriodicity": "dagelijks",
+  "dateCreated": "2026-07-01",
+  "theme": [
+    "Geografie",
+    "Kaartlagen",
+    "WMS",
+    "Geo-informatie"
+  ],
+  "keywords": [
+    "wms",
+    "kaartlagen",
+    "mapserver",
+    "geo",
+    "dataportaal"
+  ],
+  "crs": "EPSG:28992",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "version": "1.0.0",
+      "status": "stable",
+      "enableAPI": true,
+      "tables": [
+        {
+          "$ref": "wmsKaartlagen/v1",
+          "id": "wmsKaartlagen"
+        }
+      ]
+    }
+  }
+}
