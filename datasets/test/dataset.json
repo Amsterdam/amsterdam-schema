@@ -1,0 +1,45 @@
+{
+  "type": "dataset",
+  "id": "test",
+  "title": "RDW parkeerrechten NPR",
+  "theme": [
+    "Parkeren",
+    "Parkeerrechten",
+    "Nationaal Parkeer register"
+  ],
+  "description": "Nationaal Parkeer Register Regelingen",
+  "crs": "EPSG:4326",
+  "owner": "Gemeente Amsterdam Directie Parkeren",
+  "creator": "rdw",
+  "auth": "PARK/MDW",
+  "authorizationGrantor": "parkeerdata@amsterdam.nl",
+  "reasonsNonPublic": [
+    "nader te bepalen"
+  ],
+  "publisher": {
+    "$ref": "publishers/MOBI"
+  },
+  "provenance": "Data van diverse bronnen bij rdw.nl",
+  "additionalProperties": false,
+  "defaultVersion": "v0",
+  "versions": {
+    "v0": {
+      "status": "under_development",
+      "enableAPI": false,
+      "enableGeosearch": false,
+      "version": "0.0.1",
+      "tables": [
+        {
+          "id": "testWoonplaatsen",
+          "$ref": "testWoonplaatsen/v1",
+          "provenance": "uc:dpda_dev.default.test_woonplaatsen"
+        },
+        {
+          "provenance": "uc:dpda_dev.default.test_stadsdelen",
+          "id": "testStadsdelen",
+          "$ref": "testStadsdelen/v1"
+        }
+      ]
+    }
+  }
+}
