@@ -1,0 +1,156 @@
+{
+  "id": "wmsKaartlagen",
+  "type": "table",
+  "title": "WMS Kaartlagen",
+  "description": "Alle WMS-kaartlagen van Gemeente Amsterdam, samengesteld uit de maplayers API en de GitHub mapserver repository. Één rij per kaartlaag. LayerGroups (laagtype 2) zijn uitgesloten.",
+  "version": "1.0.0",
+  "status": "stable",
+  "derivedFrom": [
+    "dpgo_dev.gold_refdb.wms_kaartlagen"
+  ],
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+      "id",
+      "schema"
+    ],
+    "display": "id",
+    "identifier": "id",
+    "additionalProperties": false,
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "Id",
+        "description": "Surrogaatsleutel gegenereerd via xxhash64 op layerId, naamMapfile en private. Private is meegenomen zodat publieke en private versies van hetzelfde mapbestand een unieke id krijgen."
+      },
+      "bron": {
+        "type": "string",
+        "title": "Bron",
+        "description": "Geeft aan of de rij uit beide bronnen komt (api_en_mapfile) of alleen uit de maplayers API zonder mapfile-match (alleen_api).",
+        "enum": [
+          "api_en_mapfile",
+          "alleen_api"
+        ]
+      },
+      "collectie": {
+        "type": "string",
+        "title": "Collectie",
+        "description": "Weergavenaam van de categorie waartoe de kaartlaag behoort, zoals zichtbaar als grijze kop in de kaartlagenkiezer op data.amsterdam.nl."
+      },
+      "layerId": {
+        "type": "string",
+        "title": "Laag id",
+        "description": "Unieke identifier van de kaartlaag uit de Amsterdam maplayers API. Geen waarde betekent dat er wel een WMS bestaat maar geen kaartlaag op data.amsterdam.nl is gemaakt. Het layerId wordt in de URL gebruikt."
+      },
+      "layerTitle": {
+        "type": "string",
+        "title": "Laag titel",
+        "description": "Weergavenaam van de kaartlaag zoals getoond in de legenda van de kaartlagenkiezer."
+      },
+      "layerType": {
+        "type": "integer",
+        "title": "Laag type",
+        "description": "Numerieke code voor het type kaartlaag: 0=SingleLayer (enkelvoudig, direct togglebaar), 1=LegendGroup (met legenda-items, niet los togglebaar), 3=NestedLayer (sublaag binnen een groep, wel los togglebaar), 4=LegendItem.",
+        "enum": [
+          0,
+          1,
+          3,
+          4
+        ]
+      },
+      "layerTypeName": {
+        "type": "string",
+        "title": "Laag type naam",
+        "description": "Naam van het type kaartservice, bijvoorbeeld 'wms'."
+      },
+      "wmsLagen": {
+        "type": "array",
+        "title": "WMS lagen",
+        "description": "Array van WMS-laagnamen die worden opgeroepen bij het tonen van deze kaartlaag.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "autorisatieScope": {
+        "type": "string",
+        "title": "Autorisatie scope",
+        "description": "Autorisatiescope vereist om de laag te raadplegen. Leeg bij publiek toegankelijke lagen. Zichtbaar als slotje naast de categorienaam in de kaartlagenkiezer."
+      },
+      "detailPagina": {
+        "type": "string",
+        "title": "Detail pagina",
+        "description": "Naam van de dataset gebruikt voor geo-zoekopdrachten. Geeft aan of er een detailpagina beschikbaar is op data.amsterdam.nl. Leeg als dit niet van toepassing is."
+      },
+      "kaartlaagUrl": {
+        "type": "string",
+        "format": "uri",
+        "title": "Kaartlaag URL",
+        "description": "Directe deeplink naar de kaartlaag op data.amsterdam.nl, opgebouwd als https://data.amsterdam.nl/data/geozoek?lagen=<layerId>&zoom=<minZoom>. Leeg als layerId niet beschikbaar is."
+      },
+      "naamMapbestand": {
+        "type": "string",
+        "title": "Naam mapbestand",
+        "description": "Bestandsnaam van het MapFile in de GitHub Amsterdam/mapserver repository, inclusief extensie (bijv. afval.map)."
+      },
+      "team": {
+        "type": "string",
+        "title": "Team",
+        "description": "Teamnaam verantwoordelijk voor het MapFile, uitgelezen uit het WEB/METADATA-blok van de MapFile."
+      },
+      "wmsServiceTitel": {
+        "type": "string",
+        "title": "WMS service titel",
+        "description": "Officiële titel van de WMS-service zoals gedefinieerd in het MapFile."
+      },
+      "wmsCapabilitiesUrl": {
+        "type": "string",
+        "format": "uri",
+        "title": "WMS capabilities URL",
+        "description": "Volledige GetCapabilities-URL van de WMS-service."
+      },
+      "wmsLaagnaam": {
+        "type": "string",
+        "title": "WMS laagnaam",
+        "description": "JSON-array van laagnamen (NAME-velden) zoals gedefinieerd in het MapFile. Geeft de interne MapServer-laagnamen."
+      },
+      "aantalLagenWms": {
+        "type": "string",
+        "title": "Aantal lagen WMS",
+        "description": "Aantal lagen geretourneerd door de live WMS GetCapabilities. Kan afwijken van aantalLagenMapbestand doordat de WMS-server lagen met STATUS OFF niet publiceert. Waarde 0 als de service niet bereikbaar is."
+      },
+      "aantalLagenMapbestand": {
+        "type": "string",
+        "title": "Aantal lagen mapbestand",
+        "description": "Aantal LAYER-blokken geparsed uit het MapFile. Bevat alle lagen zoals de beheerder ze heeft gedefinieerd, inclusief interne lagen die niet publiek gepubliceerd worden."
+      },
+      "wfsActief": {
+        "type": "string",
+        "title": "WFS actief",
+        "description": "Ja als minimaal één laag in het MapFile WFS heeft ingeschakeld via een wfs_enable_request met wildcard (*) zonder expliciete blokkering (!*). Anders Nee.",
+        "enum": [
+          "Ja",
+          "Nee"
+        ]
+      },
+      "besloten": {
+        "type": "string",
+        "title": "Besloten",
+        "description": "True als het MapFile onder de private/-map in de GitHub-repository staat en niet publiek beschikbaar is via de standaard Amsterdam WMS-endpoints.",
+        "enum": [
+          "True",
+          "False"
+        ]
+      },
+      "verwerkingsdatum": {
+        "type": "string",
+        "format": "date-time",
+        "title": "Verwerkingsdatum",
+        "description": "Tijdstip waarop de rij is aangemaakt tijdens de meest recente dagelijkse run."
+      }
+    }
+  }
+}
