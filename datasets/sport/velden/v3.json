@@ -1,6 +1,7 @@
 {
   "id": "velden",
   "title": "Sportvelden",
+  "description":"Sportvelden in het beheer van de Gemeente Amsterdam. Sommige sportvelden zoals een honkbalveld beslaan meerdere records, omdat ze meerdere ondergronden hebben. Het complete veld is te herkennen aan de kolom objectnummer.",
   "type": "table",
   "version": "3.0.0",
   "status": "under_development",
@@ -19,82 +20,60 @@
       },
       "id": {
         "type": "integer",
-        "description": "Unieke aanduiding van de sportfaciliteit.",
+        "description": "Unieke aanduiding van het sportveld.",
         "provenance": "id",
         "title": "ID"
       },
       "geometry": {
         "$ref": "https://geojson.org/schema/MultiPolygon.json",
-        "description": "Vlakgeometrie van de sportfaciliteit.",
-        "provenance": "Vlakgeometrie",
+        "description": "Vlakgeometrie van het sportveld.",
         "title": "Vlakgeometrie"
-      },
-      "id2": {
-        "type": "string",
-        "description": "Globally unique identifier waaronder sportfaciliteit valt.",
-        "provenance": "guid",
-        "title": "Globally unique identifier"
       },
       "sportpark": {
         "type": "string",
-        "description": "Sportpark waartoe de sportfaciliteit behoort.",
-        "provenance": "sportpark",
+        "description": "Sportpark waartoe het sportveld behoort.",
         "title": "Sportpark"
       },
       "sportparkFunctioneleNaam": {
         "type": "string",
-        "description": "Functionele naam van het sportpark waartoe de sportfaciliteit behoort.",
-        "provenance": "functionee",
+        "description": "Functionele naam van het sportpark waartoe het sportveld behoort.",
         "title": "Functionele naam"
       },
       "objecttype": {
         "type": "string",
-        "description": "Objecttype waaronder de sportfaciliteit valt.",
-        "provenance": "type_object",
+        "description": "Objecttype waaronder het sportveld valt.",
         "title": "Objecttype"
       },
-      "objectsubtype": {
+      "objectnummer": {
         "type": "string",
-        "description": "Objectsubtype waaronder de sportfaciliteit valt.",
-        "provenance": "type_objec",
-        "title": "Objectsubtype"
-      },
-      "veldindeling": {
-        "type": "string",
-        "description": "Veldindeling indicatie van de sportfaciliteit.",
-        "provenance": "veld_indeling",
-        "title": "Veldindeling"
+        "description": "Veldindeling indicatie van het sportveld.",
+        "title": "Objectnummer"
       },
       "sportfunctie": {
         "type": "string",
-        "description": "Sportfunctie van de sportfaciliteit.",
-        "provenance": "sportfunct",
+        "description": "Sportfunctie van het sportveld.",
         "title": "Sportfunctie"
       },
-      "jaarVanActiviteit": {
-        "type": "number",
-        "description": "Jaar van activiteit van de sportfaciliteit.",
-        "provenance": "jaar_van_a",
+      "jaarVanAanleg": {
+        "type": "integer",
+        "description": "Jaar van activiteit van het sportveld.",
         "title": "Jaar van Activiteit"
       },
       "soortOndergrond": {
         "type": "string",
-        "description": "Soort ondergrond van sportfaciliteit.",
-        "provenance": "materiaal",
-        "title": "Soort Ondergrond"
+        "description": "Soort ondergrond het sportveld.",
+       "title": "Soort Ondergrond"
       },
       "oppervlakte": {
-        "type": "number",
+        "type": "integer",
         "unit": "m2",
-        "description": "Oppervlakte in vierkante meters sportfaciliteit.",
-        "provenance": "oppervlakt",
-        "title": "Oppervlakte"
+        "description": "Oppervlakte van het sportveld afgerond naar hele vierkante meters.",
+       "title": "Oppervlakte"
       },
       "omtrek": {
-        "type": "number",
+        "type": "integer",
         "unit": "m",
-        "description": "Omtrek in meters van de sportfaciliteit.",
-        "provenance": "omtrek_gis",
+        "description": "Omtrek van het sportveld afgerond naar hele meters.",
         "title": "Omtrek"
       }
     }
