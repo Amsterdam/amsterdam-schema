@@ -1,0 +1,66 @@
+{
+    "id": "dimwijk",
+    "title": "Dimwijk",
+    "description": "Beschrijving voor dimwijk",
+    "shortname": "dimWk",
+    "type": "table",
+    "version": "0.0.1",
+    "status": "under_development",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+            "nummer",
+            "naam",
+            "gemeentecode",
+            "gemeentenaam",
+            "land"
+        ],
+        "required": [
+            "schema",
+            "nummer",
+            "naam",
+            "gemeentecode",
+            "gemeentenaam",
+            "land"
+        ],
+        "display": "naam",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "nummer": {
+                "type": "string",
+                "title": "Nummer",
+                "description": "Beschrijving voor NUMMER"
+            },
+            "naam": {
+                "type": "string",
+                "title": "Naam",
+                "description": "Beschrijving voor NAAM"
+            },
+            "gemeentecode": {
+                "type": "string",
+                "title": "Gemeentecode",
+                "description": "Beschrijving voor GEMEENTECODE"
+            },
+            "gemeentenaam": {
+                "type": "string",
+                "title": "Gemeentenaam",
+                "description": "Beschrijving voor GEMEENTENAAM"
+            },
+            "land": {
+                "type": "string",
+                "title": "Land",
+                "description": "Beschrijving voor LAND"
+            },
+            "mtaLaadDatumtijd": {
+                "type": "string",
+                "format": "date-time",
+                "title": "Mta laad datumtijd",
+                "description": "Beschrijving voor MTA_LAAD_DATUMTIJD"
+            }
+        }
+    }
+}
