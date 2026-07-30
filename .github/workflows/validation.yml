@@ -6,14 +6,41 @@ permissions:
 
 on:
   pull_request:
-    paths:
-      - datasets/**
-      - publishers/**
-      - scopes/**
-      - profiles/**
 
 jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      any_relevant: ${{ steps.filter.outputs.any_relevant }}
+      datasets_changed: ${{ steps.filter.outputs.datasets_changed }}
+    steps:
+      - id: filter
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const files = await github.paginate(
+              github.rest.pulls.listFiles,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: context.payload.pull_request.number,
+                per_page: 100,
+              }
+            );
+
+            const hasPrefix = prefix => files.some(file => file.filename.startsWith(prefix));
+            const datasetsChanged = hasPrefix('datasets/');
+            const publishersChanged = hasPrefix('publishers/');
+            const scopesChanged = hasPrefix('scopes/');
+            const profilesChanged = hasPrefix('profiles/');
+            const anyRelevant = datasetsChanged || publishersChanged || scopesChanged || profilesChanged;
+
+            core.setOutput('any_relevant', String(anyRelevant));
+            core.setOutput('datasets_changed', String(datasetsChanged));
+
   validate-schemas:
+    if: ${{ needs.detect-changes.outputs.any_relevant == 'true' }}
+    needs: detect-changes
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -73,6 +100,8 @@ jobs:
           retention-days: 7
 
   validate-against-previous-versions:
+    if: ${{ needs.detect-changes.outputs.datasets_changed == 'true' }}
+    needs: detect-changes
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -110,7 +139,7 @@ jobs:
 
   create-pr-comment:
     if: ${{ always() && github.event_name == 'pull_request' }}
-    needs: [validate-schemas, validate-against-previous-versions]
+    needs: [detect-changes, validate-schemas, validate-against-previous-versions]
     runs-on: ubuntu-latest
     permissions:
       actions: read
