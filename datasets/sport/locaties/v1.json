@@ -1,0 +1,69 @@
+{
+  "id": "locaties",
+  "title": "Sportlocaties",
+  "description":"Sportlocaties in het beheer van de Gemeente Amsterdam en beschikbaar voor verhuur. Sportlocaties bevatten een of meerdere sport- of gymzalen. Ze staan gelijk aan een verblijfsobject in de Basisregistratie Adressen en Gebouwen.",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van de sportlocatie",
+        "title": "ID"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "Puntgeometrie van de sportlocatie.",
+        "title": "Puntgeometrie"
+      },
+      "naam": {
+        "type": "string",
+        "description": "Naam van de sportlocatie.",
+        "title": "Naam"
+      },
+      "type": {
+        "type": "string",
+        "description": "Type sportlocatie, zoals gymzalen of sporthallen.",
+        "title": "Type"
+      },
+      "postcode": {
+        "type": "string",
+        "description": "Postcode van de sportlocatie.",
+        "title": "Postcode"
+      },
+      "huisnummer": {
+        "type": "string",
+        "description": "Huisnummer van de sportlocatie.",
+        "title": "Huisnummer"
+      },
+      "huisletter": {
+        "type": "string",
+        "description": "Huisletter van de sportlocatie.",
+        "title": "Huisletter"
+      },
+      "huisnummertoevoeging": {
+        "type": "string",
+        "description": "Huisnummertoevoeging van de sportlocatie.",
+        "title": "Huisnummertoevoeging"
+      },
+      "nummeraanduidingId": {
+        "type": "string",
+        "description": "De nummeraanduiding van het verblijfsobject waaronder de sportlocatie in de Basisregistratie Adressen en Gebouwen bekend is",
+        "title": "Nummeraanduiding-ID",
+        "relation": "benkagg:adresseerbareobjecten"
+      }
+    }
+  }
+}
