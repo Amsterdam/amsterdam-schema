@@ -65,4 +65,4 @@ jobs:
           organisation: ${{ secrets.AZURE_DEVOPS_ORG }}
           project: ${{ secrets.AZURE_DEVOPS_PROJECT }}
           pat-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
-          template-params: '{"environment": "dev", "branch": "${{ steps.pr-context.outputs.branch }}", "prnumber": ${{ steps.pr-context.outputs.prnumber }}}'
+          template-params: '{"environment": "prd", "branch": "${{ steps.pr-context.outputs.branch }}", "prnumber": ${{ steps.pr-context.outputs.prnumber }}}'
