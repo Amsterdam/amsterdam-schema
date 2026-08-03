@@ -1,6 +1,8 @@
 name: Unity Catalog
 on:
   pull_request:
+    branches:
+      - master
     paths:
       - datasets/**
   issue_comment:
@@ -29,7 +31,7 @@ jobs:
         with:
           script: |
             if (context.eventName === 'pull_request') {
-              core.setOutput('should_trigger', 'true');
+              core.setOutput('should_trigger', String(context.payload.pull_request.base.ref === 'master'));
               core.setOutput('branch', context.payload.pull_request.head.ref);
               core.setOutput('prnumber', context.payload.pull_request.number);
               return;
@@ -53,8 +55,9 @@ jobs:
             );
 
             const touchesDatasets = files.some(file => file.filename.startsWith('datasets/'));
+            const targetsMaster = pullRequest.data.base.ref === 'master';
 
-            core.setOutput('should_trigger', String(touchesDatasets));
+            core.setOutput('should_trigger', String(touchesDatasets && targetsMaster));
             core.setOutput('branch', pullRequest.data.head.ref);
             core.setOutput('prnumber', pullNumber);
       - name: Call Azure
