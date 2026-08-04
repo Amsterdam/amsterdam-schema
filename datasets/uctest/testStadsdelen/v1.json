@@ -7,63 +7,15 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
-    "identifier": "identificatie",
+    "identifier": "id",
     "required": [
       "schema"
     ],
-    "display": "identificatie",
+    "display": "id",
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v4.2.0#/definitions/schema"
-      },
-      "identificatie": {
-        "title": "identificatie",
-        "type": "integer"
-      },
-      "volgnummer": {
-        "title": "volgnummer",
-        "type": "integer"
-      },
-      "registratiedatum": {
-        "title": "registratiedatum",
-        "type": "string",
-        "format": "date-time"
-      },
-      "naam": {
-        "title": "naam",
-        "type": "string"
-      },
-      "code": {
-        "title": "code",
-        "type": "string"
-      },
-      "beginGeldigheid": {
-        "title": "beginGeldigheid",
-        "type": "string",
-        "format": "date-time"
-      },
-      "eindGeldigheid": {
-        "title": "eindGeldigheid",
-        "type": "string"
-      },
-      "documentdatum": {
-        "title": "documentdatum",
-        "type": "string",
-        "format": "date"
-      },
-      "documentnummer": {
-        "title": "documentnummer",
-        "type": "string"
-      },
-      "ligtInGemeenteId": {
-        "title": "ligtInGemeenteId",
-        "type": "integer"
-      },
-      "geometrie": {
-        "title": "geometrie",
-        "$ref": "https://geojson.org/schema/Polygon.json"
       }
-    },
-    "mainGeometry": "geometrie"
+    }
   }
 }

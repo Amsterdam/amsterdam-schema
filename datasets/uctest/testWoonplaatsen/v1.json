@@ -7,105 +7,15 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
-    "identifier": "identificatie",
+    "identifier": "id",
     "required": [
       "schema"
     ],
-    "display": "identificatie",
+    "display": "id",
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v4.2.0#/definitions/schema"
-      },
-      "identificatie": {
-        "title": "Identificatie",
-        "type": "integer",
-        "description": "Comment\n"
-      },
-      "volgnummer": {
-        "title": "Volgnummer",
-        "type": "integer"
-      },
-      "plusvolgnummer": {
-        "title": "Plusvolgnummer",
-        "type": "integer",
-        "shortname": "plusvolgnr"
-      },
-      "registratiedatum": {
-        "title": "Registratiedatum",
-        "type": "string",
-        "format": "date-time",
-        "auth": "HR/R"
-      },
-      "woonplaatsptt": {
-        "title": "Woonplaatsptt",
-        "type": "string"
-      },
-      "naam": {
-        "title": "Naam",
-        "type": "string"
-      },
-      "geometrie": {
-        "title": "Geometrie",
-        "$ref": "https://geojson.org/schema/punt.json",
-        "crs": "EPSG:28992"
-      },
-      "geconstateerd": {
-        "title": "Geconstateerd",
-        "type": "string",
-        "auth": [
-          "FP/MDW",
-          "HR/R"
-        ]
-      },
-      "begingeldigheid": {
-        "title": "Begingeldigheid",
-        "type": "string",
-        "format": "date-time"
-      },
-      "eindgeldigheid": {
-        "title": "Eindgeldigheid",
-        "type": "string"
-      },
-      "documentdatum": {
-        "title": "Documentdatum",
-        "type": "string",
-        "format": "date"
-      },
-      "documentnummer": {
-        "title": "Documentnummer",
-        "type": "string"
-      },
-      "statuscode": {
-        "title": "Statuscode",
-        "type": "string"
-      },
-      "statusomschrijving": {
-        "title": "Statusomschrijving",
-        "type": "string"
-      },
-      "ligtingemeenteid": {
-        "title": "Ligtingemeenteid",
-        "type": "integer"
-      },
-      "heeftdossierid": {
-        "title": "Heeftdossierid",
-        "type": "string",
-        "relation": "dossiers:dossiers"
-      },
-      "bagprocescode": {
-        "title": "Bagprocescode",
-        "type": "string"
-      },
-      "bagprocesomschrijving": {
-        "title": "Bagprocesomschrijving",
-        "type": "string"
-      },
-      "datumactueeltot": {
-        "title": "Datumactueeltot",
-        "type": "string"
       }
-    },
-    "mainGeometry": "geometrie"
-  },
-  "crs": "EPSG:28992"
+    }
+  }
 }
