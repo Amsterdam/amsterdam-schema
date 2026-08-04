@@ -81,14 +81,6 @@ Version numbers are shown as '@1.0.0'
 where we follow SchemaVer for versioning.
 This will allow for a gradual evolution of capabilities.
 
-## See also
-
-For more information, see (some of these pages are in Dutch):
-
-- [Amsterdam Schema Wiki](https://github.com/Amsterdam/amsterdam-schema/wiki)
-- [Amsterdam Schema Validator 👩🏼‍🏫](https://observablehq.com/@bertspaan/amsterdam-schema-validator)
-- [Werkbestand Team Dataservices](https://observablehq.com/@bertspaan/werkbestand-team-dataservices)
-- [Amsterdam Schema Playground 🎠](https://observablehq.com/@bertspaan/amsterdam-schema-playground)
 
 # Manuals
 
