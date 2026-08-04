@@ -29,10 +29,16 @@
         "description": "Vlakgeometrie van het sportveld.",
         "title": "Vlakgeometrie"
       },
-      "sportpark": {
+      "parkId": {
+        "type": "integer",
+        "description": "De primary key van het sportpark waar het veld bij hoort",
+        "title": "Sportpark-ID",
+        "relation": "sport:parken"
+      },
+      "parkNaam": {
         "type": "string",
-        "description": "Sportpark waartoe het sportveld behoort.",
-        "title": "Sportpark"
+        "description": "De naam van het sportpark waar het veld toebehoort. De koppeling loopt via de ID, deze naam is ter verduideling.",
+        "title": "Naam van sportpark"
       },
       "objecttype": {
         "type": "string",
