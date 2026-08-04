@@ -1,0 +1,104 @@
+ {
+  "id": "overlastmeldingenNederlandseSpoorwegen",
+  "title": "Overlastmeldingen gemeld aan Nederlanse Spoorwegen",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "identifier": "registratieId",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "registratieId",
+      "schema"
+    ],
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "registratieId": {
+        "title": "Registratie identificatie",
+        "type": "integer",
+        "description": "Unieke identificatie van een registratie van incidenten per uur"
+      },
+      "datum": {
+        "title": "Datum incident",
+        "type": "string",
+        "description": "Datum van het incident."
+      },
+      "uur": {
+        "title": "Uur incident",
+        "type": "string",
+        "description": "Uur van het incident, weergegeven in 24-uursnotatie."
+      },
+      "locatie": {
+        "title": "Locatie incident",
+        "type": "string",
+        "description": "Locatie van het incident (Trein, Station, Vrije baan)."
+      },
+      "specifiekeLocatie": {
+        "title": "Stationslocatie",
+        "type": ["string", "null"],
+        "description": "De specifieke locatie op of rondom het station waar het incident heeft plaatsgevonden. Dit attribuut is alleen gevuld als de locatie van het incident een station is."
+      },
+      "station": {
+        "title": "Station",
+        "type": ["string", "null"],
+        "description": "Naam van het station waar het incident plaatsvond."
+      },
+      "trajectVan": {
+        "title": "Herkomststation",
+        "type": ["string", "null"],
+        "description": "Herkomststation van de treinrit waarop het incident heeft plaatsgevonden."
+      },
+      "trajectNaar": {
+        "title": "Bestemmingsstation",
+        "type": ["string", "null"],
+        "description": "Bestemmingsstation van de treinrit waarop het incident heeft plaatsgevonden."
+      },
+      "abcCategorie": {
+        "title": "ABC-categorie",
+        "type": ["string", "null"],
+        "description": "De ABC-categorie waartoe het incident behoort."
+      },
+      "incidentCategorie": {
+        "title": "Incidentcategorie",
+        "type": "string",
+        "description": "Hoofdcategorie van het incident."
+      },
+      "incidentSubcategorie": {
+        "title": "Incidentsubcategorie",
+        "type": "string",
+        "description": "Subcategorie van het incident."
+      },
+      "aantalIncident": {
+        "title": "Incident aantal",
+        "type": "integer",
+        "description": "Aantal incidenten dat heeft plaatsgevonden."
+      },
+      "aantalLetsel": {
+        "title": "Letsel aantal",
+        "type": "integer",
+        "description": "Aantal incidenten met letsel."
+      },
+      "aantalVerwardpersoon": {
+        "title": "Verward persoon aantal",
+        "type": "integer",
+        "description": "Aantal incidenten waarbij er een verward persoon betrokken is."
+      },
+      "datumTijd": {
+        "title": "Datum en tijd incident",
+        "type": "integer",
+        "description": "Datum en uur van het incident."
+      },
+      "bron": {
+        "title": "Registratiebron",
+        "type": "integer",
+        "description": "Bron van incidentenregistratie."
+      }
+    }
+  }
+}
+
+    
