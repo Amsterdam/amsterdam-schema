@@ -1,0 +1,185 @@
+{
+  "id": "kademuur",
+  "type": "table",
+  "version": "2.0.0",
+  "status": "under_development",
+  "title": "Kademuur",
+  "description": "Een kademuur is een verticale wand ter scheiding van land en water, opgebouwd uit een muur van gemetselde stenen of gestort beton. Elke regel in de tabel is een object. Deze tabel wordt dagelijks ververst",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "id": {
+        "title": "Id",
+        "description": "Unieke sleutel binnen deze tabel. Het is de GUID uit het beheersyssteem.",
+        "type": "string"
+      },
+      "afstandTotGevel": {
+        "title": "Afstand tot gevel",
+        "description": "Afstand tot gevel",
+        "type": "number"
+      },
+      "beheerder": {
+        "title": "Beheerder",
+        "description": "Een publiekrechtelijke instantie of (rechts)persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT).",
+        "type": "string"
+      },
+      "beheerderGedetailleerd": {
+        "title": "Beheerder gedetailleerd",
+        "description": "Nadere aanduiding van de beheerder van het beheerobject.",
+        "type": "string"
+      },
+      "beheerafspraak": {
+        "title": "Beheerafspraak",
+        "description": "Attribuut voor het vermelden van aanvullende afspraken over het beheer van een object of voor het vermelden van specificaties van de beheersituatie van een object.",
+        "type": "string"
+      },
+      "beheergebied": {
+        "title": "Beheergebied",
+        "description": "Aanduiding van het beheergebied waarbinnen het beheerobject ligt. Indeling in beheergebieden is organisatiespecifiek.",
+        "type": "string"
+      },
+      "eigenaar": {
+        "title": "Eigenaar",
+        "description": "(Rechts)persoon die het meest omvattend recht op een zaak heeft . De typen eigenaren zijn conform de indeling in bronhouders (BGT).",
+        "type": "string"
+      },
+      "eigenaarGedetailleerd": {
+        "title": "Eigenaar gedetailleerd",
+        "description": "Nadere aanduiding van de eigenaar van het beheerobject.",
+        "type": "string"
+      },
+      "geometrie": {
+        "title": "Geometrie",
+        "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992)",
+        "$ref": "https://geojson.org/schema/Point.json"
+      },
+      "herbeoordeeldeBelastingklasse": {
+        "title": "Herbeoordeelde belastingklasse",
+        "description": "Verkeersbelasting, herbeoordeelde belastingklasse (zwaarte van de voertuigen). Waarde voor het gehele beheerobject voor een risico-inschatting.",
+        "type": "string"
+      },
+      "hoogte": {
+        "title": "Hoogte",
+        "description": "Hoogte: De (gemiddelde) verticale afstand van het beheerobject gemeten vanaf de ondergrond als referentiepunt.",
+        "type": "number"
+      },
+      "jaarRenovatie": {
+        "title": "Jaar renovatie",
+        "description": "Renovatiejaar van het beheerobject.",
+        "type": "integer"
+      },
+      "jaarVanAanleg": {
+        "title": "Jaar van aanleg",
+        "description": "Jaar waarin het beheerobject is aangelegd of aangeplant (kan ook voor de plaatsingsdatum gebruikt worden).",
+        "type": "integer"
+      },
+      "leeftijd": {
+        "title": "Leeftijd",
+        "description": "Leeftijd van het beheerobject in jaren.",
+        "type": "string"
+      },
+      "lengte": {
+        "title": "Lengte",
+        "description": "De (gemiddelde) lengte van het object, van de langste dimensie in het horizontale vlak",
+        "type": "number"
+      },
+      "materiaalkademuur": {
+        "title": "Materiaal kademuur",
+        "description": "Materiaal waaruit de kademuur is opgebouwd.",
+        "type": "string"
+      },
+      "monument": {
+        "title": "Monument",
+        "description": "Is het beheerobject een monument of monumentaal?",
+        "type": "boolean"
+      },
+      "monumentnummer": {
+        "title": "Monumentnummer",
+        "description": "Nummer van een monument, alleen van toepassing bij Rijksmonumenten.",
+        "type": "string"
+      },
+      "mutatiedatum": {
+        "title": "Mutatiedatum",
+        "description": "Datum waarop het object voor het laatst is gewijzigd.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "objectnaam": {
+        "title": "Objectnaam",
+        "description": "De betekenisvolle aanduiding waaronder het object bekend staat",
+        "type": "string"
+      },
+      "objectnummer": {
+        "title": "Objectnummer",
+        "description": "Nummer van het beheerobject, door de organisatie zelf in te delen.",
+        "type": "string"
+      },
+      "onderhoudsplichtige": {
+        "title": "Onderhoudsplichtige",
+        "description": "Organisatie die verantwoordelijk is voor het onderhoud van het beheerobject.",
+        "type": "string"
+      },
+      "oppervlakteGis": {
+        "title": "Oppervlakte GIS",
+        "description": "Oppervlakte van de shape van het beheerobject. Berekend uit de GIS applicatie.",
+        "type": "number"
+      },
+      "originelebelastingklasse": {
+        "title": "Originele belastingklasse",
+        "description": "Verkeersbelasting, originele belastingklasse (zwaarte van de voertuigen). Waarde voor het gehele beheerobject voor een risico-inschatting.",
+        "type": "string"
+      },
+      "stadsdeel": {
+        "title": "Stadsdeel",
+        "description": "Naam van het stadsdeel waarbinnen het beheerobject ligt.",
+        "type": "string"
+      },
+      "status": {
+        "title": "Status",
+        "description": "Status van het beheerobject in het inwinningsproces van de geometrie. Wordt gebruikt voor schets- en definitieve geometrie.",
+        "type": "string"
+      },
+      "technischelevensduur": {
+        "title": "Technische levensduur",
+        "description": "Technische levensduur van het object.",
+        "type": "string"
+      },
+      "theoretischEindjaar": {
+        "title": "Theoretisch eindjaar",
+        "description": "Jaar dat het beheerobject aan het theoretische einde van haar levensduur is.",
+        "type": "integer"
+      },
+      "typeConstructie": {
+        "title": "Type constructie",
+        "description": "Een constructie is een bouwwerk of object dat uit meerdere, met elkaar verbonden onderdelen bestaat.",
+        "type": "string"
+      },
+      "typeFundering": {
+        "title": "Type fundering",
+        "description": "Aanduiding voor de wijze waarop de fundering opgebouwd is en hoe een fundering losgewerkt of verwijderd kan worden.",
+        "type": "string"
+      },
+      "typeMonument": {
+        "title": "Type monument",
+        "description": "Type monument.",
+        "type": "string"
+      },
+      "verkeersbelastingNobs": {
+        "title": "Verkeersbelasting (Nobs)",
+        "description": "Het aantal zware voertuigen (per jaar per rijstrook",
+        "type": "string"
+      }
+    }
+  }
+}
