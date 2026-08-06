@@ -34,6 +34,8 @@ def test_create_writes_minimal_valid_dataset_json() -> None:
         assert result.exit_code == 0, result.output
         with open("datasets/bag/dataset.json") as dataset_file:
             document = json.load(dataset_file)
+        with open("datasets/bag/adressen/v1.json") as table_file:
+            table_document = json.load(table_file)
 
     assert document == {
         "type": "dataset",
@@ -52,6 +54,25 @@ def test_create_writes_minimal_valid_dataset_json() -> None:
         "owner": "Gemeente Amsterdam",
         "publisher": {"$ref": "publishers/BENK"},
         "auth": ["OPENBAAR"],
+    }
+    assert table_document == {
+        "id": "adressen",
+        "type": "table",
+        "version": "1.0.0",
+        "status": "stable",
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "required": ["schema", "identifier"],
+            "display": "identifier",
+            "identifier": "identifier",
+            "properties": {
+                "schema": {
+                    "$ref": "https://schemas.data.amsterdam.nl/schema@v4.2.0#/definitions/schema"
+                },
+                "identifier": {"type": "string"},
+            },
+        },
     }
 
 
@@ -78,6 +99,8 @@ def test_create_writes_under_development_dataset_json() -> None:
         assert result.exit_code == 0, result.output
         with open("datasets/bag/dataset.json") as dataset_file:
             document = json.load(dataset_file)
+        with open("datasets/bag/adressen/v0.json") as table_file:
+            table_document = json.load(table_file)
 
     assert document == {
         "type": "dataset",
@@ -96,6 +119,25 @@ def test_create_writes_under_development_dataset_json() -> None:
         "owner": "Gemeente Amsterdam",
         "publisher": {"$ref": "publishers/BENK"},
         "auth": ["OPENBAAR"],
+    }
+    assert table_document == {
+        "id": "adressen",
+        "type": "table",
+        "version": "0.0.1",
+        "status": "under_development",
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "required": ["schema", "identifier"],
+            "display": "identifier",
+            "identifier": "identifier",
+            "properties": {
+                "schema": {
+                    "$ref": "https://schemas.data.amsterdam.nl/schema@v4.2.0#/definitions/schema"
+                },
+                "identifier": {"type": "string"},
+            },
+        },
     }
 
 

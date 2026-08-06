@@ -190,6 +190,44 @@ def _default_output_path(dataset_id: str) -> Path:
     return Path("datasets") / dataset_id / "dataset.json"
 
 
+def _minimal_table_document(table_id: str, version: str, status: str) -> dict[str, Any]:
+    return {
+        "id": table_id,
+        "type": "table",
+        "version": version,
+        "status": status,
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "required": ["schema", "identifier"],
+            "display": "identifier",
+            "identifier": "identifier",
+            "properties": {
+                "schema": {
+                    "$ref": f"https://schemas.data.amsterdam.nl/schema@{SCHEMA_VERSION}#/"
+                    "definitions/schema"
+                },
+                "identifier": {"type": "string"},
+            },
+        },
+    }
+
+
+def _write_json_document(path: Path, document: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w") as output_file:
+        json.dump(document, output_file, indent=2)
+        output_file.write("\n")
+
+
+def _write_table_documents(
+    dataset_path: Path, tables: list[dict[str, str]], version: str, status: str
+) -> None:
+    for table in tables:
+        table_path = dataset_path.parent / f"{table['$ref']}.json"
+        _write_json_document(table_path, _minimal_table_document(table["id"], version, status))
+
+
 @click.group()  # type: ignore[misc]
 def create() -> None:
     """Command line utilities for creating schema artifacts."""
@@ -242,10 +280,8 @@ def create_dataset(output: Path | None) -> None:
     }
 
     output_path = output or _default_output_path(dataset_id)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    with output_path.open("w") as output_file:
-        json.dump(document, output_file, indent=2)
-        output_file.write("\n")
+    _write_json_document(output_path, document)
+    _write_table_documents(output_path, tables, version, status)
 
     click.echo(f"Wrote {output_path}")
 
