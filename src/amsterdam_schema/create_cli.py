@@ -9,9 +9,11 @@ SCHEMA_VERSION = "v4.2.0"
 SCHEMA_DIR = Path(__file__).resolve().parent / f"schema@{SCHEMA_VERSION}"
 PUBLISHERS_DIR = Path(__file__).resolve().parents[2] / "publishers"
 DATASET_SCHEMA_PATH = SCHEMA_DIR / "dataset.json"
+PUBLISHER_SCHEMA_PATH = SCHEMA_DIR / "publisher.json"
 SCHEMA_PATHS = (
     SCHEMA_DIR / "schema.json",
     DATASET_SCHEMA_PATH,
+    PUBLISHER_SCHEMA_PATH,
     SCHEMA_DIR / "table.json",
 )
 
@@ -190,6 +192,14 @@ def _default_output_path(dataset_id: str) -> Path:
     return Path("datasets") / dataset_id / "dataset.json"
 
 
+def _default_publisher_output_path(publisher_id: str) -> Path:
+    return Path("publishers") / f"{publisher_id}.json"
+
+
+def _publishers_index_path(publisher_path: Path) -> Path:
+    return publisher_path.parent / "publishers.json"
+
+
 def _minimal_table_document(table_id: str, version: str, status: str) -> dict[str, Any]:
     return {
         "id": table_id,
@@ -218,6 +228,17 @@ def _write_json_document(path: Path, document: dict[str, Any]) -> None:
     with path.open("w") as output_file:
         json.dump(document, output_file, indent=2)
         output_file.write("\n")
+
+
+def _write_publisher_index(
+    publisher_path: Path, publisher_id: str, document: dict[str, Any]
+) -> None:
+    index_path = _publishers_index_path(publisher_path)
+    publishers_index: dict[str, Any] = {}
+    if index_path.exists():
+        publishers_index = _load_json(index_path)
+    publishers_index[publisher_id] = document
+    _write_json_document(index_path, publishers_index)
 
 
 def _write_table_documents(
@@ -282,6 +303,46 @@ def create_dataset(output: Path | None) -> None:
     output_path = output or _default_output_path(dataset_id)
     _write_json_document(output_path, document)
     _write_table_documents(output_path, tables, version, status)
+
+    click.echo(f"Wrote {output_path}")
+
+
+@create.command("publisher")  # type: ignore[misc]
+@click.option("--output", type=click.Path(path_type=Path, dir_okay=False))  # type: ignore[misc]
+def create_publisher(output: Path | None) -> None:
+    """Create a minimal publisher schema from user prompts."""
+    store = _schema_store()
+    publisher_schema = _load_json(PUBLISHER_SCHEMA_PATH)
+    publisher_properties = cast(dict[str, dict[str, Any]], publisher_schema["properties"])
+
+    name = _prompt_value("Publisher name", publisher_properties["name"], store)
+
+    publisher_id = _prompt_value(
+        "Publisher id (e.g. BENK, only uppercase letters)", publisher_properties["id"], store
+    )
+    if not publisher_id.isalpha() or not publisher_id.isupper():
+        raise click.ClickException("Publisher id must contain only uppercase letters.")
+
+    costcenter = _prompt_value(
+        "Publisher costcenter",
+        publisher_properties["tags"]["properties"]["costcenter"],
+        store,
+    )
+
+    document = {
+        "type": "publisher",
+        "id": publisher_id,
+        "name": name,
+        "shortname": publisher_id.lower(),
+        "tags": {
+            "costcenter": costcenter,
+            "team": publisher_id.lower(),
+        },
+    }
+
+    output_path = output or _default_publisher_output_path(publisher_id)
+    _write_json_document(output_path, document)
+    _write_publisher_index(output_path, publisher_id, document)
 
     click.echo(f"Wrote {output_path}")
 

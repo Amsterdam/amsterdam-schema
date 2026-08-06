@@ -173,3 +173,35 @@ def test_create_writes_table_provenance_for_unity_catalog_sync() -> None:
             "provenance": "uc:catalog.schema.table",
         }
     ]
+
+
+def test_create_writes_minimal_valid_publisher_json() -> None:
+    runner = CliRunner()
+    user_input = "\n".join(
+        [
+            "Amsterdam Data",
+            "AD",
+            "12345",
+        ]
+    )
+
+    with runner.isolated_filesystem():
+        result = runner.invoke(create, ["publisher"], input=f"{user_input}\n")
+
+        assert result.exit_code == 0, result.output
+        with open("publishers/AD.json") as publisher_file:
+            document = json.load(publisher_file)
+        with open("publishers/publishers.json") as publishers_file:
+            publishers_document = json.load(publishers_file)
+
+    assert document == {
+        "type": "publisher",
+        "id": "AD",
+        "name": "Amsterdam Data",
+        "shortname": "ad",
+        "tags": {
+            "costcenter": "12345",
+            "team": "ad",
+        },
+    }
+    assert publishers_document == {"AD": document}
