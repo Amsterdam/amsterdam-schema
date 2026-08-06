@@ -269,3 +269,69 @@ def test_create_scope_rejects_unknown_owner_choice() -> None:
     assert result.exit_code != 0
     assert "Error: 'NOT_A_PUBLISHER' is not one of" in result.output
     assert "Aborted!" in result.output
+
+
+def test_create_dataset_fails_if_output_file_exists() -> None:
+    runner = CliRunner()
+    user_input = "\n".join(
+        [
+            "bag",
+            "gebruik.basisinformatie@amsterdam.nl",
+            "Gemeente Amsterdam",
+            "BENK",
+            "",
+            "y",
+            "y",
+            "adressen",
+            "n",
+            "n",
+        ]
+    )
+
+    with runner.isolated_filesystem():
+        Path("datasets/bag").mkdir(parents=True)
+        Path("datasets/bag/dataset.json").write_text("{}\n")
+
+        result = runner.invoke(create, ["dataset"], input=f"{user_input}\n")
+
+    assert result.exit_code != 0
+    assert "Cannot write, file exists: datasets/bag/dataset.json" in result.output
+
+
+def test_create_publisher_fails_if_output_file_exists() -> None:
+    runner = CliRunner()
+    user_input = "\n".join(
+        [
+            "Amsterdam Data",
+            "AD",
+            "12345",
+        ]
+    )
+
+    with runner.isolated_filesystem():
+        Path("publishers").mkdir(parents=True)
+        Path("publishers/AD.json").write_text("{}\n")
+
+        result = runner.invoke(create, ["publisher"], input=f"{user_input}\n")
+
+    assert result.exit_code != 0
+    assert "Cannot write, file exists: publishers/AD.json" in result.output
+
+
+def test_create_scope_fails_if_output_file_exists() -> None:
+    runner = CliRunner()
+    user_input = "\n".join(
+        [
+            "HR/R",
+            "BENK",
+        ]
+    )
+
+    with runner.isolated_filesystem():
+        Path("scopes/BENK").mkdir(parents=True)
+        Path("scopes/BENK/hr_r.json").write_text("{}\n")
+
+        result = runner.invoke(create, ["scope"], input=f"{user_input}\n")
+
+    assert result.exit_code != 0
+    assert "Cannot write, file exists: scopes/BENK/hr_r.json" in result.output

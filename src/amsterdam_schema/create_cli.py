@@ -124,6 +124,12 @@ def _write_json_document(path: Path, document: dict[str, Any]) -> None:
         output_file.write("\n")
 
 
+def _ensure_output_paths_do_not_exist(paths: list[Path]) -> None:
+    for path in paths:
+        if path.exists():
+            raise click.ClickException(f"Cannot write, file exists: {path}")
+
+
 def _write_publisher_index(
     publisher_path: Path, publisher_id: str, document: dict[str, Any]
 ) -> None:
@@ -141,6 +147,15 @@ def _write_table_documents(
     for table in tables:
         table_path = dataset_path.parent / f"{table['$ref']}.json"
         _write_json_document(table_path, _minimal_table_document(table["id"], version, status))
+
+
+def _dataset_output_paths(
+    output_path: Path, tables: list[dict[str, str]], default_version: str
+) -> list[Path]:
+    return [
+        output_path,
+        *(output_path.parent / f"{table['id']}/{default_version}.json" for table in tables),
+    ]
 
 
 @click.group()  # type: ignore[misc]
@@ -182,6 +197,7 @@ def create_dataset(output: Path | None) -> None:
     }
 
     output_path = output or _default_output_path(dataset_id)
+    _ensure_output_paths_do_not_exist(_dataset_output_paths(output_path, tables, default_version))
     _write_json_document(output_path, document)
     _write_table_documents(output_path, tables, version, status)
 
@@ -212,6 +228,7 @@ def create_publisher(output: Path | None) -> None:
     }
 
     output_path = output or _default_publisher_output_path(publisher_id)
+    _ensure_output_paths_do_not_exist([output_path])
     _write_json_document(output_path, document)
     _write_publisher_index(output_path, publisher_id, document)
 
@@ -239,6 +256,7 @@ def create_scope(output: Path | None) -> None:
     }
 
     output_path = output or _default_scope_output_path(owner, scope_id)
+    _ensure_output_paths_do_not_exist([output_path])
     _write_json_document(output_path, document)
 
     click.echo(f"Wrote {output_path}")
