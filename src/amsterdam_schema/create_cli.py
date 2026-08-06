@@ -4,16 +4,14 @@ from typing import Any, cast
 from urllib.parse import urldefrag, urljoin
 
 import click
-from jsonschema import Draft7Validator, FormatChecker
 
 SCHEMA_VERSION = "v4.2.0"
 SCHEMA_DIR = Path(__file__).resolve().parent / f"schema@{SCHEMA_VERSION}"
+PUBLISHERS_DIR = Path(__file__).resolve().parents[2] / "publishers"
 DATASET_SCHEMA_PATH = SCHEMA_DIR / "dataset.json"
-DATASET_VERSION_SCHEMA_PATH = SCHEMA_DIR / "dataset-version.json"
 SCHEMA_PATHS = (
     SCHEMA_DIR / "schema.json",
     DATASET_SCHEMA_PATH,
-    DATASET_VERSION_SCHEMA_PATH,
     SCHEMA_DIR / "table.json",
 )
 
@@ -112,41 +110,78 @@ def _promptable_schema(schema: dict[str, Any], store: dict[str, Any]) -> dict[st
     return schema
 
 
-def _validate_scalar(value: Any, schema: dict[str, Any]) -> str | None:
-    validator = Draft7Validator(schema, format_checker=FormatChecker())
-    errors = sorted(validator.iter_errors(value), key=lambda error: list(error.absolute_path))
-    if not errors:
-        return None
-    return cast(str, errors[0].message)
+def _publisher_choices() -> list[str]:
+    return sorted(
+        path.stem for path in PUBLISHERS_DIR.glob("*.json") if path.name != "publishers.json"
+    )
+
+
+def _publisher_name(publisher: str) -> str:
+    publisher_document = _load_json(PUBLISHERS_DIR / f"{publisher}.json")
+    return cast(str, publisher_document["name"])
+
+
+def _prompt_default(default: Any) -> Any:
+    if isinstance(default, list):
+        return ",".join(str(item) for item in default)
+    return default
+
+
+def _normalized_prompt_value(value: str, default: Any) -> Any:
+    if isinstance(default, list) and value == _prompt_default(default):
+        return default
+    return value
+
+
+def _production_defaults(is_ready_for_production: bool) -> tuple[str, str, str]:
+    if is_ready_for_production:
+        return "stable", "1.0.0", "v1"
+    return "under_development", "0.0.1", "v0"
 
 
 def _prompt_value(
-    label: str, schema: dict[str, Any], store: dict[str, Any], default: str | None = None
-) -> str:
+    label: str,
+    schema: dict[str, Any],
+    store: dict[str, Any],
+    default: Any = None,
+    choices: list[str] | None = None,
+) -> Any:
     prompt_schema = _promptable_schema(schema, store)
     prompt_type: Any = (
-        click.Choice(prompt_schema["enum"], case_sensitive=True)
-        if "enum" in prompt_schema
-        else str
+        click.Choice(choices, case_sensitive=True)
+        if choices is not None
+        else (
+            click.Choice(prompt_schema["enum"], case_sensitive=True)
+            if "enum" in prompt_schema
+            else str
+        )
     )
 
-    while True:
-        value = click.prompt(
-            label, type=prompt_type, default=default, show_default=default is not None
-        )
-        error = _validate_scalar(value, prompt_schema)
-        if error is None:
-            return str(value)
-        click.echo(f"Invalid value for {label}: {error}", err=True)
+    value = click.prompt(
+        label,
+        type=prompt_type,
+        default=_prompt_default(default),
+        show_default=default is not None,
+    )
+    return _normalized_prompt_value(str(value), default)
 
 
-def _prompt_table_refs(store: dict[str, Any], id_schema: dict[str, Any]) -> list[dict[str, str]]:
+def _prompt_table_refs(
+    store: dict[str, Any], id_schema: dict[str, Any], default_version: str
+) -> list[dict[str, str]]:
     tables = []
-    table_ref_schema = {"type": "string", "format": "uri-reference"}
     while True:
         table_id = _prompt_value("Table id", id_schema, store)
-        table_ref = _prompt_value("Table ref", table_ref_schema, store)
-        tables.append({"id": table_id, "$ref": table_ref})
+        table_ref = f"{table_id}/{default_version}"
+        table: dict[str, str] = {"id": table_id, "$ref": table_ref}
+        if click.confirm("Do you want to sync this table from Unity Catalog?", default=False):
+            provenance = _prompt_value(
+                "Provide the location of the table in the shape <catalog>.<schema>.<table>",
+                {"type": "string"},
+                store,
+            )
+            table["provenance"] = f"uc:{provenance}"
+        tables.append(table)
         if not click.confirm("Add another table?", default=False):
             return tables
 
@@ -166,46 +201,35 @@ def create_dataset(output: Path | None) -> None:
     """Create a minimal single-version dataset.json from schema-backed prompts."""
     store = _schema_store()
     dataset_schema = _load_json(DATASET_SCHEMA_PATH)
-    version_schema = _load_json(DATASET_VERSION_SCHEMA_PATH)
     dataset_fields = _required_fields(dataset_schema, store)
-    version_fields = _required_fields(version_schema, store)
 
     dataset_id = _prompt_value("Dataset id", dataset_fields["id"], store)
-    creator = _prompt_value("Creator", dataset_fields["creator"], store)
     authorization_grantor = _prompt_value(
         "Authorization grantor",
         dataset_fields["authorizationGrantor"],
         store,
     )
     owner = _prompt_value("Owner", dataset_fields["owner"], store, default="Gemeente Amsterdam")
-    publisher_ref = _prompt_value(
-        "Publisher ref", dataset_fields["publisher"]["properties"]["$ref"], store
+    publisher = _prompt_value(
+        "Publisher",
+        dataset_fields["publisher"]["properties"]["$ref"],
+        store,
+        choices=_publisher_choices(),
     )
-    auth = _prompt_value("Auth", dataset_fields["auth"], store)
-
-    version = _prompt_value("Dataset version", version_fields["version"], store)
-    status = _prompt_value("Version status", version_fields["status"], store)
+    auth = _prompt_value("Auth", dataset_fields["auth"], store, default=["OPENBAAR"])
+    is_ready_for_production = click.confirm("Is the dataset ready for production?", default=False)
+    status, version, default_version = _production_defaults(is_ready_for_production)
     enable_api = click.confirm("Enable API?", default=True)
-    tables = _prompt_table_refs(store, dataset_fields["id"])
-
-    default_version = f"v{version.split('.', maxsplit=1)[0]}"
-    default_version_schema = _promptable_schema(dataset_fields["defaultVersion"], store)
-    default_version_error = _validate_scalar(default_version, default_version_schema)
-    if default_version_error is not None:
-        raise click.ClickException(
-            "Dataset version "
-            f"{version!r} cannot be mapped to a valid defaultVersion: "
-            f"{default_version_error}"
-        )
+    tables = _prompt_table_refs(store, dataset_fields["id"], default_version)
 
     document = {
         "type": "dataset",
         "id": dataset_id,
         "defaultVersion": default_version,
-        "creator": creator,
+        "creator": _publisher_name(publisher),
         "authorizationGrantor": authorization_grantor,
         "owner": owner,
-        "publisher": {"$ref": publisher_ref},
+        "publisher": {"$ref": f"publishers/{publisher}"},
         "auth": auth,
         "versions": {
             default_version: {
