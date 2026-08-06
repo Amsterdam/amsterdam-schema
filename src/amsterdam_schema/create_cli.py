@@ -164,8 +164,7 @@ def create() -> None:
 
 
 @create.command("dataset")  # type: ignore[misc]
-@click.option("--output", type=click.Path(path_type=Path, dir_okay=False))  # type: ignore[misc]
-def create_dataset(output: Path | None) -> None:
+def create_dataset() -> None:
     """Create a minimal single-version dataset.json from interactive prompts."""
     dataset_id = _prompt_value("Dataset id")
     authorization_grantor = _prompt_value("Authorization grantor")
@@ -196,7 +195,7 @@ def create_dataset(output: Path | None) -> None:
         },
     }
 
-    output_path = output or _default_output_path(dataset_id)
+    output_path = _default_output_path(dataset_id)
     _ensure_output_paths_do_not_exist(_dataset_output_paths(output_path, tables, default_version))
     _write_json_document(output_path, document)
     _write_table_documents(output_path, tables, version, status)
@@ -205,8 +204,7 @@ def create_dataset(output: Path | None) -> None:
 
 
 @create.command("publisher")  # type: ignore[misc]
-@click.option("--output", type=click.Path(path_type=Path, dir_okay=False))  # type: ignore[misc]
-def create_publisher(output: Path | None) -> None:
+def create_publisher() -> None:
     """Create a minimal publisher schema from user prompts."""
     name = _prompt_value("Publisher name")
 
@@ -227,7 +225,7 @@ def create_publisher(output: Path | None) -> None:
         },
     }
 
-    output_path = output or _default_publisher_output_path(publisher_id)
+    output_path = _default_publisher_output_path(publisher_id)
     _ensure_output_paths_do_not_exist([output_path])
     _write_json_document(output_path, document)
     _write_publisher_index(output_path, publisher_id, document)
@@ -236,8 +234,7 @@ def create_publisher(output: Path | None) -> None:
 
 
 @create.command("scope")  # type: ignore[misc]
-@click.option("--output", type=click.Path(path_type=Path, dir_okay=False))  # type: ignore[misc]
-def create_scope(output: Path | None) -> None:
+def create_scope() -> None:
     """Create a minimal scope schema from user prompts."""
     scope_id = _prompt_value("Scope id")
     owner = _prompt_value("Owner", choices=_publisher_choices())
@@ -255,7 +252,7 @@ def create_scope(output: Path | None) -> None:
         "owner": {"$ref": f"publishers/{owner}"},
     }
 
-    output_path = output or _default_scope_output_path(owner, scope_id)
+    output_path = _default_scope_output_path(owner, scope_id)
     _ensure_output_paths_do_not_exist([output_path])
     _write_json_document(output_path, document)
 
