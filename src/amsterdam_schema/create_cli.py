@@ -10,10 +10,12 @@ SCHEMA_DIR = Path(__file__).resolve().parent / f"schema@{SCHEMA_VERSION}"
 PUBLISHERS_DIR = Path(__file__).resolve().parents[2] / "publishers"
 DATASET_SCHEMA_PATH = SCHEMA_DIR / "dataset.json"
 PUBLISHER_SCHEMA_PATH = SCHEMA_DIR / "publisher.json"
+SCOPE_SCHEMA_PATH = SCHEMA_DIR / "scope.json"
 SCHEMA_PATHS = (
     SCHEMA_DIR / "schema.json",
     DATASET_SCHEMA_PATH,
     PUBLISHER_SCHEMA_PATH,
+    SCOPE_SCHEMA_PATH,
     SCHEMA_DIR / "table.json",
 )
 
@@ -196,6 +198,14 @@ def _default_publisher_output_path(publisher_id: str) -> Path:
     return Path("publishers") / f"{publisher_id}.json"
 
 
+def _scope_file_stem(scope_id: str) -> str:
+    return scope_id.lower().replace("/", "_")
+
+
+def _default_scope_output_path(owner: str, scope_id: str) -> Path:
+    return Path("scopes") / owner / f"{_scope_file_stem(scope_id)}.json"
+
+
 def _publishers_index_path(publisher_path: Path) -> Path:
     return publisher_path.parent / "publishers.json"
 
@@ -343,6 +353,41 @@ def create_publisher(output: Path | None) -> None:
     output_path = output or _default_publisher_output_path(publisher_id)
     _write_json_document(output_path, document)
     _write_publisher_index(output_path, publisher_id, document)
+
+    click.echo(f"Wrote {output_path}")
+
+
+@create.command("scope")  # type: ignore[misc]
+@click.option("--output", type=click.Path(path_type=Path, dir_okay=False))  # type: ignore[misc]
+def create_scope(output: Path | None) -> None:
+    """Create a minimal scope schema from user prompts."""
+    store = _schema_store()
+    scope_schema = _load_json(SCOPE_SCHEMA_PATH)
+    scope_fields = _required_fields(scope_schema, store)
+
+    scope_id = _prompt_value("Scope id", scope_fields["id"], store)
+    owner = _prompt_value(
+        "Owner",
+        scope_fields["owner"]["properties"]["$ref"],
+        store,
+        choices=_publisher_choices(),
+    )
+    scope_name = scope_id
+    scope_slug = _scope_file_stem(scope_id)
+
+    document = {
+        "type": "scope",
+        "id": scope_id,
+        "name": scope_name,
+        "accessPackages": {
+            "nonProduction": f"EM4W-DATA-schemascope-ot-scope_{scope_slug}",
+            "production": f"EM4W-DATA-schemascope-p-scope_{scope_slug}",
+        },
+        "owner": {"$ref": f"publishers/{owner}"},
+    }
+
+    output_path = output or _default_scope_output_path(owner, scope_id)
+    _write_json_document(output_path, document)
 
     click.echo(f"Wrote {output_path}")
 

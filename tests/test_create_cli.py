@@ -205,3 +205,31 @@ def test_create_writes_minimal_valid_publisher_json() -> None:
         },
     }
     assert publishers_document == {"AD": document}
+
+
+def test_create_writes_minimal_valid_scope_json() -> None:
+    runner = CliRunner()
+    user_input = "\n".join(
+        [
+            "HR/R",
+            "BENK",
+        ]
+    )
+
+    with runner.isolated_filesystem():
+        result = runner.invoke(create, ["scope"], input=f"{user_input}\n")
+
+        assert result.exit_code == 0, result.output
+        with open("scopes/BENK/hr_r.json") as scope_file:
+            document = json.load(scope_file)
+
+    assert document == {
+        "type": "scope",
+        "id": "HR/R",
+        "name": "HR/R",
+        "accessPackages": {
+            "nonProduction": "EM4W-DATA-schemascope-ot-scope_hr_r",
+            "production": "EM4W-DATA-schemascope-p-scope_hr_r",
+        },
+        "owner": {"$ref": "publishers/BENK"},
+    }
