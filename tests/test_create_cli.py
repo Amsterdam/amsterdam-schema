@@ -233,3 +233,39 @@ def test_create_writes_minimal_valid_scope_json() -> None:
         },
         "owner": {"$ref": "publishers/BENK"},
     }
+
+
+def test_create_dataset_rejects_unknown_publisher_choice() -> None:
+    runner = CliRunner()
+    user_input = "\n".join(
+        [
+            "bag",
+            "gebruik.basisinformatie@amsterdam.nl",
+            "Gemeente Amsterdam",
+            "NOT_A_PUBLISHER",
+        ]
+    )
+
+    with runner.isolated_filesystem():
+        result = runner.invoke(create, ["dataset"], input=f"{user_input}\n")
+
+    assert result.exit_code != 0
+    assert "Error: 'NOT_A_PUBLISHER' is not one of" in result.output
+    assert "Aborted!" in result.output
+
+
+def test_create_scope_rejects_unknown_owner_choice() -> None:
+    runner = CliRunner()
+    user_input = "\n".join(
+        [
+            "HR/R",
+            "NOT_A_PUBLISHER",
+        ]
+    )
+
+    with runner.isolated_filesystem():
+        result = runner.invoke(create, ["scope"], input=f"{user_input}\n")
+
+    assert result.exit_code != 0
+    assert "Error: 'NOT_A_PUBLISHER' is not one of" in result.output
+    assert "Aborted!" in result.output

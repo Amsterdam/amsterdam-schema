@@ -1,117 +1,16 @@
 import json
 from pathlib import Path
 from typing import Any, cast
-from urllib.parse import urldefrag, urljoin
 
 import click
 
 SCHEMA_VERSION = "v4.2.0"
-SCHEMA_DIR = Path(__file__).resolve().parent / f"schema@{SCHEMA_VERSION}"
 PUBLISHERS_DIR = Path(__file__).resolve().parents[2] / "publishers"
-DATASET_SCHEMA_PATH = SCHEMA_DIR / "dataset.json"
-PUBLISHER_SCHEMA_PATH = SCHEMA_DIR / "publisher.json"
-SCOPE_SCHEMA_PATH = SCHEMA_DIR / "scope.json"
-SCHEMA_PATHS = (
-    SCHEMA_DIR / "schema.json",
-    DATASET_SCHEMA_PATH,
-    PUBLISHER_SCHEMA_PATH,
-    SCOPE_SCHEMA_PATH,
-    SCHEMA_DIR / "table.json",
-)
 
 
 def _load_json(path: Path) -> dict[str, Any]:
     with path.open() as json_file:
         return cast(dict[str, Any], json.load(json_file))
-
-
-def _schema_store() -> dict[str, Any]:
-    store: dict[str, Any] = {}
-    for schema_path in SCHEMA_PATHS:
-        schema = _load_json(schema_path)
-        schema_id = urldefrag(schema["$id"])[0]
-        schema["__root_id__"] = schema_id
-        store[schema_id] = schema
-    return store
-
-
-def _schema_root_id(schema: dict[str, Any]) -> str:
-    root_id = schema.get("__root_id__")
-    if root_id is not None:
-        return cast(str, root_id)
-    return urldefrag(cast(str, schema["$id"]))[0]
-
-
-def _resolve_schema_ref(schema: dict[str, Any], ref: str, store: dict[str, Any]) -> dict[str, Any]:
-    if ref.startswith("#"):
-        target = store[_schema_root_id(schema)]
-        fragment = ref.removeprefix("#")
-    else:
-        base_id = _schema_root_id(schema)
-        target_uri = urljoin(base_id, ref)
-        document_uri, fragment = urldefrag(target_uri)
-        target = store[document_uri]
-
-    if not fragment:
-        return cast(dict[str, Any], target)
-
-    resolved: Any = target
-    for part in fragment.removeprefix("/").split("/"):
-        resolved = resolved[part]
-    if isinstance(resolved, dict):
-        resolved = {**resolved, "__root_id__": _schema_root_id(target)}
-        return cast(dict[str, Any], resolved)
-    raise TypeError(f"Schema ref {ref!r} did not resolve to an object")
-
-
-def _required_fields(schema: dict[str, Any], store: dict[str, Any]) -> dict[str, dict[str, Any]]:
-    properties = {}
-    for field_name, field_schema in schema.get("properties", {}).items():
-        if isinstance(field_schema, dict):
-            properties[field_name] = {**field_schema, "__root_id__": _schema_root_id(schema)}
-        else:
-            properties[field_name] = field_schema
-    required = list(schema.get("required", []))
-
-    for sub_schema in schema.get("allOf", []):
-        if "$ref" not in sub_schema:
-            continue
-        resolved = _resolve_schema_ref(schema, sub_schema["$ref"], store)
-        for field_name, field_schema in resolved.get("properties", {}).items():
-            if isinstance(field_schema, dict):
-                properties[field_name] = {
-                    **field_schema,
-                    "__root_id__": resolved.get("__root_id__", schema.get("__root_id__")),
-                }
-            else:
-                properties[field_name] = field_schema
-        for field_name in resolved.get("required", []):
-            if field_name not in required:
-                required.append(field_name)
-
-    return {field_name: properties[field_name] for field_name in required}
-
-
-def _promptable_schema(schema: dict[str, Any], store: dict[str, Any]) -> dict[str, Any]:
-    if "$ref" in schema:
-        return _promptable_schema(_resolve_schema_ref(schema, schema["$ref"], store), store)
-    if "oneOf" in schema:
-        first_option: dict[str, Any] | None = None
-        for option in schema["oneOf"]:
-            if (
-                isinstance(option, dict)
-                and "__root_id__" not in option
-                and "__root_id__" in schema
-            ):
-                option = {**option, "__root_id__": schema["__root_id__"]}
-            resolved_option = _promptable_schema(option, store)
-            if first_option is None:
-                first_option = resolved_option
-            if resolved_option.get("type") == "string":
-                return resolved_option
-        if first_option is not None:
-            return first_option
-    return schema
 
 
 def _publisher_choices() -> list[str]:
@@ -145,21 +44,10 @@ def _production_defaults(is_ready_for_production: bool) -> tuple[str, str, str]:
 
 def _prompt_value(
     label: str,
-    schema: dict[str, Any],
-    store: dict[str, Any],
     default: Any = None,
     choices: list[str] | None = None,
 ) -> Any:
-    prompt_schema = _promptable_schema(schema, store)
-    prompt_type: Any = (
-        click.Choice(choices, case_sensitive=True)
-        if choices is not None
-        else (
-            click.Choice(prompt_schema["enum"], case_sensitive=True)
-            if "enum" in prompt_schema
-            else str
-        )
-    )
+    prompt_type: Any = click.Choice(choices, case_sensitive=True) if choices is not None else str
 
     value = click.prompt(
         label,
@@ -170,19 +58,15 @@ def _prompt_value(
     return _normalized_prompt_value(str(value), default)
 
 
-def _prompt_table_refs(
-    store: dict[str, Any], id_schema: dict[str, Any], default_version: str
-) -> list[dict[str, str]]:
+def _prompt_table_refs(default_version: str) -> list[dict[str, str]]:
     tables = []
     while True:
-        table_id = _prompt_value("Table id", id_schema, store)
+        table_id = _prompt_value("Table id")
         table_ref = f"{table_id}/{default_version}"
         table: dict[str, str] = {"id": table_id, "$ref": table_ref}
         if click.confirm("Do you want to sync this table from Unity Catalog?", default=False):
             provenance = _prompt_value(
                 "Provide the location of the table in the shape <catalog>.<schema>.<table>",
-                {"type": "string"},
-                store,
             )
             table["provenance"] = f"uc:{provenance}"
         tables.append(table)
@@ -267,29 +151,16 @@ def create() -> None:
 @create.command("dataset")  # type: ignore[misc]
 @click.option("--output", type=click.Path(path_type=Path, dir_okay=False))  # type: ignore[misc]
 def create_dataset(output: Path | None) -> None:
-    """Create a minimal single-version dataset.json from schema-backed prompts."""
-    store = _schema_store()
-    dataset_schema = _load_json(DATASET_SCHEMA_PATH)
-    dataset_fields = _required_fields(dataset_schema, store)
-
-    dataset_id = _prompt_value("Dataset id", dataset_fields["id"], store)
-    authorization_grantor = _prompt_value(
-        "Authorization grantor",
-        dataset_fields["authorizationGrantor"],
-        store,
-    )
-    owner = _prompt_value("Owner", dataset_fields["owner"], store, default="Gemeente Amsterdam")
-    publisher = _prompt_value(
-        "Publisher",
-        dataset_fields["publisher"]["properties"]["$ref"],
-        store,
-        choices=_publisher_choices(),
-    )
-    auth = _prompt_value("Auth", dataset_fields["auth"], store, default=["OPENBAAR"])
+    """Create a minimal single-version dataset.json from interactive prompts."""
+    dataset_id = _prompt_value("Dataset id")
+    authorization_grantor = _prompt_value("Authorization grantor")
+    owner = _prompt_value("Owner", default="Gemeente Amsterdam")
+    publisher = _prompt_value("Publisher", choices=_publisher_choices())
+    auth = _prompt_value("Auth", default=["OPENBAAR"])
     is_ready_for_production = click.confirm("Is the dataset ready for production?", default=False)
     status, version, default_version = _production_defaults(is_ready_for_production)
     enable_api = click.confirm("Enable API?", default=True)
-    tables = _prompt_table_refs(store, dataset_fields["id"], default_version)
+    tables = _prompt_table_refs(default_version)
 
     document = {
         "type": "dataset",
@@ -321,23 +192,13 @@ def create_dataset(output: Path | None) -> None:
 @click.option("--output", type=click.Path(path_type=Path, dir_okay=False))  # type: ignore[misc]
 def create_publisher(output: Path | None) -> None:
     """Create a minimal publisher schema from user prompts."""
-    store = _schema_store()
-    publisher_schema = _load_json(PUBLISHER_SCHEMA_PATH)
-    publisher_properties = cast(dict[str, dict[str, Any]], publisher_schema["properties"])
+    name = _prompt_value("Publisher name")
 
-    name = _prompt_value("Publisher name", publisher_properties["name"], store)
-
-    publisher_id = _prompt_value(
-        "Publisher id (e.g. BENK, only uppercase letters)", publisher_properties["id"], store
-    )
+    publisher_id = _prompt_value("Publisher id (e.g. BENK, only uppercase letters)")
     if not publisher_id.isalpha() or not publisher_id.isupper():
         raise click.ClickException("Publisher id must contain only uppercase letters.")
 
-    costcenter = _prompt_value(
-        "Publisher costcenter",
-        publisher_properties["tags"]["properties"]["costcenter"],
-        store,
-    )
+    costcenter = _prompt_value("Publisher costcenter")
 
     document = {
         "type": "publisher",
@@ -361,17 +222,8 @@ def create_publisher(output: Path | None) -> None:
 @click.option("--output", type=click.Path(path_type=Path, dir_okay=False))  # type: ignore[misc]
 def create_scope(output: Path | None) -> None:
     """Create a minimal scope schema from user prompts."""
-    store = _schema_store()
-    scope_schema = _load_json(SCOPE_SCHEMA_PATH)
-    scope_fields = _required_fields(scope_schema, store)
-
-    scope_id = _prompt_value("Scope id", scope_fields["id"], store)
-    owner = _prompt_value(
-        "Owner",
-        scope_fields["owner"]["properties"]["$ref"],
-        store,
-        choices=_publisher_choices(),
-    )
+    scope_id = _prompt_value("Scope id")
+    owner = _prompt_value("Owner", choices=_publisher_choices())
     scope_name = scope_id
     scope_slug = _scope_file_stem(scope_id)
 
