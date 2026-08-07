@@ -368,10 +368,17 @@
         "type": "string",
         "description": "Aanvullende informatie over de gekapte boom, zoals leeftijd, historische waarde, of bijzonderheden (bijv. monumentale boom)."
       },
-      "inhoudBesluitVergunningKap": {
-        "title": "Inhoud besluit vergunning kap",
+	  "inhoudBesluitVergunningKap": {
+	  "title": "Inhoud besluit vergunning kap",
         "type": "string",
-        "description": "Status van de aangevraagde kapvergunning, conform Omgevingswet."
+        "description": "Status van de aangevraagde kapvergunning.",
+		"enum": [
+      "Verleend",
+		  "Verleend met directe inwerktreding",
+		  "Geweigerd",
+		  "Ingetrokken",
+		  "Buiten behandeling gesteld"
+        ]
       },
       "kapDatumToezicht": {
         "title": "Kap datum toezicht",
