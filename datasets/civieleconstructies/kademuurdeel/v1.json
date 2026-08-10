@@ -1,10 +1,10 @@
 {
-  "id": "kademuur",
+  "id": "kademuurdeel",
   "type": "table",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "status": "under_development",
-  "title": "Kademuur",
-  "description": "Een kademuur is een verticale wand ter scheiding van land en water, opgebouwd uit een muur van gemetselde stenen of gestort beton. Elke regel in de tabel is een object. Deze tabel wordt dagelijks ververst",
+  "title": "Kademuurdeel",
+  "description": "Een onderdeel van een kademuur, identiek maar gesplits op geometrie als haar bovenliggende supertype.",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -25,6 +25,11 @@
       "id": {
         "title": "Id",
         "description": "Unieke sleutel binnen deze tabel. Het is de GUID uit het beheersyssteem.",
+        "type": "string"
+      },
+      "kademuurId": {
+        "title": "kademuur Id",
+        "description": "Verwijzing naar het GUID / ID in kademuur.",
         "type": "string"
       },
       "afstandTotGevel": {
