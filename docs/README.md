@@ -11,7 +11,7 @@ and that of the `amsterdam-schema` project itself.
 We will be calling this virtual environment `dvenv`
 which stands for `docs venv`
 
-To generate an HTML version of the specification
+To generate an HTML version of the documentation
 (assuming you're in the `docs` directory):
 
 ```bash
@@ -22,6 +22,7 @@ pip install -U pip setuptools wheel
 pip install bikeshed
 cd docs
 bikeshed spec ams-schema-spec.bs ams-schema-spec.html
+bikeshed spec unity-catalog-workflow.bs unity-catalog-workflow.html
 open ams-schema-spec.html
 ```
 
@@ -72,7 +73,12 @@ if you want to:
 Once a new version of the documentation has been committed it will be published at:
 
 * https://acc.schemas.data.amsterdam.nl/docs/ams-schema-spec.html
-* https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html (after approval in Jenkins)
+* https://acc.schemas.data.amsterdam.nl/docs/unity-catalog-workflow.html
+
+and:
+
+* https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html
+* https://schemas.data.amsterdam.nl/docs/unity-catalog-workflow.html
 
 ## Update Changelog
 Remember to update the changelog at the bottom of the spec after any normative

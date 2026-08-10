@@ -1,0 +1,299 @@
+<pre class='metadata'>
+Title: Unity Catalog workflow
+Shortname: unity-catalog-workflow
+Revision: 1.0.0
+Status: LS
+URL: https://schemas.data.amsterdam.nl/docs/unity-catalog-workflow.html
+Repository: Amsterdam/amsterdam-schema
+Editor: Team Data Diensten van het Dataplatform onder de Directie Digitale Voorzieningen, Gemeente Amsterdam, https://data.amsterdam.nl/
+Abstract: Deze pagina beschrijft de workflow om tabelmetadata uit Unity Catalog te laten landen in Amsterdam Schema,
+    inclusief wat een gebruiker in Unity Catalog moet voorbereiden en hoe daarna automatisch schema-artifacten worden gegenereerd.
+Markup Shorthands: css no, markdown yes
+Indent: 4
+Default highlight: bash
+Logo: https://api.data.amsterdam.nl/api/gemeente_Amsterdam_logo.svg
+Favicon: https://data.amsterdam.nl/favicon.png
+Boilerplate: copyright no, footer no
+Max ToC Depth: 2
+</pre>
+
+<style>
+    p[data-fill-with="logo"] {
+        width: 180px;
+        height: 180px;
+        float: right;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url("https://api.data.amsterdam.nl/api/gemeente_Amsterdam_logo.svg");  /* Using [LOGO] here fails on Bikeshed 4 */
+    }
+</style>
+
+Introductie {#introductie}
+============
+
+Deze pagina beschrijft de Unity Catalog-workflow voor Amsterdam Schema.
+De kern van deze workflow is eenvoudig:
+
+1. de gebruiker legt in Unity Catalog de tabel- en kolommetadata goed vast,
+2. de gebruiker koppelt in Amsterdam Schema een dataset aan een Unity Catalog-tabel via `provenance`,
+3. de automatisering loopt,
+4. de gegenereerde wijzigingen worden teruggeschreven naar deze repository.
+
+Deze pagina is bedoeld als praktische handleiding naast de bredere
+[Amsterdam Schema Specificatie](https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html).
+
+Overzicht {#overzicht}
+---------
+
+De workflow bestaat uit drie onderdelen:
+
+1. **Unity Catalog**
+    Hier onderhoudt de gebruiker de metadata van de brontabel.
+1. **Amsterdam Schema repository**
+    Hier wordt de datasetdefinitie beheerd, inclusief de koppeling naar Unity Catalog.
+1. **Automatisering**
+    Schema-bestanden worden automatisch afgeleid uit de Unity Catalog-metadata.
+
+Wanneer gebruik je deze workflow?
+
+* Als een tabel in Databricks Unity Catalog de bron is voor een Amsterdam Schema-tabel.
+* Als je veldnamen, typen en beschrijvingen vanuit de bronmetadata wilt laten genereren of bijwerken.
+
+Minimale koppeling in Amsterdam Schema {#minimale-koppeling}
+-------------------------------------
+
+Per tabel wordt de koppeling gelegd via een `provenance`-waarde in de datasetdefinitie:
+
+```json
+{
+  "id": "adressen",
+  "$ref": "adressen/v1",
+  "provenance": "uc:catalog.schema.table"
+}
+```
+
+Het prefix `uc:` geeft aan dat de tabel vanuit Unity Catalog gesynchroniseerd moet worden.
+Het deel daarna moet exact het pad `<catalog>.<schema>.<table>` zijn.
+
+Wat je in Unity Catalog moet doen {#wat-je-in-unity-catalog-moet-doen}
+=================================
+
+Vereiste metadata {#vereiste-metadata}
+-----------------
+
+Zorg dat de brontabel in Unity Catalog bestaat en dat de metadata bruikbaar is voor schema-generatie.
+Concreet betekent dit minimaal:
+
+* de tabel staat in de juiste catalogus en het juiste schema,
+* kolomnamen zijn stabiel en betekenisvol,
+* kolomtypen kloppen,
+* tabel- en kolombeschrijvingen zijn ingevuld waar die in Amsterdam Schema zichtbaar moeten worden.
+
+De ingest leest deze informatie rechtstreeks uit de Databricks metadata-tabellen:
+
+* tabelcommentaar,
+* kolomcommentaar,
+* tabeltags met prefix `schema:`,
+* kolomtags met prefix `schema:`.
+
+Praktische checklist {#praktische-checklist}
+--------------------
+
+Voer deze controle uit voordat je een PR opent in Amsterdam schema:
+
+* Bevestig het volledige tabelpad: `<catalog>.<schema>.<table>`.
+* Controleer of de tabelnaam definitief is.
+* Controleer of elke relevante kolom het juiste datatype heeft.
+* Voeg beschrijvingen toe aan tabel en kolommen als die in het schema verwacht worden.
+* Zorg dat de tabel en de kolommen in Unity Catalog de juiste tags hebben.
+
+Belangrijke vuistregel {#belangrijke-vuistregel}
+----------------------
+
+De automatisering leest metadata uit Unity Catalog.
+Als omschrijvingen, namen of typen in Unity Catalog onvolledig zijn, worden die onvolkomenheden doorgezet in de gegenereerde schema-artifacten.
+De validatie op de GitHub PR laat eventueel een comment achter op de PR met daarin de ontbrekende of foutieve elementen.
+
+Hoe Unity Catalog-metadata wordt vertaald {#metadata-vertaling}
+-----------------------------------------
+
+De belangrijkste vertaling is als volgt:
+
+* tabelcommentaar wordt gebruikt als tabelbeschrijving,
+* kolomcommentaar wordt gebruikt als veldbeschrijving,
+* het tabeltag `schema:id` bepaalt de Amsterdam Schema tabel-id; zonder dit tag wordt de Unity Catalog-tabelnaam gebruikt,
+* `schema:identifier` en `schema:display` op tabelniveau overschrijven de defaults; zonder deze tags wordt de eerste bronkolom gebruikt,
+* kolomtypen uit Unity Catalog worden omgezet naar Amsterdam Schema-typen,
+* extra Amsterdam Schema-eigenschappen komen uit `schema:*` tags.
+
+Voorbeelden van nuttige tabeltags zijn:
+
+* `schema:id`
+* `schema:version`
+* `schema:status`
+* `schema:title`
+* `schema:description`
+* `schema:auth`
+* `schema:identifier`
+* `schema:display`
+* `schema:mainGeometry`
+
+Voorbeelden van nuttige kolomtags zijn:
+
+* `schema:type`
+* `schema:title`
+* `schema:description`
+* `schema:format`
+* `schema:enum`
+* `schema:relation`
+* `schema:unit`
+* `schema:crs`
+* `schema:$ref` voor geometrievelden
+
+Er kunnen ook geneste tags gebruikt worden voor complexere kolommen (arrays of objects),
+bijvoorbeeld onder `items` of geneste `properties`. Zo'n tag ziet er dan als volgt uit:
+
+* `schema:items:properties:naam:type` voor het definieren van een array-veld met een object als item
+* `schema:properties:naam:type` voor het definieren van een genest veld (object) met een naam sub-veld erin.
+
+In veel gevallen gaat het bij array- en objectvelden om relaties. Als de relatie naar een geldige tabel
+in het Amsterdam schema verwijst, dan worden properties en items automatisch correct ingevuld.
+
+Wat je in deze repository moet doen {#wat-je-in-deze-repository-moet-doen}
+===================================
+
+Nieuwe dataset aanmaken {#nieuwe-dataset-aanmaken}
+-----------------------
+
+Voor een nieuwe dataset kan de interactieve CLI worden gebruikt:
+
+```bash
+create dataset
+```
+
+Tijdens het invullen van de tabellen vraagt de CLI per tabel:
+
+```text
+Do you want to sync this table from Unity Catalog?
+```
+
+Als je hier `yes` kiest, vraagt de CLI vervolgens om:
+
+```text
+Provide the location of the table in the shape <catalog>.<schema>.<table>
+```
+
+De CLI schrijft dan automatisch de `provenance`-waarde `uc:<catalog>.<schema>.<table>` weg in `dataset.json`.
+
+Bestaande dataset koppelen {#bestaande-dataset-koppelen}
+--------------------------
+
+Voor een bestaande dataset kun je dezelfde koppeling handmatig toevoegen of aanpassen in de tabelverwijzing binnen `dataset.json`.
+De vorm blijft hetzelfde:
+
+```json
+"provenance": "uc:<catalog>.<schema>.<table>"
+```
+
+Wat de CLI wel en niet doet {#wat-de-cli-wel-en-niet-doet}
+---------------------------
+
+De `create dataset`-CLI:
+
+* maakt een minimale `dataset.json`,
+* maakt minimale tabelbestanden aan,
+* kan de Unity Catalog-koppeling alvast vastleggen.
+
+De CLI haalt nog geen metadata uit Unity Catalog op.
+Dat gebeurt pas wanneer de automatisering loopt. Je zult dus altijd een PR moeten openen zodat de
+informatie uit Unity Catalog kan worden opgehaald.
+
+Automatische ingest {#automatische-ingest}
+===================
+
+De automatisering:
+
+* kijkt welke `dataset.json`-bestanden in de PR zijn toegevoegd of gewijzigd,
+* draait `schema ingest` (uit schema-tools) voor elk van die datasets,
+* commit eventuele gegenereerde wijzigingen terug naar dezelfde branch,
+* plaatst een PR-comment als de ingest foutmeldingen heeft.
+
+Als je na een eerste review extra metadata in Unity Catalog hebt aangepast,
+kun je in dezelfde PR opnieuw synchroniseren door een comment te plaatsen met:
+
+```text
+/update-uc
+```
+
+Nightly syncrhonisatie {#nightly-sync}
+----------------------
+
+Er draait ook elke nacht (op werkdagen) een pipeline.
+Deze doorloopt alle datasets onder `datasets/` en draait per dataset opnieuw `schema ingest`.
+
+Als er wijzigingen uit komen:
+
+* maakt de pipeline een branch met de vorm `<dataset_id>-<YYYY-MM-DD>`,
+* commit de gegenereerde bestanden,
+* opent of hergebruikt een PR voor die branch,
+* sluit oudere open nightly-PR's voor dezelfde dataset.
+
+Wat `schema ingest` praktisch betekent {#wat-schema-ingest-praktisch-betekent}
+--------------------------------------
+
+De ingest-stap gebruikt de `provenance`-verwijzingen naar Unity Catalog-tabellen als bron.
+Op basis van de aangetroffen metadata werkt de stap de schema-bestanden in deze repository bij.
+
+Concreet doet `schema ingest` per tabel met `provenance` die begint met `uc:` het volgende:
+
+* leest de Unity Catalog metadata voor precies die tabel,
+* genereert of overschrijft het tabelbestand onder `<table_id>/v<major>.json`,
+* actualiseert in `dataset.json` de tabel-`id` en `$ref` op basis van de opgehaalde metadata,
+* rapporteert validatieproblemen uit tags of relaties als workflow-output.
+
+Voor gebruikers is de hoofdregel daarom:
+
+1. wijzig eerst de bronmetadata in Unity Catalog,
+1. zorg daarna dat `dataset.json` naar de juiste UC-tabel verwijst,
+1. laat vervolgens de ingest-workflow draaien.
+
+Aanbevolen werkwijze {#aanbevolen-werkwijze}
+====================
+
+Nieuwe tabel uit Unity Catalog opnemen {#nieuwe-tabel-uit-unity-catalog-opnemen}
+--------------------------------------
+
+1. Controleer in Unity Catalog het definitieve pad en de metadata (tags, comments) van de tabel.
+1. Maak de dataset aan met `create dataset`, of voeg handmatig een tabelverwijzing toe.
+1. Zet bij de tabel `provenance` op `uc:<catalog>.<schema>.<table>` (met `create dataset` hoeft de `uc:` prefix niet te worden ingevoerd).
+1. Open een PR met de wijziging in `dataset.json`.
+1. Wacht tot de Unity Catalog-workflow de gegenereerde wijzigingen terugschrijft.
+1. Controleer de gegenereerde schema-bestanden in de PR, voeg eventueel tags toe of pas deze aan bij problemen.
+
+
+Bestaande koppeling verversen {#bestaande-koppeling-verversen}
+-----------------------------
+
+1. Pas de metadata in Unity Catalog aan.
+1. Gebruik een bestaande open PR of maak een kleine wijziging onder `datasets/` om de workflow te triggeren.
+1. Gebruik `/update-uc` als je dezelfde PR opnieuw wilt laten synchroniseren.
+1. Controleer de teruggeschreven schemawijzigingen.
+
+
+Veelvoorkomende oorzaken als er niets gebeurt {#veelvoorkomende-oorzaken}
+=============================================
+
+* Er is geen `provenance` met prefix `uc:` opgenomen in de dataset.
+* Het UC-pad klopt niet exact.
+* De PR wijzigt geen bestanden onder `datasets/`.
+* De ingest levert geen inhoudelijke verschillen op, waardoor er niets te committen is.
+
+Samenvatting {#samenvatting}
+============
+
+Voor deze workflow beheert de gebruiker de bronmetadata in Unity Catalog en beheert deze repository alleen de koppeling en de review van de gegenereerde resultaten.
+Voor het correct aanmaken van een schema-bestand zijn de volgende zaken essentieel:
+
+* goede metadata in Unity Catalog,
+* een correcte `uc:`-`provenance` in `dataset.json`,
+* een draai van `schema ingest` via de PR- of nightly-workflow.
