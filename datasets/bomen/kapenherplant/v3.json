@@ -1,11 +1,14 @@
 {
   "id": "kapenherplant",
   "type": "table",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "status": "stable",
-  "title": "kap en herplant van de bomen",
-  "description": "Het kappen van bomen omvat het verwijderen van bomen uit een gebied. Herplanten van bomen betekent dat nieuwe bomen op de gekapte locatie worden geplant.",
-  "auth": "OPENBAAR",
+  "title": "Kap en herplant van bomen",
+  "description": "Tabel met gegevens over het kappen en herplanten van bomen in de openbare ruimte, conform Handboek Bomen 2022 en IMBOR. Omvat het volledige proces van vergunningsaanvraag tot uitvoering en nazorg.",
+  "auth": "FP/MDW",
+  "reasonsNonPublic": [
+    "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+  ],
   "identifier": "id",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -22,36 +25,14 @@
         "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
       },
       "id": {
-        "title": "ID",
+        "title": "ID kap en herplantrecord",
         "type": "integer",
-        "description": "Unieke aanduiding van record"
-      },
-      "boomId": {
-        "title": "Boom ID",
-        "type": "integer",
-        "description": "de vreemde sleutel (foreignkey) voor de relatie met de stamgegevens van de bomen"
-      },
-      "boomAanwezigheidId": {
-        "title": "Boom aanwezigheid ID",
-        "type": "integer",
-        "description": ""
-      },
-      "boomNieuwId": {
-        "title": "Boom nieuw ID",
-        "type": "integer",
-        "description": "Id nummer van de gekoppelde nieuw geplante boom in beheerlaag boom (boom is geplant en op deze locatie is een nieuwe boom ingelezen)"
-      },
-      "gbdBuurt": {
-        "title": "Gbd buurt",
-        "type": "string",
-        "relation": "gebieden:buurten",
-        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
-        "description": "Unieke identificatie van een buurt"
+        "description": "Uniek identificerend kenmerk van het kap- en herplantrecord."
       },
       "geometrie": {
         "title": "Geometrie",
         "$ref": "https://geojson.org/schema/Point.json",
-        "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992). bevat punt-geometrie.",
+        "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992). Bevat puntgeometrie van de boomlocatie.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -60,7 +41,7 @@
       "aantalDagenResterendAfronding": {
         "title": "Aantal dagen resterend afronding",
         "type": "string",
-        "description": "Automatisch berekend: aantal werkdagen totdat 'datum afronden voor' is verstreken",
+        "description": "Automatisch berekend aantal werkdagen tot de deadline voor afronding van de kap- en herplantwerkzaamheden, conform Handboek Bomen §7 Nazorg en hergroeigarantie.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -69,7 +50,7 @@
       "begindatumTechnischOnderzoek": {
         "title": "Begindatum technisch onderzoek",
         "type": "string",
-        "description": "Datum waarop het technisch onderzoek is of wordt gestart",
+        "description": "Datum waarop het technisch onderzoek (bodem, groeiplaats, boomveiligheid) is gestart, conform Handboek Bomen §18 Groeiplaatsonderzoek.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -78,7 +59,7 @@
       "belemmeringHerplant": {
         "title": "Belemmering herplant",
         "type": "string",
-        "description": "Geeft aan of er belemmeringen zijn voor het aanplanten van een nieuwe boom",
+        "description": "Aanduiding van belemmeringen voor herplant, zoals onvoldoende doorwortelbare ruimte of kabels/leidingen, conform Handboek Bomen §4 Aanleg groeiplaatsen.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -87,17 +68,7 @@
       "bezwaarOpVergunning": {
         "title": "Bezwaar op vergunning",
         "type": "boolean",
-        "description": "Geeft aan of er bezwaar is gemaakt op de kap van deze boom",
-        "auth": "FP/MDW",
-        "reasonsNonPublic": [
-          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
-        ]
-      },
-      "bereikbaarheidLeefbaarheidVeiligheidEnCommunicatiePlanNodig": {
-        "title": "Bereikbaarheid leefbaarheid veiligheid en communicatie plan nodig",
-        "type": "string",
-        "description": "Geeft aan of een standaard of specifiek BLVC plan nodig is",
-        "shortname": "blvcPlanNodig",
+        "description": "Geeft aan of er bezwaar is gemaakt tegen de verleende kapvergunning, conform Algemene wet bestuursrecht (Awb).",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -106,12 +77,52 @@
       "boomAanwezigheid": {
         "title": "Boom aanwezigheid",
         "type": "string",
-        "description": "Is op locatie van herplant nog de oude boom aanwezig"
+        "description": "Status van de oorspronkelijke boom op de herplantlocatie, conform Handboek Bomen §12 Vellen bomen en rooien stobben. Mogelijke waarden: 'aanwezig', 'verwijderd', 'vervangen'."
+      },
+      "boomAanwezigheidId": {
+        "title": "Boom aanwezigheid ID",
+        "type": "integer",
+        "description": "Unieke identificatie van de boom in de aanwezigheidsregistratie tijdens het kap- en herplantproces, gebruikt voor tracking van de boomstatus."
+      },
+      "boomId": {
+        "title": "Boom ID",
+        "type": "integer",
+        "description": "Vreemde sleutel (foreign key) voor de relatie met de stamgegevens van de boom in het bomenregister, conform Handboek Bomen."
+      },
+      "boomNieuwId": {
+        "title": "Boom nieuw ID",
+        "type": "integer",
+        "description": "ID van de nieuw geplante boom in de beheerlaag, gekoppeld aan deze kaplocatie na herplant (conform Handboek Bomen §6 Planten bomen)."
+      },
+      "boomgebreken": {
+        "title": "Boomgebreken",
+        "type": "string",
+        "description": "Geregistreerde gebreken aan de boom volgens de BVC-afwijkingenlijst (Handboek Bomen §11 Boomveiligheidsonderzoek). Voorbeelden: 'holte in stam', 'scheuren', 'dood hout'."
+      },
+      "boommaatregelBesluit": {
+        "title": "Boommaatregel besluit",
+        "type": "string",
+        "description": "Besluit over de uit te voeren boommaatregel (kap, snoei, verplanten), gebaseerd op de boomveiligheidscontrole (BVC) en vergunningsprocedure."
+      },
+      "boommaatregelBesluitPlant": {
+        "title": "Boommaatregel besluit herplant",
+        "type": "string",
+        "description": "Besluit over de herplantmaatregel, inclusief boomsoortkeuze en groeiplaatsinrichting, conform Handboek Bomen §6 Planten bomen."
+      },
+      "bereikbaarheidLeefbaarheidVeiligheidEnCommunicatiePlanNodig": {
+        "title": "Bereikbaarheid leefbaarheid veiligheid en communicatie plan nodig",
+        "type": "string",
+        "description": "Aanduiding of een BLVC-plan (Bereikbaarheid, Leefbaarheid, Veiligheid, Communicatie) vereist is voor de uitvoering, conform CROW-richtlijnen. Mogelijke waarden: 'standaard', 'specifiek', 'niet nodig'.",
+        "shortname": "blvcPlanNodig",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
       },
       "conversieId": {
         "title": "Conversie ID",
         "type": "string",
-        "description": "Tweede oude identificatie",
+        "description": "Tweede identificatiecode voor migratiedoeleinden, gebruikt bij overgang van oud naar nieuw beheersysteem (bijv. GeoVisia GUID).",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -121,29 +132,29 @@
         "title": "Datum afgerond",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop de kap is afgerond",
+        "description": "Datum waarop de kap- en herplantwerkzaamheden zijn afgerond, inclusief nazorg (conform Handboek Bomen §7 Nazorg en hergroeigarantie).",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
         ]
-      },  
+      },
       "datumAkkoordBoomsoort": {
         "title": "Datum akkoord boomsoort",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop er een akkoord is voor de  boomsoort"
+        "description": "Datum waarop de voorgestelde boomsoort voor herplant is goedgekeurd, conform Naamlijst Houtige Gewassen (ENA Europese standaard)."
       },
       "datumBesluitVergunningKap": {
         "title": "Datum besluit vergunning kap",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop het besluit op de aangevraagde vergunning is verzonden"
+        "description": "Datum waarop het besluit op de kapvergunningaanvraag is verzonden aan de aanvrager, conform Omgevingswet."
       },
       "datumDeelopdrachtGroeiplaatsVerstrekt": {
         "title": "Datum deelopdracht groeiplaats verstrekt",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop deelopdrachtnummer in gisib is toegekend",
+        "description": "Datum waarop het deelopdrachtnummer voor de groeiplaatsinrichting is toegekend in GISIB, conform IMBOR.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -153,7 +164,7 @@
         "title": "Datum deelopdracht herplant verstrekt",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop deelopdrachtnummer in gisib is toegekend",
+        "description": "Datum waarop het deelopdrachtnummer voor de herplantwerkzaamheden is toegekend in GISIB, conform IMBOR.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -163,17 +174,27 @@
         "title": "Datum deelopdracht kap verstrekt",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop deelopdrachtnummer in gisib is toegekend",
+        "description": "Datum waarop het deelopdrachtnummer voor de kapwerkzaamheden is toegekend in GISIB, conform IMBOR.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
         ]
       },
+      "datumAfrondenVoor": {
+        "title": "Datum afronden voor",
+        "type": "string",
+        "description": "Uiterste datum waarop de kap- en herplantwerkzaamheden moeten zijn afgerond, conform opdrachtverlening."
+      },
+      "datumToezichtHerplantinspectie": {
+        "title": "Datum toezicht herplantinspectie",
+        "type": "string",
+        "description": "Datum waarop toezicht is uitgevoerd op de herplantinspectie (conform Handboek Bomen §7 Nazorg en hergroeigarantie)."
+      },
       "datumDeelopdrachtVoorschouwVerstrekt": {
         "title": "Datum deelopdracht voorschouw verstrekt",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop deelopdrachtnummer in gisib is toegekend",
+        "description": "Datum waarop het deelopdrachtnummer voor de voorschouw is toegekend in GISIB, conform IMBOR.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -183,13 +204,19 @@
         "title": "Datum einde bezwaar",
         "type": "string",
         "format": "date",
-        "description": "Datum tot wanneer bewaar ingediend kan worden"
+        "description": "Uiterste datum waarop bezwaar kan worden ingediend tegen de verleende kapvergunning, conform Algemene wet bestuursrecht (Awb)."
+      },
+      "datumHerplantinspectie": {
+        "title": "Datum herplantinspectie",
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop de herplantinspectie is uitgevoerd om te controleren of de nieuwe boom voldoet aan de eisen (conform Handboek Bomen §7 Nazorg en hergroeigarantie)."
       },
       "datumOpdrachtverlening": {
         "title": "Datum opdrachtverlening",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop V&OR opdracht heeft verleend voor uitvoeren boommaatregel",
+        "description": "Datum waarop V&OR opdracht heeft verleend aan de aannemer voor de uitvoering van de kap- en/of herplantwerkzaamheden.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -199,7 +226,7 @@
         "title": "Datum vergunning definitief",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop de kapvergunning definitief is: zes weken na verlening vergunning",
+        "description": "Datum waarop de kapvergunning definitief wordt (zes weken na verlening, tenzij bezwaar is gemaakt), conform Omgevingswet.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -209,39 +236,33 @@
         "title": "Datum vergunning verleend",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop de kapvergunning is verleend"
+        "description": "Datum waarop de kapvergunning is verleend door het bevoegd gezag, conform Omgevingswet."
       },
       "datumVergunningsaanvraag": {
         "title": "Datum vergunningsaanvraag",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop de kapvergunning is aangevraagd"
+        "description": "Datum waarop de kapvergunning is aangevraagd bij het bevoegd gezag, conform Omgevingswet."
       },
       "datumVoorschouw": {
         "title": "Datum voorschouw",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop de voorschouw is uitgevoerd",
+        "description": "Datum waarop de voorschouw is uitgevoerd, waarbij de boom en groeiplaats worden geïnspecteerd voorafgaand aan de kap (conform Handboek Bomen §2 Werken rond bomen).",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
         ]
       },
-      "datumHerplantinspectie": {
-        "title": "Datum herplantinspectie",
-        "type": "string",
-        "format": "date",
-        "description": "Datum waarop de herplantinspectie is uitgevoerd"
-      },
       "deelopdrachtGroeiplaats": {
         "title": "Deelopdracht groeiplaats",
         "type": "string",
-        "description": "Deelopdrachtnummer waarbinnen aannemer de werkzaamheden voor groeiplaats inrichten uitvoert"
+        "description": "Deelopdrachtnummer waarbinnen de aannemer de werkzaamheden voor groeiplaatsinrichting uitvoert, conform IMBOR."
       },
       "deelopdrachtKap": {
         "title": "Deelopdracht kap",
         "type": "string",
-        "description": "Deelopdrachtnummer waarbinnen aannemer de werkzaamheden voor kap uitvoert",
+        "description": "Deelopdrachtnummer waarbinnen de aannemer de kapwerkzaamheden uitvoert, conform IMBOR.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -250,12 +271,12 @@
       "deelopdrachtPlanten": {
         "title": "Deelopdracht planten",
         "type": "string",
-        "description": "Deelopdrachtnummer waarbinnen aannemer de werkzaamheden voor planten uitvoert"
+        "description": "Deelopdrachtnummer waarbinnen de aannemer de herplantwerkzaamheden uitvoert, conform IMBOR."
       },
       "deelopdrachtVoorschouw": {
         "title": "Deelopdracht voorschouw",
         "type": "string",
-        "description": "Deelopdrachtnummer waarbinnen aannemer de werkzaamheden voor voorschouw uitvoert",
+        "description": "Deelopdrachtnummer waarbinnen de aannemer de voorschouwwerkzaamheden uitvoert, conform IMBOR.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -264,17 +285,22 @@
       "dichtstbijzijndeBagAdres": {
         "title": "Dichtstbijzijnde BAG adres",
         "type": "string",
-        "description": "Dichtstbijzijnde BAG adres"
+        "description": "Dichtstbijzijnde adres volgens de Basisregistratie Adressen en Gebouwen (BAG), gebruikt voor locatiebepaling van de boom."
       },
       "dichtstbijzijndeBagPostcode": {
         "title": "Dichtstbijzijnde BAG postcode",
         "type": "string",
-        "description": "Dichtstbijzijnde BAG postcode"
+        "description": "Postcode van het dichtstbijzijnde BAG-adres, gebruikt voor locatiebepaling van de boom."
+      },
+      "herplantinspectieToezichthouder": {
+        "title": "Herplantinspectie toezichthouder",
+        "type": "string",
+        "description": "Naam of identificatie van de toezichthouder die de herplantinspectie heeft uitgevoerd, conform Handboek Bomen §7."
       },
       "ecoscanUitgevoerd": {
         "title": "Ecoscan uitgevoerd",
         "type": "string",
-        "description": "Geeft aan of een ecoscan is uitgevoerd",
+        "description": "Aanduiding of een ecoscan is uitgevoerd om de impact van de kap op ecosysteemdiensten te beoordelen (conform Handboek Bomen §20 Bomenbalans). Mogelijke waarden: 'ja', 'nee', 'niet van toepassing'.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -284,17 +310,24 @@
         "title": "Einddatum technisch onderzoek",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop het technisch onderzoek is of wordt afgerond",
+        "description": "Datum waarop het technisch onderzoek (bodem, groeiplaats, boomveiligheid) is afgerond, conform Handboek Bomen §18 Groeiplaatsonderzoek.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
         ]
       },
+      "gbdBuurt": {
+        "title": "Gbd buurt",
+        "type": "string",
+        "relation": "gebieden:buurten",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
+        "description": "Unieke identificatie van de buurt waarin de boom zich bevindt, conform BAG-registratie."
+      },
       "groeiplaatsDatumToezicht": {
         "title": "Groeiplaats datum toezicht",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop toezicht heeft plaatsgevonden",
+        "description": "Datum waarop toezicht is uitgevoerd op de groeiplaatsinrichting, conform Handboek Bomen §4 Aanleg groeiplaatsen.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -304,12 +337,12 @@
         "title": "Groeiplaatsmaatregel datum uitgevoerd",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop de maatregel is uitgevoerd"
+        "description": "Datum waarop de maatregelen voor de groeiplaatsinrichting (bijv. bodemverbetering, drainage) zijn uitgevoerd."
       },
       "herplantGewenst": {
         "title": "Herplant gewenst",
         "type": "string",
-        "description": "Geeft aan of herplant op deze locatie mogelijk of gewenst is",
+        "description": "Aanduiding of herplant op deze locatie gewenst of mogelijk is, conform gemeentelijk beleid en Handboek Bomen. Mogelijke waarden: 'ja', 'nee', 'voorwaardelijk'.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -318,7 +351,7 @@
       "idUitOudebeheerindeling": {
         "title": "ID uit oudebeheerindeling",
         "type": "string",
-        "description": "Uniek kenmerk van een beheerobject uit een oude beheerindeling (guid van geovisia)",
+        "description": "Uniek kenmerk van een beheerobject uit een oude beheerindeling (guid van GeoVisia), gebruikt voor migratie en historische traceerbaarheid.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.2 1: Bevat persoonlijke beleidsopvattingen (bevat geen milieu-informatie)"
@@ -328,118 +361,64 @@
         "title": "Inspectiedatum",
         "type": "string",
         "format": "date",
-        "description": "Tijdstip waarop de inspectie uitgevoerd wordt. Datum wordt automatisch ingevuld"
+        "description": "Datum waarop de boomveiligheidscontrole (BVC) of inspectie is uitgevoerd, conform Handboek Bomen §11 Boomveiligheidsonderzoek."
+      },
+      "informatieBestaandeBoom": {
+        "title": "Informatie bestaande boom",
+        "type": "string",
+        "description": "Aanvullende informatie over de gekapte boom, zoals leeftijd, historische waarde, of bijzonderheden (bijv. monumentale boom)."
+      },
+	  "inhoudBesluitVergunningKap": {
+	  "title": "Inhoud besluit vergunning kap",
+        "type": "string",
+        "description": "Status van de aangevraagde kapvergunning.",
+		"enum": [
+      "Verleend",
+		  "Verleend met directe inwerktreding",
+		  "Geweigerd",
+		  "Ingetrokken",
+		  "Buiten behandeling gesteld"
+        ]
       },
       "kapDatumToezicht": {
         "title": "Kap datum toezicht",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop toezicht heeft plaatsgevonden"
+        "description": "Datum waarop toezicht is uitgevoerd op de kapwerkzaamheden, conform Handboek Bomen §12 Vellen bomen en rooien stobben."
       },
       "kaplijstBomen": {
         "title": "Kaplijst bomen",
         "type": "string",
-        "description": "Naam van de kaplijst (batch te kappen bomen die in opdracht is gegeven door V&OR)"
+        "description": "Naam van de kaplijst (batch) waartoe deze boom behoort, gebruikt voor opdrachtverstrekking aan aannemers (conform IMBOR)."
       },
       "kapmaatregelDatumUitgevoerd": {
         "title": "Kapmaatregel datum uitgevoerd",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop de maatregel is uitgevoerd"
+        "description": "Datum waarop de kapwerkzaamheden (inclusief stobbenrooien) zijn uitgevoerd, conform Handboek Bomen §12."
+      },
+      "lastupdate": {
+        "title": "Laatste update",
+        "type": "string",
+        "description": "Tijdstip van de laatste wijziging in het record, gebruikt voor versiebeheer."
+      },
+      "matching": {
+        "title": "Matching",
+        "type": "string",
+        "description": "Informatie over de matching van gegevens tussen verschillende systemen (bijv. BAG, bomenregister, GISIB), gebruikt voor data-integratie."
       },
       "mutatiedatum": {
         "title": "Mutatiedatum",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop de meest recente mutatie is uitgevoerd"
+        "description": "Datum waarop de meest recente mutatie in het record is doorgevoerd."
       },
       "objectTypenBibliotheekAanleveringDatumAangeleverd": {
         "title": "Object typen bibliotheek aanlevering datum aangeleverd",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop OTL gegevens zijn aangeleverd",
+        "description": "Datum waarop de gegevens zijn aangeleverd aan de ObjectTypen Bibliotheek (OTL), conform IMBOR.",
         "shortname": "otlAanleveringDatumAangeleverd",
-        "auth": "FP/MDW",
-        "reasonsNonPublic": [
-          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
-        ]
-      },
-      "plantenDatumToezicht": {
-        "title": "Planten datum toezicht",
-        "type": "string",
-        "format": "date",
-        "description": "Datum waarop toezicht heeft plaatsgevonden"
-      },
-      "plantlijstBomen": {
-        "title": "Plantlijst bomen",
-        "type": "string",
-        "description": "Naam van de plantlijst (batch te planten bomen die in opdracht is gegeven door V&OR)"
-      },
-      "plantlocatie": {
-        "title": "Plantlocatie",
-        "type": "string",
-        "description": "Locatie waar de nieuwe boom geplant moet worden",
-        "auth": "FP/MDW",
-        "reasonsNonPublic": [
-          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
-        ]
-      },
-      "plantmaatregelDatumUitgevoerd": {
-        "title": "Plantmaatregel datum uitgevoerd",
-        "type": "string",
-        "format": "date",
-        "description": "Datum waarop de maatregel is uitgevoerd"
-      },
-      "risicotoeslag": {
-        "title": "Risicotoeslag",
-        "type": "string",
-        "description": "Geeft toeslagpercentage voor beheerinspanning aan op basis van locatie gebieden met intensieve gebruiksdruk (bijvoorbeeld parken)",
-        "auth": "FP/MDW",
-        "reasonsNonPublic": [
-          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
-        ]
-      },
-      "soortnaam": {
-        "title": "Soortnaam",
-        "type": "string",
-        "description": "Aanduiding voor de soortnaam van het object of van de soorten die binnen het object voorkomen. Het gaat hierbij om zowel flora als fauna."
-      },
-      "stamdiameter": {
-        "title": "Stamdiameter",
-        "type": "string",
-        "description": "Diameter van de stam in cm, opgemeten bij de veiligheidsinspectie van de boom"
-      },
-      "status": {
-        "title": "Status",
-        "type": "string",
-        "description": "Status van het beheerobject in het inwinningsproces",
-        "auth": "FP/MDW",
-        "reasonsNonPublic": [
-          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
-        ]
-      },
-      "stobbeVerwijderen": {
-        "title": "Stobbe verwijderen",
-        "type": "string",
-        "description": "Geeft aan of er een stobbe is die nog verwijderd moet worden",
-        "auth": "FP/MDW",
-        "reasonsNonPublic": [
-          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
-        ]
-      },
-      "termijnurgentie": {
-        "title": "Termijnurgentie",
-        "type": "string",
-        "description": "Urgentie die is opgegeven tijdens de veiligheidsinspectie van de boom",
-        "auth": "FP/MDW",
-        "reasonsNonPublic": [
-          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
-        ]
-      },
-      "toekomstboom": {
-        "title": "Toekomstboom",
-        "type": "string",
-        "description": "toekomstboom",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -449,7 +428,7 @@
         "title": "Objectbegintijd",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop het object is opgenomen in het beheersysteem",
+        "description": "Datum waarop het object is opgenomen in het beheersysteem, conform IMBOR.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -459,102 +438,164 @@
         "title": "Objecteindtijd",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop het object is verwijderd uit het beheersyteem",
+        "description": "Datum waarop het object is verwijderd uit het beheersysteem, conform IMBOR.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
         ]
       },
-      "boomgebreken": {
-        "type": "string"
+      "plantenDatumToezicht": {
+        "title": "Planten datum toezicht",
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop toezicht is uitgevoerd op de herplantwerkzaamheden, conform Handboek Bomen §6 Planten bomen."
       },
-      "boommaatregelBesluit": {
-        "type": "string"
+      "plantlijstBomen": {
+        "title": "Plantlijst bomen",
+        "type": "string",
+        "description": "Naam van de plantlijst (batch) waartoe deze boom behoort, gebruikt voor opdrachtverstrekking aan aannemers (conform IMBOR)."
       },
-      "boommaatregelBesluitPlant": {
-        "type": "string"
+      "plantlocatie": {
+        "title": "Plantlocatie",
+        "type": "string",
+        "description": "Exacte locatie waar de nieuwe boom wordt geplant, conform de groeiplaatsinrichting (Handboek Bomen §4). Voorbeelden: 'straatzijde', 'park', 'groenstrook'.",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
       },
-      "datumAfrondenVoor": {
-        "type": "string"
-      },
-      "datumToezichtHerplantinspectie": {
-        "type": "string"
-      },
-      "herplantinspectieToezichthouder": {
-        "type": "string"
-      },
-      "informatieBestaandeBoom": {
-        "type": "string"
-      },
-      "lastupdate": {
-        "type": "string"
-      },
-      "matching": {
-        "type": "string"
+      "plantmaatregelDatumUitgevoerd": {
+        "title": "Plantmaatregel datum uitgevoerd",
+        "type": "string",
+        "format": "date",
+        "description": "Datum waarop de herplantwerkzaamheden (inclusief nazorg) zijn uitgevoerd, conform Handboek Bomen §6."
       },
       "projectnaamBomen": {
-        "type": "string"
+        "title": "Projectnaam bomen",
+        "type": "string",
+        "description": "Naam van het project waartoe de kap- en herplantwerkzaamheden behoren (bijv. 'Verjonging Vondelpark', 'Herinrichting Damrak')."
+      },
+      "risicotoeslag": {
+        "title": "Risicotoeslag",
+        "type": "string",
+        "description": "Toeslagpercentage voor beheerinspanning op basis van locatie en gebruiksdruk (bijv. parken, schoolomgevingen), conform IMBOR.",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
       },
       "selectiecode": {
-        "type": "string"
+        "title": "Selectiecode",
+        "type": "string",
+        "description": "Interne code voor de selectie van bomen voor kap of herplant, conform gemeentelijk beleid (bijv. 'urgent', 'standaard', 'ecologisch')."
+      },
+      "soortnaam": {
+        "title": "Soortnaam",
+        "type": "string",
+        "description": "Wetenschappelijke en/of Nederlandse naam van de gekapte boom, conform Naamlijst Houtige Gewassen (ENA Europese standaard)."
+      },
+      "stamdiameter": {
+        "title": "Stamdiameter",
+        "type": "string",
+        "description": "Diameter van de stam in centimeters, gemeten op 1,3 meter hoogte tijdens de boomveiligheidscontrole (BVC), conform Handboek Bomen."
+      },
+      "status": {
+        "title": "Status",
+        "type": "string",
+        "description": "Huidige status van het kap- en herplantproces, conform IMBOR-fasering. Mogelijke waarden: 'aangevraagd', 'vergunning verleend', 'in uitvoering', 'afgerond', 'geannuleerd'.",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "stobbeVerwijderen": {
+        "title": "Stobbe verwijderen",
+        "type": "string",
+        "description": "Aanduiding of de stobbe van de gekapte boom moet worden verwijderd (conform Handboek Bomen §12). Mogelijke waarden: 'ja', 'nee', 'gedeeltelijk'.",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "technischOnderzoekResultaat": {
+        "title": "Technisch onderzoek resultaat",
+        "type": "string",
+        "description": "Resultaat van het bodem- en groeiplaatsonderzoek, conform Handboek Bomen §18 Groeiplaatsonderzoek.",
+        "enum": [
+          "1 - Doorgaan",
+          "2 - Extra actie",
+          "3 - Aanvullend onderzoek",
+          "4 - Informatie niet beschikbaar"
+        ]
+      },
+      "termijnurgentie": {
+        "title": "Termijnurgentie",
+        "type": "string",
+        "description": "Urgentie van de kapmaatregel, gebaseerd op de boomveiligheidscontrole (BVC). Mogelijke waarden: 'direct (binnen 24 uur)', 'urgent (binnen 2 weken)', 'normaal (binnen 3 maanden)', 'geen urgentie'.",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
+      },
+      "toekomstboom": {
+        "title": "Toekomstboom",
+        "type": "string",
+        "description": "Aanduiding of de boom is aangemerkt als toekomstboom (bijv. vanwege ecologische waarde, vervangingsbeleid of monumentale status). Mogelijke waarden: 'ja', 'nee'.",
+        "auth": "FP/MDW",
+        "reasonsNonPublic": [
+          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
+        ]
       },
       "toeTePassenBoomsoort": {
-        "type": "string"
+        "title": "Toe te passen boomsoort",
+        "type": "string",
+        "description": "Voorgestelde boomsoort voor herplant, conform Naamlijst Houtige Gewassen (ENA Europese standaard)."
       },
       "validFrom": {
-        "type": "string"
+        "title": "Geldig vanaf",
+        "type": "string",
+        "description": "Begindatum van de geldigheid van het record, conform IMBOR."
       },
       "validTill": {
-        "type": "string"
-      },
-      "werkgangAcceptatieGroeiplaats": {
-        "type": "string"
-      },
-      "werkgangAcceptatieHerplantinspectie": {
-        "type": "string"
-      },
-      "werkgangAcceptatieKap": {
-        "type": "string"
-      },
-      "werkgangAcceptatiePlanten": {
-        "type": "string"
-      },
-      "werkgangAcceptatieVoorschouw": {
-        "type": "string"
+        "title": "Geldig tot",
+        "type": "string",
+        "description": "Einddatum van de geldigheid van het record, conform IMBOR."
       },
       "voorschouwDatumToezicht": {
         "title": "Voorschouw datum toezicht",
         "type": "string",
         "format": "date",
-        "description": "Datum waarop de toezichthouder de voorschouw heeft gecontroleerd",
+        "description": "Datum waarop de toezichthouder de voorschouw heeft gecontroleerd (conform Handboek Bomen §2 Werken rond bomen).",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
         ]
       },
-	  "inhoudBesluitVergunningKap": {
-	  "title": "Inhoud besluit vergunning kap",
+      "werkgangAcceptatieGroeiplaats": {
+        "title": "Werkgang acceptatie groeiplaats",
         "type": "string",
-        "description": "Status van de aangevraagde kapvergunning.",
-		"enum": [
-          "Verleend",
-		  "Verleend met directe inwerktreding",
-		  "Geweigerd",
-		  "Ingetrokken",
-		  "Buiten behandeling gesteld"
-        ]
-	  },
-	  "technischOnderzoekResultaat": {
-	  "title": "Technisch onderzoek resultaat",
+        "description": "Status van de acceptatie van de groeiplaatsinrichting (conform IMBOR). Mogelijke waarden: 'goedgekeurd', 'afgekeurd', 'in behandeling'."
+      },
+      "werkgangAcceptatieHerplantinspectie": {
+        "title": "Werkgang acceptatie herplantinspectie",
         "type": "string",
-        "description": "Resultaat van het bodemonderzoek.",
-		"enum": [
-      "1 - Doorgaan",
-		  "2 - Extra actie",
-		  "3 - Aanvullend onderzoek",
-		  "4 - Informatie niet beschikbaar"
-        ]
-	  }
+        "description": "Status van de acceptatie van de herplantinspectie (conform IMBOR). Mogelijke waarden: 'goedgekeurd', 'afgekeurd', 'in behandeling'."
+      },
+      "werkgangAcceptatieKap": {
+        "title": "Werkgang acceptatie kap",
+        "type": "string",
+        "description": "Status van de acceptatie van de kapwerkzaamheden (conform IMBOR). Mogelijke waarden: 'goedgekeurd', 'afgekeurd', 'in behandeling'."
+      },
+      "werkgangAcceptatiePlanten": {
+        "title": "Werkgang acceptatie planten",
+        "type": "string",
+        "description": "Status van de acceptatie van de herplantwerkzaamheden (conform IMBOR). Mogelijke waarden: 'goedgekeurd', 'afgekeurd', 'in behandeling'."
+      },
+      "werkgangAcceptatieVoorschouw": {
+        "title": "Werkgang acceptatie voorschouw",
+        "type": "string",
+        "description": "Status van de acceptatie van de voorschouw (conform IMBOR). Mogelijke waarden: 'goedgekeurd', 'afgekeurd', 'in behandeling'."
+      }
     }
   }
 }

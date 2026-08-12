@@ -34,9 +34,23 @@
   "defaultVersion": "v1",
   "versions": {
     "v1": {
-      "status": "under_development",
-      "enableAPI": false,
+      "status": "stable",
+      "enableAPI": true,
       "version": "1.0.0",
+      "exports": [
+        {
+          "name": "all",
+          "filetypes": [
+            "csv"
+          ],
+          "scopes": [
+            "fp/mdw"
+          ],
+          "tables": [
+            "wwsPuntenBerekening"
+          ]
+        }
+      ],
       "tables": [
         {
           "id": "wwsPuntenBerekening",
