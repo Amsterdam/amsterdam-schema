@@ -29,6 +29,9 @@ Apart from the technical description
 an in-depth textual specification of the Amsterdam Schema can be found at
 https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html.
 
+The Unity Catalog workflow is documented separately at
+https://schemas.data.amsterdam.nl/docs/unity-catalog-workflow.html.
+
 The Amsterdam Schema is chosen to be delimited in such a way
 that it can interoperate with as many systems as possible.
 The results of this analysis can be found at the
