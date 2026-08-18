@@ -1,14 +1,11 @@
 {
   "id": "kapenherplant",
   "type": "table",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "status": "stable",
   "title": "Kap en herplant van bomen",
   "description": "Tabel met gegevens over het kappen en herplanten van bomen in de openbare ruimte, conform Handboek Bomen 2022 en IMBOR. Omvat het volledige proces van vergunningsaanvraag tot uitvoering en nazorg.",
-  "auth": "FP/MDW",
-  "reasonsNonPublic": [
-    "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
-  ],
+  "auth": "OPENBAAR",
   "identifier": "id",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -32,11 +29,7 @@
       "geometrie": {
         "title": "Geometrie",
         "$ref": "https://geojson.org/schema/Point.json",
-        "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992). Bevat puntgeometrie van de boomlocatie.",
-        "auth": "FP/MDW",
-        "reasonsNonPublic": [
-          "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
-        ]
+        "description": "Aanduiding voor de geometrie van het beheerobject volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992). Bevat puntgeometrie van de boomlocatie."
       },
       "aantalDagenResterendAfronding": {
         "title": "Aantal dagen resterend afronding",
@@ -318,10 +311,18 @@
       },
       "gbdBuurt": {
         "title": "Gbd buurt",
-        "type": "string",
-        "relation": "gebieden:buurten",
+        "description": "Unieke identificatie van de buurt waarin de boom zich bevindt, conform BAG-registratie.",
+        "type": "object",
         "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus/buurt",
-        "description": "Unieke identificatie van de buurt waarin de boom zich bevindt, conform BAG-registratie."
+        "relation": "gebieden:buurten",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        }
       },
       "groeiplaatsDatumToezicht": {
         "title": "Groeiplaats datum toezicht",
@@ -368,16 +369,16 @@
         "type": "string",
         "description": "Aanvullende informatie over de gekapte boom, zoals leeftijd, historische waarde, of bijzonderheden (bijv. monumentale boom)."
       },
-	  "inhoudBesluitVergunningKap": {
-	  "title": "Inhoud besluit vergunning kap",
+      "inhoudBesluitVergunningKap": {
+        "title": "Inhoud besluit vergunning kap",
         "type": "string",
         "description": "Status van de aangevraagde kapvergunning.",
-		"enum": [
-      "Verleend",
-		  "Verleend met directe inwerktreding",
-		  "Geweigerd",
-		  "Ingetrokken",
-		  "Buiten behandeling gesteld"
+        "enum": [
+          "Verleend",
+          "Verleend met directe inwerktreding",
+          "Geweigerd",
+          "Ingetrokken",
+          "Buiten behandeling gesteld"
         ]
       },
       "kapDatumToezicht": {
