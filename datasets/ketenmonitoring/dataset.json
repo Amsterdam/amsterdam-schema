@@ -8,15 +8,18 @@
   "owner": "Datamanagement, Gemeente Amsterdam",
   "auth": {
     "type": "scope",
-    "id": "LEVEL/X",
-    "naam": "Toegang tot level X",
+    "id": "DMT/E2E",
+    "naam": "Toegang tot monitoring data.",
     "accessPackages": {
-      "production": "EM4W-DATA-schemascope-p-scope_level_x",
-      "nonProduction": "EM4W-DATA-schemascope-ot-scope_level_x"
+      "production": "EM4W-DATA-E2EMonitoring-p",
+      "nonProduction": "EM4W-DATA-E2EMonitoring-ot"
     },
     "owner": {
       "$ref": "publishers/DMT"
     }
+  },
+  "reasonsNonPublic": {
+    "Monitoring data wordt gebruikt voor interne sturing. Het bevat operationele data dat gevoelige informatie kan geven over de data keten binnen de Gemeente."
   },
   "authorizationGrantor": "Datamanagement",
   "creator": "Datamanagement",
@@ -37,9 +40,6 @@
         }
       ]
     }
-  },
-  "reasonsNonPublic": {
-    "Monitoring data wordt gebruikt voor interne sturing. Het bevat operationele data dat gevoelige informatie kan geven over de data keten binnen de Gemeente."
   },
   "tables": [
     {
