@@ -1,0 +1,80 @@
+{
+    "id": "sluitenOpvang",
+    "title": "Mutatielijst Sluiten Opvang",
+    "description": "Clienten die een opvang gesloten dienen te krijgen.",
+    "type": "table",
+    "version": "1.0.1",
+    "status": "under_development",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+            "clientTrajectusId",
+            "opvanglocatie",
+            "zorgaanbieder"
+        ],
+        "required": [
+            "schema",
+            "clientTrajectusId",
+            "opvanglocatie",
+            "redenEindZorg",
+            "zorgaanbieder",
+            "datumEindZorg",
+            "voorziening",
+            "datumExportZorgned",
+            "datumExportTrajectus"
+        ],
+        "display": "clientTrajectusId",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "clientTrajectusId": {
+                "type": "string",
+                "title": "Client trajectus id",
+                "description": "ID nummer van de client uit Trajectus"
+            },
+            "opvanglocatie": {
+                "type": "string",
+                "title": "Opvanglocatie",
+                "description": "De locatie waar de client wordt opgevangen"
+            },
+            "redenEindZorg": {
+                "type": "string",
+                "title": "Reden eind zorg",
+                "description": "Opgegeven reden bij het beëindigen van de zorg"
+            },
+            "zorgaanbieder": {
+                "type": "string",
+                "title": "Zorgaanbieder",
+                "description": "Naam van de zorgaanbieder"
+            },
+            "datumEindZorg": {
+                "type": "string",
+                "format": "date",
+                "title": "Datum eind zorg",
+                "description": "De datum waarop de zorg is geëindigd"
+            },
+            "voorziening": {
+                "type": "string",
+                "title": "Voorziening",
+                "description": "De naam van de voorziening"
+            },
+            "datumExportZorgned": {
+                "type": "string",
+                "format": "date",
+                "title": "Datum export zorgned",
+                "description": "De datum waarop de data voor het laatst uit de bron is geëxporteerd"
+            },
+            "datumExportTrajectus": {
+                "type": "string",
+                "format": "date",
+                "title": "Datum export trajectus",
+                "description": "De datum waarop de data voor het laatst uit de bron is geëxporteerd"
+            }
+        }
+    },
+    "shortname": "mlso",
+    "enableAPI": false
+}
