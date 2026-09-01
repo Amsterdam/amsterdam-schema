@@ -1,0 +1,82 @@
+{
+    "id": "feitnegbeschiktevoorziening",
+    "title": "Feitnegbeschiktevoorziening",
+    "description": "Beschrijving voor feitnegbeschiktevoorziening",
+    "shortname": "feitNegBsktVrzng",
+    "type": "table",
+    "version": "0.0.1",
+    "status": "under_development",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [            
+            "xcasusnr",
+            "xclientnr",            
+            "rvoorziening"            
+        ],
+        "required": [
+            "schema",
+            "xcasusnr",
+            "xclientnr",
+            "rvoorziening"            
+        ],
+        "display": "xcasusnr",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "rleeftijd": {
+                "type": "number",
+                "title": "Rleeftijd",
+                "description": "Beschrijving voor RLEEFTIJD"
+            },
+            "rleverancier": {
+                "type": "string",
+                "title": "Rleverancier",
+                "description": "Beschrijving voor RLEVERANCIER"
+            },
+            "rbeschikkingsdatum": {
+                "type": "number",
+                "title": "Rbeschikkingsdatum",
+                "description": "Beschrijving voor RBESCHIKKINGSDATUM"
+            },
+            "rgemeente": {
+                "type": "string",
+                "title": "Rgemeente",
+                "description": "Beschrijving voor RGEMEENTE"
+            },
+            "xcasusnr": {
+                "type": "string",
+                "title": "Xcasusnr",
+                "description": "Beschrijving voor XCASUSNR"
+            },
+            "xclientnr": {
+                "type": "string",
+                "title": "Xclientnr",
+                "description": "Beschrijving voor XCLIENTNR"
+            },
+            "rpostcode": {
+                "type": "string",
+                "title": "Rpostcode",
+                "description": "Beschrijving voor RPOSTCODE"
+            },
+            "rvoorziening": {
+                "type": "string",
+                "title": "Rvoorziening",
+                "description": "Beschrijving voor RVOORZIENING"
+            },
+            "rwijk": {
+                "type": "string",
+                "title": "Rwijk",
+                "description": "Beschrijving voor RWIJK"
+            },
+            "mtaLaadDatumtijd": {
+                "type": "string",
+                "format": "date-time",
+                "title": "Mta laad datumtijd",
+                "description": "Beschrijving voor MTA_LAAD_DATUMTIJD"
+            }
+        }
+    }
+}
