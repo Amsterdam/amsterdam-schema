@@ -1,0 +1,59 @@
+{
+  "id": "gebieden",
+  "title": "gebieden",
+  "description": "Alle beschikbare gebieden, die als ruimtelijke dimensie kunnen worden gebruikt",
+  "type": "table",
+  "version": "2.0.0",
+  "status": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id",
+      "naam"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "id",
+        "description": "Unieke identificatie van het gebied"
+      },
+      "naam": {
+        "type": "string",
+        "title": "naam",
+        "description": "Naam van het gebied"
+      },
+      "code": {
+        "type": "string",
+        "title": "code",
+        "description": "Code naam van het gebied"
+      },
+      "datum": {
+        "type": "string",
+        "format": "date",
+        "title": "datum",
+        "description": "Datum van het gebied, waarop het gebied van kracht werd"
+      },
+      "bronId": {
+        "type": "string",
+        "title": "bronId",
+        "description": "Unieke identificatie van het gebied, waaronder dit gebied in de bron bekend is"
+      },
+      "gebiedstype": {
+        "type": "integer",
+        "title": "gebiedstype",
+        "description": "Gebiedstype, waaronder het gebied valt",
+        "relation": "statistieken:gebiedstypes"
+      }
+    }
+  }
+}
