@@ -1,0 +1,53 @@
+{
+  "id": "themas",
+  "title": "themas",
+  "description": "Alle beschikbare themas voor indicatoren",
+  "type": "table",
+  "version": "2.0.0",
+  "status": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id",
+      "naam"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "id",
+        "description": "Unieke identificatie van het thema"
+      },
+      "naam": {
+        "type": "string",
+        "title": "naam",
+        "description": "Naam van het thema"
+      },
+      "naamUk": {
+        "type": "string",
+        "title": "naamUk",
+        "description": "Naam van het thema in het Brits-Engels"
+      },
+      "afkorting": {
+        "type": "string",
+        "title": "afkorting",
+        "description": "Afkorting van het thema"
+      },
+      "parent": {
+        "type": "integer",
+        "title": "parent",
+        "description": "Unieke identificatie van het thema, waaronder het thema valt",
+        "relation": "statistieken:eenheden"
+      }
+    }
+  }
+}

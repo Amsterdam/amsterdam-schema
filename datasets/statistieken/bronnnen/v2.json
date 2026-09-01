@@ -1,0 +1,42 @@
+{
+  "id": "bronnen",
+  "title": "bronnen",
+  "description": "Alle beschikbare bronnen, die als grondslag dienen voor de cijfers",
+  "type": "table",
+  "version": "2.0.0",
+  "status": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id",
+      "naam"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.1.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "title": "id",
+        "description": "Unieke identificatie van de bron"
+      },
+      "naam": {
+        "type": "string",
+        "title": "naam",
+        "description": "Naam / afkorting van de bron"
+      },
+      "naamLang": {
+        "type": "string",
+        "title": "naamLang",
+        "description": "Uitgebreide naam van de bron"
+      }
+    }
+  }
+}
