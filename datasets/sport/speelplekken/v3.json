@@ -20,12 +20,12 @@
       },
       "id": {
         "type": "integer",
-        "description": "Unieke aanduiding van de sport- of speelplek.",
+        "description": "Unieke aanduiding van de sport- of speelplek",
         "title": "ID"
       },
       "geometry": {
         "$ref": "https://geojson.org/schema/MultiPolygon.json",
-        "description": "Vlakgeometrie(ën) van de sport- of speelplek.",
+        "description": "Vlakgeometrie(ën) van de sport- of speelplek",
         "title": "Vlakgeometrie"
       },
       "naam": {
@@ -36,14 +36,28 @@
       "oppervlakte": {
         "type": "integer",
         "unit": "m2",
-        "description": "Oppervlakte afgerond naar hele vierkante meters van de sport- of speelplek.",
+        "description": "Oppervlakte afgerond naar hele vierkante meters van de sport- of speelplek",
         "title": "Oppervlakte"
       },
       "omtrek": {
         "type": "integer",
         "unit": "m",
-        "description": "Omtrek afgerond naar hele meters van de sport- of speelplek.",
+        "description": "Omtrek afgerond naar hele meters van de sport- of speelplek",
         "title": "Omtrek"
+      },
+      "ligtInGebiedenBuurt": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "gebieden:buurt",
+        "title": "Speelplek ligt in buurt",
+        "description": "De buurt waar de speelplek in ligt"
       }
     }
   }
