@@ -4,7 +4,7 @@
   "description": "Sportaanbieders binnen 5 kilometer van de Gemeente Amsterdam",
   "type": "table",
   "version": "3.0.0",
-  "status": "stable",
+  "status": "under_development",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -33,7 +33,7 @@
         "items": {
           "type": "string"
         },
-        "description": "Het sporttype dat de sportaanbieder aanbiedt.",
+        "description": "Het type sport dat de sportaanbieder aanbiedt.",
         "title": "Sport"
       },
       "website": {
@@ -45,25 +45,21 @@
       "naamAanbieder": {
         "type": "string",
         "description": "Naam van de aanbieder.",
-        "provenance": "naam",
         "title": "Naam sportaanbieder"
       },
       "naamSportfaciliteit": {
         "type": "string",
-        "description": "Naam van de sportfaciliteit.",
-        "provenance": "naam accommodatie",
+        "description": "Naam van de sportfaciliteit waar de sportaanbieder actief is.",
         "title": "Naam sportfaciliteit"
       },
       "adres": {
         "type": "string",
         "description": "Adres van de sportfaciliteit.",
-        "provenance": "adres accommodatie",
         "title": "Adres"
       },
       "postcode": {
         "type": "string",
         "description": "Postcode van de sportfaciliteit.",
-        "provenance": "postcode accommodatie",
         "title": "Postcode"
       },
       "plaats": {
@@ -74,20 +70,17 @@
       },
       "aangepastSporten": {
         "type": "boolean",
-        "description": "Indictie ondersteuning voor aangepast sporten.",
-        "provenance": "aangepast sporten",
+        "description": "Indicatie ondersteuning voor aangepast sporten.",
         "title": "Aangepast sporten"
       },
       "stadspasJeugd": {
         "type": "boolean",
         "description": "Indicatie korting sporten via stadspas voor jeugd.",
-        "provenance": "stadspas jeugd",
         "title": "Stadspas jeugd"
       },
       "stadspas55": {
         "type": "boolean",
         "description": "Indicatie korting sporten via stadspas voor 55+.",
-        "provenance": "stadspas 55+",
         "title": "Stadspas 55+"
       }
     }
