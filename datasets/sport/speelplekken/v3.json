@@ -4,7 +4,7 @@
   "type": "table",
   "version": "3.0.0",
   "status": "under_development",
-  "description":"Openbare speel- en sportterreinen in het beheer van de Gemeente Amsterdam. Het gaat hier om speeltuinen, maar bijvoorbeeld ook om Cruyff courts voor voetbal of openbare basketbalvelden.",
+  "description":"Openbare speel- en sportterreinen in het beheer van de Gemeente Amsterdam. Het gaat hier om speeltuinen, maar bijvoorbeeld ook om Cruyff courts voor voetbal of openbare basketbalvelden",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -20,17 +20,17 @@
       },
       "id": {
         "type": "integer",
-        "description": "Unieke aanduiding van de sport- of speelplek.",
+        "description": "Unieke aanduiding van de sport- of speelplek",
         "title": "ID"
       },
       "guid": {
         "type": "string",
-        "description": "Globale unieke aanduiding van het sportpark.",
+        "description": "Globale unieke aanduiding van het sportpark",
         "title": "ID"
       },
       "geometry": {
         "$ref": "https://geojson.org/schema/MultiPolygon.json",
-        "description": "Vlakgeometrie(ën) van de sport- of speelplek. De vlakgeometrie wordt algoritmisch samengesteld, door te toetsen of points van speeltoestellen binnen een speelplek uit OpenStreetMap vallen. Zo niet, dan worden de points geclusterd. Indien dat niet mogelijk is, krijgen ze arbitrair een klein oppervlak toegewezen. Zie https://www.openstreetmap.org/copyright voor het gebruik van OpenStreetMap data.",
+        "description": "Vlakgeometrie(ën) van de sport- of speelplek. De vlakgeometrie wordt algoritmisch samengesteld, door te toetsen of points van speeltoestellen binnen een speelplek uit OpenStreetMap vallen. Zo niet, dan worden de points geclusterd. Indien dat niet mogelijk is, krijgen ze arbitrair een klein oppervlak toegewezen. Zie https://www.openstreetmap.org/copyright voor het gebruik van OpenStreetMap data",
         "title": "Vlakgeometrie"
       },
       "naam": {
@@ -41,15 +41,28 @@
       "oppervlakte": {
         "type": "integer",
         "unit": "m2",
-        "description": "Oppervlakte afgerond naar hele vierkante meters van de sport- of speelplek.",
+        "description": "Oppervlakte afgerond naar hele vierkante meters van de sport- of speelplek",
         "title": "Oppervlakte"
       },
       "omtrek": {
         "type": "integer",
         "unit": "m",
-        "description": "Omtrek afgerond naar hele meters van de sport- of speelplek.",
+        "description": "Omtrek afgerond naar hele meters van de sport- of speelplek",
         "title": "Omtrek"
-      }
+      },
+      "ligtInGebiedenBuurt": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        "relation": "gebieden:buurten",
+        "title": "Speelplek ligt in buurt",
+        "description": "De buurt waar de speelplek in ligt. Indien een speelplek met 2 buurten overlapt, wordt de buurt met de grootste overlap gekozen"
+      },
     }
   }
 }
