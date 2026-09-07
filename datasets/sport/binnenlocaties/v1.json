@@ -58,12 +58,6 @@
         "description": "Huisnummertoevoeging van de sportlocatie.",
         "title": "Huisnummertoevoeging"
       },
-      "nummeraanduidingId": {
-        "type": "string",
-        "description": "De nummeraanduiding van het verblijfsobject waaronder de sportlocatie in de Basisregistratie Adressen en Gebouwen bekend is",
-        "title": "Nummeraanduiding-ID",
-        "relation": "benkagg:adresseerbareobjecten"
-      },
       "toegankelijkheidMindervaliden": {
         "type": "boolean",
         "description": "Of de binnenlocatie voor zover bekend toegankelijk is voor mindervaliden.",
@@ -73,6 +67,20 @@
         "type": "string",
         "description": "Website van de sportlocatie",
         "title": "Website"
+      },
+      "heeftNummeraanduiding": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "benkagg:adresseerbareobjecten",
+        "title": "Corresponderende nummeraanduiding",
+        "description": "De nummeraanduiding in de Basisregistratie Adressen en Gebouwen die bij deze binnenlocatie hoort"
       }
     }
   }
