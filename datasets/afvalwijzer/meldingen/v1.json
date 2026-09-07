@@ -1,0 +1,105 @@
+{
+  "id": "meldingen",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Meldingen",
+  "description": "Deze tabel bevat meldigen van Afval en grondstoffen. Het gaat bijvoorbeeld om een melding en/of afspraak om grofvuil op te halen. Of een melding over een bijplaatsing. Elke rij is een melding met een aanmeld- en afhandeldatum(planningsdatum). De tabel heeft sleutels naar planningen, plannings_items, basisroutes en de gebiedbuurten tabel. De tabel kan beschouwd worden als een feitentabel als basis is voo BI dashboards. Deze tabel wordt dagelijks ververst.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id",
+      "meldingId"
+    ],
+    "display": "meldingId",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "title": "ID",
+        "description": "Unieke sleutel in deze tabel",
+        "type": "string"
+      },
+      "meldingId": {
+        "title": "Melding ID",
+        "description": "Verwijzende sleutel naar meldingen tabel in bron applicatie.",
+        "type": "string"
+      },
+      "meldingnummer": {
+        "title": "Melding nummer",
+        "description": "Het meldingsnummer zoals het zichtbaar is in 21QUBZ.",
+        "type": "string"
+      },
+      "meldingsoort": {
+        "title": "Soort melding",
+        "description": "Fractie omschrijving",
+        "type": "string"
+      },
+      "procesnaam": {
+        "title": "Procesnaam",
+        "description": "Proces waartoe deze melding behoort",
+        "type": "string"
+      },
+      "meldingstatus": {
+        "title": "Status melding",
+        "description": "Afhandelstatus van de melding",
+        "type": "string",
+        "enum": [
+          "In Behandeling",
+          "Ingepland",
+          "Afgesloten",
+          "Vervallen"
+        ]
+      },
+      "planningId": {
+        "title": "Planning ID",
+        "description": "Verwijzende sleutel naar planning tabel",
+        "type": "string"
+      },
+      "planningItemId": {
+        "title": "Planning item ID",
+        "description": "Verwijzende sleutel naar planning_items tabel",
+        "type": "string"
+      },
+      "basisrouteId": {
+        "title": "Basisroute ID",
+        "description": "Verwijzende sleutel naar basisroute tabel",
+        "type": "string"
+      },
+      "benkaggGebiedbuurtenId": {
+        "title": "Buurt ID",
+        "description": "Verwijzende sleutel naar identificatie in buurten tabel BenKagg_gebiedenbuurten",
+        "type": "string"
+      },
+      "aanmaakdatum": {
+        "title": "Aanmaak datum",
+        "description": "Datum waarop de melding is aangemaakt",
+        "type": "string",
+        "format": "date-time"
+      },
+      "planningsdatum": {
+        "title": "Geplande datum",
+        "description": "Datum waarop de melding wordt afgehandeld. Komt overeen met de geplande datum",
+        "type": "string",
+        "format": "date-time"
+      },
+      "eerstePlanningId": {
+        "title": "Eerste planning ID",
+        "description": "Planning ID van de eerst volgende planning van deze route direct na aanmaaktijdstip",
+        "type": "string"
+      },
+      "doorlooptijd": {
+        "title": "Doorlooptijd",
+        "description": "Doorlooptijd in werkdagen. Doorlooptijdd is verschil tussen tijdstip van uitvoering en aanmeldtijdstip",
+        "type": "integer"
+      }
+    }
+  }
+}

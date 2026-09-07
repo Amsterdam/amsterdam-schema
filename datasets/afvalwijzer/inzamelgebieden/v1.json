@@ -1,0 +1,84 @@
+{
+  "id": "inzamelgebieden",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Inzamelgebieden A&G",
+  "description": "Deze tabel bevat inzamelgebieden van A&G. Een inzamelgebied is een verzameling van adressen. Elke regel in de tabel is een adres met daarbij het inzamelgebied waartoe het is ingedeeld. Vanuit deze tabel zijn er koppelingen mogelijk naar gebiedbuurt tabel en BAG_adressen. Deze tabel wordt dagelijks ververst.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "mainGeometry": "geometrie",
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id",
+      "inzamelgebiedId",
+      "bagnummeraanduiding"
+    ],
+    "display": "inzamelgebiedNaam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "title": "ID",
+        "description": "Unieke sleutel binnen tabel",
+        "type": "string"
+      },
+      "inzamelgebiedId": {
+        "title": "Inzamelgebied ID",
+        "description": "Verwijzende sleutel naar vw_inzamelgebied tabel in bron applicatie",
+        "type": "string"
+      },
+      "inzamelgebiedCode": {
+        "title": "Inzamelgebied code",
+        "description": "Code van het inzamelgebied",
+        "type": "string"
+      },
+      "inzamelgebiedNaam": {
+        "title": "Inzamelgebied naam",
+        "description": "Naam van het inzamelgebied",
+        "type": "string"
+      },
+      "bagnummeraanduiding": {
+        "title": "BAG nummeraanduiding",
+        "description": "Verwijzende sleutel naar BAG adres nummeraanduiding",
+        "type": "string"
+      },
+      "adresId": {
+        "title": "Adres ID ",
+        "description": "Verwijzende sleutel naar adres tabel in bron applicatie",
+        "type": "string"
+      },
+      "adres": {
+        "title": "Adres",
+        "description": "Adres voluit uitgeschreven",
+        "type": "string"
+      },
+      "benkaggGebiedbuurtenId": {
+        "title": "Gebiedbuurten ID",
+        "description": "Verwijzende sleutel naar identificatie in benkagg_gebiedbuurten tabel",
+        "type": "string"
+      },
+      "geometrie": {
+        "title": "Geometrie",
+        "description": "Geometrie in RD New EPSG: 28992",
+        "$ref": "https://geojson.org/schema/Point.json"
+      },
+      "lat": {
+        "title": "Breedtegraad",
+        "description": "Breedtegraad in WGS84",
+        "type": "number"
+      },
+      "lon": {
+        "title": "Lengtegraad",
+        "description": "Lengtegraad in WGS84",
+        "type": "number"
+      }
+    }
+  }
+}

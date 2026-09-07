@@ -14,11 +14,11 @@
   "dateCreated": "2022-01-01T00:00:00+01:00",
   "license": "Creative Commons, Naamsvermelding",
   "accrualPeriodicity": "dagelijks",
-  "creator": "Datateam Beeldschoon/BOR",
+  "creator": "Datateam BOR",
   "publisher": {
     "$ref": "publishers/BOR"
   },
-  "description": "Overzicht van informatie voor het aanbieden van afval per fractie per adres.",
+  "description": "In deze dataset staan planningen van A&G die zij maken voor het inzamelen van afval. Met bijvoorbeeld de Afvalwijzer worden gegevens gedeeld met bewoners. Zij kunnen daarop zien waar en wanneer hun afval volgens planning wordt opgehaald. Maar ook afhandeling van meldingen staat in deze dataset. Waanneer een melding of afspraak wordt gemaakt wordt deze op een planning gezet om afgehandeld te worden.",
   "keywords": [
     "afval",
     "restafval",
@@ -45,6 +45,38 @@
         {
           "id": "accAfvalwijzer",
           "$ref": "accAfvalwijzer/v1"
+        }
+      ]
+    },
+      "v2": {
+      "status": "under_development",
+      "enableAPI": false,
+      "enableGeosearch": true,
+      "version": "1.0.0",
+      "tables": [
+        {
+          "id": "basisroute_inzamelgebied",
+          "$ref": "basisroute_inzamelgebied/v1"
+        },
+        {
+          "id": "basisroutes",
+          "$ref": "basisroutes/v1"
+        },
+        {
+          "id": "inzamelgebieden",
+          "$ref": "inzamelgebieden/v1"
+        },
+        {
+          "id": "meldingen",
+          "$ref": "meldingen/v1"
+        },
+        {
+          "id": "planning_items",
+          "$ref": "planning_items/v1"
+        },
+        {
+          "id": "planningen",
+          "$ref": "planningen/v1"
         }
       ]
     }
