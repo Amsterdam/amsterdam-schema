@@ -1,0 +1,73 @@
+{
+  "id": "planningItems",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Planning_items behorende bij planningen.",
+  "description": "Deze tabel bevat planning_items. Een planning_item is een onderdeel van een planning. Op een planning staat een aantal planning_items om afgehandeld te worden. Een melding of afspraak komt zo als planning_item terug op een planning. Vanuit de meldingen tabel is een koppeling te maken met de planning_item tabel. Deze tabel wordt dagelijks ververst.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id",
+      "planningId"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "title": "ID",
+        "description": "Unieke sleutel binnen deze tabel",
+        "type": "string"
+      },
+      "planningItemId": {
+        "title": "Planningsitem ID",
+        "description": "Verwijzende sleutel naar planning_item tabel in bron applicatie",
+        "type": "string"
+      },
+      "planningItemVolgnummer": {
+        "title": "Planningsitem volgnummer",
+        "description": "Volgnummer geeft de plaats van een planningsitem aan binnen een reeks planningsitems die aan een planning zijn gekoppeld.",
+        "type": "integer"
+      },
+      "planningId": {
+        "title": "Planning ID",
+        "description": "Verwijzende sleutel naar planning tabel",
+        "type": "string"
+      },
+      "planningnummer": {
+        "title": "Planningnummer",
+        "description": "Het planningnummer zoals het zichtbaar is in 21Qubz",
+        "type": "string"
+      },
+      "basisrouteId": {
+        "title": "Basisroute ID",
+        "description": "Verwijzende sleutel naar basisroute tabel",
+        "type": "string"
+      },
+      "uitvoerdatumtijd": {
+        "title": "Uitvoerdatum en tijd",
+        "description": "Uitvoeringsdatum en tijdstip van de planningsregel.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "status": {
+        "title": "Status",
+        "description": "De status van het item. (Uit te voeren, Uitgevoerd, Niet Uitgevoerd)",
+        "type": "string",
+        "enum": [
+          "Uit te voeren",
+          "Uitgevoerd",
+          "Niet Uitgevoerd"
+        ]
+      }
+    }
+  }
+}
