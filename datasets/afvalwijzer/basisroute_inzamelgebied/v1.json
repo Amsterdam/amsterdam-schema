@@ -1,0 +1,63 @@
+{
+  "id": "basisrouteInzamelgebied",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Basisroute inzamelgebied koppeltabel",
+  "description": "Dit is een koppeltabel tussen basisroute en inzamelgebied. Omdat hierin de eigenschappen van een inzamelgebied zelf en aantal adressen is opgenomen zal een koppeling met inzamelgebieden niet altijd nodig zijn. De tabel wordt dagelijks ververst.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id",
+      "basisrouteId",
+      "inzamelgebiedId"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "title": "ID",
+        "description": "Unieke sleutel binnen deze tabel",
+        "type": "string"
+      },
+      "inzamelgebiedRouteId": {
+        "title": "Inzamelgebied route ID",
+        "description": "Verwijzende sleutel naar kt_inzamelgebied_route tabel in bron applicatie",
+        "type": "string"
+      },
+      "basisrouteId": {
+        "title": "Basisroute ID",
+        "description": "Verwijzende sleutel aan basisroute tabel",
+        "type": "string"
+      },
+      "inzamelgebiedId": {
+        "title": "Inzamelgebied ID",
+        "description": "Verwijzende sleutel naar inzamelgebied tabel in bron applicatie",
+        "type": "string"
+      },
+      "inzamelgebiedCode": {
+        "title": "Inzamelgebied code",
+        "description": "Code van het inzamelgebied",
+        "type": "string"
+      },
+      "inzamelgebiedNaam": {
+        "title": "Inzamelgebied naam",
+        "description": "Naam van het inzzamelgebied",
+        "type": "string"
+      },
+      "aantalAdressen": {
+        "title": "Aantal adressen",
+        "description": "Aantal adressen binnen inzamelgebied",
+        "type": "integer"
+      }
+    }
+  }
+}
