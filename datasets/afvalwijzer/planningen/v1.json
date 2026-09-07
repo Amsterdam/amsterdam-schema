@@ -1,0 +1,74 @@
+{
+  "id": "planningen",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Planningen behorende bij basisroutes van A&G",
+  "description": "Deze tabel bevat planningen van Afval en grondstoffen. Een planning is gekoppeld aan een basisroute. Aan een basisroute kunnen meerdere planningen zijn gekoppeld. Als een basisroute elke week gereden wordt, is er voor elke week een regel in de planningen tabel. Deze tabel wordt dagelijks ververst.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id",
+      "planningId"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "title": "ID",
+        "description": "Unieke sleutel binnen deze tabel",
+        "type": "string"
+      },
+      "planningId": {
+        "title": "Planning ID",
+        "description": "Verwijzende sleutel naar planning tabel in bron applicatie",
+        "type": "string"
+      },
+      "planningVolgnummer": {
+        "title": "Planning volgnummer",
+        "description": "Volgnummer geeft de plaats van een planning aan binnen een reeks planningen die aan een route zijn gekoppeld.",
+        "type": "integer"
+      },
+      "planningnummer": {
+        "title": "Planningnummer",
+        "description": "Het planningnummer zoals het zichtbaar is in 21Qubz",
+        "type": "string"
+      },
+      "planningVan": {
+        "title": "Planning van",
+        "description": "Datum en tijd dat de planning start",
+        "type": "string",
+        "format": "date-time"
+      },
+      "planningTot": {
+        "title": "Planning tot",
+        "description": "Datum en tijd dat de planning eindigt",
+        "type": "string",
+        "format": "date-time"
+      },
+      "maximumAantalItems": {
+        "title": "Maximum aantal items",
+        "description": "Maximum aantal items op de planning",
+        "type": "integer"
+      },
+      "aantalItems": {
+        "title": "Aantal items",
+        "description": "Het werkelijk aantal items op de planning",
+        "type": "integer"
+      },
+      "basisrouteId": {
+        "title": "Basisroute ID",
+        "description": "Verwijzende sleutel naar basisroute tabel",
+        "type": "string"
+      }
+    }
+  }
+}
