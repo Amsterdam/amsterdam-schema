@@ -1,0 +1,73 @@
+{
+    "id": "feitclient",
+    "title": "Feitclient",
+    "description": "Beschrijving voor feitclient",
+    "shortname": "feitClnt",
+    "type": "table",
+    "version": "0.0.1",
+    "status": "under_development",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [            
+            "xclientnr"
+        ],
+        "required": [
+            "schema",            
+            "xclientnr"
+        ],
+        "display": "xclientnr",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "woonplaats": {
+                "type": "string",
+                "title": "Woonplaats",
+                "description": "Beschrijving voor WOONPLAATS"
+            },
+            "maantal": {
+                "type": "number",
+                "title": "Maantal",
+                "description": "Beschrijving voor MAANTAL"
+            },
+            "rgeboortedatum": {
+                "type": "string",
+                "title": "Rgeboortedatum",
+                "description": "Beschrijving voor RGEBOORTEDATUM"
+            },
+            "rgemeente": {
+                "type": "string",
+                "title": "Rgemeente",
+                "description": "Beschrijving voor RGEMEENTE"
+            },
+            "rpostcode": {
+                "type": "string",
+                "title": "Rpostcode",
+                "description": "Beschrijving voor RPOSTCODE"
+            },
+            "rschool": {
+                "type": "string",
+                "title": "Rschool",
+                "description": "Beschrijving voor RSCHOOL"
+            },
+            "rwijk": {
+                "type": "string",
+                "title": "Rwijk",
+                "description": "Beschrijving voor RWIJK"
+            },
+            "xclientnr": {
+                "type": "string",
+                "title": "Xclientnr",
+                "description": "Beschrijving voor XCLIENTNR"
+            },
+            "mtaLaadDatumtijd": {
+                "type": "string",
+                "format": "date-time",
+                "title": "Mta laad datumtijd",
+                "description": "Beschrijving voor MTA_LAAD_DATUMTIJD"
+            }
+        }
+    }
+}

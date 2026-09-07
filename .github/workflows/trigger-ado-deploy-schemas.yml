@@ -19,7 +19,7 @@ jobs:
         - name: Call Azure
           uses: amsterdam/trigger-ado-pipeline@v1.1
           with:
-            pipeline-id: 5132
-            organisation: CloudCompetenceCenter
-            project: 'Data Diensten'
+            pipeline-id: ${{ secrets.AZURE_DEVOPS_PIPELINE_ID_DEPLOY }}
+            organisation: ${{ secrets.AZURE_DEVOPS_ORG }}
+            project: ${{ secrets.AZURE_DEVOPS_PROJECT }}
             pat-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}

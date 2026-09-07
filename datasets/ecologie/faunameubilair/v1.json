@@ -1,10 +1,10 @@
 {
   "id": "faunameubilair",
   "type": "table",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "status": "stable",
   "title": "Faunameubilair",
-  "description": "",
+  "description": "Tabel met gegevens over faunameubilair in de openbare ruimte, zoals voorzieningen die bijdragen aan de biodiversiteit. De gegevens zijn conform IMBOR en ondersteunen beheer, onderhoud en monitoring van deze objecten. Het bronsysteem is Gisib.",
   "identifier": "id",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -27,23 +27,23 @@
       },
       "geometrie": {
         "$ref": "https://geojson.org/schema/Geometry.json",
-        "description": "Geometrie van het object.",
+        "description": "Geometrie van het object, conform het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992).",
         "title": "Geometrie"
       },
       "geometriePunt": {
         "$ref": "https://geojson.org/schema/Point.json",
-        "description": "Puntgeometrie van een object, door het datateam gegenereerd. Van polygoon- of lijnobjecten wordt de centre point berekend.",
+        "description": "Puntgeometrie van een object, door het datateam gegenereerd. Van polygoon- of lijnobjecten wordt de centre point berekend. Conform RD-coördinaten (epsg:28992).",
         "title": "Geometrie punt"
       },
       "aanleghoogte": {
         "type": "number",
-        "description": "Hoogte van het beheerobject t.o.v. NAP in meters.",
+        "description": "Hoogte van het beheerobject t.o.v. NAP in meters, conform IMBOR.",
         "title": "Aanleghoogte"
       },
       "aanschafdatum": {
         "type": "string",
         "format": "date",
-        "description": "Aanschafdatum van een object.",
+        "description": "Aanschafdatum van een object, conform IMBOR.",
         "title": "Aanschafdatum"
       },
       "actueelKwaliteitsniveau": {
@@ -53,7 +53,7 @@
       },
       "afstandTussenDragerEnMaaiveld": {
         "type": "number",
-        "description": "Afstand van de drager (lees bord, apparaat, bak, meubilair) tot maaiveld.",
+        "description": "Afstand van de drager tot maaiveld in meters, conform IMBOR.",
         "title": "Afstand tussen drager en maaiveld"
       },
       "antivandalismevoorzieningAanwezig": {
@@ -64,17 +64,17 @@
       "beginGarantieperiode": {
         "type": "string",
         "format": "date",
-        "description": "Jaar waarin de garantieperiode van het opgeleverde beheerobject begint.",
+        "description": "Jaar waarin de garantieperiode van het opgeleverde beheerobject begint, conform IMBOR.",
         "title": "Begin garantieperiode"
       },
       "beheerafspraak": {
         "type": "string",
-        "description": "Afspraak over het beheer van de asset gedurende de levenscyclus.",
+        "description": "Afspraak over het beheer van de asset gedurende de levenscyclus, vastgelegd in een beheerplan of contract.",
         "title": "Beheerafspraak"
       },
       "beheerder": {
         "type": "string",
-        "description": "Een publiekrechtelijke instantie of (rechts)persoon die toeziet op de instandhouding van o.a. een object, kunstwerk of waterstaatswerk. De typen beheerder zijn conform de indeling in bronhouders (BGT).",
+        "description": "Een publiekrechtelijke instantie of (rechts)persoon die toeziet op de instandhouding van een object. De typen beheerder zijn conform de indeling in bronhouders (BGT).",
         "title": "Beheerder"
       },
       "beheerderGedetailleerd": {
@@ -104,7 +104,7 @@
       },
       "breedte": {
         "type": "number",
-        "description": "Breedte van het beheerobject.",
+        "description": "Breedte van het beheerobject in meters, conform IMBOR.",
         "title": "Breedte"
       },
       "buurt": {
@@ -125,28 +125,28 @@
       },
       "conditiescore": {
         "type": "string",
-        "description": "Maat voor het vastleggen van de conditie van een object op basis van 6 scores.",
+        "description": "Maat voor het vastleggen van de conditie van een object op basis van 6 scores, conform IMBOR.",
         "title": "Conditiescore"
       },
       "datumInwinning": {
         "type": "string",
         "format": "date",
-        "description": "Datum waarop het punt is ingewonnen.",
+        "description": "Datum waarop het punt is ingewonnen, conform IMBOR.",
         "title": "Datum inwinning"
       },
       "diameter": {
         "type": "number",
-        "description": "Diameter van het beheerobject.",
+        "description": "Diameter van het beheerobject in meters, conform IMBOR.",
         "title": "Diameter"
       },
       "dikte": {
         "type": "number",
-        "description": "Dikte van het object.",
+        "description": "Dikte van het object in meters.",
         "title": "Dikte"
       },
       "eigenaar": {
         "type": "string",
-        "description": "(Rechts)persoon die het meest  omvattend recht op een zaak heeft . De typen eigenaren zijn conform de indeling in bronhouders (BGT).",
+        "description": "(Rechts)persoon die het meest omvattend recht op een zaak heeft. De typen eigenaren zijn conform de indeling in bronhouders (BGT).",
         "title": "Eigenaar"
       },
       "eigenaarGedetailleerd": {
@@ -157,7 +157,7 @@
       "eindeGarantieperiode": {
         "type": "string",
         "format": "date",
-        "description": "Jaar (datum) waarin de garantieperiode van het opgeleverde beheerobject eindigt.",
+        "description": "Jaar waarin de garantieperiode van het opgeleverde beheerobject eindigt, conform IMBOR.",
         "title": "Einde garantieperiode"
       },
       "energiekosten": {
@@ -183,7 +183,7 @@
       "garantiedatum": {
         "type": "string",
         "format": "date",
-        "description": "Datum tot waarop de garantie van het object geldig is.",
+        "description": "Datum tot waarop de garantie van het object geldig is, conform IMBOR.",
         "title": "Garantiedatum"
       },
       "gebiedstype": {
@@ -208,7 +208,7 @@
       },
       "gewicht": {
         "type": "number",
-        "description": "Gewicht van het beheerobject.",
+        "description": "Gewicht van het beheerobject in kilogrammen, conform IMBOR.",
         "title": "Gewicht"
       },
       "grondsoort": {
@@ -223,12 +223,12 @@
       },
       "guid": {
         "type": "string",
-        "description": "Unieke identificatiecode van het object.",
+        "description": "Unieke identificatiecode van het object, conform IMBOR.",
         "title": "Guid"
       },
       "hoogte": {
         "type": "number",
-        "description": "Hoogte van het beheerobject in meters.",
+        "description": "Hoogte van het beheerobject in meters, conform IMBOR.",
         "title": "Hoogte"
       },
       "idUitOudeBeheerindeling": {
@@ -238,28 +238,28 @@
       },
       "identificatie": {
         "type": "string",
-        "description": "Uniek identificatienummer voor het object dat onveranderlijk is zolang het object bestaat.",
+        "description": "Uniek identificatienummer voor het object dat onveranderlijk is zolang het object bestaat, conform IMBOR.",
         "title": "Identificatie"
       },
       "installateur": {
         "type": "string",
-        "description": "Naam van de installateur.",
+        "description": "Naam van de installateur van het beheerobject.",
         "title": "Installateur"
       },
       "installatiedatum": {
         "type": "string",
         "format": "date",
-        "description": "Datum waarop het object geïnstalleerd is.",
+        "description": "Datum waarop het object geïnstalleerd is, conform IMBOR.",
         "title": "Installatiedatum"
       },
       "jaarUitgevoerdOnderhoud": {
         "type": "integer",
-        "description": "Jaar waarin het onderhoud van het beheerobject is uitgevoerd.",
+        "description": "Jaar waarin het onderhoud van het beheerobject is uitgevoerd, conform IMBOR.",
         "title": "Jaar uitgevoerd onderhoud"
       },
       "jaarVanAanleg": {
         "type": "integer",
-        "description": "Jaar waarin het beheerobject is aangelegd of aangeplant (kan ook voor de plaatsingsdatum gebruikt worden).",
+        "description": "Jaar waarin het beheerobject is aangelegd of aangeplant.",
         "title": "Jaar van aanleg"
       },
       "kerngebiedId": {
@@ -274,12 +274,12 @@
       },
       "lengte": {
         "type": "number",
-        "description": "Lengte van het beheerobject.",
+        "description": "Lengte van het beheerobject in meters, conform IMBOR.",
         "title": "Lengte"
       },
       "lengteGis": {
         "type": "string",
-        "description": "",
+        "description": "Lengte van het beheerobject zoals gemeten in GIS, in meters.",
         "title": "Lengte Gis"
       },
       "leverancier": {
@@ -299,7 +299,7 @@
       },
       "matching": {
         "type": "string",
-        "description": "Geeft aan welke gegevens afkomstig zijn uit conversie geovisia",
+        "description": "Geeft aan welke gegevens afkomstig zijn uit conversie van legacy-systemen.",
         "title": "Matching"
       },
       "materiaal": {
@@ -315,7 +315,7 @@
       "mutatieDatum": {
         "type": "string",
         "format": "date-time",
-        "description": "",
+        "description": "Datum en tijd waarop de meest recente mutatie in het record is doorgevoerd, conform IMBOR (formaat: ISO 8601).",
         "title": "Mutatie Datum"
       },
       "objectnaam": {
@@ -325,7 +325,7 @@
       },
       "omschrijving": {
         "type": "string",
-        "description": "",
+        "description": "Korte omschrijving van het beheerobject, inclusief doel en eventuele bijzonderheden.",
         "title": "Omschrijving"
       },
       "onderhoudsplichtige": {
@@ -335,12 +335,12 @@
       },
       "openbareRuimte": {
         "type": "string",
-        "description": "Aanduiding van de openbare ruimte, zoals gedefinieerd in IMGeo of in de BAG, waarbinnen het beheerobject ligt. Overname uit IMGeo-bestand met grenzen openbare ruimtes of uit de Basisregistratie Adressen en Gebouwen (zonder begrenzig).",
+        "description": "Aanduiding van de openbare ruimte, zoals gedefinieerd in IMGeo of in de BAG, waarbinnen het beheerobject ligt.",
         "title": "Openbare ruimte"
       },
       "oppervlakteGis": {
         "type": "string",
-        "description": "Oppervlakte van het beheerobject, overname van BGT/IMGeo.",
+        "description": "Oppervlakte van het beheerobject in vierkante meters, overname van BGT/IMGeo.",
         "title": "Oppervlakte GIS"
       },
       "perceelEcologischeMonitoring": {
@@ -351,7 +351,7 @@
       "plaatsingsdatum": {
         "type": "string",
         "format": "date",
-        "description": "Datum waarop op het object geplaatst is (exacte datum als bewijslast).",
+        "description": "Datum waarop het object geplaatst is, conform IMBOR.",
         "title": "Plaatsingsdatum"
       },
       "qrCode": {
@@ -361,12 +361,12 @@
       },
       "reclame": {
         "type": "boolean",
-        "description": "Aanduiding of er sprake is van een reclameobject of relame-uitingen op of aan het object.",
+        "description": "Aanduiding of er sprake is van een reclameobject of reclame-uitingen op of aan het object.",
         "title": "Reclame"
       },
       "relatieveHoogteligging": {
         "type": "integer",
-        "description": "Aanduiding voor de relatieve hoogte van het beheerobject.",
+        "description": "Aanduiding voor de relatieve hoogte van het beheerobject, conform IMGeo.",
         "title": "Relatieve hoogteligging"
       },
       "revisie": {
@@ -376,27 +376,27 @@
       },
       "serienummer": {
         "type": "string",
-        "description": "Serienummer van het beheerobject.",
+        "description": "Serienummer van het beheerobject, zoals verstrekt door de fabrikant of leverancier.",
         "title": "Serienummer"
       },
       "soortnaam": {
         "type": "string",
-        "description": "Naam van de soort waartoe het vegetatieobject (boom, klimplant, solitaire plant) of de beplanting van het groenobject behoort, conform de Naamlijst van houtige gewassen en vaste planten.",
+        "description": "Naam van de soort waartoe het vegetatieobject of de beplanting van het groenobject behoort, conform de Naamlijst van houtige gewassen en vaste planten. Voor faunameubilair: doelsoort waarvoor het object bedoeld is.",
         "title": "Soortnaam"
       },
       "stadsdeelOfKern": {
         "type": "string",
-        "description": "Stadsdeel, niet te verwarren met Stadsdeel BGT-IMGeo: zie hiervoor Woonplaats. Voor de meeste gemeenten gelijk aan Woonplaats, maar kan ook functioneren als hiërarchische laag tussen de niveaus wijk en woonplaats.",
+        "description": "Stadsdeel, niet te verwarren met Stadsdeel BGT-IMGeo. Voor de meeste gemeenten gelijk aan Woonplaats, maar kan ook functioneren als hiërarchische laag tussen de niveaus wijk en woonplaats.",
         "title": "Stadsdeel of kern"
       },
       "standplaats": {
         "type": "string",
-        "description": "Met de standplaats van een object wordt letterlijk de plaats waar het object staat bedoeld. Bij een boom wordt hiermee de plaats van de boom en het bijbehorende wortelgestel bedoeld. Als synoniem wordt vaak groeiplaats gebruikt.",
+        "description": "Met de standplaats van een object wordt letterlijk de plaats waar het object staat bedoeld.",
         "title": "Standplaats"
       },
       "standplaatsGedetailleerd": {
         "type": "string",
-        "description": "Nadere aanduiding voor het groen- of verhardingsobject waarbinnen de boom staat.",
+        "description": "Nadere aanduiding voor het groen- of verhardingsobject waarbinnen de boom staat. Voor faunameubilair: specifieke locatie of drager.",
         "title": "Standplaats gedetailleerd"
       },
       "transponder": {
@@ -411,7 +411,7 @@
       },
       "type": {
         "type": "string",
-        "description": "Typering van het beheerobject.",
+        "description": "Typering van het beheerobject, conform IMBOR.",
         "title": "Type"
       },
       "typeConservering": {
@@ -426,7 +426,7 @@
       },
       "typeOnderdeel": {
         "type": "string",
-        "description": "Type ondedeel die onderdeel uitmaakt van of voorkomt in het objecttype.",
+        "description": "Type onderdeel die onderdeel uitmaakt van of voorkomt in het objecttype.",
         "title": "Type onderdeel"
       },
       "typeOndersteuningsconstructie": {
@@ -441,7 +441,7 @@
       },
       "verbindingszoneId": {
         "type": "string",
-        "description": "Naam van de geografische if functionele verbindingszone waarbinnen het object ligt.",
+        "description": "Naam van de geografische of functionele verbindingszone waarbinnen het object ligt.",
         "title": "Verbindingszone"
       },
       "verlicht": {
@@ -471,12 +471,12 @@
       },
       "woonplaats": {
         "type": "string",
-        "description": "Woonplaats, overeenkomstig met Stadsdeel of Woonplaats conform BGT-IMGeo. Lijst met domeinwaarden.",
+        "description": "Woonplaats, overeenkomstig met Stadsdeel of Woonplaats conform BGT-IMGeo.",
         "title": "Woonplaats"
       },
       "zettingsgevoeligheid": {
         "type": "string",
-        "description": "Zettingsgevoelig is de indicatie van de zettingsgevoeligheid van de ondergrond of bodem. Zetting is het proces waar grond onder invloed van een belasting wordt samengedrukt. Dit gebeurt gebeurt ook wel geleidiijk en min of meer gelijkmatig.",
+        "description": "Zettingsgevoelig is de indicatie van de zettingsgevoeligheid van de ondergrond of bodem. Zetting is het proces waar grond onder invloed van een belasting wordt samengedrukt.",
         "title": "Zettingsgevoeligheid"
       },
       "zettingsgevoeligheidGedetailleerd": {

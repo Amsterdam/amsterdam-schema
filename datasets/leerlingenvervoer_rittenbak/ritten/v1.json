@@ -1,0 +1,126 @@
+{
+    "id": "ritten",
+    "title": "Ritten",
+    "description": "Beschrijving voor ritten",
+    "type": "table",
+    "version": "1.0.1",
+    "status": "under_development",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+            "klantnummerGemeente",
+            "ritdatum",
+            "gerealiseerdeInstaptijd"
+        ],
+        "required": [
+            "schema",
+            "klantnummerGemeente",
+            "ritdatum",
+            "locatieVan",
+            "straatVan",
+            "huisnummerVan",
+            "postcodeVan",
+            "plaatsVan",
+            "locatieNaar",
+            "straatNaar",
+            "huisnummerNaar",
+            "postcodeNaar",
+            "plaatsNaar",
+            "gerealiseerdeInstaptijd",
+            "gerealiseerdeUitstaptijd",
+            "status",
+            "richting"
+        ],
+        "display": "klantnummerGemeente",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "klantnummerGemeente": {
+                "type": "string",
+                "title": "Klantnummer gemeente",
+                "description": "Beschrijving voor KLANTNUMMER_GEMEENTE"
+            },
+            "ritdatum": {
+                "type": "string",
+                "format": "date",
+                "title": "Ritdatum",
+                "description": "Beschrijving voor RITDATUM"
+            },
+            "locatieVan": {
+                "type": "string",
+                "title": "Locatie van",
+                "description": "Beschrijving voor LOCATIE_VAN"
+            },
+            "straatVan": {
+                "type": "string",
+                "title": "Straat van",
+                "description": "Beschrijving voor STRAAT_VAN"
+            },
+            "huisnummerVan": {
+                "type": "integer",
+                "title": "Huisnummer van",
+                "description": "Beschrijving voor HUISNUMMER_VAN"
+            },
+            "postcodeVan": {
+                "type": "string",
+                "title": "Postcode van",
+                "description": "Beschrijving voor POSTCODE_VAN"
+            },
+            "plaatsVan": {
+                "type": "string",
+                "title": "Plaats van",
+                "description": "Beschrijving voor PLAATS_VAN"
+            },
+            "locatieNaar": {
+                "type": "string",
+                "title": "Locatie naar",
+                "description": "Beschrijving voor LOCATIE_NAAR"
+            },
+            "straatNaar": {
+                "type": "string",
+                "title": "Straat naar",
+                "description": "Beschrijving voor STRAAT_NAAR"
+            },
+            "huisnummerNaar": {
+                "type": "integer",
+                "title": "Huisnummer naar",
+                "description": "Beschrijving voor HUISNUMMER_NAAR"
+            },
+            "postcodeNaar": {
+                "type": "string",
+                "title": "Postcode naar",
+                "description": "Beschrijving voor POSTCODE_NAAR"
+            },
+            "plaatsNaar": {
+                "type": "string",
+                "title": "Plaats naar",
+                "description": "Beschrijving voor PLAATS_NAAR"
+            },
+            "gerealiseerdeInstaptijd": {
+                "type": "string",
+                "format": "date-time",
+                "title": "Gerealiseerde instaptijd",
+                "description": "Beschrijving voor GEREALISEERDE_INSTAPTIJD"
+            },
+            "gerealiseerdeUitstaptijd": {
+                "type": "string",
+                "format": "date-time",
+                "title": "Gerealiseerde uitstaptijd",
+                "description": "Beschrijving voor GEREALISEERDE_UITSTAPTIJD"
+            },
+            "status": {
+                "type": "string",
+                "title": "Status",
+                "description": "Beschrijving voor STATUS"
+            },
+            "richting": {
+                "type": "string",
+                "title": "Richting",
+                "description": "Beschrijving voor RICHTING"
+            }
+        }
+    }
+}

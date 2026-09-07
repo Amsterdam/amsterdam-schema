@@ -1,10 +1,10 @@
 {
   "id": "groeiplaatsboom",
   "type": "table",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "status": "stable",
   "title": "Groeiplaats bomen",
-  "description": "Tabel met gegevens ....",
+  "description": "Tabel met gegevens over groeiplaatsen voor bomen in de openbare ruimte, inclusief beheerstatus, locatiegegevens en boomsoorten.",
   "auth": "FP/MDW",
   "reasonsNonPublic": [
     "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -46,27 +46,27 @@
       "groeiplaatsGeschiktheidMedebeheer": {
         "type": "string",
         "title": "Groeiplaats geschiktheid medebeheer",
-        "description": "wordt later gevuld"
+        "description": "Beoordeling van de geschiktheid van een groeiplaats voor gedeeld beheer tussen gemeente en andere partijen, gebaseerd op doorwortelbare ruimte, bodemkwaliteit en toegankelijkheid. Mogelijke waarden: 'geschikt', 'voorwaardelijk geschikt' of 'ongeschikt'."
       },
       "statusGroeiplaatsLocatie": {
         "type": "string",
         "title": "Status groeiplaats locatie",
-        "description": "wordt later gevuld"
+        "description": "Huidige fase van de groeiplaats in het beheerproces, conform Handboek Bomen-fasering. Voorbeelden: 'in onderzoek', 'goedgekeurd (WPB)', 'geplant', 'afgekeurd', 'in herevaluatie'."
       },
       "yCoordinaat": {
         "type": "integer",
         "title": "y-coordinaat",
-        "description": "wordt later gevuld"
+        "description": "y-coördinaat volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992) die de exacte locatie van de groeiplaats aangeeft."
       },
       "xCoordinaat": {
         "type": "integer",
         "title": "x-coordinaat",
-        "description": "x-coordinaat"
+        "description": "x-coördinaat volgens het Stelsel van de Rijksdriehoeksmeting (RD, epsg:28992) die de exacte locatie van de groeiplaats aangeeft."
       },
       "beheerder": {
         "type": "string",
         "title": "Beheerder",
-        "description": "wordt later gevuld",
+        "description": "Organisatie of afdeling die primair verantwoordelijk is voor het beheer van de groeiplaats",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -75,7 +75,7 @@
       "beheerderGedetailleerd": {
         "type": "string",
         "title": "Beheerder gedetailleerd",
-        "description": "wordt later gevuld",
+        "description": "Specifiekere aanduiding van de beheerder.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -84,7 +84,7 @@
       "bewonerslocatieBeplant": {
         "type": "boolean",
         "title": "Bewoners locatie beplant",
-        "description": "wordt later gevuld",
+        "description": "Geeft aan of bewoners verantwoordelijk zijn voor de beplanting van deze locatie (true/false), conform afspraken in het Werkplan Bomen (WPB).",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -93,7 +93,7 @@
       "code": {
         "type": "string",
         "title": "Code",
-        "description": "wordt later gevuld",
+        "description": "Unieke, gestandaardiseerde code voor interne classificatie van de groeiplaats, conform Handboek Bomen. Voorbeeld: 'GP-2026-001'.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -103,7 +103,7 @@
         "type": "string",
         "title": "Datum aanvraag",
         "format": "date-time",
-        "description": "wordt later gevuld",
+        "description": "Datum waarop de aanvraag voor de groeiplaats is ingediend (formaat: ISO 8601), conform Handboek Bomen-procedures.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -113,7 +113,7 @@
         "type": "string",
         "title": "Datum beheertoetsing uitgevoerd",
         "format": "date-time",
-        "description": "wordt later gevuld",
+        "description": "Datum waarop de beheertoetsing (controle op geschiktheid en beheerbaarheid) is uitgevoerd (formaat: ISO 8601).",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -123,7 +123,7 @@
         "type": "string",
         "title": "Datum eindbeoordeling stadsdeel uitgevoerd",
         "format": "date-time",
-        "description": "wordt later gevuld",
+        "description": "Datum waarop het stadsdeel de eindbeoordeling heeft afgerond (formaat: ISO 8601), gebaseerd op boombeleidsklasse en ecosysteemdiensten.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -133,7 +133,7 @@
         "type": "string",
         "title": "Datum onderzoek kabels en leidingen onderzoek uitgevoerd",
         "format": "date-time",
-        "description": "wordt later gevuld",
+        "description": "Datum waarop het onderzoek naar ondergrondse kabels en leidingen (KLIC-melding) is uitgevoerd (formaat: ISO 8601), gerelateerd aan de kwetsbare boomzone.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -143,7 +143,7 @@
         "type": "string",
         "title": "Datum ontwerp check uitgevoerd",
         "format": "date-time",
-        "description": "wordt later gevuld",
+        "description": "Datum waarop de ontwerpcheck (toetsing groeiplaatsinrichting en boomkeuze) is uitgevoerd (formaat: ISO 8601).",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -153,7 +153,7 @@
         "type": "string",
         "title": "Datum reservering",
         "format": "date-time",
-        "description": "wordt later gevuld",
+        "description": "Datum waarop de groeiplaats is gereserveerd voor een specifiek doel, zoals boomplant (formaat: ISO 8601).",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -162,7 +162,7 @@
       "eindbeoordelingBeheertoetsing": {
         "type": "string",
         "title": "Eindbeoordeling beheertoetsing",
-        "description": "wordt later gevuld",
+        "description": "Resultaat van de beheertoetsing, gebaseerd op beheerbaarheid en toekomstverwachting van de boom. Mogelijke waarden: 'goedgekeurd', 'afgekeurd (onvoldoende doorwortelbare ruimte)', 'herziening nodig'.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -171,7 +171,7 @@
       "eindbeoordelingOntwerpCheck": {
         "type": "string",
         "title": "Eindbeoordeling ontwerp check",
-        "description": "wordt later gevuld",
+        "description": "Resultaat van de ontwerpcheck, waarbij groeiplaatsinrichting en boomkeuze worden getoetst aan Handboek Bomen-eisen. Mogelijke waarden: 'akkoord', 'aanpassingen vereist'.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -180,7 +180,7 @@
       "eindbeoordelingStadsdeel": {
         "type": "string",
         "title": "Eindbeoordeling stadsdeel",
-        "description": "wordt later gevuld",
+        "description": "Eindoordeel van het stadsdeel, gebaseerd op boombeleidsklasse en ecosysteemdiensten. Mogelijke waarden: 'goedgekeurd', 'afgewezen', 'voorwaardelijk goedgekeurd'.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -189,7 +189,7 @@
       "gepriktDoor": {
         "type": "string",
         "title": "Geprikt door",
-        "description": "wordt later gevuld",
+        "description": "Naam of identificatie van de persoon of organisatie die de locatie heeft gemarkeerd, conform Werkplan Bomen (WPB). Voorbeeld: 'Medewerker Y'.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -198,7 +198,7 @@
       "groeiplaatsBestemming": {
         "type": "string",
         "title": "Groeiplaats bestemming",
-        "description": "wordt later gevuld",
+        "description": "Doel van de groeiplaats, gekoppeld aan de groeiplaatsinrichting (Handboek Bomen). Voorbeelden: 'straatboom (niet vrij uitgroeiend)', 'parkboom (vrij uitgroeiend)', 'boomgroep', 'groenstrook'.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -207,7 +207,7 @@
       "inHerevaluatie": {
         "type": "boolean",
         "title": "In herevaluatie",
-        "description": "wordt later gevuld",
+        "description": "Geeft aan of de groeiplaats momenteel in herevaluatie is (true/false), bijvoorbeeld na afkeuring of wijziging in beheerbaarheid.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -216,7 +216,7 @@
       "kabelsEnLeidingenOnderzoek": {
         "type": "string",
         "title": "Kabels en leidingen onderzoek",
-        "description": "wordt later gevuld",
+        "description": "Resultaat van het onderzoek naar ondergrondse kabels en leidingen (KLIC-melding), gerelateerd aan de kwetsbare boomzone (kroonprojectie + 1,5 m). Voorbeelden: 'geen obstakels', 'aanpassingen nodig', 'afkeuring'.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -225,7 +225,7 @@
       "toeTePassenBoomsoort": {
         "type": "string",
         "title": "Toe te passen boomsoort",
-        "description": "wordt later gevuld",
+        "description": "Voorgeschreven boomsoort voor deze groeiplaats, conform Naamlijst Houtige Gewassen (ENA Europese standaard). Opgenomen als wetenschappelijke naam (bijv. *Quercus robur*) en/of Nederlandse naam (bijv. 'Zomereik').",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -234,7 +234,7 @@
       "soortnaamVoorgedragen": {
         "type": "string",
         "title": "Soortnaam voorgedragen",
-        "description": "wordt later gevuld",
+        "description": "Door een betrokkene (bijv. bewoner) voorgedragen boomsoort, mits deze voldoet aan Handboek Bomen-eisen voor de groeiplaats.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -243,7 +243,7 @@
       "status": {
         "type": "string",
         "title": "Status",
-        "description": "wordt later gevuld",
+        "description": "Algemene status van de groeiplaats, gebaseerd op boombeleidsklasse en technische levensduur. Voorbeelden: 'actief (beheerbaar)', 'inactief (niet beheerbaar)', 'verwijderd', 'vervangen'.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"
@@ -252,7 +252,7 @@
       "statusPotentieelNieuweGroeiplaats": {
         "type": "string",
         "title": "Status potentieel nieuwe groeiplaats",
-        "description": "wordt later gevuld",
+        "description": "Fase van een nog niet gerealiseerde groeiplaats, conform Bomen Effect Analyse (BEA). Voorbeelden: 'in onderzoek (Quickscan)', 'in ontwikkeling (WPB opgesteld)', 'afgewezen'.",
         "auth": "FP/MDW",
         "reasonsNonPublic": [
           "5.1 2d: Zwaarwegend belang: inspectie, controle en toezicht door bestuursorganen"

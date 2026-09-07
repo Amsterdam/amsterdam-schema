@@ -1,0 +1,52 @@
+{
+    "id": "dimgemeente",
+    "title": "Dimgemeente",
+    "description": "Beschrijving voor dimgemeente",
+    "shortname": "dimGmt",
+    "type": "table",
+    "version": "0.0.1",
+    "status": "under_development",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+            "code",
+            "naam",
+            "land"
+        ],
+        "required": [
+            "schema",
+            "code",
+            "naam",
+            "land"
+        ],
+        "display": "naam",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "code": {
+                "type": "string",
+                "title": "Code",
+                "description": "Beschrijving voor CODE"
+            },
+            "naam": {
+                "type": "string",
+                "title": "Naam",
+                "description": "Beschrijving voor NAAM"
+            },
+            "land": {
+                "type": "string",
+                "title": "Land",
+                "description": "Beschrijving voor LAND"
+            },
+            "mtaLaadDatumtijd": {
+                "type": "string",
+                "format": "date-time",
+                "title": "Mta laad datumtijd",
+                "description": "Beschrijving voor MTA_LAAD_DATUMTIJD"
+            }
+        }
+    }
+}

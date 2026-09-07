@@ -1,0 +1,50 @@
+{
+  "id": "speelplekken",
+  "title": "Openbare sport- en speelplekken",
+  "type": "table",
+  "version": "3.0.0",
+  "status": "under_development",
+  "description":"Openbare speel- en sportterreinen in het beheer van de Gemeente Amsterdam. Het gaat hier om speeltuinen, maar bijvoorbeeld ook om Cruyff courts voor voetbal of openbare basketbalvelden.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van de sport- of speelplek.",
+        "title": "ID"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/MultiPolygon.json",
+        "description": "Vlakgeometrie(ën) van de sport- of speelplek.",
+        "title": "Vlakgeometrie"
+      },
+      "naam": {
+        "type": "string",
+        "description": "Naam van de sport- of speelplek",
+        "title": "Globally unique identifier"
+      },
+      "oppervlakte": {
+        "type": "integer",
+        "unit": "m2",
+        "description": "Oppervlakte afgerond naar hele vierkante meters van de sport- of speelplek.",
+        "title": "Oppervlakte"
+      },
+      "omtrek": {
+        "type": "integer",
+        "unit": "m",
+        "description": "Omtrek afgerond naar hele meters van de sport- of speelplek.",
+        "title": "Omtrek"
+      }
+    }
+  }
+}

@@ -134,10 +134,12 @@ Note: Als een versie van een dataset nog niet klaar is voor publicatie, zet de {
     </pre>
 </div>
 
-[BP]
+<blockquote class="best-practice">
+    **Best Practice**
+
     Zet bij datasets met meer dan één tabel alle tabellen in hun een eigen bestand
     en gebruik [=tabelreferenties=]. Dit komt de leesbaarheid ten goede en maakt versionering mogelijk.
-[BPE]
+</blockquote>
 
 Optionele attributen {#dataset-optional-fields}
 --------------------------------------------------------
@@ -165,9 +167,11 @@ Naast bovenstaande verplichte attributen mag een [=dataset=] ook de volgende eig
             Zie [[SDW-BP#CRS-background]] voor meer informatie.
 </table>
 
-[BP]
+<blockquote class="best-practice">
+    **Best Practice**
+
     Voeg altijd op zijn minst een title en description toe.
-[BPE]
+</blockquote>
 
 ### DCAT velden ### {#dataset-dcat-fields}
 Het is mogelijk op dataset niveau extra eigenschappen met meta-gegevens mee te geven.
@@ -211,6 +215,11 @@ Een <dfn export>tabelreferentie</dfn> is een JSON object met in ieder geval de v
         <td> URI-Reference naar JSON bestand met de [=tabel=] definitie zonder de bestandsextensie.
             De reference is altijd relatief aan de locatie van het dataset bestand.
         </td>
+</table>
+
+Een [=tabelreferentie=] mag daarnaast ook de volgende eigenschappen bevatten:
+<table dfn-type="attribute" dfn-for=table-ref export class="dfn-table">
+    <tr><td><dfn>provenance</dfn>   <td> string <td> Optioneel veld dat gebruikt kan worden om op basis van metadata uit Unity Catalog-tabellen automatisch schema-artifacten te genereren. Lees meer op [de Unity Catalog workflow pagina](https://schemas.data.amsterdam.nl/docs/unity-catalog-workflow.html).
 </table>
 
 Elk tabeldefinitiebestand **zou** samen met andere versies van dezelfde tabel
@@ -338,7 +347,7 @@ Een <dfn dfn export>versie</dfn> binnen Amsterdam Schema is een JSON object met 
             </details>
 </table>
 
-[HIDELINESEXAMPLE]
+<div class="example hide-lines" onClick="this.classList.toggle('hide-lines');this.classList.toggle('unhide-lines');">
     Voorbeeld van een dataset met twee versies en twee tabelreferenties.
 
     Een `locaties` tabel in `./locaties/v1.json`.<br/>
@@ -348,7 +357,7 @@ Een <dfn dfn export>versie</dfn> binnen Amsterdam Schema is een JSON object met 
             highlight: json
             line-highlight: 11-43
         </pre>
-[END]
+    </div>
 
 Optionele attributen {#version-optional-fields}
 --------------------------------------------------------
@@ -437,7 +446,7 @@ Een <dfn dfn export>tabel</dfn> binnen Amsterdam Schema is een JSON object met i
 
 Advisement: Let op: Zie [[#naamgeving]] voor de eisen waaraan {{tabel/id}} moet voldoen.
 
-[HIDELINESEXAMPLE]
+<div class="example hide-lines" onClick="this.classList.toggle('hide-lines');this.classList.toggle('unhide-lines');">
     Voorbeeld van een minimale tabel definitie. De {{tabel/title}} en {{tabel/description}} velden zijn niet verplicht,
     maar het is best practice ze toe te voegen.
     <pre class="include-code">
@@ -445,7 +454,7 @@ Advisement: Let op: Zie [[#naamgeving]] voor de eisen waaraan {{tabel/id}} moet 
         highlight: json
         line-highlight: 0-8,26-28
     </pre>
-[END]
+</div>
 
 
 Optionele attributen {#tabel-optional-fields}
@@ -491,9 +500,11 @@ Een  [=tabel=] mag daarnaast de volgende attributen bezitten:
     <tr><td><dfn>zoom</dfn><td> object <td> De zoom niveaus waarbinnen de velden getoond moeten worden. zie [[#zoom]]
 </table>
 
-[BP]
+<blockquote class="best-practice">
+    **Best Practice**
+
     Voeg altijd op zijn minst een {{tabel/title}} en {{tabel/description}} toe.
-[BPE]
+</blockquote>
 
 Schema {#tabel-schema}
 ------------------------------------------
@@ -526,7 +537,7 @@ Daarnaast mag een [=schema=] object de volgende attributen bezitten:
             en mogen geen {{veld/auth}} attribuut bevatten.
 </table>
 
-[HIDELINESEXAMPLE]
+<div class="example hide-lines" onClick="this.classList.toggle('hide-lines');this.classList.toggle('unhide-lines');">
     Voorbeeld van een schema.
 
     Het {{display}} veld zorgt ervoor dat niet de "id" de maar de "naam" van een persoon als samenvattende titel wordt gebruikt.
@@ -535,7 +546,7 @@ Daarnaast mag een [=schema=] object de volgende attributen bezitten:
         highlight: json
         line-highlight: 8-26
     </pre>
-[END]
+</div>
 
 
 Temporaliteit {#temporaliteit}
@@ -586,7 +597,7 @@ Zie [[#dataset-versioning]] voor uitleg over semantic versioning.
 
 Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
 
-[HIDELINESEXAMPLE]
+<div class="example hide-lines" onClick="this.classList.toggle('hide-lines');this.classList.toggle('unhide-lines');">
     Voorbeeld aan versie "1.2.1" van de personen tabel wordt een nieuw veld toegevoegd en aan een bestaand {{enum}}
     veld wordt een optie toegevoegd.
 
@@ -597,25 +608,25 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
     <div style="text-align:center;">
         `personen/v2.json`
         <div class="compare-code">
-            [COMPAREA]
+            <div class="a" onscroll="let sibling =this.nextElementSibling; sibling.scrollTop=this.scrollTop;sibling.scrollLeft=this.scrollLeft;">
                 <pre class="include-code">
                     path: examples/datasets/bekendeAmsterdammers/personen/v1.2.1.json
                     highlight: json
                     line-highlight: 5,28,31-34
                 </pre>
-            [END]
-            [COMPAREB]
+            </div>
+            <div class="b" onscroll="let sibling =this.previousElementSibling; sibling.scrollTop=this.scrollTop;sibling.scrollLeft=this.scrollLeft;">
                 <pre class="include-code">
                     path: examples/datasets/bekendeAmsterdammers/personen/v1.3.0.json
                     highlight: json
                     line-highlight: 5,28, 31-35,37-44
                 </pre>
-            [END]
+            </div>
         </div>
     </div>
-[END]
+</div>
 
-[HIDELINESEXAMPLE]
+<div class="example hide-lines" onClick="this.classList.toggle('hide-lines');this.classList.toggle('unhide-lines');">
     Nu wordt in de tabel uit het vorige voorbeeld een veld hernoemd, wordt uit een {{enum}} veld een optie verwijderd
     en wordt een optioneel veld verplicht gemaakt.
 
@@ -624,26 +635,26 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
 
     De nieuwe tabel wordt in een nieuw bestand `personen/v2.json` geplaatst.
     <div class="compare-code">
-        [COMPAREA]
+        <div class="a" onscroll="let sibling =this.nextElementSibling; sibling.scrollTop=this.scrollTop;sibling.scrollLeft=this.scrollLeft;">
             `personen/v1.json`
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v1.3.0.json
                 highlight: json
                 line-highlight: 5,10-13,19-23,31-35
             </pre>
-        [END]
-        [COMPAREB]
+        </div>
+        <div class="b" onscroll="let sibling =this.previousElementSibling; sibling.scrollTop=this.scrollTop;sibling.scrollLeft=this.scrollLeft;">
             `personen/v2.json`
             <pre class="include-code">
                 path: examples/datasets/bekendeAmsterdammers/personen/v2.0.0.json
                 highlight: json
                 line-highlight: 5,10-14,20-25,33-40
             </pre>
-        [END]
+        </div>
     </div>
-[END]
+</div>
 
-[HIDELINESEXAMPLE]
+<div class="example hide-lines" onClick="this.classList.toggle('hide-lines');this.classList.toggle('unhide-lines');">
     Voorbeeld in versie 2.0.0" wordt een aantal metadata velden aangepast.
 
     Deze veranderingen passen de data structuur niet aan dus het patch nummer wordt opgehoogd en de nieuwe versie wordt "2.0.1".
@@ -654,25 +665,25 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
         `personen/v2.json`
         <div class="compare-code">
 
-            [COMPAREA]
+            <div class="a" onscroll="let sibling =this.nextElementSibling; sibling.scrollTop=this.scrollTop;sibling.scrollLeft=this.scrollLeft;">
                 <pre class="include-code">
                     path: examples/datasets/bekendeAmsterdammers/personen/v2.0.0.json
                     highlight: json
                     line-highlight: 5-6,15,31,44
                 </pre>
-            [END]
-            [COMPAREB]
+            </div>
+            <div class="b" onscroll="let sibling =this.previousElementSibling; sibling.scrollTop=this.scrollTop;sibling.scrollLeft=this.scrollLeft;">
                 <pre class="include-code">
                     path: examples/datasets/bekendeAmsterdammers/personen/v2.0.1.json
                     highlight: json
                     line-highlight: 5-6,15,31,44
                 </pre>
-            [END]
+            </div>
         </div>
     </div>
-[END]
+</div>
 
-[HIDELINESEXAMPLE]
+<div class="example hide-lines" onClick="this.classList.toggle('hide-lines');this.classList.toggle('unhide-lines');">
     Om de nieuwe versie van de tabel aan de [=dataset=] toe te voegen, moet er een nieuwe versie aan het dataset bestand
     toegevoegd worden, waarin de [=tabelreferentie=] in de dataset ook aangepast worden.
     De defaultVersion van de dataset is nu "v2" en de status van de juiste versie wordt aangepast naar beschikbaar.
@@ -687,7 +698,7 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
             line-highlight: 1,12-19,26-33
         </pre>
     </div>
-[END]
+</div>
 
 Status {#table-status}
 --------------------------
@@ -920,9 +931,11 @@ Een [=veld=] definitie mag naast het [[#veld-mandatory-fields|verplichte attribu
             Zie [[SDW-BP#CRS-background]] voor meer informatie.
 </table>
 
-[BP]
+<blockquote class="best-practice">
+    **Best Practice**
+
     Voeg altijd op zijn minst een '{{veld/title}}' en '{{veld/description}}' toe.
-[BPE]
+</blockquote>
 
 Naast bovenstaande attributen mag een [=veld=] uitsluitend de volgende subset van attributen uit [[!json-schema-validation| JSON Schema]] bevatten:
 <table dfn-type="attribute" dfn-for=veld export class="dfn-table">
@@ -1121,10 +1134,12 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
         </pre>
     </div>
 
-    [BP]
-        Beperk numerieke velden altijd tot realistische waarden met {{maximum}}, {{minimum}} of {{exclusiveMaximum}} om fouten te voorkomen,
-        en doelsystemen de juiste datatypen te laten gebruiken.
-    [BPE]
+<blockquote class="best-practice">
+    **Best Practice**
+
+    Beperk numerieke velden altijd tot realistische waarden met {{maximum}}, {{minimum}} of {{exclusiveMaximum}} om fouten te voorkomen,
+    en doelsystemen de juiste datatypen te laten gebruiken.
+</blockquote>
 
 ### boolean ### {#data-types-bool}
     Een [=veld=] van het type `"boolean"` wordt gebruikt voor boolean, (`true`, `false`) waarden.
@@ -1297,7 +1312,7 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
     Note: Als een tabel een geometrie veld bevat, moet op dataset niveau het coordinaat
     referentie systeem worden aangegeven in het {{dataset/crs}} attribuut.
 
-    [HIDELINESEXAMPLE]
+    <div class="example hide-lines" onClick="this.classList.toggle('hide-lines');this.classList.toggle('unhide-lines');">
         Voorbeeld van een tabel met meerdere geometrie velden. Het veld `"locatie"` is hier als primaire geometrie
         aangegeven in "{{mainGeometry}}".
         <pre class="include-code">
@@ -1305,7 +1320,7 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
             highlight: json
             line-highlight: 0-7,28-37
         </pre>
-    [END]
+    </div>
 
 
 ### object ### {#data-types-object}
@@ -1561,9 +1576,11 @@ Zo kunnen ook andere eenheidscoderingen gebruikt worden.
 "unit": {"type": "pint", "value": "meter"}
 </pre>
 
-[BP]
+<blockquote class="best-practice">
+    **Best Practice**
+
     Gebruik de UCUM-standaard om eenheden te coderen. Niet-standaard-coderingssystemen worden afgeraden.
-[BPE]
+</blockquote>
 
 
 <!--
@@ -1700,7 +1717,7 @@ bijvoorbeeld `"BRP/RO"`.
 
 In versie 2.1.0 van het metaschema is de mogelijkheid toegevoegd om een scope in een apart bestand te definieren. Dit is
 in versie 2.2.0 uitgebreid met velden waar een Azure access package kan worden gespecificeerd voor
-de verschillende omgevingen. Deze bestanden bevinden zich in de scopes/<team> folders.
+de verschillende omgevingen. Deze bestanden bevinden zich in de `scopes/&lt;team&gt;` folders.
 
 <div class=example>
     Voorbeeld van een scope object.
@@ -2471,7 +2488,7 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 
 <!-- Force bib entries that are only deep referenced to appear in bibliography, this is a workaround for a bug in bikeshed -->
 <div style="display:none">
-    [[!json-schema-validation inline | ]]  [[SDW-BP inline | ]] [[REST-API-DESIGN-RULES]] [[RFC7159]] [[json-schema-string]]
+    [[!json-schema-validation]] [[SDW-BP]] [[REST-API-DESIGN-RULES]] [[RFC7159]] [[json-schema-string]]
 </div>
 
 

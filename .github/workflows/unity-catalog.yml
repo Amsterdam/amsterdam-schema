@@ -1,0 +1,77 @@
+name: Unity Catalog
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - datasets/**
+  issue_comment:
+    types:
+      - created
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: read
+
+jobs:
+  unity-catalog:
+    if: |
+      github.event_name == 'pull_request' ||
+      (
+        github.event_name == 'issue_comment' &&
+        github.event.issue.pull_request &&
+        contains(github.event.comment.body, '/update-uc')
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve PR context
+        id: pr-context
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const endsWithDateSuffix = (branchName) => /\d{4}-\d{2}-\d{2}$/.test(branchName);
+
+            if (context.eventName === 'pull_request') {
+              const branch = context.payload.pull_request.head.ref;
+              const targetsMaster = context.payload.pull_request.base.ref === 'master';
+
+              core.setOutput('should_trigger', String(targetsMaster && !endsWithDateSuffix(branch)));
+              core.setOutput('branch', branch);
+              core.setOutput('prnumber', context.payload.pull_request.number);
+              return;
+            }
+
+            const pullNumber = context.payload.issue.number;
+            const pullRequest = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pullNumber,
+            });
+
+            const files = await github.paginate(
+              github.rest.pulls.listFiles,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pullNumber,
+                per_page: 100,
+              }
+            );
+
+            const touchesDatasets = files.some(file => file.filename.startsWith('datasets/'));
+            const targetsMaster = pullRequest.data.base.ref === 'master';
+            const branch = pullRequest.data.head.ref;
+
+            core.setOutput('should_trigger', String(touchesDatasets && targetsMaster));
+            core.setOutput('branch', branch);
+            core.setOutput('prnumber', pullNumber);
+      - name: Call Azure
+        if: steps.pr-context.outputs.should_trigger == 'true'
+        uses: amsterdam/trigger-ado-pipeline@v1
+        with:
+          pipeline-id: ${{ secrets.AZURE_DEVOPS_PIPELINE_ID_UC }}
+          organisation: ${{ secrets.AZURE_DEVOPS_ORG }}
+          project: ${{ secrets.AZURE_DEVOPS_PROJECT }}
+          pat-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
+          template-params: '{"environment": "prd", "branch": "${{ steps.pr-context.outputs.branch }}", "prnumber": ${{ steps.pr-context.outputs.prnumber }}}'

@@ -29,6 +29,9 @@ Apart from the technical description
 an in-depth textual specification of the Amsterdam Schema can be found at
 https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html.
 
+The Unity Catalog workflow is documented separately at
+https://schemas.data.amsterdam.nl/docs/unity-catalog-workflow.html.
+
 The Amsterdam Schema is chosen to be delimited in such a way
 that it can interoperate with as many systems as possible.
 The results of this analysis can be found at the
@@ -81,14 +84,77 @@ Version numbers are shown as '@1.0.0'
 where we follow SchemaVer for versioning.
 This will allow for a gradual evolution of capabilities.
 
-## See also
+## Contributing to this repo
+This section describes how to set up your local environment to develop your own schema's and contribute to this repository. (Your GH account needs to be a member of the Amsterdam org to create PRs)
 
-For more information, see (some of these pages are in Dutch):
+### 1. Clone this repository
+```
+git clone git@github.com:Amsterdam/amsterdam-schema.git
+```
 
-- [Amsterdam Schema Wiki](https://github.com/Amsterdam/amsterdam-schema/wiki)
-- [Amsterdam Schema Validator 👩🏼‍🏫](https://observablehq.com/@bertspaan/amsterdam-schema-validator)
-- [Werkbestand Team Dataservices](https://observablehq.com/@bertspaan/werkbestand-team-dataservices)
-- [Amsterdam Schema Playground 🎠](https://observablehq.com/@bertspaan/amsterdam-schema-playground)
+Or use the [Github CLI](https://cli.github.com/):
+```
+gh repo clone Amsterdam/amsterdam-schema
+```
+
+Then cd into the folder:
+```
+cd amsterdam-schema/
+```
+
+### 2. Install the pre-commit hooks
+Pull requests on the repository are validated with a number of tests and formatting rules these are enforced using [pre-commit](https://pre-commit.com/). To run these tests locally you need to install the [pre-commit hooks](/.pre-commit-config.yaml).
+
+Check that pre-commit is installed with:
+```
+pre-commit --version
+```
+If it is not installed yet, install it with:
+```
+pip install pre-commit
+```
+
+After installation of pre-commit, the pre-commit hooks can be installed with:
+```
+pre-commit install
+```
+
+The validations will now be run on all staged files when you create a new commit.
+Some problems, like formatting mistakes will be fixed automatically. In this case you will see new unstaged changes in your directory. Just add them and retry the commit. Other problems can not be fixed automatically and will show as an error in the console.
+
+You can also validate a specific file or folder directly with:
+```
+pre-commit run --files datasets/my_dataset/dataset.json
+```
+
+For more on pre-commit see the pre-commit documentation at [pre-commit.com](https://pre-commit.com/)
+
+### 3. Create a new feature branch
+Feature branches are namespaced by contributor with the following naming convention: `<github username>/<feature_description>`
+
+So create a new feature branch with something like:
+```
+git checkout -b <my_gh_usename>/create__mydataset
+```
+
+### 4. Commit and push your changes
+Please write clear and informative commit messages in imperative voice.
+It is important a future contibutor can look back and understand what was changed and why.
+
+DO: `git commit -m "Add table xyz to dataset A"`</br>
+DO: `git commit -m "Improve descriptions in table xyz"` </br>
+DONT: `git commit -m "table xyz added in dataset A"` (Not imperative) </br>
+DONT: `git commit -m "Update dataset x"` (Not informative)
+
+Optionally add a description to you commit message with motivation for change or more context:
+
+DO: `git commit -m "Clarify field descriptions in table xyz" -m "We recieved multiple questions from users about the difference between field x and z. This change clarifies why x is not z."`
+
+`git push --set-upstream origin <your_branch>`
+
+### 5. Create a pull request.
+Create a Pull Request and request a review on Slack.
+After your changes are merged, It may take about 10 minutes for your changes to go live.
 
 # Manuals
 
