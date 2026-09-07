@@ -702,11 +702,13 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
 
 Status {#table-status}
 --------------------------
-Een tabel van een dataset dient een status te hebben. Momenteel zijn de opties hiervoor 'under_development' of
-'stable'. Deze status zegt iets over de stabiliteit van een tabel. Wanneer een versie 'stable'
+Een tabel van een dataset dient een status te hebben. Momenteel zijn de opties hiervoor 'under_development',
+'discontinued' of 'stable'. Deze status zegt iets over de stabiliteit van een tabel. Wanneer een versie 'stable'
 is, zullen er geen breaking changes meer plaatsvinden. Bij de validatie van het schema wordt er gecontroleerd of een
 wijziging in een 'stable' tabel geen breaking changes bevat. Een tabel met de status 'under_development' is nog in
-ontwikkeling en kan tijdens deze periode nog veranderen.
+ontwikkeling en kan tijdens deze periode nog veranderen. De inhoud van een tabel met de status 'discontinued'
+wordt niet meer geupdate. Bijvoorbeeld als de achterliggende databron niet meer beschikbaar is maar we het endpoint
+nog in de lucht willen houden tot we een alternatief kunnen bieden.
 
 Zoom {#zoom}
 --------------
@@ -2290,7 +2292,14 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 <!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
 <!-- Update the version number in the metadata at the top and refer to it here. -->
 
-[4.2.0] Selfservice Geosearch boolean toegevoegd (2026-03-30) {#lastchange}
+[4.2.1] Status discontinued toegevoegd (2026-09-07) {#lastchange}
+---------------------------------------------------
+> **Doelstelling**<br/>
+    Toevoegen van tabelstatus discontinued aan het Amsterdam Schema.
+
+* {{tabel/status}} uitgebreid met 'discontinued'.
+
+[4.2.0] Selfservice Geosearch boolean toegevoegd (2026-03-30) {#20260330}
 ---------------------------------------------------
 > **Doelstelling**<br/>
     Toevoegen van enableGeosearch flag aan het Amsterdam Schema.
