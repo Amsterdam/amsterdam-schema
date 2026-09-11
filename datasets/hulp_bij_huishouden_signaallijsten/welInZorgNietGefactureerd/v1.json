@@ -1,0 +1,66 @@
+{
+    "id": "welInZorgNietGefactureerd",
+    "title": "Wel in zorg niet gefactureerd",
+    "description": "Clienten die wel in zorg zijn, maar nog niet gefactureerd zijn. Regels: Client in de desbetreffende maand niet in zorg && Gefactureerd bedrag > 0",
+    "type": "table",
+    "version": "1.0.0",
+    "status": "under_development",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+            "clientZorgnedId",
+            "maand",
+            "jaar",
+            "gefactureerdBedrag",
+            "zorgaanbieder"
+        ],
+        "required": [
+            "schema",
+            "clientZorgnedId",
+            "maand",
+            "jaar",
+            "gefactureerdBedrag",
+            "zorgaanbieder",
+            "datumExportZorgned"
+        ],
+        "display": "clientZorgnedId",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "clientZorgnedId": {
+                "type": "string",
+                "title": "Client zorgned id",
+                "description": "ID nummer van de client uit Zorgned"
+            },
+            "maand": {
+                "type": "string",
+                "title": "Maand",
+                "description": "De omschrijving van de maand"
+            },
+            "jaar": {
+                "type": "integer",
+                "title": "Jaar",
+                "description": "Het jaar"
+            },
+            "gefactureerdBedrag": {
+                "type": "number",
+                "title": "Gefactureerd bedrag",
+                "description": "Het goedgekeurde bedrag van de factuurregels bepaald per periode"
+            },
+            "zorgaanbieder": {
+                "type": "string",
+                "title": "Zorgaanbieder",
+                "description": "Naam van de zorgaanbieder"
+            },
+            "datumExportZorgned": {
+                "type": "string",
+                "format": "date",
+                "title": "Datum export zorgned",
+                "description": "De datum waarop de data voor het laatst uit de bron is geëxporteerd"
+            }
+        }
+    }
+}

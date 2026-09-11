@@ -1,0 +1,39 @@
+{
+    "id": "hulpHuishoudenSignaalInZorgGefactureerd",
+    "type": "dataset",
+    "title": "Hulp bij Huishouden signaallijsten In zorg versus Gefactureerd",
+    "description": "Signaallijsten van clienten die gebruik maken van de Wmo voorziening Hulp bij Huishouden, die geregistreerd staan als In Zorg maar niet Gefactureerd worden en clienten die Gefactureerd worden maar niet geregistreerd staan als In Zorg. De directie Jeugd, Zorg en Diversiteit heeft een rol in het faciliteren van de voorziening Hulp bij Huishouden inclusief het monitoren en verbeteren van deze uitvoering. De aanbieders worden met behulp van de gegevens in deze signaallijsten geattendeerd op de nodige correcties in de administratie zodat de gemeente beleid kan verbeteren en uitvoering kan optimaliseren [p26004].",
+    "publisher": {
+        "$ref": "publishers/DTJZ"
+    },
+    "creator": "Datateam Jeugd en Zorg",
+    "auth": "DTJZ/HBHSL",
+    "reasonsNonPublic": [
+        "5.1 1d: Bevat persoonsgegevens"
+    ],
+    "authorizationGrantor": "Datateam Jeugd en Zorg",
+    "owner": "Gemeente Amsterdam",
+    "defaultVersion": "v1",
+    "versions": {
+        "v0": {
+            "status": "under_development",
+            "enableAPI": false,
+            "enableGeosearch": false,
+            "version": "1.0.0",
+            "tables": [
+                {
+                    "id": "businessDefinities",
+                    "$ref": "businessDefinities/v1"
+                },
+                {
+                    "id": "welGefactureerdNietInZorg",
+                    "$ref": "welGefactureerdNietInZorg/v1"
+                },
+                {
+                    "id": "welInZorgNietGefactureerd",
+                    "$ref": "welInZorgNietGefactureerd/v1"
+                }
+            ]
+        }
+    }
+}
