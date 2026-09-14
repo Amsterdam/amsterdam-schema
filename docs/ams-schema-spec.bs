@@ -334,6 +334,7 @@ Een <dfn dfn export>versie</dfn> binnen Amsterdam Schema is een JSON object met 
                     * "stable"
                     * "superseded"
                     * "deprecated" (vanaf metaschema versie 4.1.0)
+                    * "discontinued"
             </details>
     <tr><td><dfn>enableAPI</dfn>   <td> boolean
         <td> Of deze versie van de dataset beschikbaar moet zijn in de DSO API.
@@ -383,6 +384,7 @@ De toegestane waarden zijn:
 * **stable**: De versie is stabiel. Er zullen geen breaking changes meer plaatsvinden.
 * **superseded**: De versie is vervangen door een nieuwere versie. In {{versie/endSupportDate}} wordt een datum opgenomen tot wanneer deze versie ondersteund zal worden. In de browsable DSO API wordt een melding getoond dat gebruikers moeten overstappen op een nieuwere versie.
 * **deprecated**: De versie wordt niet langer aanbevolen voor gebruik, maar kan nog tijdelijk beschikbaar zijn. De gebruiker wordt in de browsable DSO API gewaarschuwd dat deze versie op elk moment kan ophouden te bestaan.
+* **discontinued**: De versie wordt niet meer geupdate. Bijvoorbeeld als de achterliggende databron niet meer beschikbaar is maar we het endpoint nog in de lucht willen houden tot we een alternatief kunnen bieden.
 
 Exports {#version-exports}
 --------------------------------------------------------
@@ -434,6 +436,7 @@ Een <dfn dfn export>tabel</dfn> binnen Amsterdam Schema is een JSON object met i
                 <summary>Toegestane waarden</summary>
                     * "under_development"
                     * "stable"
+                    * "discontinued"
             </details>
     <tr><td><dfn>schema</dfn>   <td> object
         <td> Het schema van objecten in de tabel. zie [[#tabel-schema]]
@@ -2292,14 +2295,7 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 <!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
 <!-- Update the version number in the metadata at the top and refer to it here. -->
 
-[4.2.1] Status discontinued toegevoegd (2026-09-07) {#lastchange}
----------------------------------------------------
-> **Doelstelling**<br/>
-    Toevoegen van tabelstatus discontinued aan het Amsterdam Schema.
-
-* {{tabel/status}} uitgebreid met 'discontinued'.
-
-[4.2.0] Selfservice Geosearch boolean toegevoegd (2026-03-30) {#20260330}
+[4.2.0] Selfservice Geosearch boolean toegevoegd (2026-03-30) {#lastchange}
 ---------------------------------------------------
 > **Doelstelling**<br/>
     Toevoegen van enableGeosearch flag aan het Amsterdam Schema.
