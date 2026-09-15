@@ -1,9 +1,9 @@
 {
-  "id": "woonplaats",
-  "version": "1.0.0",
+  "id": "wijk",
+  "version": "2.0.0",
   "status": "stable",
   "type": "table",
-  "provenance": "indicatoren_woonplaats",
+  "provenance": "indicatoren_wijk",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -149,16 +149,49 @@
         "type": "string",
         "description": "Naam van de doelenboom waarop de indicator betrekking heeft (indien van toepassing)."
       },
+      "gbdWijk": {
+        "type": "integer",
+        "relation": "gebieden:wijken",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/wijk/",
+        "description": "Verwijzing naar de unieke identifier van de wijk waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
+      },
+      "gbdWijkVolgnummer": {
+        "type": "integer",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/wijk/",
+        "description": "Volgnummer van de wijkregistratie waarop de indicator-waarde is gebaseerd (leeg is altijd meest recente)."
+      },
+      "gbdWijkNaam": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/wijk/",
+        "description": "Naam van de wijk waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
+      },
+      "gbdGgw": {
+        "type": "integer",
+        "relation": "gebieden:ggwgebieden",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/ggw/",
+        "description": "Verwijzing naar de unieke identifier van het gebiedsgericht werken gebied waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
+      },
+      "gbdGgwNaam": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/ggw/",
+        "description": "Naam van het gebiedsgericht werken gebied waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
+      },
+      "gbdStadsdeel": {
+        "type": "integer",
+        "relation": "gebieden:stadsdelen",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
+        "description": "Verwijzing naar de unieke identifier van het stadsdeel waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
+      },
+      "gbdStadsdeelNaam": {
+        "type": "string",
+        "uri": "https://www.amsterdam.nl/stelselpedia/gebieden-index/catalogus-gebieden/stadsdeel/",
+        "description": "Naam van het stadsdeel waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
+      },
       "bagWoonplaats": {
         "type": "integer",
         "relation": "bag:woonplaatsen",
         "uri": "https://www.amsterdam.nl/stelselpedia/bag-index/catalogus-bag/objectklasse-woonplaats/",
         "description": "Verwijzing naar de unieke identifier van de woonplaats waarop de indicator-waarde is gebaseerd (conform basisregistratie)."
-      },
-      "bagWoonplaatsVolgnummer": {
-        "type": "integer",
-        "uri": "https://www.amsterdam.nl/stelselpedia/bag-index/catalogus-bag/objectklasse-woonplaats/",
-        "description": "Volgnummer van de woonplaatsregistratie waarop de indicator-waarde is gebaseerd (leeg is altijd meest recente)."
       },
       "bagWoonplaatsNaam": {
         "type": "string",
