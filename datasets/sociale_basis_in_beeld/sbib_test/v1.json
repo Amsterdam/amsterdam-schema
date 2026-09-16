@@ -1,0 +1,33 @@
+{
+  "id": "sbib_test",
+  "title": "sbib test",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "description":"Eerste test voor dataset sbib",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "naam",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van het sportpark.",
+        "title": "ID"
+      },
+      "naam": {
+        "type": "string",
+        "description": "Unieke naam van de test",
+        "title": "naam"
+      }
+    }
+  }
+}
