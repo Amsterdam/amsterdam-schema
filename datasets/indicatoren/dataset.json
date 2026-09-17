@@ -38,7 +38,7 @@
   "publisher": {
     "$ref": "/publishers/BOR"
   },
-  "defaultVersion": "v1",
+  "defaultVersion": "v2",
   "versions": {
     "v1": {
       "status": "deprecated",
@@ -65,6 +65,22 @@
         {
           "id": "woonplaats",
           "$ref": "woonplaats/v1"
+        }
+      ]
+    },
+    "v2": {
+      "status": "deprecated",
+      "enableAPI": false,
+      "enableGeosearch": false,
+      "version": "2.0.0",
+      "tables": [
+        {
+          "id": "buurt",
+          "$ref": "buurt/v1"
+        },
+        {
+          "id": "wijk",
+          "$ref": "wijk/v1"
         }
       ]
     }
