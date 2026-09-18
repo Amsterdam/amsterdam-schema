@@ -1,9 +1,9 @@
 {
   "id": "bodemgebruikEnObstakels",
   "type": "table",
-  "version": "1.0.0",
-  "status": "stable",
-  "title": "Bodemgebruik en obstakels",
+  "version": "1.0.2",
+  "status": "niet_beschikbaar",
+  "title": "bodemgebruikEnObstakels",
   "description": "-",
   "auth": "OPENBAAR",
   "creator": "Ingenieursbureau Team WGM",
@@ -26,72 +26,87 @@
     "display": "id",
     "properties": {
       "schema": {
-        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
       },
       "id": {
         "type": "string",
-        "description": "Unieke aanduiding record."
+        "title": "Historisch gebouw, object of bodemgebruik ID",
+        "description": "Unieke identificatie van het historisch gebouw, object of bodemgebruik"
       },
       "categorie": {
         "type": "string",
-        "description": "Vlakvormige object of functie die geleid kunnen hebben tot het voorkomen van ondergrondse obstakels of bodemverontreiniging."
+        "title": "Historisch gebouw, object of bodemgebruik categorie",
+        "description": "Categorie van het historisch gebouw, object of bodemgebruik"
       },
       "beschrijving": {
         "type": "string",
-        "description": "Korte beschrijving van het betreffende object of de functie."
+        "title": "Historisch gebouw, object of bodemgebruik beschrijving",
+        "description": "Korte beschrijving van het historische gebouw, object of bodemgebruik dat mogelijk heeft bijgedragen aan de aanwezigheid van ondergrondse obstakels of bodemverontreiniging"
       },
       "opmerking": {
         "type": "string",
-        "description": "Context, bevindingen en/of achtergrond van het object of de functie."
+        "title": "Historisch gebouw, grondwerk of object opmerking",
+        "description": "Context en bevindingen met betrekking tot het betreffende historische gebouw, object of bodemgebruik."
       },
       "vanMinimaalJaar": {
         "type": "integer",
+        "title": "Historisch gebouw, object of bodemgebruik oprichtingsjaar",
         "minimum": 1100,
         "exclusiveMaximum": 2150,
-        "description": "Het oprichtingsjaar van het object of de functie, of een benadering van het oprichtingsjaar."
+        "description": "(Benadering van) oprichtingsjaar van het historisch gebouw, object of bodemgebruik"
       },
       "vanMaximaalJaar": {
         "type": "integer",
+        "title": "Historisch gebouw, object of bodemgebruik oudste vermeldingsjaar",
         "minimum": 1100,
         "exclusiveMaximum": 2150,
-        "description": "Het oudste voorkomen van het object of de functie die door historisch onderzoek is gevonden. Het werkelijke oprichtingsjaar ligt hiervoor."
+        "description": "Jaar van de oudste vermelding van het historisch gebouw, object of bodemgebruik dat door onderzoek is vastgesteld. Het daadwerkelijke aanlegjaar ligt eerder"
       },
       "totMinimaalJaar": {
         "type": "integer",
+        "title": "Historisch gebouw, object of bodemgebruik vroegste vermeldingsjaar",
         "minimum": 1100,
         "exclusiveMaximum": 2150,
-        "description": "Het jongste voorkomen van het object of de functie die door historisch onderzoek is gevonden. Het werkelijke eindjaar is thans onbekend."
+        "description": "Jaar van de meest recente vermelding van het historisch gebouw, object of bodemgebruik dat door onderzoek is vastgesteld. Het eindjaar van vermelding is onbekend of loopt door tot heden"
       },
       "totMaximaalJaar": {
         "type": "integer",
+        "title": "Historisch gebouw, object of bodemgebruik einde vermelding jaar",
         "minimum": 1100,
         "exclusiveMaximum": 2150,
-        "description": "Het eindjaar van het object of de functie, of het jaar waarop het object of de functie niet meer is waargenomen."
+        "description": "Jaar waarin het historisch gebouw of object is verwijderd of het bodemgebruik gestaakt, of het jaar waarin het historisch gebouw, object of bodemgebruik niet langer zichtbaar was"
       },
       "bron1": {
         "type": "string",
-        "description": "Bronvermelding"
+        "title": "Historisch gebouw, object of bodemgebruik bron 1",
+        "description": "Bronvermelding van de literatuur of het archief waaruit de gegevens afkomstig zijn bron 1"
       },
       "bron2": {
         "type": "string",
-        "description": "Hyperlink naar bron."
+        "title": "Historisch gebouw, object of bodemgebruik bron 2",
+        "description": "URL van het archiefstuk waaruit de gegevens afkomstig zijn bron 2"
       },
       "bron3": {
         "type": "string",
-        "description": "Hyperlink naar bron."
+        "title": "Historisch gebouw, object of bodemgebruik bron 3",
+        "description": "URL van het archiefstuk waaruit de gegevens afkomstig zijn bron 3"
       },
       "bron4": {
         "type": "string",
-        "description": "Hyperlink naar bron."
+        "title": "Historisch gebouw, object of bodemgebruik bron 4",
+        "description": "URL van het archiefstuk waaruit de gegevens afkomstig zijn bron 4"
       },
       "bewerkingsdatumGeometrie": {
         "type": "string",
         "format": "date",
-        "description": "Aanmaak- of bewerkingsdatum van geometrie."
+        "title": "Historisch gebouw, object of bodemgebruik brongeometrie bewerkingsdatum",
+        "description": "Aanmaak- of bewerkingsdatum van de geometrie van het historisch gebouw, grondwerk of object."
       },
       "geometrie": {
+        "type": "object",
         "$ref": "https://geojson.org/schema/Geometry.json",
-        "description": "Geometrie in RD (epsg:28992) van locatie onderzoek."
+        "title": "Historisch gebouw, object of bodemgebruik brongeometrie",
+        "description": "Geometrie in RD (epsg:28992) van de locatie van het Historisch gebouw, object of bodemgebruik"
       }
     }
   }
