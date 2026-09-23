@@ -1,0 +1,36 @@
+{
+  "id": "stamgegevensProjecten",
+  "type": "dataset",
+  "title": "Stamgegevens projecten",
+  "description": "Stamgegevens van projecten",
+  "publisher": {
+    "$ref": "publishers/AMIF"
+  },
+  "creator": "Directie Financiën en Inkoop",
+  "auth": [
+    "AMIF/AMOPIS"
+  ],
+  "reasonsNonPublic": [
+    "5.1 2f: Zwaarwegend belang: vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens"
+  ],
+  "authorizationGrantor": "dri@amsterdam.nl",
+  "owner": "Gemeente Amsterdam",
+  "defaultVersion": "v1",
+  "versions": {
+    "v1": {
+      "version": "1.0.0",
+      "status": "under_development",
+      "enableAPI": false,
+      "tables": [
+        {
+          "$ref": "amopis_boekingscombinatie/v1",
+          "id": "amopis_boekingscombinatie"
+        },
+        {
+          "$ref": "amopis_organisatie/v1",
+          "id": "amopis_organisatie"
+        }
+      ]
+    }
+  }
+}
