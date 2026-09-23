@@ -1,0 +1,198 @@
+{
+  "id": "amopisOrganisatie",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Amopis Organisatie",
+  "auth": "AMIF/AMOPIS",
+  "description": "Tabel met de organisatie-structuur. Bij elke kostenplaats worden ook de bovenliggende niveaus weergegeven.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "dimOrganisatieKey",
+    "required": [
+      "dimOrganisatieKey",
+      "schema"
+    ],
+    "display": "dimOrganisatieKey",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "dimOrganisatieKey": {
+        "title": "Dim Organisatie Key",
+        "type": "integer",
+        "description": "Technische sleutel van deze kostenplaats"
+      },
+      "hierarchieNiveau": {
+        "title": "Hierarchie Niveau",
+        "type": "string",
+        "description": "Geeft het niveau van de kostenplaats weer"
+      },
+      "niveau": {
+        "title": "Niveau",
+        "type": "string",
+        "description": "Hierarchie_niveau omschrijving"
+      },
+      "kostenplaatsId": {
+        "title": "Kostenplaats Id",
+        "type": "string",
+        "description": "PK M.b.v. deze kolom kan de kostenplaats aan andere tabellen worden gekoppeld"
+      },
+      "kostenplaatsIdOms": {
+        "title": "Kostenplaats Id Oms",
+        "type": "string",
+        "description": "Kostenplaats_id omschrijving"
+      },
+      "kostenplaatsIdOmsKort": {
+        "title": "Kostenplaats Id Oms Kort",
+        "type": "string",
+        "description": "Kostenplaats_id omschrijving zonder prefix"
+      },
+      "subteam": {
+        "title": "Subteam",
+        "type": "string",
+        "description": "Combinatie van subteam code en omschrijving. Alleen gevuld bij hierarchie-niveau 6"
+      },
+      "subteamCode": {
+        "title": "Subteam Code",
+        "type": "string",
+        "description": "Subteam code"
+      },
+      "subteamOms": {
+        "title": "Subteam Oms",
+        "type": "string",
+        "description": "Subteam omschrijving"
+      },
+      "subteamOmsKort": {
+        "title": "Subteam Oms Kort",
+        "type": "string",
+        "description": "Subteam omschrijving zonder prefix"
+      },
+      "team": {
+        "title": "Team",
+        "type": "string",
+        "description": "Combinatie van team code en omschrijving"
+      },
+      "teamCode": {
+        "title": "Team Code",
+        "type": "string",
+        "description": "Team code"
+      },
+      "teamOms": {
+        "title": "Team Oms",
+        "type": "string",
+        "description": "Team omschrijving"
+      },
+      "teamOmsKort": {
+        "title": "Team Oms Kort",
+        "type": "string",
+        "description": "Team omschrijving zonder prefix"
+      },
+      "afdeling": {
+        "title": "Afdeling",
+        "type": "string",
+        "description": "Combinatie van afdeling code en omschrijving"
+      },
+      "afdelingCode": {
+        "title": "Afdeling Code",
+        "type": "string",
+        "description": "Afdeling code"
+      },
+      "afdelingOms": {
+        "title": "Afdeling Oms",
+        "type": "string",
+        "description": "Afdeling omschrijving"
+      },
+      "afdelingOmsKort": {
+        "title": "Afdeling Oms Kort",
+        "type": "string",
+        "description": "Afdeling omschrijving zonder prefix"
+      },
+      "directie": {
+        "title": "Directie",
+        "type": "string",
+        "description": "Combinatie van directie code en omschrijving"
+      },
+      "directieCode": {
+        "title": "Directie Code",
+        "type": "string",
+        "description": "Directie code"
+      },
+      "directieOms": {
+        "title": "Directie Oms",
+        "type": "string",
+        "description": "Directie omschrijving"
+      },
+      "directieOmsKort": {
+        "title": "Directie Oms Kort",
+        "type": "string",
+        "description": "Directie omschrijving zonder prefix"
+      },
+      "cluster": {
+        "title": "Cluster",
+        "type": "string",
+        "description": "Combinatie van cluster code en omschrijving"
+      },
+      "clusterCode": {
+        "title": "Cluster Code",
+        "type": "string",
+        "description": "Cluster code"
+      },
+      "clusterOms": {
+        "title": "Cluster Oms",
+        "type": "string",
+        "description": "Cluster omschrijving"
+      },
+      "clusterOmsKort": {
+        "title": "Cluster Oms Kort",
+        "type": "string",
+        "description": "Cluster omschrijving zonder prefix"
+      },
+      "gemeente": {
+        "title": "Gemeente",
+        "type": "string",
+        "description": "Combinatie van gemeente code en omschrijving"
+      },
+      "gemeenteCode": {
+        "title": "Gemeente Code",
+        "type": "string",
+        "description": "Gemeente code"
+      },
+      "gemeenteOms": {
+        "title": "Gemeente Oms",
+        "type": "string",
+        "description": "Gemeente omschrijving"
+      },
+      "hierarchieGroep": {
+        "title": "Hierarchie Groep",
+        "type": "string",
+        "description": "PK Code van de organisatie-structuur waartoe deze kostenplaats behoort. Kies er altijd 1 als er meerdere zijn."
+      },
+      "hierarchieGroepNaam": {
+        "title": "Hierarchie Groep Naam",
+        "type": "string",
+        "description": "Omschrijving van de organisatie-structuur waartoe deze kostenplaats behoort"
+      },
+      "geldigVan": {
+        "title": "Geldig Van",
+        "type": "string",
+        "format": "date-time",
+        "description": "PK Geldig van"
+      },
+      "geldigTot": {
+        "title": "Geldig Tot",
+        "type": "string",
+        "format": "date-time",
+        "description": "Geldig tot"
+      },
+      "datumIngelezen": {
+        "title": "Datum Ingelezen",
+        "type": "string",
+        "format": "date-time",
+        "description": "Datum ingelezen"
+      }
+    }
+  }
+}
