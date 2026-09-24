@@ -5,7 +5,7 @@ from typing import Any, cast
 import click
 
 SCHEMA_VERSION = "v4.2.0"
-PUBLISHERS_DIR = Path(__file__).resolve().parents[2] / "publishers"
+PUBLISHERS_DIR = Path(__file__).resolve().parent / "publishers"
 
 
 def _load_json(path: Path) -> dict[str, Any]:
