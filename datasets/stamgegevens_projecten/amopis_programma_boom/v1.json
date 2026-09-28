@@ -1,0 +1,213 @@
+{
+  "id": "amopisProgrammaBoom",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Amopis Programma Boom",
+  "auth": "AMIF/AMOPIS",
+  "description": "Tabel met de programma-structuur uit verschillende bronnen (begroting, programma of wbs_element). Bij elk wbs-niveau worden ook de bovenliggende niveaus weergegeven.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "hierarchieNiveau",
+    "required": [
+      "hierarchieNiveau",
+      "schema"
+    ],
+    "display": "hierarchieNiveau",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "hierarchieNiveau": {
+        "title": "Hierarchie Niveau",
+        "type": "string",
+        "description": "Geeft het niveau van dit wbs_element weer"
+      },
+      "niveau": {
+        "title": "Niveau",
+        "type": "string",
+        "description": "hierarchie_niveau omschrijving"
+      },
+      "programmaId": {
+        "title": "Programma Id",
+        "type": "string",
+        "description": "PK M.b.v. deze kolom kan het wbs_element aan andere tabellen worden gekoppeld"
+      },
+      "programmaType": {
+        "title": "Programma Type",
+        "type": "string",
+        "description": "Type geeft aan of het een exploitatie- of investerings-programma is"
+      },
+      "wbsNiveau5": {
+        "title": "Wbs Niveau5",
+        "type": "string",
+        "description": "Combinatie van WBS niveau 5 code en omschrijving. Alleen gevuld bij hierarchie-niveau 5"
+      },
+      "wbsNiveau5Code": {
+        "title": "Wbs Niveau5 Code",
+        "type": "string",
+        "description": "WBS niveau 5 code"
+      },
+      "wbsNiveau5Oms": {
+        "title": "Wbs Niveau5 Oms",
+        "type": "string",
+        "description": "WBS niveau 5 omschrijving"
+      },
+      "wbsNiveau4": {
+        "title": "Wbs Niveau4",
+        "type": "string",
+        "description": "Combinatie van WBS niveau 4 code en omschrijving"
+      },
+      "wbsNiveau4Code": {
+        "title": "Wbs Niveau4 Code",
+        "type": "string",
+        "description": "WBS niveau 4 code"
+      },
+      "wbsNiveau4Oms": {
+        "title": "Wbs Niveau4 Oms",
+        "type": "string",
+        "description": "WBS niveau 4 omschrijving"
+      },
+      "wbsNiveau3": {
+        "title": "Wbs Niveau3",
+        "type": "string",
+        "description": "Combinatie van WBS niveau 3 code en omschrijving"
+      },
+      "wbsNiveau3Code": {
+        "title": "Wbs Niveau3 Code",
+        "type": "string",
+        "description": "WBS niveau 3 code"
+      },
+      "wbsNiveau3Oms": {
+        "title": "Wbs Niveau3 Oms",
+        "type": "string",
+        "description": "WBS niveau 3 omschrijving"
+      },
+      "wbsNiveau2": {
+        "title": "Wbs Niveau2",
+        "type": "string",
+        "description": "Combinatie van WBS niveau 2 code en omschrijving"
+      },
+      "wbsNiveau2Code": {
+        "title": "Wbs Niveau2 Code",
+        "type": "string",
+        "description": "WBS niveau 2 code"
+      },
+      "wbsNiveau2Oms": {
+        "title": "Wbs Niveau2 Oms",
+        "type": "string",
+        "description": "WBS niveau 2 omschrijving"
+      },
+      "wbsNiveau1": {
+        "title": "Wbs Niveau1",
+        "type": "string",
+        "description": "Combinatie van WBS niveau 1 code en omschrijving (deelactiviteit)"
+      },
+      "wbsNiveau1Code": {
+        "title": "Wbs Niveau1 Code",
+        "type": "string",
+        "description": "WBS niveau 1 code"
+      },
+      "wbsNiveau1Oms": {
+        "title": "Wbs Niveau1 Oms",
+        "type": "string",
+        "description": "WBS niveau 1 omschrijving"
+      },
+      "activiteit": {
+        "title": "Activiteit",
+        "type": "string",
+        "description": "Combinatie van activiteit code en omschrijving"
+      },
+      "activiteitCode": {
+        "title": "Activiteit Code",
+        "type": "string",
+        "description": "Activiteit code"
+      },
+      "activiteitOms": {
+        "title": "Activiteit Oms",
+        "type": "string",
+        "description": "Activiteit omschrijving"
+      },
+      "doel": {
+        "title": "Doel",
+        "type": "string",
+        "description": "Combinatie van doel code en omschrijving"
+      },
+      "doelCode": {
+        "title": "Doel Code",
+        "type": "string",
+        "description": "Doel code"
+      },
+      "doelOms": {
+        "title": "Doel Oms",
+        "type": "string",
+        "description": "Doel omschrijving"
+      },
+      "programmaOnderdeel": {
+        "title": "Programma Onderdeel",
+        "type": "string",
+        "description": "Combinatie van programma_onderdeel code en omschrijving"
+      },
+      "programmaOnderdeelCode": {
+        "title": "Programma Onderdeel Code",
+        "type": "string",
+        "description": "Programma_onderdeel code"
+      },
+      "programmaOnderdeelOms": {
+        "title": "Programma Onderdeel Oms",
+        "type": "string",
+        "description": "Programma_onderdeel omschrijving"
+      },
+      "programma": {
+        "title": "Programma",
+        "type": "string",
+        "description": "Combinatie van programma code en omschrijving"
+      },
+      "programmaCode": {
+        "title": "Programma Code",
+        "type": "string",
+        "description": "Programma code"
+      },
+      "programmaOms": {
+        "title": "Programma Oms",
+        "type": "string",
+        "description": "Programma omschrijving"
+      },
+      "hierarchieGroep": {
+        "title": "Hierarchie Groep",
+        "type": "string",
+        "description": "PK Code van de programma-structuur waartoe dit wbs_element of programma behoort. Kies er altijd 1 als er meerdere zijn."
+      },
+      "hierarchieGroepNaam": {
+        "title": "Hierarchie Groep Naam",
+        "type": "string",
+        "description": "Omschrijving van de programma-structuur waartoe dit wbs_element behoort"
+      },
+      "geldigVan": {
+        "title": "Geldig Van",
+        "type": "string",
+        "format": "date-time",
+        "description": "PK Geldig van"
+      },
+      "geldigTot": {
+        "title": "Geldig Tot",
+        "type": "string",
+        "format": "date-time",
+        "description": "Geldig tot"
+      },
+      "datumIngelezen": {
+        "title": "Datum Ingelezen",
+        "type": "string",
+        "format": "date-time",
+        "description": "Datum ingelezen"
+      },
+      "bron": {
+        "title": "Bron",
+        "type": "string",
+        "description": "begroting, programma, wbselement of overig"
+      }
+    }
+  }
+}

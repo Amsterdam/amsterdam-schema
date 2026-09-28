@@ -1,0 +1,210 @@
+{
+  "id": "amopisBoekingscombinatie",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Amopis Boekingscombinatie",
+  "auth": "AMIF/AMOPIS",
+  "description": "Tabel met stam-data van projecten voor AMOPIS, bevat alleen data van cluster R&E.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": "boekingscombinatie",
+    "required": [
+      "boekingscombinatie",
+      "schema"
+    ],
+    "display": "boekingscombinatie",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "boekingscombinatie": {
+        "title": "Boekingscombinatie",
+        "type": "string",
+        "description": "Combinatie van Fonds / kostenplaats of budgetplaats / hoofdrekening of budgetpositie / WBS-element of programma"
+      },
+      "jaarschijf": {
+        "title": "Jaarschijf",
+        "type": "string",
+        "description": "Het jaar waarin deze boekingscombinatie geldig is, de overige kolommen kunnen per jaarschijf verschillen"
+      },
+      "indBoekbaar": {
+        "title": "Ind Boekbaar",
+        "type": "string",
+        "description": "Indicator of op deze boekingscombinatie geboekt mag worden"
+      },
+      "indBudgeteerbaar": {
+        "title": "Ind Budgeteerbaar",
+        "type": "string",
+        "description": "Indicator of op deze boekingscombinatie gebudgeteerd mag worden"
+      },
+      "projectCode": {
+        "title": "Project Code",
+        "type": "string",
+        "description": "Project code, kan ook een placeholder zijn"
+      },
+      "projectOmschrijving": {
+        "title": "Project Omschrijving",
+        "type": "string",
+        "description": "Project omschrijving"
+      },
+      "projectType": {
+        "title": "Project Type",
+        "type": "string",
+        "description": "Project type"
+      },
+      "projectTypeOms": {
+        "title": "Project Type Oms",
+        "type": "string",
+        "description": "Project type omschrijving"
+      },
+      "ambtelijkeOpdrachtgever": {
+        "title": "Ambtelijke Opdrachtgever",
+        "type": "string",
+        "description": "Opdrachtgever van het project"
+      },
+      "projectleiderOpdrachtnemer": {
+        "title": "Projectleider Opdrachtnemer",
+        "type": "string",
+        "description": "Opdrachtnemer (projectleider)"
+      },
+      "fonds": {
+        "title": "Fonds",
+        "type": "string",
+        "description": "Fonds"
+      },
+      "hoofdrekeningCode": {
+        "title": "Hoofdrekening Code",
+        "type": "string",
+        "description": "Hoofdrekening code (kostensoort/budgetpositie)"
+      },
+      "hoofdrekeningOmschrijving": {
+        "title": "Hoofdrekening Omschrijving",
+        "type": "string",
+        "description": "Hoofdrekening omschrijving"
+      },
+      "hoofdrekeningTypeCode": {
+        "title": "Hoofdrekening Type Code",
+        "type": "string",
+        "description": "Hoofdrekening type"
+      },
+      "hoofdrekeningTypeNaam": {
+        "title": "Hoofdrekening Type Naam",
+        "type": "string",
+        "description": "Hoofdrekening type omschrijving"
+      },
+      "kostenplaatsCode": {
+        "title": "Kostenplaats Code",
+        "type": "string",
+        "description": "Kostenplaatscode (budgetplaats)"
+      },
+      "kostenplaatsOmschrijving": {
+        "title": "Kostenplaats Omschrijving",
+        "type": "string",
+        "description": "Kostenplaats omschrijving"
+      },
+      "kostenplaatsBudgethouderNaam": {
+        "title": "Kostenplaats Budgethouder Naam",
+        "type": "string",
+        "description": "Budgethouder van de kostenplaats"
+      },
+      "wbsElementCode": {
+        "title": "Wbs Element Code",
+        "type": "string",
+        "description": "WBS-element code"
+      },
+      "wbsElementNaam": {
+        "title": "Wbs Element Naam",
+        "type": "string",
+        "description": "WBS-element omschrijving"
+      },
+      "wbsElementStatus": {
+        "title": "Wbs Element Status",
+        "type": "string",
+        "description": "WBS-element status"
+      },
+      "wbsElementStatusOms": {
+        "title": "Wbs Element Status Oms",
+        "type": "string",
+        "description": "WBS-element status omschrijving"
+      },
+      "wbsBovenliggendNiveau": {
+        "title": "Wbs Bovenliggend Niveau",
+        "type": "string",
+        "description": "WBS bovenliggend niveau"
+      },
+      "wbsHierarchieNiveau": {
+        "title": "Wbs Hierarchie Niveau",
+        "type": "string",
+        "description": "WBS hierarchie niveau"
+      },
+      "wbsEindverantwoordelijke": {
+        "title": "Wbs Eindverantwoordelijke",
+        "type": "string",
+        "description": "WBS eindverantwoordelijke"
+      },
+      "programmaCode": {
+        "title": "Programma Code",
+        "type": "string",
+        "description": "Programma code"
+      },
+      "programmaOms": {
+        "title": "Programma Oms",
+        "type": "string",
+        "description": "Programma code omschrijving"
+      },
+      "activiteitCode": {
+        "title": "Activiteit Code",
+        "type": "string",
+        "description": "Activiteit code"
+      },
+      "activiteitOms": {
+        "title": "Activiteit Oms",
+        "type": "string",
+        "description": "Activiteit omschrijving"
+      },
+      "clusterCode": {
+        "title": "Cluster Code",
+        "type": "string",
+        "description": "Cluster code"
+      },
+      "clusterOms": {
+        "title": "Cluster Oms",
+        "type": "string",
+        "description": "Cluster omschrijving"
+      },
+      "directieCode": {
+        "title": "Directie Code",
+        "type": "string",
+        "description": "Directie code"
+      },
+      "directieOms": {
+        "title": "Directie Oms",
+        "type": "string",
+        "description": "Directie omschrijving"
+      },
+      "afdelingCode": {
+        "title": "Afdeling Code",
+        "type": "string",
+        "description": "Afdeling code"
+      },
+      "afdelingOms": {
+        "title": "Afdeling Oms",
+        "type": "string",
+        "description": "Afdeling omschrijving"
+      },
+      "teamCode": {
+        "title": "Team Code",
+        "type": "string",
+        "description": "Team code"
+      },
+      "teamOms": {
+        "title": "Team Oms",
+        "type": "string",
+        "description": "Team omschrijving"
+      }
+    }
+  }
+}
