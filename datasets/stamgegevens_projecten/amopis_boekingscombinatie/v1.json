@@ -10,15 +10,22 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "additionalProperties": false,
-    "identifier": "boekingscombinatie",
+    "identifier": "id",
     "required": [
+      "id",
       "boekingscombinatie",
+      "jaarschijf",
       "schema"
     ],
     "display": "boekingscombinatie",
     "properties": {
       "schema": {
         "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "title": "id",
+        "type": "string",
+        "description": "Unieke sleutel binnen deze tabel (boekingscombinatie + jaarschijf)"
       },
       "boekingscombinatie": {
         "title": "Boekingscombinatie",
