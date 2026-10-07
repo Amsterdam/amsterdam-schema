@@ -1,0 +1,83 @@
+{
+  "id": "maatregeltoetsBosplantsoenen",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Maatregeltoets bosplantsoenen",
+  "description": "De tabel bevat de gegevens van de maatregeltoetsen van bosplantsoenen. De tabel wordt dagelijks ververst weeergeeft van een bepaald bosplantsoen. De tabel wordt dagelijks ververst.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "title": "ID",
+        "description": "Unieke aanduiding van het record",
+        "type": "integer"
+      },
+      "bosplantsoenInventarisatie": {
+        "title": "Bosplantsoen inventarisatie",
+        "description": "Uniek nummer van de bijbehorende Inventarisatie.",
+        "type": "string"
+      },
+      "datumMaatregeltoets": {
+        "title": "Datum maatregeltoets",
+        "description": "Datum waarop de Maatregeltoets is uitgevoerd.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "eindjaarVanUitvoeringMaatregel": {
+        "title": "Eindjaar van uitvoering maatregel",
+        "description": "Jaar waarin wordt gepland om de voorgestelde maatregelen af te ronden.",
+        "type": "integer"
+      },
+      "groenmaatregelregistratieAangemaakt": {
+        "title": "Groenmaatregelregistratie aangemaakt",
+        "description": "Datum waarop het maatregelvoorstel is aangemaakt.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "groenobject": {
+        "title": "Groenobject",
+        "description": "Unieke aanduiding van het groenobject",
+        "type": "string"
+      },
+      "guid": {
+        "title": "Guid",
+        "description": "Uniek nummer van het object",
+        "type": "string"
+      },
+      "mutatieDatum": {
+        "title": "Datum van de laatste mutatie",
+        "description": "Datum waarop laatste mutatie heeft plaatsgevonden",
+        "type": "string",
+        "format": "date-time"
+      },
+      "startjaarVanUitvoeringMaatregel": {
+        "title": "Startjaar van uitvoering maatregel",
+        "description": "Jaar waarin wordt gepland om de voorgestelde maatregelen te starten.",
+        "type": "integer"
+      },
+      "objectbegintijd": {
+        "title": "Begindatum object",
+        "description": "Begindatum van de geldigheid van het record",
+        "type": "string",
+        "format": "date-time"
+      },
+      "objecteindtijd": {
+        "title": "Einddatum object",
+        "description": "Einddatum van de geldigheid van het record",
+        "type": "string",
+        "format": "date-time"
+      }
+    }
+  }
+}
