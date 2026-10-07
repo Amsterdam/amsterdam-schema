@@ -1,0 +1,155 @@
+{
+  "id": "bosplantsoenInventarisaties",
+  "type": "table",
+  "version": "1.0.0",
+  "status": "under_development",
+  "title": "Bosplantsoen inventarisaties",
+  "description": "Dit is een tabel die een inventarisatie weeergeeft van een bepaald bosplantsoen. De tabel wordt dagelijks ververst.",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "identifier": [
+      "id"
+    ],
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "id",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "title": "ID",
+        "description": "Unieke identificatie van het record.",
+        "type": "integer"
+      },
+      "aanplantBoomlaag": {
+        "title": "Aanplant boomlaag",
+        "description": "Geeft aan of aanplant van een boomlaag als maatregel is voorgesteld.",
+        "type": "boolean"
+      },
+      "aanplantHeesterlaag": {
+        "title": "Aanplant heesterlaag",
+        "description": "Geeft aan of aanplant van een heesterlaag als maatregel is voorgesteld.",
+        "type": "boolean"
+      },
+      "afzettenStruiklaag": {
+        "title": "Afzetten struiklaag",
+        "description": "Geeft aan of afzetten van een struiklaag als maatregel is voorgesteld.",
+        "type": "boolean"
+      },
+      "dunnenBoomlaag": {
+        "title": "Dunnen boomlaag",
+        "description": "Geeft aan of dunnen van de boomlaag als maatregel is voorgesteld.",
+        "type": "boolean"
+      },
+      "dunnenZiekeBomen": {
+        "title": "Dunnen zieke bomen",
+        "description": "Geeft aan of het verwijderen van zieke bomen als maatregel is voorgesteld.",
+        "type": "boolean"
+      },
+      "eindjaarVanUitvoering": {
+        "title": "Eindjaar van uitvoering",
+        "description": "Jaar waarin wordt geadviseerd om de voorgestelde maatregelen af te ronden.",
+        "type": "integer"
+      },
+      "functieBosplantsoen": {
+        "title": "Functie bosplantsoen",
+        "description": "Specifieke functie van het groenobject.",
+        "type": "string"
+      },
+      "groenobject": {
+        "title": "Groenobject",
+        "description": "Unieke aanduiding van het groenobject.",
+        "type": "string"
+      },
+      "guid": {
+        "title": "Guid",
+        "description": "Unieke identificatie van het object.",
+        "type": "string"
+      },
+      "hoofdboomsoort1": {
+        "title": "Hoofdboomsoort 1",
+        "description": "De meest voorkomende boomsoort binnen het vak.",
+        "type": "string"
+      },
+      "jaarInitieleInventarisatie": {
+        "title": "Jaar initiele inventarisatie",
+        "description": "Jaar waarin de oorspronkelijke inventarisatie is uitgevoerd.",
+        "type": "string"
+      },
+      "mutatieDatum": {
+        "title": "Lastupdate",
+        "description": "Datum waarop het record voor het laatst is gewijzigd.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "omvormingVanwegeBoomziekte": {
+        "title": "Omvorming vanwege boomziekte",
+        "description": "Geeft aan of omvorming vanwege boomziekte als maatregel is voorgesteld.",
+        "type": "boolean"
+      },
+      "omvormingVanwegeLeeftijd": {
+        "title": "Omvorming vanwege leeftijd",
+        "description": "Geeft aan of omvorming vanwege leeftijd als maatregel is voorgesteld.",
+        "type": "boolean"
+      },
+      "omvormingVanwegeRenovatie": {
+        "title": "Omvorming vanwege renovatie",
+        "description": "Geeft aan of omvorming vanwege renovatie als maatregel is voorgesteld.",
+        "type": "boolean"
+      },
+      "omvormingVanwegeSoortendiversiteit": {
+        "title": "Omvorming vanwege soortendiversiteit",
+        "description": "Geeft aan of omvorming vanwege soortendiversiteit als maatregel is voorgesteld.",
+        "type": "boolean"
+      },
+      "percentageHoofdboomsoort1": {
+        "title": "Percentage hoofdboomsoort 1",
+        "description": "Percentage van de meest voorkomende boomsoort binnen het vak.",
+        "type": "string"
+      },
+      "sortiment": {
+        "title": "Sortiment",
+        "description": "Sortiment van het bosplantsoen.",
+        "type": "string"
+      },
+      "startdatumUitvoering": {
+        "title": "Startdatum uitvoering",
+        "description": "Geplande startdatum voor de uitvoering van de voorgestelde maatregelen.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "startjaarVanUitvoering": {
+        "title": "Startjaar van uitvoering",
+        "description": "Geadviseerd startjaar voor de uitvoering van de voorgestelde maatregelen.",
+        "type": "integer"
+      },
+      "streefbeeld": {
+        "title": "Streefbeeld",
+        "description": "Streefbeeld voor het bosplantsoen.",
+        "type": "string"
+      },
+      "verwijderenOngewensteStruiksoort": {
+        "title": "Verwijderen ongewenste struiksoort",
+        "description": "Geeft aan of verwijderen van ongewenste struiken als maatregel is voorgesteld.",
+        "type": "boolean"
+      },
+      "objectbegintijd": {
+        "title": "Begindatum object",
+        "description": "Begindatum van de geldigheid van het record.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "objecteindtijd": {
+        "title": "Einddatum object",
+        "description": "Einddatum van de geldigheid van het record.",
+        "type": "string",
+        "format": "date-time"
+      }
+    }
+  }
+}
