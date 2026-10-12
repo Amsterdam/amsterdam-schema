@@ -1,0 +1,41 @@
+{
+      "id": "pageVisits",
+      "title": "Page visits",
+      "type": "table",
+      "version": "1.0.0",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schema": {
+            "$ref": "https://schemas.data.amsterdam.nl/schema@v1.1.1#/definitions/schema"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Datum"
+          },
+          "sessionCount": {
+            "type": "integer",
+            "description": "Aantal sessies."
+          },
+          "uniqueVisitorsCount": {
+            "type": "integer",
+            "description": "Aantal unieke bezoekers."
+          },
+          "pageName": {
+            "type": "string",
+            "description": "Naam van een webpagina."
+          },
+          "uniqueInternalVisitorsCount": {
+            "type": "integer",
+            "description": "Aantal unieke interne bezoekers."
+          },
+          "agentVisitsCount": {
+            "type": "integer",
+            "description": "Aantal AI agent bezoeken."
+          }
+        }
+      }
+    }
