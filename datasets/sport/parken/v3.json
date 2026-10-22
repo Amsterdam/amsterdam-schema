@@ -2,9 +2,10 @@
   "id": "parken",
   "title": "Sportparken",
   "type": "table",
-  "version": "3.0.0",
-  "status": "under_development",
+  "version": "3.0.1",
+  "status": "stable",
   "description":"Sportparken in het beheer van de Gemeente Amsterdam. Sportparken zijn gebieden met sportfaciliteiten buiten zoals een voetbalveld en soms ook binnnenlocaties.",
+  "provenance":"Deze data komt uit de applicatie Gisib, een applicatie voor het beheer van de openbare ruimte",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -23,6 +24,11 @@
         "description": "Unieke aanduiding van het sportpark.",
         "title": "ID"
       },
+      "guid": {
+        "type": "string",
+        "description": "Globale unieke aanduiding van het sportpark.",
+        "title": "GUID"
+      },
       "geometry": {
         "$ref": "https://geojson.org/schema/MultiPolygon.json",
         "description": "Vlakgeometrie(ën) van het sportpark.",
@@ -36,23 +42,23 @@
       "objectnummer": {
         "type": "string",
         "description": "Objectnummer ",
-        "title": "Globally unique identifier"
+        "title": "Interne unieke aanduiding"
       },
       "jaarVanAanleg": {
         "type": "integer",
         "description": "Jaar waarin het sportpark is aangelegd.",
-        "title": "Globally unique identifier"
+        "title": "Jaar van aanleg"
       },
       "oppervlakte": {
         "type": "integer",
         "unit": "m2",
-        "description": "Oppervlakte afgerond naar hele vierkante meters van de sport- of speelplek.",
+        "description": "De oppervlakte van het sportpark afgerond naar hele vierkante meters.",
         "title": "Oppervlakte"
       },
       "omtrek": {
         "type": "integer",
         "unit": "m",
-        "description": "Omtrek afgerond naar hele meters van de sport- of speelplek.",
+        "description": "De omtrek van het sportpark afgerond naar hele meters.",
         "title": "Omtrek"
       }
     }

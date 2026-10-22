@@ -1,0 +1,46 @@
+{
+    "id": "businessDefinities",
+    "title": "Business Definities",
+    "shortname": "busdefs",    
+    "description": "Specifieke business definities voor dit dataproduct.",
+    "type": "table",
+    "enableAPI": false,
+    "version": "1.0.0",
+    "status": "under_development",
+    "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "identifier": [
+            "tabelnaam",
+            "veldnaam"
+        ],
+        "required": [
+            "schema",
+            "tabelnaam",
+            "veldnaam",
+            "definities"
+        ],
+        "display": "tabelnaam",
+        "properties": {
+            "schema": {
+                "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+            },
+            "tabelnaam": {
+                "type": "string",
+                "title": "Tabelnaam",
+                "description": "Beschrijving voor TABELNAAM"
+            },
+            "veldnaam": {
+                "type": "string",
+                "title": "Veldnaam",
+                "description": "Beschrijving voor VELDNAAM"
+            },
+            "definities": {
+                "type": "string",
+                "title": "Definities",
+                "description": "Beschrijving voor DEFINITIES"
+            }
+        }
+    }
+}

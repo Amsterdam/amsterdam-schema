@@ -1,10 +1,11 @@
 {
   "id": "binnenlocaties",
   "title": "Sportlocaties (binnen)",
-  "description":"Sportlocaties in het beheer van de Gemeente Amsterdam en beschikbaar voor verhuur. Sportlocaties bevatten een of meerdere sport- of gymzalen. Ze staan gelijk aan een verblijfsobject in de Basisregistratie Adressen en Gebouwen.",
+  "description":"Sportlocaties in het beheer van de Gemeente Amsterdam en beschikbaar voor verhuur. Sportlocaties bevatten een of meerdere sport- of gymzalen. Ze staan gelijk aan een verblijfsobject in de Basisregistratie Adressen en Gebouwen",
+  "provenance":"Deze data is afkomstig uit het verhuursysteem en het CRM van de Directie Sport en Bos van de Gemeente Amsterdam",
   "type": "table",
-  "version": "1.0.0",
-  "status": "under_development",
+  "version": "1.0.1",
+  "status": "stable",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -58,12 +59,6 @@
         "description": "Huisnummertoevoeging van de sportlocatie.",
         "title": "Huisnummertoevoeging"
       },
-      "nummeraanduidingId": {
-        "type": "string",
-        "description": "De nummeraanduiding van het verblijfsobject waaronder de sportlocatie in de Basisregistratie Adressen en Gebouwen bekend is",
-        "title": "Nummeraanduiding-ID",
-        "relation": "benkagg:adresseerbareobjecten"
-      },
       "toegankelijkheidMindervaliden": {
         "type": "boolean",
         "description": "Of de binnenlocatie voor zover bekend toegankelijk is voor mindervaliden.",
@@ -73,6 +68,20 @@
         "type": "string",
         "description": "Website van de sportlocatie",
         "title": "Website"
+      },
+      "heeftNummeraanduiding": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "benkagg:adresseerbareobjecten",
+        "title": "Corresponderende nummeraanduiding",
+        "description": "De nummeraanduiding in de Basisregistratie Adressen en Gebouwen die bij deze binnenlocatie hoort"
       }
     }
   }

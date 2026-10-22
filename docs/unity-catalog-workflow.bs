@@ -214,7 +214,7 @@ Automatische ingest {#automatische-ingest}
 De automatisering:
 
 * kijkt welke `dataset.json`-bestanden in de PR zijn toegevoegd of gewijzigd,
-* draait `schema ingest` (uit schema-tools) voor elk van die datasets,
+* draait `ingest` (uit schema-tools) voor elk van die datasets,
 * commit eventuele gegenereerde wijzigingen terug naar dezelfde branch,
 * plaatst een PR-comment als de ingest foutmeldingen heeft.
 
@@ -229,7 +229,7 @@ Nightly synchronisatie {#nightly-sync}
 ----------------------
 
 Er draait ook elke nacht (op werkdagen) een pipeline.
-Deze doorloopt alle datasets onder `datasets/` en draait per dataset opnieuw `schema ingest`.
+Deze doorloopt alle datasets onder `datasets/` en draait per dataset opnieuw `ingest`.
 
 Als er wijzigingen uit komen:
 
@@ -238,13 +238,13 @@ Als er wijzigingen uit komen:
 * opent of hergebruikt een PR voor die branch,
 * sluit oudere open nightly-PR's voor dezelfde dataset.
 
-Wat `schema ingest` praktisch betekent {#wat-schema-ingest-praktisch-betekent}
+Wat `ingest` praktisch betekent {#wat-ingest-praktisch-betekent}
 --------------------------------------
 
 De ingest-stap gebruikt de `provenance`-verwijzingen naar Unity Catalog-tabellen als bron.
 Op basis van de aangetroffen metadata werkt de stap de schema-bestanden in deze repository bij.
 
-Concreet doet `schema ingest` per tabel met `provenance` die begint met `uc:` het volgende:
+Concreet doet `ingest` per tabel met `provenance` die begint met `uc:` het volgende:
 
 * leest de Unity Catalog metadata voor precies die tabel,
 * genereert of overschrijft het tabelbestand onder `<table_id>/v<major>.json`,
@@ -256,6 +256,11 @@ Voor gebruikers is de hoofdregel daarom:
 1. wijzig eerst de bronmetadata in Unity Catalog,
 1. zorg daarna dat `dataset.json` naar de juiste UC-tabel verwijst,
 1. laat vervolgens de ingest-workflow draaien.
+
+Noot: `ingest` kan ook via de cli worden gedraaid. Hiermee kun je meteen kijken of de
+referenties goed staan. Draai hiervoor het commando `ingest pad/naar/dataset.json`.
+Hiervoor is het wel nodig dat je het amsterdam-schema package installeert. Zie hiervoor
+de README.md in de repo root.
 
 Aanbevolen werkwijze {#aanbevolen-werkwijze}
 ====================
@@ -296,4 +301,4 @@ Voor het correct aanmaken van een schema-bestand zijn de volgende zaken essentie
 
 * goede metadata in Unity Catalog,
 * een correcte `uc:`-`provenance` in `dataset.json`,
-* een draai van `schema ingest` via de PR- of nightly-workflow.
+* een draai van `ingest` via de PR- of nightly-workflow.

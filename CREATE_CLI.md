@@ -8,6 +8,8 @@ https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html
 
 ## Availability
 
+Ensure you are using a virtual environment before doing any of the following.
+
 After installing the package, the `create` command is available:
 
 ```bash

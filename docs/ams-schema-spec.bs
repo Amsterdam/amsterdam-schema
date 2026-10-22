@@ -334,6 +334,7 @@ Een <dfn dfn export>versie</dfn> binnen Amsterdam Schema is een JSON object met 
                     * "stable"
                     * "superseded"
                     * "deprecated" (vanaf metaschema versie 4.1.0)
+                    * "discontinued" (vanaf metaschema versie 4.2.0)
             </details>
     <tr><td><dfn>enableAPI</dfn>   <td> boolean
         <td> Of deze versie van de dataset beschikbaar moet zijn in de DSO API.
@@ -383,6 +384,7 @@ De toegestane waarden zijn:
 * **stable**: De versie is stabiel. Er zullen geen breaking changes meer plaatsvinden.
 * **superseded**: De versie is vervangen door een nieuwere versie. In {{versie/endSupportDate}} wordt een datum opgenomen tot wanneer deze versie ondersteund zal worden. In de browsable DSO API wordt een melding getoond dat gebruikers moeten overstappen op een nieuwere versie.
 * **deprecated**: De versie wordt niet langer aanbevolen voor gebruik, maar kan nog tijdelijk beschikbaar zijn. De gebruiker wordt in de browsable DSO API gewaarschuwd dat deze versie op elk moment kan ophouden te bestaan.
+* **discontinued**: De versie wordt niet meer geupdate. Bijvoorbeeld als de achterliggende databron niet meer beschikbaar is, maar het endpoint nog in de lucht blijft tot er een alternatief geboden kan worden.
 
 Exports {#version-exports}
 --------------------------------------------------------
@@ -434,6 +436,7 @@ Een <dfn dfn export>tabel</dfn> binnen Amsterdam Schema is een JSON object met i
                 <summary>Toegestane waarden</summary>
                     * "under_development"
                     * "stable"
+                    * "discontinued"
             </details>
     <tr><td><dfn>schema</dfn>   <td> object
         <td> Het schema van objecten in de tabel. zie [[#tabel-schema]]
@@ -702,11 +705,13 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
 
 Status {#table-status}
 --------------------------
-Een tabel van een dataset dient een status te hebben. Momenteel zijn de opties hiervoor 'under_development' of
-'stable'. Deze status zegt iets over de stabiliteit van een tabel. Wanneer een versie 'stable'
+Een tabel van een dataset dient een status te hebben. Momenteel zijn de opties hiervoor 'under_development',
+'discontinued' of 'stable'. Deze status zegt iets over de stabiliteit van een tabel. Wanneer een versie 'stable'
 is, zullen er geen breaking changes meer plaatsvinden. Bij de validatie van het schema wordt er gecontroleerd of een
 wijziging in een 'stable' tabel geen breaking changes bevat. Een tabel met de status 'under_development' is nog in
-ontwikkeling en kan tijdens deze periode nog veranderen.
+ontwikkeling en kan tijdens deze periode nog veranderen. De inhoud van een tabel met de status 'discontinued'
+wordt niet meer geupdate. Bijvoorbeeld als de achterliggende databron niet meer beschikbaar is, maar het endpoint
+nog in de lucht blijft tot er een alternatief geboden kan worden.
 
 Zoom {#zoom}
 --------------

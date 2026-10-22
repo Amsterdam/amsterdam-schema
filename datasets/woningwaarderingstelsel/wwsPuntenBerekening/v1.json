@@ -77,6 +77,44 @@
       "segment": {
         "type": "string",
         "description": "In welk segment de woning valt op basis van het aantal wws punten"
+      },
+      "monumentstatus": {
+        "type": "string",
+        "description": "Monumentstatus van het verblijfobject, bepaalt eventuele opslag op maximale huurprijs"
+      },
+      "gcHuurprijs": {
+        "type": "number",
+        "multipleOf": 0.01,
+        "description": "De huurprijs van de woning zoals die door de makelaar is geadverteerd."
+      },
+      "gcTransactieDatum": {
+        "type": "string",
+        "format": "date",
+        "description": "De datum waarop de meest recente verhuurtransactie van de woning is geregistreerd."
+      },
+      "gcGemeubileerd": {
+        "type": "boolean",
+        "description": "Geeft aan of de woning gemeubileerd wordt aangeboden door de makelaar."
+      },
+      "wwsMaxHuurprijsMin": {
+        "type": "number",
+        "multipleOf": 0.01,
+        "description": "Maximale huurprijs op basis van de laagste schatting van het totale aantal WWS punten."
+      },
+      "wwsMaxHuurprijsMax": {
+        "type": "number",
+        "multipleOf": 0.01,
+        "description": "Maximale huurprijs op basis van de hoogste schatting van het totale aantal WWS punten."
+      },
+      "wwsHuurprijsoverschrijdingMin": {
+        "type": "number",
+        "multipleOf": 0.01,
+        "description": "De minimale huurprijsoverschrijding op basis van de WWS-puntenschatting en de huurprijsgrenzen van de Wet betaalbare huur."
+      },
+      "wwsHuurprijsoverschrijdingMax": {
+        "type": "number",
+        "multipleOf": 0.01,
+        "description": "De maximale huurprijsoverschrijding op basis van de WWS-puntenschatting en de huurprijsgrenzen van de Wet betaalbare huur."
       }
     }
   }
