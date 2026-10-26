@@ -1327,6 +1327,24 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
         </pre>
     </div>
 
+    Het is mogelijk om de {{mainGeometry}} van een tabel te laten verwijzen naar een veld dat een relatie betreft. Tijdens het uitlezen
+    van de tabel wordt er een extra veld gemaakt, ``geometry`` dat de waarde van de {{mainGeometry}} van de gerelateerde tabel bevat. Dit veld
+    staat niet in de referentiedatabase, maar is alleen beschikbaar in de REST-API, de GeoJSON en Geopackage exports en in de WFS-endpoints.
+
+    Note: De {{mainGeometry}} van een tabel (A) mag niet verwijzen naar tabel (B) als de mainGeometry daarvan ook weer
+    een relatie (tabel C) betreft. In dat geval moet de {{mainGeometry}} van tabel A direct naar tabel C verwijzen.
+
+    Note: Wanneer de mainGeometry van een tabel een relatie betreft, kan er niet ook een ander veld in die tabel ``geometry`` heten.
+
+    <div class="example hide-lines" onClick="this.classList.toggle('hide-lines');this.classList.toggle('unhide-lines');">
+        Voorbeeld van een tabel met een relatie als {{mainGeometry}}.
+        <pre class="include-code">
+            path: examples/datasets/bekendeAmsterdammers/locaties/v2.json
+            highlight: json
+            line-highlight: 0-8,29-41
+        </pre>
+    </div>
+
 
 ### object ### {#data-types-object}
     Een [=veld=] van type `object` kan gestructureerde data (objecten of structs) bevatten.
