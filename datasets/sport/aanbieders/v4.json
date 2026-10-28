@@ -1,0 +1,88 @@
+{
+  "id": "aanbieders",
+  "title": "Sportaanbieders",
+  "description": "Sportaanbieders binnen 5 kilometer van de Gemeente Amsterdam",
+  "provenance":"Deze data is afkomstig uit het Customer Relationship Managament systeem (CRM) van de Directie Sport en Bos",
+  "type": "table",
+  "version": "3.0.0",
+  "status": "stable",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema",
+      "id"
+    ],
+    "display": "naamAanbieder",
+    "properties": {
+      "schema": {
+        "$ref": "https://schemas.data.amsterdam.nl/schema@v4.0.0#/definitions/schema"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Unieke aanduiding van de sportaanbieder.",
+        "title": "ID"
+      },
+      "geometry": {
+        "$ref": "https://geojson.org/schema/Point.json",
+        "description": "Puntgeometrie van de sportfaciliteit.",
+        "title": "Puntgeometrie"
+      },
+      "typeSport": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Het type sport dat de sportaanbieder aanbiedt.",
+        "title": "Sport"
+      },
+      "website": {
+        "type": "string",
+        "format": "uri",
+        "description": "Website van de aanbieder.",
+        "title": "Website"
+      },
+      "naamAanbieder": {
+        "type": "string",
+        "description": "Naam van de aanbieder.",
+        "title": "Naam sportaanbieder"
+      },
+      "naamSportfaciliteit": {
+        "type": "string",
+        "description": "Naam van de sportfaciliteit waar de sportaanbieder actief is.",
+        "title": "Naam sportfaciliteit"
+      },
+      "adres": {
+        "type": "string",
+        "description": "Adres van de sportfaciliteit.",
+        "title": "Adres"
+      },
+      "postcode": {
+        "type": "string",
+        "description": "Postcode van de sportfaciliteit.",
+        "title": "Postcode"
+      },
+      "plaats": {
+        "type": "string",
+        "description": "Plaats van de sportfaciliteit.",
+        "title": "Plaats"
+      },
+      "aangepastSporten": {
+        "type": "boolean",
+        "description": "Indicatie ondersteuning voor aangepast sporten.",
+        "title": "Aangepast sporten"
+      },
+      "stadspasJeugd": {
+        "type": "boolean",
+        "description": "Indicatie korting sporten via Stadspas voor jeugd.",
+        "title": "Stadspas jeugd"
+      },
+      "stadspas55": {
+        "type": "boolean",
+        "description": "Indicatie korting sporten via Stadspas voor 55+.",
+        "title": "Stadspas 55+"
+      }
+    }
+  }
+}
