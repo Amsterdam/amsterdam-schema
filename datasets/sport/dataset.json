@@ -160,6 +160,91 @@
           "$ref": "speelplekken/v3"
         }
       ]
+    },
+
+    "v3": {
+      "status": "under_development",
+      "enableAPI": false,
+      "enableGeosearch": true,
+      "version": "3.0.0",
+      "exports": [
+        {
+          "name": "all",
+          "tables": "*",
+          "filetypes": [
+            "csv",
+            "geojson"
+          ],
+          "scopes": [
+            "openbaar"
+          ]
+        },
+        {
+          "name": "velden",
+          "tables": [
+            "velden"
+          ],
+          "filetypes": [
+            "csv",
+            "geojson"
+          ],
+          "scopes": [
+            "openbaar"
+          ]
+        },
+        {
+          "name": "parken",
+          "tables": [
+            "parken"
+          ],
+          "filetypes": [
+            "csv",
+            "geojson"
+          ],
+          "scopes": [
+            "openbaar"
+          ]
+        },
+        {
+          "name": "speelplekken",
+          "tables": [
+            "speelplekken"
+          ],
+          "filetypes": [
+            "csv",
+            "geojson"
+          ],
+          "scopes": [
+            "openbaar"
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "id": "aanbieders",
+          "$ref": "aanbieders/v3"
+        },
+        {
+          "id": "velden",
+          "$ref": "velden/v3"
+        },
+        {
+          "id": "speeltoestellen",
+          "$ref": "speeltoestellen/v3"
+        },
+        {
+          "id": "binnenlocaties",
+          "$ref": "binnenlocaties/v1"
+        },
+        {
+          "id": "parken",
+          "$ref": "parken/v3"
+        },
+        {
+          "id": "speelplekken",
+          "$ref": "speelplekken/v3"
+        }
+      ]
     }
   }
 }
