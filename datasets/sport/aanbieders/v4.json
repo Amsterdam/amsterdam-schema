@@ -4,8 +4,8 @@
   "description": "Sportaanbieders binnen 5 kilometer van de Gemeente Amsterdam",
   "provenance":"Deze data is afkomstig uit het Customer Relationship Managament systeem (CRM) van de Directie Sport en Bos",
   "type": "table",
-  "version": "3.0.0",
-  "status": "stable",
+  "version": "4.0.0",
+  "status": "under_development",
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
@@ -28,6 +28,26 @@
         "$ref": "https://geojson.org/schema/Point.json",
         "description": "Puntgeometrie van de sportfaciliteit.",
         "title": "Puntgeometrie"
+      },
+      "postcode": {
+        "type": "string",
+        "description": "Postcode van de sportlocatie.",
+        "title": "Postcode"
+      },
+      "huisnummer": {
+        "type": "string",
+        "description": "Huisnummer van de sportlocatie.",
+        "title": "Huisnummer"
+      },
+      "huisletter": {
+        "type": "string",
+        "description": "Huisletter van de sportlocatie.",
+        "title": "Huisletter"
+      },
+      "huisnummertoevoeging": {
+        "type": "string",
+        "description": "Huisnummertoevoeging van de sportlocatie.",
+        "title": "Huisnummertoevoeging"
       },
       "typeSport": {
         "type": "array",
@@ -53,21 +73,7 @@
         "description": "Naam van de sportfaciliteit waar de sportaanbieder actief is.",
         "title": "Naam sportfaciliteit"
       },
-      "adres": {
-        "type": "string",
-        "description": "Adres van de sportfaciliteit.",
-        "title": "Adres"
-      },
-      "postcode": {
-        "type": "string",
-        "description": "Postcode van de sportfaciliteit.",
-        "title": "Postcode"
-      },
-      "plaats": {
-        "type": "string",
-        "description": "Plaats van de sportfaciliteit.",
-        "title": "Plaats"
-      },
+
       "aangepastSporten": {
         "type": "boolean",
         "description": "Indicatie ondersteuning voor aangepast sporten.",
@@ -82,6 +88,20 @@
         "type": "boolean",
         "description": "Indicatie korting sporten via Stadspas voor 55+.",
         "title": "Stadspas 55+"
+      },
+      "heeftNummeraanduiding": {
+        "type": "object",
+        "properties": {
+          "identificatie": {
+            "type": "string"
+          },
+          "volgnummer": {
+            "type": "integer"
+          }
+        },
+        "relation": "benkagg:adresseerbareobjecten",
+        "title": "Corresponderende nummeraanduiding",
+        "description": "De nummeraanduiding in de Basisregistratie Adressen en Gebouwen die bij deze binnenlocatie hoort"
       }
     }
   }
