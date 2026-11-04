@@ -6,17 +6,7 @@
   "license": "",
   "status": "under_development",
   "owner": "Datamanagement, Gemeente Amsterdam",
-  "auth": {
-    "type": "scope",
-    "id": "DMT/E2E",
-    "naam": "Toegang tot monitoring data.",
-    "accessPackages": {
-      "production": "EM4W-DATA-E2EMonitoring-p",
-      "nonProduction": "EM4W-DATA-E2EMonitoring-ot"
-    },
-    "owner": {
-      "$ref": "publishers/DMT"
-    }
+  "auth": "FP/MDW",
   },
   "reasonsNonPublic": [
     "5.1 1c: Vertrouwelijke of concurrentiegevoelige bedrijfs- en fabricagegegevens",
@@ -24,11 +14,12 @@
   ],
   "authorizationGrantor": "Datamanagement",
   "creator": "Datamanagement",
-  "publisher": "Gemeente Amsterdam",
+  "publisher": {
+    "$ref": "publishers/DMT"
+  },
   "defaultVersion": "v1",
   "theme": [],
   "keywords": [],
-  "crs": "",
   "versions": {
     "v1": {
       "version": "1.0.0",
