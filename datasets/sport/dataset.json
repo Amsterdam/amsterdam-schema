@@ -21,10 +21,11 @@
     "Ruimte en Topografie"
   ],
   "crs": "EPSG:28992",
-  "defaultVersion": "v1",
+  "defaultVersion": "v2",
   "versions": {
     "v1": {
-      "status": "stable",
+      "status": "superseded",
+      "endSupportDate": "2027-01-01",
       "enableAPI": true,
       "enableGeosearch": true,
       "version": "1.0.1",
@@ -77,7 +78,7 @@
       ]
     },
     "v2": {
-      "status": "under_development",
+      "status": "stable",
       "enableAPI": true,
       "enableGeosearch": true,
       "version": "2.0.0",
@@ -137,6 +138,91 @@
         {
           "id": "aanbieders",
           "$ref": "aanbieders/v3"
+        },
+        {
+          "id": "velden",
+          "$ref": "velden/v3"
+        },
+        {
+          "id": "speeltoestellen",
+          "$ref": "speeltoestellen/v3"
+        },
+        {
+          "id": "binnenlocaties",
+          "$ref": "binnenlocaties/v1"
+        },
+        {
+          "id": "parken",
+          "$ref": "parken/v3"
+        },
+        {
+          "id": "speelplekken",
+          "$ref": "speelplekken/v3"
+        }
+      ]
+    },
+
+    "v3": {
+      "status": "under_development",
+      "enableAPI": false,
+      "enableGeosearch": true,
+      "version": "3.0.0",
+      "exports": [
+        {
+          "name": "all",
+          "tables": "*",
+          "filetypes": [
+            "csv",
+            "geojson"
+          ],
+          "scopes": [
+            "openbaar"
+          ]
+        },
+        {
+          "name": "velden",
+          "tables": [
+            "velden"
+          ],
+          "filetypes": [
+            "csv",
+            "geojson"
+          ],
+          "scopes": [
+            "openbaar"
+          ]
+        },
+        {
+          "name": "parken",
+          "tables": [
+            "parken"
+          ],
+          "filetypes": [
+            "csv",
+            "geojson"
+          ],
+          "scopes": [
+            "openbaar"
+          ]
+        },
+        {
+          "name": "speelplekken",
+          "tables": [
+            "speelplekken"
+          ],
+          "filetypes": [
+            "csv",
+            "geojson"
+          ],
+          "scopes": [
+            "openbaar"
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "id": "aanbieders",
+          "$ref": "aanbieders/v4"
         },
         {
           "id": "velden",
