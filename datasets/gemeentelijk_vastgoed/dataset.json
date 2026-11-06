@@ -134,6 +134,43 @@
           "$ref": "verhuurbareEenheden/v2"
         }
       ]
+    },
+    "v3": {
+      "status": "under_development",
+      "enableAPI": true,
+      "enableGeosearch": true,
+      "version": "3.0.0",
+      "exports": [
+        {
+          "name": "verhuurbare_eenheden",
+          "filetypes": [
+            "csv",
+            "gpkg",
+            "geojson",
+            "jsonl"
+          ],
+          "scopes": [
+            "openbaar"
+          ],
+          "tables": [
+            "verhuurbare_eenheden"
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "id": "gebouwobjecten",
+          "$ref": "gebouwobjecten/v1"
+        },
+        {
+          "id": "gebouwobjectenUitgebreid",
+          "$ref": "gebouwobjectenUitgebreid/v1"
+        },
+        {
+          "id": "verhuurbareEenheden",
+          "$ref": "verhuurbareEenheden/v3"
+        }
+      ]
     }
   }
 }
