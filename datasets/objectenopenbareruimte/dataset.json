@@ -31,10 +31,11 @@
   "defaultVersion": "v1",
   "versions": {
     "v1": {
-      "status": "stable",
+      "status": "superseded",
+      "endSupportDate": "2027-01-01",
       "enableAPI": true,
       "enableGeosearch": true,
-      "version": "1.5.0",
+      "version": "1.6.0",
       "tables": [
         {
           "id": "verhardingen",
@@ -63,6 +64,58 @@
         {
           "id": "afvalbakken",
           "$ref": "afvalbakken/v1"
+        }, 
+        {
+          "id": "maatregeltoets_bosplantsoenen",
+          "$ref": "maatregeltoets_bosplantsoenen/v1"
+        },
+        {
+          "id": "bosplantsoen_inventarisaties",
+          "$ref": "bosplantsoen_inventarisaties/v1"
+        }
+      ]
+    },
+    "v2": {
+     "status": "stable",
+     "enableAPI": true,
+     "enableGeosearch": true,
+     "version": "2.0.0",
+     "tables": [
+        {
+          "id": "verhardingen",
+          "$ref": "verhardingen/v1"
+        },
+        {
+          "id": "groenobjecten",
+          "$ref": "groenobjecten/v1"
+        },
+        {
+          "id": "terreindeel",
+          "$ref": "terreindeel/v1"
+        },
+        {
+          "id": "hekken",
+          "$ref": "hekken/v1"
+        },
+        {
+          "id": "roosters",
+          "$ref": "roosters/v1"
+        },
+        {
+          "id": "waterobjecten",
+          "$ref": "waterobjecten/v1"
+        },
+        {
+          "id": "afvalbakken",
+          "$ref": "afvalbakken/v1"
+        }, 
+        {
+          "id": "maatregeltoets_bosplantsoenen",
+          "$ref": "maatregeltoets_bosplantsoenen/v2"
+        },
+        {
+          "id": "bosplantsoen_inventarisaties",
+          "$ref": "bosplantsoen_inventarisaties/v2"
         }
       ]
     }

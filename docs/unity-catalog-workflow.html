@@ -1491,7 +1491,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version d113b2e81, updated Tue Jun 9 14:57:55 2026 -0700" name="generator">
   <link href="https://schemas.data.amsterdam.nl/docs/unity-catalog-workflow.html" rel="canonical">
   <link href="https://data.amsterdam.nl/favicon.png" rel="icon">
-  <meta content="7632ac97b7ccc0f4a5434747b3be85b0584a88e9" name="revision">
+  <meta content="f2fd6eec6afd28387884c4c407888299b55b17ce" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
     p[data-fill-with="logo"] {
@@ -2058,7 +2058,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p data-fill-with="logo"></p>
    <h1 class="no-ref p-name" id="title">Unity Catalog workflow</h1>
    <h2 class="heading no-num no-ref no-toc settled" id="profile-and-date"><span class="content">Living Standard,
-    <time class="dt-updated" datetime="2026-08-12">12 August 2026</time></span></h2>
+    <time class="dt-updated" datetime="2026-10-01">1 October 2026</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2106,7 +2106,7 @@ inclusief wat een gebruiker in Unity Catalog moet voorbereiden en hoe daarna aut
      <a href="#automatische-ingest"><span class="secno">4</span> <span class="content">Automatische ingest</span></a>
      <ol class="toc">
       <li><a href="#nightly-sync"><span class="secno">4.1</span> <span class="content">Nightly synchronisatie</span></a>
-      <li><a href="#wat-schema-ingest-praktisch-betekent"><span class="secno">4.2</span> <span class="content">Wat <code class="highlight">schema ingest</code> praktisch betekent</span></a>
+      <li><a href="#wat-ingest-praktisch-betekent"><span class="secno">4.2</span> <span class="content">Wat <code class="highlight">ingest</code> praktisch betekent</span></a>
      </ol>
     <li>
      <a href="#aanbevolen-werkwijze"><span class="secno">5</span> <span class="content">Aanbevolen werkwijze</span></a>
@@ -2311,7 +2311,7 @@ informatie uit Unity Catalog kan worden opgehaald.</p>
     <li data-md>
      <p>kijkt welke <code class="highlight">dataset.json</code>-bestanden in de PR zijn toegevoegd of gewijzigd,</p>
     <li data-md>
-     <p>draait <code class="highlight">schema ingest</code> (uit schema-tools) voor elk van die datasets,</p>
+     <p>draait <code class="highlight">ingest</code> (uit schema-tools) voor elk van die datasets,</p>
     <li data-md>
      <p>commit eventuele gegenereerde wijzigingen terug naar dezelfde branch,</p>
     <li data-md>
@@ -2323,7 +2323,7 @@ kun je in dezelfde PR opnieuw synchroniseren door een comment te plaatsen met:</
 </pre>
    <h3 class="heading settled" data-level="4.1" id="nightly-sync"><span class="secno">4.1. </span><span class="content">Nightly synchronisatie</span><a class="self-link" href="#nightly-sync"></a></h3>
    <p>Er draait ook elke nacht (op werkdagen) een pipeline.
-Deze doorloopt alle datasets onder <code class="highlight">datasets/</code> en draait per dataset opnieuw <code class="highlight">schema ingest</code>.</p>
+Deze doorloopt alle datasets onder <code class="highlight">datasets/</code> en draait per dataset opnieuw <code class="highlight">ingest</code>.</p>
    <p>Als er wijzigingen uit komen:</p>
    <ul>
     <li data-md>
@@ -2335,10 +2335,10 @@ Deze doorloopt alle datasets onder <code class="highlight">datasets/</code> en d
     <li data-md>
      <p>sluit oudere open nightly-PR’s voor dezelfde dataset.</p>
    </ul>
-   <h3 class="heading settled" data-level="4.2" id="wat-schema-ingest-praktisch-betekent"><span class="secno">4.2. </span><span class="content">Wat <code class="highlight">schema ingest</code> praktisch betekent</span><a class="self-link" href="#wat-schema-ingest-praktisch-betekent"></a></h3>
+   <h3 class="heading settled" data-level="4.2" id="wat-ingest-praktisch-betekent"><span class="secno">4.2. </span><span class="content">Wat <code class="highlight">ingest</code> praktisch betekent</span><a class="self-link" href="#wat-ingest-praktisch-betekent"></a></h3>
    <p>De ingest-stap gebruikt de <code class="highlight">provenance</code>-verwijzingen naar Unity Catalog-tabellen als bron.
 Op basis van de aangetroffen metadata werkt de stap de schema-bestanden in deze repository bij.</p>
-   <p>Concreet doet <code class="highlight">schema ingest</code> per tabel met <code class="highlight">provenance</code> die begint met <code class="highlight">uc:</code> het volgende:</p>
+   <p>Concreet doet <code class="highlight">ingest</code> per tabel met <code class="highlight">provenance</code> die begint met <code class="highlight">uc:</code> het volgende:</p>
    <ul>
     <li data-md>
      <p>leest de Unity Catalog metadata voor precies die tabel,</p>
@@ -2358,6 +2358,10 @@ Op basis van de aangetroffen metadata werkt de stap de schema-bestanden in deze 
     <li data-md>
      <p>laat vervolgens de ingest-workflow draaien.</p>
    </ol>
+   <p>Noot: <code class="highlight">ingest</code> kan ook via de cli worden gedraaid. Hiermee kun je meteen kijken of de
+referenties goed staan. Draai hiervoor het commando <code class="highlight">ingest pad/naar/dataset.json</code>.
+Hiervoor is het wel nodig dat je het amsterdam-schema package installeert. Zie hiervoor
+de README.md in de repo root.</p>
    <h2 class="heading settled" data-level="5" id="aanbevolen-werkwijze"><span class="secno">5. </span><span class="content">Aanbevolen werkwijze</span><a class="self-link" href="#aanbevolen-werkwijze"></a></h2>
    <h3 class="heading settled" data-level="5.1" id="nieuwe-tabel-uit-unity-catalog-opnemen"><span class="secno">5.1. </span><span class="content">Nieuwe tabel uit Unity Catalog opnemen</span><a class="self-link" href="#nieuwe-tabel-uit-unity-catalog-opnemen"></a></h3>
    <ol>
@@ -2405,6 +2409,6 @@ Voor het correct aanmaken van een schema-bestand zijn de volgende zaken essentie
     <li data-md>
      <p>een correcte <code class="highlight">uc:</code>-<code class="highlight">provenance</code> in <code class="highlight">dataset.json</code>,</p>
     <li data-md>
-     <p>een draai van <code class="highlight">schema ingest</code> via de PR- of nightly-workflow.</p>
+     <p>een draai van <code class="highlight">ingest</code> via de PR- of nightly-workflow.</p>
    </ul>
   </main>

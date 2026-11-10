@@ -1,7 +1,7 @@
 <pre class='metadata'>
 Title: Amsterdam Schema Specificatie
 Shortname: ams-schema-spec
-Revision: 2.4.0
+Revision: 4.2.0
 Status: LS
 URL: https://schemas.data.amsterdam.nl/docs/ams-schema-spec.html
 Repository: Amsterdam/amsterdam-schema
@@ -334,6 +334,7 @@ Een <dfn dfn export>versie</dfn> binnen Amsterdam Schema is een JSON object met 
                     * "stable"
                     * "superseded"
                     * "deprecated" (vanaf metaschema versie 4.1.0)
+                    * "discontinued" (vanaf metaschema versie 4.2.0)
             </details>
     <tr><td><dfn>enableAPI</dfn>   <td> boolean
         <td> Of deze versie van de dataset beschikbaar moet zijn in de DSO API.
@@ -383,6 +384,7 @@ De toegestane waarden zijn:
 * **stable**: De versie is stabiel. Er zullen geen breaking changes meer plaatsvinden.
 * **superseded**: De versie is vervangen door een nieuwere versie. In {{versie/endSupportDate}} wordt een datum opgenomen tot wanneer deze versie ondersteund zal worden. In de browsable DSO API wordt een melding getoond dat gebruikers moeten overstappen op een nieuwere versie.
 * **deprecated**: De versie wordt niet langer aanbevolen voor gebruik, maar kan nog tijdelijk beschikbaar zijn. De gebruiker wordt in de browsable DSO API gewaarschuwd dat deze versie op elk moment kan ophouden te bestaan.
+* **discontinued**: De versie wordt niet meer geupdate. Bijvoorbeeld als de achterliggende databron niet meer beschikbaar is, maar het endpoint nog in de lucht blijft tot er een alternatief geboden kan worden.
 
 Exports {#version-exports}
 --------------------------------------------------------
@@ -434,6 +436,7 @@ Een <dfn dfn export>tabel</dfn> binnen Amsterdam Schema is een JSON object met i
                 <summary>Toegestane waarden</summary>
                     * "under_development"
                     * "stable"
+                    * "discontinued"
             </details>
     <tr><td><dfn>schema</dfn>   <td> object
         <td> Het schema van objecten in de tabel. zie [[#tabel-schema]]
@@ -702,11 +705,13 @@ Zie [[#table-refs]] voor het toevoegen van verschillende versies van een tabel.
 
 Status {#table-status}
 --------------------------
-Een tabel van een dataset dient een status te hebben. Momenteel zijn de opties hiervoor 'under_development' of
-'stable'. Deze status zegt iets over de stabiliteit van een tabel. Wanneer een versie 'stable'
+Een tabel van een dataset dient een status te hebben. Momenteel zijn de opties hiervoor 'under_development',
+'discontinued' of 'stable'. Deze status zegt iets over de stabiliteit van een tabel. Wanneer een versie 'stable'
 is, zullen er geen breaking changes meer plaatsvinden. Bij de validatie van het schema wordt er gecontroleerd of een
 wijziging in een 'stable' tabel geen breaking changes bevat. Een tabel met de status 'under_development' is nog in
-ontwikkeling en kan tijdens deze periode nog veranderen.
+ontwikkeling en kan tijdens deze periode nog veranderen. De inhoud van een tabel met de status 'discontinued'
+wordt niet meer geupdate. Bijvoorbeeld als de achterliggende databron niet meer beschikbaar is, maar het endpoint
+nog in de lucht blijft tot er een alternatief geboden kan worden.
 
 Zoom {#zoom}
 --------------
@@ -1319,6 +1324,25 @@ Note: Elk veld is nullable tenzij het als `required` property is opgegeven, zie 
             path: examples/datasets/bekendeAmsterdammers/pleinen/v1.json
             highlight: json
             line-highlight: 0-7,28-37
+        </pre>
+    </div>
+
+    Het is mogelijk om de {{mainGeometry}} van een tabel te laten verwijzen naar een veld dat een relatie betreft. Tijdens het uitlezen
+    van de tabel wordt er een extra veld gemaakt, ``geometry`` dat de waarde van de {{mainGeometry}} van de gerelateerde tabel bevat. Dit veld
+    staat niet in de referentiedatabase, maar is alleen beschikbaar in de REST-API, de GeoJSON en Geopackage exports en in de WFS-endpoints.
+    Wanneer de mainGeometry van een tabel een relatie betreft, kan er dus niet ook een ander veld in die tabel ``geometry`` heten.
+
+    Note: De {{mainGeometry}} van een tabel (A) mag niet verwijzen naar tabel (B) als de mainGeometry daarvan ook weer
+    een relatie (tabel C) betreft. In dat geval moet de {{mainGeometry}} van tabel A direct naar tabel C verwijzen.
+
+    Note: Het betreffende relatieveld kan alleen een enkelvoudige relatie zijn. Meervoudige relaties (met ``"type": "array"``) worden nog niet ondersteund.
+
+    <div class="example hide-lines" onClick="this.classList.toggle('hide-lines');this.classList.toggle('unhide-lines');">
+        Voorbeeld van een tabel met een relatie als {{mainGeometry}}.
+        <pre class="include-code">
+            path: examples/datasets/bekendeAmsterdammers/locaties/v2.json
+            highlight: json
+            line-highlight: 0-8,29-41
         </pre>
     </div>
 
@@ -2290,12 +2314,14 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 <!-- Include short (one sentence) description, a motivation and bullet list of all changes made in each entry. -->
 <!-- Update the version number in the metadata at the top and refer to it here. -->
 
-[4.2.0] Selfservice Geosearch boolean toegevoegd (2026-03-30) {#lastchange}
+[4.2.0] Selfservice Geosearch boolean toegevoegd & mainGeometry mag een relatie zijn (2026-10-28) {#lastchange}
 ---------------------------------------------------
-> **Doelstelling**<br/>
+> **Doelstellingen**<br/>
     Toevoegen van enableGeosearch flag aan het Amsterdam Schema.
+    De ``mainGeometry`` property van een tabel mag nu verwijzen naar een andere tabel.
 
 * [[#version-optional-fields]] uitgebreid met enableGeosearch flag.
+* [[#geometry]] uitgebreid met uitleg over relatie-veld als mainGeometry.
 
 [4.1.0] Exportdefinitie toegevoegd (2026-03-09) {#20260309}
 ---------------------------------------------------
@@ -2310,11 +2336,11 @@ waarschuwingen of uitleg verschijnen dus niet in dit overzicht.
 > **Doelstelling**<br/>
     Hernoemen van lifecycleStatus en toevoegen van enableAPI flag en subresources.
 
-* Dataset lifecycleStatus hernoemt naar {{versie/status}}.
+* Dataset lifecycleStatus hernoemd naar {{versie/status}}.
 * {{versie/status}} uitgebreid met 'superseded'.
 * [[#version-mandatory-fields]] uitgebreid met {{versie/enableAPI}}.
 * [[#version-optional-fields]] uitgebreid met {{versie/endSupportDate}} en {{versie/releaseDate}}.
-* Tabel lifecycleStatus hernoemt naar {{tabel/status}}.
+* Tabel lifecycleStatus hernoemd naar {{tabel/status}}.
 * [[#tabel-optional-fields]] uitgebreid met subresources.
 
 [3.2.0] rowLevelAuth toegevoegd (2025-11-11) {#20251111}

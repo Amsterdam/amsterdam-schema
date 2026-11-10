@@ -137,7 +137,15 @@ So create a new feature branch with something like:
 git checkout -b <my_gh_usename>/create__mydataset
 ```
 
-### 4. Commit and push your changes
+### 4. Make your changes
+You can now make your modifications manually or use the CLI to create a new schema object:
+```
+pip install .
+create dataset
+```
+See [CLI documentation](./CREATE_CLI.md) for more details on the Amsterdam-schema CLI.
+
+### 5. Commit and push your changes
 Please write clear and informative commit messages in imperative voice.
 It is important a future contibutor can look back and understand what was changed and why.
 
@@ -152,7 +160,7 @@ DO: `git commit -m "Clarify field descriptions in table xyz" -m "We recieved mul
 
 `git push --set-upstream origin <your_branch>`
 
-### 5. Create a pull request.
+### 6. Create a pull request.
 Create a Pull Request and request a review on Slack.
 After your changes are merged, It may take about 10 minutes for your changes to go live.
 
