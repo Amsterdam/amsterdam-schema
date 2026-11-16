@@ -1,0 +1,53 @@
+{
+  "type": "dataset",
+  "id": "CO2Monitor",
+  "title": "CO2-monitor",
+  "owner": "Gemeente Amsterdam, Directie Ruimte en Duurzaamheid",
+  "creator": "Gemeente Amsterdam, Directie Ruimte en Duurzaamheid",
+  "description": "Deze dataset bevat een overzicht van broeikasgas-emissies binnen de Amsterdamse gemeentegrenzen, uitgedrukt in kton CO2-equivalent.",
+  "language": "nl",
+  "keywords": [
+    "duurzaamheid",
+    "co2",
+    "uitstoot",
+    "klimaat"
+  ],
+  "dateCreated": "2026-11-17T00:00:00+01:00",
+  "dateModified": "2026-11-17T00:00:00+01:00",
+  "publisher": {
+    "$ref": "publishers/DPDZ"
+  },
+  "auth": "OPENBAAR",
+  "authorizationGrantor": "n.v.t.",
+  "defaultVersion": "v0",
+  "accrualPeriodicity": "jaarlijks",
+  "versions": {
+    "v0": {
+      "status": "under_development",
+      "enableAPI": true,
+      "version": "0.0.1",
+      "releaseDate": "2026-11-17",
+      "exports": [
+        {
+          "name": "co2_monitor",
+          "filetypes": [
+            "csv",
+            "jsonl"
+          ],
+          "scopes": [
+            "openbaar"
+          ],
+          "tables": [
+            "emissieInventaris"
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "id": "emissieInventaris",
+          "$ref": "emissieInventaris/v0"
+        }
+      ]
+    }
+  }
+}
