@@ -1,0 +1,39 @@
+{
+    "id": "hulpHuishoudenWachtPauzelijst",
+    "type": "dataset",
+    "title": "Hulp bij Huishouden wacht- en pauzelijst",
+    "description": "Dit dataproduct dient voor het vergelijken van de wachtlijst zoals wij die zien vanuit Zorgned met de wachtlijst van de zorgaanbieders die Hbh (hulp bij het huishouden) leveren. De lijst is nodig om inzichtelijk te maken om welke clienten het gaat, en wat de reden is waardoor wachtlijst afwijkt van de wachtlijst van de zorgaanbieder. Dit wordt in de contractgesprekken besproken. [p26005].",
+    "publisher": {
+        "$ref": "publishers/DTJZ"
+    },
+    "creator": "Datateam Jeugd en Zorg",
+    "auth": "DTJZ/HBHWL",
+    "reasonsNonPublic": [
+        "5.1 1d: Bevat persoonsgegevens"
+    ],
+    "authorizationGrantor": "Datateam Jeugd en Zorg",
+    "owner": "Gemeente Amsterdam",
+    "defaultVersion": "v1",
+    "versions": {
+        "v1": {
+            "status": "under_development",
+            "enableAPI": false,
+            "enableGeosearch": false,
+            "version": "1.0.0",
+            "tables": [
+                {
+                    "id": "businessDefinities",
+                    "$ref": "businessDefinities/v1"
+                },
+                {
+                    "id": "pauzelijst",
+                    "$ref": "pauzelijst/v1"
+                },
+                {
+                    "id": "wachtlijst",
+                    "$ref": "wachtlijst/v1"
+                }
+            ]
+        }
+    }
+}
